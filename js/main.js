@@ -102,13 +102,9 @@ function stopFireworks(element){
         clearInterval(
             fireworksIntervals.get(element)
         );
-
         fireworksIntervals.delete(element);
-
     }
-
 }
-
 
     // ============================================
     // HERO OBJECT
@@ -131,8 +127,7 @@ function stopFireworks(element){
         });
 
     }
-
-
+	
     // ============================================
     // ENTER BUTTON
     // ============================================

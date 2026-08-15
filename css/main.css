@@ -391,14 +391,16 @@ body:not(.scroll-page) footer {
    IMAGE LIGHTBOX
 =================================== */
 
-.lightbox-image{
+.lightbox-image img{
     cursor:pointer;
     transition:.35s ease;
 }
 
-.lightbox-image:hover{
+.lightbox-image img:hover{
     transform:translateY(-5px);
-    box-shadow:0 25px 60px rgba(0,229,255,.25);
+    box-shadow:
+    0 0 20px rgba(0,229,255,.35),
+    0 30px 60px rgba(0,0,0,.6);
 }
 
 /* LIGHTBOX BACKGROUND */
@@ -446,6 +448,16 @@ body:not(.scroll-page) footer {
     width:auto;
     height:auto;
     margin:auto;
+}
+
+.lightbox-description{
+    margin-top:30px;
+    color:rgba(255,255,255,.8);
+    font-family:"Jost",sans-serif;
+    font-size:16px;
+    line-height:1.8;
+    letter-spacing:.04em;
+    text-align:center;
 }
 
 /* CLOSE BUTTON */
