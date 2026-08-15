@@ -1,0 +1,321 @@
+@charset "UTF-8";
+
+/*=========================================================
+DOE DESIGNS PORTFOLIO
+File: home.css
+
+Purpose:
+Styles specific to the Home / Landing page.
+
+Contains:
+• Hero section
+• Logo and speech bubble
+• Hero video
+• Landing page buttons
+• Home page animations
+• Home-specific mobile layout
+=========================================================*/
+
+/*=========================================================
+   LANDING PAGE TOP GROUP POSITION
+=========================================================*/
+
+.hero-top {
+    transform:translateY(60px);
+}
+
+/*=========================================================
+HERO
+=========================================================*/
+
+.hero {
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:70px 30px 40px;
+    position:relative;
+    z-index:2;
+
+}
+
+.hero-content {
+	    width:100%;
+    max-width:1100px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:22px;
+	transform:translateY(35px);
+}
+
+/*=========================================================
+HERO LOGO / INTRO POSITION
+=========================================================*/
+
+.hero-logo,
+.hero-subtitle,
+.hero-intro {
+
+    transform:translateY(60px);
+}
+
+/*=========================================================
+HERO LOGO
+=========================================================*/
+
+
+.hero-logo {
+    position:relative;
+    display:inline-block;
+}
+
+.hero-logo-image {
+    width:clamp(220px,22vw,340px);
+    height:auto;
+    display:block;
+}
+
+/*=========================================================
+HERO TEXT
+=========================================================*/
+
+.hero-subtitle {
+    font-size:14px;
+    letter-spacing:.55em;
+    text-transform:uppercase;
+    color:#fff;
+}
+
+.hero-intro {
+    max-width:700px;
+	font-size:20px;
+    line-height:1.8;
+    color:#fff;
+}
+/*=========================================================
+HERO VIDEO
+=========================================================*/
+
+.hero-video-wrapper {
+    position:relative;
+    display:inline-block;
+}
+
+.hero-video {
+    width:clamp(170px,18vw,260px);
+    height:auto;
+    display:block;
+    margin:0 auto;
+}
+
+/*=========================================================
+SPEECH BUBBLE
+=========================================================*/
+
+.speech-bubble {
+    position:absolute;
+    top:25%;
+    right:-45px;
+    background:#fff;
+    color:#111;
+    padding:8px 18px;
+    border-radius:40px;
+    font-family:"Dancing Script",cursive;
+    font-size:clamp(15px,3vw,18px);
+    white-space:nowrap;
+    opacity:0;
+    transform:scale(.85);
+    pointer-events:none;
+    transition:.3s ease;
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.25);
+}
+
+.speech-bubble::after {
+    content:"";
+ position:absolute;
+    bottom:8px;
+    left:-6px;
+    width:14px;
+    height:14px;
+    background:#fff;
+    transform:rotate(45deg);
+}
+
+/* SHOW HELLO ON VIDEO HOVER */
+
+.hero-logo:hover .speech-bubble {
+    opacity:1;
+    transform:scale(1);
+    animation:
+    bubblePop .4s ease,
+    waveHello .6s ease;
+}
+/*=========================================================
+HERO OBJECT
+=========================================================*/
+
+#hero-object {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0;	
+	margin-top:75px;
+}
+
+#heroObjectImage {
+    width:clamp(260px,35vw,500px);
+    height:auto;
+    display:block;
+    margin:0;
+}
+/*=========================================================
+HERO ENTRY
+=========================================================*/
+
+.hero-entry {
+    text-align:center;
+    position:relative;
+    z-index:2;
+    margin-top:15px;
+}
+
+.hero-entry-message {
+    margin:0 0 22px;
+    font-family:"Jost",sans-serif;
+    font-size:16px;
+    font-weight:400;
+    letter-spacing:.08em;
+    text-transform:none;
+    color:#fff;
+}
+
+/*=========================================================
+ENTER PORTFOLIO
+=========================================================*/
+
+.hero .enter-button {
+    display:inline-block;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+}
+
+/*=========================================================
+SECRET STASH
+=========================================================*/
+
+
+.hero-entry .secret-stash {
+    display:block;
+    margin-top:70px;
+    margin-bottom:20px;
+    color:rgba(255,255,255,.45);
+	  text-decoration:none;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:13px;
+    letter-spacing:.25em;
+    cursor:url("../images/flashlight.cur"),pointer;
+    opacity:0;
+    transition:.35s ease;
+}
+
+.hero-entry .secret-stash:hover {
+    color:#00E5FF;
+    opacity:1;
+}
+
+/*=========================================================
+HOME PAGE ANIMATIONS
+=========================================================*/
+
+@keyframes float {
+	0% {
+    transform:translateY(0);
+}
+
+50% {
+    transform:translateY(-14px);
+}
+
+100% {
+    transform:translateY(0);
+}
+}
+
+@keyframes bubblePop {
+
+0% {
+    opacity:0;
+    transform:scale(.6);
+}
+	70% {
+    opacity:1;
+    transform:scale(1.08);
+}
+
+100% {
+    opacity:1;
+    transform:scale(1);
+}
+}
+
+@keyframes waveHello {
+
+0% {
+    transform:rotate(0deg);
+}
+
+20% {
+    transform:rotate(-8deg);
+}
+
+40% {
+	 transform:rotate(8deg);
+}
+
+60% {
+    transform:rotate(-5deg);
+}
+
+100% {
+    transform:rotate(0deg);
+}
+}
+
+.wave {
+    animation:
+    bubblePop .5s ease,
+    waveHello .6s ease;
+}
+
+/*=========================================================
+HOME PAGE MOBILE
+=========================================================*/
+
+@media(max-width:768px){
+	.hero {
+    padding-top:90px;
+}
+
+.hero-content {
+    gap:18px;
+}
+
+.hero-video {
+    width:clamp(220px,60vw,340px);
+}
+
+.speech-bubble {
+    right:-35px;
+}
+
+.hero-entry-message {
+    font-size:15px;
+    letter-spacing:.06em;
+}
+}

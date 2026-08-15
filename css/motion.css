@@ -1,0 +1,191 @@
+@charset "UTF-8";
+
+/*=========================================================
+    DOE DESIGNS PORTFOLIO
+    File: motion.css
+=========================================================*/
+
+
+/*=========================================================
+    MOTION PAGE
+=========================================================*/
+
+body.motion-page{
+    background:#08251A;
+    overflow-x:hidden;
+}
+
+/*=========================================================
+    PAGE LAYOUT
+=========================================================*/
+
+body.motion-page .page-content{
+    display:flex;
+    flex-direction:column;
+    min-height:calc(100vh - 70px);
+}
+.project-title h1{
+font-size:clamp(34px,5vw,58px);
+}
+
+/*=========================================================
+    MOTION GRID
+=========================================================*/
+
+.motion-grid{
+    flex:1;
+    display:grid;
+    grid-template-columns:repeat(3,260px);
+    justify-content:center;
+    align-content:center;
+    gap:60px;
+    width:100%;
+    position:relative;
+    z-index:2;
+}
+
+/*=========================================================
+    MOTION CARDS
+=========================================================*/
+
+
+.motion-card{
+    position:relative;
+    width:260px;
+    height:260px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    text-decoration:none;
+    background:#050505;
+    border:2px solid rgba(255,255,255,.15);
+    transition:
+    border-color .35s ease,
+    box-shadow .35s ease,
+    transform .35s ease;
+}
+
+.motion-card:hover{
+    transform:translateY(-8px);
+    border-color:#00E5FF;
+    box-shadow:
+    0 0 30px rgba(0,229,255,.40);
+}
+
+/*=========================================================
+    IMAGE / VIDEO WRAPPER
+=========================================================*/
+
+.motion-preview{
+    position:relative;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+/*=========================================================
+    STILL IMAGE
+=========================================================*/
+
+.motion-still{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    opacity:1;
+    transition:
+    opacity .35s ease;
+}
+
+/*=========================================================
+    VIDEO PREVIEW
+=========================================================*/
+
+.motion-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    opacity:0;
+	pointer-events:none;
+    transition:
+    opacity .35s ease;
+}
+
+/*=========================================================*
+*YOUTUBE MOTION PREVIEW*
+*=========================================================*/
+
+.youtube-motion-preview {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    transition: opacity .35s ease;
+}
+
+.youtube-motion-preview iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    border: 0;
+    pointer-events: none;
+}
+
+.youtube-motion-card:hover .youtube-motion-preview {
+    opacity: 1;
+}
+
+.youtube-motion-card:hover .motion-still {
+    opacity: 0;
+}
+/*=========================================================
+    HOVER VIDEO SWITCH
+=========================================================*/
+
+.motion-card:hover .motion-still{
+    opacity:0;
+}
+
+.motion-card:hover .motion-video{
+    opacity:1;
+
+}
+
+/*=========================================================
+    CONTACT
+=========================================================*/
+
+.motion-page .page-contact-link{
+    margin:35px auto 25px;
+}
+
+.motion-page .page-contact-link p{
+    color:#ffffff;
+    font-size:18px;
+    letter-spacing:.04em;
+}
+
+/*=========================================================
+    MOBILE
+=========================================================*/
+
+@media(max-width:900px){
+
+.motion-grid{
+    grid-template-columns:1fr;
+    gap:40px;
+    justify-items:center;
+}
+}

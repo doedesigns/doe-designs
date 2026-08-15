@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+/*=========================================================
+    DOE DESIGNS PORTFOLIO
+    File: design.css
+=========================================================*/
+
+
+/*=========================================================
+    DESIGN PAGE
+=========================================================*/
+
+body.design-page{
+    background:#251036;
+}
+
+
+/*=========================================================
+    PAGE LAYOUT
+=========================================================*/
+
+body.design-page .page-content{
+
+    display:flex;
+    flex-direction:column;
+
+    min-height:calc(100vh - 70px);
+
+}
+
+
+/*=========================================================
+    DESIGN GRID
+=========================================================*/
+
+.design-grid{
+
+    flex:1;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    gap:60px;
+
+    width:100%;
+
+    position:relative;
+    z-index:2;
+
+}
+
+
+/*=========================================================
+    DESIGN CARDS
+=========================================================*/
+
+.design-card{
+
+    position:relative;
+    z-index:2;
+
+    width:260px;
+    height:260px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    border:2px solid rgba(255,255,255,.15);
+
+    text-decoration:none;
+
+    transition:
+        border-color .35s ease,
+        box-shadow .35s ease,
+        transform .35s ease;
+
+}
+
+.design-card img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+.design-card:hover{
+
+    border-color:#00E5FF;
+
+    box-shadow:
+        0 0 30px rgba(0,229,255,.40);
+
+    transform:translateY(-8px);
+
+}
+
+
+/*=========================================================
+    CONTACT
+=========================================================*/
+
+.design-page .page-contact-link{
+
+    margin:35px auto 25px;
+
+}
+
+.design-page .page-contact-link p{
+
+    color:#ffffff;
+
+    font-size:18px;
+
+    letter-spacing:.04em;
+
+}
+
+/*=========================================================
+    MOBILE
+=========================================================*/
+
+@media (max-width:900px){
+
+    .design-grid{
+
+        flex-direction:column;
+
+        gap:40px;
+
+        padding:40px 0;
+
+    }
+
+}

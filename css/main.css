@@ -1,0 +1,423 @@
+/* ===================================
+   DOE DESIGNS
+=================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    background:#06080B;
+    color:#fff;
+    font-family:"Jost",sans-serif;
+
+}
+
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after{
+    animation:none !important;
+    transition:none !important;
+}
+
+.title-break{
+    display:block;
+}
+
+/* ===================================
+   HEADER / NAVIGATION
+=================================== */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:9999;
+}
+
+.navbar{
+    height:70px;
+    display:flex;
+	position:relative;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 40px;
+    background:rgba(0,0,0,.82);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+/* ===================================
+   LOGO
+=================================== */
+
+.logo{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+    line-height:1;
+}
+
+.logo-doe{
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:38px;
+    font-weight:900;
+    letter-spacing:.08em;
+    color:#00E5FF;
+}
+
+.logo-designs{
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:17px;
+    font-weight:300;
+    color:#fff;
+    margin-left:4px;
+    transform:translateY(5px);
+    transition:.3s;
+	position: relative;
+
+}
+
+.logo:hover .logo-designs{
+    color:#00E5FF;
+}
+
+.logo-designs::after {
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:100%;
+    height:2px;
+    background:#00E5FF;
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:.35s ease;
+
+}
+
+.logo-designs:hover::after {
+    transform:scaleX(1);
+}
+
+/* ===================================
+   NAVIGATION LINKS
+=================================== */
+
+.nav-links{
+    display:flex;
+    gap:55px;
+    list-style:none;
+	transition:
+opacity .6s ease,
+transform .6s ease;
+}
+
+.nav-links a{
+    position:relative;
+    display:inline-block;
+    text-decoration:none;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:13px;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:#fff;
+    transition:.3s;
+}
+
+/* underline */
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:100%;
+    height:2px;
+    background:#00E5FF;
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .35s ease;
+}
+
+/* hover */
+
+.nav-links a:hover{
+    color:#00E5FF;
+}
+
+.nav-links a:hover::after{
+    transform:scaleX(1);
+}
+
+/* active page */
+
+.nav-links a.active{
+    color:#00E5FF;
+}
+
+.nav-links a.active::after{
+    transform:scaleX(1);
+}
+
+.nav-links a.active:hover{
+    color:#fff;
+}
+
+.nav-links a.active:hover::after{
+    background:#fff;
+}
+
+
+/* ===================================
+   GLOBAL BUTTON
+=================================== */
+
+.enter-button{
+    display:inline-block;
+    position:relative;
+    text-decoration:none;
+    color:#00E5FF;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:16px;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    transition:.3s;
+}
+
+.enter-button::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:100%;
+    height:2px;
+    background:#00E5FF;
+    transform:scaleX(.3);
+    transform-origin:center;
+    transition:.3s;
+}
+
+.enter-button:hover{
+    color:#fff;
+    letter-spacing:.42em;
+}
+
+.enter-button:hover::after{
+    transform:scaleX(1);
+}
+/* ===================================
+   GLOBAL PAGE LAYOUT
+=================================== */
+
+.page-content{
+    width:min(1200px,92vw);
+    margin:0 auto;
+    padding-top:110px;
+    padding-bottom:60px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    position:relative;
+    z-index:2;
+
+}
+
+/* ===================================
+   IMAGE SIZE HELPERS
+=================================== */
+
+.img-small {
+    width:200px;
+    height:auto;
+}
+
+.img-medium {
+    width:350px;
+    height:auto;
+}
+
+.img-large {
+    width:500px;
+    height:auto;
+}
+
+.img-small,
+.img-medium,
+.img-large {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.img-tall {
+    width:auto;
+    height:400px;    
+	display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.video-small {
+    width:350px;
+    height:auto;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.video-medium {
+    width:600px;
+    height:auto;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* PROJECT IMAGE SIZE CONTROL */
+
+.project-image-block img.img-small {
+    width:200px;
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.project-image-block img.img-medium {
+    width:500px;
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.project-image-block img.img-large {
+    width:100%;
+    height:auto;
+}
+
+/* ===================================
+   PAGE CONTACT LINK
+=================================== */
+
+.page-contact-link{
+ width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    gap:18px;
+    margin:30px auto 15px;
+}
+
+.page-contact-link p,
+	.contact-subtitle{
+    color: white;
+	font-size:15px;
+	font-family: "Jost",sans-serif;
+	letter-spacing:.08em;
+		text-align:center;
+}
+
+/* ===================================
+FOOTER
+=================================== */
+
+/* Fixed footer pages */
+
+body:not(.scroll-page) footer {
+    position:fixed;
+    left:0;
+    bottom:35px;
+    width:100%;
+    text-align:center;
+    font-size:12px;
+    letter-spacing:.18em;
+    color:rgba(255,255,255,.45);
+    z-index:1100;
+}
+
+/* Scrollable project pages */
+
+.scroll-page footer {
+    position:relative;
+    width:100%;
+    margin-top:80px;
+    padding-bottom:40px;
+    text-align:center;
+    font-size:12px;
+    letter-spacing:.18em;
+    color:rgba(255,255,255,.45);
+    z-index:10;
+}
+
+/* ===================================
+   DUST EFFECT
+=================================== */
+
+#dust {
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+}
+
+/* ===================================
+   MOBILE
+=================================== */
+
+@media (max-width:900px){
+
+    .navbar{
+        padding:0 20px;
+    }
+
+    .nav-links{
+        gap:24px;
+    }
+
+    .nav-links a{
+        font-size:13px;
+        letter-spacing:.28em;
+    }
+
+    .logo-doe{
+        font-size:30px;
+    }
+
+    .logo-designs{
+        font-size:14px;
+    }
+}
+
+@media(max-width:768px){
+
+.img-large {
+    width:85%;
+}
+
+.img-medium {
+    width:70%;
+}
+
+}
+
+#effects,
+#dust {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+}

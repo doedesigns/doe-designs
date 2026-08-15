@@ -1,0 +1,266 @@
+@charset "UTF-8";
+
+/*=========================================================
+    DOE DESIGNS PORTFOLIO
+    File: contact.css
+
+    Purpose:
+    Contact page styling
+
+    Contains:
+    • Contact layout
+    • Paper design
+    • Tape
+    • Form
+    • Submit button
+
+=========================================================*/
+
+/*=========================================================
+    CONTACT PAGE
+=========================================================*/
+
+body.contact-page {
+    background:#050507;
+}
+
+/*=========================================================
+    CONTACT LAYOUT
+=========================================================*/
+
+.contact-container {
+    min-height:calc(100vh - 70px);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:90px 30px 60px;
+    position:relative;
+    z-index:2;
+}
+
+.contact-container .page-content {
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/*=========================================================
+    CONTACT PAPER
+=========================================================*/
+
+.contact-paper {
+    position:relative;
+    width:100%;
+    max-width:850px;
+    padding:35px 60px 35px;
+    color:#111;
+
+    background:
+        linear-gradient(
+            rgba(0,110,130,.22),
+            rgba(0,70,90,.12)
+        ),
+        url("../images/paper-texture.jpg"),
+        #F6F0E1;
+
+    background-size:cover;
+    background-position:center top;
+    background-repeat:no-repeat;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.35),
+        0 30px 70px rgba(0,0,0,.55);
+
+    filter:contrast(102%);
+}
+
+
+/*=========================================================
+    PAPER TAPE
+=========================================================*/
+
+.paper-tape {
+
+    position:absolute;
+    top:-25px;
+    left:50%;
+    width:170px;
+    height:45px;
+    transform:
+        translateX(-50%)
+        rotate(-2deg);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,229,255,.35),
+            rgba(0,229,255,.15)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.20);
+    box-shadow:
+        0 3px 8px rgba(0,0,0,.25);
+}
+
+/*=========================================================
+    TITLES
+=========================================================*/
+
+.contact-title {
+    margin-bottom:5px;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:64px;
+    font-weight:900;
+    letter-spacing:.12em;
+}
+
+.contact-subtitle {
+    margin-top:40px;
+}
+
+.contact-subtitle p {
+    font-family:"Jost", sans-serif;
+    font-size:18px;
+    font-weight:400;
+    letter-spacing:.04em;
+    color:#fff;
+}
+
+/*=========================================================
+    CONTACT FORM
+=========================================================*/
+
+#contactForm {
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    max-width:100%;
+    gap:8px;
+}
+
+#contactForm label {
+    margin-top:10px;
+    color:#666;
+    font-family:"Jost",sans-serif;
+    font-size:12px;
+    letter-spacing:.25em;
+}
+
+#contactForm input,
+#contactForm textarea {
+    width:100%;
+    padding:14px;
+    background:#111118;
+    color:#ffffff;
+    border:
+        1px solid rgba(255,255,255,.15);
+    outline:none;
+    font-family:"Jost",sans-serif;
+    font-size:15px;
+    transition:
+        border-color .30s ease,
+        box-shadow .30s ease;
+}
+
+#contactForm textarea {
+    resize:vertical;
+    min-height:110px;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+    border-color:#00E5FF;
+    box-shadow:
+        0 0 15px rgba(0,229,255,.25);
+}
+/*=========================================================
+    SUBMIT BUTTON
+=========================================================*/
+
+#submitButton {
+    display:block;
+    margin:20px auto 0;
+    padding:0;
+    background:none;
+    border:none;
+    color:#00E5FF;
+    cursor:pointer;
+    position:relative;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:16px;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    transition:
+        color .35s ease,
+        letter-spacing .35s ease,
+        transform .35s ease;
+
+}
+
+#submitButton::after {
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-10px;
+    width:100%;
+    height:1px;
+    background:#00E5FF;
+    transform:
+		translateX(-50%)
+        scaleX(.35);
+    transform-origin:center;
+    transition:
+        transform .35s ease;
+}
+
+#submitButton:hover {
+    color:#ffffff;
+    letter-spacing:.45em;
+    transform:
+        translateY(-2px);
+}
+
+#submitButton:hover::after {
+    transform:
+		translateX(-50%)
+        scaleX(1);
+}
+
+#fireworks {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/*=========================================================
+    MOBILE
+=========================================================*/
+
+@media(max-width:700px){
+
+    .contact-paper {
+        padding:
+            35px 25px;
+    }
+
+    .contact-title {
+        font-size:48px;
+    }
+
+/*=========================================================
+    CONTACT PAGE OVERRIDES
+=========================================================*/
+
+.contact-page .page-content {
+    max-width:1200;
+    margin:0 auto;
+    padding-top:0;
+    padding-bottom:0;
+}
+}

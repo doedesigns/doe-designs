@@ -1,0 +1,262 @@
+<!doctype html>
+<!---Content Home--->
+
+<html>
+<head>
+<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/main.css">
+	
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" 
+	  rel="stylesheet">
+<title>Project Main</title>
+</head>
+
+<body>
+	
+	
+
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "#050507",
+        paddingTop: "88px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        animation: "fadeInPage 0.5s ease-out",
+      }}
+    >
+      <p
+        style={{
+          fontFamily: "'Jost', sans-serif",
+          fontWeight: 300,
+          fontSize: "0.72rem",
+          letterSpacing: "0.38em",
+          color: "rgba(240,240,240,0.48)",
+          textTransform: "uppercase",
+          marginBottom: "3.5rem",
+        }}
+      >
+        Select a Category
+      </p>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: "2.5rem",
+          padding: "0 4rem",
+          maxWidth: "1200px",
+          width: "100%",
+        }}
+      >
+        <!--- Branding card --->
+        <div
+          onMouseEnter={() => setHovered("branding")}
+          onMouseLeave={() => setHovered(null)}
+          onClick={handleBrandingClick}
+          style={{ cursor: "pointer" }}
+        >
+          <CategoryCard
+            label="Branding"
+            image={CAT_IMAGES.branding}
+            active={hovered === "branding"}
+          />
+        </div>
+
+        <!--- Design card --->
+        <div
+          onMouseEnter={() => setHovered("design")}
+          onMouseLeave={() => setHovered(null)}
+          onClick={handleDesignClick}
+          style={{ cursor: "pointer" }}
+        >
+          <CategoryCard
+            label="Design"
+            image={CAT_IMAGES.design}
+            active={hovered === "design"}
+          />
+        </div>
+
+        <!--- Motion card --->
+        <div
+          onMouseEnter={() => setHovered("motion")}
+          onMouseLeave={() => setHovered(null)}
+          onClick={handleMotionClick}
+          style={{ cursor: "pointer" }}
+        >
+          <CategoryCard
+            label="Motion"
+            image={CAT_IMAGES.motion}
+            active={hovered === "motion"}
+          />
+        </div>
+      </div>
+
+      <!--- Hover overlays --->
+      <BrandingOverlay active={hovered === "branding"} allPopping={designPopping} />
+      <DesignOverlay active={hovered === "design"} allPopping={designPopping} />
+      <MotionOverlay active={hovered === "motion"} allPopping={designPopping} />
+
+      <!--- Sun burst transition --->
+      {sunBurst && (
+        <div
+          style={{
+            position: "fixed",
+            left: "50%",
+            top: "50%",
+            width: 60,
+            height: 60,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, #FFE840 0%, #FFD000 35%, #FF9800 70%, #FF6000 100%)",
+            zIndex: 60,
+            pointerEvents: "none",
+            animation: "sunBurst 1.6s cubic-bezier(0.25,0.46,0.45,0.94) forwards",
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "1.25rem",
+        transition: "transform 0.35s ease",
+        transform: active ? "scale(1.03)" : "scale(1)",
+      }}
+    >
+      <div
+        style={{
+          position: "relative",
+          overflow: "hidden",
+          borderRadius: 3,
+          background: "#1a1a26",
+          aspectRatio: "4/3",
+          border: active
+            ? "1px solid rgba(0,229,255,0.4)"
+            : "1px solid rgba(255,255,255,0.07)",
+          transition: "border-color 0.3s",
+          boxShadow: active ? "0 0 30px rgba(0,229,255,0.12)" : "none",
+        }}
+      >
+        <img
+          src={image}
+          alt={label}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            transition: "transform 0.5s ease, filter 0.5s ease",
+            transform: active ? "scale(1.06)" : "scale(1)",
+            filter: active ? "brightness(0.7)" : "brightness(0.85)",
+          }}
+        />
+      </div>
+      <p
+        style={{
+          fontFamily: "'Barlow Condensed', sans-serif",
+          fontWeight: 700,
+          fontSize: "1.45rem",
+          letterSpacing: "0.18em",
+          textTransform: "uppercase",
+          color: active ? "#00e5ff" : "#f0f0f0",
+          transition: "color 0.3s",
+          textAlign: "center",
+        }}
+      >
+        {label}
+      </p>
+    </div>
+  );
+}
+
+
+    <div
+      style={{
+        background: "#111118",
+        border: "1px solid rgba(255,255,255,0.07)",
+        borderRadius: 4,
+        padding: "1.75rem",
+        display: "flex",
+        flexDirection: "column",
+        gap: "1.25rem",
+      }}
+    >
+      <h3
+        style={{
+          fontFamily: "'Barlow Condensed', sans-serif",
+          fontWeight: 700,
+          fontSize: "1.2rem",
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+          color: "#f0f0f0",
+          lineHeight: 1.2,
+        }}
+      >
+        {project.title}
+      </h3>
+
+      <!--- Scrollable image strip --->
+      <div
+        style={{
+          display: "flex",
+          gap: "0.75rem",
+          overflowX: "auto",
+          paddingBottom: "0.5rem",
+          scrollbarWidth: "none",
+        }}
+      >
+        {project.images.map((img, idx) => (
+          <img
+            key={idx}
+            src={img}
+            alt=""
+            onClick={() => onLightbox(img)}
+            style={{
+              flexShrink: 0,
+              width: 260,
+              height: 170,
+              objectFit: "cover",
+              borderRadius: 3,
+              cursor: "zoom-in",
+              background: "#1a1a26",
+              transition: "filter 0.25s, transform 0.25s",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLImageElement).style.filter = "brightness(1.15)";
+              (e.currentTarget as HTMLImageElement).style.transform = "scale(1.02)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLImageElement).style.filter = "brightness(1)";
+              (e.currentTarget as HTMLImageElement).style.transform = "scale(1)";
+            }}
+          />
+        ))}
+      </div>
+
+      <p
+        style={{
+          fontFamily: "'Jost', sans-serif",
+          fontWeight: 300,
+          fontSize: "0.9rem",
+          lineHeight: 1.7,
+          color: "rgba(240,240,240,0.76)",
+        }}
+      >
+        {project.description}
+      </p>
+    </div>
+  );
+}
+
+</body>
+</html>

@@ -1,0 +1,168 @@
+@charset "UTF-8";
+
+/*=========================================================
+    DOE DESIGNS PORTFOLIO
+    File: branding.css
+=========================================================*/
+
+
+/*=========================================================
+    BRANDING PAGE
+=========================================================*/
+
+body.branding-page{
+    background:#061C2B;
+}
+
+
+/*=========================================================
+    BACKGROUND GLOW
+=========================================================*/
+
+.branding-effect{
+
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            ellipse at left center,
+            rgba(0,229,255,.35),
+            rgba(0,229,255,.15) 20%,
+            transparent 55%
+        );
+
+    z-index:0;
+
+}
+
+
+/*=========================================================
+    PAGE LAYOUT
+=========================================================*/
+
+body.branding-page .page-content{
+
+    display:flex;
+    flex-direction:column;
+
+    min-height:calc(100vh - 70px);
+
+}
+
+
+/*=========================================================
+    BRANDING GRID
+=========================================================*/
+
+.branding-grid{
+
+    flex:1;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,260px);
+
+    justify-content:center;
+    align-content:center;
+
+    gap:60px;
+
+    width:100%;
+
+    margin:0 auto;
+
+    position:relative;
+    z-index:2;
+
+}
+
+
+/*=========================================================
+    BRANDING CARDS
+=========================================================*/
+
+.branding-card{
+
+    width:260px;
+    height:260px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    border:2px solid rgba(255,255,255,.15);
+
+    text-decoration:none;
+
+    transition:.35s ease;
+
+}
+
+.branding-card img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+.branding-card:hover{
+
+    border-color:#00E5FF;
+
+    box-shadow:
+        0 0 30px rgba(0,229,255,.40);
+
+}
+
+
+/*=========================================================
+    CONTACT
+=========================================================*/
+
+.branding-page .page-contact-link{
+
+    margin:35px auto 25px;
+
+}
+
+.branding-page .page-contact-link p{
+
+    color:#ffffff;
+
+    font-family:"Jost",sans-serif;
+
+    font-size:18px;
+
+    font-weight:400;
+
+    letter-spacing:.04em;
+
+}
+
+
+/*=========================================================
+    MOBILE
+=========================================================*/
+
+@media (max-width:900px){
+
+    .branding-grid{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+
+        justify-items:center;
+
+    }
+
+}
