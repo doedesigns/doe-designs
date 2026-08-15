@@ -162,7 +162,7 @@ body.design-active .design-effect{
 =================================== */
 
 .portfolio-card{
-    width:260px;
+     width:260px;
     height:260px;
     position:relative;
     display:flex;
@@ -172,8 +172,7 @@ body.design-active .design-effect{
     text-decoration:none;
     background:#080808;
     border:2px solid rgba(255,255,255,.15);
-    animation:cardFloat 5s ease-in-out infinite;
-	transition:
+    transition:
     transform .35s ease,
     border-color .35s ease,
     box-shadow .35s ease;
@@ -184,6 +183,18 @@ body.design-active .design-effect{
     border-color:#00E5FF;
     box-shadow:
         0 0 35px rgba(0,229,255,.35);
+}
+
+.portfolio-card:hover .default-image{
+    opacity:0;
+}
+
+.portfolio-card:hover .hover-image{
+    opacity:1;
+}
+
+.portfolio-card:hover .card-title{
+    color:#00E5FF;
 }
 
 @keyframes cardFloat{
