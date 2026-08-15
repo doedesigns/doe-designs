@@ -13,259 +13,162 @@
 =========================================================*/
 
 body.thankyou-page {
-
     background:#050507;
-
 }
-
 
 /*=========================================================
     BACKGROUND DUST
 =========================================================*/
 
 #dust {
-
     position:fixed;
-
     inset:0;
-
     width:100vw;
-
     height:100vh;
-
     pointer-events:none;
-
     z-index:0;
-
 }
-
 
 /*=========================================================
     NAV / FOOTER LAYERS
 =========================================================*/
 
 .navbar {
-
     position:relative;
-
     z-index:20;
-
 }
-
 
 footer {
-
     position:relative;
-
     z-index:20;
-
 }
-
 
 /*=========================================================
     THANK YOU CONTAINER
 =========================================================*/
 
 .thankyou-container {
-
     min-height:calc(100vh - 70px);
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     padding-top:70px;
-
     position:relative;
-
     z-index:5;
-
 }
-
 
 /*=========================================================
     NOTE
 =========================================================*/
 
 .thankyou-note {
-
     width:360px;
-
     height:360px;
-
     padding:55px 45px 35px;
-
     background:#FFF7C7;
-
     color:#111;
-
     position:relative;
-
     transform:
-        translateY(80px)
+        translateY(0px)
         rotate(-5deg);
-
-
     box-shadow:
-
         0 25px 60px rgba(0,0,0,.45);
-
 }
-
 
 /*=========================================================
     CYAN TAPE
 =========================================================*/
 
 .thankyou-tape {
-
     position:absolute;
-
     top:-22px;
-
     left:50%;
-
     width:150px;
-
     height:38px;
-
     transform:
         translateX(-50%)
         rotate(-5deg);
 
-
     background:
-
         linear-gradient(
             135deg,
             rgba(0,229,255,.45),
             rgba(0,229,255,.15)
         );
 
-
     border:
-
         1px solid rgba(255,255,255,.25);
 
-
     box-shadow:
-
         0 3px 8px rgba(0,0,0,.25);
-
 }
-
 
 /*=========================================================
     TEXT
 =========================================================*/
 
 .thankyou-note h2 {
-
     margin:0 0 12px;
-
     font-family:"Caveat", cursive;
-
     font-size:58px;
-
     font-weight:700;
-
 }
-
 
 .thankyou-note p {
-
     margin:0;
-
     text-align:center;
-
     font-family:"Jost", sans-serif;
-
     font-size:17px;
-
     letter-spacing:.1em;
-
     color:#555;
-
 }
-
 
 /*=========================================================
     STAMP
 =========================================================*/
 
 .thankyou-stamp {
-
     width:105px;
-
     margin:35px auto 0;
-
     transform:rotate(-10deg);
-
     opacity:.65;
-
     mix-blend-mode:multiply;
-
 }
 
-
 .thankyou-stamp img {
-
     width:100%;
-
     display:block;
-
     filter:
-
         grayscale(100%)
         contrast(250%)
         brightness(45%);
-
-
 }
-
 
 /*=========================================================
     ANIMATION
 =========================================================*/
 
 .thankyou-show {
-
     animation:
-
         thankYouAppear .7s ease forwards;
-
 }
-
 
 @keyframes thankYouAppear {
 
     from {
-
         opacity:0;
-
         transform:
-
-            translateY(120px)
+            translateY(40px)
             rotate(-10deg);
-
     }
-
 
     to {
-
         opacity:1;
-
         transform:
-
-            translateY(80px)
+            translateY(0px)
             rotate(-5deg);
-
     }
-
 }
-
 
 /*=========================================================
     MOBILE
@@ -273,36 +176,21 @@ footer {
 
 @media(max-width:700px){
 
-
     .thankyou-note {
-
         width:290px;
-
         height:290px;
-
         padding:60px 25px;
-
     }
-
 
     .thankyou-note h2 {
-
         font-size:54px;
-
     }
-
-
+	
     .thankyou-note p {
-
         font-size:14px;
-
     }
-
 
     .thankyou-stamp {
-
         width:90px;
-
     }
-
 }

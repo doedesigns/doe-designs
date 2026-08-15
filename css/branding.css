@@ -58,25 +58,16 @@ body.branding-page .page-content{
 =========================================================*/
 
 .branding-grid{
-
     flex:1;
-
     display:grid;
-
     grid-template-columns:repeat(3,260px);
-
     justify-content:center;
     align-content:center;
-
     gap:60px;
-
     width:100%;
-
     margin:0 auto;
-
     position:relative;
     z-index:2;
-
 }
 
 
@@ -85,44 +76,36 @@ body.branding-page .page-content{
 =========================================================*/
 
 .branding-card{
-
     width:260px;
     height:260px;
-
     display:flex;
     justify-content:center;
     align-items:center;
-
     overflow:hidden;
-
     border:2px solid rgba(255,255,255,.15);
-
     text-decoration:none;
 
-    transition:.35s ease;
-
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
 }
+
 
 .branding-card img{
-
     width:100%;
     height:100%;
-
     object-fit:cover;
-
     display:block;
-
 }
+
 
 .branding-card:hover{
-
+    transform:translateY(-8px);
     border-color:#00E5FF;
-
     box-shadow:
         0 0 30px rgba(0,229,255,.40);
-
 }
-
 
 /*=========================================================
     CONTACT

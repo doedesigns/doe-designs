@@ -364,7 +364,7 @@ MOTION PROJECT TITLE SPACING
 ========================================= */
 
 body.motion-project-page .project-navigation{
-    padding-top:120px;
+    padding-top:10px;
 }
 
 /* =========================================
@@ -406,17 +406,18 @@ margin:0 auto;
 }
 
 /* =========================================
-MATCH BRANDING/DESIGN PROJECT TITLES
+   MOTION PROJECT TITLES
+   MATCH DESIGN / BRANDING TITLES
 ========================================= */
 
-body.motion-project-page .project-navigation h1{
-
-font-family:"Barlow Condensed",sans-serif;
-font-size:72px;
-font-weight:900;
-letter-spacing:.12em;
-color:#00E5FF;
-text-transform:uppercase;
+body.motion-project-page .project-navigation h1 {
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:clamp(32px,5vw,58px);
+    font-weight:900;
+    letter-spacing:.12em;
+    color:#fff;
+    text-transform:uppercase;
+    text-align:center;
 }
 
 /* =========================================

@@ -204,9 +204,15 @@ NAME HEADER
    SECTION HEADINGS
 =================================== */
 
-
 .resume-section {
     margin-bottom:35px;
+    padding:20px 20px 15px;
+    background:
+        rgba(255,255,255,.10);
+    border:
+        1px solid rgba(0,0,0,.18);
+    box-shadow:
+        inset 0 0 20px rgba(255,255,255,.08);
 }
 
 .resume-section h2 {
@@ -222,7 +228,6 @@ NAME HEADER
     font-weight:700;
     letter-spacing:.25em;
     text-transform:uppercase;
-
 }
 
 .resume-section h2::after {
@@ -288,7 +293,7 @@ NAME HEADER
 }
 
 .resume-details li {
-    color:#555;
+    color:#333;
 }
 
 /* ===================================
@@ -307,8 +312,8 @@ NAME HEADER
     display:flex;
     justify-content:space-between;
     padding-bottom:5px;
-    border-bottom:
-        1px solid #eee;
+	border-bottom:
+    1px solid rgba(0,0,0,.18);
 }
 
 .skill-grid div span:first-child {
@@ -324,7 +329,7 @@ NAME HEADER
         "DM Mono",
         monospace;
     font-size:11px;
-    color:#888;
+    color:#444;
 }
 
 /* ===================================
@@ -359,8 +364,8 @@ NAME HEADER
     color:#00E5FF;
     text-decoration:none;
     font-family:"Barlow Condensed",sans-serif;
-    font-size:24px;
-    letter-spacing:.25em;
+    font-size:20px;
+    letter-spacing:.22em;
     font-weight:700;
 }
 
@@ -380,7 +385,6 @@ NAME HEADER
 
 .copy-button:hover {
     color:white;
-
 }
 
 .copy-button:hover::after {
