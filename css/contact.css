@@ -142,21 +142,22 @@ body.contact-page {
 }
 
 #contactForm label {
-    margin-top:10px;
-    color:#333;
+    margin-top:14px;
+    color:#111;
     font-family:"Jost",sans-serif;
-    font-size:12px;
-    letter-spacing:.25em;
+    font-size:14px;
+	font-weight:600;
+    letter-spacing:.28em;
 }
 
 #contactForm input,
 #contactForm textarea {
     width:100%;
-    padding:14px;
+    padding:16px;
     background:#111118;
-    color:#ffffff;
+    color:#00E5FF;
     border:
-        1px solid rgba(255,255,255,.15);
+        1px solid rgba(0,229,255,.18);
     outline:none;
     font-family:"Jost",sans-serif;
     font-size:15px;
@@ -170,12 +171,18 @@ body.contact-page {
     min-height:110px;
 }
 
+#contactForm input::placeholder,
+#contactForm textarea::placeholder {
+    color:rgba(255,255,255,.85);
+}
+
 #contactForm input:focus,
 #contactForm textarea:focus {
     border-color:#00E5FF;
     box-shadow:
         0 0 15px rgba(0,229,255,.25);
 }
+
 /*=========================================================
     SUBMIT BUTTON
 =========================================================*/
