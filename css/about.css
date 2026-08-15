@@ -98,7 +98,7 @@ body.about-page{
 }
 
 .about-introduction h1{
-    font-family:"Caveat", cursive;
+    font-family:"Caveat";
     font-size:clamp(42px,5vw,62px);
     font-weight:700;
     letter-spacing:.02em;
