@@ -1,24 +1,12 @@
 @charset "UTF-8";
-
 /* ===================================
-   DOE DESIGNS
-   ABOUT PAGE
+DOE DESIGNS
+ABOUT PAGE
 =================================== */
-
-
-/* ===================================
-   ABOUT PAGE
-=================================== */
-
-body.about-page {
+body.about-page{
     background:#050507;
 }
-
-/* ===================================
-   ABOUT WRAPPER
-=================================== */
-
-.about-wrapper {
+.about-wrapper{
     display:flex;
     justify-content:center;
     align-items:flex-start;
@@ -26,50 +14,128 @@ body.about-page {
     position:relative;
     z-index:2;
 }
-
-/* ===================================
-   RESUME BOARD
-=================================== */
-
-.resume-board {
+.about-paper{
     position:relative;
-    width:min(780px,90vw);
-    margin-top:5px;
-    margin-bottom:20px;
-    z-index:2;
+    width:min(900px,90vw);
+    margin:0 auto 50px;
+    padding:50px 60px;
+    background:
+        linear-gradient(
+            rgba(0,90,110,.22),
+            rgba(0,50,70,.12)
+        ),
+        url("../images/paper-texture.jpg");
+    background-size:cover;
+    background-position:center;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.45),
+        0 30px 80px rgba(0,0,0,.55);
+    transform:rotate(-1deg);
+    color:#111;
 }
-
-/* ===================================
-   CYAN TAPE
-=================================== */
-
-.cyan-tape {
+.about-paper::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        radial-gradient(
+            rgba(0,0,0,.7) .5px,
+            transparent .5px
+        );
+	  background-size:5px 5px;
+    opacity:.08;
+    pointer-events:none;
+}
+.about-paper > *{
+    position:relative;
+    z-index:1;
+}
+.cyan-tape{
     position:absolute;
     width:170px;
     height:38px;
     background:
         linear-gradient(
             135deg,
-            rgba(0,229,255,.28),
+            rgba(0,229,255,.35),
             rgba(0,229,255,.12)
         );
-    border:
-        1px solid rgba(255,255,255,.25);
+    border:1px solid rgba(255,255,255,.25);
     backdrop-filter:blur(2px);
-    box-shadow:
-        0 5px 15px rgba(0,0,0,.35);
+    box-shadow:0 5px 15px rgba(0,0,0,.35);
     z-index:3;
 }
-
-.tape-top {
+.intro-tape{
     top:-18px;
     left:50%;
     transform:
         translateX(-50%)
         rotate(-5deg);
 }
-
-.tape-bottom {
+.intro-tape-bottom{
+    bottom:-18px;
+    left:50%;
+    width:140px;
+    height:35px;
+    transform:
+        translateX(-50%)
+        rotate(6deg);
+}
+.about-profile{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:45px;
+    align-items:center;
+	margin-bottom:35px;
+}
+.about-video{
+    width:100%;
+    border:
+        2px solid rgba(0,229,255,.45);
+    box-shadow:
+        0 0 25px rgba(0,229,255,.18);
+}
+.about-introduction h1{
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:clamp(36px,5vw,58px);
+    font-weight:900;
+    letter-spacing:.04em;
+    line-height:1;
+    color:#111;
+    margin:0;
+}
+.about-role{
+    margin-top:18px;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:18px;
+    letter-spacing:.3em;
+    color:#222;
+}
+.about-summary{
+    font-family:"Jost",sans-serif;
+    font-size:15px;
+    line-height:1.8;
+    color:#222;
+}
+.about-summary p{
+    margin-bottom:18px;
+}
+/* ===================================
+RESUME BOARD
+=================================== */
+.resume-board{
+    position:relative;
+    width:min(780px,90vw);
+    margin:0 auto 30px;
+}
+.tape-top{
+    top:-18px;
+    left:50%;
+    transform:
+		 translateX(-50%)
+        rotate(-5deg);
+}
+.tape-bottom{
     bottom:-18px;
     left:50%;
     width:140px;
@@ -78,35 +144,23 @@ body.about-page {
         translateX(-50%)
         rotate(-6deg);
 }
-
-/* ===================================
-   RESUME PAPER
-=================================== */
-
-.resume-paper {
-
+.resume-paper{
     position:relative;
-
-    padding:
-        55px 60px 50px;
+    padding:55px 60px 50px;
     color:#111;
     background:
         linear-gradient(
-            rgba(0,110,130,.22),
-            rgba(0,70,90,.12)
+            rgba(0,90,110,.20),
+            rgba(0,50,70,.12)
         ),
         url("../images/paper-texture.jpg");
     background-size:cover;
-    background-position:center top;
-    background-repeat:no-repeat;
+    background-position:center;
     box-shadow:
         0 3px 8px rgba(0,0,0,.35),
         0 25px 70px rgba(0,0,0,.55);
-
-    filter:contrast(102%);
 }
-
-.resume-paper::before {
+.resume-paper::before{
     content:"";
     position:absolute;
     inset:0;
@@ -117,228 +171,218 @@ body.about-page {
             rgba(0,0,0,.8) .5px,
             transparent .5px
         );
-
     background-size:5px 5px;
 }
 
-/* prevents texture seam */
-
-.resume-paper > * {
+.resume-paper > *{
     position:relative;
     z-index:1;
 }
 
-/* remove white line */
-
-.paper-edge {
-    display:none;
-
-}
-
-/* ===================================
-NAME HEADER
-=================================== */
-
-.resume-header {
+.resume-header{
     margin-bottom:35px;
     padding:25px;
-    background:rgba(0,40,55,.18);
-    border:1px solid rgba(0,229,255,.25);
+    background:rgba(0,40,55,.22);
+    border:1px solid rgba(0,229,255,.3);
     box-shadow:
-        inset 0 0 25px rgba(0,229,255,.08);
+        inset 0 0 25px rgba(0,229,255,.1);
 }
-
-.resume-header h1 {
-
-    display:inline-block;
-    position:relative;
-    margin-left:-25px;
-    padding:12px 35px 16px;
-    background:transparent;
-    color:#111;
-    font-family:"Barlow Condensed", sans-serif;
+.resume-header h1{
+    font-family:"Barlow Condensed",sans-serif;
     font-size:42px;
     font-weight:900;
     letter-spacing:.08em;
-    text-transform:uppercase;
+    color:#111;
+    margin:0;
 }
-
-
-.resume-header h1::after {
-
-    content:"";
-    position:absolute;
-    left:35px;
-    right:35px;
-    bottom:5px;
-    height:2px;
-    background:#111;
-
-}
-/* ===================================
-   TITLE
-=================================== */
-
-.resume-title {
-    margin-top:18px;
-    font-family:
-        "Barlow Condensed",
-        sans-serif;
-    font-size:14px;
-    letter-spacing:.22em;
-    text-transform:uppercase;
+.resume-title{
+    margin-top:15px;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:15px;
+    letter-spacing:.25em;
     color:#222;
 }
-
-.resume-contact {
+.resume-contact{
     display:flex;
     flex-wrap:wrap;
-    gap:20px;
+    gap:18px;
     margin-top:20px;
-    font-family:
-        "DM Mono",
-        monospace;
+    font-family:"DM Mono",monospace;
     font-size:11px;
     color:#222;
 }
 
 /* ===================================
-   SECTION HEADINGS
+RESUME SECTIONS
 =================================== */
-
-.resume-section {
+.resume-section{
     margin-bottom:35px;
-    padding:20px 20px 15px;
+    padding:22px 22px 18px;
     background:
-        rgba(0,40,55,.18);
+        rgba(0,35,50,.22);
     border:
-        1px solid rgba(0,229,255,.25);
+        1px solid rgba(0,229,255,.28);
     box-shadow:
         inset 0 0 25px rgba(0,229,255,.08);
 }
 
-.resume-section h2 {
-
+.resume-section h2{
     display:inline-block;
-    position:relative;
-    margin-left:-25px;
-    padding:10px 35px 15px;
-    background:transparent;
-    color:#111;
-    font-family:"Barlow Condensed", sans-serif;
-    font-size:18px;
+    margin:
+        0 0 20px -25px;
+    padding:10px 35px 14px;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:20px;
     font-weight:700;
     letter-spacing:.25em;
     text-transform:uppercase;
+    color:#111;
+    position:relative;
 }
 
-.resume-section h2::after {
+.resume-section h2::after{
     content:"";
     position:absolute;
     left:35px;
     right:35px;
-    bottom:5px;
+    bottom:4px;
     height:2px;
     background:#111;
 }
 
 /* ===================================
-   RESUME CONTENT
+EXPERIENCE
 =================================== */
 
-.resume-entry {
+.resume-entry{
     margin-bottom:25px;
 }
 
-.resume-role {
+.resume-role{
     display:flex;
     justify-content:space-between;
+    align-items:flex-start;
     flex-wrap:wrap;
-    gap:20px;
-    font-family:
-        "Jost",
-        sans-serif;
-    font-size:15px;
-    font-weight:600;
+	gap:15px;
+    font-family:"Jost",sans-serif;
+    font-size:16px;
+    font-weight:700;
+    color:#111;
 }
 
-.resume-role span {
-    font-family:
-        "DM Mono",
-        monospace;
+.resume-role span:last-child{
+    font-family:"DM Mono",monospace;
     font-size:11px;
+    font-weight:400;
     color:#333;
 }
 
-.resume-entry p {
-    margin:
-        5px 0 10px;
-    font-family:
-        "Jost",
-        sans-serif;
+.resume-entry p{
+    margin:6px 0 10px;
+    font-family:"Jost",sans-serif;
     font-size:13px;
-    color:#222;
+    color:#333;
 }
 
-.resume-entry li {
-    font-family:
-        "Jost",
-        sans-serif;
+.resume-details{
+    padding-left:20px;
+}
+
+.resume-details li{
+    font-family:"Jost",sans-serif;
     font-size:13px;
     line-height:1.6;
     color:#222;
 }
 
-.skills-tools,
-.skills-tools li {
-    color:rgba(255,255,255,.55);
+/* ===================================
+SKILLS
+=================================== */
+
+.skill-grid{
+    display:grid;
+    grid-template-columns:1.35fr .65fr;
+    gap:14px 35px;
 }
 
-.resume-details li {
+.skill-grid div{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:15px;
+    align-items:baseline;
+    padding-bottom:6px;
+    border-bottom:1px solid rgba(0,0,0,.18);
+}
+
+.skill-title{
+	font-family:"Jost",sans-serif;
+    font-size:14px;
+    font-weight:700;
+    color:#111;
+    white-space:nowrap;
+}
+
+.skills-tools{
+    font-family:"DM Mono",monospace;
+    font-size:11px;
+    color:#333;
+    text-align:right;
+}
+
+/* ===================================
+EDUCATION
+=================================== */
+
+.education-entry{
+    margin-bottom:24px;
+}
+
+.education-degree{
+    margin:0;
+    font-family:"Jost",sans-serif;
+    font-size:16px;
+    font-weight:700;
+    color:#111;
+}
+
+.education-school{
+    margin:5px 0;
+    font-family:"DM Mono",monospace;
+    font-size:12px;
     color:#333;
 }
 
-/* ===================================
-   SKILLS
-=================================== */
-
-.skill-grid {
-    display:grid;
-    grid-template-columns:
-        1.3fr .7fr;
-    gap:
-        12px 35px;
-}
-
-.skill-grid div {
-    display:flex;
-    justify-content:space-between;
-    padding-bottom:5px;
-	border-bottom:
-    1px solid rgba(0,0,0,.18);
-}
-
-.skill-grid div span:first-child {
-    font-family:
-        "Jost",
-        sans-serif;
+.education-focus{
+    margin:0;
+    font-family:"Jost",sans-serif;
     font-size:13px;
-    font-weight:500;
+    line-height:1.5;
+    color:#444;
 }
 
-.skill-grid div span:last-child {
-    font-family:
-        "DM Mono",
-        monospace;
-    font-size:11px;
+.education-focus span{
+    font-weight:700;
     color:#222;
+	}
+
+/* ===================================
+ACTIVITIES
+=================================== */
+
+.activities-text p{
+    margin:0;
+    font-family:"Jost",sans-serif;
+    font-size:15px;
+    font-weight:600;
+    line-height:1.7;
+    color:#111;
 }
 
 /* ===================================
-   RESUME STAMP
+STAMP
 =================================== */
 
-.resume-stamp {
+.resume-stamp{
     position:absolute;
     right:35px;
     bottom:35px;
@@ -346,33 +390,34 @@ NAME HEADER
     border:
         2px solid rgba(0,229,255,.85);
     color:
-        rgba(0,150,180,.80);
-    font-family:
-        "Barlow Condensed",
-        sans-serif;
+        rgba(0,150,180,.8);
+    font-family:"Barlow Condensed",sans-serif;
     font-size:13px;
     letter-spacing:.18em;
-    transform:
-        rotate(-12deg);
+    transform:rotate(-12deg);
 }
 
 /* ===================================
-   COPY BUTTON
+DOWNLOAD BUTTON
 =================================== */
 
-.copy-button {
+.copy-wrapper{
+    text-align:center;
+    margin-top:35px;
+}
+
+.copy-button{
     position:relative;
     display:inline-block;
     color:#00E5FF;
     text-decoration:none;
     font-family:"Barlow Condensed",sans-serif;
     font-size:20px;
-    letter-spacing:.22em;
     font-weight:700;
-}
+    letter-spacing:.22em;
+	}
 
-
-.copy-button::after {
+.copy-button::after{
     content:"";
     position:absolute;
     left:0;
@@ -381,137 +426,123 @@ NAME HEADER
     height:2px;
     background:#00E5FF;
     transform:scaleX(.3);
-    transform-origin:center;
     transition:.35s ease;
 }
 
-.copy-button:hover {
+.copy-button:hover{
     color:white;
 }
 
-.copy-button:hover::after {
-    transform:
-        scaleX(1);
-}
-
-.copy-wrapper {
-    text-align:center;
-    margin-top:35px;
+.copy-button:hover::after{
+    transform:scaleX(1);
 }
 
 /* ===================================
-ABOUT CONTACT MESSAGE
+CONTACT AREA
 =================================== */
 
-.about-page .page-contact-link {
+.about-page .page-contact-link{
     text-align:center;
     margin-top:40px;
-    padding-bottom:20px;
+    padding-bottom:30px;
 }
 
-.social-links {
-    margin:35px auto 40px;
+.page-contact-link p{
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:28px;
+    letter-spacing:.12em;
+    color:white;
+}
+
+.social-links{
+    margin-top:35px;
     text-align:center;
 }
 
-.social-links a {
-    font-family:"Barlow Condensed", sans-serif;
+.social-links a{
+    font-family:"Barlow Condensed",sans-serif;
     font-size:18px;
     font-weight:700;
     letter-spacing:.2em;
-    text-transform:uppercase;
     color:white;
     text-decoration:none;
-    position:relative;
-    display:inline-block;
-    transition:.35s ease;
 }
 
-.social-links a::after {
-    content:"";
-    position:absolute;
-    bottom:-8px;
-    left:50%;
-    width:0;
-    height:2px;
-    background:#00E5FF;
-    transform:translateX(-50%);
-    transition:.35s ease;
-}
-
-.social-links a:hover {
+.social-links a:hover{
     color:#00E5FF;
-}
+	}
 
-.social-links a:hover::after {
-    width:100%;
-}
-
-.social-links span {
+.social-links span{
     margin:0 15px;
     color:rgba(255,255,255,.35);
 }
 
-body.about-page {
-min-height:100vh;
-display:flex;
-flex-direction:column;
+/* ===================================
+FOOTER
+=================================== */
+
+body.about-page{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
 }
 
-body.about-page main {
-flex:1;
+body.about-page main{
+    flex:1;
 }
 
-body.about-page footer {
+body.about-page footer{
     position:relative;
-    width:100%;
-    margin-top:80px;
+    margin-top:auto;
     padding-bottom:40px;
     text-align:center;
-	    font-size:12px;
+    font-size:12px;
     letter-spacing:.18em;
     color:rgba(255,255,255,.45);
-    z-index:10;
 }
 
-/*=========================================================
-ABOUT FOOTER - NORMAL DOCUMENT FLOW
-=========================================================*/
-
-body.about-page footer {
-    position:relative;
-    bottom:auto;
-    left:auto;
-    margin-top:auto;
-}
 /* ===================================
-   MOBILE
+MOBILE
 =================================== */
 
 @media(max-width:700px){
-    .resume-board {
+    .about-paper{
         width:94vw;
+        padding:35px 25px;
+        transform:none;
     }
 	
-    .resume-paper {
-        padding:
-            40px 30px;
+    .about-profile{
+        grid-template-columns:1fr;
+        gap:25px;
     }
-
-    .resume-header h1 {
-        margin-left:-25px;
-        padding:
-            12px 35px 16px;
+	
+    .about-introduction h1{
+        font-size:38px;
+    }
+	
+    .resume-board{
+        width:94vw;
+		}
+	
+    .resume-paper{
+        padding:40px 30px;
+    }
+	
+    .resume-header h1{
         font-size:32px;
     }
-
-    .resume-section h2 {
-        margin-left:-25px;
-        padding:
-            10px 35px 15px;
-    }
-
-    .skill-grid {
+	
+    .skill-grid{
         grid-template-columns:1fr;
+    }
+	
+    .skill-grid div{
+        grid-template-columns:1fr;
+        gap:5px;
+    }
+	
+    .skills-tools{
+        text-align:left;
     }
 }
