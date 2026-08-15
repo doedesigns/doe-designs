@@ -546,3 +546,14 @@ MOBILE
         text-align:left;
     }
 }
+
+.about-paper{
+    display:block !important;
+    min-height:500px;
+}
+
+.about-video{
+    display:block !important;
+    visibility:visible !important;
+    opacity:1 !important;
+}
