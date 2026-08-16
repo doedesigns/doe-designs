@@ -108,9 +108,34 @@ ARROWS
     border-right:18px solid white;
 }
 
-
 .arrow-triangle.right {
     border-left:18px solid white;
+}
+
+.project-navigation{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    min-height:70px;
+    margin-bottom:60px;
+}
+
+.project-arrow.prev{
+    position:absolute;
+    left:0;
+}
+
+.project-arrow.next{
+    position:absolute;
+    right:0;
+}
+
+.project-title{
+    width:70%;
+    margin:0 auto;
+    text-align:center;
 }
 
 /* HOVER COLOR */
@@ -123,7 +148,6 @@ ARROWS
 .video-arrow:hover .arrow-triangle.right {
     border-left-color:#00E5FF;
 }
-
 
 /* ROTATING CIRCLE */
 

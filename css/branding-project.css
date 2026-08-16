@@ -93,8 +93,8 @@ PROJECT TITLE INSIDE NAVBAR
     transform:translate(-50%,-50px);
     display:flex;
     align-items:center;
-    justify-content:space-between;
-    width:900px;
+    justify-content:center;
+    gap:35px;
     opacity:0;
     visibility:hidden;
     pointer-events:none;
@@ -276,7 +276,7 @@ HERO IMAGE
 =========================================================*/
 
 .project-hero{
-    width:100%;
+
     margin-bottom:60px;
 }
 
