@@ -259,7 +259,7 @@ transform .6s ease;
 }
 
 .img-tall {
-	height:min(300px,60vh); 
+	height:max(300px,60vh); 
     width:auto; 
 	max-width:90%;
 	display:block;
