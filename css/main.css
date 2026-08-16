@@ -259,8 +259,8 @@ transform .6s ease;
 }
 
 .img-tall {
-    width:auto;
-    height:400px;    
+	height:350px; 
+    width:auto;   
 	display:block;
     margin-left:auto;
     margin-right:auto;
