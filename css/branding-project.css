@@ -255,20 +255,12 @@ PROJECT NAVIGATION POSITIONING
     margin-bottom:60px;
 }
 
-.project-navigation .project-arrow.prev{
-    position:absolute;
-    left:calc(50% - 250px);
-}
-
-.project-navigation .project-arrow.next{
-    position:absolute;
-    right:calc(50% - 250px);
-}
 
 .project-arrow.prev{
     position:absolute;
     left:0;
 }
+
 
 .project-arrow.next{
     position:absolute;
