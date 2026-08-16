@@ -399,14 +399,9 @@ PROJECT DESCRIPTION
 PROJECT IMAGES
 =========================================================*/
 
-.project-image-block{
-    width:100%;
-    margin-bottom:80px;
-}
-
 .project-image-block img{
-    width:100%;
-    height:auto;
+	width:100%;
+	margin-bottom:80px;
     display:block;
     border:1px solid rgba(255,255,255,.12);
     box-shadow:0 25px 60px rgba(0,0,0,.45);
@@ -423,21 +418,9 @@ PROJECT IMAGES
 }
 
 .project-image-block video{
-
     width:100%;
     height:auto;
     display:block;
-}
-
-/*=========================================================
-SMALL FEATURE IMAGE
-=========================================================*/
-
-.project-image-block{
-    width:50%;
-	height:auto;
-    margin:0 auto;
-	display:block;
 }
 
 /*=========================================================
@@ -506,22 +489,6 @@ PROJECT FOOTER LINK
 /* =========================================
    PROJECT VIDEO SIZE FIX
 ========================================= */
-
-.project-image-block img,
-.project-image-block video{
-
-    width:70%;
-    max-width:900px;
-    height:auto;
-    display:block;
-    margin:0 auto;
-}
-
-.video-player{
-    width:70%;
-    max-width:700px;
-    margin:0 auto 45px;
-}
 
 .video-player video {
     width: 100%;
