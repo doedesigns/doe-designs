@@ -13,7 +13,9 @@
 body.motion-video-page {
     background:#08251A;
     overflow-x:hidden;
+
 }
+
 
 /* ===================================
    RIPPLE CANVAS
@@ -108,34 +110,9 @@ ARROWS
     border-right:18px solid white;
 }
 
+
 .arrow-triangle.right {
     border-left:18px solid white;
-}
-
-.project-navigation{
-    position:relative;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    width:100%;
-    min-height:70px;
-    margin-bottom:60px;
-}
-
-.project-arrow.prev{
-    position:absolute;
-    left:0;
-}
-
-.project-arrow.next{
-    position:absolute;
-    right:0;
-}
-
-.project-title{
-    width:70%;
-    margin:0 auto;
-    text-align:center;
 }
 
 /* HOVER COLOR */
@@ -148,6 +125,7 @@ ARROWS
 .video-arrow:hover .arrow-triangle.right {
     border-left-color:#00E5FF;
 }
+
 
 /* ROTATING CIRCLE */
 
@@ -196,22 +174,6 @@ ARROWS
     display:block;
     border:2px solid rgba(255,255,255,.15);
     box-shadow:0 20px 50px rgba(0,0,0,.45);
-}
-
-.video-player{
-    width:350px;
-    max-width:100%;
-    height:auto;
-    display:block;
-    margin:0 auto;
-}
-
-.video-player video.video-medium {
-    width:600px;
-    max-width:100%;
-    height:auto;
-    display:block;
-    margin:0 auto;
 }
 
 /* ===================================
@@ -388,7 +350,7 @@ MOTION PROJECT TITLE SPACING
 ========================================= */
 
 body.motion-project-page .project-navigation{
-    padding-top:110px;
+    padding-top:120px;
 }
 
 /* =========================================
@@ -430,18 +392,17 @@ margin:0 auto;
 }
 
 /* =========================================
-   MOTION PROJECT TITLES
-   MATCH DESIGN / BRANDING TITLES
+MATCH BRANDING/DESIGN PROJECT TITLES
 ========================================= */
 
-body.motion-project-page .project-navigation h1 {
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:clamp(32px,5vw,58px);
-    font-weight:900;
-    letter-spacing:.12em;
-    color:#fff;
-    text-transform:uppercase;
-    text-align:center;
+body.motion-project-page .project-navigation h1{
+
+font-family:"Barlow Condensed",sans-serif;
+font-size:72px;
+font-weight:900;
+letter-spacing:.12em;
+color:#00E5FF;
+text-transform:uppercase;
 }
 
 /* =========================================
