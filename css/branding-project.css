@@ -221,11 +221,9 @@ PROJECT ARROWS
 }
 
 @keyframes arrowSpinRight{
-
     from{
         transform:rotate(0deg);
     }
-
     to{
         transform:rotate(360deg);
     }
@@ -235,7 +233,6 @@ PROJECT ARROWS
     from{
         transform:rotate(0deg);
     }
-
     to{
         transform:rotate(-360deg);
     }
@@ -496,18 +493,6 @@ MOBILE
     .project-navigation{
         gap:25px;
     }
-	
-	.project-navigation .project-arrow.prev{
-    left:20px;
-	}
-
-	.project-navigation .project-arrow.next{
-		right:20px;
-	}
-
-	.project-title h1{
-		padding:0 70px;
-	}
 
     .project-details{
         grid-template-columns:repeat(2,1fr);
@@ -516,6 +501,10 @@ MOBILE
 
     .project-gallery-row{
         grid-template-columns:1fr;
+    }
+
+    .small-project-image{
+        width:75%;
     }
 
     .project-description h2{
@@ -539,33 +528,5 @@ MOBILE
     .project-arrow{
         width:40px;
         height:40px;
-    }
-	 .project-details{
-        grid-template-columns:1fr;
-    }
-
-    .project-title h1{
-        font-size:34px;
-    }
-
-    .project-title-nav h1{
-        font-size:16px;
-    }
-
-    .project-arrow{
-        width:40px;
-        height:40px;
-    }
-
-    .project-arrow.prev{
-        left:-10px;
-    }
-
-    .project-arrow.next{
-        right:-10px;
-    }
-
-    .project-title{
-        width:60%;
     }
 }
