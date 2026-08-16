@@ -14,18 +14,14 @@ body.branding-page{
     background:#061C2B;
 }
 
-
 /*=========================================================
     BACKGROUND GLOW
 =========================================================*/
 
 .branding-effect{
-
     position:fixed;
     inset:0;
-
     pointer-events:none;
-
     background:
         radial-gradient(
             ellipse at left center,
@@ -33,25 +29,18 @@ body.branding-page{
             rgba(0,229,255,.15) 20%,
             transparent 55%
         );
-
     z-index:0;
-
 }
-
 
 /*=========================================================
     PAGE LAYOUT
 =========================================================*/
 
 body.branding-page .page-content{
-
     display:flex;
     flex-direction:column;
-
     min-height:calc(100vh - 70px);
-
 }
-
 
 /*=========================================================
     BRANDING GRID
@@ -69,7 +58,6 @@ body.branding-page .page-content{
     position:relative;
     z-index:2;
 }
-
 
 /*=========================================================
     BRANDING CARDS
@@ -112,40 +100,25 @@ body.branding-page .page-content{
 =========================================================*/
 
 .branding-page .page-contact-link{
-
     margin:35px auto 25px;
-
 }
 
 .branding-page .page-contact-link p{
-
     color:#ffffff;
-
     font-family:"Jost",sans-serif;
-
     font-size:18px;
-
     font-weight:400;
-
     letter-spacing:.04em;
-
 }
-
 
 /*=========================================================
     MOBILE
 =========================================================*/
 
 @media (max-width:900px){
-
     .branding-grid{
-
         grid-template-columns:1fr;
-
         gap:40px;
-
         justify-items:center;
-
     }
-
 }

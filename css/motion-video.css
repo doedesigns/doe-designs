@@ -174,7 +174,7 @@ ARROWS
     box-shadow:0 20px 50px rgba(0,0,0,.45);
 }
 
-.video-player video.video-small {
+.video-player{
     width:350px;
     max-width:100%;
     height:auto;
