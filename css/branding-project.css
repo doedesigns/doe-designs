@@ -58,11 +58,11 @@ PROJECT HEADER TITLE
 
 .project-navigation{
     position:relative;
-    display:flex;
-    justify-content:center;
+    display:grid;
+    grid-template-columns:80px minmax(200px, 1fr) 80px;
     align-items:center;
-    gap:0;
-    margin-bottom:60px;
+    width:min(900px,90vw);
+    margin:0 auto 60px;
     z-index:5;
 }
 
@@ -93,8 +93,8 @@ PROJECT TITLE INSIDE NAVBAR
     transform:translate(-50%,-50px);
     display:flex;
     align-items:center;
-    justify-content:center;
-    gap:35px;
+    justify-content:space-between;
+    width:900px;
     opacity:0;
     visibility:hidden;
     pointer-events:none;
