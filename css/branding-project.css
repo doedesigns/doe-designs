@@ -61,9 +61,8 @@ PROJECT HEADER TITLE
     display:flex;
     justify-content:center;
     align-items:center;
-    width:100%;
+    gap:0;
     margin-bottom:60px;
-    min-height:70px;
     z-index:5;
 }
 
@@ -256,12 +255,20 @@ PROJECT NAVIGATION POSITIONING
     margin-bottom:60px;
 }
 
+.project-navigation .project-arrow.prev{
+    position:absolute;
+    left:calc(50% - 250px);
+}
+
+.project-navigation .project-arrow.next{
+    position:absolute;
+    right:calc(50% - 250px);
+}
 
 .project-arrow.prev{
     position:absolute;
     left:0;
 }
-
 
 .project-arrow.next{
     position:absolute;
@@ -497,6 +504,18 @@ MOBILE
     .project-navigation{
         gap:25px;
     }
+	
+	.project-navigation .project-arrow.prev{
+    left:20px;
+	}
+
+	.project-navigation .project-arrow.next{
+		right:20px;
+	}
+
+	.project-title h1{
+		padding:0 70px;
+	}
 
     .project-details{
         grid-template-columns:repeat(2,1fr);
