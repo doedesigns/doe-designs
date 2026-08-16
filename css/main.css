@@ -105,7 +105,7 @@ header{
 
 }
 
-.logo-designs:hover::after {
+.logo:hover .logo-designs::after {
     transform:scaleX(1);
 }
 
@@ -259,11 +259,11 @@ transform .6s ease;
 }
 
 .img-tall {
-	height:350px; 
-    width:auto;   
+	height:min(350px,60vh); 
+    width:auto; 
+	max-width:90%;
 	display:block;
-    margin-left:auto;
-    margin-right:auto;
+    margin:0 auto;
 }
 
 .video-small {
@@ -336,17 +336,6 @@ body:not(.scroll-page) footer {
     letter-spacing:.18em;
     color:rgba(255,255,255,.45);
     z-index:10;
-}
-
-/* ===================================
-   DUST EFFECT
-=================================== */
-
-#dust {
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:0;
 }
 
 /* ===================================
@@ -522,7 +511,6 @@ body:not(.scroll-page) footer {
 }
 
 @media (max-width:900px){
-
     .navbar{
         padding:0 20px;
     }
@@ -554,7 +542,6 @@ body:not(.scroll-page) footer {
 .img-medium {
     width:70%;
 }
-
 }
 
 #effects,
