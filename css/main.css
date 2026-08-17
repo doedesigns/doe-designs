@@ -259,22 +259,6 @@ transform .6s ease;
     margin-right:auto;
 }
 
-.video-small {
-    width:350px;
-    height:auto;
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-}
-
-.video-medium {
-    width:600px;
-    height:auto;
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
-}
-
 .process-wide-image{
     max-width:1200px;
 }
