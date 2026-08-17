@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const parent =
             img.closest(".lightbox-image");
             const description =
-            parent.querySelector("p");
+            parent.querySelector(".lightbox-description, p");
             lightboxImage.src = img.src;
             lightboxImage.alt = img.alt;
             lightboxDescription.textContent =

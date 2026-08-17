@@ -402,8 +402,7 @@ STAMP
     padding:10px;
     border:
         2px solid rgba(0,219,235,.85);
-    color:
-        rgba(0,229,255,.85);
+    color:#000;
     font-family:"Barlow Condensed",sans-serif;
     font-size:13px;
     letter-spacing:.18em;

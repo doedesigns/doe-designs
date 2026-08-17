@@ -281,9 +281,7 @@ PROJECT ARROWS
     to{
         transform:rotate(360deg);
     }
-
 }
-
 
 @keyframes arrowSpinLeft{
 
@@ -294,7 +292,6 @@ PROJECT ARROWS
     to{
         transform:rotate(-360deg);
     }
-
 }
 
 /*=========================================================
@@ -316,6 +313,17 @@ HERO IMAGE
 
 .project-hero .lightbox-description{
     display:none;
+}
+
+.lightbox .lightbox-description{
+    display:block;
+    margin-top:30px;
+    color:rgba(255,255,255,.8);
+    font-family:"Jost",sans-serif;
+    font-size:16px;
+    line-height:1.8;
+    letter-spacing:.04em;
+    text-align:center;
 }
 
 /*=========================================================
@@ -433,6 +441,19 @@ PROJECT IMAGES
     width:100%;
     height:auto;
     display:block;
+}
+
+/*=========================================================
+TALL PORTRAIT IMAGES
+=========================================================*/
+
+.project-image-block img.img-tall{
+    width:auto;
+    height:75vh;
+    max-width:90%;
+    object-fit:contain;
+    display:block;
+    margin:0 auto;
 }
 
 /*=========================================================
