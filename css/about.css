@@ -30,7 +30,6 @@ body.about-page{
     box-shadow:
         0 10px 30px rgba(0,0,0,.35),
         0 30px 80px rgba(0,0,0,.55);
-    transform:rotate(-1deg);
     color:#111;
 }
 .about-paper::before{

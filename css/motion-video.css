@@ -60,12 +60,19 @@ body.motion-project-page .project-navigation{
 
 body.motion-project-page .project-navigation h1{
     font-family:"Barlow Condensed",sans-serif;
-    font-size:72px;
+    font-size:58px;
     font-weight:900;
     letter-spacing:.12em;
     color:#00E5FF;
     text-transform:uppercase;
     text-align:center;
+}
+
+@media(max-width:700px){
+body.motion-project-page .project-navigation h1{
+    font-size:42px;
+    white-space:normal;
+}
 }
 
 /* ===================================
