@@ -300,15 +300,33 @@ PAGE CONTACT LINK
 FOOTER 
 =================================== */ 
 
-footer{ 
-	width:100%; 
-	margin-top:auto; 
-	padding:20px 0 30px; 
-	text-align:center; 
-	font-size:12px; 
-	letter-spacing:.18em; 
-	color:rgba(255,255,255,.45); 
-} 
+/* Fixed footer pages */
+
+body:not(.scroll-page) footer {
+    position:fixed;
+    left:0;
+    bottom:35px;
+    width:100%;
+    text-align:center;
+    font-size:12px;
+    letter-spacing:.18em;
+    color:rgba(255,255,255,.45);
+    z-index:1100;
+}
+
+/* Scrollable project pages */
+
+.scroll-page footer {
+    position:relative;
+    width:100%;
+    margin-top:20px;
+    padding-bottom:10px;
+    text-align:center;
+    font-size:12px;
+    letter-spacing:.18em;
+    color:rgba(255,255,255,.45);
+    z-index:10;
+}
 
 /* =================================== 
 Lightbox Transition 
