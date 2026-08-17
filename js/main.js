@@ -164,16 +164,16 @@ date.textContent= new Date()
     });
 
 }
-	// ============================================
-    // FOOTER
-    // ============================================
-	const footer = document.getElementById("footerCopyright");
+// ============================================
+// FOOTER
+// ============================================
+
+const footer = document.getElementById("footerCopyright");
 
 if (footer) {
     footer.innerHTML =
-        `Copyright © ${new Date().getFullYear()} Doe Designs`;
+        `© ${new Date().getFullYear()} Doe Designs · Webiste designed & built by Jen Doehne`;
 }
-
     // ============================================
     // SUBTITLE
     // ============================================
