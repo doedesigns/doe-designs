@@ -14,6 +14,7 @@ body.about-page{
     position:relative;
     z-index:2;
 }
+
 .about-paper{
     position:relative;
     width:min(780px,90vw);
@@ -21,18 +22,19 @@ body.about-page{
     padding:50px 60px 50px;
     background:
         linear-gradient(
-            rgba(240,245,245,.55),
-            rgba(220,235,235,.55)
+            rgba(0,35,50,.55),
+            rgba(0,20,35,.65)
         ),
         url("../images/paper-texture.jpg");
     background-size:120%;
-	background-blend-mode:screen;
     background-position:center;
+    background-blend-mode:multiply;
     box-shadow:
         0 10px 30px rgba(0,0,0,.35),
         0 30px 80px rgba(0,0,0,.55);
     color:#111;
 }
+
 .about-paper::before{
     content:"";
     position:absolute;
@@ -118,14 +120,14 @@ body.about-page{
     margin-top:35px;
     padding:25px 30px;
     background:
-        rgba(0,35,50,.22);
+        rgba(0,35,50,.35);
     border:
         1px solid rgba(0,229,255,.28);
     box-shadow:
         inset 0 0 25px rgba(0,229,255,.08);
     font-family:"Caveat", cursive;
-    font-size:30px;
-    line-height:1.7;
+    font-size:28px;
+    line-height:1.55;
     color:#111;
 }
 
@@ -157,23 +159,25 @@ RESUME BOARD
         translateX(-50%)
         rotate(-6deg);
 }
+
 .resume-paper{
     position:relative;
     padding:55px 60px 50px;
     color:#111;
     background:
         linear-gradient(
-        rgba(240,245,245,.55),
-        rgba(220,235,235,.55)
+            rgba(0,35,50,.55),
+            rgba(0,20,35,.65)
         ),
         url("../images/paper-texture.jpg");
     background-size:120%;
-	background-blend-mode:screen;
     background-position:center;
+    background-blend-mode:multiply;
     box-shadow:
         0 3px 8px rgba(0,0,0,.35),
         0 25px 70px rgba(0,0,0,.55);
 }
+
 .resume-paper::before{
     content:"";
     position:absolute;
@@ -233,7 +237,7 @@ RESUME SECTIONS
     margin-bottom:35px;
     padding:22px 22px 18px;
     background:
-        rgba(0,35,50,.22);
+        rgba(0,35,50,.35);
     border:
         1px solid rgba(0,229,255,.28);
     box-shadow:
