@@ -34,8 +34,17 @@ body{
 .portfolio-header{
     width:100%;
     text-align:center;
-    margin-bottom:50px;
-    padding-top:-20px;
+    margin-bottom:25px;
+    transform:translateY(-25px);
+}
+
+.portfolio-header h1{
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:58px;
+    font-weight:900;
+    letter-spacing:.12em;
+    color:white;
+    text-transform:uppercase;
 }
 
 .branding-grid,
