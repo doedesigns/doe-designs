@@ -22,8 +22,8 @@ body.about-page{
     padding:50px 60px 50px;
     background:
         linear-gradient(
-            rgba(0,90,110,.22),
-            rgba(0,50,70,.12)
+            rgba(0,100,120,.42),
+            rgba(0,60,80,.22)
         ),
         url("../images/paper-texture.jpg");
     background-size:120%;
