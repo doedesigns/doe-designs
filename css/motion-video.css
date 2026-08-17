@@ -5,270 +5,169 @@
    DOE DESIGNS
 =================================== */
 
-
-/* ===================================
-   PAGE
-=================================== */
-
 body.motion-project-page{
     background:#08251A;
     overflow-x:hidden;
 }
 
-
 /* ===================================
-   MOTION VIDEO AREA
+   VIDEO PLAYER
 =================================== */
 
-
 .video-player{
-
-    width:70%;
-    max-width:700px;
+    width:90%;
+    max-width:900px;
     margin:0 auto 60px;
-
 }
 
-
 .video-player video{
-
     display:block;
     width:100%;
     height:auto;
-
     border:2px solid rgba(255,255,255,.15);
     box-shadow:0 20px 50px rgba(0,0,0,.45);
-
 }
-
 
 /* ===================================
    VIDEO FORMATS
 =================================== */
 
-
 /* Horizontal videos */
 
-.video-medium{
-
+.video-player video.video-medium{
     width:100%;
-    max-width:850px;
+    max-width:900px;
     height:auto;
-
+    margin:0 auto;
 }
-
 
 /* Vertical phone videos */
 
-.video-small{
-
-    width:auto !important;
-    height:650px !important;
+.video-player video.video-small{
+    width:auto;
+    height:700px;
     max-width:90%;
-
     margin:0 auto;
-
 }
 
-
-
 /* ===================================
-   MOTION PROCESS IMAGES
+   PROJECT TITLES
 =================================== */
 
+body.motion-project-page .project-navigation{
+    margin-bottom:60px;
+}
+
+body.motion-project-page .project-navigation h1{
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:72px;
+    font-weight:900;
+    letter-spacing:.12em;
+    color:#00E5FF;
+    text-transform:uppercase;
+    text-align:center;
+}
+
+/* ===================================
+   PROCESS IMAGES
+=================================== */
 
 .motion-project-page .project-gallery{
-
     display:flex;
     flex-direction:column;
     gap:80px;
     margin-top:80px;
-
 }
-
 
 .motion-project-page .project-gallery figure{
-
     margin:0;
-
 }
-
-
-
-/* Standard process images */
 
 .motion-project-page .project-gallery img{
-
     display:block;
-    width:auto;
-    max-width:850px;
+    width:70%;
+    max-width:900px;
     height:auto;
-
     margin:0 auto;
-
 }
 
-
-
-/* Phone/tall storyboard images */
+/* Tall storyboard images */
 
 .motion-project-page .project-gallery img.img-tall{
-
-    height:600px;
     width:auto;
-    max-width:90%;
-
+    max-width:75%;
+    max-height:700px;
+    height:auto;
 }
-
-
-
-/* Medium images */
-
-.motion-project-page .project-gallery img.img-medium{
-
-    width:70%;
-    max-width:700px;
-
-}
-
-
 
 /* Captions */
 
 .motion-project-page figcaption{
-
     max-width:850px;
-
     margin:25px auto 0;
-
     color:white;
-
     font-family:"Jost",sans-serif;
-
     font-size:15px;
-
     line-height:1.7;
-
     letter-spacing:.04em;
-
     text-align:center;
-
 }
-
-
-
-/* ===================================
-   MOTION TITLES
-=================================== */
-
-
-body.motion-project-page .project-navigation h1{
-
-    font-family:"Barlow Condensed",sans-serif;
-
-    font-size:72px;
-
-    font-weight:900;
-
-    letter-spacing:.12em;
-
-    color:#00E5FF;
-
-    text-transform:uppercase;
-
-    text-align:center;
-
-}
-
-
 
 /* ===================================
    PROJECT DETAILS
 =================================== */
 
-
 .motion-project-page .project-details{
-
     text-align:center;
-
 }
-
 
 .motion-project-page .detail-box{
-
     text-align:center;
-
 }
-
-
 
 /* ===================================
    FOOTER LINK
 =================================== */
 
-
 .motion-project-page .project-footer-link{
-
     margin-top:90px;
     margin-bottom:60px;
-
 }
-
-
 
 /* ===================================
    RESPONSIVE
 =================================== */
 
-
 @media(max-width:1100px){
 
-
 body.motion-project-page .project-navigation h1{
-
     font-size:60px;
-
 }
 
-
+.motion-project-page .project-gallery img{
+    width:80%;
 }
 
+}
 
 @media(max-width:700px){
 
-
 body.motion-project-page .project-navigation h1{
-
     font-size:42px;
-
     white-space:normal;
-
 }
-
-
 
 .video-player{
-
-    width:90%;
-
+    width:95%;
 }
 
-
-
-.video-small{
-
-    height:80vh !important;
-
+.video-player video.video-small{
+    height:80vh;
 }
-
 
 .motion-project-page .project-gallery img.img-tall{
-
-    height:450px;
-
+    max-width:90%;
+    max-height:450px;
 }
 
-
-
 }
-
