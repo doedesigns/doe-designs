@@ -21,11 +21,12 @@ body.about-page{
     padding:50px 60px 50px;
     background:
         linear-gradient(
-            rgba(0,90,110,.22),
-            rgba(0,50,70,.12)
+            rgba(240,245,245,.55),
+            rgba(220,235,235,.55)
         ),
         url("../images/paper-texture.jpg");
-    background-size:cover;
+    background-size:120%;
+	background-blend-mode:screen;
     background-position:center;
     box-shadow:
         0 10px 30px rgba(0,0,0,.35),
@@ -162,11 +163,12 @@ RESUME BOARD
     color:#111;
     background:
         linear-gradient(
-            rgba(0,90,110,.20),
-            rgba(0,50,70,.12)
+        rgba(240,245,245,.55),
+        rgba(220,235,235,.55)
         ),
         url("../images/paper-texture.jpg");
-    background-size:cover;
+    background-size:120%;
+	background-blend-mode:screen;
     background-position:center;
     box-shadow:
         0 3px 8px rgba(0,0,0,.35),
