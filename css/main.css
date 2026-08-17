@@ -34,8 +34,8 @@ body{
 .portfolio-header{
     width:100%;
     text-align:center;
-    margin-bottom:25px;
-    transform:translateY(-25px);
+    margin-bottom:0;
+	transform:translateY(-45px);
 }
 
 .portfolio-header h1{
