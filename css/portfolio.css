@@ -5,10 +5,8 @@
 =================================== */
 
 body.portfolio-page{
-
     background:#16090D;
     overflow-x:hidden;
-
 }
 
 
@@ -17,16 +15,11 @@ body.portfolio-page{
 =================================== */
 
 .portfolio-effects{
-
     position:fixed;
     inset:0;
-
     overflow:hidden;
-
     pointer-events:none;
-
     z-index:0;
-
 }
 
 
@@ -35,10 +28,8 @@ body.portfolio-page{
 =================================== */
 
 .branding-effect{
-
     position:absolute;
     inset:0;
-
     opacity:0;
 
     background:
@@ -50,16 +41,12 @@ body.portfolio-page{
         );
 
     transition:opacity .5s ease;
-
 }
 
 
 body.branding-active .branding-effect{
-
     opacity:1;
-
     animation:spotlightPulse 2.5s infinite alternate;
-
 }
 
 
@@ -81,31 +68,23 @@ body.branding-active .branding-effect{
 =================================== */
 
 .design-effect{
-
     position:absolute;
     inset:0;
-
     opacity:0;
-
     overflow:hidden;
-
 }
 
 
 .design-hover:hover .design-effect,
 body.design-active .design-effect{
-
     opacity:1;
-
 }
 
 
 .design-effect span{
 
     position:absolute;
-
     top:-120%;
-
     width:2px;
     height:120%;
 
@@ -122,11 +101,30 @@ body.design-active .design-effect{
 }
 
 
-.design-effect span:nth-child(1){ left:45%; animation-delay:.2s; }
-.design-effect span:nth-child(2){ left:55%; animation-delay:1s; }
-.design-effect span:nth-child(3){ left:62%; animation-delay:.5s; }
-.design-effect span:nth-child(4){ left:70%; animation-delay:1.4s; }
-.design-effect span:nth-child(5){ left:78%; animation-delay:.8s; }
+.design-effect span:nth-child(1){
+    left:45%;
+    animation-delay:.2s;
+}
+
+.design-effect span:nth-child(2){
+    left:55%;
+    animation-delay:1s;
+}
+
+.design-effect span:nth-child(3){
+    left:62%;
+    animation-delay:.5s;
+}
+
+.design-effect span:nth-child(4){
+    left:70%;
+    animation-delay:1.4s;
+}
+
+.design-effect span:nth-child(5){
+    left:78%;
+    animation-delay:.8s;
+}
 
 
 @keyframes rainFall{
@@ -141,63 +139,96 @@ body.design-active .design-effect{
 
 }
 
+
 /* ===================================
    GRID
 =================================== */
 
 .portfolio-grid{
+
     width:100%;
-    flex:1;
+
     display:grid;
-    grid-template-columns:repeat(3,260px);
+
+    grid-template-columns:
+    repeat(3,260px);
+
     justify-content:center;
+
     align-content:center;
+
+    justify-items:center;
+
     gap:70px;
-    min-height:calc(100vh - 300px);
+
     margin:0 auto;
+
 }
+
 
 /* ===================================
    CARDS
 =================================== */
 
 .portfolio-card{
-     width:260px;
+
+    width:260px;
+
     height:260px;
+
     position:relative;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     overflow:hidden;
+
     text-decoration:none;
+
     background:#080808;
+
     border:2px solid rgba(255,255,255,.15);
+
     transition:
     transform .35s ease,
     border-color .35s ease,
     box-shadow .35s ease;
+
 }
 
+
 .portfolio-card:hover{
+
     transform:translateY(-10px);
+
     border-color:#00E5FF;
+
     box-shadow:
         0 0 35px rgba(0,229,255,.35);
+
 }
+
 
 .portfolio-card:hover .default-image{
     opacity:0;
 }
 
+
 .portfolio-card:hover .hover-image{
     opacity:1;
 }
+
 
 .portfolio-card:hover .card-title{
     color:#00E5FF;
 }
 
+
 @keyframes cardFloat{
+
     0%,100%{
         transform:translateY(0);
     }
@@ -205,35 +236,48 @@ body.design-active .design-effect{
     50%{
         transform:translateY(-3px);
     }
+
 }
+
 
 /* ===================================
    IMAGES
 =================================== */
 
 .card-image{
+
     position:absolute;
+
     inset:0;
+
     width:100%;
+
     height:100%;
+
     object-fit:cover;
+
 }
+
 
 .default-image{
     opacity:1;
 }
 
+
 .hover-image{
     opacity:0;
 }
+
 
 .portfolio-card:hover .default-image{
     opacity:0;
 }
 
+
 .portfolio-card:hover .hover-image{
     opacity:1;
 }
+
 
 /* ===================================
    TITLE
@@ -263,58 +307,95 @@ body.design-active .design-effect{
 =================================== */
 
 .portfolio-contact{
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
+
     text-align:center;
+
     gap:18px;
+
     margin:10px auto 90px;
+
 }
 
+
 .portfolio-contact p{
+
     color:rgba(255,255,255,.65);
+
     font-size:15px;
+
     letter-spacing:.08em;
+
 }
+
 
 /* ===================================
    PAGE CONTACT LINK
 =================================== */
 
 .portfolio-page .page-contact-link{
+
     transform:translateY(-35px);
+
 }
 
+
 .portfolio-page .page-contact-link p{
+
     color:#ffffff;
+
     font-family:"Jost",sans-serif;
+
     font-size:18px;
+
     font-weight:400;
+
     letter-spacing:.04em;
+
     text-transform:none;
 
 }
+
 
 /* ===================================
    FOOTER PROTECTION
 =================================== */
 
 body.portfolio-page footer{
+
     margin-top:0;
+
 }
+
 
 /* ===================================
    MOBILE
 =================================== */
 
-@media (max-width:900px){
+@media(max-width:900px){
+
     .portfolio-grid{
+
         grid-template-columns:1fr;
+
         gap:40px;
+
+        justify-items:center;
+
     }
 
+
     .portfolio-page .page-contact-link{
+
         transform:none;
+
     }
+
 }
