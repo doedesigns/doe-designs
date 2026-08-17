@@ -166,8 +166,8 @@ RESUME BOARD
     color:#111;
     background:
         linear-gradient(
-            rgba(0,35,50,.55),
-            rgba(0,20,35,.65)
+            rgba(0,100,120,.42),
+            rgba(0,60,80,.22)
         ),
         url("../images/paper-texture.jpg");
     background-size:120%;
