@@ -45,7 +45,7 @@ body.motion-project-page{
 
 .video-player video.video-small{
     width:auto;
-    height:700px;
+    height:600px;
     max-width:90%;
     margin:0 auto;
 }
@@ -63,7 +63,7 @@ body.motion-project-page .project-navigation h1{
     font-size:58px;
     font-weight:900;
     letter-spacing:.12em;
-    color:#00E5FF;
+    color:white;
     text-transform:uppercase;
     text-align:center;
 }

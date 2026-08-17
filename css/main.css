@@ -35,7 +35,7 @@ body{
     width:100%;
     text-align:center;
     margin-bottom:50px;
-    padding-top:0;
+    padding-top:-20px;
 }
 
 .branding-grid,
