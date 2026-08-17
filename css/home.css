@@ -105,7 +105,7 @@ HERO VIDEO
 }
 
 .hero-video {
-    width:clamp(170px,18vw,260px);
+    width:clamp(120px,14vw,220px);
     height:auto;
     display:block;
     margin:0 auto;
@@ -162,8 +162,6 @@ HERO OBJECT
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:50px;
-    margin:-50px;
     margin-top:25px;
 }
 
@@ -229,6 +227,27 @@ SECRET STASH
 .hero-entry .secret-stash:hover {
     color:#00E5FF;
     opacity:1;
+}
+
+/* ===================================
+   RESPONSIVE HOME HEIGHT CONTROL
+=================================== */
+
+body.home-page{
+    overflow:hidden;
+}
+
+.hero{
+    min-height:100vh;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.hero-content{
+    max-height:calc(100vh - 140px);
+    overflow:hidden;
 }
 
 /*=========================================================
@@ -309,7 +328,7 @@ HOME PAGE MOBILE
 }
 
 .hero-video {
-    width:clamp(220px,60vw,340px);
+    width:clamp(140px,35vw,220px);
 }
 
 .speech-bubble {
