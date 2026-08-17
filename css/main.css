@@ -18,6 +18,12 @@ body{
     background:#06080B;
     color:#fff;
     font-family:"Jost",sans-serif;
+    display:flex;
+    flex-direction:column;
+}
+
+main{
+    flex:1;
 }
 
 .reduce-motion *,
@@ -313,32 +319,14 @@ transform .6s ease;
 FOOTER
 =================================== */
 
-/* Fixed footer pages */
-
-body:not(.scroll-page) footer {
-    position:fixed;
-    left:0;
-    bottom:35px;
+footer{
     width:100%;
+    margin-top:auto;
+    padding:20px 0 30px;
     text-align:center;
     font-size:12px;
     letter-spacing:.18em;
     color:rgba(255,255,255,.45);
-    z-index:1100;
-}
-
-/* Scrollable project pages */
-
-.scroll-page footer {
-    position:relative;
-    width:100%;
-    margin-top:20px;
-    padding-bottom:10px;
-    text-align:center;
-    font-size:12px;
-    letter-spacing:.18em;
-    color:rgba(255,255,255,.45);
-    z-index:10;
 }
 
 /* ===================================
