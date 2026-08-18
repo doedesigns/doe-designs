@@ -101,7 +101,7 @@ ABOUT SUMMARY
     border-top:1px solid rgba(0,229,255,.45);
     border-bottom:1px solid rgba(0,229,255,.45);
     font-family:"Jost", sans-serif;
-    font-size:28px;
+    font-size:22px;
     line-height:1.55;
     color:#FFFFFF;
 }
@@ -246,8 +246,8 @@ RESUME HEADER
 
 .resume-section{
     display:grid;
-    grid-template-columns:40px 1fr;
-    gap:20px;
+    grid-template-columns:30px 1fr;
+    gap:25px;
     margin-bottom:55px;
 }
 
@@ -255,18 +255,11 @@ RESUME HEADER
 VERTICAL SECTION LABELS
 =============================== */
 
-.resume-section{
-    display:grid;
-    grid-template-columns:55px 1fr;
-    gap:25px;
-    margin-bottom:55px;
-}
-
-
 .section-label{
     position:relative;
     display:flex;
-    justify-content:center;
+    align-items:flex-start;
+    justify-content:flex-start;
 }
 
 
@@ -280,18 +273,17 @@ VERTICAL SECTION LABELS
     font-family:"Barlow Condensed",sans-serif;
     font-size:22px;
     font-weight:700;
-    letter-spacing:.08em;
 
+    letter-spacing:.15em;
     text-transform:uppercase;
 
     color:#00E5FF;
 
     transition:.35s ease;
-
 }
 
 
-/* line beside heading */
+/* vertical accent line */
 
 .section-label::after{
 
@@ -299,24 +291,21 @@ VERTICAL SECTION LABELS
 
     position:absolute;
 
-    right:-8px;
-
+    left:-12px;
     top:0;
 
     width:2px;
 
-    height:100%;
+    height:35px;
 
     background:#00E5FF;
 
-    transform:scaleY(.25);
-
-    transform-origin:top;
-
-    transition:.35s ease;
+    transition:.45s ease;
 
 }
 
+
+/* hover */
 
 .resume-section:hover .section-label h2{
 
@@ -327,7 +316,7 @@ VERTICAL SECTION LABELS
 
 .resume-section:hover .section-label::after{
 
-    transform:scaleY(1);
+    height:100%;
 
 }
 
@@ -696,6 +685,14 @@ MOBILE
         height:2px;
     }
 
+}
+	
+	/* ===================================
+ABOUT PAGE CONTENT OVERRIDE
+=================================== */
+
+.about-page .page-content{
+    padding-top:35px;
 }
 
 }

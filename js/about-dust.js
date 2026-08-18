@@ -190,13 +190,13 @@ class SectionDust{
         this.x+=Math.sin(this.wave)*.45;
 
 
-        if(this.y < -10){
+		if(this.y < -10){
 
-            this.y=this.canvas.height+10;
+			this.y=Math.random()*this.canvas.height;
 
-            this.x=Math.random()*this.canvas.width;
+			this.x=Math.random()*this.canvas.width;
 
-        }
+		}
 
 
         if(this.x < -10){
