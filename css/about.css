@@ -30,7 +30,7 @@ ABOUT INTRO FRAME
     width:min(780px,90vw);
     margin:0 auto 50px;
     padding:50px 60px;
-    background:transparent;
+    background:#050507;
     border:3px solid rgba(0,229,255,.65);
     box-shadow:0 25px 80px rgba(0,0,0,.65);
     color:#F5F5F5;
@@ -148,7 +148,7 @@ RESUME FRAME
 .resume-paper{
     position:relative;
     padding:55px 60px 50px;
-    background:transparent;
+    background:#050507;
 	border:2px solid rgba(0,229,255,.75);
 	box-shadow:
 		0 0 25px rgba(0,229,255,.18),
@@ -241,52 +241,51 @@ RESUME HEADER
 }
 
 /* ===================================
-RESUME SECTIONS
+   Resume Section Layout
 =================================== */
 
 .resume-section{
     display:grid;
-    grid-template-columns:120px 1fr;
-    gap:50px;
-    margin-bottom:35px;
-    padding:22px 0 18px;
-    border-bottom:1px solid rgba(255,255,255,.12);
+    grid-template-columns:70px 1fr;
+    gap:35px;
+    margin-bottom:80px;
 }
 
-.resume-section h2{
+/* ===============================
+Vertical Section Labels
+=============================== */
+
+.section-label{
+    position:relative;
+    display:flex;
+    justify-content:flex-start;
+}
+
+.section-label h2{
     writing-mode:vertical-rl;
     transform:rotate(180deg);
-    align-self:start;
     margin:0;
     padding:0;
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:22px;
+    color:#00E5FF;
+    font-family:"Barlow Condensed", sans-serif;
+    font-size:32px;
     font-weight:700;
     letter-spacing:.25em;
     text-transform:uppercase;
-    color:#00E5FF;
-    position:relative;
-    transition:.35s ease;
 }
 
-.resume-section h2::after{
+/* Cyan marker line */
+
+.section-label::after{
     content:"";
     position:absolute;
-    left:-8px;
+    left:0;
     top:0;
-    height:35%;
-    width:2px;
+    width:3px;
+    height:75px;
     background:#00E5FF;
-    transition:.35s ease;
 }
 
-.resume-section:hover h2::after{
-    height:100%;
-}
-
-.resume-section:hover h2{
-    color:#FFFFFF;
-}
 /* ===================================
 EXPERIENCE
 =================================== */
