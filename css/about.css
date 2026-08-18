@@ -29,7 +29,7 @@ ABOUT INTRO FRAME
     position:relative;
     width:min(780px,90vw);
     margin:0 auto 50px;
-    padding:50px 60px;
+    padding:35px 60px;
     background:#050507;
     border:3px solid rgba(0,229,255,.65);
     box-shadow:0 25px 80px rgba(0,0,0,.65);
@@ -101,7 +101,7 @@ ABOUT SUMMARY
     border-top:1px solid rgba(0,229,255,.45);
     border-bottom:1px solid rgba(0,229,255,.45);
     font-family:"Jost", sans-serif;
-    font-size:22px;
+    font-size:16px;
     line-height:1.55;
     color:#FFFFFF;
 }
@@ -147,7 +147,7 @@ RESUME FRAME
 
 .resume-paper{
     position:relative;
-    padding:55px 60px 50px;
+    padding:40px 60px 50px;
     background:#050507;
 	border:2px solid rgba(0,229,255,.75);
 	box-shadow:
@@ -291,12 +291,12 @@ VERTICAL SECTION LABELS
 
     position:absolute;
 
-    left:-12px;
+    left:0;
     top:0;
 
     width:2px;
 
-    height:35px;
+    height:12px;
 
     background:#00E5FF;
 
@@ -692,7 +692,7 @@ ABOUT PAGE CONTENT OVERRIDE
 =================================== */
 
 .about-page .page-content{
-    padding-top:35px;
+    padding-top:0;
 }
 
 }

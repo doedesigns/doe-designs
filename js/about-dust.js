@@ -173,47 +173,43 @@ class SectionDust{
 
     }
 
+update(){
 
-    update(){
+    /*
+    Gentle drifting current
+    for paper dust.
+    */
 
-        /*
-        Upward movement stays,
-        but dust wraps horizontally
-        instead of collecting.
-        */
-
-        this.y-=this.speed;
+    this.wave += this.waveSpeed;
 
 
-        this.wave+=this.waveSpeed;
-
-        this.x+=Math.sin(this.wave)*.45;
-
-
-		if(this.y < -10){
-
-			this.y=Math.random()*this.canvas.height;
-
-			this.x=Math.random()*this.canvas.width;
-
-		}
+    // slow horizontal circulation
+    this.x += Math.sin(this.wave) * .45;
 
 
-        if(this.x < -10){
-
-            this.x=this.canvas.width+10;
-
-        }
+    // slow vertical circulation
+    this.y += Math.cos(this.wave) * .25;
 
 
-        if(this.x > this.canvas.width+10){
-
-            this.x=-10;
-
-        }
-
+    // wrap left/right
+    if(this.x < -10){
+        this.x=this.canvas.width+10;
     }
 
+    if(this.x > this.canvas.width+10){
+        this.x=-10;
+    }
+
+    // wrap top/bottom
+	
+    if(this.y < -10){
+        this.y=this.canvas.height+10;
+    }
+
+    if(this.y > this.canvas.height+10){
+        this.y=-10;
+    }
+}
 
     draw(){
 
