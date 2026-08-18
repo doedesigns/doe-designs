@@ -16,7 +16,7 @@ ABOUT WRAPPER
     display:flex;
     justify-content:center;
     align-items:flex-start;
-    padding-top:70px;
+    padding-top:75px;
     position:relative;
     z-index:2;
 }
@@ -597,4 +597,13 @@ MOBILE
         text-align:left;
     }
 
+}
+/* RESUME POSITION TEST */
+
+.about-resume-paper{
+    padding-top:10px !important;
+}
+
+.resume-header{
+    margin-top:0 !important;
 }
