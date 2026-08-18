@@ -246,9 +246,9 @@ RESUME HEADER
 
 .resume-section{
     display:grid;
-    grid-template-columns:70px 1fr;
-    gap:35px;
-    margin-bottom:80px;
+    grid-template-columns:55px 1fr;
+    gap:25px;
+    margin-bottom:55px;
 }
 
 /* ===============================
@@ -257,33 +257,42 @@ Vertical Section Labels
 
 .section-label{
     position:relative;
-    display:flex;
-    justify-content:flex-start;
 }
 
 .section-label h2{
     writing-mode:vertical-rl;
     transform:rotate(180deg);
     margin:0;
-    padding:0;
     color:#00E5FF;
-    font-family:"Barlow Condensed", sans-serif;
-    font-size:32px;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:24px;
     font-weight:700;
-    letter-spacing:.25em;
+    letter-spacing:.15em;
     text-transform:uppercase;
+    transition:.35s ease;
 }
 
-/* Cyan marker line */
+/* Cyan marker */
 
 .section-label::after{
     content:"";
     position:absolute;
-    left:0;
+    left:-8px;
     top:0;
-    width:3px;
-    height:75px;
+    width:2px;
+    height:35px;
     background:#00E5FF;
+    transition:.35s ease;
+}
+
+/* Hover */
+
+.resume-section:hover .section-label h2{
+    color:#FFFFFF;
+}
+
+.resume-section:hover .section-label::after{
+    height:100%;
 }
 
 /* ===================================
