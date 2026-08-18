@@ -274,6 +274,7 @@ VERTICAL SECTION LABELS
     letter-spacing:.15em;
     text-transform:uppercase;
     color:#00E5FF;
+	padding-bottom:14px;
     transition:.35s ease;
 }
 
@@ -283,8 +284,8 @@ VERTICAL SECTION LABELS
     content:"";
     position:absolute;
     left:50%;
-    bottom:0;
-    width:3px;
+    bottom:-8px;
+    width:2px;
     height:35px;
     background:#00E5FF;
     transform:translateX(-50%);
@@ -331,7 +332,7 @@ EXPERIENCE
     font-family:"DM Mono",monospace;
     font-size:16px;
     font-weight:400;
-    color:#00E5FF;
+    color:#FFFFFF;
 }
 
 .resume-entry p{
@@ -676,4 +677,21 @@ MOBILE
     }
 
 }
+}
+/* ===================================
+ABOUT PAGE SPACING DEBUG
+=================================== */
+
+body.about-page .page-content{
+    padding-top:0 !important;
+    margin-top:0 !important;
+}
+
+body.about-page .about-wrapper{
+    padding-top:0 !important;
+    margin-top:0 !important;
+}
+
+body.about-page main{
+    margin-top:0 !important;
 }
