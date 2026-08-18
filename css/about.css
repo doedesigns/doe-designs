@@ -48,10 +48,12 @@ body.about-page{
     opacity:.08;
     pointer-events:none;
 }
+
 .about-paper > *{
     position:relative;
     z-index:1;
 }
+
 .cyan-tape{
     position:absolute;
     width:170px;
@@ -62,11 +64,13 @@ body.about-page{
             rgba(0,229,255,.35),
             rgba(0,229,255,.12)
         );
+	
     border:1px solid rgba(255,255,255,.25);
     backdrop-filter:blur(2px);
     box-shadow:0 5px 15px rgba(0,0,0,.35);
     z-index:3;
 }
+
 .intro-tape{
     top:-8px;
     left:50%;
@@ -163,12 +167,13 @@ RESUME BOARD
 .resume-paper{
     position:relative;
     padding:55px 60px 50px;
-    color:#ffffff;
+    color:#1a1d20;
     background:
         linear-gradient(
-            rgba(5,8,12,.88),
-            rgba(5,8,12,.88)
+            rgba(225,232,233,.88),
+            rgba(215,225,226,.88)
         ),
+		
         url("../images/paper-texture.jpg");
     background-size:cover;
     background-position:center;
@@ -200,17 +205,18 @@ RESUME BOARD
 .resume-header{
     margin-bottom:35px;
     padding:25px;
-    background:rgba(0,0,0,.55);
+    background:rgba(255,255,255,.35);
     border:1px solid rgba(0,229,255,.35);
     box-shadow:
-        inset 0 0 25px rgba(0,229,255,.1);
+        inset 0 0 25px rgba(0,229,255,.08);
 }
+
 .resume-header h1{
     font-family:"Barlow Condensed",sans-serif;
     font-size:42px;
     font-weight:900;
     letter-spacing:.08em;
-    color:#ffffff;
+    color:#111;
     margin:0;
 }
 .resume-title{
@@ -218,7 +224,7 @@ RESUME BOARD
     font-family:"Barlow Condensed",sans-serif;
     font-size:17px;
     letter-spacing:.25em;
-    color:rgba(255,255,255,.75);
+    color:444;
 }
 .resume-contact{
     display:flex;
@@ -227,7 +233,7 @@ RESUME BOARD
     margin-top:20px;
     font-family:"DM Mono",monospace;
     font-size:15px;
-    color:rgba(255,255,255,.75);
+    color:333;
 }
 
 /* ===================================
@@ -238,7 +244,7 @@ RESUME SECTIONS
     margin-bottom:35px;
     padding:22px 22px 18px;
     background:
-        rgba(0,0,0,.45);
+        rgba(255,255,255,.35);
     border:
         1px solid rgba(0,229,255,.28);
     box-shadow:
@@ -286,7 +292,7 @@ EXPERIENCE
     font-family:"Jost",sans-serif;
     font-size:16px;
     font-weight:700;
-    color:#ffffff;
+    color:#111;
 }
 
 .resume-role span:last-child{
@@ -311,7 +317,7 @@ EXPERIENCE
     font-family:"Jost",sans-serif;
     font-size:15px;
     line-height:1.6;
-    rgba(255,255,255,.75)
+    color:#333;
 }
 
 /* ===================================
