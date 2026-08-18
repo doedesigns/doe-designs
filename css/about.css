@@ -257,17 +257,20 @@ VERTICAL SECTION LABELS
 
 .section-label{
     position:relative;
-    display:flex;
-    align-items:flex-start;
 }
 
+
 .section-label h2{
+
+    position:relative;
 
     writing-mode:vertical-rl;
     transform:rotate(180deg);
 
     margin:0;
-	padding-bottom:12px;
+
+    padding-bottom:14px;
+
     font-family:"Barlow Condensed",sans-serif;
     font-size:22px;
     font-weight:700;
@@ -276,9 +279,11 @@ VERTICAL SECTION LABELS
     text-transform:uppercase;
 
     color:#00E5FF;
-	border-left:2px solid transparent;
+
     transition:.35s ease;
+
 }
+
 
 .section-label h2::after{
 
@@ -290,6 +295,7 @@ VERTICAL SECTION LABELS
     bottom:0;
 
     width:2px;
+
     height:12px;
 
     background:#00E5FF;
@@ -300,38 +306,13 @@ VERTICAL SECTION LABELS
 
 }
 
-/* vertical accent line */
-
-.section-label::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    top:0;
-
-    width:2px;
-
-    height:12px;
-
-    background:#00E5FF;
-
-    transition:.45s ease;
-
-}
-
-
-/* hover */
 
 .resume-section:hover .section-label h2{
-
     color:#FFFFFF;
-	border-left:2px solid #00E5FF;
 }
 
 
-.resume-section:hover .section-label::after{
+.resume-section:hover .section-label h2::after{
 
     height:100%;
 
