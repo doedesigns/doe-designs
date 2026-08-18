@@ -16,7 +16,7 @@ ABOUT WRAPPER
     display:flex;
     justify-content:center;
     align-items:flex-start;
-    padding-top:0;
+    padding-top:75px;
     position:relative;
     z-index:2;
 }
@@ -29,8 +29,8 @@ ABOUT INTRO FRAME
     position:relative;
     width:min(780px,90vw);
     margin:0 auto 50px;
-    padding:35px 60px;
-    background:#050507;
+    padding:50px 60px;
+    background:transparent;
     border:3px solid rgba(0,229,255,.65);
     box-shadow:0 25px 80px rgba(0,0,0,.65);
     color:#F5F5F5;
@@ -100,39 +100,14 @@ ABOUT SUMMARY
     padding:25px 0;
     border-top:1px solid rgba(0,229,255,.45);
     border-bottom:1px solid rgba(0,229,255,.45);
-    font-family:"Jost", sans-serif;
-    font-size:16px;
+    font-family:"Caveat",cursive;
+    font-size:28px;
     line-height:1.55;
     color:#FFFFFF;
 }
 
 .about-summary p{
     margin-bottom:18px;
-}
-
-/* ===================================
-DUST
-=================================== */
-
-.about-paper,
-.resume-paper{
-    position:relative;
-    overflow:hidden;
-}
-
-.section-dust{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    z-index:0;
-    pointer-events:none;
-}
-
-.about-paper > *,
-.resume-paper > *{
-    position:relative;
-    z-index:1;
 }
 
 /* ===================================
@@ -147,8 +122,8 @@ RESUME FRAME
 
 .resume-paper{
     position:relative;
-    padding:40px 60px 50px;
-    background:#050507;
+    padding:55px 60px 50px;
+    background:transparent;
 	border:2px solid rgba(0,229,255,.75);
 	box-shadow:
 		0 0 25px rgba(0,229,255,.18),
@@ -241,91 +216,43 @@ RESUME HEADER
 }
 
 /* ===================================
-   Resume Section Layout
+RESUME SECTIONS
 =================================== */
 
 .resume-section{
-    display:grid;
-    grid-template-columns:30px 1fr;
-    gap:25px;
-    margin-bottom:55px;
+    margin-bottom:35px;
+    padding:22px 0 18px;
+    border-bottom:1px solid rgba(255,255,255,.12);
 }
 
-/* ===============================
-VERTICAL SECTION LABELS
-=============================== */
-
-.section-label{
-    display:flex;
-    align-items:flex-start;
-}
-
-
-.section-label h2{
-
-    position:relative;
-    writing-mode:vertical-rl;
-    transform:rotate(180deg);
-    margin:0;
+.resume-section h2{
+    display:inline-block;
+    margin:0 0 20px;
+    padding:0 0 8px;
     font-family:"Barlow Condensed",sans-serif;
     font-size:22px;
     font-weight:700;
-    letter-spacing:.15em;
+    letter-spacing:.25em;
     text-transform:uppercase;
     color:#00E5FF;
-	padding-bottom:14px;
+    position:relative;
+}
+
+.resume-section h2::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:35%;
+    height:2px;
+    background:#00E5FF;
     transition:.35s ease;
 }
 
-/*underline */
-
-.section-label{
-    display:flex;
-    align-items:flex-start;
-    justify-content:center;
+.resume-section:hover h2::after{
+    width:100%;
 }
 
-
-.section-label h2{
-    position:relative;
-    writing-mode:vertical-rl;
-    transform:rotate(180deg);
-
-    margin:0;
-    padding-bottom:12px;
-
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:22px;
-    font-weight:700;
-    letter-spacing:.15em;
-    text-transform:uppercase;
-
-    color:#00E5FF;
-}
-
-
-.section-label h2::after{
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-    bottom:-8px;
-
-    width:2px;
-    height:25px;
-
-    background:#00E5FF;
-
-    transform:translateX(-50%);
-
-    transition:.45s ease;
-}
-
-
-.resume-section:hover .section-label h2::after{
-    height:100%;
-}
 /* ===================================
 EXPERIENCE
 =================================== */
@@ -355,7 +282,7 @@ EXPERIENCE
     font-family:"DM Mono",monospace;
     font-size:16px;
     font-weight:400;
-    color:#FFFFFF;
+    color:#00E5FF;
 }
 
 .resume-entry p{
@@ -401,11 +328,6 @@ SKILLS
     font-weight:700;
     color:#FFFFFF;
     white-space:nowrap;
-    transition:.3s ease;
-}
-
-.skill-grid div:hover .skill-title{
-    color:#00E5FF;
 }
 
 .skills-tools{
@@ -593,14 +515,6 @@ body.about-page footer{
     color:rgba(255,255,255,.45);
 }
 
-	/* ===================================
-ABOUT PAGE CONTENT OVERRIDE
-=================================== */
-
-.about-page .page-content{
-    padding-top:0;
-}
-
 /* ===================================
 MOBILE
 =================================== */
@@ -673,57 +587,5 @@ MOBILE
     .skills-tools{
         text-align:left;
     }
-	
-	@media(max-width:700px){
 
-    .resume-section{
-        display:block;
-    }
-
-    .resume-section h2{
-        writing-mode:horizontal-tb;
-        transform:none;
-        margin-bottom:20px;
-    }
-
-    .resume-section h2::after{
-        left:0;
-        top:auto;
-        bottom:0;
-        width:35%;
-        height:2px;
-    }
-
-    .resume-section:hover h2::after{
-        width:100%;
-        height:2px;
-    }
-
-}
-}
-/* ===================================
-ABOUT PAGE SPACING DEBUG
-=================================== */
-
-body.about-page .page-content{
-    padding-top:0 !important;
-    margin-top:0 !important;
-}
-
-body.about-page .about-wrapper{
-    padding-top:0 !important;
-    margin-top:0 !important;
-}
-
-body.about-page main{
-    margin-top:0 !important;
-}
-
-/* ===================================
-ABOUT PROFILE DEBUG
-=================================== */
-
-body.about-page .about-profile{
-    margin-top:0 !important;
-    padding-top:0 !important;
 }
