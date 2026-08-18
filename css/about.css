@@ -267,7 +267,6 @@ VERTICAL SECTION LABELS
     writing-mode:vertical-rl;
     transform:rotate(180deg);
     margin:0;
-    padding-bottom:12px;
     font-family:"Barlow Condensed",sans-serif;
     font-size:22px;
     font-weight:700;
@@ -281,30 +280,52 @@ VERTICAL SECTION LABELS
 /*underline */
 
 .section-label{
-    position:relative;
     display:flex;
     align-items:flex-start;
+    justify-content:center;
 }
 
-.section-label::after{
+
+.section-label h2{
+    position:relative;
+    writing-mode:vertical-rl;
+    transform:rotate(180deg);
+
+    margin:0;
+    padding-bottom:12px;
+
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:.15em;
+    text-transform:uppercase;
+
+    color:#00E5FF;
+}
+
+
+.section-label h2::after{
     content:"";
+
     position:absolute;
-    left:0;
-    bottom:0;
-    width:3px;
-    height:35px;
+
+    left:50%;
+    bottom:-8px;
+
+    width:2px;
+    height:25px;
+
     background:#00E5FF;
+
+    transform:translateX(-50%);
+
     transition:.45s ease;
 }
 
-.resume-section:hover .section-label::after{
+
+.resume-section:hover .section-label h2::after{
     height:100%;
 }
-
-.resume-section:hover .section-label h2{
-    color:#FFFFFF;
-}
-
 /* ===================================
 EXPERIENCE
 =================================== */
