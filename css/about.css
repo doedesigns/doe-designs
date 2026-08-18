@@ -100,7 +100,7 @@ ABOUT SUMMARY
     padding:25px 0;
     border-top:1px solid rgba(0,229,255,.45);
     border-bottom:1px solid rgba(0,229,255,.45);
-    font-family:"Caveat",cursive;
+    font-family:"DM Mono",monospace;
     font-size:28px;
     line-height:1.55;
     color:#FFFFFF;
@@ -588,4 +588,16 @@ MOBILE
         text-align:left;
     }
 
+}
+
+/* ===================================
+ABOUT PAGE SPACING TEST
+=================================== */
+
+.about-page .about-wrapper{
+    padding-top:0;
+}
+
+.about-page .page-content{
+    padding-top:70px;
 }
