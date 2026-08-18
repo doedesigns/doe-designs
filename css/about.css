@@ -256,56 +256,40 @@ VERTICAL SECTION LABELS
 =============================== */
 
 .section-label{
-    position:relative;
+    display:flex;
+    align-items:flex-start;
 }
 
 
 .section-label h2{
 
     position:relative;
-
     writing-mode:vertical-rl;
     transform:rotate(180deg);
-
     margin:0;
-
-    padding-bottom:14px;
-
+    padding-bottom:12px;
     font-family:"Barlow Condensed",sans-serif;
     font-size:22px;
     font-weight:700;
-
     letter-spacing:.15em;
     text-transform:uppercase;
-
     color:#00E5FF;
-
     transition:.35s ease;
-
 }
 
+/*underline */
 
 .section-label h2::after{
-
     content:"";
-
     position:absolute;
-
     left:50%;
     bottom:0;
-
-    width:2px;
-
-    height:12px;
-
+    width:3px;
+    height:35px;
     background:#00E5FF;
-
     transform:translateX(-50%);
-
     transition:.45s ease;
-
 }
-
 
 .resume-section:hover .section-label h2{
     color:#FFFFFF;

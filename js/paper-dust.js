@@ -27,8 +27,6 @@ this.reset(true);
 
 }
 
-
-
 reset(initial=false){
 
 
