@@ -8,8 +8,8 @@ document.getElementById("resumeDust")
 
 
 const colors=[
-"rgba(0,229,255,.45)",
-"rgba(255,255,255,.35)"
+"rgba(0,229,255,.35)",
+"rgba(255,255,255,.25)"
 ];
 
 
@@ -44,7 +44,7 @@ this.speed=.05+Math.random()*.15;
 this.angle=Math.random()*Math.PI*2;
 
 
-this.opacity=.15+Math.random()*.35;
+this.opacity=.15+Math.random()*.15;
 
 
 this.color=
