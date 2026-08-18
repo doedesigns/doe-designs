@@ -259,9 +259,7 @@ VERTICAL SECTION LABELS
     position:relative;
     display:flex;
     align-items:flex-start;
-    justify-content:flex-start;
 }
-
 
 .section-label h2{
 
@@ -269,7 +267,7 @@ VERTICAL SECTION LABELS
     transform:rotate(180deg);
 
     margin:0;
-
+	padding-bottom:12px;
     font-family:"Barlow Condensed",sans-serif;
     font-size:22px;
     font-weight:700;
@@ -278,10 +276,29 @@ VERTICAL SECTION LABELS
     text-transform:uppercase;
 
     color:#00E5FF;
-
+	border-left:2px solid transparent;
     transition:.35s ease;
 }
 
+.section-label h2::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    bottom:0;
+
+    width:2px;
+    height:12px;
+
+    background:#00E5FF;
+
+    transform:translateX(-50%);
+
+    transition:.45s ease;
+
+}
 
 /* vertical accent line */
 
@@ -310,7 +327,7 @@ VERTICAL SECTION LABELS
 .resume-section:hover .section-label h2{
 
     color:#FFFFFF;
-
+	border-left:2px solid #00E5FF;
 }
 
 
@@ -587,6 +604,14 @@ body.about-page footer{
     color:rgba(255,255,255,.45);
 }
 
+	/* ===================================
+ABOUT PAGE CONTENT OVERRIDE
+=================================== */
+
+.about-page .page-content{
+    padding-top:0;
+}
+
 /* ===================================
 MOBILE
 =================================== */
@@ -686,13 +711,4 @@ MOBILE
     }
 
 }
-	
-	/* ===================================
-ABOUT PAGE CONTENT OVERRIDE
-=================================== */
-
-.about-page .page-content{
-    padding-top:0;
-}
-
 }

@@ -184,11 +184,11 @@ update(){
 
 
     // slow horizontal circulation
-    this.x += Math.sin(this.wave) * .45;
+    this.x += Math.cos(this.wave) * .8;
 
 
     // slow vertical circulation
-    this.y += Math.cos(this.wave) * .25;
+    this.y += Math.sin(this.wave) * .8;
 
 
     // wrap left/right
