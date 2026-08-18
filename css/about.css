@@ -12,13 +12,22 @@ body.about-page{
 ABOUT WRAPPER
 =================================== */
 
-.about-wrapper{
+.about-page-layout{
     display:flex;
     justify-content:center;
     align-items:flex-start;
-    padding-top:75px;
+    padding-top:70px;
     position:relative;
     z-index:2;
+}
+
+.about-content{
+    width:min(1200px,92vw);
+    margin:0 auto;
+    padding-bottom:60px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
 /* ===================================
@@ -101,7 +110,7 @@ ABOUT SUMMARY
     border-top:1px solid rgba(0,229,255,.45);
     border-bottom:1px solid rgba(0,229,255,.45);
     font-family:"DM Mono",monospace;
-    font-size:28px;
+    font-size:18px;
     line-height:1.55;
     color:#FFFFFF;
 }
@@ -114,13 +123,13 @@ ABOUT SUMMARY
 RESUME FRAME
 =================================== */
 
-.resume-board{
+.about-resume-board{
     position:relative;
     width:min(780px,90vw);
     margin:0 auto 40px;
 }
 
-.resume-paper{
+.about-resume-paper{
     position:relative;
     padding:55px 60px 50px;
     background:transparent;
@@ -588,16 +597,4 @@ MOBILE
         text-align:left;
     }
 
-}
-
-/* ===================================
-ABOUT PAGE SPACING TEST
-=================================== */
-
-.about-page .about-wrapper{
-    padding-top:0;
-}
-
-.about-page .page-content{
-    padding-top:70px;
 }
