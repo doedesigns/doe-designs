@@ -280,27 +280,29 @@ VERTICAL SECTION LABELS
 
 /*underline */
 
-.section-label h2::after{
+.section-label{
+    position:relative;
+    display:flex;
+    align-items:flex-start;
+}
+
+.section-label::after{
     content:"";
     position:absolute;
-    left:50%;
-    bottom:-8px;
-    width:2px;
+    left:0;
+    bottom:0;
+    width:3px;
     height:35px;
     background:#00E5FF;
-    transform:translateX(-50%);
     transition:.45s ease;
+}
+
+.resume-section:hover .section-label::after{
+    height:100%;
 }
 
 .resume-section:hover .section-label h2{
     color:#FFFFFF;
-}
-
-
-.resume-section:hover .section-label h2::after{
-
-    height:100%;
-
 }
 
 /* ===================================
@@ -694,4 +696,13 @@ body.about-page .about-wrapper{
 
 body.about-page main{
     margin-top:0 !important;
+}
+
+/* ===================================
+ABOUT PROFILE DEBUG
+=================================== */
+
+body.about-page .about-profile{
+    margin-top:0 !important;
+    padding-top:0 !important;
 }
