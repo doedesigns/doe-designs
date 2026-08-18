@@ -36,10 +36,11 @@ ABOUT INTRO FRAME
 
 .about-paper{
     position:relative;
+	overflow:hidden;
     width:min(780px,90vw);
     margin:0 auto 50px;
     padding:50px 60px;
-    background:transparent;
+    background:050507;
     border:3px solid rgba(0,229,255,.65);
     box-shadow:0 25px 80px rgba(0,0,0,.65);
     color:#F5F5F5;
@@ -53,7 +54,7 @@ ABOUT INTRO FRAME
     pointer-events:none;
 }
 
-.about-paper > *{
+.about-paper > *:not(.section-dust){
     position:relative;
     z-index:1;
 }
@@ -132,7 +133,7 @@ RESUME FRAME
 .about-resume-paper{
     position:relative;
     padding:55px 60px 50px;
-    background:transparent;
+    background:050507;
 	border:2px solid rgba(0,229,255,.75);
 	box-shadow:
 		0 0 25px rgba(0,229,255,.18),
@@ -149,6 +150,29 @@ RESUME FRAME
 }
 
 .resume-paper > *{
+    position:relative;
+    z-index:1;
+}
+
+/* ===================================
+RESUME DUST LAYER
+=================================== */
+
+.about-resume-paper{
+    position:relative;
+    overflow:hidden;
+}
+
+.section-dust{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:0;
+}
+
+.about-resume-paper > *:not(.section-dust){
     position:relative;
     z-index:1;
 }
@@ -597,19 +621,4 @@ MOBILE
         text-align:left;
     }
 
-}
-/* RESUME POSITION TEST */
-
-.section-dust{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    pointer-events:none;
-    z-index:0;
-}
-
-.about-resume-paper > *:not(.section-dust){
-    position:relative;
-    z-index:1;
 }
