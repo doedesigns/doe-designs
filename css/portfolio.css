@@ -226,7 +226,7 @@ body.design-active .design-effect{
 
 .card-title{
     position:absolute;
-	top:35%;
+	top:25%;
     z-index:5;
     color:white;
     font-family:"Barlow Condensed",sans-serif;
