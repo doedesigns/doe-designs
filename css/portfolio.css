@@ -182,10 +182,6 @@ body.design-active .design-effect{
     opacity:1;
 }
 
-.portfolio-card:hover .card-title{
-    color:#00E5FF;
-}
-
 @keyframes cardFloat{
     0%,100%{
         transform:translateY(0);
@@ -230,6 +226,7 @@ body.design-active .design-effect{
 
 .card-title{
     position:absolute;
+	top:35%;
     z-index:5;
     color:white;
     font-family:"Barlow Condensed",sans-serif;
