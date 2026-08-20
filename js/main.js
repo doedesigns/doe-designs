@@ -355,20 +355,37 @@ if (document.body.classList.contains("motion-page")) {
 
             });
 
-
             youtubeCard.addEventListener("mouseleave", () => {
-
                 if (!youtubeReady || !youtubePlayer) return;
-
                 youtubePlayer.pauseVideo();
-
                 youtubePlayer.seekTo(startTime, true);
-
             });
-
         }
-
     }
-
 }
-});
+
+// ============================================
+// MOBILE NAVIGATION
+// ============================================
+
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+
+if(menuToggle && navLinks){
+
+    menuToggle.addEventListener("click",()=>{
+
+        const isOpen =
+            menuToggle.classList.toggle("active");
+
+        navLinks.classList.toggle(
+            "mobile-open"
+        );
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            isOpen
+        );
+    });
+}

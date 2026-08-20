@@ -158,9 +158,11 @@ RESUME FRAME
 RESUME DUST LAYER
 =================================== */
 
+.about-paper,
 .about-resume-paper{
     position:relative;
     overflow:hidden;
+	min-height:100px;
 }
 
 .section-dust{
@@ -169,7 +171,13 @@ RESUME DUST LAYER
     width:100%;
     height:100%;
     pointer-events:none;
-    z-index:0;
+    z-index:1;
+}
+
+.about-paper > *:not(.section-dust),
+.about-resume-paper > *:not(.section-dust){
+    position:relative;
+    z-index:2;
 }
 
 /* ===================================

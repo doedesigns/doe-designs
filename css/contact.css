@@ -54,49 +54,13 @@ body.contact-page {
     position:relative;
     width:100%;
     max-width:850px;
-    padding:35px 60px 35px;
-    color:#111;
-    background:
-        linear-gradient(
-            rgba(0,100,120,.42),
-            rgba(0,60,80,.22)
-        ),
-        url("../images/paper-texture.jpg"),
-        #F6F0E1;
-
-    background-size:cover;
-    background-position:center top;
-    background-repeat:no-repeat;
+    padding:45px 60px;
+    background:#050507;
+    border:2px solid rgba(0,229,255,.75);
     box-shadow:
-        0 5px 15px rgba(0,0,0,.35),
-        0 30px 70px rgba(0,0,0,.55);
-    filter:contrast(102%);
-}
-
-/*=========================================================
-    PAPER TAPE
-=========================================================*/
-
-.paper-tape {
-    position:absolute;
-    top:-25px;
-    left:50%;
-    width:170px;
-    height:45px;
-    transform:
-        translateX(-50%)
-        rotate(-2deg);
-    background:
-        linear-gradient(
-            135deg,
-            rgba(0,229,255,.35),
-            rgba(0,229,255,.15)
-        );
-
-    border:
-        1px solid rgba(255,255,255,.20);
-    box-shadow:
-        0 3px 8px rgba(0,0,0,.25);
+        0 0 25px rgba(0,229,255,.45),
+        0 25px 80px rgba(0,0,0,.65);
+    color:#F5F5F5;
 }
 
 /*=========================================================
@@ -104,11 +68,12 @@ body.contact-page {
 =========================================================*/
 
 .contact-title {
-    margin-bottom:5px;
+    margin-bottom:20px;
     font-family:"Barlow Condensed",sans-serif;
     font-size:64px;
     font-weight:900;
     letter-spacing:.12em;
+    color:#00E5FF;
 }
 
 .contact-subtitle {
@@ -139,7 +104,7 @@ body.contact-page {
 
 #contactForm label {
     margin-top:14px;
-    color:#111;
+    color:#00E5FF;
     font-family:"Jost",sans-serif;
     font-size:14px;
 	font-weight:600;
@@ -153,7 +118,7 @@ body.contact-page {
     background:#111118;
     color:#00E5FF;
     border:
-        1px solid rgba(0,229,255,.18);
+        1px solid rgba(0,229,255,.45);
     outline:none;
     font-family:"Jost",sans-serif;
     font-size:15px;

@@ -478,61 +478,153 @@ IMAGE LIGHTBOX
 } 
 
 /* =================================== 
-MOBILE 
-=================================== */ 
+MOBILE RESPONSIVE
+=================================== */
 
-@media(max-width:700px){ 
-	.lightbox-box{ 
-		width:90vw; 
-		padding:20px; 
-	}
-	
-	.lightbox-close{ 
-		left:10px; 
-		top:-55px; 
-	} 
-} 
+/* Tablet and below */
+@media(max-width:900px){
 
-@media (max-width:900px){ 
-	.navbar{ 
-		padding:0 20px; 
-	} 
-	
-	.nav-links{ 
-		gap:24px; 
-	}
-	
-	.nav-links a{ 
-		font-size:13px; 
-		letter-spacing:.28em; 
-	}
-	
-	.logo-doe{ 
-		font-size:30px; 
-	}
-	
-	.logo-designs{ 
-		font-size:14px; 
-	} 
-} 
+    .navbar{
+        height:65px;
+        padding:0 20px;
+    }
 
-@media(max-width:768px){ 
-	
-	.img-large { 
-		width:85%; 
-	}
-	
-	.img-medium { 
-		width:70%; 
-	}
+    .logo-doe{
+        font-size:30px;
+    }
+
+    .logo-designs{
+        font-size:14px;
+    }
+
+
+    /* ================================
+       HAMBURGER BUTTON
+    ================================= */
+
+    .menu-toggle{
+
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        gap:6px;
+
+        width:36px;
+        height:36px;
+
+        background:none;
+        border:none;
+        cursor:pointer;
+
+        z-index:10001;
+    }
+
+
+    .menu-toggle span{
+
+        width:22px;
+        height:2px;
+
+        background:#00E5FF;
+
+        transition:.35s ease;
+    }
+
+
+    /* ================================
+       MOBILE NAV MENU
+    ================================= */
+
+    .nav-links{
+
+        position:absolute;
+
+        top:65px;
+        left:0;
+
+        width:100%;
+
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+
+        gap:30px;
+
+        padding:40px 0;
+
+        background:rgba(5,5,7,.96);
+
+        border-bottom:
+            1px solid rgba(0,229,255,.25);
+
+        transform:
+            translateY(-120%);
+
+        opacity:0;
+
+        pointer-events:none;
+        transition:
+            transform .4s ease,
+            opacity .4s ease;
+    }
+
+.nav-links.mobile-open{
+    transform:
+        translateY(0);
+    opacity:1;
+    pointer-events:auto;
 }
 
-#effects, 
-#dust { 
-	position: fixed; 
-	inset: 0; 
-	width: 100vw; 
-	height: 100vh; 
-	pointer-events: none; 
-	z-index: 1; 
+    .nav-links a{
+        font-size:16px;
+        letter-spacing:.35em;
+    }
+
+    /* hamburger animation */
+
+    .menu-toggle.active span:nth-child(1){
+        transform:
+            rotate(45deg)
+            translate(5px,6px);
+    }
+
+    .menu-toggle.active span:nth-child(2){
+        opacity:0;
+    }
+
+    .menu-toggle.active span:nth-child(3){
+        transform:
+            rotate(-45deg)
+            translate(5px,-6px);
+    }
+
+    /* images */
+
+    .img-large{
+        width:85%;
+    }
+
+    .img-medium{
+        width:75%;
+    }
+}
+
+/* Small phones */
+
+@media(max-width:700px){
+    .lightbox-box{
+        width:90vw;
+        padding:20px;
+    }
+
+    .lightbox-close{
+        left:10px;
+        top:-55px;
+    }
+
+    .page-content{
+        width:92vw;
+        padding-top:85px;
+        padding-bottom:40px;
+    }
 }

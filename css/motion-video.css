@@ -48,6 +48,7 @@ body.motion-project-page{
     height:600px;
     max-width:90%;
     margin:0 auto;
+	object-fit:cover;
 }
 
 /* ===================================

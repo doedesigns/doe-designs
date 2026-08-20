@@ -289,7 +289,7 @@ SECRET STASH
 =================================== */
 
 body.home-page{
-    overflow:hidden;
+    overflow-x:hidden;
 }
 
 .hero{
@@ -401,5 +401,65 @@ HOME PAGE MOBILE
 .hero-entry-message {
     font-size:15px;
     letter-spacing:.06em;
+}
+}
+
+@media(max-width:768px){
+
+.hero{
+    height:auto;
+    min-height:calc(100vh - 80px);
+    padding-top:110px;
+    padding-bottom:80px;
+}
+
+.hero-content{
+    max-height:none;
+    overflow:visible;
+}
+
+.hero-logo-image{
+    width:260px;
+}
+
+.hero-intro{
+    font-size:17px;
+    line-height:1.7;
+}
+
+.hero-video{
+    height:120px;
+}
+	
+@media(max-width:700px){
+    .hero{
+        height:auto;
+        min-height:100vh;
+        padding-top:95px;
+        padding-bottom:60px;
+    }
+
+    .hero-content{
+        max-height:none;
+        gap:14px;
+    }
+
+    .hero-logo-image{
+        width:190px;
+    }
+
+    .hero-intro{
+        font-size:16px;
+        line-height:1.5;
+        max-width:320px;
+    }
+	
+    .hero-video{
+        height:120px;
+    }
+
+    #heroObjectImage{
+        width:260px;
+    }
 }
 }
