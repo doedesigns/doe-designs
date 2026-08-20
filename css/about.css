@@ -426,10 +426,11 @@ ACTIVITIES
     color:#B8C2C5;
 }
 
+
 /* ===================================
    RESUME STAMP
 =================================== */
-
+/*
 .about-resume-paper{
     position:relative;
 }
@@ -449,7 +450,7 @@ ACTIVITIES
     transform:rotate(-12deg);
     z-index:5;
     white-space:nowrap;
-}
+}*/
 
 /* ===================================
 DOWNLOAD BUTTON
