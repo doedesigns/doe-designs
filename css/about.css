@@ -318,7 +318,7 @@ EXPERIENCE
     font-family:"DM Mono",monospace;
     font-size:16px;
     font-weight:400;
-    color:#00E5FF;
+    color:#FFFFFF;
 }
 
 .resume-entry p{
@@ -432,7 +432,7 @@ STAMP
 
 .resume-stamp{
     position:absolute;
-    right:35px;
+    right:15px;
     bottom:35px;
     padding:10px;
     border:2px solid rgba(0,229,255,.85);
