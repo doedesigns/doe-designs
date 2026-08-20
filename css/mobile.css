@@ -1,0 +1,326 @@
+@charset "UTF-8";
+/* ===================================
+   DOE DESIGNS
+   MOBILE OVERRIDES
+   Do not affect desktop
+=================================== */
+
+
+/* ===================================
+   MOBILE NAVIGATION
+=================================== */
+
+@media (max-width:768px){
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+}
+
+
+.navbar{
+
+    height:60px;
+    padding:0 18px;
+
+    background:
+    rgba(0,0,0,.92);
+
+    border-bottom:
+    1px solid rgba(0,229,255,.12);
+
+}
+
+
+/* LOGO */
+
+.logo-doe{
+
+    font-size:30px;
+
+}
+
+
+.logo-designs{
+
+    font-size:14px;
+
+}
+
+
+
+/* HAMBURGER BUTTON */
+
+.menu-toggle{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    gap:6px;
+
+    width:38px;
+    height:38px;
+
+    background:none;
+    border:none;
+
+    cursor:pointer;
+
+}
+
+
+.menu-toggle span{
+
+    width:22px;
+    height:2px;
+
+    background:#00E5FF;
+
+    transition:.3s ease;
+
+}
+
+
+/* ACTIVE X */
+
+.menu-toggle.active span:nth-child(1){
+
+    transform:
+    translateY(8px)
+    rotate(45deg);
+
+}
+
+
+.menu-toggle.active span:nth-child(2){
+
+    opacity:0;
+
+}
+
+
+.menu-toggle.active span:nth-child(3){
+
+    transform:
+    translateY(-8px)
+    rotate(-45deg);
+
+}
+
+
+
+/* MOBILE MENU PANEL */
+
+.nav-links{
+
+    position:absolute;
+
+    top:60px;
+    right:0;
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:28px;
+
+    padding:35px 0;
+
+
+    background:
+    rgba(0,0,0,.96);
+
+
+    border-bottom:
+    1px solid rgba(0,229,255,.12);
+
+
+    transform:
+    translateY(-120%);
+
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.4s ease;
+
+}
+
+
+
+.nav-links.mobile-open{
+
+    transform:
+    translateY(0);
+
+
+    opacity:1;
+
+    pointer-events:auto;
+
+}
+
+
+.nav-links a{
+
+    font-size:16px;
+
+    letter-spacing:.25em;
+
+}
+
+
+
+/* ===================================
+   HOME PAGE MOBILE
+=================================== */
+
+
+body.home-page{
+
+    overflow:hidden;
+
+}
+
+
+.hero{
+
+    height:100vh;
+
+    min-height:100vh;
+
+    padding:
+
+    70px 20px 30px;
+
+}
+
+
+
+.hero-content{
+
+    max-height:
+
+    calc(100vh - 90px);
+
+    gap:12px;
+
+}
+
+
+
+/* LOGO IMAGE */
+
+.hero-logo-image{
+
+    width:
+
+    clamp(170px,45vw,240px);
+
+}
+
+
+
+/* SUBTITLE */
+
+.hero-subtitle{
+
+    font-size:11px;
+
+    letter-spacing:.4em;
+
+}
+
+
+
+/* INTRO */
+
+.hero-intro{
+
+    font-size:15px;
+
+    line-height:1.5;
+
+    max-width:90%;
+
+}
+
+
+
+/* HERO VIDEO */
+
+.hero-video{
+
+    height:
+
+    clamp(90px,15vh,150px);
+
+}
+
+
+
+/* ENTER MESSAGE */
+
+.hero-entry-message{
+
+    font-size:14px;
+
+}
+
+
+
+/* SECRET STASH */
+
+.hero-entry .secret-stash{
+
+    margin-top:25px;
+
+}
+
+
+
+/* ===================================
+   GENERAL MOBILE PAGE SPACING
+=================================== */
+
+
+.page-content{
+
+    width:92vw;
+
+    padding-top:80px;
+
+    padding-bottom:40px;
+
+}
+
+
+
+/* IMAGES */
+
+.img-large{
+
+    width:90%;
+
+}
+
+
+.img-medium{
+
+    width:85%;
+
+}
+
+
+
+}
+
