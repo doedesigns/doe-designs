@@ -427,21 +427,28 @@ ACTIVITIES
 }
 
 /* ===================================
-STAMP
+   RESUME STAMP
 =================================== */
+
+.about-resume-paper{
+    position:relative;
+}
 
 .resume-stamp{
     position:absolute;
-    right:60px;
-    bottom:35px;
-    padding:10px;
+    right:35px;
+    top:35px;
+    padding:10px 14px;
     border:2px solid rgba(0,229,255,.85);
     color:white;
     font-family:"Barlow Condensed",sans-serif;
     font-size:13px;
     letter-spacing:.18em;
+    line-height:1.2;
+    text-align:center;
     transform:rotate(-12deg);
-	z-index:2;
+    z-index:5;
+    white-space:nowrap;
 }
 
 /* ===================================
