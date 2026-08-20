@@ -1,308 +1,320 @@
-/* =================================== 
-DOE DESIGNS 
-=================================== */ 
+/* ===================================
+DOE DESIGNS
+=================================== */
 
-*{ margin:0; 
-	padding:0; 
-	box-sizing:border-box; 
-} 
-
-html{ 
-	scroll-behavior:smooth; 
-} 
-
-body{ 
-	min-height:100vh; 
-	overflow-x:hidden; 
-	background:#06080B; 
-	color:#fff; 
-	font-family:"Jost",sans-serif; 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.reduce-motion *, 
-.reduce-motion *::before, 
-.reduce-motion *::after{ 
-	animation:none !important; 
-	transition:none !important; 
+html{
+    scroll-behavior:smooth;
 }
 
-.title-break{ 
-	display:block; 
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    background:#06080B;
+    color:#fff;
+    font-family:"Jost",sans-serif;
 }
 
-.portfolio-header{ 
-	width:100%; 
-	text-align:center; 
-	margin-bottom:0; 
-	transform:translateY(-15px); 
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after{
+    animation:none !important;
+    transition:none !important;
 }
 
-.portfolio-header h1{ 
-	font-family:"Barlow Condensed",sans-serif; 
-	font-size:45px; 
-	font-weight:700; 
-	letter-spacing:.12em; 
-	color:white; 
-	text-transform:uppercase; 
+.title-break{
+    display:block;
 }
 
-.branding-grid, 
-.design-grid, 
-.motion-grid{ 
-	margin-top:0; 
-} 
-
-/* =================================== 
-HEADER / NAVIGATION 
-=================================== */ 
-
-header{ 
-	position:fixed; 
-	top:0; 
-	left:0; 
-	width:100%; 
-	z-index:9999; 
+.portfolio-header{
+    width:100%;
+    text-align:center;
+    margin-bottom:0;
+    transform:translateY(-15px);
 }
 
-.navbar{ 
-	height:70px; 
-	display:flex; 
-	position:relative; 
-	justify-content:space-between; 
-	align-items:center; 
-	padding:0 40px; 
-	background:rgba(0,0,0,.82); 
-	backdrop-filter:blur(8px); 
-	-webkit-backdrop-filter:blur(8px); 
-	border-bottom:1px solid rgba(255,255,255,.08); } 
-
-/* =================================== 
-LOGO 
-=================================== */ 
-
-.logo{ 
-	display:flex; 
-	align-items:center; 
-	text-decoration:none; 
-	line-height:1; 
+.portfolio-header h1{
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:45px;
+    font-weight:700;
+    letter-spacing:.12em;
+    color:white;
+    text-transform:uppercase;
 }
 
-.logo-doe{ 
-	font-family:"Barlow Condensed",sans-serif; 
-	font-size:38px; 
-	font-weight:900; 
-	letter-spacing:.08em; 
-	color:#00E5FF; } 
-
-.logo-designs{ 
-	font-family:"Barlow Condensed",sans-serif; 
-	font-size:17px; 
-	font-weight:300; 
-	color:#fff; 
-	margin-left:4px; 
-	transform:translateY(5px); 
-	transition:.3s; 
-	position: relative; 
+.branding-grid,
+.design-grid,
+.motion-grid{
+    margin-top:0;
 }
 
-.logo:hover .logo-designs{ 
-	color:#00E5FF; 
+
+/* ===================================
+HEADER / NAVIGATION
+=================================== */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:9999;
 }
 
-.logo-designs::after { 
-	content:""; 
-	position:absolute; 
-	left:0; bottom:-8px; 
-	width:100%; height:2px; 
-	background:#00E5FF; 
-	transform:scaleX(0); 
-	transform-origin:left; 
-	transition:.35s ease; 
+.navbar{
+    height:70px;
+    display:flex;
+    position:relative;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 40px;
+    background:rgba(0,0,0,.82);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-.logo:hover .logo-designs::after { 
-	transform:scaleX(1); 
-} 
 
-/* =================================== 
-NAVIGATION LINKS 
-=================================== */ 
+/* ===================================
+LOGO
+=================================== */
 
-.nav-links{ 
-	display:flex; 
-	gap:55px; 
-	list-style:none; 
-	transition: opacity .6s ease, transform .6s ease; 
+.logo{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+    line-height:1;
 }
 
-.nav-links a{ 
-	position:relative; 
-	display:inline-block; 
-	text-decoration:none; 
-	font-family:"Barlow Condensed",sans-serif; 
-	font-size:13px; 
-	letter-spacing:.28em; 
-	text-transform:uppercase; 
-	color:#fff; 
-	transition:.3s; 
+.logo-doe{
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:38px;
+    font-weight:900;
+    letter-spacing:.08em;
+    color:#00E5FF;
 }
 
-/* underline */ 
-
-.nav-links a::after{ 
-	content:""; 
-	position:absolute; 
-	left:0; 
-	bottom:-8px; 
-	width:100%; 
-	height:2px; 
-	background:#00E5FF; 
-	transform:scaleX(0); 
-	transform-origin:left; 
-	transition:transform .35s ease; 
+.logo-designs{
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:17px;
+    font-weight:300;
+    color:#fff;
+    margin-left:4px;
+    transform:translateY(5px);
+    transition:.3s;
+    position:relative;
 }
 
-/* hover */ 
-
-.nav-links a:hover{ 
-	color:#00E5FF; 
+.logo:hover .logo-designs{
+    color:#00E5FF;
 }
 
-.nav-links a:hover::after{ 
-	transform:scaleX(1); 
+.logo-designs::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:100%;
+    height:2px;
+    background:#00E5FF;
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:.35s ease;
 }
 
-/* active page */ 
-
-.nav-links a.active{ 
-	color:#00E5FF; 
+.logo:hover .logo-designs::after{
+    transform:scaleX(1);
 }
 
-.nav-links a.active::after{ 
-	transform:scaleX(1); 
+
+/* ===================================
+NAVIGATION LINKS
+=================================== */
+
+.nav-links{
+    display:flex;
+    gap:55px;
+    list-style:none;
+    transition:
+        opacity .6s ease,
+        transform .6s ease;
 }
 
-.nav-links a.active:hover{ 
-	color:#fff; 
+.nav-links a{
+    position:relative;
+    display:inline-block;
+    text-decoration:none;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:13px;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:#fff;
+    transition:.3s;
 }
 
-.nav-links a.active:hover::after{ 
-	background:#fff; 
-} 
-
-/* =================================== 
-GLOBAL BUTTON 
-=================================== */ 
-
-.enter-button{ 
-	display:inline-block; 
-	position:relative; 
-	text-decoration:none; 
-	color:#00E5FF; 
-	font-family:"Barlow Condensed",sans-serif; 
-	font-size:16px; 
-	letter-spacing:.35em; 
-	text-transform:uppercase; 
-	transition:.3s; 
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:100%;
+    height:2px;
+    background:#00E5FF;
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .35s ease;
 }
 
-.enter-button::after{ 
-	content:""; 
-	position:absolute; 
-	left:0; bottom:-8px; 
-	width:100%; height:2px; 
-	background:#00E5FF; 
-	transform:scaleX(.3); 
-	transform-origin:center; 
-	transition:.3s; 
-}
-.enter-button:hover{ 
-	color:#fff; 
-	letter-spacing:.42em; 
+.nav-links a:hover{
+    color:#00E5FF;
 }
 
-.enter-button:hover::after{ 
-	transform:scaleX(1); 
-} 
-
-/* =================================== 
-GLOBAL PAGE LAYOUT 
-=================================== */ 
-
-.page-content{ 
-	width:min(1200px,92vw); 
-	margin:0 auto; 
-	padding-top:110px; 
-	padding-bottom:60px; 
-	display:flex; 
-	flex-direction:column; 
-	align-items:center; 
-	position:relative; 
-	z-index:2; 
-} 
-
-/* =================================== 
-IMAGE SIZE HELPERS 
-=================================== */ 
-
-.img-small { 
-	width:40%; 
-	height:auto; 
-} 
-
-.img-medium { 
-	width:70%; 
-	height:auto; 
+.nav-links a:hover::after{
+    transform:scaleX(1);
 }
 
-.img-large { 
-	width:90%; 
-	max-width:1100px; 
-	height:auto; 
-} 
-.img-small, 
-.img-medium, 
-.img-large { 
-	display:block; 
-	margin-left:auto; 
-	margin-right:auto; 
+.nav-links a.active{
+    color:#00E5FF;
+}
+
+.nav-links a.active::after{
+    transform:scaleX(1);
+}
+
+.nav-links a.active:hover{
+    color:#fff;
+}
+
+.nav-links a.active:hover::after{
+    background:#fff;
+}
+
+
+/* ===================================
+GLOBAL BUTTON
+=================================== */
+
+.enter-button{
+    display:inline-block;
+    position:relative;
+    text-decoration:none;
+    color:#00E5FF;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:16px;
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    transition:.3s;
+}
+
+.enter-button::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:100%;
+    height:2px;
+    background:#00E5FF;
+    transform:scaleX(.3);
+    transform-origin:center;
+    transition:.3s;
+}
+
+.enter-button:hover{
+    color:#fff;
+    letter-spacing:.42em;
+}
+
+.enter-button:hover::after{
+    transform:scaleX(1);
+}
+
+/* ===================================
+GLOBAL PAGE LAYOUT
+=================================== */
+
+.page-content{
+    width:min(1200px,92vw);
+    margin:0 auto;
+    padding-top:110px;
+    padding-bottom:60px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    position:relative;
+    z-index:2;
+}
+
+
+/* ===================================
+IMAGE SIZE HELPERS
+=================================== */
+
+.img-small{
+    width:40%;
+    height:auto;
+}
+
+.img-medium{
+    width:70%;
+    height:auto;
+}
+
+.img-large{
+    width:90%;
+    max-width:1100px;
+    height:auto;
+}
+
+.img-small,
+.img-medium,
+.img-large{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .process-wide-image{
-	max-width:1200px; 
+    max-width:1200px;
 }
 
-/* =================================== 
-PAGE CONTACT LINK 
-=================================== */ 
 
-.page-contact-link{ 
-	width:100%; 
-	display:flex; 
-	flex-direction:column; 
-	align-items:center; 
-	justify-content:center; 
-	text-align:center; 
-	gap:18px; 
-	margin:30px auto 15px; 
+/* ===================================
+PAGE CONTACT LINK
+=================================== */
+
+.page-contact-link{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    gap:18px;
+    margin:30px auto 15px;
 }
 
-.page-contact-link p, 
-.contact-subtitle{ 
-	color: white; 
-	font-size:15px; 
-	font-family: "Jost",sans-serif; 
-	letter-spacing:.08em; 
-	text-align:center; 
-} 
+.page-contact-link p,
+.contact-subtitle{
+    color:white;
+    font-size:15px;
+    font-family:"Jost",sans-serif;
+    letter-spacing:.08em;
+    text-align:center;
+}
 
-/* =================================== 
-FOOTER 
-=================================== */ 
+
+/* ===================================
+FOOTER
+=================================== */
 
 /* Fixed footer pages */
 
-body:not(.scroll-page) footer {
+body:not(.scroll-page) footer{
     position:fixed;
     left:0;
     bottom:35px;
@@ -314,9 +326,10 @@ body:not(.scroll-page) footer {
     z-index:1100;
 }
 
+
 /* Scrollable project pages */
 
-.scroll-page footer {
+.scroll-page footer{
     position:relative;
     width:100%;
     margin-top:20px;
@@ -328,290 +341,168 @@ body:not(.scroll-page) footer {
     z-index:10;
 }
 
-/* =================================== 
-Lightbox Transition 
-=================================== */ 
 
-.lightbox-trigger{ 
-	cursor:pointer; 
-	transition:.35s ease; 
-}
-
-.lightbox-trigger:hover{ 
-	transform:translateY(-5px); 
-	box-shadow: 
-		0 0 20px rgba(0,229,255,.35), 
-		0 30px 60px rgba(0,0,0,.6); 
-}
-
-/* =================================== 
-IMAGE LIGHTBOX 
-=================================== */ 
-
-.lightbox-image img{ 
-	cursor:pointer; 
-	transition:.35s ease; 
-}
-
-.lightbox-image img:hover{ 
-	transform:translateY(-5px); 
-	box-shadow: 
-		0 0 20px rgba(0,229,255,.35), 
-		0 30px 60px rgba(0,0,0,.6); 
-}
-
-/* LIGHTBOX BACKGROUND */ 
-
-.lightbox{ 
-	position:fixed; 
-	inset:0; 
-	display:flex; 
-	justify-content:center; 
-	align-items:center; 
-	background:rgba(0,0,0,.88); 
-	backdrop-filter:blur(8px); 
-	z-index:10000; 
-	opacity:0; 
-	visibility:hidden; 
-	transition:.4s ease; 
-}
-
-/* OPEN STATE */ 
-
-.lightbox.active{ 
-	opacity:1; 
-	visibility:visible; 
-} 
-
-/* BLACK IMAGE CONTAINER */ 
-
-.lightbox-box{ 
-	position:relative; 
-	width:min(90vw,1100px); 
-	max-height:90vh; 
-	padding:40px; 
-	background:#050507; 
-	border:1px solid rgba(255,255,255,.15); 
-	box-shadow: 
-		0 40px 100px rgba(0,0,0,.8); 
-}
-
-/* LARGE IMAGE */ 
-
-.lightbox-image-large{ 
-	display:block; 
-	max-width:100%; 
-	max-height:80vh; 
-	width:auto; 
-	height:auto; 
-	margin:auto; 
-}
-
-.lightbox-description{ 
-	display:none; 
-} 
-
-/* CLOSE BUTTON */ 
-
-.lightbox-close{ 
-	position:absolute; 
-	left:-35px; 
-	top:20px; 
-	width:42px; 
-	height:42px; 
-	background:none; 
-	border:none; 
-	cursor:pointer; 
-}
-
-/* X */ 
-
-.lightbox-close span::before, 
-.lightbox-close span::after{ 
-	content:""; 
-	position:absolute; 
-	top:20px; 
-	left:10px; 
-	width:22px; 
-	height:2px; 
-	background:white; 
-	transition:.35s ease; 
-}
-
-.lightbox-close span::before{ 
-	transform:rotate(45deg); 
-}
-
-.lightbox-close span::after{ 
-	transform:rotate(-45deg); 
-} 
-
-/* CYAN ROTATING CIRCLE */ 
-
-.lightbox-close::before{ 
-	content:""; 
-	position:absolute; 
-	inset:-10px; 
-	border-radius:50%; 
-	border:2px solid transparent; 
-	border-top-color:#00E5FF; 
-	opacity:0; 
-} 
-
-.lightbox-close:hover::before{ 
-	opacity:1; 
-	animation: 
-		lightboxSpin 5s linear infinite; 
-}
-
-.lightbox-close:hover span::before, 
-.lightbox-close:hover span::after{ 
-	background:#00E5FF; 
-}
-
-@keyframes lightboxSpin{ 
-	from{ 
-		transform:rotate(0deg); 
-	}
-	to{ transform:rotate(360deg); 
-	} 
-} 
-
-/* =================================== 
-MOBILE RESPONSIVE
+/* ===================================
+LIGHTBOX TRANSITION
 =================================== */
 
-/* Tablet and below */
-@media(max-width:900px){
+.lightbox-trigger{
+    cursor:pointer;
+    transition:.35s ease;
+}
 
-    .navbar{
-        height:65px;
-        padding:0 20px;
-    }
-
-    .logo-doe{
-        font-size:30px;
-    }
-
-    .logo-designs{
-        font-size:14px;
-    }
+.lightbox-trigger:hover{
+    transform:translateY(-5px);
+    box-shadow:
+        0 0 20px rgba(0,229,255,.35),
+        0 30px 60px rgba(0,0,0,.6);
+}
 
 
-    /* ================================
-       HAMBURGER BUTTON
-    ================================= */
+/* ===================================
+IMAGE LIGHTBOX
+=================================== */
 
-    .menu-toggle{
+.lightbox-image img{
+    cursor:pointer;
+    transition:.35s ease;
+}
 
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        gap:6px;
-
-        width:36px;
-        height:36px;
-
-        background:none;
-        border:none;
-        cursor:pointer;
-
-        z-index:10001;
-    }
+.lightbox-image img:hover{
+    transform:translateY(-5px);
+    box-shadow:
+        0 0 20px rgba(0,229,255,.35),
+        0 30px 60px rgba(0,0,0,.6);
+}
 
 
-    .menu-toggle span{
+/* LIGHTBOX BACKGROUND */
 
-        width:22px;
-        height:2px;
+.lightbox{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.88);
+    backdrop-filter:blur(8px);
+    z-index:10000;
+    opacity:0;
+    visibility:hidden;
+    transition:.4s ease;
+}
 
-        background:#00E5FF;
 
-        transition:.35s ease;
-    }
-
-
-    /* ================================
-       MOBILE NAV MENU
-    ================================= */
-
-    .nav-links{
-
-        position:absolute;
-
-        top:65px;
-        left:0;
-
-        width:100%;
-
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-
-        gap:30px;
-
-        padding:40px 0;
-
-        background:rgba(5,5,7,.96);
-
-        border-bottom:
-            1px solid rgba(0,229,255,.25);
-
-        transform:
-            translateY(-120%);
-
-        opacity:0;
-
-        pointer-events:none;
-        transition:
-            transform .4s ease,
-            opacity .4s ease;
-    }
-
-.nav-links.mobile-open{
-    transform:
-        translateY(0);
+.lightbox.active{
     opacity:1;
-    pointer-events:auto;
+    visibility:visible;
 }
 
-    .nav-links a{
-        font-size:16px;
-        letter-spacing:.35em;
+
+/* BLACK IMAGE CONTAINER */
+
+.lightbox-box{
+    position:relative;
+    width:min(90vw,1100px);
+    max-height:90vh;
+    padding:40px;
+    background:#050507;
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.8);
+}
+
+
+/* LARGE IMAGE */
+
+.lightbox-image-large{
+    display:block;
+    max-width:100%;
+    max-height:80vh;
+    width:auto;
+    height:auto;
+    margin:auto;
+}
+
+.lightbox-description{
+    display:none;
+}
+
+
+/* CLOSE BUTTON */
+
+.lightbox-close{
+    position:absolute;
+    left:-35px;
+    top:20px;
+    width:42px;
+    height:42px;
+    background:none;
+    border:none;
+    cursor:pointer;
+}
+
+
+.lightbox-close span::before,
+.lightbox-close span::after{
+    content:"";
+    position:absolute;
+    top:20px;
+    left:10px;
+    width:22px;
+    height:2px;
+    background:white;
+    transition:.35s ease;
+}
+
+.lightbox-close span::before{
+    transform:rotate(45deg);
+}
+
+.lightbox-close span::after{
+    transform:rotate(-45deg);
+}
+
+
+/* CYAN ROTATING CIRCLE */
+
+.lightbox-close::before{
+    content:"";
+    position:absolute;
+    inset:-10px;
+    border-radius:50%;
+    border:2px solid transparent;
+    border-top-color:#00E5FF;
+    opacity:0;
+}
+
+.lightbox-close:hover::before{
+    opacity:1;
+    animation:
+        lightboxSpin 5s linear infinite;
+}
+
+.lightbox-close:hover span::before,
+.lightbox-close:hover span::after{
+    background:#00E5FF;
+}
+
+@keyframes lightboxSpin{
+    from{
+        transform:rotate(0deg);
     }
 
-    /* hamburger animation */
-
-    .menu-toggle.active span:nth-child(1){
-        transform:
-            rotate(45deg)
-            translate(5px,6px);
-    }
-
-    .menu-toggle.active span:nth-child(2){
-        opacity:0;
-    }
-
-    .menu-toggle.active span:nth-child(3){
-        transform:
-            rotate(-45deg)
-            translate(5px,-6px);
-    }
-
-    /* images */
-
-    .img-large{
-        width:85%;
-    }
-
-    .img-medium{
-        width:75%;
+    to{
+        transform:rotate(360deg);
     }
 }
 
-/* Small phones */
+/* ===================================
+MOBILE
+=================================== */
 
 @media(max-width:700px){
+
     .lightbox-box{
         width:90vw;
         padding:20px;
@@ -622,9 +513,71 @@ MOBILE RESPONSIVE
         top:-55px;
     }
 
-    .page-content{
-        width:92vw;
-        padding-top:85px;
-        padding-bottom:40px;
+}
+
+
+/* ===================================
+TABLET / SMALL DESKTOP NAV
+=================================== */
+
+@media(max-width:900px){
+
+    .navbar{
+        padding:0 20px;
     }
+
+    .nav-links{
+        gap:24px;
+    }
+
+    .nav-links a{
+        font-size:13px;
+        letter-spacing:.28em;
+    }
+
+    .logo-doe{
+        font-size:30px;
+    }
+
+    .logo-designs{
+        font-size:14px;
+    }
+
+}
+
+
+/* ===================================
+IMAGE RESPONSIVE
+=================================== */
+
+@media(max-width:768px){
+
+    .img-large{
+        width:85%;
+    }
+
+    .img-medium{
+        width:70%;
+    }
+
+}
+
+
+/* ===================================
+BACKGROUND EFFECT CANVAS
+=================================== */
+
+#effects,
+#dust{
+
+    position:fixed;
+    inset:0;
+
+    width:100vw;
+    height:100vh;
+
+    pointer-events:none;
+
+    z-index:1;
+
 }
