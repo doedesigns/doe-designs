@@ -71,7 +71,7 @@ HERO LOGO
 }
 
 .hero-logo-image {
-    width:clamp(200px,22vw,300px);
+    width:clamp(100px,18vw,200px);
     height:auto;
     display:block;
 }
