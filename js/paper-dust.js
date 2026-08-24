@@ -147,40 +147,52 @@ this.y += Math.sin(this.angle)*.08;
 
 
 
-/* subtle cursor attraction */
+/* subtle cursor influence */
 
 
 if(mouse.x !== null){
 
 
-const rect=
+const rect =
 this.canvas.getBoundingClientRect();
 
 
-
-const cursorX=
+const cursorX =
 mouse.x - rect.left;
 
 
-const cursorY=
+const cursorY =
 mouse.y - rect.top;
 
 
-
-const dx=
-cursorX - this.x;
-
-
-const dy=
-cursorY - this.y;
+const dx =
+this.x - cursorX;
 
 
+const dy =
+this.y - cursorY;
 
-/* very gentle movement */
 
-this.x += dx*this.mousePull;
+const distance =
+Math.sqrt(dx*dx + dy*dy);
 
-this.y += dy*this.mousePull;
+
+
+/* only affect nearby particles */
+
+if(distance < 180){
+
+
+const force =
+(180 - distance) / 180 * .015;
+
+
+this.x += dx * force;
+
+this.y += dy * force;
+
+
+}
 
 
 }
