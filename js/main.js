@@ -172,7 +172,7 @@ const footer = document.getElementById("footerCopyright");
 
 if (footer) {
     footer.innerHTML =
-        `© ${new Date().getFullYear()} Doe Designs · Website designed & built by Jen Doehne`;
+        `© ${new Date().getFullYear()} Doe Designs · Portfolio website designed & developed from concept to code by Jen Doehne`;
 }
     // ============================================
     // SUBTITLE
