@@ -59,7 +59,7 @@ background:
 linear-gradient(
 180deg,
 #081522,
-#003b00
+#002719
 );
 }
 
@@ -68,7 +68,7 @@ background:
 linear-gradient(
 180deg,
 #081522,
-#c34f00
+#9d2f00
 );
 }
 
@@ -77,7 +77,7 @@ background:
 linear-gradient(
 180deg,
 #081522,
-#a63600
+#780100
 );
 }
 
@@ -86,7 +86,7 @@ background:
 linear-gradient(
 180deg,
 #081522,
-#000fb9
+#000081
 );
 }
 
@@ -113,7 +113,7 @@ background:
 linear-gradient(
 180deg,
 #081522,
-#005217
+#003b18
 );
 }
 
@@ -122,7 +122,7 @@ background:
 linear-gradient(
 180deg,
 #081522,
-#960091
+#57005f
 );
 }
 
@@ -141,33 +141,6 @@ linear-gradient(
 180deg,
 #081522,
 #003b00
-);
-}
-
-body.bang-page {
-background:
-linear-gradient(
-180deg,
-#081522,
-#000000
-);
-}
-
-body.cali-page {
-background:
-linear-gradient(
-180deg,
-#081522,
-#811c00
-);
-}
-
-body.unconventional-page {
-background:
-linear-gradient(
-180deg,
-#081522,
-#3e0036
 );
 }
 

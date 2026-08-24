@@ -133,6 +133,37 @@ body.motion-project-page .project-navigation h1{
     text-align:center;
 }
 
+/*=========================================================
+GRADIENT BACKGROUND
+=========================================================*/
+
+body.bang-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#000000
+);
+}
+
+body.cali-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#811c00
+);
+}
+
+body.unconventional-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#3e0036
+);
+}
+
 /* ===================================
    FOOTER LINK
 =================================== */
