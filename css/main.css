@@ -358,6 +358,19 @@ LIGHTBOX TRANSITION
         0 30px 60px rgba(0,0,0,.6);
 }
 
+/* ===================================
+PROJECT YEAR
+=================================== */
+
+.project-year {
+    text-align:center;
+    font-family:"Jost", sans-serif;
+    font-size:18px;
+    letter-spacing:4px;
+    color:rgba(255,255,255,.6);
+    margin-top:20px;
+    text-transform:uppercase;
+}
 
 /* ===================================
 IMAGE LIGHTBOX
