@@ -434,8 +434,6 @@ CONTACT HEADER
 
 }
 
-
-
 /* ===================================
 RESUME SECTIONS
 BOOK SPINE VERSION
@@ -446,9 +444,9 @@ BOOK SPINE VERSION
 
     display:grid;
 
-    grid-template-columns:90px 1fr;
+    grid-template-columns:70px 1fr;
 
-    column-gap:35px;
+    column-gap:45px;
 
     margin-bottom:35px;
 
@@ -462,23 +460,21 @@ BOOK SPINE VERSION
 }
 
 
-/* left vertical book tab */
+/* ===================================
+BOOK SPINE LABEL
+=================================== */
+
 
 .section-label{
 
     position:relative;
 
-    display:flex;
-
-    justify-content:center;
-
-    align-items:flex-start;
+    display:block;
 
 }
 
 
-
-/* rotated word */
+/* vertical book title */
 
 .section-label h2{
 
@@ -486,15 +482,13 @@ BOOK SPINE VERSION
 
     top:0;
 
-    right:0;
+    right:8px;
 
     transform:
+        rotate(-90deg);
 
-        rotate(-90deg)
-
-        translateX(-100%);
-
-    transform-origin:right top;
+    transform-origin:
+        right top;
 
 
     font-family:"Barlow Condensed",sans-serif;
@@ -519,7 +513,7 @@ BOOK SPINE VERSION
 
 
 
-/* vertical extending line */
+/* short spine line */
 
 .section-label::after{
 
@@ -542,6 +536,8 @@ BOOK SPINE VERSION
 }
 
 
+/* hover behavior */
+
 .resume-section:hover .section-label h2{
 
     color:#FFFFFF;
@@ -554,7 +550,6 @@ BOOK SPINE VERSION
     height:100%;
 
 }
-
 
 
 .section-content{
