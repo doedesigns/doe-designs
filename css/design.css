@@ -31,11 +31,13 @@ body.design-page .page-content{
 
 .design-grid{
     flex:1;
-    display:flex;
+    display:grid;
+    grid-template-columns:repeat(3,260px);
     justify-content:center;
-    align-items:center;
+    align-content:center;
     gap:60px;
     width:100%;
+    margin:0 auto;
     position:relative;
     z-index:2;
 }
@@ -80,19 +82,13 @@ body.design-page .page-content{
 =========================================================*/
 
 .design-page .page-contact-link{
-
     margin:35px auto 25px;
-
 }
 
 .design-page .page-contact-link p{
-
     color:#ffffff;
-
     font-size:18px;
-
     letter-spacing:.04em;
-
 }
 
 /*=========================================================
@@ -100,15 +96,10 @@ body.design-page .page-content{
 =========================================================*/
 
 @media (max-width:900px){
-
     .design-grid{
-
-        flex-direction:column;
-
+        grid-template-columns:1fr;
         gap:40px;
-
-        padding:40px 0;
-
+        justify-items:center;
     }
 
 }
