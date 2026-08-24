@@ -45,6 +45,132 @@ linear-gradient(
 );
 }
 
+body.strategic-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#241968
+);
+}
+
+body.driftwood-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#003b00
+);
+}
+
+body.horsehair-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#c34f00
+);
+}
+
+body.montrapac-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#a63600
+);
+}
+
+body.odc-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#000fb9
+);
+}
+
+body.tip-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#000000
+);
+}
+
+body.deets-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#005e75
+);
+}
+
+body.lotus-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#005217
+);
+}
+
+body.fox-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#960091
+);
+}
+
+body.death-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#000000
+);
+}
+
+body.clean-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#003b00
+);
+}
+
+body.bang-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#000000
+);
+}
+
+body.cali-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#811c00
+);
+}
+
+body.unconventional-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#3e0036
+);
+}
+
 /*=========================================================
 PROJECT CONTAINER
 =========================================================*/
@@ -446,7 +572,7 @@ PROJECT IMAGES
 }
 
 .project-image-block img.img-medium{
-    width:70%;
+    width:85%;
     height:auto;
     margin:0 auto;
 }
@@ -512,6 +638,11 @@ TWO IMAGE ROW
 
 .project-gallery-row .project-image-block{
     margin-bottom:0;
+}
+
+.project-gallery-row .project-image-block p{
+    max-width:85%;
+    margin:25px auto 0;
 }
 
 /* ===================================
