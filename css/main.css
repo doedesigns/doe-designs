@@ -364,7 +364,7 @@ PROJECT YEAR
 .project-year {
     text-align:center;
     font-family:"Jost", sans-serif;
-     font-size:clamp(36px,5vw,55px);
+     font-size:clamp(26px,5vw,45px);
     letter-spacing:4px;
     color:rgba(255,255,255,.6);
      margin:60px 0;
