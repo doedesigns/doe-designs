@@ -261,141 +261,81 @@ DUST
 RESUME HEADER
 =================================== */
 
-
 .resume-header{
-
     margin-bottom:45px;
-
     padding-bottom:30px;
-
     border-bottom:
         1px solid rgba(0,229,255,.45);
-
+	text-align:center;
 }
-
 
 .resume-header h1{
-
     position:relative;
-
     display:inline-block;
-
     font-family:"Barlow Condensed",sans-serif;
-
     font-size:42px;
-
     font-weight:900;
-
     letter-spacing:.08em;
-
     color:#00E5FF;
-
     margin:0;
-
     transition:.35s ease;
-
 }
-
 
 .resume-header h1::after{
-
     content:"";
-
     position:absolute;
-
     left:0;
-
     bottom:-8px;
-
     width:100%;
-
     height:3px;
-
     background:#00E5FF;
-
     transform:scaleX(.35);
-
-    transform-origin:left;
-
+    transform-origin:center;
     transition:.35s ease;
-
 }
-
 
 .resume-header h1:hover{
-
     color:#FFFFFF;
-
 }
-
 
 .resume-header h1:hover::after{
-
     transform:scaleX(1);
-
 }
-
-
 
 .resume-title{
-
     margin-top:15px;
-
     font-family:"Barlow Condensed",sans-serif;
-
     font-size:18px;
-
     letter-spacing:.25em;
-
     color:#F5F5F5;
-
 }
-
-
 
 /* ===================================
 CONTACT HEADER
 =================================== */
 
-
 .resume-contact{
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     gap:12px;
-
     margin-top:22px;
-
     font-family:"DM Mono",monospace;
-
+	    padding-bottom:35px;
+    border-bottom:1px solid rgba(0,229,255,.35);
 }
-
 
 .contact-row{
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     flex-wrap:wrap;
-
     gap:clamp(20px,4vw,50px);
-
 }
-
 
 .contact-row > * + *{
-
     position:relative;
-
 }
-
 
 .contact-row > * + *::before{
 
@@ -420,18 +360,12 @@ CONTACT HEADER
     letter-spacing:1.5px;
 
     color:#B8C2C5;
-
     text-decoration:none;
-
     transition:.3s ease;
-
 }
 
-
 .resume-contact a:hover{
-
     color:#00E5FF;
-
 }
 
 /* ===================================
@@ -439,40 +373,25 @@ RESUME SECTIONS
 BOOK SPINE VERSION
 =================================== */
 
-
 .resume-section{
-
     display:grid;
-
-    grid-template-columns:70px 1fr;
-
-    column-gap:45px;
-
+    grid-template-columns:75px 1fr;
+    column-gap:20px;
     margin-bottom:35px;
-
-    padding:25px 0 25px;
-
+    padding:35px 0 25px;
     border-bottom:
         1px solid rgba(255,255,255,.12);
-
     position:relative;
-
 }
-
 
 /* ===================================
 BOOK SPINE LABEL
 =================================== */
 
-
 .section-label{
-
     position:relative;
-
     display:block;
-
 }
-
 
 /* vertical book title */
 
@@ -495,74 +414,51 @@ BOOK SPINE LABEL
     transition:.35s ease;
 }
 
-
+.two-line-label{
+    transform:translateX(-8px);
+}
 
 /* short spine line */
 
 .section-label::after{
 
     content:"";
-
     position:absolute;
-
-    right:-18px;
-
+    right:-12px;
     top:0;
-
     width:2px;
-
     height:35px;
-
     background:#00E5FF;
-
     transition:.45s ease;
-
 }
-
 
 /* hover behavior */
 
 .resume-section:hover .section-label h2{
-
     color:#FFFFFF;
-
 }
-
 
 .resume-section:hover .section-label::after{
-
     height:100%;
-
 }
 
-
 .section-content{
-
     min-width:0;
-
 }
 
 /* ===================================
 EXPERIENCE
 =================================== */
 
-
 .resume-entry{
-
     margin-bottom:28px;
-
 }
-
 
 .resume-entry:hover .resume-role{
-
     color:#00E5FF;
-
 }
 
-
 .resume-role{
-
     display:flex;
 
     justify-content:space-between;
@@ -638,40 +534,22 @@ EXPERIENCE
 SKILLS
 =================================== */
 
-
 .skill-grid{
-
     display:grid;
-
     grid-template-columns:1.25fr .75fr;
-
     gap:
-
         16px 35px;
-
 }
-
-
 
 .skill-grid div{
-
     display:grid;
-
     grid-template-columns:auto 1fr;
-
     gap:15px;
-
     align-items:baseline;
-
     padding-bottom:8px;
-
     border-bottom:
-
         1px solid rgba(255,255,255,.12);
-
 }
-
-
 
 .skill-title{
 
@@ -955,153 +833,88 @@ CONTACT AREA
 
 
 .social-links a:hover{
-
     color:#00E5FF;
-
 }
-
-
 
 .social-links span{
-
     margin:0 15px;
-
     color:rgba(255,255,255,.35);
-
 }
-
-
 
 /* ===================================
 FOOTER
 =================================== */
 
-
 body.about-page footer{
-
     position:relative;
-
     margin-top:auto;
-
     padding-bottom:40px;
-
     text-align:center;
-
     font-size:12px;
-
     letter-spacing:.18em;
-
     color:rgba(255,255,255,.45);
-
 }
-
-
 
 /* ===================================
 MOBILE
 =================================== */
 
-
 @media(max-width:700px){
 
-
     .about-paper{
-
         width:94vw;
-
         padding:
-
             35px 25px;
-
     }
-
 
     .about-resume-board{
-
         width:94vw;
-
     }
-
 
     .about-resume-paper{
-
         padding:
-
             40px 30px;
-
     }
-
 
     .about-profile{
-
         grid-template-columns:1fr;
-
         gap:25px;
-
     }
-
 
     .about-video{
-
         height:240px;
-
     }
-
 
     .about-introduction h1{
-
         font-size:38px;
-
     }
-
 
     .about-role{
-
         font-size:18px;
-
         letter-spacing:.35em;
-
     }
-
 
     .about-summary{
-
         font-size:16px;
-
     }
-
 
     .resume-header h1{
-
         font-size:32px;
-
     }
-
 
     .resume-title{
-
         font-size:15px;
-
     }
-
 
     .resume-contact{
-
         gap:10px;
-
         font-size:13px;
-
     }
-
 
     .contact-row{
-
         flex-direction:column;
-
         gap:10px;
-
     }
-
 
     .contact-row > * + *::before{
 
@@ -1109,23 +922,16 @@ MOBILE
 
     }
 
-
-
     /*
        Vertical book headings collapse
        back into normal headers on mobile
        because the page width is too narrow.
     */
 
-
     .resume-section{
-
         display:block;
-
         padding-left:0;
-
     }
-
 
     .section-label{
 
@@ -1145,70 +951,39 @@ MOBILE
     .section-label h2{
 
         position:relative;
-
         transform:none;
-
         right:auto;
-
         top:auto;
-
         display:inline-block;
-
         font-size:22px;
-
     }
-
 
     .section-label::after{
-
         position:absolute;
-
         left:0;
-
         top:auto;
-
         bottom:-8px;
-
         width:35%;
-
         height:2px;
-
     }
-
 
     .resume-section:hover .section-label::after{
-
         width:100%;
-
         height:2px;
-
     }
-
-
 
     .resume-role{
-
         flex-direction:column;
-
         gap:8px;
-
     }
-
-
 
     .skill-grid{
-
         grid-template-columns:1fr;
-
     }
 
-
     .skill-grid div{
-
         grid-template-columns:1fr;
-
         gap:5px;
-
     }
 
 
