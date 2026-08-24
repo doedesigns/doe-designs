@@ -1,12 +1,26 @@
 @charset "UTF-8";
+
 /* ===================================
 DOE DESIGNS
 ABOUT PAGE
 =================================== */
 
+
+/* ===================================
+PAGE
+=================================== */
+
 body.about-page{
     background:#050507;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
 }
+
+body.about-page main{
+    flex:1;
+}
+
 
 /* ===================================
 ABOUT WRAPPER
@@ -30,21 +44,24 @@ ABOUT WRAPPER
     align-items:center;
 }
 
+
 /* ===================================
 ABOUT INTRO FRAME
 =================================== */
 
 .about-paper{
     position:relative;
-	overflow:hidden;
+    overflow:hidden;
     width:min(780px,90vw);
     margin:0 auto 50px;
     padding:50px 60px;
     background:#050507;
     border:3px solid rgba(0,229,255,.65);
-    box-shadow:0 25px 80px rgba(0,0,0,.65);
+    box-shadow:
+        0 25px 80px rgba(0,0,0,.65);
     color:#F5F5F5;
 }
+
 
 .about-paper::before{
     content:"";
@@ -54,35 +71,44 @@ ABOUT INTRO FRAME
     pointer-events:none;
 }
 
+
 .about-paper > *:not(.section-dust){
     position:relative;
-    z-index:1;
+    z-index:2;
 }
+
 
 /* ===================================
 PROFILE
 =================================== */
 
 .about-profile{
+
     display:grid;
     grid-template-columns:240px 1fr;
     gap:40px;
     align-items:center;
     margin-bottom:35px;
+
 }
 
+
 .about-video{
+
     width:100%;
     height:280px;
     object-fit:cover;
     display:block;
+
 }
+
 
 /* ===================================
 INTRO TEXT
 =================================== */
 
 .about-introduction h1{
+
     font-family:"Caveat",cursive;
     font-size:clamp(42px,5vw,62px);
     font-weight:700;
@@ -90,572 +116,1127 @@ INTRO TEXT
     line-height:1.05;
     color:#00E5FF;
     margin:0;
+
 }
 
+
 .about-role{
+
     margin-top:20px;
     font-family:"DM Mono",monospace;
     font-size:22px;
     font-weight:700;
     letter-spacing:.55em;
     color:#F5F5F5;
+
 }
+
 
 /* ===================================
 ABOUT SUMMARY
 =================================== */
 
 .about-summary{
+
     margin-top:35px;
     padding:25px 0;
-    border-top:1px solid rgba(0,229,255,.45);
-    border-bottom:1px solid rgba(0,229,255,.45);
+
+    border-top:
+        1px solid rgba(0,229,255,.45);
+
+    border-bottom:
+        1px solid rgba(0,229,255,.45);
+
     font-family:"DM Mono",monospace;
     font-size:18px;
     line-height:1.55;
     color:#FFFFFF;
+
 }
+
 
 .about-summary p{
     margin-bottom:18px;
 }
+
 
 /* ===================================
 RESUME FRAME
 =================================== */
 
 .about-resume-board{
+
     position:relative;
     width:min(780px,90vw);
     margin:0 auto 40px;
+
 }
+
 
 .about-resume-paper{
+
     position:relative;
-    padding:55px 60px 50px;
+
+    padding:
+        55px 60px 50px;
+
     background:#050507;
-	border:2px solid rgba(0,229,255,.75);
-	box-shadow:
-		0 0 25px rgba(0,229,255,.18),
-		0 25px 80px rgba(0,0,0,.65);
+
+    border:
+        2px solid rgba(0,229,255,.75);
+
+    box-shadow:
+
+        0 0 25px rgba(0,229,255,.18),
+        0 25px 80px rgba(0,0,0,.65);
+
     color:#F5F5F5;
+
 }
 
-.resume-paper::before{
+
+/* inner paper line */
+
+.about-resume-paper::before{
+
     content:"";
+
     position:absolute;
+
     inset:14px;
-    border:1px solid rgba(0,229,255,.18);
+
+    border:
+        1px solid rgba(0,229,255,.18);
+
     pointer-events:none;
+
 }
+
+
+
+/* keep content above dust */
 
 .about-resume-paper > *:not(.section-dust):not(.resume-stamp){
+
     position:relative;
-    z-index:1;
+
+    z-index:2;
+
 }
 
+
+
 /* ===================================
-RESUME DUST LAYER
+DUST
 =================================== */
+
 
 .about-paper,
 .about-resume-paper{
+
     position:relative;
     overflow:hidden;
-	min-height:100px;
+    min-height:100px;
+
 }
+
 
 .section-dust{
+
     position:absolute;
+
     inset:0;
+
     width:100%;
     height:100%;
+
     pointer-events:none;
+
     z-index:1;
+
 }
 
-.about-paper > *:not(.section-dust),
-.about-resume-paper > *:not(.section-dust){
-    position:relative;
-    z-index:2;
-}
 
 /* ===================================
 RESUME HEADER
 =================================== */
 
+
 .resume-header{
+
     margin-bottom:45px;
+
     padding-bottom:30px;
-    border-bottom:1px solid rgba(0,229,255,.45);
+
+    border-bottom:
+        1px solid rgba(0,229,255,.45);
+
 }
+
 
 .resume-header h1{
+
     position:relative;
+
     display:inline-block;
+
     font-family:"Barlow Condensed",sans-serif;
+
     font-size:42px;
+
     font-weight:900;
+
     letter-spacing:.08em;
+
     color:#00E5FF;
+
     margin:0;
+
     transition:.35s ease;
+
 }
+
 
 .resume-header h1::after{
+
     content:"";
+
     position:absolute;
+
     left:0;
+
     bottom:-8px;
+
     width:100%;
+
     height:3px;
+
     background:#00E5FF;
+
     transform:scaleX(.35);
+
     transform-origin:left;
+
     transition:.35s ease;
+
 }
+
 
 .resume-header h1:hover{
+
     color:#FFFFFF;
+
 }
+
 
 .resume-header h1:hover::after{
+
     transform:scaleX(1);
+
 }
+
+
 
 .resume-title{
+
     margin-top:15px;
+
     font-family:"Barlow Condensed",sans-serif;
+
     font-size:18px;
+
     letter-spacing:.25em;
+
     color:#F5F5F5;
+
 }
+
+
+
+/* ===================================
+CONTACT HEADER
+=================================== */
+
 
 .resume-contact{
-    display:flex;
-    flex-wrap:wrap;
-	flex-direction:column;
-	align-items:center;
-    gap:12px;
-    margin-top:22px;
-    font-family:"DM Mono",monospace;
-    font-size:15px;
-    color:#B8C2C5;
-}
 
-.contact-row {
     display:flex;
-    justify-content:center;
+
+    flex-direction:column;
+
     align-items:center;
+
+    gap:12px;
+
+    margin-top:22px;
+
+    font-family:"DM Mono",monospace;
+
+}
+
+
+.contact-row{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
     flex-wrap:wrap;
-    gap:clamp(20px, 4vw, 50px);
+
+    gap:clamp(20px,4vw,50px);
+
 }
 
-.contact-row > * + * {
+
+.contact-row > * + *{
+
     position:relative;
+
 }
 
-.contact-row > * + *::before {
+
+.contact-row > * + *::before{
+
     content:"•";
+
     position:absolute;
-    left:calc(clamp(20px, 4vw, 50px) / -2);
+
+    left:calc(clamp(20px,4vw,50px) / -2);
+
     transform:translateX(-50%);
+
 }
+
 
 .resume-contact a,
-.resume-contact span {
-    font-family:"Jost", sans-serif;
+.resume-contact span{
+
+    font-family:"Jost",sans-serif;
+
     font-size:14px;
+
     letter-spacing:1.5px;
-	color:#B8C2C5;
+
+    color:#B8C2C5;
+
     text-decoration:none;
+
     transition:.3s ease;
+
 }
 
+
 .resume-contact a:hover{
+
     color:#00E5FF;
+
 }
+
+
 
 /* ===================================
 RESUME SECTIONS
+BOOK SPINE VERSION
 =================================== */
 
+
 .resume-section{
+
+    display:grid;
+
+    grid-template-columns:90px 1fr;
+
+    column-gap:35px;
+
     margin-bottom:35px;
-    padding:22px 0 18px;
-    border-bottom:1px solid rgba(255,255,255,.12);
-}
 
-.resume-section h2{
-    display:inline-block;
-    margin:0 0 20px;
-    padding:0 0 8px;
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:22px;
-    font-weight:700;
-    letter-spacing:.25em;
-    text-transform:uppercase;
-    color:#00E5FF;
+    padding:25px 0 25px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.12);
+
     position:relative;
+
 }
 
-.resume-section h2::after{
-    content:"";
+
+/* left vertical book tab */
+
+.section-label{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+}
+
+
+
+/* rotated word */
+
+.section-label h2{
+
     position:absolute;
-    left:0;
-    bottom:0;
-    width:35%;
-    height:2px;
-    background:#00E5FF;
+
+    top:0;
+
+    right:0;
+
+    transform:
+
+        rotate(-90deg)
+
+        translateX(-100%);
+
+    transform-origin:right top;
+
+
+    font-family:"Barlow Condensed",sans-serif;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    letter-spacing:.25em;
+
+    text-transform:uppercase;
+
+    color:#00E5FF;
+
+    white-space:nowrap;
+
+    margin:0;
+
     transition:.35s ease;
+
 }
 
-.resume-section:hover h2::after{
-    width:100%;
+
+
+/* vertical extending line */
+
+.section-label::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:-18px;
+
+    top:0;
+
+    width:2px;
+
+    height:35px;
+
+    background:#00E5FF;
+
+    transition:.45s ease;
+
+}
+
+
+.resume-section:hover .section-label h2{
+
+    color:#FFFFFF;
+
+}
+
+
+.resume-section:hover .section-label::after{
+
+    height:100%;
+
+}
+
+
+
+.section-content{
+
+    min-width:0;
+
 }
 
 /* ===================================
 EXPERIENCE
 =================================== */
 
+
 .resume-entry{
+
     margin-bottom:28px;
+
 }
+
 
 .resume-entry:hover .resume-role{
+
     color:#00E5FF;
+
 }
+
 
 .resume-role{
+
     display:flex;
+
     justify-content:space-between;
+
     align-items:flex-start;
+
     flex-wrap:wrap;
+
     gap:15px;
+
     font-family:"Jost",sans-serif;
+
     font-size:17px;
+
     font-weight:700;
+
     color:#FFFFFF;
-	transition:.3s ease;
+
+    transition:.3s ease;
+
 }
+
 
 .resume-role span:last-child{
+
     font-family:"DM Mono",monospace;
+
     font-size:16px;
+
     font-weight:400;
+
     color:#FFFFFF;
+
 }
+
 
 .resume-entry p{
-    margin:8px 0 12px;
+
+    margin:
+
+        8px 0 12px;
+
     font-family:"Jost",sans-serif;
+
     font-size:14px;
+
     color:#D4D9DB;
+
 }
+
 
 .resume-details{
+
     padding-left:20px;
+
 }
 
+
 .resume-details li{
+
     font-family:"Jost",sans-serif;
+
     font-size:15px;
+
     line-height:1.65;
+
     color:#F5F5F5;
+
 }
+
 
 /* ===================================
 SKILLS
 =================================== */
 
+
 .skill-grid{
+
     display:grid;
+
     grid-template-columns:1.25fr .75fr;
-    gap:16px 35px;
+
+    gap:
+
+        16px 35px;
+
 }
+
+
 
 .skill-grid div{
+
     display:grid;
+
     grid-template-columns:auto 1fr;
+
     gap:15px;
+
     align-items:baseline;
+
     padding-bottom:8px;
-    border-bottom:1px solid rgba(255,255,255,.12);
+
+    border-bottom:
+
+        1px solid rgba(255,255,255,.12);
+
 }
+
+
 
 .skill-title{
+
     font-family:"Jost",sans-serif;
+
     font-size:15px;
+
     font-weight:700;
+
     color:#FFFFFF;
+
     white-space:nowrap;
+
 }
 
+
+
 .skills-tools{
+
     font-family:"DM Mono",monospace;
+
     font-size:13px;
+
     color:#B8C2C5;
+
     text-align:right;
+
 }
+
+
 
 /* ===================================
 EDUCATION
 =================================== */
 
+
 .education-entry{
+
     margin-bottom:28px;
+
 }
+
 
 .education-entry:hover .education-degree{
+
     color:#00E5FF;
+
 }
+
+
 
 .education-degree{
+
     margin:0;
+
     font-family:"Jost",sans-serif;
+
     font-size:17px;
+
     font-weight:700;
+
     color:#FFFFFF;
+
+    transition:.3s ease;
+
 }
+
+
 
 .education-school{
-    margin:6px 0;
+
+    margin:
+
+        6px 0;
+
     font-family:"DM Mono",monospace;
+
     font-size:15px;
+
     color:#B8C2C5;
+
 }
+
+
 
 .education-focus{
+
     margin:0;
+
     font-family:"Jost",sans-serif;
+
     font-size:14px;
+
     line-height:1.6;
+
     color:#D4D9DB;
+
 }
 
+
+
 .education-focus span{
+
     font-weight:700;
+
     color:#FFFFFF;
+
 }
+
+
 
 /* ===================================
 ACTIVITIES
 =================================== */
 
+
 .activities-text p{
+
     margin:0;
+
     font-family:"Jost",sans-serif;
+
     font-size:15px;
+
     font-weight:500;
+
     line-height:1.7;
+
     color:#B8C2C5;
+
 }
-
-
-/* ===================================
-   RESUME STAMP
-=================================== */
-/*
-.about-resume-paper{
-    position:relative;
-}
-
-.resume-stamp{
-    position:absolute;
-    right:35px;
-    top:35px;
-    padding:10px 14px;
-    border:2px solid rgba(0,229,255,.85);
-    color:white;
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:13px;
-    letter-spacing:.18em;
-    line-height:1.2;
-    text-align:center;
-    transform:rotate(-12deg);
-    z-index:5;
-    white-space:nowrap;
-}*/
 
 /* ===================================
 DOWNLOAD BUTTON
 =================================== */
 
+
 .copy-wrapper{
+
     text-align:center;
+
     margin-top:35px;
+
 }
+
+
 
 .copy-button{
+
     position:relative;
+
     display:inline-block;
+
     color:#00E5FF;
+
     text-decoration:none;
+
     font-family:"Barlow Condensed",sans-serif;
+
     font-size:20px;
+
     font-weight:700;
+
     letter-spacing:.22em;
+
 }
+
+
 
 .copy-button::after{
+
     content:"";
+
     position:absolute;
+
     left:0;
+
     bottom:-8px;
+
     width:100%;
+
     height:2px;
+
     background:#00E5FF;
+
     transform:scaleX(.3);
+
+    transform-origin:left;
+
     transition:.35s ease;
+
 }
+
+
 
 .copy-button:hover{
+
     color:#FFFFFF;
+
 }
 
+
+
 .copy-button:hover::after{
+
     transform:scaleX(1);
+
 }
+
+
 
 /* ===================================
 CONTACT AREA
 =================================== */
 
+
 .about-page .page-contact-link{
+
     text-align:center;
+
     position:relative;
+
     z-index:2;
+
     margin-top:35px;
+
 }
+
+
 
 .page-contact-link p{
-    margin:0 0 22px;
+
+    margin:
+
+        0 0 22px;
+
     font-family:"Jost",sans-serif;
+
     font-size:16px;
+
     font-weight:400;
+
     letter-spacing:.08em;
+
     text-transform:none;
+
     color:#FFFFFF;
+
 }
+
+
 
 .social-links{
+
     margin-top:35px;
+
     text-align:center;
+
 }
+
+
 
 .social-links a{
+
     font-family:"Barlow Condensed",sans-serif;
+
     font-size:18px;
+
     font-weight:700;
+
     letter-spacing:.2em;
+
     color:#FFFFFF;
+
     text-decoration:none;
+
+    transition:.3s ease;
+
 }
+
+
 
 .social-links a:hover{
+
     color:#00E5FF;
+
 }
 
+
+
 .social-links span{
+
     margin:0 15px;
+
     color:rgba(255,255,255,.35);
+
 }
+
+
 
 /* ===================================
 FOOTER
 =================================== */
 
-body.about-page{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-}
-
-body.about-page main{
-    flex:1;
-}
 
 body.about-page footer{
+
     position:relative;
+
     margin-top:auto;
+
     padding-bottom:40px;
+
     text-align:center;
+
     font-size:12px;
+
     letter-spacing:.18em;
+
     color:rgba(255,255,255,.45);
+
 }
+
+
 
 /* ===================================
 MOBILE
 =================================== */
 
+
 @media(max-width:700px){
 
+
     .about-paper{
+
         width:94vw;
-        padding:35px 25px;
+
+        padding:
+
+            35px 25px;
+
     }
 
-    .resume-board{
+
+    .about-resume-board{
+
         width:94vw;
+
     }
 
-    .resume-paper{
-        padding:40px 30px;
+
+    .about-resume-paper{
+
+        padding:
+
+            40px 30px;
+
     }
+
 
     .about-profile{
+
         grid-template-columns:1fr;
+
         gap:25px;
+
     }
+
 
     .about-video{
+
         height:240px;
+
     }
+
 
     .about-introduction h1{
+
         font-size:38px;
+
     }
+
 
     .about-role{
+
         font-size:18px;
+
         letter-spacing:.35em;
+
     }
+
 
     .about-summary{
-        font-size:24px;
+
+        font-size:16px;
+
     }
+
 
     .resume-header h1{
+
         font-size:32px;
+
     }
+
 
     .resume-title{
+
         font-size:15px;
+
     }
+
 
     .resume-contact{
-        flex-direction:column;
+
         gap:10px;
+
         font-size:13px;
+
     }
+
+
+    .contact-row{
+
+        flex-direction:column;
+
+        gap:10px;
+
+    }
+
+
+    .contact-row > * + *::before{
+
+        display:none;
+
+    }
+
+
+
+    /*
+       Vertical book headings collapse
+       back into normal headers on mobile
+       because the page width is too narrow.
+    */
+
+
+    .resume-section{
+
+        display:block;
+
+        padding-left:0;
+
+    }
+
+
+    .section-label{
+
+        position:relative;
+
+        height:auto;
+
+        width:auto;
+
+        margin-bottom:20px;
+
+        display:block;
+
+    }
+
+
+    .section-label h2{
+
+        position:relative;
+
+        transform:none;
+
+        right:auto;
+
+        top:auto;
+
+        display:inline-block;
+
+        font-size:22px;
+
+    }
+
+
+    .section-label::after{
+
+        position:absolute;
+
+        left:0;
+
+        top:auto;
+
+        bottom:-8px;
+
+        width:35%;
+
+        height:2px;
+
+    }
+
+
+    .resume-section:hover .section-label::after{
+
+        width:100%;
+
+        height:2px;
+
+    }
+
+
 
     .resume-role{
+
         flex-direction:column;
+
         gap:8px;
+
     }
+
+
 
     .skill-grid{
+
         grid-template-columns:1fr;
+
     }
+
 
     .skill-grid div{
+
         grid-template-columns:1fr;
+
         gap:5px;
+
     }
 
+
     .skills-tools{
+
         text-align:left;
+
     }
 
 }
