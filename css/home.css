@@ -100,8 +100,10 @@ HERO VIDEO
 .hero-video-wrapper {
     position:relative;
     display:inline-block;
-	justify-content:center;
+    justify-content:center;
     align-items:center;
+    margin-top:-15px;
+    margin-bottom:-15px;
 }
 
 .hero-video {
