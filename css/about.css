@@ -477,38 +477,22 @@ BOOK SPINE LABEL
 /* vertical book title */
 
 .section-label h2{
-
     position:absolute;
-
     top:0;
-
-    right:8px;
-
+    right:15px;
     transform:
         rotate(-90deg);
-
     transform-origin:
         right top;
-
-
     font-family:"Barlow Condensed",sans-serif;
-
     font-size:22px;
-
     font-weight:700;
-
     letter-spacing:.25em;
-
     text-transform:uppercase;
-
     color:#00E5FF;
-
     white-space:nowrap;
-
     margin:0;
-
     transition:.35s ease;
-
 }
 
 
