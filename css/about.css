@@ -366,7 +366,7 @@ BOOK SPINE LABEL
 
 .section-label.off-hours-label h2{
     transform:
-        translateY(40px)
+        translateY(5px)
         rotate(-90deg);
 }
 
