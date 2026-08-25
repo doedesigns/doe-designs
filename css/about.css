@@ -340,7 +340,7 @@ BOOK SPINE LABEL
 .section-label h2{
     position:absolute;
     top:0;
-    right:55px;
+    right:45px;
     transform:rotate(-90deg);
     transform-origin:right top;
     font-family:"Barlow Condensed",sans-serif;
@@ -371,7 +371,7 @@ BOOK SPINE LABEL
 .section-label::after{
     content:"";
     position:absolute;
-    right:25px;
+    right:20px;
     top:0;
     width:2px;
     height:35px;
@@ -382,7 +382,7 @@ BOOK SPINE LABEL
 /* move line left only for two-line headings */
 
 .section-label:has(.two-line-label)::after{
-    right:35px;
+    right:75px;
 }
 
 /* ===============================
