@@ -323,7 +323,6 @@ BOOK SPINE VERSION
     border-bottom:
         1px solid rgba(255,255,255,.12);
     position:relative;
-	transform:translateX(-75px);
 }
 
 /* ===================================
@@ -357,7 +356,7 @@ BOOK SPINE LABEL
 }
 
 .two-line-label{
-    transform:translateX(-75px);
+    transform:translateX(-65px);
 }
 
 /* short spine line */
