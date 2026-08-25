@@ -155,8 +155,7 @@ RESUME FRAME
 
 .about-resume-paper{
     position:relative;
-    padding:
-        55px 60px 50px;
+    padding:55px 40px 50px 25px;
     background:#050507;
     border:
         2px solid rgba(0,229,255,.75);
@@ -327,8 +326,8 @@ BOOK SPINE VERSION
 
 .resume-section{
     display:grid;
-    grid-template-columns:65px 1fr;
-    column-gap:20px;
+    grid-template-columns:75px 1fr;
+    column-gap:10px;
     margin-bottom:35px;
     padding:25px 0 25px;
     border-bottom:
@@ -350,7 +349,7 @@ BOOK SPINE LABEL
 .section-label h2{
     position:absolute;
     top:0;
-    right:17px;
+    right:25px;
     transform:
         rotate(-90deg);
     transform-origin:
