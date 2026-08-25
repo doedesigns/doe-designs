@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const heroObject = document.getElementById("hero-object");
     const enterButton = document.getElementById("enterPortfolio");
     const heroSubtitle = document.getElementById("heroSubtitle");
-
     const speechBubble = document.querySelector(".speech-bubble");
     const navLogo = document.querySelector(".logo");
 
@@ -76,7 +75,6 @@ document.dispatchEvent(
             detail:{ element }
         })
     );
-
 }
     function startFireworks(element){
 
@@ -106,9 +104,9 @@ function stopFireworks(element){
     }
 }
 
-    // ============================================
-    // HERO OBJECT
-    // ============================================
+// ============================================
+// HERO OBJECT
+// ============================================
 
     if (heroObject) {
 
@@ -125,32 +123,26 @@ function stopFireworks(element){
             stopFireworks(heroObject);
 
         });
-
     }
 	
-    // ============================================
-    // ENTER BUTTON
-    // ============================================
+// ============================================
+// ENTER BUTTON
+// ============================================
 
     if (enterButton) {
-
         enterButton.addEventListener("mouseenter", () => {
-
             startFireworks(enterButton);
-
         });
 
         enterButton.addEventListener("mouseleave", () => {
-
             stopFireworks(enterButton);
 
         });
-
     }
 
-    // ============================================
-    // CONTACT DATE
-    // ============================================
+// ============================================
+// CONTACT DATE
+// ============================================
 	
 	const date=document.getElementById("contactDate");
 
@@ -164,6 +156,7 @@ date.textContent= new Date()
     });
 
 }
+	
 // ============================================
 // FOOTER
 // ============================================
@@ -174,22 +167,18 @@ if (footer) {
     footer.innerHTML =
         `© ${new Date().getFullYear()} Doe Designs · Portfolio website designed & developed from concept to code by Jen Doehne`;
 }
-    // ============================================
-    // SUBTITLE
-    // ============================================
+	
+// ============================================
+// SUBTITLE
+// ============================================
 
     if (heroSubtitle) {
-
         heroSubtitle.addEventListener("mouseenter", () => {
-
             startFireworks(heroSubtitle);
-
         });
 
         heroSubtitle.addEventListener("mouseleave", () => {
-
             stopFireworks(heroSubtitle);
-
         });
 
     }
@@ -199,31 +188,20 @@ if (footer) {
 
 const projectPage =
 document.querySelector(".project-page");
-
 const navbar =
 document.querySelector(".navbar");
-
 const projectTitleNav =
 document.querySelector(".project-title-nav");
-
-
 if(projectPage && navbar && projectTitleNav){
-
 window.addEventListener("scroll",()=>{
-
 if(window.scrollY > 80){
-
 navbar.classList.add("project-scrolled");
-
 }
+	
 else{
-
 navbar.classList.remove("project-scrolled");
-
 }
-
 });
-
 }
 
 // ============================================
@@ -231,52 +209,31 @@ navbar.classList.remove("project-scrolled");
 // ============================================
 
 if(projectTitleNav){
-
 projectTitleNav.addEventListener("click",()=>{
-
 window.scrollTo({
-
 top:0,
-
 behavior:"smooth"
-
 });
-
 });
-
 } 
 	// ============================================
 // MOTION CARD HOVER VIDEO PREVIEWS
 // ============================================
 
 if (document.body.classList.contains("motion-page")) {
-
     document.querySelectorAll(".motion-card").forEach(card => {
-
         const video = card.querySelector(".motion-video");
-
         if (!video) return;
-
-
         card.addEventListener("mouseenter", () => {
-
             video.currentTime = Number(video.dataset.start || 0);
-
             video.play();
-
         });
-
 
         card.addEventListener("mouseleave", () => {
-
             video.pause();
-
             video.currentTime = Number(video.dataset.start || 0);
-
         });
-
     });
-
 }
 	// ============================================
 // YOUTUBE MOTION CARD PREVIEW
@@ -285,31 +242,21 @@ if (document.body.classList.contains("motion-page")) {
 if (document.body.classList.contains("motion-page")) {
 
     const youtubePreview = document.querySelector(".youtube-motion-preview");
-
     if (youtubePreview) {
-
         let youtubePlayer = null;
         let youtubeReady = false;
-
         const videoId = youtubePreview.dataset.videoId;
         const startTime = Number(youtubePreview.dataset.start || 0);
 
-
         // Load YouTube IFrame API
         const youtubeScript = document.createElement("script");
-
         youtubeScript.src = "https://www.youtube.com/iframe_api";
-
         document.head.appendChild(youtubeScript);
-
 
         // YouTube calls this automatically when the API is ready
         window.onYouTubeIframeAPIReady = function () {
-
             youtubePlayer = new YT.Player(youtubePreview, {
-
                 videoId: videoId,
-
                 playerVars: {
                     autoplay: 0,
                     controls: 0,
@@ -319,40 +266,23 @@ if (document.body.classList.contains("motion-page")) {
                 },
 
                 events: {
-
                     onReady: function (event) {
-
                         youtubeReady = true;
-
                         event.target.mute();
-
                         event.target.seekTo(startTime, true);
-
                     }
-
                 }
-
             });
-
         };
-
 
         const youtubeCard =
             youtubePreview.closest(".youtube-motion-card");
-
-
         if (youtubeCard) {
-
             youtubeCard.addEventListener("mouseenter", () => {
-
                 if (!youtubeReady || !youtubePlayer) return;
-
                 youtubePlayer.seekTo(startTime, true);
-
                 youtubePlayer.mute();
-
                 youtubePlayer.playVideo();
-
             });
 
             youtubeCard.addEventListener("mouseleave", () => {
