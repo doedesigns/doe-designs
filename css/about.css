@@ -326,7 +326,7 @@ BOOK SPINE VERSION
 
 .resume-section{
     display:grid;
-    grid-template-columns:75px 1fr;
+    grid-template-columns:85px 1fr;
     column-gap:10px;
     margin-bottom:35px;
     padding:25px 0 25px;
@@ -349,7 +349,7 @@ BOOK SPINE LABEL
 .section-label h2{
     position:absolute;
     top:0;
-    right:25px;
+    right:35px;
     transform:
         rotate(-90deg);
     transform-origin:
@@ -366,7 +366,7 @@ BOOK SPINE LABEL
 }
 
 .two-line-label{
-    transform:translateX(-8px);
+    transform:translateX(-25px);
 }
 
 /* short spine line */
