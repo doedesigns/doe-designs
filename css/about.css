@@ -308,7 +308,6 @@ CONTACT HEADER
 .resume-contact a:hover{
     color:#00E5FF;
 }
-
 /* ===================================
 RESUME SECTIONS
 BOOK SPINE VERSION
@@ -316,14 +315,14 @@ BOOK SPINE VERSION
 
 .resume-section{
     display:grid;
-    grid-template-columns:70px 1fr;
-    column-gap:10px;
+    grid-template-columns:60px 1fr;
+    column-gap:5px;
     margin-bottom:35px;
     padding:25px 0 25px;
-    border-bottom:
-        1px solid rgba(255,255,255,.12);
+    border-bottom:1px solid rgba(255,255,255,.12);
     position:relative;
 }
+
 
 /* ===================================
 BOOK SPINE LABEL
@@ -334,16 +333,17 @@ BOOK SPINE LABEL
     display:block;
 }
 
-/* vertical book title */
+
+/* default single-line headings */
 
 .section-label h2{
     position:absolute;
     top:0;
-    right:105px;
-    transform:
-        rotate(-90deg);
-    transform-origin:
-        right top;
+    right:70px;
+
+    transform:rotate(-90deg);
+    transform-origin:right top;
+
     font-family:"Barlow Condensed",sans-serif;
     font-size:22px;
     font-weight:700;
@@ -355,13 +355,15 @@ BOOK SPINE LABEL
     transition:.35s ease;
 }
 
-.two-line-label{
-    transform:translateX(10px);
-	width:100px;
+/* two-line headings only */
+
+.section-label h2.two-line-label{
+    right:95px;
+    width:100px;
     text-align:center;
 }
 
-/* short spine line */
+/* default vertical line */
 
 .section-label::after{
     content:"";
@@ -372,6 +374,12 @@ BOOK SPINE LABEL
     height:35px;
     background:#00E5FF;
     transition:.45s ease;
+}
+
+/* move line left only for two-line headings */
+
+.section-label:has(.two-line-label)::after{
+    right:60px;
 }
 
 /* hover behavior */
@@ -387,7 +395,6 @@ BOOK SPINE LABEL
 .section-content{
     min-width:0;
 }
-
 /* ===================================
 EXPERIENCE
 =================================== */
