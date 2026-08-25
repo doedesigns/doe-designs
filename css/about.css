@@ -326,7 +326,7 @@ BOOK SPINE VERSION
 
 .resume-section{
     display:grid;
-    grid-template-columns:115px 1fr;
+    grid-template-columns:145px 1fr;
     column-gap:10px;
     margin-bottom:35px;
     padding:25px 0 25px;
