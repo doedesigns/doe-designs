@@ -21,7 +21,6 @@ body.about-page main{
     flex:1;
 }
 
-
 /* ===================================
 ABOUT WRAPPER
 =================================== */
@@ -92,16 +91,12 @@ PROFILE
 
 }
 
-
 .about-video{
-
     width:100%;
     height:280px;
     object-fit:cover;
     display:block;
-
 }
-
 
 /* ===================================
 INTRO TEXT
@@ -116,146 +111,98 @@ INTRO TEXT
     line-height:1.05;
     color:#00E5FF;
     margin:0;
-
 }
 
-
 .about-role{
-
     margin-top:20px;
     font-family:"DM Mono",monospace;
     font-size:22px;
     font-weight:700;
     letter-spacing:.55em;
     color:#F5F5F5;
-
 }
-
 
 /* ===================================
 ABOUT SUMMARY
 =================================== */
 
 .about-summary{
-
     margin-top:35px;
     padding:25px 0;
-
     border-top:
         1px solid rgba(0,229,255,.45);
-
     border-bottom:
         1px solid rgba(0,229,255,.45);
-
     font-family:"DM Mono",monospace;
     font-size:18px;
     line-height:1.55;
     color:#FFFFFF;
-
 }
-
 
 .about-summary p{
     margin-bottom:18px;
 }
-
 
 /* ===================================
 RESUME FRAME
 =================================== */
 
 .about-resume-board{
-
     position:relative;
     width:min(780px,90vw);
     margin:0 auto 40px;
-
 }
-
 
 .about-resume-paper{
-
     position:relative;
-
     padding:
         55px 60px 50px;
-
     background:#050507;
-
     border:
         2px solid rgba(0,229,255,.75);
-
     box-shadow:
-
         0 0 25px rgba(0,229,255,.18),
         0 25px 80px rgba(0,0,0,.65);
-
     color:#F5F5F5;
-
 }
-
 
 /* inner paper line */
 
 .about-resume-paper::before{
-
     content:"";
-
     position:absolute;
-
     inset:14px;
-
     border:
         1px solid rgba(0,229,255,.18);
-
     pointer-events:none;
-
 }
-
-
 
 /* keep content above dust */
 
 .about-resume-paper > *:not(.section-dust):not(.resume-stamp){
-
     position:relative;
-
     z-index:2;
-
 }
-
-
 
 /* ===================================
 DUST
 =================================== */
 
-
 .about-paper,
 .about-resume-paper{
-
     position:relative;
     overflow:hidden;
     min-height:100px;
-
 }
-
 
 .section-dust{
-
     position:absolute;
-
     inset:0;
-
     width:100%;
     height:100%;
-
     pointer-events:none;
-
     z-index:1;
-
 }
-
 
 /* ===================================
 RESUME HEADER
@@ -266,7 +213,6 @@ RESUME HEADER
     padding-bottom:30px;
     border-bottom:
         1px solid rgba(0,229,255,.45);
-	text-align:center;
 }
 
 .resume-header h1{
@@ -300,6 +246,12 @@ RESUME HEADER
 
 .resume-header h1:hover::after{
     transform:scaleX(1);
+}
+
+.resume-header h1,
+.resume-title{
+    display:block;
+    text-align:center;
 }
 
 .resume-title{
@@ -375,10 +327,10 @@ BOOK SPINE VERSION
 
 .resume-section{
     display:grid;
-    grid-template-columns:75px 1fr;
+    grid-template-columns:65px 1fr;
     column-gap:20px;
     margin-bottom:35px;
-    padding:35px 0 25px;
+    padding:25px 0 25px;
     border-bottom:
         1px solid rgba(255,255,255,.12);
     position:relative;
@@ -398,7 +350,7 @@ BOOK SPINE LABEL
 .section-label h2{
     position:absolute;
     top:0;
-    right:15px;
+    right:17px;
     transform:
         rotate(-90deg);
     transform-origin:
@@ -421,10 +373,9 @@ BOOK SPINE LABEL
 /* short spine line */
 
 .section-label::after{
-
     content:"";
     position:absolute;
-    right:-12px;
+    right:-18px;
     top:0;
     width:2px;
     height:35px;
@@ -460,75 +411,42 @@ EXPERIENCE
 
 .resume-role{
     display:flex;
-
     justify-content:space-between;
-
     align-items:flex-start;
-
     flex-wrap:wrap;
-
     gap:15px;
-
     font-family:"Jost",sans-serif;
-
     font-size:17px;
-
     font-weight:700;
-
     color:#FFFFFF;
-
     transition:.3s ease;
-
 }
-
 
 .resume-role span:last-child{
-
     font-family:"DM Mono",monospace;
-
     font-size:16px;
-
     font-weight:400;
-
     color:#FFFFFF;
-
 }
-
 
 .resume-entry p{
-
     margin:
-
         8px 0 12px;
-
     font-family:"Jost",sans-serif;
-
     font-size:14px;
-
     color:#D4D9DB;
-
 }
-
 
 .resume-details{
-
     padding-left:20px;
-
 }
-
 
 .resume-details li{
-
     font-family:"Jost",sans-serif;
-
     font-size:15px;
-
     line-height:1.65;
-
     color:#F5F5F5;
-
 }
-
 
 /* ===================================
 SKILLS
@@ -552,285 +470,152 @@ SKILLS
 }
 
 .skill-title{
-
     font-family:"Jost",sans-serif;
-
     font-size:15px;
-
     font-weight:700;
-
     color:#FFFFFF;
-
     white-space:nowrap;
-
 }
-
-
 
 .skills-tools{
-
     font-family:"DM Mono",monospace;
-
     font-size:13px;
-
     color:#B8C2C5;
-
     text-align:right;
-
 }
-
-
 
 /* ===================================
 EDUCATION
 =================================== */
 
-
 .education-entry{
-
     margin-bottom:28px;
-
 }
-
 
 .education-entry:hover .education-degree{
-
     color:#00E5FF;
-
 }
-
-
 
 .education-degree{
-
     margin:0;
-
     font-family:"Jost",sans-serif;
-
     font-size:17px;
-
     font-weight:700;
-
     color:#FFFFFF;
-
     transition:.3s ease;
-
 }
-
-
 
 .education-school{
-
     margin:
-
         6px 0;
-
     font-family:"DM Mono",monospace;
-
     font-size:15px;
-
     color:#B8C2C5;
-
 }
-
-
 
 .education-focus{
-
     margin:0;
-
     font-family:"Jost",sans-serif;
-
     font-size:14px;
-
     line-height:1.6;
-
     color:#D4D9DB;
-
 }
-
-
 
 .education-focus span{
-
     font-weight:700;
-
     color:#FFFFFF;
-
 }
-
-
 
 /* ===================================
 ACTIVITIES
 =================================== */
 
-
 .activities-text p{
-
     margin:0;
-
     font-family:"Jost",sans-serif;
-
     font-size:15px;
-
     font-weight:500;
-
     line-height:1.7;
-
     color:#B8C2C5;
-
 }
 
 /* ===================================
 DOWNLOAD BUTTON
 =================================== */
 
-
 .copy-wrapper{
-
     text-align:center;
-
     margin-top:35px;
-
 }
-
-
 
 .copy-button{
-
     position:relative;
-
     display:inline-block;
-
     color:#00E5FF;
-
     text-decoration:none;
-
     font-family:"Barlow Condensed",sans-serif;
-
     font-size:20px;
-
     font-weight:700;
-
     letter-spacing:.22em;
-
 }
-
-
 
 .copy-button::after{
-
     content:"";
-
     position:absolute;
-
     left:0;
-
     bottom:-8px;
-
     width:100%;
-
     height:2px;
-
     background:#00E5FF;
-
     transform:scaleX(.3);
-
     transform-origin:left;
-
     transition:.35s ease;
-
 }
-
-
 
 .copy-button:hover{
-
     color:#FFFFFF;
-
 }
-
-
 
 .copy-button:hover::after{
-
     transform:scaleX(1);
-
 }
-
-
 
 /* ===================================
 CONTACT AREA
 =================================== */
 
-
 .about-page .page-contact-link{
-
     text-align:center;
-
     position:relative;
-
     z-index:2;
-
     margin-top:35px;
-
 }
-
-
 
 .page-contact-link p{
-
     margin:
-
         0 0 22px;
-
     font-family:"Jost",sans-serif;
-
     font-size:16px;
-
     font-weight:400;
-
     letter-spacing:.08em;
-
     text-transform:none;
-
     color:#FFFFFF;
-
 }
-
-
 
 .social-links{
-
     margin-top:35px;
-
     text-align:center;
-
 }
-
-
 
 .social-links a{
-
     font-family:"Barlow Condensed",sans-serif;
-
     font-size:18px;
-
     font-weight:700;
-
     letter-spacing:.2em;
-
     color:#FFFFFF;
-
     text-decoration:none;
-
     transition:.3s ease;
-
 }
-
-
 
 .social-links a:hover{
     color:#00E5FF;
