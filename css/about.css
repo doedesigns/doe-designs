@@ -333,17 +333,16 @@ BOOK SPINE LABEL
     display:block;
 }
 
-
-/* default single-line headings */
+/* ===============================
+   SINGLE LINE HEADINGS
+=============================== */
 
 .section-label h2{
     position:absolute;
     top:0;
-    right:70px;
-
+    right:55px;
     transform:rotate(-90deg);
     transform-origin:right top;
-
     font-family:"Barlow Condensed",sans-serif;
     font-size:22px;
     font-weight:700;
@@ -355,7 +354,9 @@ BOOK SPINE LABEL
     transition:.35s ease;
 }
 
-/* two-line headings only */
+/* ===============================
+   TWO LINE HEADINGS
+=============================== */
 
 .section-label h2.two-line-label{
     right:95px;
@@ -363,12 +364,14 @@ BOOK SPINE LABEL
     text-align:center;
 }
 
-/* default vertical line */
+/* ===============================
+   VERTICAL SPINE LINE
+=============================== */
 
 .section-label::after{
     content:"";
     position:absolute;
-    right:40px;
+    right:25px;
     top:0;
     width:2px;
     height:35px;
@@ -379,10 +382,12 @@ BOOK SPINE LABEL
 /* move line left only for two-line headings */
 
 .section-label:has(.two-line-label)::after{
-    right:60px;
+    right:35px;
 }
 
-/* hover behavior */
+/* ===============================
+   HOVER
+=============================== */
 
 .resume-section:hover .section-label h2{
     color:#FFFFFF;
