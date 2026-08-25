@@ -356,7 +356,8 @@ BOOK SPINE LABEL
     width:100px;
     text-align:center;
 	transform:
-        rotate(-90deg);
+        rotate(-90deg)
+		translateX(-50px);
     transform-origin:
         right top;
 }
