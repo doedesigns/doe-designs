@@ -43,7 +43,6 @@ ABOUT WRAPPER
     align-items:center;
 }
 
-
 /* ===================================
 ABOUT INTRO FRAME
 =================================== */
@@ -61,7 +60,6 @@ ABOUT INTRO FRAME
     color:#F5F5F5;
 }
 
-
 .about-paper::before{
     content:"";
     position:absolute;
@@ -70,25 +68,21 @@ ABOUT INTRO FRAME
     pointer-events:none;
 }
 
-
 .about-paper > *:not(.section-dust){
     position:relative;
     z-index:2;
 }
-
 
 /* ===================================
 PROFILE
 =================================== */
 
 .about-profile{
-
     display:grid;
     grid-template-columns:240px 1fr;
     gap:40px;
     align-items:center;
     margin-bottom:35px;
-
 }
 
 .about-video{
@@ -103,7 +97,6 @@ INTRO TEXT
 =================================== */
 
 .about-introduction h1{
-
     font-family:"Caveat",cursive;
     font-size:clamp(42px,5vw,62px);
     font-weight:700;
@@ -359,9 +352,13 @@ BOOK SPINE LABEL
 =============================== */
 
 .section-label h2.two-line-label{
-    right:95px;
+    right:120px; /*moves the words left */
     width:100px;
     text-align:center;
+	transform:
+        rotate(-90deg);
+    transform-origin:
+        right top;
 }
 
 /* ===============================
@@ -382,7 +379,7 @@ BOOK SPINE LABEL
 /* move line left only for two-line headings */
 
 .section-label:has(.two-line-label)::after{
-    right:80px;
+    right:70px;   /* moves only this line left */
 }
 
 /* ===============================
