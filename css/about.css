@@ -316,7 +316,7 @@ BOOK SPINE VERSION
 
 .resume-section{
     display:grid;
-    grid-template-columns:145px 1fr;
+    grid-template-columns:105px 1fr;
     column-gap:10px;
     margin-bottom:35px;
     padding:25px 0 25px;
@@ -364,7 +364,7 @@ BOOK SPINE LABEL
 .section-label::after{
     content:"";
     position:absolute;
-    right:40px;
+    right:30px;
     top:0;
     width:2px;
     height:35px;
@@ -691,9 +691,7 @@ MOBILE
     }
 
     .contact-row > * + *::before{
-
         display:none;
-
     }
 
     /*
@@ -708,19 +706,12 @@ MOBILE
     }
 
     .section-label{
-
         position:relative;
-
         height:auto;
-
         width:auto;
-
         margin-bottom:20px;
-
         display:block;
-
     }
-
 
     .section-label h2{
 
