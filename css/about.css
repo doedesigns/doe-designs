@@ -289,27 +289,17 @@ CONTACT HEADER
 }
 
 .contact-row > * + *::before{
-
     content:"•";
-
     position:absolute;
-
     left:calc(clamp(20px,4vw,50px) / -2);
-
     transform:translateX(-50%);
-
 }
-
 
 .resume-contact a,
 .resume-contact span{
-
     font-family:"Jost",sans-serif;
-
     font-size:14px;
-
     letter-spacing:1.5px;
-
     color:#B8C2C5;
     text-decoration:none;
     transition:.3s ease;
@@ -349,7 +339,7 @@ BOOK SPINE LABEL
 .section-label h2{
     position:absolute;
     top:0;
-    right:35px;
+    right:85px;
     transform:
         rotate(-90deg);
     transform-origin:
@@ -366,7 +356,7 @@ BOOK SPINE LABEL
 }
 
 .two-line-label{
-    transform:translateX(-25px);
+    transform:translateX(-5px);
 }
 
 /* short spine line */
@@ -374,7 +364,7 @@ BOOK SPINE LABEL
 .section-label::after{
     content:"";
     position:absolute;
-    right:0px;
+    right:50px;
     top:0;
     width:2px;
     height:35px;
