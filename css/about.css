@@ -355,7 +355,7 @@ BOOK SPINE LABEL
     width:100px;
     text-align:right;
     transform:
-        translateY(0px)
+        translateY(-60px)
         rotate(-90deg);
     transform-origin:right top;
 }
@@ -366,7 +366,7 @@ BOOK SPINE LABEL
 
 .section-label.off-hours-label h2{
     transform:
-        translateY(-20px)
+        translateY(-60px)
         rotate(-90deg);
 }
 
