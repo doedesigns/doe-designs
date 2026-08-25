@@ -351,15 +351,12 @@ BOOK SPINE LABEL
    TWO LINE HEADINGS
 =============================== */
 
-.section-label h2.two-line-label{
-    right:70px; /*moves the words left */
-    width:120px;
+.section-label.two-line-label h2{
+    right:120px;
+    width:100px;
     text-align:center;
-    transform:
-        translateX(-50px)
-        rotate(-90deg);
-    transform-origin:
-        right top;
+    transform:rotate(-90deg);
+    transform-origin:right top;
 }
 
 /* ===============================
@@ -763,11 +760,15 @@ MOBILE
         gap:5px;
     }
 
-
     .skills-tools{
-
         text-align:left;
-
     }
+}
 
+
+.two-line-label{
+    color:red !important;
+    background:yellow !important;
+    position:relative !important;
+    left:-50px !important;
 }
