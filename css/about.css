@@ -352,11 +352,11 @@ BOOK SPINE LABEL
 =============================== */
 
 .section-label h2.two-line-label{
-    right:70px; /*moves the words left */
+    right:120px; /*moves the words left */
     width:100px;
     text-align:center;
 	transform:
-		translateX(-50px);
+		rotate(-90deg);
     transform-origin:
         right top;
 }
@@ -379,7 +379,7 @@ BOOK SPINE LABEL
 /* move line left only for two-line headings */
 
 .section-label:has(.two-line-label)::after{
-    right:150px;   /* moves only this line left */
+    right:110px;   /* moves only this line left */
 }
 
 /* ===============================
