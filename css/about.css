@@ -379,7 +379,7 @@ BOOK SPINE LABEL
 /* move line left only for two-line headings */
 
 .section-label:has(.two-line-label)::after{
-    right:60px;   /* moves only this line left */
+    right:120px;   /* moves only this line left */
 }
 
 /* ===============================
