@@ -361,6 +361,16 @@ BOOK SPINE LABEL
 }
 
 /* ===============================
+   OFF HOURS ADJUSTMENT
+=============================== */
+
+.section-label.off-hours-label h2{
+    transform:
+        translateY(30px)
+        rotate(-90deg);
+}
+
+/* ===============================
    VERTICAL SPINE LINE
 =============================== */
 
