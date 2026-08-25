@@ -356,7 +356,7 @@ BOOK SPINE LABEL
 }
 
 .two-line-label{
-    transform:translateX(-10px);
+    transform:translateX(10px);
 }
 
 /* short spine line */
@@ -364,7 +364,7 @@ BOOK SPINE LABEL
 .section-label::after{
     content:"";
     position:absolute;
-    right:90px;
+    right:40px;
     top:0;
     width:2px;
     height:35px;

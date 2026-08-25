@@ -66,8 +66,8 @@ HERO LOGO
 .hero-logo {
     position:relative;
     display:inline-block;
-	padding:40px;
-    margin:-40px;
+	padding:20px;
+    margin:-20px;
 }
 
 .hero-logo-image {
@@ -313,6 +313,62 @@ body.home-page{
     justify-content:center;
     gap:18px;
     overflow:hidden;
+}
+
+/*=========================================================
+   SHORT SCREEN ADJUSTMENTS
+   Prevent hero from hiding behind navbar
+=========================================================*/
+
+@media(max-height:850px){
+
+    .hero-content{
+        gap:10px;
+    }
+
+    .hero-logo-image{
+        width:clamp(90px,15vw,160px);
+    }
+
+    .hero-subtitle{
+        font-size:12px;
+    }
+
+    .hero-intro{
+        font-size:17px;
+        line-height:1.5;
+    }
+
+    .hero-video{
+        height:clamp(90px,14vh,160px);
+    }
+
+}
+
+@media(max-height:700px){
+
+    .hero{
+        padding-top:90px;
+        padding-bottom:30px;
+    }
+
+    .hero-content{
+        gap:8px;
+    }
+
+    .hero-logo-image{
+        width:120px;
+    }
+
+    .hero-intro{
+        font-size:15px;
+        line-height:1.4;
+    }
+
+    .hero-video{
+        height:100px;
+    }
+
 }
 
 /*=========================================================
