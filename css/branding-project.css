@@ -609,6 +609,11 @@ TWO IMAGE ROW
     margin-bottom:80px;
 }
 
+
+/* ===================================
+   BRANDING + DESIGN PROJECTS
+=================================== */
+
 .project-gallery-row .project-image-block{
     margin-bottom:0;
 }
@@ -616,6 +621,40 @@ TWO IMAGE ROW
 .project-gallery-row .project-image-block p{
     max-width:85%;
     margin:25px auto 0;
+}
+
+
+/* ===================================
+   MOTION PROJECTS
+=================================== */
+
+.project-gallery-row figure{
+    margin:0;
+}
+
+.project-gallery-row figure img{
+    display:block;
+    width:100%;
+    height:auto;
+}
+
+.project-gallery-row figure figcaption{
+    max-width:85%;
+    margin:25px auto 0;
+}
+
+
+/* ===================================
+   MOBILE
+=================================== */
+
+@media(max-width:768px){
+
+    .project-gallery-row{
+        grid-template-columns:1fr;
+        gap:60px;
+    }
+
 }
 
 /* ===================================
@@ -717,6 +756,32 @@ PROJECT FOOTER LINK
     aspect-ratio:16 / 9;
     display:block;
  	border-radius:8px;
+}
+
+/* ===================================
+   INTERACTIVE PROTOTYPE POSITIONING
+=================================== */
+
+.interactive-prototype .enter-button{
+    display:inline-block;
+    margin-top:50px;
+    transform:translateX(120px);
+}
+
+.interactive-prototype p{
+    transform:translateX(80px);
+}
+
+
+/* MOBILE RESET */
+
+@media(max-width:768px){
+
+    .interactive-prototype .enter-button,
+    .interactive-prototype p{
+        transform:none;
+    }
+
 }
 
 /*=========================================================
