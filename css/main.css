@@ -539,6 +539,8 @@ MOBILE
     border:none;
     cursor:pointer;
     padding:10px;
+	position:relative;
+    z-index:10001;
 }
 
 .menu-toggle span{
