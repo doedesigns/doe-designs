@@ -766,20 +766,19 @@ PROJECT FOOTER LINK
     position:relative;
 }
 
-/* Interactive prototype title/button */
+/* Center the View Interactive Prototype button */
 
 .interactive-prototype .enter-button{
-    display:inline-block;
-    margin-top:50px;
-    margin-bottom:25px;
-    transform:translateX(120px);
+    display:table;
+    margin:50px auto 25px;
+    transform:none;
 }
 
-/* Interactive prototype description */
+/* Move prototype description slightly left */
 
 .interactive-prototype .enter-button + p{
     margin-top:0;
-    transform:translateX(80px);
+    transform:translateX(-80px);
 }
 
 
@@ -789,7 +788,6 @@ PROJECT FOOTER LINK
 
 @media(max-width:768px){
 
-    .interactive-prototype .enter-button,
     .interactive-prototype .enter-button + p{
         transform:none;
     }
