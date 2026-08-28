@@ -778,7 +778,7 @@ PROJECT FOOTER LINK
 
 .interactive-prototype .enter-button + p{
     margin-top:0;
-    transform:translateX(-80px);
+    transform:none;
 }
 
 
