@@ -136,6 +136,64 @@ ABOUT SUMMARY
 }
 
 /* ===================================
+   PORTFOLIO SLIDEDECK
+=================================== */
+
+.portfolio-slidedeck{
+    margin:80px auto;
+    padding:50px;
+    border:1px solid rgba(0,229,255,.35);
+    text-align:left;
+    max-width:1100px;
+}
+
+.portfolio-slidedeck h2{
+    color:white;
+    font-family:"Barlow Condensed", sans-serif;
+    font-size:36px;
+    font-weight:900;
+    letter-spacing:.12em;
+    margin-bottom:20px;
+}
+
+.portfolio-slidedeck p{
+    color:white;
+    font-family:"Jost",sans-serif;
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:30px;
+}
+
+.portfolio-slidedeck a{
+    color:#00E5FF;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:18px;
+    font-weight:700;
+    letter-spacing:.15em;
+    text-decoration:none;
+    position:relative;
+}
+
+.portfolio-slidedeck a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:2px;
+    background:white;
+    transition:.35s ease;
+}
+
+.portfolio-slidedeck a:hover{
+    color:white;
+}
+
+.portfolio-slidedeck a:hover::after{
+    width:100%;
+}
+
+/* ===================================
 RESUME FRAME
 =================================== */
 
