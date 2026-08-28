@@ -762,23 +762,35 @@ PROJECT FOOTER LINK
    INTERACTIVE PROTOTYPE POSITIONING
 =================================== */
 
+.interactive-prototype{
+    position:relative;
+}
+
+/* Interactive prototype title/button */
+
 .interactive-prototype .enter-button{
     display:inline-block;
     margin-top:50px;
+    margin-bottom:25px;
     transform:translateX(120px);
 }
 
-.interactive-prototype p{
+/* Interactive prototype description */
+
+.interactive-prototype .enter-button + p{
+    margin-top:0;
     transform:translateX(80px);
 }
 
 
-/* MOBILE RESET */
+/* ===================================
+   MOBILE RESET
+=================================== */
 
 @media(max-width:768px){
 
     .interactive-prototype .enter-button,
-    .interactive-prototype p{
+    .interactive-prototype .enter-button + p{
         transform:none;
     }
 
