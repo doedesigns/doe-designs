@@ -187,8 +187,8 @@ const particles=[];
 
 const amount=
 window.innerWidth < 700
-?40
-:100;
+?50
+:125;
 
 for(let i=0;i<amount;i++){
 
