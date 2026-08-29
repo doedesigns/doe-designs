@@ -125,7 +125,7 @@ ABOUT SUMMARY
         1px solid rgba(0,229,255,.45);
     border-bottom:
         1px solid rgba(0,229,255,.45);
-    font-family:"DM Mono",monospace;
+    font-family:"Jost",sans-serif;
     font-size:18px;
     line-height:1.55;
     color:#FFFFFF;
@@ -184,8 +184,6 @@ ABOUT SUMMARY
     display:block;
     text-align:center;
 }
-
-
 
 .portfolio-slidedeck p{
     color:white;
