@@ -340,6 +340,9 @@ body:not(.scroll-page) footer{
     z-index:10;
 }
 
+#footerCopyright {
+    color: #ffffff;
+}
 
 /* ===================================
 LIGHTBOX TRANSITION
