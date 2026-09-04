@@ -312,19 +312,9 @@ PAGE CONTACT LINK
     text-align:center;
 }
 
-
 /* ===================================
 FOOTER
 =================================== */
-
-.page-content {
-    outline: 2px solid red;
-}
-
-footer {
-    outline: 2px solid lime;
-}
-
 
 footer {
     width: 100%;
