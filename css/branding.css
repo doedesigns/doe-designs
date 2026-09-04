@@ -39,7 +39,6 @@ body.branding-page{
 body.branding-page .page-content{
     display:flex;
     flex-direction:column;
-    min-height:calc(100vh - 70px);
 }
 
 /*=========================================================
@@ -47,6 +46,7 @@ body.branding-page .page-content{
 =========================================================*/
 
 .branding-grid{
+	flex:1;
     display:grid;
     grid-template-columns:repeat(3,260px);
     justify-content:center;
