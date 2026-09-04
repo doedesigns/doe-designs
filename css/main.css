@@ -317,6 +317,15 @@ PAGE CONTACT LINK
 FOOTER
 =================================== */
 
+.page-content {
+    outline: 2px solid red;
+}
+
+footer {
+    outline: 2px solid lime;
+}
+
+
 footer {
     width: 100%;
     text-align: center;
