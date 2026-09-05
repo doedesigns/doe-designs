@@ -646,3 +646,24 @@ BACKGROUND EFFECT CANVAS
     z-index:1;
 
 }
+
+/* =========================================================
+   GLOBAL PAGE TRANSITIONS
+========================================================= */
+
+body {
+    opacity:1;
+    transition:opacity .5s ease-in-out;
+}
+
+/* Fade page out before navigating */
+body.page-leaving {
+    opacity:0;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion:reduce) {
+    body {
+        transition:none;
+    }
+}

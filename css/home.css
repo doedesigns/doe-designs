@@ -507,36 +507,10 @@ HOME PAGE MOBILE
 }
 
 /* =========================================================
-   PORTFOLIO ENTRY TRANSITION
+   PORTFOLIO ENTRY TRANSITION — INDEX ONLY
 ========================================================= */
 
-/* Full-screen transition overlay */
-.home-transition-overlay {
-    position:fixed;
-    inset:0;
-    background:#06080B;
-    opacity:0;
-    pointer-events:none;
-    z-index:20000;
-    transition:opacity .35s ease;
-}
-
-.home-transition-overlay.active {
-    opacity:1;
-}
-
-/* ENTER PORTFOLIO */
-.hero .enter-button {
-    position:relative;
-    z-index:20001;
-    display:inline-block;
-    transition:
-        transform .65s cubic-bezier(.7,0,.2,1),
-        letter-spacing .65s cubic-bezier(.7,0,.2,1),
-        opacity .65s ease;
-}
-
-/* Everything else disappears */
+/* Everything except ENTER PORTFOLIO fades away */
 .home-page.entering-portfolio .hero-logo,
 .home-page.entering-portfolio .hero-subtitle,
 .home-page.entering-portfolio .hero-intro,
@@ -545,28 +519,54 @@ HOME PAGE MOBILE
 .home-page.entering-portfolio .secret-stash,
 .home-page.entering-portfolio header {
     opacity:0;
-    transition:opacity .35s ease;
+    transition:opacity .45s ease;
 }
 
-/* Button grows and fades */
+/* ENTER PORTFOLIO */
+.hero .enter-button {
+    position:relative;
+    z-index:10001;
+    transform-origin:center center;
+}
+
+/* Rapid expansion + disappearance */
 .home-page.entering-portfolio .hero .enter-button {
     transform:scale(clamp(5, 50vw, 12));
     opacity:0;
-    letter-spacing:.08em;
+    color:#fff;
+
+    transition:
+        transform .45s cubic-bezier(.2,.8,.2,1),
+        opacity .35s ease;
+}
+
+/* Black overlay */
+.home-page::after {
+    content:"";
+    position:fixed;
+    inset:0;
+    background:#000;
+    opacity:0;
+    pointer-events:none;
+    z-index:9999;
+}
+
+.home-page.entering-portfolio::after {
+    opacity:1;
+    transition:opacity .45s ease;
 }
 
 /* Reduced motion */
 @media (prefers-reduced-motion:reduce) {
 
-    .hero .enter-button,
     .home-page.entering-portfolio .hero-logo,
     .home-page.entering-portfolio .hero-subtitle,
     .home-page.entering-portfolio .hero-intro,
     .home-page.entering-portfolio #hero-object,
     .home-page.entering-portfolio .hero-entry-message,
     .home-page.entering-portfolio .secret-stash,
-    .home-page.entering-portfolio header {
+    .home-page.entering-portfolio header,
+    .home-page.entering-portfolio .hero .enter-button {
         transition:none;
     }
-
 }

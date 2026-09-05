@@ -62,6 +62,57 @@ document.dispatchEvent(
     });
 
 }
+	
+	// ============================================
+// GLOBAL PAGE TRANSITIONS
+// ============================================
+
+const pageLinks = document.querySelectorAll(
+    'a[href]:not([target="_blank"]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"])'
+);
+
+pageLinks.forEach(link => {
+
+    link.addEventListener("click", function(event) {
+
+        // Don't interfere with modifier-key clicks
+        if (
+            event.ctrlKey ||
+            event.shiftKey ||
+            event.metaKey ||
+            event.altKey
+        ) {
+            return;
+        }
+
+        const destination = link.href;
+
+        // Don't animate if it's the current page
+        if (destination === window.location.href) {
+            return;
+        }
+
+        // Respect reduced-motion preference
+        if (
+            window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches
+        ) {
+            return;
+        }
+
+        event.preventDefault();
+
+        document.body.classList.add("page-leaving");
+
+        setTimeout(() => {
+            window.location.href = destination;
+        }, 500);
+
+    });
+
+});
+
     // ============================================
     // FIREWORKS
     // ============================================
@@ -319,9 +370,8 @@ if(menuToggle && navLinks){
         );
     });
 }
-	
 // ============================================
-// PORTFOLIO ENTRY TRANSITION
+// INDEX → PORTFOLIO TRANSITION
 // ============================================
 
 const enterPortfolio = document.getElementById("enterPortfolio");
@@ -330,32 +380,22 @@ if (enterPortfolio) {
 
     enterPortfolio.addEventListener("click", function(event) {
 
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        if (
+            window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches
+        ) {
             return;
         }
 
         event.preventDefault();
 
-        // Add transition class to the page
         document.body.classList.add("entering-portfolio");
 
-        // Create transition overlay
-        const overlay = document.createElement("div");
-        overlay.className = "home-transition-overlay";
-        document.body.appendChild(overlay);
-
-        // Start overlay fade
-        requestAnimationFrame(() => {
-            overlay.classList.add("active");
-        });
-
-        // Navigate as the button finishes expanding
-        setTimeout(function() {
+        setTimeout(() => {
             window.location.href = enterPortfolio.href;
-        }, 650);
+        }, 450);
 
     });
-
 }
-
 	});
