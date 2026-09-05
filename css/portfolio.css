@@ -303,3 +303,29 @@ body.portfolio-page footer{
         transform:none;
     }
 }
+
+/* =========================================================
+   PORTFOLIO PAGE FADE IN
+========================================================= */
+
+.portfolio-page {
+    animation:portfolioFadeIn .6s ease-out both;
+}
+
+@keyframes portfolioFadeIn {
+    from {
+        opacity:0;
+    }
+
+    to {
+        opacity:1;
+    }
+}
+
+@media (prefers-reduced-motion:reduce) {
+
+    .portfolio-page {
+        animation:none;
+    }
+
+}

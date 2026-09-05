@@ -29,7 +29,7 @@ HERO
 =========================================================*/
 
 .hero {
-    min-height:100vh;
+    flex:1;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -207,7 +207,7 @@ SPEECH BUBBLE
     transform:scale(1);
     animation:
     bubblePop .4s ease,
-    waveHello .6s ease;
+    waveHello .8s ease;
 }
 
 /*=========================================================
@@ -519,4 +519,59 @@ HOME PAGE MOBILE
         width:260px;
     }
 }
+}
+
+/* =========================================================
+   PORTFOLIO ENTRY TRANSITION
+========================================================= */
+
+.hero .enter-button {
+    position:relative;
+    z-index:20;
+    transition:
+        transform .8s cubic-bezier(.7,0,.2,1),
+        letter-spacing .8s cubic-bezier(.7,0,.2,1),
+        color .4s ease;
+}
+
+.home-page.entering-portfolio::after {
+    content:"";
+    position:fixed;
+    inset:0;
+    background:#06080B;
+    opacity:0;
+    pointer-events:none;
+    z-index:9998;
+    transition:opacity .8s ease;
+}
+
+.home-page.entering-portfolio .hero-content > *:not(.hero-entry) {
+    transition:opacity .6s ease;
+    opacity:0;
+}
+
+.home-page.entering-portfolio .hero-entry-message,
+.home-page.entering-portfolio .secret-stash {
+    opacity:0;
+}
+
+.home-page.entering-portfolio .hero .enter-button {
+    opacity:1;
+    transform:scale(8);
+    letter-spacing:.12em;
+    color:#fff;
+    z-index:10000;
+}
+
+.home-page.entering-portfolio::after {
+    opacity:1;
+}
+
+@media (prefers-reduced-motion:reduce) {
+
+    .hero .enter-button,
+    .home-page.entering-portfolio::after,
+    .home-page.entering-portfolio .hero-content > * {
+        transition:none;
+    }
 }
