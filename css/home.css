@@ -21,7 +21,7 @@ Contains:
 =========================================================*/
 
 .hero-top {
-    transform:translateY(80px);
+    transform:none;
 }
 
 /*=========================================================
@@ -33,7 +33,7 @@ HERO
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:40px 30px 40px;
+    padding:120px 30px 20px;
     position:relative;
     z-index:2;
 }
@@ -519,12 +519,12 @@ HOME PAGE MOBILE
 .home-page.entering-portfolio .secret-stash,
 .home-page.entering-portfolio header {
     opacity:0;
-    transition:opacity .6s ease;
+    transition:opacity .75s ease;
 }
 
 /* Expand ENTER PORTFOLIO */
 .home-page.entering-portfolio .hero .enter-button {
-    transform:scale(12);
+    transform:scale(clamp(5, 50vw, 12));
     letter-spacing:.08em;
     color:#fff;
     opacity:0;
@@ -538,7 +538,7 @@ HOME PAGE MOBILE
     opacity:0;
     pointer-events:none;
     z-index:9999;
-    transition:opacity .6s ease;
+    transition:opacity .75s ease;
 }
 
 .home-page.entering-portfolio::after {
