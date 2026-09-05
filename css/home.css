@@ -36,7 +36,6 @@ HERO
     padding:40px 30px 40px;
     position:relative;
     z-index:2;
-
 }
 
 .hero-content {
@@ -46,7 +45,7 @@ HERO
     flex-direction:column;
     align-items:center;
     text-align:center;
-    gap:16px;
+    gap:18px;
 }
 
 /*=========================================================
@@ -254,12 +253,19 @@ ENTER PORTFOLIO
 =========================================================*/
 
 .hero .enter-button {
+    position:relative;
+    z-index:10;
     display:inline-block;
     font-family:"Barlow Condensed",sans-serif;
     font-size:22px;
     font-weight:700;
     letter-spacing:.18em;
     text-transform:uppercase;
+    transition:
+        transform .8s cubic-bezier(.7,0,.2,1),
+        letter-spacing .8s cubic-bezier(.7,0,.2,1),
+        color .4s ease,
+        opacity .6s ease;
 }
 
 /*=========================================================
@@ -291,27 +297,6 @@ SECRET STASH
 
 body.home-page{
     overflow-x:hidden;
-}
-
-.hero {
-    flex:1;
-    height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:20px 30px;
-}
-
-.hero-content {
-    width:100%;
-    max-width:1100px;
-    max-height:calc(100vh - 120px);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:18px;
-    overflow:hidden;
 }
 
 /*=========================================================
@@ -519,4 +504,51 @@ HOME PAGE MOBILE
         width:260px;
     }
 }
+}
+
+/* =========================================================
+   PORTFOLIO ENTRY TRANSITION
+========================================================= */
+
+/* Everything except ENTER PORTFOLIO fades away */
+.home-page.entering-portfolio .hero-logo,
+.home-page.entering-portfolio .hero-subtitle,
+.home-page.entering-portfolio .hero-intro,
+.home-page.entering-portfolio #hero-object,
+.home-page.entering-portfolio .hero-entry-message,
+.home-page.entering-portfolio .secret-stash,
+.home-page.entering-portfolio header {
+    opacity:0;
+    transition:opacity .6s ease;
+}
+
+/* Landing page becomes black */
+.home-page.entering-portfolio {
+    background:#06080B;
+}
+
+/* Expand ENTER PORTFOLIO */
+.home-page.entering-portfolio .hero .enter-button {
+    transform:scale(8);
+    letter-spacing:.12em;
+    color:#fff;
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion:reduce) {
+
+    .hero .enter-button,
+    .home-page.entering-portfolio .hero-logo,
+    .home-page.entering-portfolio .hero-subtitle,
+    .home-page.entering-portfolio .hero-intro,
+    .home-page.entering-portfolio #hero-object,
+    .home-page.entering-portfolio .hero-entry-message,
+    .home-page.entering-portfolio .secret-stash,
+    .home-page.entering-portfolio header {
+        transition:none;
+    }
+
 }
