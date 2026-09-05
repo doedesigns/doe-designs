@@ -21,7 +21,7 @@ Contains:
 =========================================================*/
 
 .hero-top {
-    transform:translateY(40px);
+    transform:translateY(80px);
 }
 
 /*=========================================================
@@ -206,7 +206,7 @@ SPEECH BUBBLE
     transform:scale(1);
     animation:
     bubblePop .4s ease,
-    waveHello .8s ease;
+    waveHello .10s ease;
 }
 
 /*=========================================================
@@ -262,10 +262,10 @@ ENTER PORTFOLIO
     letter-spacing:.18em;
     text-transform:uppercase;
     transition:
-        transform .9s cubic-bezier(.7,0,.2,1),
-        letter-spacing .9s cubic-bezier(.7,0,.2,1),
-        color .4s ease,
-        opacity .9s ease;
+        transform .6s cubic-bezier(.7,0,.2,1),
+        letter-spacing .6s cubic-bezier(.7,0,.2,1),
+        color .3s ease,
+        opacity .6s ease;
 }
 
 /*=========================================================
@@ -275,7 +275,7 @@ SECRET STASH
 .hero-entry .secret-stash {
     display:block;
     margin-top:55px;
-    margin-bottom:20px;
+    margin-bottom:55px;
     color:rgba(255,255,255,.45);
 	  text-decoration:none;
     font-family:"Barlow Condensed",sans-serif;
@@ -416,7 +416,7 @@ HOME PAGE ANIMATIONS
 .wave {
     animation:
     bubblePop .5s ease,
-    waveHello .6s ease;
+    waveHello .10s ease;
 }
 
 /*=========================================================
@@ -538,7 +538,7 @@ HOME PAGE MOBILE
     opacity:0;
     pointer-events:none;
     z-index:9999;
-    transition:opacity .9s ease;
+    transition:opacity .6s ease;
 }
 
 .home-page.entering-portfolio::after {
