@@ -261,11 +261,6 @@ ENTER PORTFOLIO
     font-weight:700;
     letter-spacing:.18em;
     text-transform:uppercase;
-    transition:
-        transform .6s cubic-bezier(.7,0,.2,1),
-        letter-spacing .6s cubic-bezier(.7,0,.2,1),
-        color .3s ease,
-        opacity .6s ease;
 }
 
 /*=========================================================
@@ -536,12 +531,10 @@ HOME PAGE MOBILE
 .home-page.entering-portfolio .hero .enter-button {
     transform:scale(10);
     opacity:0;
-
     transition:
-        transform .65s cubic-bezier(.2,.8,.2,1),
+        transform .9s cubic-bezier(.2,.8,.2,1),
         opacity .25s ease;
 }
-
 
 /* BLACK OVERLAY */
 .home-page::after {
@@ -578,5 +571,4 @@ HOME PAGE MOBILE
 
         transition:none;
     }
-
 }
