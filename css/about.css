@@ -55,6 +55,7 @@ ABOUT INTRO FRAME
     background:#050507;
     border:3px solid rgba(0,229,255,.65);
     box-shadow:
+		0 0 25px rgba(0,229,255,.35),
         0 25px 80px rgba(0,0,0,.65);
     color:#F5F5F5;
 }
@@ -242,7 +243,7 @@ RESUME FRAME
     border:
         2px solid rgba(0,229,255,.75);
     box-shadow:
-        0 0 25px rgba(0,229,255,.18),
+        0 0 25px rgba(0,229,255,.35),
         0 25px 80px rgba(0,0,0,.65);
     color:#F5F5F5;
 }

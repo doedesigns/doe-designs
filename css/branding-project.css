@@ -184,12 +184,22 @@ PROJECT HEADER TITLE + ARROWS
 
 .project-title h1{
     margin:0;
-    color:white;
+    color:#00E5FF;
     font-family:"Barlow Condensed",sans-serif;
     font-size:58px;
     font-weight:900;
     letter-spacing:.08em;
     text-transform:uppercase;
+}
+
+/* PROJECT TYPE */
+.project-title .title-break{
+    display:block;
+    margin-top:8px;
+    font-size:28px;
+    font-weight:400;
+    letter-spacing:.22em;
+    color:rgba(255,255,255,.6);
 }
 
 /*=========================================================
