@@ -518,76 +518,46 @@ HOME PAGE MOBILE
 .home-page.entering-portfolio .hero-entry-message,
 .home-page.entering-portfolio .secret-stash,
 .home-page.entering-portfolio header {
-
     opacity:0;
-
     transition:
-        opacity .35s ease;
+        opacity 1.45s ease;
 }
 
 
-/* =========================================================
-   ENTER PORTFOLIO EXPANSION
-========================================================= */
-
+/* ENTER PORTFOLIO — faster than the page fade */
 .hero .enter-button {
-
     position:relative;
     z-index:10001;
-
     display:inline-block;
-
     transform-origin:center center;
-
-    will-change:
-        transform,
-        opacity;
-
+    will-change:transform, opacity;
 }
 
-
-/* Fast expansion + fade */
 .home-page.entering-portfolio .hero .enter-button {
-
     transform:scale(10);
     opacity:0;
 
     transition:
-        transform .35s cubic-bezier(.2,.8,.2,1),
+        transform .65s cubic-bezier(.2,.8,.2,1),
         opacity .25s ease;
 }
 
 
-/* =========================================================
-   BLACK OVERLAY
-========================================================= */
-
+/* BLACK OVERLAY */
 .home-page::after {
-
     content:"";
-
     position:fixed;
-
     inset:0;
-
     background:#000;
-
     opacity:0;
-
     pointer-events:none;
-
     z-index:9999;
-
 }
 
-
 .home-page.entering-portfolio::after {
-
     opacity:1;
-
     transition:
-        opacity .45s ease;
-
+        opacity 1.45s ease;
 }
 
 

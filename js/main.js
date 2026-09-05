@@ -403,7 +403,7 @@ if (enterPortfolio) {
 
         setTimeout(() => {
             window.location.href = enterPortfolio.href;
-        }, 450);
+        }, 1450);
 
     });
 }
