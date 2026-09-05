@@ -320,26 +320,39 @@ if(menuToggle && navLinks){
     });
 }
 	
-/* =========================================================
-   PORTFOLIO ENTRY TRANSITION
-========================================================= */
+// ============================================
+// PORTFOLIO ENTRY TRANSITION
+// ============================================
 
-if (enterButton) {
+const enterPortfolio = document.getElementById("enterPortfolio");
 
-    enterButton.addEventListener("click", function(event) {
+if (enterPortfolio) {
 
-        // Respect reduced-motion preferences
+    enterPortfolio.addEventListener("click", function(event) {
+
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
             return;
         }
 
         event.preventDefault();
 
+        // Add transition class to the page
         document.body.classList.add("entering-portfolio");
 
+        // Create transition overlay
+        const overlay = document.createElement("div");
+        overlay.className = "home-transition-overlay";
+        document.body.appendChild(overlay);
+
+        // Start overlay fade
+        requestAnimationFrame(() => {
+            overlay.classList.add("active");
+        });
+
+        // Navigate as the button finishes expanding
         setTimeout(function() {
-            window.location.href = enterButton.href;
-        }, 550);
+            window.location.href = enterPortfolio.href;
+        }, 650);
 
     });
 
