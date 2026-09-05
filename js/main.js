@@ -320,15 +320,13 @@ if(menuToggle && navLinks){
     });
 }
 	
-	/* =========================================================
+/* =========================================================
    PORTFOLIO ENTRY TRANSITION
 ========================================================= */
 
-const enterPortfolio = document.getElementById("enterPortfolio");
+if (enterButton) {
 
-if (enterPortfolio) {
-
-    enterPortfolio.addEventListener("click", function(event) {
+    enterButton.addEventListener("click", function(event) {
 
         // Respect reduced-motion preferences
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -340,7 +338,7 @@ if (enterPortfolio) {
         document.body.classList.add("entering-portfolio");
 
         setTimeout(function() {
-            window.location.href = enterPortfolio.href;
+            window.location.href = enterButton.href;
         }, 900);
 
     });
