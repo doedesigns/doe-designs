@@ -510,7 +510,7 @@ HOME PAGE MOBILE
    PORTFOLIO ENTRY TRANSITION — INDEX ONLY
 ========================================================= */
 
-/* Everything except ENTER PORTFOLIO fades away */
+/* Everything else fades away */
 .home-page.entering-portfolio .hero-logo,
 .home-page.entering-portfolio .hero-subtitle,
 .home-page.entering-portfolio .hero-intro,
@@ -518,45 +518,83 @@ HOME PAGE MOBILE
 .home-page.entering-portfolio .hero-entry-message,
 .home-page.entering-portfolio .secret-stash,
 .home-page.entering-portfolio header {
-    opacity:0;
-    transition:opacity .45s ease;
-}
 
-/* ENTER PORTFOLIO */
-.hero .enter-button {
-    position:relative;
-    z-index:10001;
-    transform-origin:center center;
-}
-
-/* Rapid expansion + disappearance */
-.home-page.entering-portfolio .hero .enter-button {
-    transform:scale(clamp(5, 50vw, 12));
     opacity:0;
-    color:#fff;
 
     transition:
-        transform .45s cubic-bezier(.2,.8,.2,1),
         opacity .35s ease;
 }
 
-/* Black overlay */
-.home-page::after {
-    content:"";
-    position:fixed;
-    inset:0;
-    background:#000;
-    opacity:0;
-    pointer-events:none;
-    z-index:9999;
+
+/* =========================================================
+   ENTER PORTFOLIO EXPANSION
+========================================================= */
+
+.hero .enter-button {
+
+    position:relative;
+    z-index:10001;
+
+    display:inline-block;
+
+    transform-origin:center center;
+
+    will-change:
+        transform,
+        opacity;
+
 }
+
+
+/* Fast expansion + fade */
+.home-page.entering-portfolio .hero .enter-button {
+
+    transform:scale(10);
+    opacity:0;
+
+    transition:
+        transform .35s cubic-bezier(.2,.8,.2,1),
+        opacity .25s ease;
+}
+
+
+/* =========================================================
+   BLACK OVERLAY
+========================================================= */
+
+.home-page::after {
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:#000;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    z-index:9999;
+
+}
+
 
 .home-page.entering-portfolio::after {
+
     opacity:1;
-    transition:opacity .45s ease;
+
+    transition:
+        opacity .45s ease;
+
 }
 
-/* Reduced motion */
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
 @media (prefers-reduced-motion:reduce) {
 
     .home-page.entering-portfolio .hero-logo,
@@ -567,6 +605,8 @@ HOME PAGE MOBILE
     .home-page.entering-portfolio .secret-stash,
     .home-page.entering-portfolio header,
     .home-page.entering-portfolio .hero .enter-button {
+
         transition:none;
     }
+
 }

@@ -63,7 +63,7 @@ document.dispatchEvent(
 
 }
 	
-	// ============================================
+// ============================================
 // GLOBAL PAGE TRANSITIONS
 // ============================================
 
@@ -85,14 +85,19 @@ pageLinks.forEach(link => {
             return;
         }
 
+        // INDEX ENTER PORTFOLIO HAS ITS OWN TRANSITION
+        if (link.id === "enterPortfolio") {
+            return;
+        }
+
         const destination = link.href;
 
-        // Don't animate if it's the current page
+        // Don't animate current page
         if (destination === window.location.href) {
             return;
         }
 
-        // Respect reduced-motion preference
+        // Respect reduced motion
         if (
             window.matchMedia(
                 "(prefers-reduced-motion: reduce)"
@@ -390,6 +395,10 @@ if (enterPortfolio) {
 
         event.preventDefault();
 
+        // Prevent the browser from restoring the
+        // transition state when using Back
+        window.history.replaceState(null, "", window.location.href);
+
         document.body.classList.add("entering-portfolio");
 
         setTimeout(() => {
@@ -398,4 +407,16 @@ if (enterPortfolio) {
 
     });
 }
+	
+// ============================================
+// RESTORE HOME PAGE AFTER BROWSER BACK
+// ============================================
+
+window.addEventListener("pageshow", function () {
+
+    document.body.classList.remove("entering-portfolio");
+    document.body.classList.remove("page-leaving");
+
+});
+
 	});
