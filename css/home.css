@@ -35,7 +35,7 @@ HERO
     align-items:center;
     padding:160px 30px 20px;
     position:relative;
-    z-index:10000;
+    z-index:2;
 }
 
 .hero-content {
@@ -532,7 +532,7 @@ HOME PAGE MOBILE
     transform:scale(10);
     opacity:0;
     transition:
-        transform .9s cubic-bezier(.2,.8,.2,1),
+        transform 1.2s cubic-bezier(.2,.8,.2,1),
         opacity .25s ease;
 }
 

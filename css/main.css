@@ -659,6 +659,7 @@ body {
 /* Fade page out before navigating */
 body.page-leaving {
     opacity:0;
+	transition:opacity .6s ease-in;
 }
 
 /* Respect reduced-motion preferences */

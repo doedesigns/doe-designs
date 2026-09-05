@@ -397,13 +397,12 @@ if (enterPortfolio) {
 
         // Prevent the browser from restoring the
         // transition state when using Back
-        window.history.replaceState(null, "", window.location.href);
 
         document.body.classList.add("entering-portfolio");
 
         setTimeout(() => {
             window.location.href = enterPortfolio.href;
-        }, 900);
+        }, 700);
 
     });
 }
