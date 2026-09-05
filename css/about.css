@@ -215,11 +215,12 @@ ABOUT SUMMARY
     width:0;
     height:2px;
     background:white;
+    transform-origin:center;
     transition:.35s ease;
 }
 
 .portfolio-slidedeck a:hover{
-    color:white;
+    color:#FFFFFF;
 }
 
 .portfolio-slidedeck a:hover::after{
