@@ -251,7 +251,7 @@ HERO ENTRY
 /*=========================================================
 ENTER PORTFOLIO
 =========================================================*/
-
+/*
 .hero .enter-button {
     position:relative;
     z-index:10001;
@@ -261,7 +261,7 @@ ENTER PORTFOLIO
     font-weight:700;
     letter-spacing:.18em;
     text-transform:uppercase;
-}
+}*/
 
 /*=========================================================
 SECRET STASH
@@ -520,6 +520,7 @@ HOME PAGE MOBILE
 
 
 /* ENTER PORTFOLIO — faster than the page fade */
+/*
 .hero .enter-button {
     position:relative;
     z-index:10001;
@@ -535,8 +536,9 @@ HOME PAGE MOBILE
         transform 1.2s cubic-bezier(.2,.8,.2,1),
         opacity .25s ease;
 }
-
+*/
 /* BLACK OVERLAY */
+/*
 .home-page::after {
     content:"";
     position:fixed;
@@ -552,7 +554,7 @@ HOME PAGE MOBILE
     transition:
         opacity 1.45s ease;
 }
-
+*/
 
 /* =========================================================
    REDUCED MOTION
