@@ -196,7 +196,7 @@ SPEECH BUBBLE
     width:14px;
     height:14px;
     background:#fff;
-    transform:rotate(50deg);
+    transform:rotate(60deg);
 }
 
 /* SHOW HELLO ON VIDEO HOVER */
@@ -206,7 +206,7 @@ SPEECH BUBBLE
     transform:scale(1);
     animation:
     bubblePop .4s ease,
-    waveHello .10s ease;
+    waveHello .35s ease;
 }
 
 /*=========================================================

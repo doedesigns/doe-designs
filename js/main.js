@@ -27,11 +27,11 @@ if (heroLogo && speechBubble) {
 
     setTimeout(() => {
         speechBubble.classList.remove("show-hello");
-    }, 6000);
+    }, 8000);
 
     setTimeout(() => {
         heroLogo.classList.remove("show-hello");
-    }, 6000);
+    }, 8000);
 
     heroLogo.addEventListener("mouseenter", () => {
 
