@@ -21,7 +21,7 @@ Contains:
 =========================================================*/
 
 .hero-top {
-    transform:translateY(20px);
+    transform:translateY(40px);
 }
 
 /*=========================================================
@@ -254,7 +254,7 @@ ENTER PORTFOLIO
 
 .hero .enter-button {
     position:relative;
-    z-index:10;
+    z-index:10001;
     display:inline-block;
     font-family:"Barlow Condensed",sans-serif;
     font-size:22px;
@@ -262,10 +262,10 @@ ENTER PORTFOLIO
     letter-spacing:.18em;
     text-transform:uppercase;
     transition:
-        transform .8s cubic-bezier(.7,0,.2,1),
-        letter-spacing .8s cubic-bezier(.7,0,.2,1),
+        transform .9s cubic-bezier(.7,0,.2,1),
+        letter-spacing .9s cubic-bezier(.7,0,.2,1),
         color .4s ease,
-        opacity .6s ease;
+        opacity .9s ease;
 }
 
 /*=========================================================
@@ -275,7 +275,7 @@ SECRET STASH
 .hero-entry .secret-stash {
     display:block;
     margin-top:55px;
-    margin-bottom:5px;
+    margin-bottom:20px;
     color:rgba(255,255,255,.45);
 	  text-decoration:none;
     font-family:"Barlow Condensed",sans-serif;
@@ -522,16 +522,27 @@ HOME PAGE MOBILE
     transition:opacity .6s ease;
 }
 
-/* Landing page becomes black */
-.home-page.entering-portfolio {
-    background:#06080B;
-}
-
 /* Expand ENTER PORTFOLIO */
 .home-page.entering-portfolio .hero .enter-button {
-    transform:scale(8);
-    letter-spacing:.12em;
+    transform:scale(12);
+    letter-spacing:.08em;
     color:#fff;
+    opacity:0;
+}
+
+.home-page::after {
+    content:"";
+    position:fixed;
+    inset:0;
+    background:#000;
+    opacity:0;
+    pointer-events:none;
+    z-index:9999;
+    transition:opacity .9s ease;
+}
+
+.home-page.entering-portfolio::after {
+    opacity:1;
 }
 
 /* =========================================================
