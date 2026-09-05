@@ -339,7 +339,7 @@ if (enterButton) {
 
         setTimeout(function() {
             window.location.href = enterButton.href;
-        }, 650);
+        }, 550);
 
     });
 
