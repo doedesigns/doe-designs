@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (heroLogo && speechBubble) {
 
-        // Show once when page loads
         speechBubble.classList.add("show-hello");
         heroLogo.classList.add("show-hello");
 
@@ -77,6 +76,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 event.metaKey ||
                 event.altKey
             ) {
+                return;
+            }
+
+            // ========================================
+            // PORTFOLIO PROJECT CARDS
+            //
+            // Let these links use normal browser
+            // navigation. This prevents the global
+            // page transition from interfering with
+            // project-page navigation.
+            // ========================================
+
+            if (link.hasAttribute("data-project")) {
                 return;
             }
 
@@ -208,38 +220,133 @@ document.addEventListener("DOMContentLoaded", () => {
     // Design
     // Motion
     //
-    // Each portfolio card only needs:
+    // Each portfolio card needs:
     //
     // data-project="path/to/project.html"
     //
-    // The project page remains the source of truth
-    // for the project title and software.
+    // The individual project page remains the
+    // source of truth for title and software.
     // ============================================
 
     const projectInfoCache = new Map();
 
+
+    // ============================================
+    // CREATE / PREPARE PROJECT OVERLAY
+    // ============================================
 
     function createSoftwareOverlay(card) {
 
         let overlay =
             card.querySelector(".software-overlay");
 
-        // Branding cards already have an overlay.
-        // Design and Motion cards will get one automatically.
+        // --------------------------------------------
+        // If the card already has an overlay
+        // (currently Branding), make sure it contains
+        // a project-name element.
+        // --------------------------------------------
+
         if (overlay) {
+
+            let content =
+                overlay.querySelector(
+                    ".software-overlay-content"
+                );
+
+            if (!content) {
+
+                content =
+                    document.createElement("div");
+
+                content.className =
+                    "software-overlay-content";
+
+                overlay.appendChild(content);
+
+            }
+
+            let projectName =
+                content.querySelector(".project-name");
+
+            if (!projectName) {
+
+                projectName =
+                    document.createElement("h2");
+
+                projectName.className =
+                    "project-name";
+
+                projectName.textContent =
+                    "Loading...";
+
+                const heading =
+                    content.querySelector("h3");
+
+                if (heading) {
+
+                    content.insertBefore(
+                        projectName,
+                        heading
+                    );
+
+                } else {
+
+                    content.appendChild(
+                        projectName
+                    );
+
+                }
+
+            }
+
+            let softwareList =
+                content.querySelector(
+                    ".software-list"
+                );
+
+            if (!softwareList) {
+
+                softwareList =
+                    document.createElement("p");
+
+                softwareList.className =
+                    "software-list loading";
+
+                softwareList.textContent =
+                    "Loading...";
+
+                content.appendChild(
+                    softwareList
+                );
+
+            }
+
             return overlay;
+
         }
 
-        overlay = document.createElement("div");
 
-        overlay.className = "software-overlay";
+        // --------------------------------------------
+        // Design and Motion cards don't have an
+        // overlay in their HTML, so create one.
+        // --------------------------------------------
+
+        overlay =
+            document.createElement("div");
+
+        overlay.className =
+            "software-overlay";
 
         overlay.innerHTML = `
             <div class="software-overlay-content">
 
-                <h2 class="project-name">Loading...</h2>
+                <h2 class="project-name">
+                    Loading...
+                </h2>
 
-                <h3>SOFTWARE</h3>
+                <h3>
+                    SOFTWARE
+                </h3>
 
                 <p class="software-list loading">
                     Loading...
@@ -255,22 +362,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    // ============================================
+    // GET PROJECT TITLE
+    // ============================================
+
     function getProjectTitle(projectDocument) {
 
         const title =
-            projectDocument.querySelector(".project-title h1");
+            projectDocument.querySelector(
+                ".project-title h1"
+            );
 
         if (!title) {
             return "PROJECT";
         }
 
-        // Clone the title so we can remove the
-        // "Branding Project", "Website Design Project",
-        // "Motion Graphic Project", etc. span.
-        const titleClone = title.cloneNode(true);
+        const titleClone =
+            title.cloneNode(true);
 
         const titleBreak =
-            titleClone.querySelector(".title-break");
+            titleClone.querySelector(
+                ".title-break"
+            );
 
         if (titleBreak) {
             titleBreak.remove();
@@ -285,6 +398,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+
+    // ============================================
+    // GET SOFTWARE LIST
+    // ============================================
 
     function getSoftwareList(projectDocument) {
 
@@ -324,14 +441,6 @@ document.addEventListener("DOMContentLoaded", () => {
             return null;
         }
 
-        /*
-         * Some project pages use one <p> with <br>
-         * separators. Others use multiple <p> elements.
-         *
-         * Combining the paragraphs here allows both
-         * structures to work.
-         */
-
         const softwareHTML =
             Array.from(softwareParagraphs)
                 .map(p => p.innerHTML.trim())
@@ -343,12 +452,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    async function loadProjectInfo(projectPage) {
+    // ============================================
+    // LOAD PROJECT INFORMATION
+    // ============================================
 
-        // Reuse information if another card has
-        // already requested the same project.
-        if (projectInfoCache.has(projectPage)) {
-            return projectInfoCache.get(projectPage);
+    async function loadProjectInfo(projectURL) {
+
+        if (projectInfoCache.has(projectURL)) {
+            return projectInfoCache.get(projectURL);
         }
 
         const controller =
@@ -362,9 +473,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
 
+            /*
+             * Resolve the project URL relative to the
+             * current portfolio page.
+             *
+             * This means:
+             *
+             * projects/example.html
+             *
+             * correctly resolves from branding.html,
+             * while:
+             *
+             * design-projects/example.html
+             *
+             * correctly resolves from design.html.
+             */
+
+            const resolvedURL =
+                new URL(
+                    projectURL,
+                    document.baseURI
+                ).href;
+
+
             const response =
                 await fetch(
-                    projectPage,
+                    resolvedURL,
                     {
                         signal: controller.signal,
                         cache: "no-cache"
@@ -374,16 +508,21 @@ document.addEventListener("DOMContentLoaded", () => {
             clearTimeout(timeout);
 
             if (!response.ok) {
+
                 throw new Error(
                     `Project page returned ${response.status}`
                 );
+
             }
+
 
             const html =
                 await response.text();
 
+
             const parser =
                 new DOMParser();
+
 
             const projectDocument =
                 parser.parseFromString(
@@ -391,21 +530,30 @@ document.addEventListener("DOMContentLoaded", () => {
                     "text/html"
                 );
 
+
             const projectName =
-                getProjectTitle(projectDocument);
+                getProjectTitle(
+                    projectDocument
+                );
+
 
             const software =
-                getSoftwareList(projectDocument);
+                getSoftwareList(
+                    projectDocument
+                );
+
 
             const projectInfo = {
                 title: projectName,
                 software: software
             };
 
+
             projectInfoCache.set(
-                projectPage,
+                projectURL,
                 projectInfo
             );
+
 
             return projectInfo;
 
@@ -415,7 +563,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             console.error(
                 "Unable to load project information:",
-                projectPage,
+                projectURL,
                 error
             );
 
@@ -426,16 +574,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    function showProjectInfo(card, projectInfo) {
+    // ============================================
+    // SHOW PROJECT INFORMATION
+    // ============================================
+
+    function showProjectInfo(
+        card,
+        projectInfo
+    ) {
 
         const overlay =
             createSoftwareOverlay(card);
 
+
         const projectName =
-            overlay.querySelector(".project-name");
+            overlay.querySelector(
+                ".project-name"
+            );
+
 
         const softwareList =
-            overlay.querySelector(".software-list");
+            overlay.querySelector(
+                ".software-list"
+            );
+
 
         if (projectName) {
 
@@ -443,6 +605,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 projectInfo.title;
 
         }
+
 
         if (softwareList) {
 
@@ -476,24 +639,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    // ============================================
+    // PROJECT INFORMATION ERROR
+    // ============================================
+
     function showProjectInfoError(card) {
 
         const overlay =
             createSoftwareOverlay(card);
 
+
         const projectName =
-            overlay.querySelector(".project-name");
+            overlay.querySelector(
+                ".project-name"
+            );
+
 
         const softwareList =
-            overlay.querySelector(".software-list");
+            overlay.querySelector(
+                ".software-list"
+            );
+
 
         if (projectName) {
 
-            // Use the card's image alt text as a
-            // fallback title if the project page
-            // cannot be loaded.
             const image =
                 card.querySelector("img");
+
 
             projectName.textContent =
                 image && image.alt
@@ -501,6 +673,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     : "PROJECT";
 
         }
+
 
         if (softwareList) {
 
@@ -520,13 +693,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /*
-     * Find every portfolio card with a
-     * data-project attribute.
-     *
-     * This intentionally does NOT care whether
-     * the card is Branding, Design, or Motion.
-     */
+    // ============================================
+    // FIND PROJECT CARDS
+    // ============================================
 
     const projectCards =
         document.querySelectorAll(
@@ -536,31 +705,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     projectCards.forEach(card => {
 
-        const projectPage =
+        const projectURL =
             card.dataset.project;
 
-        if (!projectPage) {
+
+        if (!projectURL) {
             return;
         }
 
-        /*
-         * Create the overlay immediately.
-         * This means Design and Motion don't need
-         * their own overlay HTML.
-         */
 
+        // Prepare the overlay immediately.
         createSoftwareOverlay(card);
 
 
-        /*
-         * Load the project information immediately
-         * rather than waiting for hover.
-         *
-         * This means the information is ready when
-         * the visitor moves onto the card.
-         */
-
-        loadProjectInfo(projectPage)
+        // Load project information in the background.
+        loadProjectInfo(projectURL)
             .then(projectInfo => {
 
                 showProjectInfo(
@@ -583,7 +742,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // ============================================
 
     if (
-        document.body.classList.contains("motion-page")
+        document.body.classList.contains(
+            "motion-page"
+        )
     ) {
 
         document
@@ -591,11 +752,15 @@ document.addEventListener("DOMContentLoaded", () => {
             .forEach(card => {
 
                 const video =
-                    card.querySelector(".motion-video");
+                    card.querySelector(
+                        ".motion-video"
+                    );
+
 
                 if (!video) {
                     return;
                 }
+
 
                 card.addEventListener(
                     "mouseenter",
@@ -610,6 +775,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     }
                 );
+
 
                 card.addEventListener(
                     "mouseleave",
@@ -635,7 +801,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // ============================================
 
     if (
-        document.body.classList.contains("motion-page")
+        document.body.classList.contains(
+            "motion-page"
+        )
     ) {
 
         const youtubePreview =
@@ -643,13 +811,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 ".youtube-motion-preview"
             );
 
+
         if (youtubePreview) {
 
             let youtubePlayer = null;
             let youtubeReady = false;
 
+
             const videoId =
                 youtubePreview.dataset.videoId;
+
 
             const startTime =
                 Number(
@@ -661,16 +832,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const youtubeScript =
                 document.createElement("script");
 
+
             youtubeScript.src =
                 "https://www.youtube.com/iframe_api";
+
 
             document.head.appendChild(
                 youtubeScript
             );
 
 
-            // YouTube calls this automatically
-            // when the API is ready
             window.onYouTubeIframeAPIReady =
                 function () {
 
@@ -733,10 +904,12 @@ document.addEventListener("DOMContentLoaded", () => {
                             return;
                         }
 
+
                         youtubePlayer.seekTo(
                             startTime,
                             true
                         );
+
 
                         youtubePlayer.mute();
 
@@ -756,6 +929,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         ) {
                             return;
                         }
+
 
                         youtubePlayer.pauseVideo();
 
@@ -779,10 +953,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // ============================================
 
     const menuToggle =
-        document.querySelector(".menu-toggle");
+        document.querySelector(
+            ".menu-toggle"
+        );
+
 
     const navLinks =
-        document.querySelector(".nav-links");
+        document.querySelector(
+            ".nav-links"
+        );
 
 
     if (menuToggle && navLinks) {
@@ -796,9 +975,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         "active"
                     );
 
+
                 navLinks.classList.toggle(
                     "mobile-open"
                 );
+
 
                 menuToggle.setAttribute(
                     "aria-expanded",
@@ -815,15 +996,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // INDEX → PORTFOLIO TRANSITION
     // ============================================
 
-    const enterPortfolio =
+    const portfolioButton =
         document.getElementById(
             "enterPortfolio"
         );
 
 
-    if (enterPortfolio) {
+    if (portfolioButton) {
 
-        enterPortfolio.addEventListener(
+        portfolioButton.addEventListener(
             "click",
             function(event) {
 
@@ -835,18 +1016,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
+
                 event.preventDefault();
 
-                // Prevent the browser from restoring
-                // the transition state when using Back
+
                 document.body.classList.add(
                     "entering-portfolio"
                 );
 
+
                 setTimeout(() => {
 
                     window.location.href =
-                        enterPortfolio.href;
+                        portfolioButton.href;
 
                 }, 700);
 
