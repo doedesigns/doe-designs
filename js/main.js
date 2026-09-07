@@ -27,11 +27,11 @@ if (heroLogo && speechBubble) {
 
     setTimeout(() => {
         speechBubble.classList.remove("show-hello");
-    }, 8000);
+    }, 9000);
 
     setTimeout(() => {
         heroLogo.classList.remove("show-hello");
-    }, 8000);
+    }, 9000);
 
     heroLogo.addEventListener("mouseenter", () => {
 
@@ -291,6 +291,7 @@ if (document.body.classList.contains("motion-page")) {
         });
     });
 }
+	
 	// ============================================
 // YOUTUBE MOTION CARD PREVIEW
 // ============================================
@@ -350,6 +351,149 @@ if (document.body.classList.contains("motion-page")) {
     }
 }
 
+/*=========================================================
+DOE DESIGNS PORTFOLIO
+
+File: branding-software.js
+
+Purpose:
+Automatically pulls the SOFTWARE list from each
+individual branding project page and displays it
+on hover over the corresponding project card.
+=========================================================*/
+
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const brandingCards = document.querySelectorAll(".branding-card");
+
+
+    brandingCards.forEach(function(card){
+
+        const projectPage = card.dataset.project;
+        const softwareList = card.querySelector(".software-list");
+
+
+        if(!projectPage || !softwareList){
+            return;
+        }
+
+
+        fetch(projectPage)
+
+            .then(function(response){
+
+                if(!response.ok){
+                    throw new Error("Project page could not be loaded.");
+                }
+
+                return response.text();
+
+            })
+
+            .then(function(html){
+
+                const parser = new DOMParser();
+                const projectDocument = parser.parseFromString(
+                    html,
+                    "text/html"
+                );
+
+
+  /*-----------------------------------------
+  Find the SOFTWARE detail box
+  -----------------------------------------*/
+
+                const detailBoxes =
+                    projectDocument.querySelectorAll(
+                        ".project-details .detail-box"
+                    );
+
+
+                let softwareBox = null;
+
+
+                detailBoxes.forEach(function(box){
+
+                    const heading = box.querySelector("h3");
+
+
+                    if(
+                        heading &&
+                        heading.textContent.trim().toUpperCase() === "SOFTWARE"
+                    ){
+
+                        softwareBox = box;
+
+                    }
+
+                });
+
+
+/*-----------------------------------------
+      If SOFTWARE box was found
+-----------------------------------------*/
+
+                if(softwareBox){
+
+                    const softwareText =
+                        softwareBox.querySelector("p");
+
+
+                    if(softwareText){
+
+                        softwareList.innerHTML =
+                            softwareText.innerHTML.trim();
+
+                        softwareList.classList.remove("loading");
+
+                    }
+
+                }
+
+
+ /*-----------------------------------------
+    If SOFTWARE box was not found
+ -----------------------------------------*/
+
+                else{
+
+                    softwareList.textContent =
+                        "Software information unavailable.";
+
+                    softwareList.classList.remove("loading");
+                    softwareList.classList.add("error");
+
+                }
+
+            })
+
+
+ /*---------------------------------------------
+   If project page cannot be loaded
+ ---------------------------------------------*/
+
+            .catch(function(error){
+
+                console.error(
+                    "Unable to load software information:",
+                    projectPage,
+                    error
+                );
+
+
+                softwareList.textContent =
+                    "Software information unavailable.";
+
+                softwareList.classList.remove("loading");
+                softwareList.classList.add("error");
+
+            });
+
+    });
+
+});
+	
 // ============================================
 // MOBILE NAVIGATION
 // ============================================
@@ -395,8 +539,8 @@ if (enterPortfolio) {
 
         event.preventDefault();
 
-        // Prevent the browser from restoring the
-        // transition state when using Back
+ // Prevent the browser from restoring the
+ // transition state when using Back
 
         document.body.classList.add("entering-portfolio");
 

@@ -5,7 +5,6 @@
     File: branding.css
 =========================================================*/
 
-
 /*=========================================================
     BRANDING PAGE
 =========================================================*/
@@ -39,7 +38,7 @@ body.branding-page{
 body.branding-page .page-content{
     display:flex;
     flex-direction:column;
-	min-height:calc(100vh - 70px);
+    min-height:calc(100vh - 70px);
 }
 
 /*=========================================================
@@ -47,7 +46,7 @@ body.branding-page .page-content{
 =========================================================*/
 
 .branding-grid{
-	flex:1;
+    flex:1;
     display:grid;
     grid-template-columns:repeat(3,260px);
     justify-content:center;
@@ -72,6 +71,7 @@ body.branding-page .page-content{
     overflow:hidden;
     border:2px solid rgba(255,255,255,.15);
     text-decoration:none;
+    position:relative;
 
     transition:
         transform .35s ease,
@@ -79,20 +79,90 @@ body.branding-page .page-content{
         box-shadow .35s ease;
 }
 
-
 .branding-card img{
     width:100%;
     height:100%;
     object-fit:cover;
     display:block;
+
+    transition:
+        transform .5s ease;
 }
 
+/*=========================================================
+    BRANDING CARD HOVER
+=========================================================*/
 
 .branding-card:hover{
     transform:translateY(-8px);
     border-color:#00E5FF;
     box-shadow:
         0 0 30px rgba(0,229,255,.40);
+}
+
+/*=========================================================
+    SOFTWARE HOVER OVERLAY
+=========================================================*/
+
+.software-overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,229,255,.88);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transform:translateY(-100%);
+    transition:
+        transform .6s cubic-bezier(.22,1,.36,1);
+    z-index:2;
+}
+
+.branding-card:hover .software-overlay{
+    transform:translateY(0);
+}
+
+/*=========================================================
+    SOFTWARE OVERLAY CONTENT
+=========================================================*/
+
+.software-overlay-content{
+    width:80%;
+    text-align:center;
+}
+
+.software-overlay h3{
+    margin:0 0 18px;
+    color:#061C2B;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:25px;
+    font-weight:900;
+    letter-spacing:.18em;
+}
+
+.software-overlay .software-list{
+    margin:0;
+    color:#061C2B;
+    font-family:"Jost",sans-serif;
+    font-size:14px;
+    font-weight:500;
+    line-height:1.8;
+    letter-spacing:.02em;
+}
+
+/*=========================================================
+    SOFTWARE LOADING / ERROR STATE
+=========================================================*/
+
+.software-overlay .software-list.loading{
+    opacity:.7;
+}
+
+.software-overlay .software-list.error{
+    font-size:12px;
+    line-height:1.5;
 }
 
 /*=========================================================
@@ -111,14 +181,24 @@ body.branding-page .page-content{
     letter-spacing:.04em;
 }
 
+
 /*=========================================================
     MOBILE
 =========================================================*/
 
 @media (max-width:900px){
+
     .branding-grid{
         grid-template-columns:1fr;
         gap:40px;
         justify-items:center;
+    }
+}
+
+@media (max-width:600px){
+
+    .branding-card{
+        width:260px;
+        height:260px;
     }
 }
