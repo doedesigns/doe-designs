@@ -5,561 +5,874 @@ document.addEventListener("DOMContentLoaded", () => {
     const enterButton = document.getElementById("enterPortfolio");
     const heroSubtitle = document.getElementById("heroSubtitle");
     const speechBubble = document.querySelector(".speech-bubble");
-    const navLogo = document.querySelector(".logo");
 
-	if(
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches
-){
+    // ============================================
+    // REDUCED MOTION
+    // ============================================
 
-    document.body.classList.add("reduce-motion");
+    if (
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+        document.body.classList.add("reduce-motion");
+    }
 
-}
 
-// ============================================
-// NAV LOGO -> SHOW HERO SPEECH BUBBLE
-// ============================================
+    // ============================================
+    // NAV LOGO -> SHOW HERO SPEECH BUBBLE
+    // ============================================
 
-if (heroLogo && speechBubble) {
+    if (heroLogo && speechBubble) {
 
-    // Show once when page loads
-    speechBubble.classList.add("show-hello");
-    heroLogo.classList.add("show-hello");
-
-    setTimeout(() => {
-        speechBubble.classList.remove("show-hello");
-    }, 9000);
-
-    setTimeout(() => {
-        heroLogo.classList.remove("show-hello");
-    }, 9000);
-
-    heroLogo.addEventListener("mouseenter", () => {
-
+        // Show once when page loads
         speechBubble.classList.add("show-hello");
-        speechBubble.classList.add("wave");
-
-document.dispatchEvent(
-    new CustomEvent("launchFirework")
-);
-
-    });
-
-    heroLogo.addEventListener("mouseleave", () => {
-
-        speechBubble.classList.remove("wave");
-        speechBubble.classList.remove("show-hello");
-
-document.dispatchEvent(
-    new CustomEvent("stopFirework")
-);
-
-    });
-
-    heroLogo.addEventListener("click", () => {
-
-        heroLogo.classList.toggle("show-hello");
-
-    });
-
-}
-	
-// ============================================
-// GLOBAL PAGE TRANSITIONS
-// ============================================
-
-const pageLinks = document.querySelectorAll(
-    'a[href]:not([target="_blank"]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"])'
-);
-
-pageLinks.forEach(link => {
-
-    link.addEventListener("click", function(event) {
-
-        // Don't interfere with modifier-key clicks
-        if (
-            event.ctrlKey ||
-            event.shiftKey ||
-            event.metaKey ||
-            event.altKey
-        ) {
-            return;
-        }
-
-        // INDEX ENTER PORTFOLIO HAS ITS OWN TRANSITION
-        if (link.id === "enterPortfolio") {
-            return;
-        }
-
-        const destination = link.href;
-
-        // Don't animate current page
-        if (destination === window.location.href) {
-            return;
-        }
-
-        // Respect reduced motion
-        if (
-            window.matchMedia(
-                "(prefers-reduced-motion: reduce)"
-            ).matches
-        ) {
-            return;
-        }
-
-        event.preventDefault();
-
-        document.body.classList.add("page-leaving");
+        heroLogo.classList.add("show-hello");
 
         setTimeout(() => {
-            window.location.href = destination;
-        }, 500);
+            speechBubble.classList.remove("show-hello");
+        }, 9000);
 
-    });
+        setTimeout(() => {
+            heroLogo.classList.remove("show-hello");
+        }, 9000);
 
-});
+        heroLogo.addEventListener("mouseenter", () => {
+
+            speechBubble.classList.add("show-hello");
+            speechBubble.classList.add("wave");
+
+        });
+
+        heroLogo.addEventListener("mouseleave", () => {
+
+            speechBubble.classList.remove("wave");
+            speechBubble.classList.remove("show-hello");
+
+        });
+
+        heroLogo.addEventListener("click", () => {
+
+            heroLogo.classList.toggle("show-hello");
+
+        });
+
+    }
+
 
     // ============================================
-    // FIREWORKS
+    // GLOBAL PAGE TRANSITIONS
     // ============================================
 
-    const fireworksIntervals = new Map();
-
-	function triggerFireworks(element){
-
-    document.dispatchEvent(
-        new CustomEvent("launchFirework",{
-            detail:{ element }
-        })
+    const pageLinks = document.querySelectorAll(
+        'a[href]:not([target="_blank"]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"])'
     );
-}
-    function startFireworks(element){
 
-    if(fireworksIntervals.has(element)){
-        return;
-    }
+    pageLinks.forEach(link => {
 
-    triggerFireworks(element);
+        link.addEventListener("click", function(event) {
 
-    const interval=setInterval(()=>{
+            // Don't interfere with modifier-key clicks
+            if (
+                event.ctrlKey ||
+                event.shiftKey ||
+                event.metaKey ||
+                event.altKey
+            ) {
+                return;
+            }
 
-        triggerFireworks(element);
+            // INDEX ENTER PORTFOLIO HAS ITS OWN TRANSITION
+            if (link.id === "enterPortfolio") {
+                return;
+            }
 
-    },4200);
+            const destination = link.href;
 
-    fireworksIntervals.set(element, interval);
+            // Don't animate current page
+            if (destination === window.location.href) {
+                return;
+            }
 
-}
-function stopFireworks(element){
+            // Respect reduced motion
+            if (
+                window.matchMedia(
+                    "(prefers-reduced-motion: reduce)"
+                ).matches
+            ) {
+                return;
+            }
 
-    if(fireworksIntervals.has(element)){
+            event.preventDefault();
 
-        clearInterval(
-            fireworksIntervals.get(element)
-        );
-        fireworksIntervals.delete(element);
-    }
-}
+            document.body.classList.add("page-leaving");
 
-// ============================================
-// HERO OBJECT
-// ============================================
-
-    if (heroObject) {
-
-        heroObject.addEventListener("mouseenter", () => {
-
-            heroObject.classList.add("hover");
-            startFireworks(heroObject);
-
-        });
-
-        heroObject.addEventListener("mouseleave", () => {
-
-            heroObject.classList.remove("hover");
-            stopFireworks(heroObject);
+            setTimeout(() => {
+                window.location.href = destination;
+            }, 500);
 
         });
-    }
-	
-// ============================================
-// ENTER BUTTON
-// ============================================
 
-    if (enterButton) {
-        enterButton.addEventListener("mouseenter", () => {
-            startFireworks(enterButton);
-        });
-
-        enterButton.addEventListener("mouseleave", () => {
-            stopFireworks(enterButton);
-
-        });
-    }
-
-// ============================================
-// CONTACT DATE
-// ============================================
-	
-	const date=document.getElementById("contactDate");
-
-if(date){
-
-date.textContent= new Date()
-    .toLocaleDateString("en-US",{
-        year:"numeric",
-        month:"long",
-        day:"numeric"
     });
 
-}
-	
-// ============================================
-// FOOTER
-// ============================================
 
-const footer = document.getElementById("footerCopyright");
+    // ============================================
+    // CONTACT DATE
+    // ============================================
 
-if (footer) {
-    footer.innerHTML =
-        `© ${new Date().getFullYear()} Doe Designs · Portfolio website designed & developed from concept to code by Jen Doehne`;
-}
-	
-// ============================================
-// SUBTITLE
-// ============================================
+    const date = document.getElementById("contactDate");
 
-    if (heroSubtitle) {
-        heroSubtitle.addEventListener("mouseenter", () => {
-            startFireworks(heroSubtitle);
-        });
+    if (date) {
 
-        heroSubtitle.addEventListener("mouseleave", () => {
-            stopFireworks(heroSubtitle);
+        date.textContent = new Date()
+            .toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric"
+            });
+
+    }
+
+
+    // ============================================
+    // FOOTER
+    // ============================================
+
+    const footer = document.getElementById("footerCopyright");
+
+    if (footer) {
+
+        footer.innerHTML =
+            `© ${new Date().getFullYear()} Doe Designs · Portfolio website designed & developed from concept to code by Jen Doehne`;
+
+    }
+
+
+    // ============================================
+    // PROJECT SCROLL NAV
+    // ============================================
+
+    const projectPage =
+        document.querySelector(".project-page");
+
+    const navbar =
+        document.querySelector(".navbar");
+
+    const projectTitleNav =
+        document.querySelector(".project-title-nav");
+
+    if (
+        projectPage &&
+        navbar &&
+        projectTitleNav
+    ) {
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 80) {
+
+                navbar.classList.add("project-scrolled");
+
+            } else {
+
+                navbar.classList.remove("project-scrolled");
+
+            }
+
         });
 
     }
-// ============================================
-// PROJECT SCROLL NAV
-// ============================================
 
-const projectPage =
-document.querySelector(".project-page");
-const navbar =
-document.querySelector(".navbar");
-const projectTitleNav =
-document.querySelector(".project-title-nav");
-if(projectPage && navbar && projectTitleNav){
-window.addEventListener("scroll",()=>{
-if(window.scrollY > 80){
-navbar.classList.add("project-scrolled");
-}
-	
-else{
-navbar.classList.remove("project-scrolled");
-}
-});
-}
 
-// ============================================
-// RETURN TO TOP WHEN PROJECT TITLE CLICKED
-// ============================================
+    // ============================================
+    // RETURN TO TOP WHEN PROJECT TITLE IS CLICKED
+    // ============================================
 
-if(projectTitleNav){
-projectTitleNav.addEventListener("click",()=>{
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-});
-} 
-	// ============================================
-// MOTION CARD HOVER VIDEO PREVIEWS
-// ============================================
+    if (projectTitleNav) {
 
-if (document.body.classList.contains("motion-page")) {
-    document.querySelectorAll(".motion-card").forEach(card => {
-        const video = card.querySelector(".motion-video");
-        if (!video) return;
-        card.addEventListener("mouseenter", () => {
-            video.currentTime = Number(video.dataset.start || 0);
-            video.play();
+        projectTitleNav.addEventListener("click", () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
         });
 
-        card.addEventListener("mouseleave", () => {
-            video.pause();
-            video.currentTime = Number(video.dataset.start || 0);
+    }
+
+
+    // ============================================
+    // GENERIC PROJECT CARD INFORMATION
+    //
+    // Works for:
+    // Branding
+    // Design
+    // Motion
+    //
+    // Each portfolio card only needs:
+    //
+    // data-project="path/to/project.html"
+    //
+    // The project page remains the source of truth
+    // for the project title and software.
+    // ============================================
+
+    const projectInfoCache = new Map();
+
+
+    function createSoftwareOverlay(card) {
+
+        let overlay =
+            card.querySelector(".software-overlay");
+
+        // Branding cards already have an overlay.
+        // Design and Motion cards will get one automatically.
+        if (overlay) {
+            return overlay;
+        }
+
+        overlay = document.createElement("div");
+
+        overlay.className = "software-overlay";
+
+        overlay.innerHTML = `
+            <div class="software-overlay-content">
+
+                <h2 class="project-name">Loading...</h2>
+
+                <h3>SOFTWARE</h3>
+
+                <p class="software-list loading">
+                    Loading...
+                </p>
+
+            </div>
+        `;
+
+        card.appendChild(overlay);
+
+        return overlay;
+
+    }
+
+
+    function getProjectTitle(projectDocument) {
+
+        const title =
+            projectDocument.querySelector(".project-title h1");
+
+        if (!title) {
+            return "PROJECT";
+        }
+
+        // Clone the title so we can remove the
+        // "Branding Project", "Website Design Project",
+        // "Motion Graphic Project", etc. span.
+        const titleClone = title.cloneNode(true);
+
+        const titleBreak =
+            titleClone.querySelector(".title-break");
+
+        if (titleBreak) {
+            titleBreak.remove();
+        }
+
+        const projectName =
+            titleClone.textContent
+                .replace(/\s+/g, " ")
+                .trim();
+
+        return projectName || "PROJECT";
+
+    }
+
+
+    function getSoftwareList(projectDocument) {
+
+        const detailBoxes =
+            projectDocument.querySelectorAll(
+                ".project-details .detail-box"
+            );
+
+        let softwareBox = null;
+
+        detailBoxes.forEach(box => {
+
+            const heading =
+                box.querySelector("h3");
+
+            if (
+                heading &&
+                heading.textContent
+                    .trim()
+                    .toUpperCase() === "SOFTWARE"
+            ) {
+
+                softwareBox = box;
+
+            }
+
         });
-    });
-}
-	
-	// ============================================
-// YOUTUBE MOTION CARD PREVIEW
-// ============================================
 
-if (document.body.classList.contains("motion-page")) {
+        if (!softwareBox) {
+            return null;
+        }
 
-    const youtubePreview = document.querySelector(".youtube-motion-preview");
-    if (youtubePreview) {
-        let youtubePlayer = null;
-        let youtubeReady = false;
-        const videoId = youtubePreview.dataset.videoId;
-        const startTime = Number(youtubePreview.dataset.start || 0);
+        const softwareParagraphs =
+            softwareBox.querySelectorAll("p");
 
-        // Load YouTube IFrame API
-        const youtubeScript = document.createElement("script");
-        youtubeScript.src = "https://www.youtube.com/iframe_api";
-        document.head.appendChild(youtubeScript);
+        if (!softwareParagraphs.length) {
+            return null;
+        }
 
-        // YouTube calls this automatically when the API is ready
-        window.onYouTubeIframeAPIReady = function () {
-            youtubePlayer = new YT.Player(youtubePreview, {
-                videoId: videoId,
-                playerVars: {
-                    autoplay: 0,
-                    controls: 0,
-                    playsinline: 1,
-                    rel: 0,
-                    origin: window.location.origin
-                },
+        /*
+         * Some project pages use one <p> with <br>
+         * separators. Others use multiple <p> elements.
+         *
+         * Combining the paragraphs here allows both
+         * structures to work.
+         */
 
-                events: {
-                    onReady: function (event) {
-                        youtubeReady = true;
-                        event.target.mute();
-                        event.target.seekTo(startTime, true);
+        const softwareHTML =
+            Array.from(softwareParagraphs)
+                .map(p => p.innerHTML.trim())
+                .filter(Boolean)
+                .join("<br>");
+
+        return softwareHTML || null;
+
+    }
+
+
+    async function loadProjectInfo(projectPage) {
+
+        // Reuse information if another card has
+        // already requested the same project.
+        if (projectInfoCache.has(projectPage)) {
+            return projectInfoCache.get(projectPage);
+        }
+
+        const controller =
+            new AbortController();
+
+        const timeout =
+            setTimeout(() => {
+                controller.abort();
+            }, 7000);
+
+
+        try {
+
+            const response =
+                await fetch(
+                    projectPage,
+                    {
+                        signal: controller.signal,
+                        cache: "no-cache"
                     }
-                }
-            });
-        };
+                );
 
-        const youtubeCard =
-            youtubePreview.closest(".youtube-motion-card");
-        if (youtubeCard) {
-            youtubeCard.addEventListener("mouseenter", () => {
-                if (!youtubeReady || !youtubePlayer) return;
-                youtubePlayer.seekTo(startTime, true);
-                youtubePlayer.mute();
-                youtubePlayer.playVideo();
-            });
+            clearTimeout(timeout);
 
-            youtubeCard.addEventListener("mouseleave", () => {
-                if (!youtubeReady || !youtubePlayer) return;
-                youtubePlayer.pauseVideo();
-                youtubePlayer.seekTo(startTime, true);
-            });
-        }
-    }
-}
+            if (!response.ok) {
+                throw new Error(
+                    `Project page returned ${response.status}`
+                );
+            }
 
-/*=========================================================
-DOE DESIGNS PORTFOLIO
+            const html =
+                await response.text();
 
-File: branding-software.js
+            const parser =
+                new DOMParser();
 
-Purpose:
-Automatically pulls the SOFTWARE list from each
-individual branding project page and displays it
-on hover over the corresponding project card.
-=========================================================*/
-
-
-document.addEventListener("DOMContentLoaded", function(){
-
-    const brandingCards = document.querySelectorAll(".branding-card");
-
-
-    brandingCards.forEach(function(card){
-
-        const projectPage = card.dataset.project;
-        const softwareList = card.querySelector(".software-list");
-
-
-        if(!projectPage || !softwareList){
-            return;
-        }
-
-
-        fetch(projectPage)
-
-            .then(function(response){
-
-                if(!response.ok){
-                    throw new Error("Project page could not be loaded.");
-                }
-
-                return response.text();
-
-            })
-
-            .then(function(html){
-
-                const parser = new DOMParser();
-                const projectDocument = parser.parseFromString(
+            const projectDocument =
+                parser.parseFromString(
                     html,
                     "text/html"
                 );
 
+            const projectName =
+                getProjectTitle(projectDocument);
 
-  /*-----------------------------------------
-  Find the SOFTWARE detail box
-  -----------------------------------------*/
+            const software =
+                getSoftwareList(projectDocument);
 
-                const detailBoxes =
-                    projectDocument.querySelectorAll(
-                        ".project-details .detail-box"
-                    );
+            const projectInfo = {
+                title: projectName,
+                software: software
+            };
 
+            projectInfoCache.set(
+                projectPage,
+                projectInfo
+            );
 
-                let softwareBox = null;
+            return projectInfo;
 
+        } catch (error) {
 
-                detailBoxes.forEach(function(box){
+            clearTimeout(timeout);
 
-                    const heading = box.querySelector("h3");
+            console.error(
+                "Unable to load project information:",
+                projectPage,
+                error
+            );
 
+            throw error;
 
-                    if(
-                        heading &&
-                        heading.textContent.trim().toUpperCase() === "SOFTWARE"
-                    ){
+        }
 
-                        softwareBox = box;
-
-                    }
-
-                });
-
-
-/*-----------------------------------------
-      If SOFTWARE box was found
------------------------------------------*/
-
-                if(softwareBox){
-
-                    const softwareText =
-                        softwareBox.querySelector("p");
+    }
 
 
-                    if(softwareText){
+    function showProjectInfo(card, projectInfo) {
 
-                        softwareList.innerHTML =
-                            softwareText.innerHTML.trim();
+        const overlay =
+            createSoftwareOverlay(card);
 
-                        softwareList.classList.remove("loading");
+        const projectName =
+            overlay.querySelector(".project-name");
 
-                    }
+        const softwareList =
+            overlay.querySelector(".software-list");
 
-                }
+        if (projectName) {
 
+            projectName.textContent =
+                projectInfo.title;
 
- /*-----------------------------------------
-    If SOFTWARE box was not found
- -----------------------------------------*/
+        }
 
-                else{
+        if (softwareList) {
 
-                    softwareList.textContent =
-                        "Software information unavailable.";
+            if (projectInfo.software) {
 
-                    softwareList.classList.remove("loading");
-                    softwareList.classList.add("error");
+                softwareList.innerHTML =
+                    projectInfo.software;
 
-                }
-
-            })
-
-
- /*---------------------------------------------
-   If project page cannot be loaded
- ---------------------------------------------*/
-
-            .catch(function(error){
-
-                console.error(
-                    "Unable to load software information:",
-                    projectPage,
-                    error
+                softwareList.classList.remove(
+                    "loading",
+                    "error"
                 );
 
+            } else {
 
                 softwareList.textContent =
                     "Software information unavailable.";
 
-                softwareList.classList.remove("loading");
-                softwareList.classList.add("error");
+                softwareList.classList.remove(
+                    "loading"
+                );
+
+                softwareList.classList.add(
+                    "error"
+                );
+
+            }
+
+        }
+
+    }
+
+
+    function showProjectInfoError(card) {
+
+        const overlay =
+            createSoftwareOverlay(card);
+
+        const projectName =
+            overlay.querySelector(".project-name");
+
+        const softwareList =
+            overlay.querySelector(".software-list");
+
+        if (projectName) {
+
+            // Use the card's image alt text as a
+            // fallback title if the project page
+            // cannot be loaded.
+            const image =
+                card.querySelector("img");
+
+            projectName.textContent =
+                image && image.alt
+                    ? image.alt
+                    : "PROJECT";
+
+        }
+
+        if (softwareList) {
+
+            softwareList.textContent =
+                "Software information unavailable.";
+
+            softwareList.classList.remove(
+                "loading"
+            );
+
+            softwareList.classList.add(
+                "error"
+            );
+
+        }
+
+    }
+
+
+    /*
+     * Find every portfolio card with a
+     * data-project attribute.
+     *
+     * This intentionally does NOT care whether
+     * the card is Branding, Design, or Motion.
+     */
+
+    const projectCards =
+        document.querySelectorAll(
+            "[data-project]"
+        );
+
+
+    projectCards.forEach(card => {
+
+        const projectPage =
+            card.dataset.project;
+
+        if (!projectPage) {
+            return;
+        }
+
+        /*
+         * Create the overlay immediately.
+         * This means Design and Motion don't need
+         * their own overlay HTML.
+         */
+
+        createSoftwareOverlay(card);
+
+
+        /*
+         * Load the project information immediately
+         * rather than waiting for hover.
+         *
+         * This means the information is ready when
+         * the visitor moves onto the card.
+         */
+
+        loadProjectInfo(projectPage)
+            .then(projectInfo => {
+
+                showProjectInfo(
+                    card,
+                    projectInfo
+                );
+
+            })
+            .catch(() => {
+
+                showProjectInfoError(card);
 
             });
 
     });
 
-});
-	
-// ============================================
-// MOBILE NAVIGATION
-// ============================================
 
-const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector(".nav-links");
+    // ============================================
+    // MOTION CARD HOVER VIDEO PREVIEWS
+    // ============================================
+
+    if (
+        document.body.classList.contains("motion-page")
+    ) {
+
+        document
+            .querySelectorAll(".motion-card")
+            .forEach(card => {
+
+                const video =
+                    card.querySelector(".motion-video");
+
+                if (!video) {
+                    return;
+                }
+
+                card.addEventListener(
+                    "mouseenter",
+                    () => {
+
+                        video.currentTime =
+                            Number(
+                                video.dataset.start || 0
+                            );
+
+                        video.play();
+
+                    }
+                );
+
+                card.addEventListener(
+                    "mouseleave",
+                    () => {
+
+                        video.pause();
+
+                        video.currentTime =
+                            Number(
+                                video.dataset.start || 0
+                            );
+
+                    }
+                );
+
+            });
+
+    }
 
 
-if(menuToggle && navLinks){
+    // ============================================
+    // YOUTUBE MOTION CARD PREVIEW
+    // ============================================
 
-    menuToggle.addEventListener("click",()=>{
+    if (
+        document.body.classList.contains("motion-page")
+    ) {
 
-        const isOpen =
-            menuToggle.classList.toggle("active");
+        const youtubePreview =
+            document.querySelector(
+                ".youtube-motion-preview"
+            );
 
-        navLinks.classList.toggle(
-            "mobile-open"
-        );
+        if (youtubePreview) {
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            isOpen
-        );
-    });
-}
-// ============================================
-// INDEX → PORTFOLIO TRANSITION
-// ============================================
+            let youtubePlayer = null;
+            let youtubeReady = false;
 
-const enterPortfolio = document.getElementById("enterPortfolio");
+            const videoId =
+                youtubePreview.dataset.videoId;
 
-if (enterPortfolio) {
+            const startTime =
+                Number(
+                    youtubePreview.dataset.start || 0
+                );
 
-    enterPortfolio.addEventListener("click", function(event) {
 
-        if (
-            window.matchMedia(
-                "(prefers-reduced-motion: reduce)"
-            ).matches
-        ) {
-            return;
+            // Load YouTube IFrame API
+            const youtubeScript =
+                document.createElement("script");
+
+            youtubeScript.src =
+                "https://www.youtube.com/iframe_api";
+
+            document.head.appendChild(
+                youtubeScript
+            );
+
+
+            // YouTube calls this automatically
+            // when the API is ready
+            window.onYouTubeIframeAPIReady =
+                function () {
+
+                    youtubePlayer =
+                        new YT.Player(
+                            youtubePreview,
+                            {
+                                videoId: videoId,
+
+                                playerVars: {
+                                    autoplay: 0,
+                                    controls: 0,
+                                    playsinline: 1,
+                                    rel: 0,
+                                    origin:
+                                        window.location.origin
+                                },
+
+                                events: {
+
+                                    onReady:
+                                        function (event) {
+
+                                            youtubeReady =
+                                                true;
+
+                                            event.target.mute();
+
+                                            event.target.seekTo(
+                                                startTime,
+                                                true
+                                            );
+
+                                        }
+
+                                }
+
+                            }
+                        );
+
+                };
+
+
+            const youtubeCard =
+                youtubePreview.closest(
+                    ".youtube-motion-card"
+                );
+
+
+            if (youtubeCard) {
+
+                youtubeCard.addEventListener(
+                    "mouseenter",
+                    () => {
+
+                        if (
+                            !youtubeReady ||
+                            !youtubePlayer
+                        ) {
+                            return;
+                        }
+
+                        youtubePlayer.seekTo(
+                            startTime,
+                            true
+                        );
+
+                        youtubePlayer.mute();
+
+                        youtubePlayer.playVideo();
+
+                    }
+                );
+
+
+                youtubeCard.addEventListener(
+                    "mouseleave",
+                    () => {
+
+                        if (
+                            !youtubeReady ||
+                            !youtubePlayer
+                        ) {
+                            return;
+                        }
+
+                        youtubePlayer.pauseVideo();
+
+                        youtubePlayer.seekTo(
+                            startTime,
+                            true
+                        );
+
+                    }
+                );
+
+            }
+
         }
 
-        event.preventDefault();
+    }
 
- // Prevent the browser from restoring the
- // transition state when using Back
 
-        document.body.classList.add("entering-portfolio");
+    // ============================================
+    // MOBILE NAVIGATION
+    // ============================================
 
-        setTimeout(() => {
-            window.location.href = enterPortfolio.href;
-        }, 700);
+    const menuToggle =
+        document.querySelector(".menu-toggle");
 
-    });
-}
-	
-// ============================================
-// RESTORE HOME PAGE AFTER BROWSER BACK
-// ============================================
+    const navLinks =
+        document.querySelector(".nav-links");
 
-window.addEventListener("pageshow", function () {
 
-    document.body.classList.remove("entering-portfolio");
-    document.body.classList.remove("page-leaving");
+    if (menuToggle && navLinks) {
+
+        menuToggle.addEventListener(
+            "click",
+            () => {
+
+                const isOpen =
+                    menuToggle.classList.toggle(
+                        "active"
+                    );
+
+                navLinks.classList.toggle(
+                    "mobile-open"
+                );
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    isOpen
+                );
+
+            }
+        );
+
+    }
+
+
+    // ============================================
+    // INDEX → PORTFOLIO TRANSITION
+    // ============================================
+
+    const enterPortfolio =
+        document.getElementById(
+            "enterPortfolio"
+        );
+
+
+    if (enterPortfolio) {
+
+        enterPortfolio.addEventListener(
+            "click",
+            function(event) {
+
+                if (
+                    window.matchMedia(
+                        "(prefers-reduced-motion: reduce)"
+                    ).matches
+                ) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                // Prevent the browser from restoring
+                // the transition state when using Back
+                document.body.classList.add(
+                    "entering-portfolio"
+                );
+
+                setTimeout(() => {
+
+                    window.location.href =
+                        enterPortfolio.href;
+
+                }, 700);
+
+            }
+        );
+
+    }
+
+
+    // ============================================
+    // RESTORE HOME PAGE AFTER BROWSER BACK
+    // ============================================
+
+    window.addEventListener(
+        "pageshow",
+        function () {
+
+            document.body.classList.remove(
+                "entering-portfolio"
+            );
+
+            document.body.classList.remove(
+                "page-leaving"
+            );
+
+        }
+    );
 
 });
-
-	});
