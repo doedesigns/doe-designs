@@ -14,8 +14,8 @@ html{
 
 body{
     min-height:100vh;
-	display:fex;
-	flex-direction:column;
+    display:flex;
+    flex-direction:column;
     overflow-x:hidden;
     background:#06080B;
     color:#fff;
@@ -58,6 +58,7 @@ main{
 .motion-grid{
     margin-top:0;
 }
+
 
 /* ===================================
 HEADER / NAVIGATION
@@ -238,6 +239,7 @@ GLOBAL BUTTON
     transform:scaleX(1);
 }
 
+
 /* ===================================
 GLOBAL PAGE LAYOUT
 =================================== */
@@ -252,6 +254,87 @@ GLOBAL PAGE LAYOUT
     align-items:center;
     position:relative;
     z-index:2;
+}
+
+
+/* ===================================
+SHARED PROJECT CARD OVERLAY
+=================================== */
+
+/*
+   Branding, Design, and Motion cards all use
+   data-project and receive their overlay from
+   main.js.
+
+   The individual project page remains the
+   source of truth for project title and software.
+*/
+
+[data-project]{
+    position:relative;
+}
+
+[data-project] .software-overlay{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,229,255,.88);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    transform:translateY(-100%);
+    transition:
+        transform .6s cubic-bezier(.22,1,.36,1);
+    z-index:10;
+}
+
+[data-project]:hover .software-overlay{
+    transform:translateY(0);
+}
+
+.software-overlay-content{
+    width:80%;
+    text-align:center;
+}
+
+.software-overlay .project-name{
+    margin:0 0 12px;
+    color:#061C2B;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:25px;
+    font-weight:900;
+    line-height:1.05;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+}
+
+.software-overlay h3{
+    margin:0 0 12px;
+    color:#061C2B;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:14px;
+    font-weight:900;
+    letter-spacing:.18em;
+}
+
+.software-overlay .software-list{
+    margin:0;
+    color:#061C2B;
+    font-family:"Jost",sans-serif;
+    font-size:13px;
+    font-weight:500;
+    line-height:1.7;
+    letter-spacing:.02em;
+}
+
+.software-overlay .software-list.loading{
+    opacity:.7;
+}
+
+.software-overlay .software-list.error{
+    font-size:12px;
+    line-height:1.5;
 }
 
 
@@ -287,6 +370,7 @@ IMAGE SIZE HELPERS
     max-width:1200px;
 }
 
+
 /* ===================================
 PAGE CONTACT LINK
 =================================== */
@@ -311,30 +395,32 @@ PAGE CONTACT LINK
     text-align:center;
 }
 
+
 /* ===================================
 FOOTER
 =================================== */
 
-footer {
-    width: 100%;
-    text-align: center;
-    font-size: 12px;
-    letter-spacing: .18em;
-    color: rgba(255,255,255,.45);
-    padding-bottom: 5px;
+footer{
+    width:100%;
+    text-align:center;
+    font-size:12px;
+    letter-spacing:.18em;
+    color:rgba(255,255,255,.45);
+    padding-bottom:5px;
 }
 
-body:not(.scroll-page) footer {
-    margin-top: auto;
+body:not(.scroll-page) footer{
+    margin-top:auto;
 }
 
-.scroll-page footer {
-    margin-top: 10px;
+.scroll-page footer{
+    margin-top:10px;
 }
 
-#footerCopyright {
-    color: #ffffff;
+#footerCopyright{
+    color:#ffffff;
 }
+
 
 /* ===================================
 LIGHTBOX TRANSITION
@@ -352,19 +438,21 @@ LIGHTBOX TRANSITION
         0 30px 60px rgba(0,0,0,.6);
 }
 
+
 /* ===================================
 PROJECT YEAR
 =================================== */
 
-.project-year {
+.project-year{
     text-align:center;
-    font-family:"Jost", sans-serif;
-     font-size:clamp(14px,2vw,22px);
+    font-family:"Jost",sans-serif;
+    font-size:clamp(14px,2vw,22px);
     letter-spacing:3px;
     color:#00E5FF;
-     margin:40px 0;
+    margin:40px 0;
     text-transform:uppercase;
 }
+
 
 /* ===================================
 IMAGE LIGHTBOX
@@ -383,7 +471,9 @@ IMAGE LIGHTBOX
 }
 
 
-/* LIGHTBOX BACKGROUND */
+/* ===================================
+LIGHTBOX BACKGROUND
+=================================== */
 
 .lightbox{
     position:fixed;
@@ -399,14 +489,15 @@ IMAGE LIGHTBOX
     transition:.4s ease;
 }
 
-
 .lightbox.active{
     opacity:1;
     visibility:visible;
 }
 
 
-/* BLACK IMAGE CONTAINER */
+/* ===================================
+BLACK IMAGE CONTAINER
+=================================== */
 
 .lightbox-box{
     position:relative;
@@ -420,7 +511,9 @@ IMAGE LIGHTBOX
 }
 
 
-/* LARGE IMAGE */
+/* ===================================
+LARGE IMAGE
+=================================== */
 
 .lightbox-image-large{
     display:block;
@@ -436,7 +529,9 @@ IMAGE LIGHTBOX
 }
 
 
-/* CLOSE BUTTON */
+/* ===================================
+CLOSE BUTTON
+=================================== */
 
 .lightbox-close{
     position:absolute;
@@ -448,7 +543,6 @@ IMAGE LIGHTBOX
     border:none;
     cursor:pointer;
 }
-
 
 .lightbox-close span::before,
 .lightbox-close span::after{
@@ -471,7 +565,9 @@ IMAGE LIGHTBOX
 }
 
 
-/* CYAN ROTATING CIRCLE */
+/* ===================================
+CYAN ROTATING CIRCLE
+=================================== */
 
 .lightbox-close::before{
     content:"";
@@ -504,6 +600,7 @@ IMAGE LIGHTBOX
     }
 }
 
+
 /* ===================================
 MOBILE
 =================================== */
@@ -521,8 +618,10 @@ MOBILE
     }
 
 }
+
+
 /* ===================================
-   MOBILE HAMBURGER MENU
+MOBILE HAMBURGER MENU
 =================================== */
 
 .menu-toggle{
@@ -534,7 +633,7 @@ MOBILE
     border:none;
     cursor:pointer;
     padding:10px;
-	position:relative;
+    position:relative;
     z-index:10001;
 }
 
@@ -546,11 +645,13 @@ MOBILE
     transition:.35s ease;
 }
 
+
 /* ===================================
-   MOBILE NAV
+MOBILE NAV
 =================================== */
 
 @media(max-width:768px){
+
     .navbar{
         padding:0 25px;
     }
@@ -573,13 +674,15 @@ MOBILE
         backdrop-filter:blur(12px);
         transform:translateY(-150%);
         transition:.4s ease;
-
     }
 
     .nav-links.mobile-open{
         transform:translateY(0);
     }
+
 }
+
+
 /* ===================================
 TABLET / SMALL DESKTOP NAV
 =================================== */
@@ -633,37 +736,33 @@ BACKGROUND EFFECT CANVAS
 
 #effects,
 #dust{
-
     position:fixed;
     inset:0;
-
     width:100vw;
     height:100vh;
-
     pointer-events:none;
-
     z-index:1;
-
 }
 
+
 /* =========================================================
-   GLOBAL PAGE TRANSITIONS
+GLOBAL PAGE TRANSITIONS
 ========================================================= */
 
-body {
+body{
     opacity:1;
     transition:opacity .5s ease-in-out;
 }
 
-/* Fade page out before navigating */
-body.page-leaving {
+body.page-leaving{
     opacity:0;
-	transition:opacity .6s ease-in;
+    transition:opacity .6s ease-in;
 }
 
-/* Respect reduced-motion preferences */
-@media (prefers-reduced-motion:reduce) {
-    body {
+@media(prefers-reduced-motion:reduce){
+
+    body{
         transition:none;
     }
+
 }
