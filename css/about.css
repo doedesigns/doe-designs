@@ -55,7 +55,7 @@ ABOUT INTRO FRAME
     background:#050507;
     border:3px solid rgba(0,229,255,.65);
     box-shadow:
-		0 0 25px rgba(0,229,255,.35),
+        0 0 25px rgba(0,229,255,.35),
         0 25px 80px rgba(0,0,0,.65);
     color:#F5F5F5;
 }
@@ -137,32 +137,38 @@ ABOUT SUMMARY
 }
 
 /* ===================================
-   PORTFOLIO SLIDEDECK
+SECRET FACTS
 =================================== */
 
-.portfolio-slidedeck{
-    margin-bottom:10px;
-	padding-top:30px;
-    padding-bottom:30px;
+.secret-facts{
+    width:100%;
+    margin:10px auto 0;
+    padding:30px 25px 35px;
     border:1px solid rgba(0,229,255,.45);
     text-align:center;
-    max-width:900px;
+    box-sizing:border-box;
 }
-	
-.portfolio-slidedeck h2{
+
+/* ===================================
+SECRET FACT HEADING
+=================================== */
+
+.secret-facts h2{
     position:relative;
-    display:inline-block;
-	text-align:center;
+    display:block;
+    width:max-content;
+    max-width:100%;
+    margin:0 auto 20px;
     font-family:"Barlow Condensed",sans-serif;
     font-size:42px;
     font-weight:900;
     letter-spacing:.08em;
     color:#00E5FF;
-    margin:0 0 25px;
+    line-height:1;
     transition:.35s ease;
 }
 
-.portfolio-slidedeck h2::after{
+.secret-facts h2::after{
     content:"";
     position:absolute;
     left:0;
@@ -175,56 +181,129 @@ ABOUT SUMMARY
     transition:.35s ease;
 }
 
-.portfolio-slidedeck h2:hover{
+.secret-facts h2:hover{
     color:#FFFFFF;
 }
 
-.portfolio-slidedeck h2:hover::after{
+.secret-facts h2:hover::after{
     transform:scaleX(1);
 }
 
-.portfolio-slidedeck h2{
+/* ===================================
+SECRET FACT VIEWPORT
+
+This is the important containment area.
+The animated fact and number cannot
+visually leave this box.
+=================================== */
+
+.secret-fact-viewport{
+    position:relative;
+    width:100%;
+    height:150px;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* ===================================
+SECRET FACT ITEM
+
+Number + fact move together.
+=================================== */
+
+.secret-fact-item{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    box-sizing:border-box;
+    padding:5px 15px;
+    transform:translateY(-110%);
+}
+
+/* ===================================
+NUMBER
+=================================== */
+
+.secret-fact-number{
     display:block;
+    margin-bottom:8px;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:24px;
+    font-weight:700;
+    letter-spacing:.08em;
+    color:#00E5FF;
+    line-height:1;
+}
+
+/* ===================================
+FACT TEXT
+=================================== */
+
+.secret-fact-text{
+    max-width:700px;
+    margin:0 auto;
+    font-family:"Caveat",cursive;
+    font-size:27px;
+    font-weight:500;
+    line-height:1.25;
+    color:#FFFFFF;
     text-align:center;
 }
 
-.portfolio-slidedeck p{
-    color:white;
-    font-family:"Jost",sans-serif;
-    font-size:18px;
-    line-height:1.7;
-    max-width:700px;
-    margin:0 auto 25px;
+/* ===================================
+FACT ANIMATION
+
+The JavaScript adds these classes.
+=================================== */
+
+.secret-fact-item.fact-enter{
+    animation:
+        secretFactEnter .75s ease-out forwards;
 }
 
-.portfolio-slidedeck a{
-    color:#00E5FF;
-    font-family:"Jost",sans-serif;
-    font-size:16px;
-    font-weight:600;
-    letter-spacing:.12em;
-    text-decoration:none;
-    position:relative;
+.secret-fact-item.fact-exit{
+    animation:
+        secretFactExit .75s ease-in forwards;
 }
 
-.portfolio-slidedeck a::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-8px;
-    width:0;
-    height:2px;
-    background:white;
-    transform-origin:center;
-    transition:.35s ease;
+/* ===================================
+SLIDE DOWN INTO VIEW
+=================================== */
+
+@keyframes secretFactEnter{
+
+    from{
+        transform:translateY(-110%);
+    }
+
+    to{
+        transform:translateY(0);
+    }
+
 }
 
-.portfolio-slidedeck a:hover{
-    color:#FFFFFF;
-}
+/* ===================================
+SLIDE DOWN AND OUT
+=================================== */
 
-.portfolio-slidedeck a:hover::after{
-    width:100%;
+@keyframes secretFactExit{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(110%);
+    }
+
 }
 
 /* ===================================
@@ -356,7 +435,7 @@ CONTACT HEADER
     gap:12px;
     margin-top:22px;
     font-family:"DM Mono",monospace;
-	    padding-bottom:35px;
+    padding-bottom:35px;
     border-bottom:1px solid rgba(0,229,255,.35);
 }
 
@@ -392,6 +471,7 @@ CONTACT HEADER
 .resume-contact a:hover{
     color:#00E5FF;
 }
+
 /* ===================================
 RESUME SECTIONS
 BOOK SPINE VERSION
@@ -407,7 +487,6 @@ BOOK SPINE VERSION
     position:relative;
 }
 
-
 /* ===================================
 BOOK SPINE LABEL
 =================================== */
@@ -418,13 +497,13 @@ BOOK SPINE LABEL
 }
 
 /* ===============================
-   SINGLE LINE HEADINGS
+SINGLE LINE HEADINGS
 =============================== */
 
 .section-label h2{
     position:absolute;
     top:0;
-    right:44px;   /* moved left slightly */
+    right:44px;
     transform:rotate(-90deg);
     transform-origin:right top;
     font-family:"Barlow Condensed",sans-serif;
@@ -439,7 +518,7 @@ BOOK SPINE LABEL
 }
 
 /* ===============================
-   TWO LINE HEADINGS
+TWO LINE HEADINGS
 =============================== */
 
 .section-label.two-line-label h2{
@@ -453,7 +532,7 @@ BOOK SPINE LABEL
 }
 
 /* ===============================
-   OFF HOURS ADJUSTMENT
+OFF HOURS ADJUSTMENT
 =============================== */
 
 .section-label.off-hours-label h2{
@@ -463,13 +542,13 @@ BOOK SPINE LABEL
 }
 
 /* ===============================
-   VERTICAL SPINE LINE
+VERTICAL SPINE LINE
 =============================== */
 
 .section-label::after{
     content:"";
     position:absolute;
-    right:10px;     /* moves single line underline right */
+    right:10px;
     top:0;
     width:2px;
     height:35px;
@@ -480,11 +559,11 @@ BOOK SPINE LABEL
 /* move line left only for two-line headings */
 
 .section-label:has(.two-line-label)::after{
-    right:125px;   /* moves only this line left */
+    right:125px;
 }
 
 /* ===============================
-   HOVER
+HOVER
 =============================== */
 
 .resume-section:hover .section-label h2{
@@ -498,6 +577,7 @@ BOOK SPINE LABEL
 .section-content{
     min-width:0;
 }
+
 /* ===================================
 EXPERIENCE
 =================================== */
@@ -784,6 +864,37 @@ MOBILE
         font-size:16px;
     }
 
+    /* ===============================
+       SECRET FACTS MOBILE
+    =============================== */
+
+    .secret-facts{
+        padding:
+            28px 18px 30px;
+    }
+
+    .secret-facts h2{
+        font-size:36px;
+    }
+
+    .secret-fact-viewport{
+        height:165px;
+    }
+
+    .secret-fact-item{
+        padding:
+            5px 8px;
+    }
+
+    .secret-fact-number{
+        font-size:22px;
+    }
+
+    .secret-fact-text{
+        font-size:24px;
+        line-height:1.2;
+    }
+
     .resume-header h1{
         font-size:32px;
     }
@@ -826,7 +937,6 @@ MOBILE
     }
 
     .section-label h2{
-
         position:relative;
         transform:none;
         right:auto;
@@ -848,45 +958,42 @@ MOBILE
         width:100%;
         height:2px;
     }
-	
-/* ===============================
-   RESET TWO-LINE LABELS MOBILE
-=============================== */
 
-.section-label.two-line-label h2,
-.section-label.off-hours-label h2{
+    /* ===============================
+       RESET TWO-LINE LABELS MOBILE
+    =============================== */
 
-    position:relative;
-    transform:none;
-    right:auto;
-    top:auto;
-    width:auto;
-    text-align:left;
-    display:inline-block;
-}
+    .section-label.two-line-label h2,
+    .section-label.off-hours-label h2{
+        position:relative;
+        transform:none;
+        right:auto;
+        top:auto;
+        width:auto;
+        text-align:left;
+        display:inline-block;
+    }
 
-/* reset divider line position */
+    /* reset divider line position */
 
-.section-label.two-line-label::after{
-    position:absolute;
-    left:0;
-    right:auto;
-    top:auto;
-    bottom:-8px;
-    width:35%;
-    height:2px;
-}
+    .section-label.two-line-label::after{
+        position:absolute;
+        left:0;
+        right:auto;
+        top:auto;
+        bottom:-8px;
+        width:35%;
+        height:2px;
+    }
 
-.section-label.off-hours-label::after{
-
-    right:auto;
-    left:0;
-    top:auto;
-    bottom:-8px;
-    width:35%;
-    height:2px;
-
-}
+    .section-label.off-hours-label::after{
+        right:auto;
+        left:0;
+        top:auto;
+        bottom:-8px;
+        width:35%;
+        height:2px;
+    }
 
     .resume-role{
         flex-direction:column;
@@ -905,5 +1012,5 @@ MOBILE
     .skills-tools{
         text-align:left;
     }
-	
+
 }
