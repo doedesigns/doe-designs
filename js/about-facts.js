@@ -23,65 +23,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const facts = [
 
-        "I originally intended to be a music performance and opera major before switching to history, criminal justice, and pre-law. Because...reading :-)",
+        "I originally intended to be a music performance and opera major <br>before switching to history, criminal justice, and pre-law. <br>Because...reading :-)",
 
-        "I have two rescue dogs named Cap’t Bexley and Judge Harley. They like treats and hiking. Squirrels not so much.",
+        "I have two rescue dogs named Cap’t Bexley and Judge Harley. <br>They like treats and hiking. <br><i>Squirrels not so much.</i>",
 
-        "I started playing video games after working for MTV before law school. (Check me out in the credits for RockBand 2 and 3!) I’ve never looked back, ...which is a detriment in some rpg games.",
+        "I started playing video games after working for MTV before law school. <br>(Check me out in the credits for RockBand 2 and 3!) <br>I’ve never looked back, ...which is a detriment in some rpg games.",
 
-        "I play classical guitar but not well.",
+        "I play classical guitar but not very well.",
 
-        "I can sing at least one song from every animated Disney movie. Most of the time it’s recognizable.",
+        "I can sing at least one song from every animated Disney movie. <br>Most of the time it’s recognizable.",
 
-        "My favorite book series is the Shadowhunter Chronicles by Cassandra Clare. Also love the work of V. E. Schwab-I want a coat like Kell.",
+        "My favorite book series is the <br>Shadowhunter Chronicles by Cassandra Clare. <br>Also love the work of V. E. Schwab-<i>I want a coat like Kell.</i>",
 
-        "Instead of law school, I almost went for a Ph.D. in Egyptology. Joke’s on me, though—graphic design is where it’s at! ...Only took me a couple decades to figure it out.",
+        "Instead of law school, I almost went for a Ph.D. in Egyptology. Joke’s on me, though—graphic design is where it’s at! <br>...Only took me a couple decades to figure it out.",
 
         "I marked my territory in all 50 states before I turned 30.",
 
-        "Typically I read between 3–5 books a week. ...“Reading” also loosely includes audiobooks. Convince me otherwise.",
+        "Typically I read between 3–5 books a week. <br>...“Reading” also loosely includes audiobooks. <br><i>Convince me otherwise.</i>",
 
-        "I taught myself to tile, designed the patterns, and installed it all myself throughout my home—including a master bath that may have gotten a little carried away with tile. But I give myself a 5 star review.",
+        "I taught myself to tile, designed the patterns, and installed it all <br>myself throughout my home—including a master bath that I <br>MAY have gotten a little carried away with. <br>But I give myself a 5 star review.",
 
-        "I played varsity softball and basketball in college, but now my body won’t support that.",
+        "I played varsity softball and basketball in college, <br>but now my body is vehemently against three-a-day practices.",
 
         "I am terrible at yard work, to my neighbors’ chagrin.",
 
-        "I grew up with two rotary phones in the house. I’m not sure I would know how to use them now.",
+        "I grew up with two rotary phones in the house. <br>I’m not sure I would know how to use them now.",
 
         "My favorite movies are Kill Bill 1 & 2.",
 
-        "My favorite graphic design experience is TeamLab Borderless in Tokyo.",
+        "My favorite graphic design experience <br>is TeamLab Borderless in Tokyo.",
 
-        "I have visited 23 countries. Hopefully, none of them remember my escapades too well.",
+        "I have visited 23 countries. <br>Hopefully, none of them remember my escapades too well.",
 
-        "I don’t have any TV subscriptions—no Netflix, Hulu, Disney+, etc.—and only occasionally watch movies. So don’t pop-culture-reference me unless you want to be disappointed. ",
+        "I don’t have any TV subscriptions—no Netflix, Hulu, Disney+, etc.—and only occasionally watch movies. <br>So don’t pop-culture-reference me unless you want to be disappointed.",
 
-        "I am abnormally good at word searches.",
+        "I am abnormally good at word searches. <br>I challenge you to an epic word search battle for the control of middle earth.",
 
-        "When I have free weekends, I love taking the dogs hiking. Unless it’s raining, then we cuddle in a grumpy puppy puddle looking out the window at the rain.",
+        "When I have free weekends, I love taking the dogs hiking. <br>Unless it’s raining, then we cuddle in a grumpy puppy puddle to guard the house from cute bunnies and dastardly squirrels.",
 
         "My dad and I create cigar box guitars out of actual cigar boxes.",
 
-        "I love being on or in the water. So does my aptly named dog, Cap’t Bexley.",
+        "I love being on or in the water. <br>So does my aptly named dog, Cap’t Bexley.",
 
-        "My happy place is playing volleyball. Anywhere, anytime.",
+        "My happy place is playing volleyball. <br>Anywhere, anytime.",
 
-        "I have two wonderfully super cute, wild, amazing, silly willy nephews with another on the way!",
+        "I have two wonderfully super cute, wild, amazing, silly willy nephews <br>with another on the way!",
 
-        "Sushi is my favorite! Hold the cream cheese, you monster.",
+        "Sushi is my favorite! <br><i>But hold the cream cheese, you monster.</i>",
 
-        "I hope to create a complex board game someday with a fantastical storyline and battles… and reviving… because dying mid-campaign sucks.",
+        "I hope to create a complex board game someday with a fantastical storyline and battles… and reviving… <br>because dying mid-campaign sucks.",
 
-        "I don’t like coffee or chocolate. You are mistaken, it’s not weird… and think of how much money I save!",
+        "I don’t like coffee or chocolate. <br>You are mistaken, it’s not weird… and think of how much money I save!",
 
-        "I try not to judge people…so I taught my dog, Judge Harley, how to do it. (Will send adorable pictures upon request.)",
+        "I try not to judge people… <br>so I taught my dog, Judge Harley, how to do it. <br><i>Will send adorable judgemental pictures upon request.</i>",
 
-        "My mom is a fabulous quilter and I get to “test” them out, so I have over 20 quilts of various sizes and styles in the house. I basically live in a blanket house.",
+        "My mom is a fabulous quilter and I get to “test” them out, so I have over 20 quilts of various sizes and styles in the house. <br>I basically live in a blanket house.",
 
-        "My (still functional!) microwave was bought at Target in 2006 for around $20.",
+        "My (still functional!) microwave was bought at <br>Target in 2006 for around $20.",
 
-        "I’m a terrible cook. Seriously, I should have a comedic YouTube channel where I attempt simple things. It’d be a hit and I would burn water."
+        "I’m a terrible cook. <br>Seriously, I should have a comedic YouTube channel where I attempt simple things. <br>It’d be a hit and I would burn water."
 
     ];
 
@@ -181,11 +181,10 @@ document.addEventListener("DOMContentLoaded", () => {
         number.textContent =
             `#${String(index + 1).padStart(2, "0")}`;
 
-        text.textContent =
+        text.innerHTML =
             facts[index];
 
     }
-
 
     // ============================================
     // INITIAL FACT
@@ -221,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             loadFact(nextIndex);
 
-        }, 8000);
+        }, 7000);
 
         return;
 
