@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         "I love being on or in the water. <br>So does my aptly named dog, Cap’t Bexley.",
 
-        "My happy place is playing volleyball. <br>Anywhere, anytime.",
+        "My happy place is on a volleyball court. <br>Anywhere, anytime.",
 
         "I have two wonderfully super cute, wild, amazing, silly willy nephews <br>with another on the way!",
 
