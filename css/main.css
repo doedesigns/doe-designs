@@ -741,6 +741,7 @@ TABLET / SMALL DESKTOP NAV
         transform:translate(-50%,-50%);
         gap:30px;
         width:auto;
+        z-index:1;
     }
 
     .project-scrolled .project-title-nav h1{
@@ -750,6 +751,13 @@ TABLET / SMALL DESKTOP NAV
     .project-scrolled .project-title-nav .project-arrow{
         width:40px;
         height:40px;
+    }
+
+    /* Keep the logo and hamburger above the project arrows */
+    .navbar .logo,
+    .navbar .menu-toggle{
+        position:relative;
+        z-index:10002;
     }
 
 }
