@@ -600,25 +600,40 @@ CYAN ROTATING CIRCLE
     }
 }
 
-
-/* ===================================
-MOBILE
-=================================== */
+/*=========================================================
+    MOBILE
+=========================================================*/
 
 @media(max-width:700px){
 
-    .lightbox-box{
-        width:90vw;
-        padding:20px;
+    .contact-container{
+        min-height:auto;
+        justify-content:flex-start;
+        padding:
+            115px 20px 100px;
     }
 
-    .lightbox-close{
-        left:10px;
-        top:-55px;
+    .contact-paper{
+        padding:
+            35px 25px;
+    }
+
+    .contact-title{
+        font-size:48px;
+    }
+
+    /* Keep the contact page content from being
+       pushed underneath the fixed navigation. */
+
+    .contact-page .page-content{
+        max-width:1200px;
+        width:100%;
+        margin:0 auto;
+        padding-top:0;
+        padding-bottom:0;
     }
 
 }
-
 
 /* ===================================
 MOBILE HAMBURGER MENU
@@ -712,6 +727,32 @@ TABLET / SMALL DESKTOP NAV
 
 }
 
+/* =========================================================
+   MOBILE PROJECT NAVIGATION
+   When a project page is scrolled, keep only the
+   previous/next arrows centered in the fixed navbar.
+========================================================= */
+
+@media (max-width:768px){
+
+    .project-scrolled .project-title-nav{
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        gap:30px;
+        width:auto;
+    }
+
+    .project-scrolled .project-title-nav h1{
+        display:none;
+    }
+
+    .project-scrolled .project-title-nav .project-arrow{
+        width:40px;
+        height:40px;
+    }
+
+}
 
 /* ===================================
 IMAGE RESPONSIVE
@@ -726,9 +767,7 @@ IMAGE RESPONSIVE
     .img-medium{
         width:70%;
     }
-
 }
-
 
 /* ===================================
 BACKGROUND EFFECT CANVAS
@@ -743,7 +782,6 @@ BACKGROUND EFFECT CANVAS
     pointer-events:none;
     z-index:1;
 }
-
 
 /* =========================================================
 GLOBAL PAGE TRANSITIONS

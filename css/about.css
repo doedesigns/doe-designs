@@ -959,9 +959,9 @@ MOBILE
         height:2px;
     }
 
-    /* ===============================
-       RESET TWO-LINE LABELS MOBILE
-    =============================== */
+/* ===============================
+ RESET TWO-LINE LABELS MOBILE
+=============================== */
 
     .section-label.two-line-label h2,
     .section-label.off-hours-label h2{
@@ -974,7 +974,7 @@ MOBILE
         display:inline-block;
     }
 
-    /* reset divider line position */
+/* reset divider line position */
 
     .section-label.two-line-label::after{
         position:absolute;
@@ -1013,4 +1013,24 @@ MOBILE
         text-align:left;
     }
 
+ /* ===============================
+SOCIAL LINKS MOBILE
+Stack links and remove dividers
+=============================== */
+
+    .social-links{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:14px;
+    }
+
+    .social-links span{
+        display:none;
+    }
+
+    .social-links a{
+        display:block;
+    }
+	
 }

@@ -780,7 +780,7 @@ PROJECT FOOTER LINK
 .interactive-prototype .enter-button{
     display:table;
     margin:50px auto 25px;
-    transformm:translateY(40px);;
+    transform:translateY(40px);;
 }
 
 /* Move prototype description slightly left */
