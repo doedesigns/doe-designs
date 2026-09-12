@@ -78,18 +78,11 @@ PROFILE
 =================================== */
 
 .about-profile{
-    display:grid;
-    grid-template-columns:240px 1fr;
-    gap:40px;
+    display:flex;
+    flex-direction:column;
+    text-align:center;
     align-items:center;
     margin-bottom:35px;
-}
-
-.about-video{
-    width:100%;
-    height:280px;
-    object-fit:cover;
-    display:block;
 }
 
 /* ===================================
@@ -104,6 +97,7 @@ INTRO TEXT
     line-height:1.05;
     color:#00E5FF;
     margin:0;
+	white-space:nowrap;
 }
 
 .about-role{
@@ -113,6 +107,7 @@ INTRO TEXT
     font-weight:700;
     letter-spacing:.55em;
     color:#F5F5F5;
+	white-space:nowrap;
 }
 
 /* ===================================
@@ -200,7 +195,7 @@ visually leave this box.
 .secret-fact-viewport{
     position:relative;
     width:100%;
-    height:150px;
+    height:240px;
     overflow:hidden;
     display:flex;
     justify-content:center;
@@ -910,7 +905,7 @@ MOBILE
     }
 
     .secret-fact-viewport{
-        height:165px;
+        height:220px;
     }
 
     .secret-fact-item{
