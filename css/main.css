@@ -502,12 +502,13 @@ BLACK IMAGE CONTAINER
     width:min(90vw,1100px);
     max-height:90vh;
     padding:40px;
+    overflow-y:auto;
+    overflow-x:hidden;
     background:#050507;
     border:1px solid rgba(255,255,255,.15);
     box-shadow:
         0 40px 100px rgba(0,0,0,.8);
 }
-
 
 /* ===================================
 LARGE IMAGE
@@ -525,7 +526,6 @@ LARGE IMAGE
 .lightbox-description{
     display:none;
 }
-
 
 /* ===================================
 CLOSE BUTTON
@@ -629,6 +629,26 @@ CYAN ROTATING CIRCLE
         margin:0 auto;
         padding-top:0;
         padding-bottom:0;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .lightbox-box{
+        width:90vw;
+        max-height:85vh;
+        padding:25px 20px;
+    }
+
+    .lightbox-image-large{
+        max-height:55vh;
+    }
+
+    .lightbox .lightbox-description{
+        margin-top:20px;
+        font-size:15px;
+        line-height:1.7;
     }
 
 }

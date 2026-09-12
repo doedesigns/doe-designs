@@ -808,6 +808,38 @@ CONTACT AREA
 }
 
 /* ===================================
+   INLINE ABOUT VIDEO
+=================================== */
+
+.about-video-paragraph{
+    display:flow-root;
+}
+
+.about-inline-video{
+    float:right;
+    width:210px;
+    height:210px;
+    object-fit:cover;
+    margin:5px 0 20px 35px;
+    display:block;
+}
+
+/* ===============================
+   INLINE VIDEO MOBILE
+================================ */
+
+@media(max-width:700px){
+
+    .about-inline-video{
+        float:none;
+        width:180px;
+        height:180px;
+        margin:10px auto 25px;
+    }
+
+}
+
+/* ===================================
 FOOTER
 =================================== */
 
