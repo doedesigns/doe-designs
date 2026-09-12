@@ -1,196 +1,279 @@
 @charset "UTF-8";
 
 /*=========================================================
-DOE DESIGNS PORTFOLIO
+DOE DESIGNS
 File: home.css
 
 Purpose:
-Styles specific to the Home / Landing page.
+Styles specific to the Home page.
 
-Contains:
-• Hero section
-• Logo and speech bubble
-• Hero video
-• Landing page buttons
-• Home page animations
-• Home-specific mobile layout
+Structure:
+• Home intro
+• Portfolio category cards
+• Intro video
+• Speech bubble
+• Contact section
+• Secret Stash
+• Home-specific responsive layout
+• Home animations
 =========================================================*/
+
 
 /*=========================================================
-   LANDING PAGE TOP GROUP POSITION
+   HOME PAGE
 =========================================================*/
 
-.hero-top {
-    transform:none;
+body.home-page{
+    overflow-x:hidden;
 }
 
+
 /*=========================================================
-HERO
+   HOME CONTENT
 =========================================================*/
 
-.hero {
-    flex:1;
+.home-content{
+    width:100%;
     display:flex;
-    justify-content:center;
+    flex-direction:column;
     align-items:center;
-    padding:160px 30px 20px;
+    text-align:center;
+    padding-top:120px;
+    padding-bottom:80px;
     position:relative;
     z-index:2;
 }
 
-.hero-content {
+
+/*=========================================================
+   HOME INTRO
+=========================================================*/
+
+.home-intro{
     width:100%;
-    max-width:1100px;
+    max-width:850px;
     display:flex;
     flex-direction:column;
     align-items:center;
     text-align:center;
     gap:18px;
+    padding:20px 30px 35px;
 }
 
-/*=========================================================
-HERO LOGO / INTRO POSITION
-=========================================================*/
-
-.hero-logo,
-.hero-subtitle,
-.hero-intro {
-	transform:none;
-}
 
 /*=========================================================
-HERO LOGO
+   HOME LOGO
 =========================================================*/
 
-.hero-logo {
+.hero-logo{
     position:relative;
     display:inline-block;
-	padding:20px;
+    padding:20px;
     margin:-20px;
 }
 
-.hero-logo-image {
-    width:clamp(100px,18vw,200px);
+.hero-logo-image{
+    width:clamp(120px,18vw,200px);
     height:auto;
     display:block;
 }
 
+
 /*=========================================================
-HERO TEXT
+   HOME TITLE
 =========================================================*/
 
-.hero-subtitle {
+.hero-subtitle{
+    margin:0;
+    font-family:"Barlow Condensed",sans-serif;
     font-size:14px;
+    font-weight:400;
     letter-spacing:.55em;
     text-transform:uppercase;
     color:#fff;
 }
 
-.hero-intro {
+
+/*=========================================================
+   HOME INTRO TEXT
+=========================================================*/
+
+.hero-intro{
+    width:100%;
     max-width:700px;
-	font-size:20px;
+    margin:0;
+    font-family:"Jost",sans-serif;
+    font-size:20px;
+    font-weight:400;
     line-height:1.8;
     color:#fff;
 }
+
+
 /*=========================================================
-HERO VIDEO
+   PORTFOLIO CATEGORIES
 =========================================================*/
 
-.hero-video-wrapper {
-    position:relative;
-    display:inline-block;
-    justify-content:center;
-    align-items:center;
-    margin-top:-15px;
-    margin-bottom:-15px;
+.home-portfolio{
+    width:100%;
+    max-width:1100px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    padding:25px 30px 55px;
+    margin:0 auto;
 }
 
-.hero-video {
+
+/*=========================================================
+   PORTFOLIO CARDS
+=========================================================*/
+
+.portfolio-card{
+    position:relative;
+    display:block;
+    aspect-ratio:1 / 1;
+    overflow:hidden;
+    text-decoration:none;
+    background:#050507;
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.35);
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease;
+}
+
+.portfolio-card:hover{
+    transform:translateY(-6px);
+    box-shadow:
+        0 0 25px rgba(0,229,255,.25),
+        0 30px 60px rgba(0,0,0,.55);
+}
+
+
+/*=========================================================
+   PORTFOLIO CARD IMAGES
+=========================================================*/
+
+.portfolio-card .card-image{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:
+        opacity .5s ease,
+        transform .6s ease;
+}
+
+.portfolio-card .hover-image{
+    opacity:0;
+}
+
+.portfolio-card:hover .default-image{
+    opacity:0;
+}
+
+.portfolio-card:hover .hover-image{
+    opacity:1;
+    transform:scale(1.03);
+}
+
+
+/*=========================================================
+   PORTFOLIO CARD TITLES
+=========================================================*/
+
+.portfolio-card .card-title{
+    position:absolute;
+    left:50%;
+    bottom:25px;
+    transform:translateX(-50%);
+    z-index:3;
+    width:calc(100% - 30px);
+
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:24px;
+    font-weight:700;
+    letter-spacing:.25em;
+    text-transform:uppercase;
+    color:#fff;
+
+    text-shadow:
+        0 2px 12px rgba(0,0,0,.9);
+
+    transition:
+        color .35s ease,
+        transform .35s ease;
+}
+
+.portfolio-card:hover .card-title{
+    color:#00E5FF;
+    transform:translateX(-50%) translateY(-3px);
+}
+
+
+/*=========================================================
+   HOME VIDEO
+=========================================================*/
+
+.home-video{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:15px 30px 35px;
+}
+
+.hero-video-wrapper{
+    position:relative;
+    display:inline-block;
+}
+
+.hero-video{
     width:auto;
     height:clamp(120px,18vh,220px);
     display:block;
     margin:0 auto;
 }
 
-/*=========================================================
-HEIGHT ADJUSTMENTS
-=========================================================*/
-
-@media(max-height:800px){
-
-.hero-content{
-    gap:12px;
-}
-
-.hero-logo-image{
-    width:260px;
-}
-
-.hero-intro{
-    font-size:17px;
-}
-
-.hero-video{
-    height:140px;
-}
-
-.hero-entry .secret-stash{
-    margin-top:30px;
-}
-}
-
-@media(max-height:650px){
-
-.hero-logo-image{
-    width:220px;
-}
-.hero-subtitle{
-    font-size:12px;
-}
-
-.hero-intro{
-    font-size:15px;
-}
-
-.hero-video{
-    height:110px;
-}
-
-.hero-entry-message{
-    font-size:14px;
-}
-
-.hero-entry .secret-stash{
-    margin-top:20px;
-}
-}
 
 /*=========================================================
-SPEECH BUBBLE
+   SPEECH BUBBLE
 =========================================================*/
 
-.speech-bubble {
+.speech-bubble{
     position:absolute;
     top:25%;
     right:-45px;
+
     background:#fff;
     color:#111;
+
     padding:8px 18px;
     border-radius:40px;
+
     font-family:"Dancing Script",cursive;
     font-size:clamp(15px,3vw,18px);
+
     white-space:nowrap;
+
     opacity:0;
     transform:scale(.85);
+
     pointer-events:none;
+
     transition:.5s ease;
+
     box-shadow:
-    0 10px 30px rgba(0,0,0,.25);
+        0 10px 30px rgba(0,0,0,.25);
 }
 
-.speech-bubble::after {
+.speech-bubble::after{
     content:"";
- 	position:absolute;
+    position:absolute;
     bottom:8px;
     left:-6px;
     width:14px;
@@ -199,118 +282,319 @@ SPEECH BUBBLE
     transform:rotate(35deg);
 }
 
-/* SHOW HELLO ON VIDEO HOVER */
 
-.hero-logo:hover .speech-bubble {
+/*=========================================================
+   SHOW HELLO WHEN VIDEO IS HOVERED
+=========================================================*/
+
+.hero-video-wrapper:hover .speech-bubble{
     opacity:1;
     transform:scale(1);
     animation:
-    bubblePop .4s ease,
-    waveHello .35s ease;
+        bubblePop .4s ease,
+        waveHello .35s ease;
 }
 
+
 /*=========================================================
-HERO OBJECT
+   CONTACT
 =========================================================*/
 
-#hero-object {
+.page-contact-link{
+    width:100%;
     display:flex;
-    justify-content:center;
+    flex-direction:column;
     align-items:center;
-    margin-top:25px;
-}
-
-#heroObjectImage {
-    width:clamp(260px,35vw,500px);
-    height:auto;
-    display:block;
-    margin:0;
-}
-
-/*=========================================================
-HERO ENTRY
-=========================================================*/
-
-.hero-entry {
     text-align:center;
-    position:relative;
-    z-index:2;
-    margin-top:15px;
+    padding:20px 30px 0;
 }
 
-.hero-entry-message {
+.page-contact-link p{
     margin:0 0 22px;
     font-family:"Jost",sans-serif;
     font-size:16px;
     font-weight:400;
     letter-spacing:.08em;
-    text-transform:none;
     color:#fff;
 }
 
-/*=========================================================
-ENTER PORTFOLIO
-=========================================================*/
-/*
-.hero .enter-button {
-    position:relative;
-    z-index:10001;
-    display:inline-block;
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:22px;
-    font-weight:700;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-}*/
 
 /*=========================================================
-SECRET STASH
+   SECRET STASH
 =========================================================*/
 
-.hero-entry .secret-stash {
+.secret-stash{
     display:block;
-    margin-top:55px;
-    margin-bottom:55px;
+    margin-top:70px;
+    margin-bottom:20px;
+
     color:rgba(255,255,255,.45);
-	  text-decoration:none;
+    text-decoration:none;
+
     font-family:"Barlow Condensed",sans-serif;
     font-size:13px;
     letter-spacing:.25em;
+
     cursor:url("../images/flashlight.cur"),pointer;
+
     opacity:0;
     transition:.35s ease;
 }
 
-.hero-entry .secret-stash:hover {
+.secret-stash:hover{
     color:#00E5FF;
     opacity:1;
 }
 
-/* ===================================
-   RESPONSIVE HOME HEIGHT CONTROL
-=================================== */
-
-body.home-page{
-    overflow-x:hidden;
-}
 
 /*=========================================================
-   SHORT SCREEN ADJUSTMENTS
-   Prevent hero from hiding behind navbar
+   HOME PAGE ANIMATIONS
 =========================================================*/
 
-@media(max-height:850px){
+@keyframes float{
 
-    .hero-content{
-        gap:10px;
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-14px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+
+@keyframes bubblePop{
+
+    0%{
+        opacity:0;
+        transform:scale(.6);
+    }
+
+    70%{
+        opacity:1;
+        transform:scale(1.08);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}
+
+
+@keyframes waveHello{
+
+    0%{
+        transform:rotate(0deg);
+    }
+
+    20%{
+        transform:rotate(-8deg);
+    }
+
+    40%{
+        transform:rotate(8deg);
+    }
+
+    60%{
+        transform:rotate(-5deg);
+    }
+
+    100%{
+        transform:rotate(0deg);
+    }
+
+}
+
+
+.wave{
+    animation:
+        bubblePop .5s ease,
+        waveHello .10s ease;
+}
+
+
+/*=========================================================
+   TABLET
+=========================================================*/
+
+@media(max-width:900px){
+
+    .home-content{
+        padding-top:110px;
+    }
+
+    .home-portfolio{
+        gap:18px;
+        padding-left:25px;
+        padding-right:25px;
+    }
+
+    .portfolio-card .card-title{
+        font-size:21px;
+    }
+
+}
+
+
+/*=========================================================
+   MOBILE
+=========================================================*/
+
+@media(max-width:768px){
+
+    .home-content{
+        padding-top:95px;
+        padding-bottom:70px;
+    }
+
+    .home-intro{
+        gap:15px;
+        padding:20px 25px 35px;
     }
 
     .hero-logo-image{
-        width:clamp(90px,15vw,160px);
+        width:190px;
     }
 
     .hero-subtitle{
         font-size:12px;
+        letter-spacing:.45em;
+    }
+
+    .hero-intro{
+        max-width:520px;
+        font-size:17px;
+        line-height:1.65;
+    }
+
+
+    /* PORTFOLIO */
+
+    .home-portfolio{
+        grid-template-columns:1fr;
+        max-width:500px;
+        gap:22px;
+        padding:
+            15px 30px 50px;
+    }
+
+    .portfolio-card{
+        width:100%;
+        aspect-ratio:1 / 1;
+    }
+
+
+    /* VIDEO */
+
+    .home-video{
+        padding:
+            10px 25px 35px;
+    }
+
+    .hero-video{
+        height:120px;
+    }
+
+    .speech-bubble{
+        right:-35px;
+    }
+
+
+    /* CONTACT */
+
+    .page-contact-link{
+        padding:
+            15px 25px 0;
+    }
+
+    .page-contact-link p{
+        font-size:15px;
+        letter-spacing:.06em;
+    }
+
+
+    /* SECRET STASH */
+
+    .secret-stash{
+        margin-top:60px;
+    }
+
+}
+
+
+/*=========================================================
+   SMALL MOBILE
+=========================================================*/
+
+@media(max-width:500px){
+
+    .home-content{
+        padding-top:90px;
+    }
+
+    .home-intro{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .hero-logo-image{
+        width:170px;
+    }
+
+    .hero-intro{
+        max-width:340px;
+        font-size:16px;
+        line-height:1.55;
+    }
+
+    .home-portfolio{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    .portfolio-card .card-title{
+        font-size:20px;
+        bottom:20px;
+    }
+
+    .hero-video{
+        height:110px;
+    }
+
+    .speech-bubble{
+        right:-30px;
+        padding:7px 15px;
+        font-size:15px;
+    }
+
+}
+
+
+/*=========================================================
+   SHORT SCREENS
+=========================================================*/
+
+@media(max-height:700px) and (min-width:769px){
+
+    .home-content{
+        padding-top:90px;
+        padding-bottom:50px;
+    }
+
+    .home-intro{
+        gap:12px;
+        padding-bottom:25px;
+    }
+
+    .hero-logo-image{
+        width:150px;
     }
 
     .hero-intro{
@@ -318,259 +602,37 @@ body.home-page{
         line-height:1.5;
     }
 
-    .hero-video{
-        height:clamp(90px,14vh,160px);
+    .home-portfolio{
+        padding-bottom:40px;
     }
 
-}
-
-@media(max-height:700px){
-
-    .hero{
-        padding-top:90px;
-        padding-bottom:30px;
-    }
-
-    .hero-content{
-        gap:8px;
-    }
-
-    .hero-logo-image{
-        width:120px;
-    }
-
-    .hero-intro{
-        font-size:15px;
-        line-height:1.4;
-    }
-
-    .hero-video{
-        height:100px;
-    }
-
-}
-
-/*=========================================================
-HOME PAGE ANIMATIONS
-=========================================================*/
-
-@keyframes float {
-	0% {
-    transform:translateY(0);
-}
-
-50% {
-    transform:translateY(-14px);
-}
-
-100% {
-    transform:translateY(0);
-}
-}
-
-@keyframes bubblePop {
-
-0% {
-    opacity:0;
-    transform:scale(.6);
-}
-	70% {
-    opacity:1;
-    transform:scale(1.08);
-}
-
-100% {
-    opacity:1;
-    transform:scale(1);
-}
-}
-
-@keyframes waveHello {
-
-0% {
-    transform:rotate(0deg);
-}
-
-20% {
-    transform:rotate(-8deg);
-}
-
-40% {
-	 transform:rotate(8deg);
-}
-
-60% {
-    transform:rotate(-5deg);
-}
-
-100% {
-    transform:rotate(0deg);
-}
-}
-
-.wave {
-    animation:
-    bubblePop .5s ease,
-    waveHello .10s ease;
-}
-
-/*=========================================================
-HOME PAGE MOBILE
-=========================================================*/
-
-@media(max-width:768px){
-	.hero {
-    padding-top:90px;
-}
-
-.hero-content {
-    gap:18px;
-}
-
-.hero-video {
-    width:clamp(140px,35vw,220px);
-}
-
-.speech-bubble {
-    right:-35px;
-}
-
-.hero-entry-message {
-    font-size:15px;
-    letter-spacing:.06em;
-}
-}
-
-@media(max-width:768px){
-
-.hero{
-    height:auto;
-    min-height:calc(100vh - 80px);
-    padding-top:110px;
-    padding-bottom:80px;
-}
-
-.hero-content{
-    max-height:none;
-    overflow:visible;
-}
-
-.hero-logo-image{
-    width:260px;
-}
-
-.hero-intro{
-    font-size:17px;
-    line-height:1.7;
-}
-
-.hero-video{
-    height:120px;
-}
-	
-@media(max-width:700px){
-    .hero{
-        height:auto;
-        min-height:100vh;
-        padding-top:95px;
-        padding-bottom:60px;
-    }
-
-    .hero-content{
-        max-height:none;
-        gap:14px;
-    }
-
-    .hero-logo-image{
-        width:190px;
-    }
-
-    .hero-intro{
-        font-size:16px;
-        line-height:1.5;
-        max-width:320px;
-    }
-	
     .hero-video{
         height:120px;
     }
 
-    #heroObjectImage{
-        width:260px;
-    }
-}
-}
-
-/* =========================================================
-   PORTFOLIO ENTRY TRANSITION — INDEX ONLY
-========================================================= */
-
-/* Everything else fades away */
-.home-page.entering-portfolio .hero-logo,
-.home-page.entering-portfolio .hero-subtitle,
-.home-page.entering-portfolio .hero-intro,
-.home-page.entering-portfolio #hero-object,
-.home-page.entering-portfolio .hero-entry-message,
-.home-page.entering-portfolio .secret-stash,
-.home-page.entering-portfolio header {
-    opacity:0;
-    transition:
-        opacity 1.45s ease;
 }
 
 
-/* ENTER PORTFOLIO — faster than the page fade */
-/*
-.hero .enter-button {
-    position:relative;
-    z-index:10001;
-    display:inline-block;
-    transform-origin:center center;
-    will-change:transform, opacity;
-}
-
-.home-page.entering-portfolio .hero .enter-button {
-    transform:scale(10);
-    opacity:0;
-    transition:
-        transform 1.2s cubic-bezier(.2,.8,.2,1),
-        opacity .25s ease;
-}
-*/
-/* BLACK OVERLAY */
-/*
-.home-page::after {
-    content:"";
-    position:fixed;
-    inset:0;
-    background:#000;
-    opacity:0;
-    pointer-events:none;
-    z-index:9999;
-}
-
-.home-page.entering-portfolio::after {
-    opacity:1;
-    transition:
-        opacity 1.45s ease;
-}
-*/
-
-/* =========================================================
+/*=========================================================
    REDUCED MOTION
-========================================================= */
+=========================================================*/
 
-@media (prefers-reduced-motion:reduce) {
+@media(prefers-reduced-motion:reduce){
 
-    .home-page.entering-portfolio .hero-logo,
-    .home-page.entering-portfolio .hero-subtitle,
-    .home-page.entering-portfolio .hero-intro,
-    .home-page.entering-portfolio #hero-object,
-    .home-page.entering-portfolio .hero-entry-message,
-    .home-page.entering-portfolio .secret-stash,
-    .home-page.entering-portfolio header,
-    .home-page.entering-portfolio .hero .enter-button {
-
+    .portfolio-card,
+    .portfolio-card .card-image,
+    .portfolio-card .card-title,
+    .speech-bubble,
+    .secret-stash{
         transition:none;
     }
+
+    .portfolio-card:hover{
+        transform:none;
+    }
+
+    .portfolio-card:hover .hover-image{
+        transform:none;
+    }
+
 }

@@ -448,6 +448,15 @@ HERO IMAGE
     text-align:center;
 }
 
+/* ===================================
+   IMAGE CAPTIONS
+=================================== */
+
+.project-image-block > p,
+.project-image-block figcaption{
+    text-align:center;
+}
+
 /*=========================================================
 PROJECT DETAILS
 =========================================================*/
@@ -615,7 +624,7 @@ TWO IMAGE ROW
 .project-gallery-row{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:40px;
+    gap:15px;
     margin-bottom:80px;
 }
 

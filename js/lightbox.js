@@ -55,21 +55,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             /* ===================================
+               PRIORITY 1:
+               USE CUSTOM LIGHTBOX DESCRIPTION
+               FROM data-lightbox-text
+            =================================== */
+
+            if (img.dataset.lightboxText) {
+
+                description =
+                    img.dataset.lightboxText.trim();
+
+            }
+
+
+            /* ===================================
+               PRIORITY 2:
                MOTION PROJECTS
                FIND FIGCAPTION
             =================================== */
 
-            const figure = img.closest("figure");
+            if (!description) {
 
-            if (figure) {
+                const figure =
+                    img.closest("figure");
 
-                const caption =
-                    figure.querySelector("figcaption");
+                if (figure) {
 
-                if (caption) {
+                    const caption =
+                        figure.querySelector("figcaption");
 
-                    description =
-                        caption.textContent.trim();
+                    if (caption) {
+
+                        description =
+                            caption.textContent.trim();
+
+                    }
 
                 }
 
@@ -77,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             /* ===================================
+               PRIORITY 3:
                BRANDING / DESIGN PROJECTS
                FIND DESCRIPTION PARAGRAPH
             =================================== */
