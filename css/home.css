@@ -1,637 +1,627 @@
-@charset "UTF-8";
+/* =========================================================
+   DOE DESIGNS — HOME / LANDING PAGE
+========================================================= */
 
-/*=========================================================
-DOE DESIGNS
-File: home.css
+/* =========================================================
+   PAGE
+========================================================= */
 
-Purpose:
-Styles specific to the Home page.
-
-Structure:
-• Home intro
-• Portfolio category cards
-• Intro video
-• Speech bubble
-• Contact section
-• Secret Stash
-• Home-specific responsive layout
-• Home animations
-=========================================================*/
-
-
-/*=========================================================
-   HOME PAGE
-=========================================================*/
-
-body.home-page{
-    overflow-x:hidden;
+body.home-page {
+    overflow-x: hidden;
 }
 
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
 
-/*=========================================================
-   HOME CONTENT
-=========================================================*/
-
-.home-content{
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    padding-top:120px;
-    padding-bottom:80px;
-    position:relative;
-    z-index:2;
+.home-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 120px 30px 80px;
+    box-sizing: border-box;
 }
 
+/* =========================================================
+   HERO / INTRO
+========================================================= */
 
-/*=========================================================
-   HOME INTRO
-=========================================================*/
-
-.home-intro{
-    width:100%;
-    max-width:850px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    gap:18px;
-    padding:20px 30px 35px;
+.home-intro {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 20px 30px 65px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    text-align: center;
 }
 
-
-/*=========================================================
-   HOME LOGO
-=========================================================*/
-
-.hero-logo{
-    position:relative;
-    display:inline-block;
-    padding:20px;
-    margin:-20px;
+.hero-logo {
+    display: block;
+    width: clamp(120px, 18vw, 200px);
+    height: auto;
+    margin: 0 auto;
 }
 
-.hero-logo-image{
-    width:clamp(120px,18vw,200px);
-    height:auto;
-    display:block;
+.hero-subtitle {
+    margin: 0;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.55em;
+    text-transform: uppercase;
+    color: #ffffff;
 }
 
-
-/*=========================================================
-   HOME TITLE
-=========================================================*/
-
-.hero-subtitle{
-    margin:0;
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:14px;
-    font-weight:400;
-    letter-spacing:.55em;
-    text-transform:uppercase;
-    color:#fff;
+.hero-intro {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: "Jost", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #ffffff;
 }
 
+/* =========================================================
+   FOUR PROJECT SECTIONS
+========================================================= */
 
-/*=========================================================
-   HOME INTRO TEXT
-=========================================================*/
-
-.hero-intro{
-    width:100%;
-    max-width:700px;
-    margin:0;
-    font-family:"Jost",sans-serif;
-    font-size:20px;
-    font-weight:400;
-    line-height:1.8;
-    color:#fff;
+.home-project-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 95px;
+    margin: 0 auto;
 }
 
+.home-project-section {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-/*=========================================================
-   PORTFOLIO CATEGORIES
-=========================================================*/
-
-.home-portfolio{
-    width:100%;
-    max-width:1100px;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-    padding:25px 30px 55px;
-    margin:0 auto;
+/*
+   The entire section is the hover group.
+*/
 }
 
+/* =========================================================
+   CATEGORY HEADINGS
+========================================================= */
 
-/*=========================================================
-   PORTFOLIO CARDS
-=========================================================*/
+.home-project-heading {
+    position: relative;
+    width: 100%;
+    margin: 0 auto 28px;
+    padding: 0 0 14px;
+    box-sizing: border-box;
+    text-align: center;
+}
 
-.portfolio-card{
-    position:relative;
-    display:block;
-    aspect-ratio:1 / 1;
-    overflow:hidden;
-    text-decoration:none;
-    background:#050507;
-    border:1px solid rgba(255,255,255,.12);
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.35);
+.home-project-heading h2 {
+    margin: 0;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #ffffff;
     transition:
-        transform .4s ease,
-        box-shadow .4s ease;
+        color 0.35s ease;
 }
 
-.portfolio-card:hover{
-    transform:translateY(-6px);
-    box-shadow:
-        0 0 25px rgba(0,229,255,.25),
-        0 30px 60px rgba(0,0,0,.55);
-}
+/*
+   Underline:
+   - starts at the center
+   - expands outward
+   - reaches the full width of the three project boxes
+*/
 
-
-/*=========================================================
-   PORTFOLIO CARD IMAGES
-=========================================================*/
-
-.portfolio-card .card-image{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
+.home-project-heading::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: #00E5FF;
+    transform: translateX(-50%);
     transition:
-        opacity .5s ease,
-        transform .6s ease;
+        width 0.45s ease;
 }
 
-.portfolio-card .hover-image{
-    opacity:0;
+/*
+   The entire section controls the heading.
+*/
+
+.home-project-section:hover .home-project-heading h2 {
+    color: #00E5FF;
 }
 
-.portfolio-card:hover .default-image{
-    opacity:0;
+.home-project-section:hover .home-project-heading::after {
+    width: 100%;
 }
 
-.portfolio-card:hover .hover-image{
-    opacity:1;
-    transform:scale(1.03);
+/* =========================================================
+   THREE-PROJECT ROW
+========================================================= */
+
+.home-project-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin: 0 auto;
 }
 
+/* =========================================================
+   PROJECT CARDS
+========================================================= */
 
-/*=========================================================
-   PORTFOLIO CARD TITLES
-=========================================================*/
-
-.portfolio-card .card-title{
-    position:absolute;
-    left:50%;
-    bottom:25px;
-    transform:translateX(-50%);
-    z-index:3;
-    width:calc(100% - 30px);
-
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:30px;
-    font-weight:700;
-    letter-spacing:.25em;
-    text-transform:uppercase;
-    color:#fff;
-
-    text-shadow:
-        0 2px 12px rgba(0,0,0,.9);
-
+.home-project-card {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #0b0e12;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
     transition:
-        color .35s ease,
-        transform .35s ease;
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
-.portfolio-card:hover .card-title{
-    color:#00E5FF;
-    transform:translateX(-50%) translateY(-3px);
+.home-project-card > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:
+        transform 0.5s ease;
 }
 
-
-/*=========================================================
-   HOME VIDEO
-=========================================================*/
-
-.home-video{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:15px 30px 5px;
-}
-
-.hero-video-wrapper{
-    position:relative;
-    display:inline-block;
-}
-
-.hero-video{
-    width:auto;
-    height:clamp(120px,18vh,220px);
-    display:block;
-    margin:0 auto;
-}
-
-
-/*=========================================================
-   SPEECH BUBBLE
-=========================================================*/
-
-.speech-bubble{
-    position:absolute;
-    top:25%;
-    right:-45px;
-
-    background:#fff;
-    color:#111;
-
-    padding:8px 18px;
-    border-radius:40px;
-
-    font-family:"Dancing Script",cursive;
-    font-size:clamp(15px,3vw,18px);
-
-    white-space:nowrap;
-
-    opacity:0;
-    transform:scale(.85);
-
-    pointer-events:none;
-
-    transition:.5s ease;
-
+.home-project-card:hover {
+    transform: translateY(-4px);
     box-shadow:
-        0 10px 30px rgba(0,0,0,.25);
+        0 12px 35px rgba(0, 0, 0, 0.45),
+        0 0 18px rgba(0, 229, 255, 0.08);
 }
 
-.speech-bubble::after{
-    content:"";
-    position:absolute;
-    bottom:8px;
-    left:-6px;
-    width:14px;
-    height:14px;
-    background:#fff;
-    transform:rotate(35deg);
+.home-project-card:hover > img {
+    transform: scale(1.025);
+}
+
+/* =========================================================
+   DELIVERABLES DROPDOWN
+========================================================= */
+
+.home-project-card .software-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(0, 229, 255, 0.94);
+    color: #06080B;
+    opacity: 0;
+    transition:
+        max-height 0.4s ease,
+        opacity 0.3s ease;
+}
+
+.home-project-card:hover .software-overlay {
+    max-height: 75%;
+    opacity: 1;
+}
+
+.home-project-card .software-overlay-content {
+    padding: 20px 22px 22px;
+    box-sizing: border-box;
+}
+
+.home-project-card .software-overlay h3 {
+    margin: 0 0 8px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #06080B;
+}
+
+.home-project-card .software-list {
+    margin: 0;
+    font-family: "Jost", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.55;
+    color: #06080B;
+}
+
+.home-project-card .software-overlay .project-title {
+    display: block;
+    margin: 0 0 10px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #06080B;
+}
+
+/* =========================================================
+   SEE MORE
+========================================================= */
+
+.see-more {
+    position: relative;
+    display: inline-block;
+    margin-top: 25px;
+    padding-bottom: 5px;
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition:
+        color 0.3s ease;
+}
+
+.see-more::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: #00E5FF;
+    transform: translateX(-50%);
+    transition:
+        width 0.35s ease;
+}
+
+.see-more:hover {
+    color: #00E5FF;
+}
+
+.see-more:hover::after {
+    width: 100%;
+}
+
+/* =========================================================
+   MOTION PREVIEWS
+========================================================= */
+
+.home-motion-preview {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #06080B;
+}
+
+.home-motion-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.home-motion-fallback {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    z-index: 1;
+    transition:
+        opacity 0.35s ease;
+}
+
+/*
+   Once the video is playing, the JS can hide the fallback.
+   Keeping the image underneath means there is always a
+   visual fallback while the video loads.
+*/
+
+.home-motion-preview video {
+    z-index: 2;
+}
+
+.youtube-motion-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================================================
+   CONTACT PROMPT
+========================================================= */
+
+.page-contact-link {
+    width: 100%;
+    margin: 125px auto 0;
+    text-align: center;
+}
+
+.page-contact-link p {
+    margin: 0 0 15px;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: #ffffff;
+}
+
+.page-contact-link a {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 7px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: #00E5FF;
+    text-decoration: none;
+}
+
+.page-contact-link a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: #00E5FF;
+    transform: translateX(-50%);
+}
+
+/* =========================================================
+   CARTOON / VIDEO
+========================================================= */
+
+.home-video {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 100px auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-video video {
+    display: block;
+    width: min(100%, 420px);
+    height: auto;
+    margin: 0 auto;
+}
+
+.speech-bubble {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    z-index: 4;
+    padding: 12px 18px;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #06080B;
+    font-family: "Jost", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.25);
 }
 
 
-/*=========================================================
-   SHOW HELLO WHEN VIDEO IS HOVERED
-=========================================================*/
-
-.hero-video-wrapper:hover .speech-bubble{
-    opacity:1;
-    transform:scale(1);
-    animation:
-        bubblePop .4s ease,
-        waveHello .35s ease;
+.speech-bubble::after {
+    content: "";
+    position: absolute;
+    left: 18%;
+    bottom: -9px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid #ffffff;
+    border-right: 8px solid transparent;
 }
 
-
-/*=========================================================
-   CONTACT
-=========================================================*/
-
-.page-contact-link{
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    padding:20px 30px 0;
-}
-
-.page-contact-link p{
-    margin:0 0 6px;
-    font-family:"Jost",sans-serif;
-    font-size:16px;
-    font-weight:400;
-    letter-spacing:.08em;
-    color:#fff;
-}
-
-
-/*=========================================================
+/* =========================================================
    SECRET STASH
-=========================================================*/
+========================================================= */
 
-.secret-stash{
-    display:block;
-    margin-top:45px;
-    margin-bottom:5px;
-
-    color:rgba(255,255,255,.45);
-    text-decoration:none;
-
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:13px;
-    letter-spacing:.25em;
-
-    cursor:url("../images/flashlight.cur"),pointer;
-
-    opacity:0;
-    transition:.35s ease;
+.secret-stash {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
 }
 
-.secret-stash:hover{
-    color:#00E5FF;
-    opacity:1;
+.secret-stash a {
+    color: transparent;
 }
 
-
-/*=========================================================
-   HOME PAGE ANIMATIONS
-=========================================================*/
-
-@keyframes float{
-
-    0%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-14px);
-    }
-
-    100%{
-        transform:translateY(0);
-    }
-
-}
-
-
-@keyframes bubblePop{
-
-    0%{
-        opacity:0;
-        transform:scale(.6);
-    }
-
-    70%{
-        opacity:1;
-        transform:scale(1.08);
-    }
-
-    100%{
-        opacity:1;
-        transform:scale(1);
-    }
-
-}
-
-
-@keyframes waveHello{
-
-    0%{
-        transform:rotate(0deg);
-    }
-
-    20%{
-        transform:rotate(-8deg);
-    }
-
-    40%{
-        transform:rotate(8deg);
-    }
-
-    60%{
-        transform:rotate(-5deg);
-    }
-
-    100%{
-        transform:rotate(0deg);
-    }
-
-}
-
-
-.wave{
-    animation:
-        bubblePop .5s ease,
-        waveHello .10s ease;
-}
-
-
-/*=========================================================
+/* =========================================================
    TABLET
-=========================================================*/
+========================================================= */
 
-@media(max-width:900px){
+@media (max-width: 900px) {
 
-    .home-content{
-        padding-top:110px;
+    .home-content {
+        padding-left: 24px;
+        padding-right: 24px;
     }
 
-    .home-portfolio{
-        gap:18px;
-        padding-left:25px;
-        padding-right:25px;
+    .home-project-row {
+        gap: 18px;
     }
 
-    .portfolio-card .card-title{
-        font-size:21px;
+    .home-project-grid {
+        gap: 75px;
     }
 
+    .home-intro {
+        padding-bottom: 55px;
+    }
 }
 
-
-/*=========================================================
+/* =========================================================
    MOBILE
-=========================================================*/
+========================================================= */
 
-@media(max-width:768px){
+@media (max-width: 768px) {
 
-    .home-content{
-        padding-top:95px;
-        padding-bottom:70px;
+    .home-content {
+        padding-top: 105px;
+        padding-left: 18px;
+        padding-right: 18px;
     }
 
-    .home-intro{
-        gap:15px;
-        padding:20px 25px 35px;
+    .home-intro {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
-    .hero-logo-image{
-        width:190px;
+    .hero-intro {
+        font-size: 18px;
+        line-height: 1.7;
     }
 
-    .hero-subtitle{
-        font-size:12px;
-        letter-spacing:.45em;
+    .home-project-grid {
+        gap: 65px;
     }
 
-    .hero-intro{
-        max-width:520px;
-        font-size:17px;
-        line-height:1.65;
+    .home-project-row {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        max-width: 600px;
     }
 
+/*
+   On a single-column mobile layout, the underline still
+   spans the entire project area.
+*/
 
-    /* PORTFOLIO */
-
-    .home-portfolio{
-        grid-template-columns:1fr;
-        max-width:500px;
-        gap:22px;
-        padding:
-            15px 30px 50px;
+    .home-project-heading {
+        margin-bottom: 22px;
     }
 
-    .portfolio-card{
-        width:100%;
-        aspect-ratio:1 / 1;
+    .home-project-heading h2 {
+        font-size: 24px;
+        letter-spacing: 0.14em;
     }
 
-
-    /* VIDEO */
-
-    .home-video{
-        padding:
-            10px 25px 35px;
+    .home-project-card {
+        width: 100%;
     }
 
-    .hero-video{
-        height:120px;
+    .page-contact-link {
+        margin-top: 90px;
     }
 
-    .speech-bubble{
-        right:-35px;
+    .home-video {
+        margin-top: 80px;
     }
-
-
-    /* CONTACT */
-
-    .page-contact-link{
-        padding:
-            15px 25px 0;
-    }
-
-    .page-contact-link p{
-        font-size:15px;
-        letter-spacing:.06em;
-    }
-
-
-    /* SECRET STASH */
-
-    .secret-stash{
-        margin-top:60px;
-    }
-
 }
 
-
-/*=========================================================
+/* =========================================================
    SMALL MOBILE
-=========================================================*/
+========================================================= */
 
-@media(max-width:500px){
+@media (max-width: 500px) {
 
-    .home-content{
-        padding-top:90px;
+    .home-content {
+        padding-top: 95px;
+        padding-left: 14px;
+        padding-right: 14px;
     }
 
-    .home-intro{
-        padding-left:20px;
-        padding-right:20px;
+    .home-intro {
+        padding-bottom: 45px;
     }
 
-    .hero-logo-image{
-        width:170px;
+    .hero-subtitle {
+        font-size: 12px;
+        letter-spacing: 0.4em;
     }
 
-    .hero-intro{
-        max-width:340px;
-        font-size:16px;
-        line-height:1.55;
+    .hero-intro {
+        font-size: 17px;
     }
 
-    .home-portfolio{
-        padding-left:20px;
-        padding-right:20px;
+    .home-project-grid {
+        gap: 55px;
     }
 
-    .portfolio-card .card-title{
-        font-size:22px;
-        bottom:20px;
+    .home-project-heading h2 {
+        font-size: 21px;
     }
 
-    .hero-video{
-        height:110px;
+    .home-project-card .software-overlay-content {
+        padding: 16px 18px 18px;
     }
 
-    .speech-bubble{
-        right:-30px;
-        padding:7px 15px;
-        font-size:15px;
+    .home-project-card .software-overlay h3 {
+        font-size: 16px;
     }
 
+    .home-project-card .software-list {
+        font-size: 13px;
+    }
+
+    .see-more {
+        font-size: 15px;
+    }
+
+    .speech-bubble {
+        top: 3%;
+        right: 2%;
+        padding: 9px 14px;
+        font-size: 13px;
+    }
 }
 
-/*=========================================================
+/* =========================================================
    SHORT SCREENS
-=========================================================*/
+========================================================= */
 
-@media(max-height:700px) and (min-width:769px){
-
-    .home-content{
-        padding-top:90px;
-        padding-bottom:50px;
+@media (max-height: 700px) {
+    .home-content {
+        padding-top: 100px;
     }
-
-    .home-intro{
-        gap:12px;
-        padding-bottom:25px;
-    }
-
-    .hero-logo-image{
-        width:150px;
-    }
-
-    .hero-intro{
-        font-size:17px;
-        line-height:1.5;
-    }
-
-    .home-portfolio{
-        padding-bottom:40px;
-    }
-
-    .hero-video{
-        height:120px;
-    }
-
 }
 
-
-/*=========================================================
+/* =========================================================
    REDUCED MOTION
-=========================================================*/
+========================================================= */
 
-@media(prefers-reduced-motion:reduce){
+@media (prefers-reduced-motion: reduce) {
 
-    .portfolio-card,
-    .portfolio-card .card-image,
-    .portfolio-card .card-title,
-    .speech-bubble,
-    .secret-stash{
-        transition:none;
+    .home-project-card,
+    .home-project-card > img,
+    .home-project-heading h2,
+    .home-project-heading::after,
+    .see-more,
+    .see-more::after,
+    .software-overlay,
+    .home-motion-fallback {
+        transition: none;
     }
-
-    .portfolio-card:hover{
-        transform:none;
-    }
-
-    .portfolio-card:hover .hover-image{
-        transform:none;
-    }
-
 }

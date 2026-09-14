@@ -277,40 +277,23 @@ PROJECT ARROWS
 =========================================================*/
 
 .project-arrow{
-
     width:55px;
-
     height:55px;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     text-decoration:none;
-
 }
 
-
 .arrow-circle{
-
     position:relative;
-
     width:42px;
-
     height:42px;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     transform:translateY(-2px);
-
     transition:.35s ease;
-
 }
 
 
@@ -322,77 +305,44 @@ PROJECT ARROWS
 
 }
 
-
 .project-arrow.prev .arrow-triangle{
-
     border-top:9px solid transparent;
-
     border-bottom:9px solid transparent;
-
     border-right:14px solid white;
-
 }
-
 
 .project-arrow.next .arrow-triangle{
-
     border-top:9px solid transparent;
-
     border-bottom:9px solid transparent;
-
     border-left:14px solid white;
-
 }
-
 
 .arrow-circle::before{
-
     content:"";
-
     position:absolute;
-
     inset:-12px;
-
     border-radius:50%;
-
     border:2px solid transparent;
-
     border-top-color:#00E5FF;
-
     opacity:0;
-
 }
-
 
 .project-arrow:hover .arrow-triangle{
-
     border-left-color:#00E5FF;
-
     border-right-color:#00E5FF;
-
 }
-
 
 .project-arrow:hover .arrow-circle::before{
-
     opacity:1;
-
 }
-
 
 .project-arrow.next:hover .arrow-circle::before{
-
     animation:arrowSpinRight 5s linear infinite;
-
 }
-
 
 .project-arrow.prev:hover .arrow-circle::before{
-
     animation:arrowSpinLeft 5s linear infinite;
-
 }
-
 
 @keyframes arrowSpinRight{
 
@@ -671,7 +621,6 @@ TWO IMAGE ROW
         grid-template-columns:1fr;
         gap:60px;
     }
-
 }
 
 /* ===================================
