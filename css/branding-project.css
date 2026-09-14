@@ -470,11 +470,12 @@ PROJECT DESCRIPTION
 .project-description h2::after{
     content:"";
     position:absolute;
-    left:0;
+    left:50%;
     bottom:-8px;
     width:30%;
     height:2px;
     background:#00E5FF;
+	transform:translateX(-50%);
     transition:.35s ease;
 }
 
@@ -525,11 +526,12 @@ PROJECT STORY SECTIONS
 .project-gallery-heading h2::after{
     content:"";
     position:absolute;
-    left:0;
+    left:50%;
     bottom:-8px;
     width:30%;
     height:2px;
     background:#00E5FF;
+	transform:translateX(-50%);
     transition:.35s ease;
 }
 
@@ -559,12 +561,38 @@ PROJECT STORY SECTIONS
     width:100%;
 }
 
-.story-image img{
+.story-image figure{
+    margin:0;
+}
+
+.story-image .lightbox-image{
     width:100%;
+}
+
+.story-image img{
+    width:auto;
+    max-width:100%;
     height:auto;
     display:block;
+    margin:0 auto;
     border:1px solid rgba(255,255,255,.12);
     box-shadow:0 25px 60px rgba(0,0,0,.45);
+}
+
+.story-image img.img-tall{
+    width:auto;
+    max-width:80%;
+    max-height:600px;
+    height:auto;
+    object-fit:contain;
+    margin:0 auto;
+}
+
+.story-image img.img-medium{
+    width:85%;
+    max-width:100%;
+    height:auto;
+    margin:0 auto;
 }
 
 .story-image p{

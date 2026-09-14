@@ -81,7 +81,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         "My (still functional!) microwave was bought at <br>Target in 2006 for around $20.",
 
-        "I’m a terrible cook. <br>Seriously, I should have a comedic YouTube channel <br>where I attempt simple things. <br>It’d be a hit and I would burn water."
+        "I’m a terrible cook. <br>Seriously, I should have a comedic YouTube channel <br>where I attempt simple things. <br>It’d be a hit and I would burn water.",
+		
+		"All pets I have welcomed into my family have all had white-tipped tails. <br>Even the super wonderful black dog I had. <br>Completely unintentional but obviously the source of my super powers."
 
     ];
 
