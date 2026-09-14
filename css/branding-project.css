@@ -557,6 +557,10 @@ PROJECT STORY SECTIONS
     margin-bottom:0;
 }
 
+.driftwood-page > main > .story-text{
+    margin-bottom:100px;
+}
+
 .story-image{
     width:100%;
 }
@@ -619,6 +623,14 @@ PROJECT STORY SECTIONS
 
 .story-text-left .story-image{
     order:2;
+}
+
+.cali-page .story-image img.cali-final-frame{
+    width:auto;
+    max-width:40%;
+    max-height:400px;
+    height:auto;
+    margin:0 auto;
 }
 
 /*=========================================================
