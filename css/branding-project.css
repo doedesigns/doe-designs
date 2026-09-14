@@ -574,7 +574,7 @@ TWO IMAGE ROW
 .project-gallery-row{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:15px;
+    gap:8px;
     margin-bottom:80px;
 }
 
@@ -610,7 +610,6 @@ TWO IMAGE ROW
     margin:25px auto 0;
 }
 
-
 /* ===================================
    MOBILE
 =================================== */
@@ -619,7 +618,7 @@ TWO IMAGE ROW
 
     .project-gallery-row{
         grid-template-columns:1fr;
-        gap:60px;
+        gap:45px;
     }
 }
 
