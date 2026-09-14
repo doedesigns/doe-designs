@@ -1,799 +1,528 @@
-/* =========================================================
-   DOE DESIGNS — HOME / LANDING PAGE
-========================================================= */
+@charset "UTF-8";
 
-/* =========================================================
-   PAGE
-========================================================= */
+/*=========================================================
+    DOE DESIGNS PORTFOLIO
+    File: home.css
+=========================================================*/
 
 body.home-page {
-    overflow-x: hidden;
+    background:#06080B;
+    overflow-x:hidden;
 }
-
-/* =========================================================
-   MAIN CONTENT
-========================================================= */
 
 .home-content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 120px 30px 80px;
-    box-sizing: border-box;
+    position:relative;
+    z-index:2;
+    width:100%;
+    padding:100px 30px 0;
+    box-sizing:border-box;
 }
 
-/* =========================================================
-   HERO / INTRO
-========================================================= */
+/*=========================================================
+    HOME INTRO
+=========================================================*/
 
 .home-intro {
-    width: 100%;
-    max-width: 850px;
-    margin: 0 auto;
-    padding: 20px 30px 65px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-    text-align: center;
+    max-width:800px;
+    margin:0 auto 70px;
+    text-align:center;
 }
 
 .hero-logo {
-    display: block;
-    width: clamp(120px, 18vw, 200px);
-    height: auto;
-    margin: 0 auto;
+    display:block;
+    width:clamp(120px,18vw,200px);
+    height:auto;
+    margin:0 auto 18px;
 }
 
 .hero-subtitle {
-    margin: 0;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(13px, 1.5vw, 16px);
-    font-weight: 500;
-    letter-spacing: 0.55em;
-    text-transform: uppercase;
-    color: #ffffff;
+    margin:0 0 14px;
+    color:#00E5FF;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:clamp(22px,3vw,32px);
+    font-weight:500;
+    letter-spacing:.12em;
 }
 
 .hero-intro {
-    width: 100%;
-    max-width: 700px;
-    margin: 0 auto;
-    font-family: "Jost", sans-serif;
-    font-size: clamp(17px, 1.8vw, 20px);
-    font-weight: 300;
-    line-height: 1.8;
-    color: #ffffff;
+    max-width:700px;
+    margin:0 auto;
+    color:#fff;
+    font-family:"Jost",sans-serif;
+    font-size:clamp(15px,1.5vw,18px);
+    font-weight:300;
+    line-height:1.7;
 }
 
-/* =========================================================
-   FOUR PROJECT SECTIONS
-========================================================= */
+/*=========================================================
+    PROJECT SECTIONS
+=========================================================*/
 
 .home-project-grid {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 95px;
-    margin: 0 auto;
+    width:100%;
+    max-width:900px;
+    margin:0 auto;
 }
 
 .home-project-section {
-    width: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width:100%;
+    margin:0 auto 75px;
 }
 
-/* =========================================================
-   CATEGORY HEADINGS
-========================================================= */
-
 .home-project-heading {
-    position: relative;
-    width: 100%;
-    margin: 0 auto 28px;
-    padding: 0 0 14px;
-    box-sizing: border-box;
-    text-align: center;
+    width:100%;
+    margin-bottom:22px;
+    position:relative;
+    cursor:pointer;
 }
 
 .home-project-heading h2 {
-    margin: 0;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(22px, 3vw, 30px);
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #ffffff;
-    transition: color 0.35s ease;
+    margin:0;
+    padding:0 0 10px;
+    color:#fff;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:clamp(24px,3vw,34px);
+    font-weight:500;
+    letter-spacing:.08em;
+    text-align:center;
+    transition:color .3s ease;
 }
 
 .home-project-heading::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 0;
-    height: 1px;
-    background: #00E5FF;
-    transform: translateX(-50%);
-    transition: width 0.45s ease;
+    content:"";
+    display:block;
+    width:0;
+    height:2px;
+    margin:0 auto;
+    background:#00E5FF;
+    transition:width .35s ease;
 }
 
 .home-project-section:hover .home-project-heading h2 {
-    color: #00E5FF;
+    color:#00E5FF;
 }
 
 .home-project-section:hover .home-project-heading::after {
-    width: 100%;
+    width:100%;
 }
-
-/* =========================================================
-   THREE-PROJECT ROW
-========================================================= */
 
 .home-project-row {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
-    margin: 0 auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    width:100%;
 }
-
-/* =========================================================
-   PROJECT CARDS
-========================================================= */
 
 .home-project-card {
-    position: relative;
-    display: block;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    background: #0b0e12;
-    text-decoration: none;
-    box-sizing: border-box;
-    cursor: pointer;
-    transition:
-        transform 0.35s ease,
-        box-shadow 0.35s ease;
-}
-
-.home-project-card > img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+    position:relative;
+    display:block;
+    width:100%;
+    aspect-ratio:1 / 1;
+    overflow:hidden;
+    background:#050505;
+    border:2px solid rgba(255,255,255,.15);
+    text-decoration:none;
+    box-sizing:border-box;
+    transition:border-color .3s ease,box-shadow .3s ease,transform .3s ease;
 }
 
 .home-project-card:hover {
-    transform: translateY(-4px);
-    box-shadow:
-        0 12px 35px rgba(0, 0, 0, 0.45),
-        0 0 18px rgba(0, 229, 255, 0.08);
+    border-color:#00E5FF;
+    box-shadow:0 0 28px rgba(0,229,255,.35);
+    transform:translateY(-6px);
 }
 
-.home-project-card:hover > img {
-    transform: scale(1.025);
+.home-project-card > img {
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-/* =========================================================
-   DELIVERABLES DROPDOWN
-   FULL-CARD OVERLAY
-========================================================= */
+/*=========================================================
+    PROJECT INFORMATION DROPDOWN
+=========================================================*/
 
-.home-project-card .software-overlay {
-    position: absolute;
-    inset: 0;
-    z-index: 5;
-    width: 100%;
-    height: 100%;
-    max-height: none;
-    overflow: hidden;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: clamp(18px, 3vw, 38px);
-    background: rgba(0, 229, 255, 0.94);
-    color: #06080B;
-    opacity: 0;
-    transform: translateY(100%);
-    transition:
-        transform 0.4s ease,
-        opacity 0.3s ease;
+.software-overlay {
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:100%;
+    transform:translateY(100%);
+    background:rgba(0,229,255,.94);
+    color:#050505;
+    z-index:5;
+    transition:transform .35s ease;
+    overflow:hidden;
+    pointer-events:none;
 }
 
 .home-project-card:hover .software-overlay {
-    opacity: 1;
-    transform: translateY(0);
+    transform:translateY(0);
 }
 
-.home-project-card .software-overlay-content {
-    width: 100%;
-    max-width: 90%;
-    box-sizing: border-box;
-    text-align: center;
+.software-overlay-content {
+    width:100%;
+    height:100%;
+    box-sizing:border-box;
+    padding:clamp(16px,3vw,28px);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
 }
 
-.home-project-card .software-overlay .project-name {
-    display: block;
-    margin: 0 0 clamp(12px, 1.5vw, 20px);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(22px, 3vw, 34px);
-    font-weight: 600;
-    line-height: 1.05;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #06080B;
+.software-overlay h2,
+.software-overlay .project-name {
+    width:100%;
+    margin:0 0 clamp(12px,2vw,20px);
+    color:#050505;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:clamp(20px,3vw,34px);
+    font-weight:700;
+    line-height:1.05;
+    letter-spacing:.02em;
+    overflow-wrap:anywhere;
+    word-break:normal;
 }
 
-.home-project-card .software-overlay h3 {
-    margin: 0 0 clamp(8px, 1vw, 14px);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(17px, 2vw, 24px);
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: #06080B;
+.software-overlay h3 {
+    margin:0 0 8px;
+    color:#050505;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:clamp(15px,2vw,21px);
+    font-weight:700;
+    letter-spacing:.08em;
 }
 
-.home-project-card .software-list {
-    margin: 0;
-    font-family: "Jost", sans-serif;
-    font-size: clamp(15px, 1.6vw, 19px);
-    font-weight: 400;
-    line-height: 1.55;
-    color: #06080B;
+.software-list {
+    width:100%;
+    max-height:55%;
+    margin:0;
+    color:#050505;
+    font-family:"Jost",sans-serif;
+    font-size:clamp(12px,1.45vw,16px);
+    font-weight:500;
+    line-height:1.45;
+    overflow:hidden;
 }
 
-.home-project-card .software-list.error {
-    font-size: clamp(14px, 1.5vw, 17px);
+.software-list.loading {
+    opacity:.7;
 }
 
-/* =========================================================
-   MOTION PREVIEWS
-========================================================= */
-
-.home-motion-preview {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: #06080B;
+.software-list.error {
+    font-size:clamp(11px,1.3vw,14px);
 }
 
-.home-motion-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    z-index: 2;
-    opacity: 0;
-    transition:
-        opacity 0.35s ease;
-}
-
-.home-motion-fallback {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    z-index: 1;
-    opacity: 1;
-    transition:
-        opacity 0.35s ease;
-}
-
-/* Video becomes visible on hover */
-
-.home-project-card.motion-home-card:hover .home-motion-video {
-    opacity: 1;
-}
-
-.home-project-card.motion-home-card:hover .home-motion-fallback {
-    opacity: 0;
-}
-
-
-/* YouTube preview */
-
-.youtube-motion-preview {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 2;
-
-    transition:
-        opacity 0.35s ease;
-}
-
-.youtube-motion-preview iframe {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    transform: translate(-50%, -50%);
-    border: 0;
-    pointer-events: none;
-}
-
-.motion-home-card.youtube-motion-card:hover .youtube-motion-preview {
-    opacity: 1;
-}
-
-.motion-home-card.youtube-motion-card:hover .home-motion-fallback {
-    opacity: 0;
-}
-
-.motion-home-card .software-overlay {
-    z-index: 5;
-}
-
-/* =========================================================
-   SEE MORE
-========================================================= */
+/*=========================================================
+    SEE MORE
+=========================================================*/
 
 .see-more {
-    position: relative;
-    display: inline-block;
-    margin-top: 25px;
-    padding-bottom: 5px;
-    font-family: "Jost", sans-serif;
-    font-size: clamp(15px, 1.5vw, 18px);
-    font-weight: 400;
-    color: #ffffff;
-    text-decoration: none;
-    transition:
-        color 0.3s ease;
-}
-
-.see-more::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 0;
-    height: 1px;
-    background: #00E5FF;
-    transform: translateX(-50%);
-    transition: width 0.35s ease;
+    display:block;
+    width:max-content;
+    margin:20px auto 0;
+    color:#fff;
+    font-family:"Jost",sans-serif;
+    font-size:15px;
+    font-weight:400;
+    letter-spacing:.04em;
+    text-decoration:none;
+    transition:color .3s ease;
 }
 
 .see-more:hover {
-    color: #00E5FF;
+    color:#00E5FF;
 }
 
-.see-more:hover::after {
-    width: 100%;
+/*=========================================================
+    MOTION PROJECT PREVIEWS
+=========================================================*/
+
+.home-motion-preview {
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    background:#050505;
 }
 
-
-/* =========================================================
-   CONTACT PROMPT
-========================================================= */
-
-.page-contact-link {
-    width: 100%;
-    margin: 125px auto 0;
-    text-align: center;
+.home-motion-video,
+.home-motion-fallback {
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-.page-contact-link p {
-    margin: 0 0 15px;
-    font-family: "Jost", sans-serif;
-    font-size: clamp(17px, 1.8vw, 20px);
-    font-weight: 300;
-    color: #ffffff;
+.home-motion-fallback {
+    z-index:1;
+    opacity:1;
+    transition:opacity .3s ease;
 }
 
-.page-contact-link a {
-    position: relative;
-    display: inline-block;
-    padding-bottom: 7px;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(21px, 2.2vw, 25px);
-    font-weight: 500;
-    letter-spacing: 0.18em;
-    color: #00E5FF;
-    text-decoration: none;
+.home-motion-video {
+    z-index:2;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .3s ease;
 }
 
-.page-contact-link a::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 100%;
-    height: 1px;
-    background: #00E5FF;
-    transform: translateX(-50%);
+.motion-home-card:hover .home-motion-fallback {
+    opacity:0;
 }
 
-/* =========================================================
-   CARTOON / VIDEO
-========================================================= */
+.motion-home-card:hover .home-motion-video {
+    opacity:1;
+}
+
+.home-motion-preview .youtube-motion-preview {
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:2;
+    opacity:0;
+    pointer-events:none;
+    overflow:hidden;
+    transition:opacity .3s ease;
+}
+
+.home-motion-preview .youtube-motion-preview iframe {
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:100%;
+    height:100%;
+    transform:translate(-50%,-50%);
+    border:0;
+    pointer-events:none;
+}
+
+.motion-home-card:hover .youtube-motion-preview {
+    opacity:1;
+}
+
+.motion-home-card:hover .home-motion-fallback {
+    opacity:0;
+}
+
+/*=========================================================
+    CONTACT
+=========================================================*/
+
+.home-page .page-contact-link {
+    margin:55px auto 35px;
+    text-align:center;
+}
+
+.home-page .page-contact-link p {
+    margin:0 0 14px;
+    color:#fff;
+    font-family:"Jost",sans-serif;
+    font-size:18px;
+    font-weight:400;
+    letter-spacing:.04em;
+}
+
+.home-page .page-contact-link a {
+    display:inline-block;
+    color:#00E5FF;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:22px;
+    font-weight:500;
+    letter-spacing:.1em;
+    text-decoration:none;
+    transition:color .3s ease;
+}
+
+.home-page .page-contact-link a:hover {
+    color:#fff;
+}
+
+/*=========================================================
+    HOME VIDEO / HELLO BUBBLE
+=========================================================*/
 
 .home-video {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    margin: 70px auto 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position:relative;
+    width:210px;
+    margin:10px auto 12px;
+    text-align:center;
 }
 
 .home-video video {
-    display: block;
-    width: min(100%, 210px);
-    height: auto;
-    margin: 0 auto;
+    display:block;
+    width:210px;
+    height:auto;
+    margin:0 auto;
 }
 
-
-/* =========================================================
-   HELLO SPEECH BUBBLE
-========================================================= */
-
 .speech-bubble {
-    position: absolute;
-    top: 0;
-    right: calc(50% - 150px);
-    z-index: 10;
-    padding: 10px 17px;
-    border-radius: 50%;
-    background: #ffffff;
-    color: #06080B;
-    font-family: "Caveat", cursive;
-    font-size: 22px;
-    font-weight: 600;
-    box-shadow:
-        0 5px 20px rgba(0, 0, 0, 0.25);
-
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: scale(0.8);
-    transition:
-        opacity 0.25s ease,
-        transform 0.25s ease,
-        visibility 0.25s ease;
+    position:absolute;
+    left:50%;
+    top:-62px;
+    transform:translateX(-50%) scale(0);
+    transform-origin:center bottom;
+    padding:8px 15px;
+    background:#fff;
+    color:#050505;
+    border-radius:18px;
+    font-family:"Caveat",cursive;
+    font-size:25px;
+    line-height:1;
+    white-space:nowrap;
+    opacity:0;
+    pointer-events:none;
+    z-index:10;
+    transition:opacity .2s ease,transform .2s ease;
 }
 
 .speech-bubble::after {
-    content: "";
-    position: absolute;
-    left: 18%;
-    bottom: -9px;
-
-    width: 0;
-    height: 0;
-
-    border-top: 12px solid #ffffff;
-    border-right: 8px solid transparent;
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-13px;
+    width:0;
+    height:0;
+    border-left:9px solid transparent;
+    border-right:9px solid transparent;
+    border-top:15px solid #fff;
+    transform:translateX(-50%) rotate(-25deg);
+    transform-origin:top center;
 }
 
-
-/*
-   JavaScript adds .show-hello when the
-   contact area or MP4 is hovered.
-*/
-
-.speech-bubble.show-hello {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1);
+.home-video:hover .speech-bubble,
+.home-page .page-contact-link:hover ~ .home-video .speech-bubble {
+    opacity:1;
+    transform:translateX(-50%) scale(1);
+    animation:helloShake .5s ease-in-out;
 }
 
-/*
-   Existing-style shake/wave.
-*/
-
-.speech-bubble.wave {
-    animation: hello-shake 0.65s ease-in-out infinite;
+@keyframes helloShake {
+    0%,100% { transform:translateX(-50%) scale(1) rotate(0deg); }
+    25% { transform:translateX(-50%) scale(1) rotate(-4deg); }
+    50% { transform:translateX(-50%) scale(1) rotate(4deg); }
+    75% { transform:translateX(-50%) scale(1) rotate(-2deg); }
 }
 
-@keyframes hello-shake {
-
-    0% {
-        transform: rotate(0deg) scale(1);
-    }
-
-    20% {
-        transform: rotate(-5deg) scale(1.02);
-    }
-
-    40% {
-        transform: rotate(5deg) scale(1.02);
-    }
-
-    60% {
-        transform: rotate(-4deg) scale(1.02);
-    }
-
-    80% {
-        transform: rotate(4deg) scale(1.02);
-    }
-
-    100% {
-        transform: rotate(0deg) scale(1);
-    }
-}
-
-
-/* =========================================================
-   SECRET STASH
-========================================================= */
-
-/*
-   The Secret Stash remains invisible until the user
-   hovers over its area.
-*/
+/*=========================================================
+    SECRET STASH
+=========================================================*/
 
 .secret-stash {
-    position: relative;
-
-    width: 100%;
-    height: 32px;
-
-    margin: 5px auto 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    opacity: 0;
-    visibility: hidden;
-
-    pointer-events: auto;
-
-    transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
+    width:180px;
+    height:32px;
+    margin:0 auto 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    transition:opacity .3s ease;
 }
 
 .secret-stash:hover {
-    opacity: 1;
-    visibility: visible;
+    opacity:1;
 }
 
 .secret-stash a {
-    display: inline-block;
-
-    font-family: "Jost", sans-serif;
-    font-size: 13px;
-    font-weight: 300;
-
-    color: rgba(255, 255, 255, 0.65);
-
-    text-decoration: none;
-
-    transition:
-        color 0.25s ease;
+    color:#00E5FF;
+    font-family:"Jost",sans-serif;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-decoration:none;
+    transition:color .3s ease;
 }
 
 .secret-stash a:hover {
-    color: #00E5FF;
+    color:#fff;
 }
 
-/* =========================================================
-   TABLET
-========================================================= */
+/*=========================================================
+    MOBILE
+=========================================================*/
 
-@media (max-width: 900px) {
-
+@media (max-width:900px) {
     .home-content {
-        padding-left: 24px;
-        padding-right: 24px;
+        padding-left:20px;
+        padding-right:20px;
     }
 
     .home-project-row {
-        gap: 18px;
+        gap:18px;
     }
 
-    .home-project-grid {
-        gap: 75px;
+    .software-overlay-content {
+        padding:14px;
     }
 
-    .home-intro {
-        padding-bottom: 55px;
+    .software-overlay h2,
+    .software-overlay .project-name {
+        font-size:clamp(17px,4vw,27px);
+        line-height:1;
     }
 
-    .home-project-card .software-overlay-content {
-        max-width: 94%;
+    .software-overlay h3 {
+        font-size:clamp(14px,3vw,19px);
+    }
+
+    .software-list {
+        font-size:clamp(11px,2.3vw,15px);
     }
 }
 
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 768px) {
-
+@media (max-width:600px) {
     .home-content {
-        padding-top: 105px;
-        padding-left: 18px;
-        padding-right: 18px;
+        padding-top:80px;
     }
 
     .home-intro {
-        padding-left: 10px;
-        padding-right: 10px;
+        margin-bottom:50px;
     }
 
-    .hero-intro {
-        font-size: 18px;
-        line-height: 1.7;
-    }
-
-    .home-project-grid {
-        gap: 65px;
+    .home-project-section {
+        margin-bottom:55px;
     }
 
     .home-project-row {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        max-width: 600px;
-    }
-
-    .home-project-heading {
-        margin-bottom: 22px;
+        grid-template-columns:1fr;
+        max-width:320px;
+        margin:0 auto;
+        gap:18px;
     }
 
     .home-project-heading h2 {
-        font-size: 24px;
-        letter-spacing: 0.14em;
-    }
-
-    .home-project-card {
-        width: 100%;
-    }
-
-    .home-project-card .software-overlay {
-        padding: 25px;
-    }
-
-    .home-project-card .software-overlay .project-name {
-        font-size: clamp(24px, 7vw, 32px);
-    }
-
-    .home-project-card .software-overlay h3 {
-        font-size: clamp(18px, 5vw, 23px);
-    }
-
-    .home-project-card .software-list {
-        font-size: clamp(15px, 4vw, 18px);
-    }
-
-    .page-contact-link {
-        margin-top: 90px;
-    }
-
-    .home-video {
-        margin-top: 60px;
-    }
-
-/*
-   No Hello bubble on mobile.
-*/
-
-    .speech-bubble {
-        display: none !important;
-    }
-
-    .secret-stash {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 500px) {
-
-    .home-content {
-        padding-top: 95px;
-        padding-left: 14px;
-        padding-right: 14px;
-    }
-
-    .home-intro {
-        padding-bottom: 45px;
-    }
-
-    .hero-subtitle {
-        font-size: 12px;
-        letter-spacing: 0.4em;
-    }
-
-    .hero-intro {
-        font-size: 17px;
-    }
-
-    .home-project-grid {
-        gap: 55px;
-    }
-
-    .home-project-heading h2 {
-        font-size: 21px;
-    }
-
-    .home-project-card .software-overlay {
-        padding: 18px;
-    }
-
-    .home-project-card .software-overlay .project-name {
-        font-size: 23px;
-    }
-
-    .home-project-card .software-overlay h3 {
-        font-size: 17px;
-    }
-
-    .home-project-card .software-list {
-        font-size: 14px;
+        font-size:25px;
     }
 
     .see-more {
-        font-size: 15px;
+        margin-top:16px;
+    }
+
+    .home-page .page-contact-link {
+        margin-top:40px;
+        margin-bottom:25px;
+    }
+
+    .home-video {
+        width:180px;
+        margin-top:5px;
     }
 
     .home-video video {
-        width: 180px;
+        width:180px;
     }
-}
 
-/* =========================================================
-   SHORT SCREENS
-========================================================= */
-
-@media (max-height: 700px) {
-
-    .home-content {
-        padding-top: 100px;
-    }
-}
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    .home-project-card,
-    .home-project-card > img,
-    .home-project-heading h2,
-    .home-project-heading::after,
-    .see-more,
-    .see-more::after,
-    .software-overlay,
-    .home-motion-fallback,
-    .home-motion-video,
     .speech-bubble {
-        transition: none;
+        display:none;
     }
 
-    .speech-bubble.wave {
-        animation: none;
+    .secret-stash {
+        opacity:0;
+        height:28px;
     }
 }
