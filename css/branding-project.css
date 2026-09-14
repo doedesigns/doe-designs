@@ -491,6 +491,176 @@ PROJECT DESCRIPTION
 }
 
 /*=========================================================
+PROJECT STORY SECTIONS
+=========================================================*/
+
+.project-story{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:center;
+    width:100%;
+    margin:0 auto 100px;
+}
+
+.story-text{
+    width:100%;
+}
+
+.story-text h2,
+.project-gallery-heading h2{
+    position:relative;
+    display:inline-block;
+    margin:0 0 25px;
+    color:white;
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:36px;
+    font-weight:900;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    transition:.35s ease;
+}
+
+.story-text h2::after,
+.project-gallery-heading h2::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:30%;
+    height:2px;
+    background:#00E5FF;
+    transition:.35s ease;
+}
+
+.story-text h2:hover,
+.project-gallery-heading h2:hover{
+    color:#00E5FF;
+}
+
+.story-text h2:hover::after,
+.project-gallery-heading h2:hover::after{
+    width:100%;
+}
+
+.story-text p{
+    margin:0 0 20px;
+    color:rgba(255,255,255,.82);
+    font-family:"Jost",sans-serif;
+    font-size:17px;
+    line-height:1.8;
+}
+
+.story-text p:last-child{
+    margin-bottom:0;
+}
+
+.story-image{
+    width:100%;
+}
+
+.story-image img{
+    width:100%;
+    height:auto;
+    display:block;
+    border:1px solid rgba(255,255,255,.12);
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
+}
+
+.story-image p{
+    margin:20px auto 0;
+    color:rgba(255,255,255,.75);
+    font-family:"Jost",sans-serif;
+    font-size:15px;
+    line-height:1.6;
+    letter-spacing:.04em;
+    text-align:center;
+}
+
+.story-image-left .story-image{
+    order:1;
+}
+
+.story-image-left .story-text{
+    order:2;
+}
+
+.story-text-left .story-text{
+    order:1;
+}
+
+.story-text-left .story-image{
+    order:2;
+}
+
+/*=========================================================
+GALLERY HEADING
+=========================================================*/
+
+.project-gallery-heading{
+    text-align:center;
+    margin:20px auto 60px;
+}
+
+.project-gallery-heading h2{
+    margin-bottom:0;
+}
+
+/*=========================================================
+STORY IMAGE SIZING
+=========================================================*/
+
+.story-image img{
+    max-height:650px;
+    object-fit:contain;
+}
+
+/*=========================================================
+STORY SECTIONS MOBILE
+=========================================================*/
+
+@media(max-width:900px){
+
+    .project-story{
+        grid-template-columns:1fr;
+        gap:40px;
+        margin-bottom:75px;
+    }
+
+    .story-image-left .story-image,
+    .story-image-left .story-text,
+    .story-text-left .story-text,
+    .story-text-left .story-image{
+        order:initial;
+    }
+
+    .story-text{
+        text-align:center;
+    }
+
+    .story-text h2{
+        font-size:30px;
+    }
+
+    .story-text p{
+        font-size:16px;
+    }
+
+    .story-image{
+        max-width:800px;
+        margin:0 auto;
+    }
+
+    .project-gallery-heading{
+        margin:0 auto 50px;
+    }
+
+    .project-gallery-heading h2{
+        font-size:30px;
+    }
+}
+
+/*=========================================================
 PROJECT IMAGES
 =========================================================*/
 
