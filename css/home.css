@@ -51,7 +51,7 @@ body.home-page {
 .hero-subtitle {
     margin: 0;
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 14px;
+    font-size: clamp(13px, 1.5vw, 16px);
     font-weight: 500;
     letter-spacing: 0.55em;
     text-transform: uppercase;
@@ -63,7 +63,7 @@ body.home-page {
     max-width: 700px;
     margin: 0 auto;
     font-family: "Jost", sans-serif;
-    font-size: 20px;
+    font-size: clamp(17px, 1.8vw, 20px);
     font-weight: 300;
     line-height: 1.8;
     color: #ffffff;
@@ -87,10 +87,6 @@ body.home-page {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-/*
-   The entire section is the hover group.
-*/
 }
 
 /* =========================================================
@@ -114,16 +110,8 @@ body.home-page {
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: #ffffff;
-    transition:
-        color 0.35s ease;
+    transition: color 0.35s ease;
 }
-
-/*
-   Underline:
-   - starts at the center
-   - expands outward
-   - reaches the full width of the three project boxes
-*/
 
 .home-project-heading::after {
     content: "";
@@ -134,13 +122,8 @@ body.home-page {
     height: 1px;
     background: #00E5FF;
     transform: translateX(-50%);
-    transition:
-        width 0.45s ease;
+    transition: width 0.45s ease;
 }
-
-/*
-   The entire section controls the heading.
-*/
 
 .home-project-section:hover .home-project-heading h2 {
     color: #00E5FF;
@@ -157,8 +140,7 @@ body.home-page {
 .home-project-row {
     width: 100%;
     display: grid;
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
     margin: 0 auto;
 }
@@ -187,8 +169,7 @@ body.home-page {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition:
-        transform 0.5s ease;
+    transition: transform 0.5s ease;
 }
 
 .home-project-card:hover {
@@ -204,39 +185,61 @@ body.home-page {
 
 /* =========================================================
    DELIVERABLES DROPDOWN
+   FULL-CARD OVERLAY
 ========================================================= */
 
 .home-project-card .software-overlay {
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     z-index: 5;
-    max-height: 0;
+    width: 100%;
+    height: 100%;
+    max-height: none;
     overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(18px, 3vw, 38px);
     background: rgba(0, 229, 255, 0.94);
     color: #06080B;
     opacity: 0;
+    transform: translateY(100%);
     transition:
-        max-height 0.4s ease,
+        transform 0.4s ease,
         opacity 0.3s ease;
 }
 
 .home-project-card:hover .software-overlay {
-    max-height: 75%;
     opacity: 1;
+    transform: translateY(0);
 }
 
 .home-project-card .software-overlay-content {
-    padding: 20px 22px 22px;
+    width: 100%;
+    max-width: 90%;
     box-sizing: border-box;
+    text-align: center;
+}
+
+.home-project-card .software-overlay .project-name {
+    display: block;
+    margin: 0 0 clamp(12px, 1.5vw, 20px);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(22px, 3vw, 34px);
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #06080B;
 }
 
 .home-project-card .software-overlay h3 {
-    margin: 0 0 8px;
+    margin: 0 0 clamp(8px, 1vw, 14px);
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 18px;
+    font-size: clamp(17px, 2vw, 24px);
     font-weight: 600;
+    line-height: 1.1;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: #06080B;
@@ -245,60 +248,14 @@ body.home-page {
 .home-project-card .software-list {
     margin: 0;
     font-family: "Jost", sans-serif;
-    font-size: 14px;
+    font-size: clamp(15px, 1.6vw, 19px);
     font-weight: 400;
     line-height: 1.55;
     color: #06080B;
 }
 
-.home-project-card .software-overlay .project-title {
-    display: block;
-    margin: 0 0 10px;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: #06080B;
-}
-
-/* =========================================================
-   SEE MORE
-========================================================= */
-
-.see-more {
-    position: relative;
-    display: inline-block;
-    margin-top: 25px;
-    padding-bottom: 5px;
-    font-family: "Jost", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: #ffffff;
-    text-decoration: none;
-    transition:
-        color 0.3s ease;
-}
-
-.see-more::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 0;
-    height: 1px;
-    background: #00E5FF;
-    transform: translateX(-50%);
-    transition:
-        width 0.35s ease;
-}
-
-.see-more:hover {
-    color: #00E5FF;
-}
-
-.see-more:hover::after {
-    width: 100%;
+.home-project-card .software-list.error {
+    font-size: clamp(14px, 1.5vw, 17px);
 }
 
 /* =========================================================
@@ -321,6 +278,10 @@ body.home-page {
     height: 100%;
     object-fit: cover;
     display: block;
+    z-index: 2;
+    opacity: 0;
+    transition:
+        opacity 0.35s ease;
 }
 
 .home-motion-fallback {
@@ -331,25 +292,99 @@ body.home-page {
     object-fit: cover;
     display: block;
     z-index: 1;
+    opacity: 1;
     transition:
         opacity 0.35s ease;
 }
 
-/*
-   Once the video is playing, the JS can hide the fallback.
-   Keeping the image underneath means there is always a
-   visual fallback while the video loads.
-*/
+/* Video becomes visible on hover */
 
-.home-motion-preview video {
-    z-index: 2;
+.home-project-card.motion-home-card:hover .home-motion-video {
+    opacity: 1;
 }
 
-.youtube-motion-preview img {
+.home-project-card.motion-home-card:hover .home-motion-fallback {
+    opacity: 0;
+}
+
+
+/* YouTube preview */
+
+.youtube-motion-preview {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    opacity: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2;
+
+    transition:
+        opacity 0.35s ease;
 }
+
+.youtube-motion-preview iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    border: 0;
+    pointer-events: none;
+}
+
+.motion-home-card.youtube-motion-card:hover .youtube-motion-preview {
+    opacity: 1;
+}
+
+.motion-home-card.youtube-motion-card:hover .home-motion-fallback {
+    opacity: 0;
+}
+
+.motion-home-card .software-overlay {
+    z-index: 5;
+}
+
+/* =========================================================
+   SEE MORE
+========================================================= */
+
+.see-more {
+    position: relative;
+    display: inline-block;
+    margin-top: 25px;
+    padding-bottom: 5px;
+    font-family: "Jost", sans-serif;
+    font-size: clamp(15px, 1.5vw, 18px);
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition:
+        color 0.3s ease;
+}
+
+.see-more::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: #00E5FF;
+    transform: translateX(-50%);
+    transition: width 0.35s ease;
+}
+
+.see-more:hover {
+    color: #00E5FF;
+}
+
+.see-more:hover::after {
+    width: 100%;
+}
+
 
 /* =========================================================
    CONTACT PROMPT
@@ -364,7 +399,7 @@ body.home-page {
 .page-contact-link p {
     margin: 0 0 15px;
     font-family: "Jost", sans-serif;
-    font-size: 18px;
+    font-size: clamp(17px, 1.8vw, 20px);
     font-weight: 300;
     color: #ffffff;
 }
@@ -374,7 +409,7 @@ body.home-page {
     display: inline-block;
     padding-bottom: 7px;
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 22px;
+    font-size: clamp(21px, 2.2vw, 25px);
     font-weight: 500;
     letter-spacing: 0.18em;
     color: #00E5FF;
@@ -400,7 +435,7 @@ body.home-page {
     position: relative;
     width: 100%;
     max-width: 600px;
-    margin: 100px auto 0;
+    margin: 70px auto 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -408,54 +443,155 @@ body.home-page {
 
 .home-video video {
     display: block;
-    width: min(100%, 420px);
+    width: min(100%, 210px);
     height: auto;
     margin: 0 auto;
 }
 
+
+/* =========================================================
+   HELLO SPEECH BUBBLE
+========================================================= */
+
 .speech-bubble {
     position: absolute;
-    top: 5%;
-    right: 5%;
-    z-index: 4;
-    padding: 12px 18px;
+    top: 0;
+    right: calc(50% - 150px);
+    z-index: 10;
+    padding: 10px 17px;
     border-radius: 50%;
     background: #ffffff;
     color: #06080B;
-    font-family: "Jost", sans-serif;
-    font-size: 15px;
-    font-weight: 500;
+    font-family: "Caveat", cursive;
+    font-size: 22px;
+    font-weight: 600;
     box-shadow:
         0 5px 20px rgba(0, 0, 0, 0.25);
-}
 
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: scale(0.8);
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+}
 
 .speech-bubble::after {
     content: "";
     position: absolute;
     left: 18%;
     bottom: -9px;
+
     width: 0;
     height: 0;
+
     border-top: 12px solid #ffffff;
     border-right: 8px solid transparent;
 }
+
+
+/*
+   JavaScript adds .show-hello when the
+   contact area or MP4 is hovered.
+*/
+
+.speech-bubble.show-hello {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+/*
+   Existing-style shake/wave.
+*/
+
+.speech-bubble.wave {
+    animation: hello-shake 0.65s ease-in-out infinite;
+}
+
+@keyframes hello-shake {
+
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    20% {
+        transform: rotate(-5deg) scale(1.02);
+    }
+
+    40% {
+        transform: rotate(5deg) scale(1.02);
+    }
+
+    60% {
+        transform: rotate(-4deg) scale(1.02);
+    }
+
+    80% {
+        transform: rotate(4deg) scale(1.02);
+    }
+
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+}
+
 
 /* =========================================================
    SECRET STASH
 ========================================================= */
 
+/*
+   The Secret Stash remains invisible until the user
+   hovers over its area.
+*/
+
 .secret-stash {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
+    position: relative;
+
+    width: 100%;
+    height: 32px;
+
+    margin: 5px auto 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     opacity: 0;
-    pointer-events: none;
+    visibility: hidden;
+
+    pointer-events: auto;
+
+    transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+}
+
+.secret-stash:hover {
+    opacity: 1;
+    visibility: visible;
 }
 
 .secret-stash a {
-    color: transparent;
+    display: inline-block;
+
+    font-family: "Jost", sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    text-decoration: none;
+
+    transition:
+        color 0.25s ease;
+}
+
+.secret-stash a:hover {
+    color: #00E5FF;
 }
 
 /* =========================================================
@@ -479,6 +615,10 @@ body.home-page {
 
     .home-intro {
         padding-bottom: 55px;
+    }
+
+    .home-project-card .software-overlay-content {
+        max-width: 94%;
     }
 }
 
@@ -514,11 +654,6 @@ body.home-page {
         max-width: 600px;
     }
 
-/*
-   On a single-column mobile layout, the underline still
-   spans the entire project area.
-*/
-
     .home-project-heading {
         margin-bottom: 22px;
     }
@@ -532,12 +667,41 @@ body.home-page {
         width: 100%;
     }
 
+    .home-project-card .software-overlay {
+        padding: 25px;
+    }
+
+    .home-project-card .software-overlay .project-name {
+        font-size: clamp(24px, 7vw, 32px);
+    }
+
+    .home-project-card .software-overlay h3 {
+        font-size: clamp(18px, 5vw, 23px);
+    }
+
+    .home-project-card .software-list {
+        font-size: clamp(15px, 4vw, 18px);
+    }
+
     .page-contact-link {
         margin-top: 90px;
     }
 
     .home-video {
-        margin-top: 80px;
+        margin-top: 60px;
+    }
+
+/*
+   No Hello bubble on mobile.
+*/
+
+    .speech-bubble {
+        display: none !important;
+    }
+
+    .secret-stash {
+        opacity: 0;
+        visibility: hidden;
     }
 }
 
@@ -574,27 +738,28 @@ body.home-page {
         font-size: 21px;
     }
 
-    .home-project-card .software-overlay-content {
-        padding: 16px 18px 18px;
+    .home-project-card .software-overlay {
+        padding: 18px;
+    }
+
+    .home-project-card .software-overlay .project-name {
+        font-size: 23px;
     }
 
     .home-project-card .software-overlay h3 {
-        font-size: 16px;
+        font-size: 17px;
     }
 
     .home-project-card .software-list {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .see-more {
         font-size: 15px;
     }
 
-    .speech-bubble {
-        top: 3%;
-        right: 2%;
-        padding: 9px 14px;
-        font-size: 13px;
+    .home-video video {
+        width: 180px;
     }
 }
 
@@ -603,6 +768,7 @@ body.home-page {
 ========================================================= */
 
 @media (max-height: 700px) {
+
     .home-content {
         padding-top: 100px;
     }
@@ -621,7 +787,13 @@ body.home-page {
     .see-more,
     .see-more::after,
     .software-overlay,
-    .home-motion-fallback {
+    .home-motion-fallback,
+    .home-motion-video,
+    .speech-bubble {
         transition: none;
+    }
+
+    .speech-bubble.wave {
+        animation: none;
     }
 }

@@ -6,10 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const heroSubtitle = document.getElementById("heroSubtitle");
     const speechBubble = document.querySelector(".speech-bubble");
 
-
-    // ============================================
-    // REDUCED MOTION
-    // ============================================
+// ============================================
+// REDUCED MOTION
+// ============================================
 
     if (
         window.matchMedia("(prefers-reduced-motion: reduce)").matches
@@ -17,60 +16,93 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.add("reduce-motion");
     }
 
+// ============================================
+// HOME PAGE HELLO SPEECH BUBBLE
+//
+// Bubble appears when hovering:
+// - CONTACT ME
+// - the cartoon MP4
+//
+// It does NOT appear automatically.
+// ============================================
 
-    // ============================================
-    // NAV LOGO -> SHOW HERO SPEECH BUBBLE
-    // ============================================
+    if (speechBubble) {
 
-    if (heroLogo && speechBubble) {
+        const contactArea =
+            document.querySelector(".page-contact-link");
 
-        speechBubble.classList.add("show-hello");
-        heroLogo.classList.add("show-hello");
+        const homeVideo =
+            document.querySelector(".home-video");
 
-        setTimeout(() => {
-            speechBubble.classList.remove("show-hello");
-        }, 9000);
 
-        setTimeout(() => {
-            heroLogo.classList.remove("show-hello");
-        }, 9000);
+        const showHello = () => {
 
-        heroLogo.addEventListener("mouseenter", () => {
+            if (
+                window.matchMedia(
+                    "(max-width: 768px)"
+                ).matches
+            ) {
+                return;
+            }
 
             speechBubble.classList.add("show-hello");
             speechBubble.classList.add("wave");
 
-        });
+        };
 
-        heroLogo.addEventListener("mouseleave", () => {
+
+        const hideHello = () => {
 
             speechBubble.classList.remove("wave");
             speechBubble.classList.remove("show-hello");
 
-        });
+        };
 
-        heroLogo.addEventListener("click", () => {
 
-            heroLogo.classList.toggle("show-hello");
+        if (contactArea) {
 
-        });
+            contactArea.addEventListener(
+                "mouseenter",
+                showHello
+            );
+
+            contactArea.addEventListener(
+                "mouseleave",
+                hideHello
+            );
+
+        }
+
+
+        if (homeVideo) {
+
+            homeVideo.addEventListener(
+                "mouseenter",
+                showHello
+            );
+
+            homeVideo.addEventListener(
+                "mouseleave",
+                hideHello
+            );
+
+        }
 
     }
 
-
-    // ============================================
-    // GLOBAL PAGE TRANSITIONS
-    // ============================================
+// ============================================
+// GLOBAL PAGE TRANSITIONS
+// ============================================
 
     const pageLinks = document.querySelectorAll(
         'a[href]:not([target="_blank"]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"])'
     );
 
+
     pageLinks.forEach(link => {
 
         link.addEventListener("click", function(event) {
 
-            // Don't interfere with modifier-key clicks
             if (
                 event.ctrlKey ||
                 event.shiftKey ||
@@ -80,22 +112,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-
-            // ========================================
-            // PORTFOLIO PROJECT CARDS
-            //
-            // Let these links use normal browser
-            // navigation. This prevents the global
-            // page transition from interfering with
-            // project-page navigation.
-            // ========================================
+// ========================================
+// PORTFOLIO PROJECT CARDS
+// ========================================
 
             if (link.hasAttribute("data-project")) {
                 return;
             }
 
 
-            // INDEX ENTER PORTFOLIO HAS ITS OWN TRANSITION
+// INDEX ENTER PORTFOLIO
             if (link.id === "enterPortfolio") {
                 return;
             }
@@ -104,13 +130,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const destination = link.href;
 
 
-            // Don't animate current page
             if (destination === window.location.href) {
                 return;
             }
 
 
-            // Respect reduced motion
             if (
                 window.matchMedia(
                     "(prefers-reduced-motion: reduce)"
@@ -124,38 +148,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
             document.body.classList.add("page-leaving");
 
+
             setTimeout(() => {
                 window.location.href = destination;
             }, 500);
 
         });
-
     });
 
+// ============================================
+// CONTACT DATE
+// ============================================
 
-    // ============================================
-    // CONTACT DATE
-    // ============================================
+    const date =
+        document.getElementById("contactDate");
 
-    const date = document.getElementById("contactDate");
 
     if (date) {
 
-        date.textContent = new Date()
-            .toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric"
-            });
-
+        date.textContent =
+            new Date().toLocaleDateString(
+                "en-US",
+                {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                }
+            );
     }
 
+// ============================================
+// FOOTER
+// ============================================
 
-    // ============================================
-    // FOOTER
-    // ============================================
+    const footer =
+        document.getElementById("footerCopyright");
 
-    const footer = document.getElementById("footerCopyright");
 
     if (footer) {
 
@@ -164,10 +192,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
-    // ============================================
-    // PROJECT SCROLL NAV
-    // ============================================
+// ============================================
+// PROJECT SCROLL NAV
+// ============================================
 
     const projectPage =
         document.querySelector(".project-page");
@@ -177,6 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const projectTitleNav =
         document.querySelector(".project-title-nav");
+
 
     if (
         projectPage &&
@@ -188,71 +216,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (window.scrollY > 80) {
 
-                navbar.classList.add("project-scrolled");
+                navbar.classList.add(
+                    "project-scrolled"
+                );
 
             } else {
 
-                navbar.classList.remove("project-scrolled");
-
+                navbar.classList.remove(
+                    "project-scrolled"
+                );
             }
-
         });
-
     }
 
-
-    // ============================================
-    // RETURN TO TOP WHEN PROJECT TITLE IS CLICKED
-    // ============================================
+// ============================================
+// RETURN TO TOP
+// ============================================
 
     if (projectTitleNav) {
 
-        projectTitleNav.addEventListener("click", () => {
+        projectTitleNav.addEventListener(
+            "click",
+            () => {
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        });
-
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }
+        );
     }
 
+// ============================================
+// GENERIC PROJECT CARD INFORMATION
+// ============================================
 
-    // ============================================
-    // GENERIC PROJECT CARD INFORMATION
-    //
-    // Works for:
-    // Branding
-    // Design
-    // Motion
-    //
-    // Each portfolio card needs:
-    //
-    // data-project="path/to/project.html"
-    //
-    // The individual project page remains the
-    // source of truth for title and deliverables.
-    // ============================================
+    const projectInfoCache =
+        new Map();
 
-    const projectInfoCache = new Map();
-
-
-    // ============================================
-    // CREATE / PREPARE PROJECT OVERLAY
-    // ============================================
+// ============================================
+// CREATE / PREPARE PROJECT OVERLAY
+// ============================================
 
     function createSoftwareOverlay(card) {
 
         let overlay =
-            card.querySelector(".software-overlay");
+            card.querySelector(
+                ".software-overlay"
+            );
 
-
-        // --------------------------------------------
-        // If the card already has an overlay
-        // (currently Branding), make sure it contains
-        // a project-name element.
-        // --------------------------------------------
 
         if (overlay) {
 
@@ -260,6 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 overlay.querySelector(
                     ".software-overlay-content"
                 );
+
 
             if (!content) {
 
@@ -275,7 +288,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             let projectName =
-                content.querySelector(".project-name");
+                content.querySelector(
+                    ".project-name"
+                );
+
 
             if (!projectName) {
 
@@ -288,8 +304,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 projectName.textContent =
                     "Loading...";
 
+
                 const heading =
                     content.querySelector("h3");
+
 
                 if (heading) {
 
@@ -314,6 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     ".software-list"
                 );
 
+
             if (!deliverablesList) {
 
                 deliverablesList =
@@ -331,21 +350,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
 
+
             return overlay;
 
         }
 
-
-        // --------------------------------------------
-        // Design and Motion cards don't have an
-        // overlay in their HTML, so create one.
-        // --------------------------------------------
 
         overlay =
             document.createElement("div");
 
         overlay.className =
             "software-overlay";
+
 
         overlay.innerHTML = `
             <div class="software-overlay-content">
@@ -365,16 +381,16 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         `;
 
+
         card.appendChild(overlay);
 
         return overlay;
 
     }
 
-
-    // ============================================
-    // GET PROJECT TITLE
-    // ============================================
+// ============================================
+// GET PROJECT TITLE
+// ============================================
 
     function getProjectTitle(projectDocument) {
 
@@ -383,35 +399,40 @@ document.addEventListener("DOMContentLoaded", () => {
                 ".project-title h1"
             );
 
+
         if (!title) {
             return "PROJECT";
         }
 
+
         const titleClone =
             title.cloneNode(true);
+
 
         const titleBreak =
             titleClone.querySelector(
                 ".title-break"
             );
 
+
         if (titleBreak) {
             titleBreak.remove();
         }
+
 
         const projectName =
             titleClone.textContent
                 .replace(/\s+/g, " ")
                 .trim();
 
+
         return projectName || "PROJECT";
 
     }
 
-
-    // ============================================
-    // GET DELIVERABLES LIST
-    // ============================================
+// ============================================
+// GET DELIVERABLES LIST
+// ============================================
 
     function getDeliverablesList(projectDocument) {
 
@@ -433,9 +454,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     .trim()
                     .toUpperCase() === "DELIVERABLES"
             ) {
-
                 deliverablesBox = box;
-
             }
 
         });
@@ -458,13 +477,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 .join("<br>");
 
         return deliverablesHTML || null;
-
     }
 
-
-    // ============================================
-    // LOAD PROJECT INFORMATION
-    // ============================================
+// ============================================
+// LOAD PROJECT INFORMATION
+// ============================================
 
     async function loadProjectInfo(projectURL) {
 
@@ -480,31 +497,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 controller.abort();
             }, 7000);
 
-
         try {
-
-            /*
-             * Resolve the project URL relative to the
-             * current portfolio page.
-             *
-             * This means:
-             *
-             * projects/example.html
-             *
-             * correctly resolves from branding.html,
-             * while:
-             *
-             * design-projects/example.html
-             *
-             * correctly resolves from design.html.
-             */
 
             const resolvedURL =
                 new URL(
                     projectURL,
                     document.baseURI
                 ).href;
-
 
             const response =
                 await fetch(
@@ -525,14 +524,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
 
-
             const html =
                 await response.text();
 
-
             const parser =
                 new DOMParser();
-
 
             const projectDocument =
                 parser.parseFromString(
@@ -540,30 +536,25 @@ document.addEventListener("DOMContentLoaded", () => {
                     "text/html"
                 );
 
-
             const projectName =
                 getProjectTitle(
                     projectDocument
                 );
-
 
             const deliverables =
                 getDeliverablesList(
                     projectDocument
                 );
 
-
             const projectInfo = {
                 title: projectName,
                 deliverables: deliverables
             };
 
-
             projectInfoCache.set(
                 projectURL,
                 projectInfo
             );
-
 
             return projectInfo;
 
@@ -578,15 +569,12 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
             throw error;
-
         }
-
     }
 
-
-    // ============================================
-    // SHOW PROJECT INFORMATION
-    // ============================================
+// ============================================
+// SHOW PROJECT INFORMATION
+// ============================================
 
     function showProjectInfo(
         card,
@@ -616,7 +604,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-
         if (deliverablesList) {
 
             if (projectInfo.deliverables) {
@@ -643,15 +630,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
             }
-
         }
-
     }
 
-
-    // ============================================
-    // PROJECT INFORMATION ERROR
-    // ============================================
+// ============================================
+// PROJECT INFORMATION ERROR
+// ============================================
 
     function showProjectInfoError(card) {
 
@@ -664,7 +648,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 ".project-name"
             );
 
-
         const deliverablesList =
             overlay.querySelector(
                 ".software-list"
@@ -676,14 +659,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const image =
                 card.querySelector("img");
 
-
             projectName.textContent =
                 image && image.alt
                     ? image.alt
                     : "PROJECT";
 
         }
-
 
         if (deliverablesList) {
 
@@ -699,13 +680,11 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
         }
-
     }
 
-
-    // ============================================
-    // FIND PROJECT CARDS
-    // ============================================
+// ============================================
+// FIND PROJECT CARDS
+// ============================================
 
     const projectCards =
         document.querySelectorAll(
@@ -723,258 +702,395 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-
-        // Prepare the overlay immediately.
         createSoftwareOverlay(card);
 
 
-        // Load project information in the background.
         loadProjectInfo(projectURL)
-            .then(projectInfo => {
+            .then(
+                projectInfo => {
 
-                showProjectInfo(
-                    card,
-                    projectInfo
-                );
+                    showProjectInfo(
+                        card,
+                        projectInfo
+                    );
 
-            })
-            .catch(() => {
+                }
+            )
+            .catch(
+                () => {
 
-                showProjectInfoError(card);
+                    showProjectInfoError(
+                        card
+                    );
 
-            });
-
+                }
+            );
     });
 
+// ============================================
+// MOTION CARD HOVER VIDEO PREVIEWS
+// ============================================
 
-    // ============================================
-    // MOTION CARD HOVER VIDEO PREVIEWS
-    // ============================================
+    const motionCards =
+        document.querySelectorAll(
+            ".motion-card, .motion-home-card"
+        );
 
-    if (
-        document.body.classList.contains(
-            "motion-page"
-        )
-    ) {
 
-        document
-            .querySelectorAll(".motion-card")
-            .forEach(card => {
+    motionCards.forEach(card => {
 
-                const video =
-                    card.querySelector(
-                        ".motion-video"
+        const video =
+            card.querySelector(
+                ".motion-video, .home-motion-video"
+            );
+
+
+        const fallback =
+            card.querySelector(
+                ".motion-still, .home-motion-fallback"
+            );
+
+
+        if (!video) {
+            return;
+        }
+
+        card.addEventListener(
+            "mouseenter",
+            () => {
+
+                if (
+                    fallback
+                ) {
+
+                    fallback.style.opacity =
+                        "0";
+                }
+
+                video.style.opacity =
+                    "1";
+
+                const startTime =
+                    Number(
+                        video.dataset.start || 0
+                    );
+
+                try {
+
+                    video.currentTime =
+                        startTime;
+
+                } catch (error) {
+                }
+
+                const playPromise =
+                    video.play();
+
+
+                if (
+                    playPromise &&
+                    typeof playPromise.catch ===
+                        "function"
+                ) {
+
+                    playPromise.catch(
+                        error => {
+
+                            console.warn(
+                                "Motion preview could not play:",
+                                error
+                            );
+
+                        }
+                    );
+
+                }
+
+            }
+        );
+
+        card.addEventListener(
+            "mouseleave",
+            () => {
+
+                video.pause();
+
+                const startTime =
+                    Number(
+                        video.dataset.start || 0
                     );
 
 
-                if (!video) {
-                    return;
+                try {
+
+                    video.currentTime =
+                        startTime;
+
+                } catch (error) {
                 }
 
+                video.style.opacity =
+                    "0";
 
-                card.addEventListener(
-                    "mouseenter",
-                    () => {
+                if (
+                    fallback
+                ) {
 
-                        video.currentTime =
-                            Number(
-                                video.dataset.start || 0
+                    fallback.style.opacity =
+                        "1";
+
+                }
+            }
+        );
+
+    });
+
+// ============================================
+// YOUTUBE MOTION PREVIEWS
+//
+// Works on the Motion page and homepage.
+// ============================================
+
+    const youtubeCards =
+        document.querySelectorAll(
+            ".youtube-motion-card, .motion-home-card[data-video-id]"
+        );
+
+
+    if (youtubeCards.length) {
+
+        const youtubeScript =
+            document.createElement("script");
+
+
+        youtubeScript.src =
+            "https://www.youtube.com/iframe_api";
+
+
+        document.head.appendChild(
+            youtubeScript
+        );
+
+
+        const youtubePlayers =
+            new Map();
+
+
+        let youtubeAPIReady =
+            false;
+
+
+        window.onYouTubeIframeAPIReady =
+            function () {
+
+                youtubeAPIReady =
+                    true;
+
+
+                youtubeCards.forEach(
+                    card => {
+
+                        let preview =
+                            card.querySelector(
+                                ".youtube-motion-preview"
                             );
 
-                        video.play();
+                        if (!preview) {
 
-                    }
-                );
+                            const previewImage =
+                                card.querySelector(
+                                    ".home-motion-fallback"
+                                );
 
 
-                card.addEventListener(
-                    "mouseleave",
-                    () => {
+                            if (!previewImage) {
+                                return;
+                            }
 
-                        video.pause();
 
-                        video.currentTime =
-                            Number(
-                                video.dataset.start || 0
+                            preview =
+                                document.createElement(
+                                    "div"
+                                );
+
+
+                            preview.className =
+                                "youtube-motion-preview";
+
+
+                            preview.dataset.videoId =
+                                card.dataset.videoId;
+
+
+                            preview.dataset.start =
+                                card.dataset.start || 0;
+
+
+                            const parent =
+                                previewImage.parentElement;
+
+
+                            parent.appendChild(
+                                preview
                             );
 
-                    }
-                );
+                        }
 
-            });
-
-    }
-
-
-    // ============================================
-    // YOUTUBE MOTION CARD PREVIEW
-    // ============================================
-
-    if (
-        document.body.classList.contains(
-            "motion-page"
-        )
-    ) {
-
-        const youtubePreview =
-            document.querySelector(
-                ".youtube-motion-preview"
-            );
+                        const videoId =
+                            preview.dataset.videoId ||
+                            card.dataset.videoId;
 
 
-        if (youtubePreview) {
-
-            let youtubePlayer = null;
-            let youtubeReady = false;
-
-
-            const videoId =
-                youtubePreview.dataset.videoId;
+                        const startTime =
+                            Number(
+                                preview.dataset.start ||
+                                card.dataset.start ||
+                                0
+                            );
 
 
-            const startTime =
-                Number(
-                    youtubePreview.dataset.start || 0
-                );
+                        if (!videoId) {
+                            return;
+                        }
 
 
-            // Load YouTube IFrame API
-            const youtubeScript =
-                document.createElement("script");
+                        const player =
+                            new YT.Player(
+                                preview,
+                                {
+                                    videoId:
+                                        videoId,
 
+                                    playerVars: {
+                                        autoplay: 0,
+                                        controls: 0,
+                                        playsinline: 1,
+                                        rel: 0,
+                                        modestbranding: 1,
+                                        origin:
+                                            window.location.origin
+                                    },
 
-            youtubeScript.src =
-                "https://www.youtube.com/iframe_api";
+                                    events: {
 
+                                        onReady:
+                                            function(event) {
 
-            document.head.appendChild(
-                youtubeScript
-            );
+                                                event.target.mute();
 
+                                                event.target.seekTo(
+                                                    startTime,
+                                                    true
+                                                );
 
-            window.onYouTubeIframeAPIReady =
-                function () {
-
-                    youtubePlayer =
-                        new YT.Player(
-                            youtubePreview,
-                            {
-                                videoId: videoId,
-
-                                playerVars: {
-                                    autoplay: 0,
-                                    controls: 0,
-                                    playsinline: 1,
-                                    rel: 0,
-                                    origin:
-                                        window.location.origin
-                                },
-
-                                events: {
-
-                                    onReady:
-                                        function (event) {
-
-                                            youtubeReady =
-                                                true;
-
-                                            event.target.mute();
-
-                                            event.target.seekTo(
-                                                startTime,
-                                                true
-                                            );
-
-                                        }
+                                            }
+                                    }
 
                                 }
+                            );
+
+                        youtubePlayers.set(
+                            card,
+                            {
+                                player:
+                                    player,
+                                start:
+                                    startTime
+                            }
+                        );
+
+                        card.addEventListener(
+                            "mouseenter",
+                            () => {
+
+                                const playerData =
+                                    youtubePlayers.get(
+                                        card
+                                    );
+
+
+                                if (
+                                    !playerData
+                                ) {
+                                    return;
+                                }
+
+
+                                playerData.player.mute();
+
+
+                                playerData.player.seekTo(
+                                    playerData.start,
+                                    true
+                                );
+
+
+                                playerData.player.playVideo();
 
                             }
                         );
 
-                };
+
+                        card.addEventListener(
+                            "mouseleave",
+                            () => {
+
+                                const playerData =
+                                    youtubePlayers.get(
+                                        card
+                                    );
 
 
-            const youtubeCard =
-                youtubePreview.closest(
-                    ".youtube-motion-card"
-                );
+                                if (
+                                    !playerData
+                                ) {
+                                    return;
+                                }
+
+                                playerData.player.pauseVideo();
 
 
-            if (youtubeCard) {
+                                playerData.player.seekTo(
+                                    playerData.start,
+                                    true
+                                );
 
-                youtubeCard.addEventListener(
-                    "mouseenter",
-                    () => {
-
-                        if (
-                            !youtubeReady ||
-                            !youtubePlayer
-                        ) {
-                            return;
-                        }
-
-
-                        youtubePlayer.seekTo(
-                            startTime,
-                            true
-                        );
-
-
-                        youtubePlayer.mute();
-
-                        youtubePlayer.playVideo();
-
-                    }
-                );
-
-
-                youtubeCard.addEventListener(
-                    "mouseleave",
-                    () => {
-
-                        if (
-                            !youtubeReady ||
-                            !youtubePlayer
-                        ) {
-                            return;
-                        }
-
-
-                        youtubePlayer.pauseVideo();
-
-                        youtubePlayer.seekTo(
-                            startTime,
-                            true
+                            }
                         );
 
                     }
                 );
 
-            }
+            };
+
+        if (
+            window.YT &&
+            window.YT.Player
+        ) {
+
+            window.onYouTubeIframeAPIReady();
 
         }
-
     }
 
-
-    // ============================================
-    // MOBILE NAVIGATION
-    // ============================================
+// ============================================
+// MOBILE NAVIGATION
+// ============================================
 
     const menuToggle =
         document.querySelector(
             ".menu-toggle"
         );
 
-
     const navLinks =
         document.querySelector(
             ".nav-links"
         );
 
-
-    if (menuToggle && navLinks) {
+    if (
+        menuToggle &&
+        navLinks
+    ) {
 
         menuToggle.addEventListener(
             "click",
@@ -985,26 +1101,21 @@ document.addEventListener("DOMContentLoaded", () => {
                         "active"
                     );
 
-
                 navLinks.classList.toggle(
                     "mobile-open"
                 );
-
 
                 menuToggle.setAttribute(
                     "aria-expanded",
                     isOpen
                 );
-
             }
         );
-
     }
 
-
-    // ============================================
-    // INDEX → PORTFOLIO TRANSITION
-    // ============================================
+// ============================================
+// INDEX → PORTFOLIO TRANSITION
+// ============================================
 
     const portfolioButton =
         document.getElementById(
@@ -1026,14 +1137,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
-
                 event.preventDefault();
-
 
                 document.body.classList.add(
                     "entering-portfolio"
                 );
-
 
                 setTimeout(() => {
 
@@ -1041,20 +1149,17 @@ document.addEventListener("DOMContentLoaded", () => {
                         portfolioButton.href;
 
                 }, 700);
-
             }
         );
-
     }
 
-
-    // ============================================
-    // RESTORE HOME PAGE AFTER BROWSER BACK
-    // ============================================
+// ============================================
+// RESTORE HOME PAGE AFTER BROWSER BACK
+// ============================================
 
     window.addEventListener(
         "pageshow",
-        function () {
+        function() {
 
             document.body.classList.remove(
                 "entering-portfolio"
