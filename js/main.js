@@ -73,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-
         if (homeVideo) {
 
             homeVideo.addEventListener(
@@ -87,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
         }
-
     }
 
 // ============================================
@@ -326,7 +324,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
 
-
             let deliverablesList =
                 content.querySelector(
                     ".software-list"
@@ -350,11 +347,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             }
 
-
             return overlay;
 
         }
-
 
         overlay =
             document.createElement("div");
@@ -380,7 +375,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             </div>
         `;
-
 
         card.appendChild(overlay);
 
@@ -418,7 +412,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (titleBreak) {
             titleBreak.remove();
         }
-
 
         const projectName =
             titleClone.textContent
