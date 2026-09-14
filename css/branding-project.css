@@ -633,6 +633,14 @@ PROJECT STORY SECTIONS
     margin:0 auto;
 }
 
+.hh-page .story-image img.hh-clean-curls{
+    width:auto;
+    max-width:50%;
+    max-height:500px;
+    height:auto;
+    margin:0 auto;
+}
+
 /*=========================================================
 GALLERY HEADING
 =========================================================*/
