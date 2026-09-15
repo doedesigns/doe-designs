@@ -633,11 +633,12 @@ PROJECT STORY SECTIONS
     margin:0 auto;
 }
 
-.hh-page .story-image img.hh-clean-curls{
+.horsehair-page .project-image-block img.hh-clean-curls{
     width:auto;
+    height:auto;
     max-width:50%;
     max-height:500px;
-    height:auto;
+    display:block;
     margin:0 auto;
 }
 
