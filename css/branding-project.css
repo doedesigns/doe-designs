@@ -140,7 +140,7 @@ background:
 linear-gradient(
 180deg,
 #081522,
-#4c0000
+#105f00
 );
 }
 
@@ -2000,10 +2000,9 @@ PROJECT FOOTER LINK
 }
 
 .clean-organic .clean-contact p {
-    color: var(--clean-cream);
-    font-family: "Playfair Display", serif;
-    font-size: clamp(1.3rem, 2.5vw, 2rem);
-    line-height: 1.5;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
 }
 
 /* Respect reduced-motion preferences */
@@ -2111,6 +2110,11 @@ PROJECT FOOTER LINK
     }
 }
 
+.clean-organic .clean-contact p {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
 
 /*=========================================================
 MOBILE
