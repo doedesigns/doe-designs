@@ -2,345 +2,499 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/branding-project.css">
 
-	<link rel="stylesheet" href="../css/main.css">
-	<link rel="stylesheet" href="../css/branding-project.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;700;900&family=Jost:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Microsoft Clarity -->
+    <script>
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){
+                (c[a].q=c[a].q||[]).push(arguments);
+            };
+            t=l.createElement(r);
+            t.async=1;
+            t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "y91es13n7p");
+    </script>
 
-	<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;700;900&family=Jost:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-	
-	<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "y91es13n7p");
-	</script>
+<!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJK785TLB8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){
+            window.dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-KJK785TLB8');
+    </script>
 
-		<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJK785TLB8"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'G-KJK785TLB8');
-	</script>
-	
-	<title>Lotus Lingo | Mobile App Design | Doe Designs</title>
-
+    <title>Lotus Lingo | Mobile App Design | Doe Designs</title>
 </head>
 
-<body class="project-page scroll-page lotus-page">
+<body class="project-page scroll-page lotus-page lotus-organic">
 
-	<canvas id="dust"></canvas>
+    <canvas id="dust"></canvas>
 
-	<a href="../uiux.html" class="close-project">✕</a>
+    <a href="../uiux.html"
+       class="close-project"
+       aria-label="Back to UI/UX projects">✕</a>
+
+<!-- HEADER -->
 
 <header>
+        <nav class="navbar">
 
-	<nav class="navbar">
+            <a href="../index.html" class="logo">
+                <span class="logo-doe">DOE</span>
+                <span class="logo-designs">designs</span>
+            </a>
 
-	<a href="../index.html" class="logo">
+            <button class="menu-toggle"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-	<span class="logo-doe">DOE</span>
-	<span class="logo-designs">designs</span>
+            <ul class="nav-links">
+                <li><a href="../uiux.html" class="active">UI/UX</a></li>
+                <li><a href="../design.html">Design</a></li>
+                <li><a href="../branding.html">Branding</a></li>
+                <li><a href="../motion.html">Motion</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
 
-        </a>
-	<button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
-		<span></span>
-		<span></span>
-		<span></span>
-	</button>
-		
-        <ul class="nav-links">
+            <div class="project-title-nav">
 
-	<li><a href="../uiux.html" class="active">UI/UX</a></li>	
-	<li><a href="../design.html">Design</a></li>
-	<li><a href="../branding.html">Branding</a></li>
-	<li><a href="../motion.html">Motion</a></li>
-	<li><a href="../about.html">About</a></li>
-	<li><a href="../contact.html">Contact</a></li>
+                <a href="my-deets.html"
+                   class="project-arrow prev"
+                   aria-label="Previous project: My Deets">
+                    <span class="arrow-circle">
+                        <span class="arrow-triangle"></span>
+                    </span>
+                </a>
 
-	</ul>
+                <h1>Lotus Lingo</h1>
 
-	<div class="project-title-nav">
+                <a href="chrono.html"
+                   class="project-arrow next"
+                   aria-label="Next project: Chrono Nexus">
+                    <span class="arrow-circle">
+                        <span class="arrow-triangle"></span>
+                    </span>
+                </a>
 
-	<a href="my-deets.html" 
-	   class="project-arrow prev"
-	   aria-label="Next project: My Deets">
-	<span class="arrow-circle">
-	<span class="arrow-triangle"></span>
-	</span>
-	</a>
-
-	<h1>Lotus Lingo</h1>
-
-	<a href="chrono.html" 
-	   class="project-arrow next"
-	   aria-label="Next project: Chrono Nexus">
-	<span class="arrow-circle">
-	<span class="arrow-triangle"></span>
-	</span>
-	</a>
-	</div> 
-	</nav>
-
+            </div>
+        </nav>
 </header>
 
-<main class="project-container">
+<main class="project-container lotus-case">
+
+<!-- TITLE -->
 
 <section class="project-navigation">
 
-	<a href="my-deets.html" 
-	   class="project-arrow prev"
-		aria-label="Next project: My Deets">
-	<span class="arrow-circle">
-	<span class="arrow-triangle"></span>
-	</span>
-	</a>
+            <a href="my-deets.html"
+               class="project-arrow prev"
+               aria-label="Previous project: My Deets">
+                <span class="arrow-circle">
+                    <span class="arrow-triangle"></span>
+                </span>
+            </a>
 
-	<div class="project-title">
+            <div class="project-title">
+                <h1>
+                    Lotus Lingo
+                    <span class="title-break">Conceptual Mobile App Design</span>
+                </h1>
+            </div>
 
-	<h1>
-	Lotus Lingo <span class="title-break">Conceptual Mobile App Design Project</span>
-	</h1>
-	</div>
-
-	<a href="chrono.html" 
-	   class="project-arrow next"
-	   aria-label="Next project: Chrono Nexus">
-	<span class="arrow-circle">
-	<span class="arrow-triangle"></span>
-	</span>
-	</a>
-</section>
-
-	
-<section class="project-hero video-hero">
-
-    <div class="video-player">
-
-        <iframe
-            src="https://www.youtube.com/embed/dwnjsVbT2R0"
-            title="Lotus Lingo Mobile App UI/UX Design Project"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen>
-        </iframe>
-
-    </div>
+            <a href="chrono.html"
+               class="project-arrow next"
+               aria-label="Next project: Chrono Nexus">
+                <span class="arrow-circle">
+                    <span class="arrow-triangle"></span>
+                </span>
+            </a>
 
 </section>
 
-	<div class="project-year">2025</div>
-	
-<section class="project-details">
+<!-- WALKTHROUGH -->
 
-	<div class="detail-box">
+<section class="project-hero video-hero lotus-video">
 
-	<h3>SOFTWARE</h3>
-	<p>Figma</p>
-	<p>Adobe Illustrator</p>
-	<p>Adobe Photoshop</p>
-	</div>
+            <div class="video-player">
+                <iframe
+                    src="https://www.youtube.com/embed/dwnjsVbT2R0"
+                    title="Lotus Lingo mobile app UI/UX design walkthrough"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+            </div>
 
-	<div class="detail-box">
+</section>
 
-	<h3>MY ROLE</h3>
-	<p>Product Designer-Independent Project<br>
-	UI/UX Designer<br>
-	Mobile App Designer</p>
-	</div>
+<!-- PROJECT DETAILS -->
 
-	<div class="detail-box">
+        <div class="project-year">2025</div>
 
-	<h3>DELIVERABLES</h3>
-	<p>
-	Mobile App Concept Development<br>
-	UI/UX Design<br>
-	Information Architecture<br>
-	Wireframes &amp; Hi-Fi Prototypes<br>
-	Interactive User Flows<br>
-	Brand Identity &amp; Visual System
-	</p>
-	</div>
+<section class="project-details lotus-details">
 
-	<div class="detail-box">
+            <div class="detail-box">
+                <h3>TOOLS</h3>
+                <p>Figma</p>
+                <p>Adobe Illustrator</p>
+                <p>Adobe Photoshop</p>
+            </div>
 
-	<h3>TOOLS &amp; CREDITS</h3>
+            <div class="detail-box">
+                <h3>MY ROLE</h3>
+                <p>Product Designer</p>
+                <p>UI/UX Designer</p>
+                <p>Mobile App Designer</p>
+                <p>Independent Academic Project</p>
+            </div>
 
-	<p>Teuida (reference imagery used for educational purposes)</p>
-	<p>Envato Elements (licensed subscription assets &amp; mockups)</p>
-	</div>
+            <div class="detail-box">
+                <h3>DELIVERABLES</h3>
+                <p>App Concept &amp; Identity</p>
+                <p>Information Architecture</p>
+                <p>Wireframes &amp; Hi-Fi Designs</p>
+                <p>Interactive User Flows</p>
+                <p>High-Fidelity Prototype</p>
+            </div>
+
+            <div class="detail-box">
+                <h3>ASSETS &amp; CREDITS</h3>
+                <p>Teuida: reference imagery for educational purposes</p>
+                <p>Envato Elements: licensed assets and mockups</p>
+            </div>
 
 </section>
 
 <!-- PROJECT OVERVIEW -->
 
-<section class="project-story story-text-left">
+<section class="project-story story-text-left lotus-overview">
 
-    <div class="story-text">
-        <h2>PROJECT OVERVIEW</h2>
-		<p>Lotus Lingo is a conceptual mobile language-learning application created as an academic UI/UX design project. The app was designed to explore how visual design, structured lessons, and interactive experiences can support users as they learn a new language. All included imagery and language-learning content were used solely for educational purposes as part of the course project.</p>
-		<p>The goal was to design a complete language-learning ecosystem that guides users from account creation through daily practice, lesson progression, and community engagement. The project included more than 100 designed screens covering onboarding, user profiles, settings, lesson modules, progress tracking, games, rewards, premium features, and additional app functionality.</p>
-    </div>
+            <div class="story-text">
+                <p class="lotus-eyebrow">A CONCEPTUAL LANGUAGE-LEARNING APP</p>
 
-    <div class="story-image lightbox-image">
-	<img 
-		class="img-large"
-		src="../images/ui/lotus-lingo/2.5.8-lotus-lingo-mockup.jpg"
-		alt="Lotus Lingo - Mobile Mockup"
-		data-lightbox-text="The Lotus Lingo mobile app brings the completed design system together through a user-focused interface designed for learning and exploration. The final mockup showcases how the visual identity, interface components, and layout decisions work across multiple screens to create a consistent and engaging experience. Each design choice supports the app’s goal of making language learning feel approachable, intuitive, and culturally connected.">
+                <h2>PROJECT OVERVIEW</h2>
 
-		<p>Mobile mockup.</p>
-    </div>
+                <p>
+                    Lotus Lingo is a conceptual mobile language-learning app
+                    designed to make learning Japanese more engaging through
+                    structured lessons, interactive games, and community features.
+                </p>
+
+                <p>
+                    The project explored the experience from onboarding and daily
+                    practice to progress tracking, rewards, and personalized
+                    learning. More than 100 designed screens demonstrate how a
+                    cohesive visual system can support a complete mobile product.
+                </p>
+            </div>
+
+            <div class="story-image lightbox-image">
+                <img
+                    class="img-large"
+                    src="../images/ui/lotus-lingo/2.5.8-lotus-lingo-mockup.jpg"
+                    alt="Lotus Lingo mobile app mockup showing the visual design across multiple screens"
+                    data-lightbox-text="The Lotus Lingo mobile mockup brings the visual identity and interface system together across multiple app screens.">
+
+                <p>Lotus Lingo / Mobile app mockup</p>
+            </div>
+
+</section>
+
+<!-- CHALLENGE AND SOLUTION -->
+
+<section class="lotus-section lotus-challenge">
+
+            <div class="lotus-section-heading">
+                <p class="lotus-eyebrow">THE DESIGN OPPORTUNITY</p>
+                <h2>CHALLENGE &amp; SOLUTION</h2>
+            </div>
+
+            <div class="lotus-challenge-grid">
+
+                <article class="lotus-statement lotus-challenge-card">
+                    <span class="lotus-number">01</span>
+                    <h3>THE CHALLENGE</h3>
+
+                    <p>
+                        Make language learning engaging and sustainable.
+                    </p>
+
+                    <p>
+                        Learners need more than vocabulary drills. The experience
+                        should accommodate different learning styles, encourage
+                        consistent practice, and make progress feel rewarding.
+                    </p>
+                </article>
+
+                <article class="lotus-statement lotus-solution-card">
+                    <span class="lotus-number">02</span>
+                    <h3>THE SOLUTION</h3>
+
+                    <p>
+                        Design a flexible, interactive learning experience.
+                    </p>
+
+                    <p>
+                        Lotus Lingo combines structured lessons with games,
+                        progress tracking, cultural content, and community
+                        features in a unified mobile interface.
+                    </p>
+                </article>
+
+            </div>
+
+</section>
+
+<!-- INTERACTIVE PROTOTYPE -->
+
+<section class="project-image-block interactive-prototype lotus-prototype">
+
+            <div class="lotus-section-heading">
+                <p class="lotus-eyebrow">TRY THE EXPERIENCE</p>
+                <h2>INTERACTIVE PROTOTYPE</h2>
+                <p>
+                    Explore the Lotus Lingo prototype to experience the app's
+                    navigation, lessons, games, and interactive features.
+                </p>
+            </div>
+
+            <a
+                href="https://www.figma.com/proto/HX7Pf4ldVH67OnTA24SNs7/LotusLingo-App?page-id=1%3A6&amp;node-id=52-4474&amp;starting-point-node-id=52%3A4474&amp;t=MEnTJMubVzLyRYCp-1"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="prototype-image-link">
+
+                <img
+                    class="img-tall"
+                    src="../images/ui/lotus-lingo/2.5.10-lotus-app-homepage.png"
+                    alt="Lotus Lingo app homepage preview; select to open the interactive Figma prototype"
+                    loading="lazy">
+
+                <span class="lotus-prototype-overlay">
+                    EXPLORE THE PROTOTYPE ↗
+                </span>
+
+            </a>
+
+            <a
+                href="https://www.figma.com/proto/HX7Pf4ldVH67OnTA24SNs7/LotusLingo-App?page-id=1%3A6&amp;node-id=52-4474&amp;starting-point-node-id=52%3A4474&amp;t=MEnTJMubVzLyRYCp-1"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="enter-button lotus-prototype-button">
+                View Interactive Prototype
+            </a>
 
 </section>
 
 <!-- CREATIVE DIRECTION -->
 
-<section class="project-story story-image-left">
+<section class="project-story story-image-left lotus-direction">
 
-    <div class="story-image lightbox-image">
-	<img 
-		class="img-large"
-		src="../images/ui/lotus-lingo/2.5.4-lotus-design-system.jpg"
-		alt="Lotus Lingo - Design System"
-		data-lightbox-text="The Lotus Lingo design system establishes the visual foundation for the application through color, typography, interface components, and reusable design patterns. This system helped maintain consistency across educational content, navigation elements, user profiles, and interactive features throughout the app experience.">
+            <div class="story-image lightbox-image">
+                <img
+                    class="img-large"
+                    src="../images/ui/lotus-lingo/2.5.4-lotus-design-system.jpg"
+                    alt="Lotus Lingo design system showing brand elements, typography, colors, and interface components"
+                    data-lightbox-text="The Lotus Lingo design system establishes the visual foundation through color, typography, interface components, and reusable design patterns."
+                    loading="lazy">
 
-		<p>Brand elements and usage guidelines.</p>
-    </div>
+                <p>Visual identity / Design system</p>
+            </div>
 
-    <div class="story-text">
-        <h2>CREATIVE DIRECTION</h2>
-		<p>The visual direction combines playful illustration, bright colors, and approachable interface patterns to create an encouraging learning environment. The design system was developed around accessibility and engagement, using consistent navigation, visual feedback, and interactive components to help users feel motivated throughout their language-learning journey.</p>
-		<p>The app architecture was organized around five primary learning modules focused on reading, writing, speaking, and comprehension. Each lesson system was designed with structured practice activities, progress indicators, review sections, and personalized learning tools. Additional features including calendars, user statistics, friends, community interaction, achievements, music, account management, and premium options were created to demonstrate how a complete mobile product experience functions beyond the core lesson content.</p>
-		<p>The featured screens demonstrate English-to-Japanese learning exercises, including Katakana lessons that introduce pronunciation, writing practice, and character recognition. The final prototype explores how thoughtful UI/UX design can transform educational content into an engaging and intuitive mobile experience.</p>
-		</div>
+            <div class="story-text">
+                <p class="lotus-eyebrow">COLOR, TYPE &amp; COMPONENTS</p>
+
+                <h2>CREATIVE DIRECTION</h2>
+
+                <p>
+                    The visual identity pairs playful illustration with a bright
+                    palette of light green, deep pink, light blue, and soft peach.
+                    Consistent interface components, navigation, and visual
+                    feedback create a welcoming experience across the app.
+                </p>
+
+                <p>
+                    The design system supports a broad range of features, from
+                    reading, writing, and pronunciation exercises to games,
+                    rewards, community interaction, and progress tracking.
+                    Featured Katakana lessons demonstrate how structured
+                    explanations, character recognition, and writing practice
+                    can work together within a cohesive interface.
+                </p>
+            </div>
 
 </section>
 
 <!-- PROCESS -->
 
-<section class="project-story story-text-left">
+<section class="project-story story-text-left lotus-process">
 
-    <div class="story-text">
-        <h2>PROCESS</h2>
-		<p>The process began with researching the challenges learners face when using language learning applications. While preparing for a trip to Japan, I explored several existing language apps and identified opportunities to improve engagement, personalization, and long-term retention. Many applications focused heavily on repetition and vocabulary practice, but I found opportunities to create a more immersive experience by incorporating elements of gaming, music, and community-based learning.</p>
-		<p>Research revealed that learners benefit from multiple methods of engagement and different approaches to processing information. For Japanese language learners specifically, the combination of formal and informal structures, along with multiple writing systems, can create additional challenges. These findings influenced the development of Lotus Lingo’s structure, allowing users to customize their learning experience by focusing on conversational skills, written language, or cultural exploration based on their individual goals.</p>
-		<p>After identifying key user needs, I developed a high-fidelity Figma prototype containing over 100 pages of lessons, games, community features, and music-based learning experiences. The interface was designed around clear progression, daily engagement, and flexible learning paths. Features such as rewards, community spaces, and cultural content were incorporated to encourage consistent practice while creating a more engaging and personalized language learning experience. </p>
-		<p>Due to project constraints, the original concept for a larger RPG-style learning game was not fully developed, but the framework was designed to support future expansion. The final prototype demonstrates how research-driven decisions can transform language learning from a repetitive task into a more interactive and motivating experience.</p>
+            <div class="story-text">
+                <p class="lotus-eyebrow">RESEARCH &amp; INFORMATION ARCHITECTURE</p>
 
-    </div>
+                <h2>FROM RESEARCH TO DESIGN</h2>
 
-    <div class="story-image lightbox-image">
-	<img
-		class="img-large"
-		src="../images/ui/lotus-lingo/2.5.3-lotus-map.jpg"
-		alt="Lotus Lingo - App Concept Map"
-		data-lightbox-text="The Lotus Lingo app concept map defines the information architecture and user journey before visual development began. The planning phase explored how users move through onboarding, lessons, practice activities, progress tracking, community features, and account management, ensuring the final interface was organized around a logical and engaging learning experience.">
+                <p>
+                    Research into existing language-learning apps highlighted
+                    opportunities to expand beyond repetitive vocabulary
+                    practice. Preparing for a trip to Japan also prompted a
+                    closer look at the challenges of learning Japanese,
+                    including its multiple writing systems and different
+                    learning needs.
+                </p>
 
-		<p>Mobile app concept map.</p>
-    </div>
+                <p>
+                    These insights informed an experience built around flexible
+                    learning paths, structured progression, and varied forms
+                    of engagement. I developed a high-fidelity Figma prototype
+                    with more than 100 screens spanning lessons, games, music,
+                    community features, and account management.
+                </p>
+
+                <p>
+                    Although the larger RPG-style learning game remained a
+                    future concept, the final prototype established a framework
+                    for an expanded, interactive learning experience.
+                </p>
+            </div>
+
+            <div class="story-image lightbox-image">
+                <img
+                    class="img-large"
+                    src="../images/ui/lotus-lingo/2.5.3-lotus-map.jpg"
+                    alt="Lotus Lingo mobile app concept map and information architecture"
+                    data-lightbox-text="The Lotus Lingo concept map explores how users move through onboarding, lessons, practice activities, progress tracking, community features, and account management."
+                    loading="lazy">
+
+                <p>App concept map / Information architecture</p>
+            </div>
 
 </section>
 
-<!-- GALLERY -->
+<!-- THE APP EXPERIENCE -->
 
-<section class="project-gallery-heading">
-    <h2>GALLERY</h2>
+ <section class="lotus-section lotus-experience">
+
+            <div class="lotus-section-heading">
+                <p class="lotus-eyebrow">LEARN, PRACTICE &amp; PLAY</p>
+                <h2>THE APP EXPERIENCE</h2>
+                <p>
+                    From guided language lessons to interactive challenges,
+                    the interface brings multiple learning methods together
+                    in one connected mobile experience.
+                </p>
+            </div>
+
+<!-- GAMES HI-FI -->
+
+		<figure class="project-image-block lightbox-image lotus-feature-image">
+                <img
+                    class="img-large"
+                    src="../images/ui/lotus-lingo/2.5.6-lotus-hi-fi-games.png"
+                    alt="Lotus Lingo high-fidelity game screens showing Games Home, Battles Home, Translate Battle, Matching Game, and Numbers Game"
+                    data-lightbox-text="The games interface explores multiple learning activities, including translation battles, matching games, and number practice. The screens demonstrate how interactive challenges and game mechanics can support language learning."
+                    loading="lazy">
+
+                <figcaption>
+                    <strong>Interactive Games</strong>
+                    <span>Game modes, challenges, and practice activities</span>
+                </figcaption>
+            </figure>
+
+<!-- KATAKANA HI-FI -->
+
+            <figure class="project-image-block lightbox-image lotus-feature-image">
+                <img
+                    class="img-large"
+                    src="../images/ui/lotus-lingo/2.5.7-lotus-katakana-tips-hifi.png"
+                    alt="Lotus Lingo high-fidelity Katakana lesson screens showing Japanese character tips and guided learning"
+                    data-lightbox-text="The Katakana lesson screens introduce Japanese characters through guided explanations, pronunciation examples, writing practice, and review activities."
+                    loading="lazy">
+
+                <figcaption>
+                    <strong>Katakana Lessons</strong>
+                    <span>Character recognition, guided instruction, and practice</span>
+                </figcaption>
+            </figure>
+
 </section>
-	
-<!-- INTERACTIVE PROTOTYPE -->
 
-<section class="project-image-block interactive-prototype">
+<!-- BRAND IN ACTION -->
 
-		<a href="https://www.figma.com/proto/HX7Pf4ldVH67OnTA24SNs7/LotusLingo-App?page-id=1%3A6&node-id=52-4474&starting-point-node-id=52%3A4474&t=MEnTJMubVzLyRYCp-1"
-	   target="_blank"
-	   rel="noopener noreferrer"
-	   class="prototype-image-link">
-			
-	<img
-		class="img-tall"
-		src="../images/ui/lotus-lingo/2.5.10-lotus-app-homepage.png"
-		alt="Lotus Lingo - App Home Page">
-			
-		</a>
+<section class="lotus-section lotus-brand">
 
-		<a href="https://www.figma.com/proto/HX7Pf4ldVH67OnTA24SNs7/LotusLingo-App?page-id=1%3A6&node-id=52-4474&starting-point-node-id=52%3A4474&t=MEnTJMubVzLyRYCp-1"
-	   target="_blank"
-	   rel="noopener noreferrer"
-	   class="enter-button">
-		View Interactive Prototype
-	</a>
+            <div class="lotus-section-heading">
+                <p class="lotus-eyebrow">A COHESIVE VISUAL IDENTITY</p>
+                <h2>BRAND IN ACTION</h2>
+                <p>
+                    The Lotus Lingo identity extends beyond individual screens
+                    to create a recognizable visual experience across the app.
+                </p>
+            </div>
 
-		<p>Explore Lotus Lingo through an interactive high-fidelity prototype designed to bring the complete app experience to life. Click through the screens to experience the app's navigation, features, content, and visual design as a connected digital experience.</p>
-</section>
-	
-<!-- LARGE SUPPLEMENTAL IMAGE -->
+            <figure class="project-hero video-hero lotus-logo-animation">
 
-<section class="project-image-block lightbox-image">
+                <div class="video-player">
+                    <video
+                        class="video-medium"
+                        controls
+                        playsinline
+                        preload="metadata"
+                        poster="../images/ui/lotus-lingo/2.5.5-lotus-combo-mark.png">
 
-		<img 
-			class="img-large"
-			src="../images/ui/lotus-lingo/2.5.6-lotus-hi-fi-games.png"
-			alt="Lotus Lingo - Games Figma Hi-Fi Wireframe"
-			data-lightbox-text="This high-fidelity Figma prototype explores the gamification features of Lotus Lingo, including the Games Home page, Battles Home page, Translate Battle, Matching Game, and Numbers Game. The prototype demonstrates the user flow for each game through example screens, showing how interactive challenges, competition, and rewards are incorporated to encourage consistent language learning.">
+                        <source
+                            src="../images/ui/lotus-lingo/2.5.1-lotus-animated-logo.mp4"
+                            type="video/mp4">
 
-		<p>Lotus Lingo high-fidelity Figma wireframe for the games.</p>
-</section>
-	
-<!-- LARGE SUPPLEMENTAL IMAGE -->
-	
-<section class="project-image-block lightbox-image">
+                        Your browser does not support video playback.
+                    </video>
+                </div>
 
-	<img 
-		class="img-large"
-		src="../images/ui/lotus-lingo/2.5.7-lotus-katakana-tips-hifi.png"
-		alt="Lotus Lingo - Katakana Tips Hi-Fi"
-		data-lightbox-text="This high-fidelity prototype showcases the Katakana lesson experience within Lotus Lingo. The lesson screens were designed to introduce Japanese characters through guided explanations, pronunciation examples, writing practice, and review activities. The interface system emphasizes clear progression, visual learning, and repeat practice to support users as they build confidence with a new writing system.">
+                <figcaption>Lotus Lingo / Animated logo</figcaption>
 
-		<p>High-fidelity Figma for the Katakana tips page.</p>
-</section>
-	
-<!-- Single Video -->		
-		
-<section class="project-hero video-hero">
+            </figure>
 
-	<div class="video-player">
-
-	<video class="video-medium" controls poster="../images/ui/lotus-lingo/2.5.5-lotus-combo-mark.png">
-
-	<source 
-	src="../images/ui/lotus-lingo/2.5.1-lotus-animated-logo.mp4"
-	type="video/mp4">
-
-	Your browser does not support video playback.
-	</video>
-		</div>
 </section>
 
 <!-- CONTACT -->
 
-<section class="page-contact-link">
+<section class="page-contact-link lotus-contact">
 
-	<p>Let's translate your ideas into a design that speaks.</p>
-	<a href="../contact.html" class="enter-button">CONTACT ME</a>
+            <p>Let's translate your ideas into a design that speaks.</p>
+
+            <a href="../contact.html" class="enter-button">
+                CONTACT ME
+            </a>
 
 </section>
 </main>
 
-	<footer id="footerCopyright"></footer>
-	<script src="../js/lightbox.js"></script>
-	<script src="../js/about-dust.js"></script>
-	<script src="../js/main.js"></script>
+<!-- FOOTER AND SCRIPTS -->
+
+    <footer id="footerCopyright"></footer>
+
+    <script src="../js/lightbox.js"></script>
+    <script src="../js/about-dust.js"></script>
+    <script src="../js/main.js"></script>
 
 </body>
 </html>
