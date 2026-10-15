@@ -113,7 +113,7 @@ background:
 linear-gradient(
 180deg,
 #081522,
-#ac006a
+#760052
 );
 }
 
@@ -2039,6 +2039,441 @@ PROJECT FOOTER LINK
         width: min(92%, 680px);
     }
 }
+
+
+/* =========================================================
+   LOTUS LINGO — BRIGHT, PLAYFUL CASE STUDY
+   Append to the bottom of branding-project.css
+   ========================================================= */
+
+body.lotus-organic {
+    --lotus-peach: #FFF5EF;
+    --lotus-peach-deep: #F9E4DC;
+    --lotus-green: #C5E6A5;
+    --lotus-green-deep: #477653;
+    --lotus-pink: #B83268;
+    --lotus-pink-dark: #50152F;
+    --lotus-blue: #BDE5F3;
+    --lotus-ink: #302832;
+    --lotus-muted: #71656D;
+    --lotus-white: #FFFCFA;
+
+    background:
+        linear-gradient(
+            180deg,
+            #06080B 0%,
+            #321022 12%,
+            #5B1B3B 28%,
+            #F9E9E3 52%,
+            #FFF5EF 100%
+        );
+
+    color: var(--lotus-ink);
+}
+
+/* Keep content above the background canvas */
+
+.lotus-organic .project-container {
+    position: relative;
+    z-index: 1;
+}
+
+.lotus-organic .project-year {
+    color: var(--lotus-peach);
+}
+
+/* General section spacing */
+
+.lotus-organic .lotus-section,
+.lotus-organic .project-story {
+    position: relative;
+    margin-top: clamp(48px, 7vw, 100px);
+    margin-bottom: clamp(48px, 7vw, 100px);
+}
+
+.lotus-organic .lotus-section {
+    padding: clamp(24px, 4vw, 56px);
+    border-radius: 28px;
+    background: var(--lotus-peach);
+    color: var(--lotus-ink);
+    overflow: hidden;
+}
+
+.lotus-organic .lotus-section-heading {
+    max-width: 820px;
+    margin: 0 auto 32px;
+    text-align: center;
+}
+
+.lotus-organic .lotus-section-heading > p:last-child {
+    max-width: 700px;
+    margin: 16px auto 0;
+    line-height: 1.75;
+}
+
+/* Eyebrows and headings */
+
+.lotus-organic .lotus-eyebrow {
+    margin: 0 0 10px;
+    color: var(--lotus-pink);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.lotus-organic .lotus-section h2,
+.lotus-organic .lotus-section-heading h2 {
+    margin-top: 0;
+    color: var(--lotus-pink-dark);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: 0.035em;
+    line-height: 1.15;
+}
+
+.lotus-organic .project-story .story-text h2 {
+    color: var(--lotus-pink-dark);
+}
+
+.lotus-organic .project-story .story-text p {
+    line-height: 1.8;
+}
+
+/* Overview and creative direction */
+
+.lotus-organic .lotus-overview,
+.lotus-organic .lotus-direction,
+.lotus-organic .lotus-process {
+    padding: clamp(20px, 3vw, 38px);
+    border-radius: 24px;
+    background: var(--lotus-peach);
+}
+
+.lotus-organic .lotus-overview .story-image img,
+.lotus-organic .lotus-direction .story-image img,
+.lotus-organic .lotus-process .story-image img {
+    border-radius: 18px;
+}
+
+.lotus-organic .lotus-overview .story-image p,
+.lotus-organic .lotus-direction .story-image p,
+.lotus-organic .lotus-process .story-image p {
+    color: var(--lotus-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Challenge and solution cards */
+
+.lotus-organic .lotus-challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.lotus-organic .lotus-statement {
+    padding: clamp(22px, 3vw, 36px);
+    border-radius: 22px;
+    color: var(--lotus-ink);
+}
+
+.lotus-organic .lotus-challenge-card {
+    background: var(--lotus-blue);
+}
+
+.lotus-organic .lotus-solution-card {
+    background: var(--lotus-green);
+}
+
+.lotus-organic .lotus-number {
+    display: block;
+    margin-bottom: 16px;
+    color: var(--lotus-pink);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.lotus-organic .lotus-statement h3 {
+    margin: 0 0 14px;
+    color: var(--lotus-pink-dark);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.lotus-organic .lotus-statement p {
+    margin: 0 0 14px;
+    line-height: 1.75;
+}
+
+.lotus-organic .lotus-statement p:last-child {
+    margin-bottom: 0;
+}
+
+/* Interactive prototype */
+
+.lotus-organic .lotus-prototype {
+    text-align: center;
+}
+
+.lotus-organic .lotus-prototype .lotus-section-heading {
+    padding: 0 18px;
+}
+
+.lotus-organic .lotus-prototype .prototype-image-link {
+    position: relative;
+    display: block;
+    width: min(100%, 760px);
+    margin: 28px auto;
+    overflow: hidden;
+    border: 5px solid var(--lotus-white);
+    border-radius: 22px;
+    background: var(--lotus-peach-deep);
+    box-shadow: 0 14px 36px rgba(80, 21, 47, 0.16);
+}
+
+.lotus-organic .lotus-prototype .prototype-image-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.35s ease;
+}
+
+.lotus-organic .lotus-prototype .prototype-image-link:hover img {
+    transform: scale(1.015);
+}
+
+.lotus-organic .lotus-prototype-overlay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 56px;
+    padding: 12px 18px;
+    background: rgba(80, 21, 47, 0.9);
+    color: white;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.lotus-organic .lotus-prototype .prototype-image-link:hover
+.lotus-prototype-overlay,
+.lotus-organic .lotus-prototype .prototype-image-link:focus-visible
+.lotus-prototype-overlay {
+    opacity: 1;
+}
+
+.lotus-organic .lotus-prototype-button {
+    margin: 8px auto 0;
+}
+
+/* Buttons */
+
+.lotus-organic .enter-button {
+    border: 1px solid var(--lotus-pink);
+    border-radius: 999px;
+    background: var(--lotus-pink);
+    color: white;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.lotus-organic .enter-button:hover {
+    background: var(--lotus-pink-dark);
+    border-color: var(--lotus-pink-dark);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* High-fidelity feature images */
+
+.lotus-organic .lotus-feature-image {
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto 44px;
+    padding: clamp(10px, 2vw, 22px);
+    border: 1px solid rgba(80, 21, 47, 0.08);
+    border-radius: 22px;
+    background: var(--lotus-white);
+    box-sizing: border-box;
+}
+
+.lotus-organic .lotus-feature-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.lotus-organic .lotus-feature-image figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 16px 4px 4px;
+    color: var(--lotus-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.lotus-organic .lotus-feature-image figcaption strong {
+    color: var(--lotus-pink-dark);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* Brand animation */
+
+.lotus-organic .lotus-logo-animation {
+    width: 100%;
+    max-width: 900px;
+    margin: 28px auto 0;
+}
+
+.lotus-organic .lotus-logo-animation .video-player {
+    overflow: hidden;
+    border: 5px solid var(--lotus-white);
+    border-radius: 20px;
+    background: var(--lotus-peach-deep);
+}
+
+.lotus-organic .lotus-logo-animation video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.lotus-organic .lotus-logo-animation figcaption {
+    margin-top: 12px;
+    color: var(--lotus-muted);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Closing contact section */
+
+.lotus-organic .lotus-contact {
+    margin-top: clamp(48px, 7vw, 100px);
+}
+
+.lotus-organic .lotus-contact p {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* Lightbox images should retain their full proportions */
+
+.lotus-organic .story-image img,
+.lotus-organic .lotus-feature-image img {
+    max-width: 100%;
+}
+
+/* Keyboard focus */
+
+.lotus-organic a:focus-visible {
+    outline: 3px solid var(--lotus-green-deep);
+    outline-offset: 4px;
+}
+
+/* Tablet */
+
+@media (max-width: 800px) {
+    .lotus-organic .lotus-challenge-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lotus-organic .lotus-section {
+        padding: 24px;
+        border-radius: 22px;
+    }
+
+    .lotus-organic .lotus-feature-image {
+        margin-bottom: 32px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 560px) {
+    .lotus-organic .lotus-section,
+    .lotus-organic .lotus-overview,
+    .lotus-organic .lotus-direction,
+    .lotus-organic .lotus-process {
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .lotus-organic .lotus-statement {
+        padding: 22px;
+        border-radius: 18px;
+    }
+
+    .lotus-organic .lotus-prototype .prototype-image-link {
+        border-width: 3px;
+        border-radius: 14px;
+    }
+
+    .lotus-organic .lotus-prototype-overlay {
+        min-height: 44px;
+        padding: 10px;
+        font-size: 0.85rem;
+        opacity: 1;
+    }
+
+    .lotus-organic .lotus-feature-image {
+        padding: 10px;
+        border-radius: 16px;
+    }
+
+    .lotus-organic .lotus-feature-image img {
+        border-radius: 9px;
+    }
+}
+
+/* =========================================================
+   CLEAN FUTURE NETWORK — REDUCE WATER BOTTLE FEATURE SIZE
+   Applies only to the first feature figure in Brand in Action
+   ========================================================= */
+
+.clean-organic .clean-gallery > figure.clean-homepage-feature:first-of-type {
+    width: min(78%, 760px);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.clean-organic .clean-gallery > figure.clean-homepage-feature:first-of-type img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 600px) {
+    .clean-organic .clean-gallery > figure.clean-homepage-feature:first-of-type {
+        width: 100%;
+    }
+}
+
 
 /* Mobile */
 
