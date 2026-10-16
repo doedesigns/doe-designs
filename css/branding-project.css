@@ -2043,7 +2043,7 @@ PROJECT FOOTER LINK
 
 /* =========================================================
    LOTUS LINGO — BRIGHT, PLAYFUL CASE STUDY
-   Append to the bottom of branding-project.css
+   All styles scoped to .lotus-organic
    ========================================================= */
 
 body.lotus-organic {
@@ -2058,28 +2058,28 @@ body.lotus-organic {
     --lotus-muted: #71656D;
     --lotus-white: #FFFCFA;
 
-    background:
-        linear-gradient(
-            180deg,
-            #06080B 0%,
-            #321022 12%,
-            #5B1B3B 28%,
-            #F9E9E3 52%,
-            #FFF5EF 100%
-        );
+    background: linear-gradient(
+        180deg,
+        #06080B 0%,
+        #321022 45%,
+        #5B1B3B 75%,
+        #760052 100%
+    );
 
     color: var(--lotus-ink);
 }
 
-/* Keep content above the background canvas */
+/* Keep the project content above the background canvas */
 
 .lotus-organic .project-container {
     position: relative;
     z-index: 1;
 }
 
+/* Project year — restore the portfolio cyan */
+
 .lotus-organic .project-year {
-    color: var(--lotus-peach);
+    color: #00E5FF;
 }
 
 /* General section spacing */
@@ -2091,12 +2091,21 @@ body.lotus-organic {
     margin-bottom: clamp(48px, 7vw, 100px);
 }
 
+/* Light section panels */
+
 .lotus-organic .lotus-section {
     padding: clamp(24px, 4vw, 56px);
     border-radius: 28px;
     background: var(--lotus-peach);
     color: var(--lotus-ink);
     overflow: hidden;
+}
+
+/* Ensure text inside light panels stays readable */
+
+.lotus-organic .lotus-section p,
+.lotus-organic .lotus-section li {
+    color: var(--lotus-ink);
 }
 
 .lotus-organic .lotus-section-heading {
@@ -2135,15 +2144,16 @@ body.lotus-organic {
     line-height: 1.15;
 }
 
+/* Overview, creative direction, and process panels */
+
 .lotus-organic .project-story .story-text h2 {
     color: var(--lotus-pink-dark);
 }
 
 .lotus-organic .project-story .story-text p {
+    color: var(--lotus-ink);
     line-height: 1.8;
 }
-
-/* Overview and creative direction */
 
 .lotus-organic .lotus-overview,
 .lotus-organic .lotus-direction,
@@ -2151,6 +2161,7 @@ body.lotus-organic {
     padding: clamp(20px, 3vw, 38px);
     border-radius: 24px;
     background: var(--lotus-peach);
+    color: var(--lotus-ink);
 }
 
 .lotus-organic .lotus-overview .story-image img,
@@ -2187,6 +2198,10 @@ body.lotus-organic {
 
 .lotus-organic .lotus-solution-card {
     background: var(--lotus-green);
+}
+
+.lotus-organic .lotus-statement p {
+    color: var(--lotus-ink);
 }
 
 .lotus-organic .lotus-number {
@@ -2227,10 +2242,13 @@ body.lotus-organic {
     padding: 0 18px;
 }
 
+/* Smaller, centered phone preview */
+
 .lotus-organic .lotus-prototype .prototype-image-link {
     position: relative;
     display: block;
-    width: min(100%, 760px);
+    width: min(33%, 260px);
+    min-width: 200px;
     margin: 28px auto;
     overflow: hidden;
     border: 5px solid var(--lotus-white);
@@ -2242,6 +2260,7 @@ body.lotus-organic {
 .lotus-organic .lotus-prototype .prototype-image-link img {
     display: block;
     width: 100%;
+    max-width: 100%;
     height: auto;
     object-fit: contain;
     transition: transform 0.35s ease;
@@ -2250,6 +2269,8 @@ body.lotus-organic {
 .lotus-organic .lotus-prototype .prototype-image-link:hover img {
     transform: scale(1.015);
 }
+
+/* Overlay on the prototype preview */
 
 .lotus-organic .lotus-prototype-overlay {
     position: absolute;
@@ -2260,13 +2281,14 @@ body.lotus-organic {
     justify-content: center;
     align-items: center;
     min-height: 56px;
-    padding: 12px 18px;
-    background: rgba(80, 21, 47, 0.9);
+    padding: 12px 10px;
+    box-sizing: border-box;
+    background: rgba(80, 21, 47, 0.92);
     color: white;
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-align: center;
     opacity: 0;
     transition: opacity 0.25s ease;
@@ -2279,11 +2301,16 @@ body.lotus-organic {
     opacity: 1;
 }
 
+/* Pink prototype button — wider horizontal padding */
+
 .lotus-organic .lotus-prototype-button {
+    display: inline-block;
     margin: 8px auto 0;
+    padding: 15px 38px;
+    box-sizing: border-box;
 }
 
-/* Buttons */
+/* Lotus-specific buttons */
 
 .lotus-organic .enter-button {
     border: 1px solid var(--lotus-pink);
@@ -2341,7 +2368,7 @@ body.lotus-organic {
     font-weight: 700;
 }
 
-/* Brand animation */
+/* Animated logo */
 
 .lotus-organic .lotus-logo-animation {
     width: 100%;
@@ -2369,7 +2396,7 @@ body.lotus-organic {
     font-size: 0.9rem;
 }
 
-/* Closing contact section */
+/* Closing contact section — retain shared site styling */
 
 .lotus-organic .lotus-contact {
     margin-top: clamp(48px, 7vw, 100px);
@@ -2381,7 +2408,7 @@ body.lotus-organic {
     line-height: inherit;
 }
 
-/* Lightbox images should retain their full proportions */
+/* Preserve image proportions */
 
 .lotus-organic .story-image img,
 .lotus-organic .lotus-feature-image img {
@@ -2410,6 +2437,10 @@ body.lotus-organic {
     .lotus-organic .lotus-feature-image {
         margin-bottom: 32px;
     }
+
+    .lotus-organic .lotus-prototype .prototype-image-link {
+        width: min(45%, 260px);
+    }
 }
 
 /* Mobile */
@@ -2429,6 +2460,9 @@ body.lotus-organic {
     }
 
     .lotus-organic .lotus-prototype .prototype-image-link {
+        width: 70%;
+        min-width: 0;
+        max-width: 260px;
         border-width: 3px;
         border-radius: 14px;
     }
@@ -2436,8 +2470,13 @@ body.lotus-organic {
     .lotus-organic .lotus-prototype-overlay {
         min-height: 44px;
         padding: 10px;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         opacity: 1;
+    }
+
+    .lotus-organic .lotus-prototype-button {
+        max-width: 100%;
+        padding: 14px 28px;
     }
 
     .lotus-organic .lotus-feature-image {
@@ -2447,6 +2486,18 @@ body.lotus-organic {
 
     .lotus-organic .lotus-feature-image img {
         border-radius: 9px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    .lotus-organic *,
+    .lotus-organic *::before,
+    .lotus-organic *::after {
+        scroll-behavior: auto;
+        transition-duration: 0.01ms;
+        animation-duration: 0.01ms;
     }
 }
 
@@ -2549,6 +2600,690 @@ body.lotus-organic {
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
+}
+
+/* =========================================================
+   MY DEETS — A LIFE THAT GROWS WITH YOU
+   Scoped to .deets-page
+   ========================================================= */
+
+body.deets-page {
+    --deets-plum: #302632;
+    --deets-lavender: #AB8FA8;
+    --deets-mauve: #866F84;
+    --deets-yellow: #E8E45C;
+    --deets-background: #C6B9C4;
+    --deets-white: #FFFFFF;
+
+    background:
+        radial-gradient(ellipse at 8% 20%,
+            rgba(171, 143, 168, 0.30), transparent 36%),
+        linear-gradient(180deg,
+            #C6B9C4 0%,
+            #E0D8DF 42%,
+            #C6B9C4 100%);
+
+    color: var(--deets-plum);
+    overflow-x: clip;
+}
+
+/* Keep content above the dust canvas */
+.deets-page .project-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Project title and year */
+.deets-page .project-title h1,
+.deets-page .project-navigation h1 {
+    color: var(--deets-plum);
+}
+
+.deets-page .project-year {
+    color: var(--deets-plum);
+    font-weight: 700;
+}
+
+/* Shared project detail cards */
+.deets-page .project-details {
+    gap: 16px;
+}
+
+.deets-page .project-details .detail-box {
+    border: 1px solid rgba(48, 38, 50, 0.18);
+    border-radius: 16px;
+    background: var(--deets-lavender);
+    color: var(--deets-plum);
+    box-shadow: 0 8px 24px rgba(48, 38, 50, 0.08);
+}
+
+.deets-page .project-details .detail-box h3 {
+    color: var(--deets-plum);
+    letter-spacing: 0.12em;
+}
+
+.deets-page .project-details .detail-box p {
+    color: var(--deets-plum);
+}
+
+/* General section typography */
+.deets-page h2,
+.deets-page h3 {
+    color: var(--deets-plum);
+}
+
+.deets-page p {
+    line-height: 1.75;
+}
+
+.deets-page .deets-eyebrow {
+    margin: 0 0 12px;
+    color: var(--deets-plum);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.88rem;
+    font-weight: 900;
+    letter-spacing: 0.18em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+/* Intro panel */
+.deets-page .deets-intro {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(180px, 0.75fr);
+    align-items: center;
+    gap: 32px;
+    margin: clamp(48px, 8vw, 100px) 0;
+    padding: clamp(28px, 6vw, 76px);
+    overflow: hidden;
+    border: 2px solid var(--deets-yellow);
+    border-radius: 28px;
+    background: var(--deets-plum);
+    color: var(--deets-white);
+    isolation: isolate;
+}
+
+.deets-page .deets-intro > *:not(.deets-orbit) {
+    position: relative;
+    z-index: 2;
+}
+
+.deets-page .deets-intro .deets-eyebrow {
+    color: var(--deets-yellow);
+}
+
+.deets-page .deets-intro h2 {
+    margin: 0 0 20px;
+    color: var(--deets-white);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(2.4rem, 5.5vw, 4.7rem);
+    font-weight: 900;
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+}
+
+.deets-page .deets-lead {
+    max-width: 620px;
+    margin: 0 0 22px;
+    color: var(--deets-white);
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+}
+
+.deets-page .deets-text-link {
+    display: inline-block;
+    color: var(--deets-yellow);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.deets-page .deets-text-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.deets-page .deets-intro-logo {
+    margin: 0;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 22px;
+    background: var(--deets-background);
+}
+
+.deets-page .deets-intro-logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* Signature circle decoration */
+.deets-page .deets-orbit {
+    position: absolute;
+    width: clamp(110px, 18vw, 250px);
+    aspect-ratio: 1;
+    border: clamp(3px, 0.4vw, 5px) solid var(--deets-yellow);
+    border-radius: 50%;
+    background: var(--deets-mauve);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.deets-page .deets-orbit::after {
+    content: "";
+    position: absolute;
+    inset: 19%;
+    border: 2px solid rgba(232, 228, 92, 0.85);
+    border-radius: 50%;
+}
+
+.deets-page .deets-orbit-intro {
+    width: clamp(160px, 24vw, 330px);
+    top: -90px;
+    right: -80px;
+    opacity: 0.95;
+}
+
+.deets-page .deets-orbit-intro::after {
+    inset: 25%;
+}
+
+/* Section spacing and headings */
+.deets-page .deets-section {
+    position: relative;
+    margin: clamp(64px, 9vw, 120px) 0;
+}
+
+.deets-page .deets-section-heading {
+    max-width: 760px;
+    margin: 0 auto 38px;
+    text-align: center;
+}
+
+.deets-page .deets-section-heading h2,
+.deets-page .deets-system-copy h2 {
+    margin: 0 0 16px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(2rem, 4.6vw, 3.4rem);
+    font-weight: 900;
+    line-height: 1.08;
+}
+
+.deets-page .deets-section-heading > p:last-child {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* Three life-stage cards */
+.deets-page .deets-life-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.deets-page .deets-life-card {
+    position: relative;
+    min-width: 0;
+    min-height: 270px;
+    padding: clamp(22px, 3vw, 34px);
+    overflow: hidden;
+    border: 2px solid var(--deets-yellow);
+    border-radius: 22px;
+    background: var(--deets-plum);
+    color: var(--deets-white);
+    isolation: isolate;
+}
+
+.deets-page .deets-life-card > *:not(.deets-mini-orbit) {
+    position: relative;
+    z-index: 1;
+}
+
+.deets-page .deets-stage-number {
+    display: block;
+    margin-bottom: 34px;
+    color: var(--deets-yellow);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+.deets-page .deets-life-card h3 {
+    margin: 0 0 8px;
+    color: var(--deets-white);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(1.35rem, 2vw, 1.8rem);
+    font-weight: 700;
+}
+
+.deets-page .deets-stage-tag {
+    margin: 0 0 14px;
+    color: var(--deets-yellow);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.deets-page .deets-life-card > p:last-child {
+    margin-bottom: 0;
+    color: var(--deets-white);
+    font-size: 0.95rem;
+}
+
+.deets-page .deets-mini-orbit {
+    position: absolute;
+    top: 16px;
+    right: -30px;
+    width: 105px;
+    aspect-ratio: 1;
+    border: 5px solid var(--deets-yellow);
+    border-radius: 50%;
+    background: var(--deets-mauve);
+    opacity: 0.85;
+    z-index: 0;
+}
+
+.deets-page .deets-mini-orbit::after {
+    content: "";
+    position: absolute;
+    inset: 22%;
+    border: 2px solid var(--deets-yellow);
+    border-radius: 50%;
+}
+
+/* Design system */
+.deets-page .deets-system-section {
+    padding: clamp(24px, 5vw, 56px);
+    border: 1px solid rgba(48, 38, 50, 0.14);
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.42);
+}
+
+.deets-page .deets-system-copy {
+    max-width: 760px;
+    margin: 0 auto 32px;
+    text-align: center;
+}
+
+.deets-page .deets-system-image {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 12px;
+    border: 2px solid var(--deets-yellow);
+    border-radius: 20px;
+    background: var(--deets-plum);
+}
+
+.deets-page .deets-system-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.deets-page .deets-system-image figcaption {
+    padding: 14px 6px 4px;
+    color: var(--deets-white);
+    font-size: 0.9rem;
+}
+
+/* Palette strip */
+.deets-page .deets-palette {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.deets-page .deets-swatch {
+    display: flex;
+    align-items: flex-end;
+    min-height: 90px;
+    padding: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(48, 38, 50, 0.16);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.deets-page .deets-swatch span {
+    font-family: "DM Mono", monospace;
+    font-size: clamp(0.55rem, 1vw, 0.76rem);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.deets-page .swatch-plum {
+    background: #302632;
+    color: #FFFFFF;
+}
+
+.deets-page .swatch-lavender {
+    background: #AB8FA8;
+    color: #302632;
+}
+
+.deets-page .swatch-mauve {
+    background: #866F84;
+    color: #FFFFFF;
+    border: 2px solid #E8E45C;
+}
+
+.deets-page .swatch-yellow {
+    background: #E8E45C;
+    color: #302632;
+}
+
+.deets-page .swatch-gray {
+    background: #C6B9C4;
+    color: #302632;
+}
+
+.deets-page .swatch-white {
+    background: #FFFFFF;
+    color: #302632;
+}
+
+/* Gallery feature */
+.deets-page .deets-screen-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.75fr);
+    align-items: center;
+    gap: clamp(24px, 5vw, 64px);
+    margin-bottom: 34px;
+}
+
+.deets-page .deets-screen-main,
+.deets-page .deets-screen-card {
+    margin: 0;
+    padding: 12px;
+    border: 2px solid var(--deets-yellow);
+    border-radius: 20px;
+    background: var(--deets-plum);
+}
+
+.deets-page .deets-screen-main img,
+.deets-page .deets-screen-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.deets-page .deets-screen-main figcaption,
+.deets-page .deets-screen-card figcaption {
+    padding: 12px 5px 4px;
+    color: var(--deets-white);
+    font-size: 0.9rem;
+}
+
+.deets-page .deets-feature-index {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--deets-plum);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.14em;
+}
+
+.deets-page .deets-screen-copy h3 {
+    margin: 0 0 12px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.7rem);
+    line-height: 1.1;
+}
+
+.deets-page .deets-screen-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.deets-page .deets-screen-card figcaption span {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--deets-yellow);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.deets-page .deets-device-mockup {
+    max-width: 1000px;
+    margin: 44px auto 0;
+    padding: clamp(10px, 2vw, 20px);
+    border: 2px solid var(--deets-yellow);
+    border-radius: 22px;
+    background: var(--deets-plum);
+}
+
+.deets-page .deets-device-mockup img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.deets-page .deets-device-mockup figcaption {
+    padding: 12px 4px 2px;
+    color: var(--deets-white);
+    font-size: 0.9rem;
+}
+
+/* Interactive prototype */
+.deets-page .deets-prototype-section {
+    position: relative;
+    margin: clamp(64px, 9vw, 120px) 0;
+    padding: clamp(32px, 6vw, 72px) 24px;
+    overflow: hidden;
+    border: 2px solid var(--deets-yellow);
+    border-radius: 28px;
+    background: var(--deets-plum);
+    color: var(--deets-white);
+    text-align: center;
+    isolation: isolate;
+}
+
+.deets-page .deets-prototype-section > *:not(.deets-orbit) {
+    position: relative;
+    z-index: 1;
+}
+
+.deets-page .deets-prototype-section .deets-eyebrow {
+    color: var(--deets-yellow);
+}
+
+.deets-page .deets-prototype-section h2 {
+    margin: 0 0 14px;
+    color: var(--deets-white);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.08;
+}
+
+.deets-page .deets-prototype-section > p:not(.deets-eyebrow) {
+    max-width: 640px;
+    margin: 0 auto 28px;
+    color: var(--deets-white);
+}
+
+.deets-page .deets-orbit-prototype {
+    right: -80px;
+    bottom: -110px;
+    width: clamp(180px, 28vw, 350px);
+    opacity: 0.85;
+}
+
+.deets-page .deets-prototype-preview {
+    position: relative;
+    display: block;
+    width: min(42%, 280px);
+    min-width: 190px;
+    margin: 28px auto;
+    padding: 8px;
+    overflow: hidden;
+    border: 2px solid var(--deets-yellow);
+    border-radius: 20px;
+    background: var(--deets-background);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.25);
+    transition: transform 0.25s ease;
+}
+
+.deets-page .deets-prototype-preview:hover {
+    transform: translateY(-5px);
+}
+
+.deets-page .deets-prototype-preview img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.deets-page .deets-preview-label {
+    display: block;
+    padding: 12px 4px 6px;
+    color: var(--deets-plum);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.deets-page .deets-prototype-button {
+    display: inline-block;
+    max-width: 100%;
+    padding: 16px 36px;
+    border: 2px solid var(--deets-yellow);
+    border-radius: 999px;
+    background: var(--deets-yellow);
+    color: var(--deets-plum);
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.deets-page .deets-prototype-button:hover {
+    background: transparent;
+    color: var(--deets-yellow);
+    transform: translateY(-2px);
+}
+
+/* Contact area — preserve the shared site footer treatment */
+.deets-page .deets-contact {
+    position: relative;
+    z-index: 1;
+    margin-top: clamp(48px, 8vw, 100px);
+}
+
+.deets-page .deets-contact p {
+    color: inherit;
+}
+
+/* Focus visibility */
+.deets-page a:focus-visible {
+    outline: 3px solid var(--deets-plum);
+    outline-offset: 5px;
+}
+
+/* Tablet */
+@media (max-width: 850px) {
+    .deets-page .deets-life-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .deets-page .deets-life-card {
+        min-height: 0;
+    }
+
+    .deets-page .deets-stage-number {
+        margin-bottom: 22px;
+    }
+
+    .deets-page .deets-screen-feature {
+        grid-template-columns: 1fr;
+    }
+
+    .deets-page .deets-screen-copy {
+        max-width: 650px;
+    }
+
+    .deets-page .deets-palette {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+    .deets-page .deets-intro {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 24px;
+        border-radius: 20px;
+    }
+
+    .deets-page .deets-intro-logo {
+        width: min(100%, 250px);
+        margin: 0 auto;
+    }
+
+    .deets-page .deets-intro h2 {
+        font-size: clamp(2.3rem, 11vw, 3.4rem);
+    }
+
+    .deets-page .deets-section {
+        margin: 56px 0;
+    }
+
+    .deets-page .deets-system-section {
+        padding: 18px;
+        border-radius: 20px;
+    }
+
+    .deets-page .deets-screen-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .deets-page .deets-palette {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .deets-page .deets-swatch {
+        min-height: 72px;
+    }
+
+    .deets-page .deets-prototype-section {
+        padding: 32px 18px;
+        border-radius: 20px;
+    }
+
+    .deets-page .deets-prototype-preview {
+        width: 75%;
+        min-width: 0;
+        max-width: 260px;
+    }
+
+    .deets-page .deets-prototype-button {
+        padding: 14px 22px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .deets-page *,
+    .deets-page *::before,
+    .deets-page *::after {
+        scroll-behavior: auto;
+        animation-duration: 0.01ms;
+        transition-duration: 0.01ms;
+    }
 }
 
 /*=========================================================
