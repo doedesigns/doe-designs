@@ -3286,237 +3286,226 @@ body.deets-page {
     }
 }
 
-
 /* =========================================================
-   MY DEETS — PAGE-SPECIFIC DESIGN REFINEMENTS
-   These rules are scoped to My Deets to protect other pages.
+   MY DEETS — CLEAN PAGE REFINEMENTS
+   All rules are limited to My Deets.
 ========================================================= */
 
-/* BACKGROUND: BLACK FADING TO PLUM */
+.deets-page {
+    --deets-plum: #302632;
+    --deets-lavender: #AB8FA8;
+    --deets-mauve: #866F84;
+    --deets-yellow: #E8E45C;
+    --deets-pale: #C6B9C4;
+    --deets-white: #FFFFFF;
+    --deets-cyan: #00E5FF;
 
-body.deets-page {
-    background: linear-gradient(
-        180deg,
-        #050507 0%,
-        #130D18 48%,
-        #302632 100%
-    );
-    color: #FFFFFF;
+    background:
+        radial-gradient(
+            ellipse at 50% 30%,
+            rgba(134, 111, 132, 0.20),
+            transparent 55%
+        ),
+        linear-gradient(
+            180deg,
+            #050507 0%,
+            #160F18 45%,
+            #302632 100%
+        );
+    color: var(--deets-white);
 }
 
-/* PROJECT YEAR */
+/* ---------------------------------------------------------
+   PROJECT TITLE
+--------------------------------------------------------- */
+
+.deets-page .project-title h1,
+.deets-page .project-navigation h1,
+.deets-page .project-title-nav h1 {
+    color: var(--deets-cyan);
+}
+
+.deets-page .project-title h1 .title-break {
+    display: block;
+    color: var(--deets-lavender);
+}
 
 .deets-page .project-year {
-    color: #00E5FF;
+    color: var(--deets-cyan);
 }
 
-/* PROJECT DETAILS: MATCH THE OTHER PROJECT PAGES */
+/* ---------------------------------------------------------
+   PROJECT DETAIL BOXES
+   Keep all four: Tools, My Role, Deliverables, Assets & Credits.
+--------------------------------------------------------- */
 
-.deets-page .deets-details {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 30px;
-    margin-bottom: 70px;
+.deets-page .project-details {
+    gap: 16px;
 }
 
-.deets-page .deets-details .detail-box h3 {
-    color: #00E5FF;
-    font-family: "Jost", sans-serif;
-    font-size: 12px;
-    letter-spacing: .3em;
-    line-height: 1.6;
-    margin-bottom: 12px;
+.deets-page .project-details .detail-box {
+    background: var(--deets-pale);
+    border: 1px solid rgba(232, 228, 92, 0.8);
+    color: var(--deets-plum);
+    border-radius: 3px;
+    padding: 20px;
 }
 
-.deets-page .deets-details .detail-box p {
-    color: #FFFFFF;
-    font-family: "Jost", sans-serif;
-    font-size: 15px;
-    line-height: 1.7;
-    margin: 0 0 3px;
+.deets-page .project-details .detail-box h3 {
+    color: var(--deets-plum);
 }
 
-/* GENERAL SECTION SPACING */
+.deets-page .project-details .detail-box p,
+.deets-page .project-details .detail-box li {
+    color: var(--deets-plum);
+}
 
-.deets-page .deets-section {
+/* ---------------------------------------------------------
+   SHARED PANEL STYLING
+--------------------------------------------------------- */
+
+.deets-page .deets-panel,
+.deets-page .deets-prototype-section,
+.deets-page .deets-system-section {
     position: relative;
-    margin: 0 auto 95px;
-    scroll-margin-top: 105px;
-}
-
-.deets-page .deets-section-heading {
-    max-width: 850px;
-    margin: 0 auto 45px;
-    text-align: center;
+    isolation: isolate;
+    background: rgba(48, 38, 50, 0.88);
+    border: 1px solid rgba(198, 185, 196, 0.32);
+    border-radius: 4px;
+    color: var(--deets-white);
 }
 
 .deets-page .deets-eyebrow {
-    color: #00E5FF;
-    font-family: "Jost", sans-serif;
-    font-size: 12px;
+    color: var(--deets-lavender);
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    line-height: 1.6;
     font-weight: 600;
-    letter-spacing: .24em;
-    line-height: 1.8;
-    text-transform: uppercase;
 }
 
-.deets-page .deets-section-heading h2,
-.deets-page .deets-system-copy h2,
-.deets-page .deets-screen-copy h3 {
-    color: #FFFFFF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 700;
-    letter-spacing: .09em;
-    line-height: 1.3;
+.deets-page .deets-panel h2,
+.deets-page .deets-prototype-section h2,
+.deets-page .deets-system-section h2,
+.deets-page .deets-gallery-section h2 {
+    color: var(--deets-white);
 }
 
-.deets-page .deets-section-heading h2,
-.deets-page .deets-system-copy h2 {
-    font-size: clamp(30px, 4vw, 42px);
-    margin: 0 0 25px;
-}
-
-.deets-page .deets-section-heading h2::after,
-.deets-page .deets-system-copy h2::after {
-    content: "";
-    display: block;
-    width: 70px;
-    height: 2px;
-    background: #00E5FF;
-    margin: 17px auto 0;
-}
-
-.deets-page .deets-section-heading > p:last-child,
-.deets-page .deets-system-copy > p:last-child {
-    color: rgba(255,255,255,.82);
-    font-family: "Jost", sans-serif;
-    font-size: 17px;
+.deets-page .deets-lead,
+.deets-page .deets-panel p,
+.deets-page .deets-prototype-section > p,
+.deets-page .deets-system-section > p {
+    color: var(--deets-pale);
     line-height: 1.8;
 }
 
-/* INTRODUCTION PANEL */
+/* ---------------------------------------------------------
+   INTRO PANEL
+   Copy on the left, logo placeholder on the right.
+--------------------------------------------------------- */
 
 .deets-page .deets-intro {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    padding: clamp(35px, 6vw, 75px);
-    margin: 0 auto 100px;
-    text-align: center;
-    background: rgba(48, 38, 50, .76);
-    border: 1px solid rgba(232, 228, 92, .75);
-    border-radius: 4px;
-    box-shadow: 0 25px 65px rgba(0,0,0,.25);
-}
-
-.deets-page .deets-intro > *:not(.deets-orbit) {
-    position: relative;
-    z-index: 2;
-}
-
-.deets-page .deets-intro .deets-eyebrow {
-    margin-bottom: 20px;
-}
-
-.deets-page .deets-intro h2 {
-    color: #FFFFFF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(34px, 5vw, 54px);
-    font-weight: 700;
-    letter-spacing: .10em;
-    line-height: 1.4;
-    margin: 0 auto 25px;
-}
-
-.deets-page .deets-lead {
-    max-width: 740px;
-    margin: 0 auto 25px;
-    color: rgba(255,255,255,.9);
-    font-family: "Jost", sans-serif;
-    font-size: 18px;
-    line-height: 1.9;
-}
-
-.deets-page .deets-text-link {
-    display: inline-flex;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(260px, 0.95fr);
+    grid-template-areas:
+        "eyebrow logo"
+        "heading logo"
+        "lead logo"
+        "link logo";
     align-items: center;
-    gap: 12px;
-    margin: 18px auto 30px;
-    color: #00E5FF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 23px;
-    font-weight: 700;
-    letter-spacing: .14em;
+    column-gap: clamp(28px, 5vw, 70px);
+    row-gap: 14px;
+    padding: clamp(28px, 5vw, 64px);
+    text-align: left;
+    overflow: hidden;
+}
+
+.deets-page .deets-intro > .deets-eyebrow {
+    grid-area: eyebrow;
+    margin: 0;
+}
+
+.deets-page .deets-intro > h2 {
+    grid-area: heading;
+    margin: 0;
+    max-width: 620px;
+    line-height: 1.12;
+}
+
+.deets-page .deets-intro > .deets-lead {
+    grid-area: lead;
+    margin: 0;
+    max-width: 600px;
+}
+
+.deets-page .deets-intro > .deets-text-link {
+    grid-area: link;
+    justify-self: start;
+    align-self: center;
+    margin: 18px 0 0;
+    padding: 8px 0;
+    color: var(--deets-yellow);
+    font-family: inherit;
+    font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: none;
     text-decoration: none;
-    text-transform: uppercase;
-    transition: color .3s ease, transform .3s ease;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.25s ease, color 0.25s ease;
 }
 
-.deets-page .deets-text-link span {
-    display: inline-block;
-    font-size: 30px;
-    transition: transform .3s ease;
+.deets-page .deets-intro > .deets-text-link:hover {
+    color: var(--deets-white);
+    border-bottom-color: var(--deets-yellow);
 }
 
-.deets-page .deets-text-link:hover {
-    color: #FFFFFF;
-    transform: translateY(2px);
+.deets-page .deets-intro > .deets-logo-placeholder {
+    grid-area: logo;
+    align-self: stretch;
+    width: 100%;
+    max-width: none;
+    min-height: 340px;
+    margin: 0;
 }
 
-.deets-page .deets-text-link:hover span {
-    transform: translateY(5px);
-}
-
-/* ORBIT / CIRCLE MOTIF */
-
-.deets-page .deets-orbit {
-    position: absolute;
-    z-index: 0;
-    width: 230px;
-    height: 230px;
-    border: 5px solid #E8E45C;
-    border-radius: 50%;
-    background: #866F84;
-    opacity: .18;
-    pointer-events: none;
-}
+/* Brighter, more visible circular motif in the intro. */
 
 .deets-page .deets-orbit-intro {
-    top: -100px;
-    right: -70px;
+    width: clamp(190px, 24vw, 290px);
+    height: clamp(190px, 24vw, 290px);
+    border: 2px solid var(--deets-yellow);
+    background: rgba(134, 111, 132, 0.38);
+    opacity: 0.62;
 }
 
-.deets-page .deets-orbit-prototype {
-    bottom: -110px;
-    left: -80px;
-}
-
-/* PLACEHOLDERS FOR UPCOMING SCREENSHOTS AND MOCKUPS */
+/* ---------------------------------------------------------
+   PLACEHOLDERS
+--------------------------------------------------------- */
 
 .deets-page .deets-placeholder {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     gap: 12px;
-    min-height: 220px;
-    padding: 30px;
-    overflow: hidden;
+    box-sizing: border-box;
+    padding: clamp(24px, 4vw, 42px);
+    background: rgba(22, 15, 24, 0.72);
+    border: 1px dashed rgba(232, 228, 92, 0.75);
+    border-radius: 3px;
+    color: var(--deets-white);
     text-align: center;
-    background: rgba(48, 38, 50, .92);
-    border: 1px dashed rgba(232, 228, 92, .8);
-    border-radius: 4px;
+    overflow: hidden;
 }
 
 .deets-page .deets-placeholder::before {
     content: "";
     position: absolute;
-    width: 115px;
-    height: 115px;
-    border: 3px solid #E8E45C;
+    width: 190px;
+    height: 190px;
+    border: 1px solid rgba(232, 228, 92, 0.42);
     border-radius: 50%;
-    background: #866F84;
-    opacity: .14;
     pointer-events: none;
 }
 
@@ -3526,435 +3515,345 @@ body.deets-page {
 }
 
 .deets-page .deets-placeholder-label {
-    color: #00E5FF;
-    font-family: "Jost", sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: .2em;
+    color: var(--deets-lavender);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.17em;
 }
 
 .deets-page .deets-placeholder strong {
-    color: #FFFFFF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: .08em;
+    color: var(--deets-white);
+    font-size: clamp(1.1rem, 1.8vw, 1.5rem);
 }
 
 .deets-page .deets-placeholder p {
-    max-width: 500px;
+    max-width: 420px;
     margin: 0;
-    color: rgba(255,255,255,.78);
-    font-family: "Jost", sans-serif;
-    font-size: 14px;
-    line-height: 1.7;
+    color: var(--deets-pale);
+    line-height: 1.65;
 }
 
-.deets-page .deets-logo-placeholder {
-    max-width: 600px;
-    min-height: 180px;
-    margin: 15px auto 0;
+/* ---------------------------------------------------------
+   "ONE APP. A LIFETIME OF DETAILS."
+--------------------------------------------------------- */
+
+.deets-page #deets-experience {
+    scroll-margin-top: 100px;
 }
 
-.deets-page .deets-system-placeholder {
-    min-height: 330px;
-    margin: 35px auto;
+.deets-page #deets-experience > .deets-eyebrow {
+    color: var(--deets-yellow);
 }
 
-.deets-page .deets-prototype-placeholder {
-    width: 100%;
-    min-height: 320px;
-    aspect-ratio: 16 / 7;
-    background: rgba(48, 38, 50, .95);
+.deets-page .deets-section-heading {
+    color: var(--deets-white);
 }
 
-.deets-page .deets-dashboard-placeholder {
-    min-height: 380px;
+.deets-page .deets-section-heading::after {
+    background: var(--deets-yellow);
 }
 
-.deets-page .deets-screen-placeholder {
-    min-height: 340px;
-    height: 100%;
-}
-
-.deets-page .deets-security-placeholder {
-    min-height: 250px;
-    margin-top: 55px;
-}
-
-/* LIFE-STAGE CARDS */
+/* ---------------------------------------------------------
+   LIFE-STAGE CARDS
+   Compact cards with larger circles in varied positions.
+--------------------------------------------------------- */
 
 .deets-page .deets-life-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 25px;
+    gap: 18px;
+    align-items: stretch;
 }
 
 .deets-page .deets-life-card {
     position: relative;
-    min-height: 280px;
-    padding: 35px 28px;
-    overflow: hidden;
-    background: rgba(48, 38, 50, .88);
-    border: 1px solid rgba(232, 228, 92, .65);
+    isolation: isolate;
+    min-width: 0;
+    min-height: 250px;
+    box-sizing: border-box;
+    padding: 60px 24px 25px;
+    background: rgba(48, 38, 50, 0.94);
+    border: 1px solid rgba(232, 228, 92, 0.72);
     border-radius: 4px;
+    overflow: hidden;
+}
+
+.deets-page .deets-life-card > *:not(.deets-mini-orbit) {
+    position: relative;
+    z-index: 1;
 }
 
 .deets-page .deets-stage-number {
-    color: #00E5FF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 22px;
+    position: absolute;
+    top: 17px;
+    left: 23px;
+    z-index: 2;
+    margin: 0;
+    color: var(--deets-yellow);
+    font-size: 1.15rem;
     font-weight: 700;
-    letter-spacing: .12em;
+    letter-spacing: 0.12em;
 }
 
 .deets-page .deets-mini-orbit {
-    width: 48px;
-    height: 48px;
-    margin: 18px 0;
-    border: 3px solid #E8E45C;
+    position: absolute;
+    z-index: 0;
+    width: 118px;
+    height: 118px;
+    margin: 0;
+    border: 2px solid var(--deets-yellow);
     border-radius: 50%;
-    background: #866F84;
+    background: rgba(134, 111, 132, 0.66);
+    opacity: 0.82;
+    pointer-events: none;
+}
+
+/* Give each card's circle a different position. */
+
+.deets-page .deets-life-card:nth-child(1) .deets-mini-orbit {
+    top: -42px;
+    right: -28px;
+}
+
+.deets-page .deets-life-card:nth-child(2) .deets-mini-orbit {
+    top: 72px;
+    right: -58px;
+    width: 142px;
+    height: 142px;
+}
+
+.deets-page .deets-life-card:nth-child(3) .deets-mini-orbit {
+    top: -35px;
+    right: 28px;
+    width: 100px;
+    height: 100px;
 }
 
 .deets-page .deets-life-card h3 {
-    margin: 0 0 8px;
-    color: #FFFFFF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 25px;
-    font-weight: 700;
-    letter-spacing: .08em;
+    margin: 0 0 10px;
+    color: var(--deets-white);
+    font-size: clamp(1.2rem, 1.7vw, 1.55rem);
+    line-height: 1.2;
 }
 
-.deets-page .deets-stage-tag {
-    margin: 0 0 15px;
-    color: #AB8FA8;
-    font-family: "Jost", sans-serif;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: .16em;
+.deets-page .deets-life-card .deets-card-tag {
+    display: inline-block;
+    margin: 0 0 14px;
+    color: var(--deets-lavender);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
 }
 
 .deets-page .deets-life-card p:last-child {
-    margin: 0;
-    color: rgba(255,255,255,.82);
-    font-family: "Jost", sans-serif;
-    font-size: 15px;
-    line-height: 1.8;
+    margin-bottom: 0;
+    color: var(--deets-pale);
+    line-height: 1.7;
 }
 
-/* SIX CATEGORY ICONS */
+/* ---------------------------------------------------------
+   CATEGORY ICONS
+--------------------------------------------------------- */
 
 .deets-page .deets-category-grid {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 18px;
 }
 
 .deets-page .deets-category-item {
-    min-width: 0;
-    text-align: center;
-}
-
-.deets-page .deets-icon-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 76px;
-    height: 76px;
-    margin: 0 auto 18px;
-    color: #E8E45C;
-    font-family: "Jost", sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: .08em;
-    background: #302632;
-    border: 2px solid #E8E45C;
-    border-radius: 50%;
+    color: var(--deets-pale);
 }
 
 .deets-page .deets-category-item h3 {
-    margin: 0 0 8px;
-    color: #FFFFFF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 19px;
-    letter-spacing: .06em;
+    color: var(--deets-white);
 }
 
-.deets-page .deets-category-item p {
-    margin: 0;
-    color: rgba(255,255,255,.7);
-    font-family: "Jost", sans-serif;
-    font-size: 12px;
-    line-height: 1.6;
+.deets-page .deets-category-item .deets-category-icon {
+    color: var(--deets-yellow);
+    border-color: rgba(232, 228, 92, 0.72);
 }
 
-/* INTERACTIVE PROTOTYPE: HIGHER ON PAGE */
+/* ---------------------------------------------------------
+   INTERACTIVE PROTOTYPE
+--------------------------------------------------------- */
 
 .deets-page .deets-prototype-section {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    margin: 0 auto 100px;
-    padding: clamp(35px, 5vw, 65px);
+    padding: clamp(28px, 5vw, 60px);
     text-align: center;
-    background: rgba(48, 38, 50, .74);
-    border: 1px solid rgba(232, 228, 92, .65);
-    border-radius: 4px;
+    overflow: hidden;
 }
 
-.deets-page .deets-prototype-section > *:not(.deets-orbit) {
-    position: relative;
-    z-index: 2;
+.deets-page .deets-prototype-section > .deets-eyebrow {
+    color: var(--deets-lavender);
 }
 
-.deets-page .deets-prototype-section h2 {
-    margin: 0 0 22px;
-    color: #FFFFFF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(32px, 4vw, 44px);
-    font-weight: 700;
-    letter-spacing: .09em;
-    line-height: 1.35;
+.deets-page .deets-prototype-section > h2 {
+    margin: 10px auto 16px;
 }
 
-.deets-page .deets-prototype-section > p:not(.deets-eyebrow) {
-    max-width: 720px;
-    margin: 0 auto 30px;
-    color: rgba(255,255,255,.85);
-    font-family: "Jost", sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
+.deets-page .deets-prototype-section > p {
+    max-width: 680px;
+    margin: 0 auto 28px;
 }
 
 .deets-page .deets-prototype-preview {
     display: block;
-    max-width: 900px;
+    width: min(100%, 760px);
     margin: 0 auto;
     color: inherit;
     text-decoration: none;
 }
 
-.deets-page .deets-prototype-preview .deets-placeholder {
-    transition: border-color .3s ease, transform .3s ease;
-}
-
-.deets-page .deets-prototype-preview:hover .deets-placeholder {
-    border-color: #00E5FF;
-    transform: translateY(-3px);
+.deets-page .deets-prototype-placeholder {
+    width: 100%;
+    min-height: 290px;
+    aspect-ratio: 16 / 7;
 }
 
 .deets-page .deets-preview-label {
     display: block;
-    margin-top: 20px;
-    color: #00E5FF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: .18em;
-    transition: color .3s ease;
+    margin-top: 14px;
+    color: var(--deets-yellow);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
 }
-
-.deets-page .deets-prototype-preview:hover .deets-preview-label {
-    color: #FFFFFF;
-}
-
-/* Keep the second prototype method, but add more space above the cyan line. */
 
 .deets-page .deets-prototype-button {
     display: table;
-    margin: 58px auto 0;
-    padding-bottom: 12px;
-    color: #00E5FF;
-}
-
-.deets-page .deets-prototype-button::after {
-    bottom: -20px;
-    background: #00E5FF;
+    margin: 48px auto 12px;
+    padding: 15px 32px;
+    background: var(--deets-yellow);
+    border: 1px solid var(--deets-yellow);
+    border-radius: 2px;
+    color: var(--deets-plum);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.25s ease, color 0.25s ease;
 }
 
 .deets-page .deets-prototype-button:hover {
-    color: #FFFFFF;
+    background: transparent;
+    color: var(--deets-yellow);
 }
 
-/* DESIGN SYSTEM */
+.deets-page .deets-prototype-button::after {
+    background: var(--deets-lavender);
+}
+
+/* ---------------------------------------------------------
+   DESIGN SYSTEM & COLOR PALETTE
+--------------------------------------------------------- */
 
 .deets-page .deets-system-section {
-    display: block;
-}
-
-.deets-page .deets-system-copy {
-    max-width: 850px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.deets-page .deets-system-copy h2::after {
-    margin-top: 17px;
+    padding: clamp(28px, 5vw, 60px);
 }
 
 .deets-page .deets-palette {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 12px;
-    margin: 35px auto 0;
+    margin-top: 28px;
 }
 
 .deets-page .deets-swatch {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    min-height: 100px;
-    padding: 12px 5px;
-    border: 1px solid rgba(255,255,255,.2);
+    min-width: 0;
+    color: var(--deets-white);
 }
 
-.deets-page .deets-swatch span {
-    font-family: "Jost", sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: .04em;
-}
-
-.deets-page .swatch-plum {
-    background: #302632;
-    color: #FFFFFF;
-}
-
-.deets-page .swatch-lavender {
-    background: #AB8FA8;
-    color: #302632;
-}
-
-.deets-page .swatch-mauve {
-    background: #866F84;
-    color: #FFFFFF;
-}
-
-.deets-page .swatch-yellow {
-    background: #E8E45C;
-    color: #302632;
-}
-
-.deets-page .swatch-gray {
-    background: #C6B9C4;
-    color: #302632;
-}
-
-.deets-page .swatch-white {
-    background: #FFFFFF;
-    color: #302632;
-}
-
-/* SCREEN GALLERY */
-
-.deets-page .deets-screen-feature {
-    display: grid;
-    grid-template-columns: 1.2fr .8fr;
-    gap: 50px;
-    align-items: center;
-    margin-bottom: 55px;
-}
-
-.deets-page .deets-screen-copy {
-    max-width: 440px;
-}
-
-.deets-page .deets-feature-index {
+.deets-page .deets-swatch-color {
     display: block;
-    margin-bottom: 16px;
-    color: #00E5FF;
-    font-family: "Jost", sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: .18em;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
 }
 
-.deets-page .deets-screen-copy h3 {
-    margin: 0 0 18px;
-    font-size: 30px;
+.deets-page .deets-swatch-label {
+    display: block;
+    margin-top: 8px;
+    color: var(--deets-pale);
+    font-size: 0.7rem;
+    overflow-wrap: anywhere;
 }
 
-.deets-page .deets-screen-copy p {
-    color: rgba(255,255,255,.82);
-    font-family: "Jost", sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
+/* ---------------------------------------------------------
+   SCREEN GALLERY
+--------------------------------------------------------- */
+
+.deets-page .deets-gallery-section {
+    color: var(--deets-white);
 }
 
-.deets-page .deets-screen-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px;
-}
-
+.deets-page .deets-screen-feature,
 .deets-page .deets-screen-card {
-    margin: 0;
-    padding: 15px;
-    background: rgba(48, 38, 50, .72);
-    border: 1px solid rgba(232, 228, 92, .5);
+    background: rgba(48, 38, 50, 0.82);
+    border: 1px solid rgba(198, 185, 196, 0.28);
+    border-radius: 4px;
+    overflow: hidden;
 }
 
-.deets-page .deets-screen-card figcaption {
-    padding: 18px 8px 5px;
-    color: #FFFFFF;
-    font-family: "Jost", sans-serif;
-    font-size: 15px;
-    line-height: 1.7;
-    text-align: center;
+.deets-page .deets-screen-feature h3,
+.deets-page .deets-screen-card h3 {
+    color: var(--deets-white);
 }
 
-.deets-page .deets-screen-card figcaption span {
-    display: block;
-    margin-bottom: 5px;
-    color: #00E5FF;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: .16em;
+.deets-page .deets-screen-feature p,
+.deets-page .deets-screen-card p {
+    color: var(--deets-pale);
 }
 
-.deets-page .deets-security-placeholder {
-    max-width: 950px;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-/* CONTACT: RESTORE THE SHARED PAGE STYLE */
+/* ---------------------------------------------------------
+   CONTACT
+--------------------------------------------------------- */
 
 .deets-page .deets-contact {
-    position: relative;
-    margin: 45px auto 0;
-    padding: 30px 0 20px;
     text-align: center;
+    padding: 45px 20px;
     background: transparent;
     border: 0;
     border-radius: 0;
-    box-shadow: none;
 }
 
 .deets-page .deets-contact p {
-    margin: 0 0 25px;
-    color: #FFFFFF;
-    font-family: "Jost", sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: .04em;
-    line-height: 1.8;
+    color: var(--deets-white);
 }
 
 .deets-page .deets-contact .enter-button {
-    display: table;
-    margin: 0 auto;
+    border-radius: 0;
 }
 
-/* RESPONSIVE LAYOUT */
+/* ---------------------------------------------------------
+   KEYBOARD ACCESSIBILITY
+--------------------------------------------------------- */
 
-@media (max-width: 900px) {
+.deets-page a:focus-visible,
+.deets-page button:focus-visible {
+    outline: 2px solid var(--deets-yellow);
+    outline-offset: 4px;
+}
 
-    .deets-page .deets-details {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        row-gap: 35px;
+/* ---------------------------------------------------------
+   RESPONSIVE LAYOUT
+--------------------------------------------------------- */
+
+@media (max-width: 850px) {
+    .deets-page .deets-intro {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "eyebrow"
+            "heading"
+            "lead"
+            "link"
+            "logo";
+        row-gap: 18px;
+    }
+
+    .deets-page .deets-intro > .deets-logo-placeholder {
+        min-height: 280px;
+        margin-top: 12px;
     }
 
     .deets-page .deets-life-grid {
@@ -3962,98 +3861,45 @@ body.deets-page {
     }
 
     .deets-page .deets-life-card {
-        min-height: 0;
-    }
-
-    .deets-page .deets-category-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        row-gap: 30px;
-    }
-
-    .deets-page .deets-screen-feature {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .deets-page .deets-screen-copy {
-        max-width: 700px;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .deets-page .deets-prototype-placeholder {
-        aspect-ratio: 4 / 3;
-    }
-}
-
-@media (max-width: 600px) {
-
-    .deets-page .deets-details {
-        grid-template-columns: 1fr 1fr;
-        gap: 28px 18px;
-    }
-
-    .deets-page .deets-details .detail-box h3 {
-        font-size: 10px;
-        letter-spacing: .18em;
-    }
-
-    .deets-page .deets-details .detail-box p {
-        font-size: 13px;
-    }
-
-    .deets-page .deets-intro {
-        padding: 35px 22px;
-    }
-
-    .deets-page .deets-intro h2 {
-        font-size: 34px;
-        letter-spacing: .07em;
-    }
-
-    .deets-page .deets-lead {
-        font-size: 16px;
-    }
-
-    .deets-page .deets-category-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .deets-page .deets-screen-grid {
-        grid-template-columns: 1fr;
+        min-height: 220px;
     }
 
     .deets-page .deets-palette {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
+}
 
-    .deets-page .deets-placeholder {
-        padding: 22px 16px;
-    }
-
-    .deets-page .deets-prototype-section {
-        padding: 35px 20px;
+@media (max-width: 520px) {
+    .deets-page .deets-intro,
+    .deets-page .deets-prototype-section,
+    .deets-page .deets-system-section {
+        padding: 24px 18px;
     }
 
     .deets-page .deets-prototype-placeholder {
-        min-height: 250px;
+        min-height: 240px;
+        aspect-ratio: 4 / 3;
     }
 
-    .deets-page .deets-prototype-button {
-        font-size: 14px;
-        letter-spacing: .12em;
+    .deets-page .deets-palette {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+--------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
-
-    .deets-page .deets-text-link,
-    .deets-page .deets-text-link span,
-    .deets-page .deets-prototype-preview .deets-placeholder,
-    .deets-page .deets-preview-label {
-        transition: none;
+    .deets-page *,
+    .deets-page *::before,
+    .deets-page *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
     }
 }
+
 
 
 /*=========================================================
