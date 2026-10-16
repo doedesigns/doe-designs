@@ -3441,6 +3441,520 @@ body.deets-page {
 }
 
 
+/* =========================================================
+   MY DEETS — CASE STUDY REDESIGN
+   Page-specific styling; append to branding-project.css
+========================================================= */
+
+.deets-page {
+    --deets-plum: #302632;
+    --deets-lavender: #AB8FA8;
+    --deets-mauve: #866F84;
+    --deets-yellow: #E8E45C;
+    --deets-pale: #F4EFF3;
+    --deets-white: #FFFFFF;
+}
+
+/* Keep content above the background canvas */
+
+.deets-page .project-container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Project title and year */
+
+.deets-page .project-title h1,
+.deets-page .project-navigation h1 {
+    color: var(--deets-plum);
+}
+
+.deets-page .project-title h1 .title-break {
+    color: var(--deets-lavender);
+}
+
+.deets-page .project-year {
+    color: var(--deets-plum);
+}
+
+/* Keep the shared four-column summary consistent */
+
+.deets-page .project-details {
+    gap: 16px;
+}
+
+.deets-page .project-details .detail-box {
+    background: var(--deets-pale);
+    border: 1px solid rgba(232, 228, 92, 0.85);
+    border-radius: 4px;
+    color: var(--deets-plum);
+    padding: 20px;
+}
+
+.deets-page .project-details .detail-box h3,
+.deets-page .project-details .detail-box p {
+    color: var(--deets-plum);
+}
+
+/* General case-study typography */
+
+.deets-page .deets-eyebrow {
+    margin: 0 0 14px;
+    color: var(--deets-lavender);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.deets-page .deets-panel h2,
+.deets-page .deets-section h2,
+.deets-page .deets-section h3 {
+    color: var(--deets-white);
+}
+
+.deets-page .deets-panel p,
+.deets-page .deets-section p {
+    line-height: 1.8;
+}
+
+.deets-page .deets-panel,
+.deets-page .deets-section {
+    margin-top: clamp(56px, 8vw, 100px);
+}
+
+/* Shared dark panels */
+
+.deets-page .deets-panel {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(26px, 5vw, 64px);
+    border: 1px solid rgba(232, 228, 92, 0.35);
+    border-radius: 8px;
+    background: var(--deets-plum);
+    color: var(--deets-white);
+}
+
+/* Project overview */
+
+.deets-page .deets-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(180px, 0.7fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 72px);
+}
+
+.deets-page .deets-intro-copy {
+    min-width: 0;
+}
+
+.deets-page .deets-intro h2,
+.deets-page .deets-prototype-copy h2,
+.deets-page .deets-system-copy h2,
+.deets-page .deets-settings-copy h2 {
+    margin: 0 0 22px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(2.2rem, 4.6vw, 4rem);
+    font-weight: 900;
+    line-height: 1.06;
+}
+
+.deets-page .deets-lead {
+    color: var(--deets-white);
+    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+}
+
+.deets-page .deets-text-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--deets-yellow);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.deets-page .deets-text-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.deets-page .deets-intro-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid rgba(198, 185, 196, 0.22);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.deets-page .deets-intro-logo img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Prototype */
+
+.deets-page .deets-prototype-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.72fr);
+    align-items: center;
+    gap: clamp(30px, 6vw, 80px);
+}
+
+.deets-page .deets-prototype-copy {
+    min-width: 0;
+}
+
+.deets-page .deets-prototype-preview {
+    position: relative;
+    display: block;
+    max-width: 380px;
+    justify-self: center;
+    padding: 12px;
+    border: 1px solid rgba(232, 228, 92, 0.55);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+}
+
+.deets-page .deets-prototype-preview img {
+    display: block;
+    width: 100%;
+    max-height: 520px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.deets-page .deets-image-link-label {
+    display: block;
+    padding: 15px 4px 5px;
+    color: var(--deets-yellow);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-align: center;
+}
+
+.deets-page .deets-prototype-preview:hover {
+    border-color: var(--deets-yellow);
+}
+
+.deets-page .deets-prototype-section .enter-button {
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    margin: 20px 0 0;
+    text-align: center;
+}
+
+/* Section headings */
+
+.deets-page .deets-section-heading {
+    max-width: 760px;
+    margin: 0 auto 44px;
+    text-align: center;
+}
+
+.deets-page .deets-section-heading h2 {
+    margin: 0 0 18px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.08;
+}
+
+.deets-page .deets-section-heading > p:last-child {
+    max-width: 680px;
+    margin: 0 auto;
+    color: var(--deets-pale);
+}
+
+/* Featured screens */
+
+.deets-page .deets-screen-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 64px);
+    margin-bottom: 40px;
+}
+
+.deets-page .deets-screen-image {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(198, 185, 196, 0.28);
+    border-radius: 6px;
+    background: rgba(48, 38, 50, 0.8);
+}
+
+.deets-page .deets-screen-image img,
+.deets-page .deets-system-image img,
+.deets-page .deets-settings-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.deets-page .deets-screen-copy h3,
+.deets-page .deets-screen-card h3 {
+    margin: 0 0 12px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.deets-page .deets-screen-copy > p:last-child,
+.deets-page .deets-screen-card > p:last-child {
+    color: var(--deets-pale);
+}
+
+.deets-page .deets-screen-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(20px, 3vw, 36px);
+}
+
+.deets-page .deets-screen-card {
+    min-width: 0;
+    padding: clamp(16px, 2.5vw, 28px);
+    border: 1px solid rgba(198, 185, 196, 0.25);
+    border-radius: 6px;
+    background: rgba(48, 38, 50, 0.65);
+}
+
+.deets-page .deets-screen-card .deets-screen-image {
+    margin-bottom: 24px;
+}
+
+/* Design system */
+
+.deets-page .deets-system-section {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 64px);
+}
+
+.deets-page .deets-system-copy {
+    min-width: 0;
+}
+
+.deets-page .deets-system-image {
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 6px;
+    background: var(--deets-pale);
+}
+
+.deets-page .deets-system-image img {
+    object-fit: contain;
+}
+
+/* Category circles */
+
+.deets-page .deets-category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px 24px;
+}
+
+.deets-page .deets-category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    padding: 24px 16px;
+    text-align: center;
+}
+
+.deets-page .deets-category-orb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 78px;
+    height: 78px;
+    margin-bottom: 20px;
+    border: 2px solid var(--deets-yellow);
+    border-radius: 50%;
+    background: var(--deets-plum);
+    color: var(--deets-yellow);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    box-shadow: 0 0 0 7px rgba(171, 143, 168, 0.12);
+}
+
+.deets-page .deets-category-item h3 {
+    margin: 0 0 8px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.deets-page .deets-category-item p {
+    max-width: 260px;
+    margin: 0;
+    color: var(--deets-pale);
+    font-size: 0.95rem;
+}
+
+/* Life-stage timeline */
+
+.deets-page .deets-life-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.deets-page .deets-life-card {
+    position: relative;
+    min-width: 0;
+    padding: 30px 26px;
+    border: 1px solid rgba(232, 228, 92, 0.45);
+    border-radius: 6px;
+    background: var(--deets-plum);
+}
+
+.deets-page .deets-stage-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 24px;
+    border: 2px solid var(--deets-yellow);
+    border-radius: 50%;
+    color: var(--deets-yellow);
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+}
+
+.deets-page .deets-life-card h3 {
+    margin: 0 0 8px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.65rem;
+    line-height: 1.15;
+}
+
+.deets-page .deets-stage-tag {
+    margin: 0 0 16px;
+    color: var(--deets-yellow);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.deets-page .deets-life-card > p:last-child {
+    margin-bottom: 0;
+    color: var(--deets-pale);
+}
+
+/* Settings and security */
+
+.deets-page .deets-settings-section {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 64px);
+    text-align: left;
+}
+
+.deets-page .deets-settings-copy {
+    min-width: 0;
+}
+
+.deets-page .deets-settings-image {
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 6px;
+    background: var(--deets-pale);
+}
+
+.deets-page .deets-settings-image img {
+    object-fit: contain;
+}
+
+/* Responsive layout */
+
+@media (max-width: 850px) {
+    .deets-page .deets-intro,
+    .deets-page .deets-prototype-section,
+    .deets-page .deets-system-section,
+    .deets-page .deets-settings-section {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .deets-page .deets-intro-logo {
+        max-width: 420px;
+        width: 100%;
+        justify-self: center;
+    }
+
+    .deets-page .deets-prototype-preview {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .deets-page .deets-screen-feature {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .deets-page .deets-screen-copy {
+        max-width: 680px;
+    }
+
+    .deets-page .deets-life-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .deets-page .project-details {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .deets-page .deets-screen-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .deets-page .deets-category-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 10px;
+    }
+
+    .deets-page .deets-category-item {
+        padding: 18px 8px;
+    }
+
+    .deets-page .deets-category-orb {
+        width: 64px;
+        height: 64px;
+    }
+
+    .deets-page .deets-panel {
+        padding: 24px 20px;
+    }
+
+    .deets-page .deets-intro h2,
+    .deets-page .deets-prototype-copy h2,
+    .deets-page .deets-system-copy h2,
+    .deets-page .deets-settings-copy h2 {
+        font-size: clamp(2rem, 9vw, 2.8rem);
+    }
+}
+
 /*=========================================================
 MOBILE
 =========================================================*/
