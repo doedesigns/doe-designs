@@ -2500,18 +2500,16 @@ body.lotus-organic {
     }
 }
 
-
 /* =========================================================
    LOTUS LINGO — REFINED PANELS, PROTOTYPE, AND IMAGE SIZES
    Add at the bottom of branding-project.css
    ========================================================= */
 
 body.lotus-organic {
-    --lotus-pink-accent: #E58CD3;
-    --lotus-gradient-yellow: #FFF5CC;
-    --lotus-gradient-pink: #FBE5ED;
+    --lotus-pink-accent: #D77DBF;
+    --lotus-gradient-yellow: #E8D9A9;
+    --lotus-gradient-pink: #E3C1D1;
 }
-
 
 /* 1. ALTERNATING SOFT GRADIENT PANELS */
 
@@ -4680,6 +4678,69 @@ body.deets-page {
 .deets-page .deets-life-grid {
     margin-top: 0;
 }
+
+/*=========================================================
+   MY DEETS — LIFE FEATURE LAYOUT
+   Text on the left, smaller illustration on the right
+========================================================= */
+
+.deets-life-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.72fr);
+    align-items: center;
+    gap: clamp(30px, 5vw, 70px);
+}
+
+/* Place the descriptive text in the left column */
+
+.deets-life-feature-copy {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+}
+
+/* Place the illustration in the right column */
+
+.deets-life-illustration {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    width: 100%;
+    max-width: 340px;
+    min-width: 0;
+}
+
+/* Keep the image proportional and contained */
+
+.deets-life-illustration img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* Stack the feature on smaller screens */
+
+@media (max-width: 700px) {
+    .deets-life-feature {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+    }
+
+    .deets-life-feature-copy {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .deets-life-illustration {
+        grid-column: 1;
+        grid-row: 2;
+        justify-self: center;
+        max-width: 300px;
+    }
+}
+
 
 /*=========================================================
 MOBILE
