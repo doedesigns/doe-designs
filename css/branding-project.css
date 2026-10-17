@@ -2040,7 +2040,6 @@ PROJECT FOOTER LINK
     }
 }
 
-
 /* =========================================================
    LOTUS LINGO — BRIGHT, PLAYFUL CASE STUDY
    All styles scoped to .lotus-organic
@@ -2500,6 +2499,300 @@ body.lotus-organic {
         animation-duration: 0.01ms;
     }
 }
+
+
+/* =========================================================
+   LOTUS LINGO — REFINED PANELS, PROTOTYPE, AND IMAGE SIZES
+   Add at the bottom of branding-project.css
+   ========================================================= */
+
+body.lotus-organic {
+    --lotus-pink-accent: #E58CD3;
+    --lotus-gradient-yellow: #FFF5CC;
+    --lotus-gradient-pink: #FBE5ED;
+}
+
+
+/* 1. ALTERNATING SOFT GRADIENT PANELS */
+
+/* Gradient flows from upper left to lower right */
+
+.lotus-organic .lotus-overview,
+.lotus-organic .lotus-challenge,
+.lotus-organic .lotus-prototype {
+    background: linear-gradient(
+        135deg,
+        var(--lotus-gradient-yellow) 0%,
+        var(--lotus-gradient-pink) 100%
+    );
+}
+
+/* Reverse the gradient direction on alternating panels */
+
+.lotus-organic .lotus-direction,
+.lotus-organic .lotus-brand {
+    background: linear-gradient(
+        225deg,
+        var(--lotus-gradient-yellow) 0%,
+        var(--lotus-gradient-pink) 100%
+    );
+}
+
+/* Keep the research/process panel visually related but distinct */
+
+.lotus-organic .lotus-process {
+    background: linear-gradient(
+        135deg,
+        #FBE5ED 0%,
+        #FFF5CC 100%
+    );
+}
+
+/* Preserve the existing blue and green challenge/solution cards */
+
+.lotus-organic .lotus-challenge-card {
+    background: #CAE8F9;
+}
+
+.lotus-organic .lotus-solution-card {
+    background: #DDF7DF;
+}
+
+
+/* 2. USE THE PROJECT PINK AS AN ACCENT
+   Keep darker text colors for legibility. */
+
+.lotus-organic .lotus-eyebrow {
+    color: #B83268;
+}
+
+.lotus-organic .lotus-prototype-overlay {
+    background: rgba(80, 21, 47, 0.94);
+    color: #FFFFFF;
+}
+
+
+/* 3. PROTOTYPE PANEL */
+
+.lotus-organic .lotus-prototype {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: clamp(28px, 5vw, 58px);
+    border: 1px solid rgba(184, 50, 104, 0.12);
+    border-radius: 26px;
+}
+
+.lotus-organic .lotus-prototype .lotus-section-heading {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.lotus-organic .lotus-prototype .lotus-section-heading h2 {
+    color: #50152F;
+}
+
+.lotus-organic .lotus-prototype .lotus-section-heading > p:last-child {
+    color: #302832;
+    line-height: 1.8;
+}
+
+
+/* Smaller, centered app preview */
+
+.lotus-organic .lotus-prototype .prototype-image-link {
+    display: block;
+    position: relative;
+    width: min(100%, 240px);
+    min-width: 0;
+    margin: 4px auto;
+    overflow: hidden;
+    border: 3px solid #FFFFFF;
+    border-radius: 20px;
+    background: #FFFFFF;
+    box-shadow: 0 12px 30px rgba(80, 21, 47, 0.13);
+}
+
+.lotus-organic .lotus-prototype .prototype-image-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.lotus-organic .lotus-prototype .prototype-image-link:hover img {
+    transform: scale(1.02);
+}
+
+.lotus-organic .lotus-prototype-overlay {
+    position: absolute;
+    inset: auto 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 8px;
+    box-sizing: border-box;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.lotus-organic .lotus-prototype .prototype-image-link:hover
+.lotus-prototype-overlay,
+.lotus-organic .lotus-prototype .prototype-image-link:focus-visible
+.lotus-prototype-overlay {
+    opacity: 1;
+}
+
+
+/* Clear, readable prototype button */
+
+.lotus-organic .lotus-prototype .lotus-prototype-button {
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    margin: 0;
+    padding: 14px 30px;
+    border: 2px solid #50152F;
+    border-radius: 999px;
+    background: #50152F;
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-align: center;
+    text-decoration: none;
+}
+
+.lotus-organic .lotus-prototype .lotus-prototype-button:hover {
+    background: #B83268;
+    border-color: #B83268;
+    color: #FFFFFF;
+}
+
+
+/* 4. REDUCE DESIGN SYSTEM AND RESEARCH IMAGES */
+
+.lotus-organic .lotus-direction .story-image,
+.lotus-organic .lotus-process .story-image {
+    width: 100%;
+    max-width: 540px;
+    margin-inline: auto;
+}
+
+.lotus-organic .lotus-direction .story-image img,
+.lotus-organic .lotus-process .story-image img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* 5. REDUCE THE GAMES AND KATAKANA IMAGES */
+
+.lotus-organic .lotus-feature-image {
+    width: 100%;
+    max-width: 620px;
+    margin: 30px auto 44px;
+    padding: clamp(10px, 1.5vw, 18px);
+    box-sizing: border-box;
+}
+
+.lotus-organic .lotus-feature-image img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* 6. BRAND ANIMATION PANEL */
+
+.lotus-organic .lotus-brand .lotus-logo-animation {
+    width: 100%;
+    max-width: 760px;
+    margin: 28px auto 0;
+}
+
+
+/* 7. CONTACT LINK — MATCH THE SHARED CYAN STYLE
+   Remove the Lotus maroon pill treatment only here. */
+
+.lotus-organic .lotus-contact .enter-button {
+    display: inline-block;
+    width: auto;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: #00E5FF;
+    box-shadow: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.lotus-organic .lotus-contact .enter-button:hover {
+    border: none;
+    background: transparent;
+    color: #FFFFFF;
+    box-shadow: none;
+    transform: none;
+}
+
+
+/* 8. RESPONSIVE REFINEMENTS */
+
+@media (max-width: 800px) {
+    .lotus-organic .lotus-direction .story-image,
+    .lotus-organic .lotus-process .story-image {
+        max-width: 480px;
+    }
+
+    .lotus-organic .lotus-feature-image {
+        max-width: 560px;
+    }
+}
+
+@media (max-width: 560px) {
+    .lotus-organic .lotus-prototype {
+        padding: 24px 18px;
+        border-radius: 20px;
+    }
+
+    .lotus-organic .lotus-prototype .prototype-image-link {
+        width: min(75%, 240px);
+    }
+
+    .lotus-organic .lotus-prototype .lotus-prototype-button {
+        padding: 13px 18px;
+        font-size: 0.95rem;
+    }
+
+    .lotus-organic .lotus-direction .story-image,
+    .lotus-organic .lotus-process .story-image {
+        max-width: 100%;
+    }
+
+    .lotus-organic .lotus-feature-image {
+        max-width: 100%;
+    }
+}
+
 
 /* =========================================================
    CLEAN FUTURE NETWORK — REDUCE WATER BOTTLE FEATURE SIZE
@@ -3781,6 +4074,7 @@ body.deets-page {
     display: flex;
     align-items: center;
     justify-content: center;
+	overflow: hidden;
     width: 78px;
     height: 78px;
     margin-bottom: 20px;
@@ -3792,6 +4086,13 @@ body.deets-page {
     font-size: 1.3rem;
     font-weight: 700;
     box-shadow: 0 0 0 7px rgba(171, 143, 168, 0.12);
+}
+
+.deets-page .deets-category-orb img {
+    display: block;
+    width: 48%;
+    height: 48%;
+    object-fit: contain;
 }
 
 .deets-page .deets-category-item h3 {
@@ -4109,9 +4410,9 @@ body.deets-page {
 }
 
 .deets-page .deets-system-image {
-    width: 88%;
-    max-width: 1000px;
-    margin-inline: auto;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .deets-page .deets-system-image img {
@@ -4171,6 +4472,24 @@ body.deets-page {
     display: block;
     width: 100%;
     height: auto;
+}
+
+/* LOGO INTEGRATED INTO THE INTRODUCTION PANEL */
+
+.deets-page .deets-intro-logo {
+    width: 155px;
+    max-width: 42%;
+    margin: 0 auto 24px;
+}
+
+.deets-page .deets-intro-logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.deets-page .deets-intro {
+    padding-top: 32px;
 }
 
 
@@ -4237,6 +4556,76 @@ body.deets-page {
     .deets-page .deets-settings-image {
         width: 100%;
     }
+}
+
+
+/* MY DEETS — TITLE AND SECTION LABEL COLORS */
+
+.deets-page .project-title .title-break {
+    color: #FFFFFF !important;
+}
+
+.deets-page .deets-eyebrow {
+    color: #E8E45C !important;
+    opacity: 1;
+}
+
+
+/* MY DEETS — MID-TONE PURPLE PANELS */
+
+.deets-page {
+    --deets-panel-purple: #3D3042;
+    --deets-panel-purple-light: #49384E;
+    --deets-panel-border: #5C4961;
+    --deets-yellow: #E8E45C;
+}
+
+/* Main content panels */
+
+.deets-page .deets-panel {
+    background: var(--deets-panel-purple);
+    border: 1px solid var(--deets-panel-border);
+    border-radius: 22px;
+    color: #FFFFFF;
+}
+
+/* Headings and paragraphs inside the panels */
+
+.deets-page .deets-panel h2,
+.deets-page .deets-panel h3,
+.deets-page .deets-panel p:not(.deets-eyebrow) {
+    color: #FFFFFF;
+}
+
+.deets-page .deets-panel .deets-eyebrow {
+    color: var(--deets-yellow);
+    opacity: 1;
+}
+
+/* Category and life-stage cards */
+
+.deets-page .deets-category-item,
+.deets-page .deets-life-card {
+    background: var(--deets-panel-purple-light);
+    border: 1px solid var(--deets-panel-border);
+    border-radius: 18px;
+    color: #FFFFFF;
+}
+
+.deets-page .deets-category-item h3,
+.deets-page .deets-life-card h3 {
+    color: #FFFFFF;
+}
+
+.deets-page .deets-category-orb {
+    background: #E8E45C;
+    color: #302632;
+}
+
+/* Keep text links visibly distinct */
+
+.deets-page .deets-text-link {
+    color: #E8E45C;
 }
 
 
