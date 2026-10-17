@@ -277,22 +277,41 @@ body.branding-page .branding-card .card-project-title {
 }
 
 
-/* Project titles beneath category images */
+/*=========================================================
+    PROJECT TITLES — DESIGN CARDS
+========================================================= */
 
-.branding-card .portfolio-card-title,
 .design-card .portfolio-card-title {
-    display: block;
-    width: 100%;
-    margin: 14px 0 0;
-    padding: 0;
+    position: relative;
+    display: table;
+    width: auto;
+    max-width: 100%;
+    margin: 14px auto 0;
+    padding: 0 0 5px;
     color: #00E5FF;
-    text-align: center;
-    font-family: "Barlow Condensed", sans-serif;
+    font-family: "Jost", sans-serif;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 1.4;
-    letter-spacing: .18em;
+    letter-spacing: .04em;
+    text-align: center;
     box-sizing: border-box;
+}
+
+.design-card .portfolio-card-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #00E5FF;
+    transition: width .35s ease;
+}
+
+.design-card:hover .portfolio-card-title::after,
+.design-card:focus-visible .portfolio-card-title::after {
+    width: 100%;
 }
 
 /*=========================================================
