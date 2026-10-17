@@ -2929,6 +2929,27 @@ body.lotus-organic .lotus-prototype-overlay {
 
 
 /* =========================================================
+   LOTUS LINGO — UNIFIED SECTION HEADINGS
+   Add at the VERY BOTTOM of branding-project.css
+   ========================================================= */
+
+/* All main section headings use the same pale blue-white */
+body.lotus-organic .project-story h2,
+body.lotus-organic .lotus-section h2,
+body.lotus-organic .lotus-section-heading h2 {
+    color: #E6F5FF !important;
+}
+
+/* Remove cyan heading underlines for a cleaner, consistent look */
+body.lotus-organic .project-story h2::after,
+body.lotus-organic .lotus-section h2::after,
+body.lotus-organic .lotus-section-heading h2::after {
+    content: none !important;
+    display: none !important;
+}
+
+
+/* =========================================================
    CLEAN FUTURE NETWORK — REDUCE WATER BOTTLE FEATURE SIZE
    Applies only to the first feature figure in Brand in Action
    ========================================================= */
