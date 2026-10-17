@@ -2395,16 +2395,20 @@ body.lotus-organic {
     font-size: 0.9rem;
 }
 
+
 /* Closing contact section — retain shared site styling */
 
 .lotus-organic .lotus-contact {
     margin-top: clamp(48px, 7vw, 100px);
 }
 
-.lotus-organic .lotus-contact p {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
+/* Contact closing sentence */
+body.lotus-organic .lotus-contact > p {
+    color: #FFFFFF;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
 }
 
 /* Preserve image proportions */
@@ -2736,10 +2740,12 @@ body.lotus-organic {
     background: transparent;
     color: #00E5FF;
     box-shadow: none;
-    font-family: inherit;
-    font-size: inherit;
+    font-family: "Barlow Condensed", sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	letter-spacing: 0.35em;
+	text-transform: uppercase;
     font-weight: inherit;
-    letter-spacing: inherit;
     text-decoration: none;
     transition: color 0.25s ease;
 }
@@ -2859,6 +2865,35 @@ body.lotus-organic .lotus-solution-card {
 body.lotus-organic .lotus-feature-image figcaption,
 body.lotus-organic .story-image > p {
     color: #FFF0F7;
+}
+
+
+/* =========================================================
+   LOTUS LINGO — HEADING CONTRAST & CONTACT POLISH
+   Add at the bottom of branding-project.css
+   ========================================================= */
+
+/* Brighter, consistent section headings */
+body.lotus-organic .project-story h2,
+body.lotus-organic .lotus-section-heading h2 {
+    color: #E6F5FF;
+}
+
+/* Cyan underline beneath section headings */
+body.lotus-organic .project-story h2::after,
+body.lotus-organic .lotus-section-heading h2::after {
+    background-color: #00E5FF;
+}
+
+/* Soften the 01 and 02 numbers */
+body.lotus-organic .lotus-number {
+    color: #F3B7D5;
+}
+
+/* Keep prototype intro copy and overlay text readable */
+body.lotus-organic .lotus-prototype .lotus-section-heading p,
+body.lotus-organic .lotus-prototype .lotus-prototype-overlay {
+    color: #FFFFFF;
 }
 
 /* =========================================================
