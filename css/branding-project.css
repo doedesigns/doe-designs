@@ -2867,7 +2867,6 @@ body.lotus-organic .story-image > p {
     color: #FFF0F7;
 }
 
-
 /* =========================================================
    LOTUS LINGO — HEADING CONTRAST & CONTACT POLISH
    Add at the bottom of branding-project.css
@@ -2895,6 +2894,15 @@ body.lotus-organic .lotus-prototype .lotus-section-heading p,
 body.lotus-organic .lotus-prototype .lotus-prototype-overlay {
     color: #FFFFFF;
 }
+
+/* Contact closing sentence: white and comfortably readable */
+body.lotus-organic .lotus-contact > p {
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
 
 /* =========================================================
    CLEAN FUTURE NETWORK — REDUCE WATER BOTTLE FEATURE SIZE
