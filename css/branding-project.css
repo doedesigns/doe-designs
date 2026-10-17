@@ -2792,18 +2792,19 @@ body.lotus-organic {
 }
 
 
+
 /* =========================================================
-   LOTUS LINGO — DARKER PANELS AND CONSISTENT COLORS
-   Add at the VERY BOTTOM of branding-project.css
+   LOTUS LINGO — DARK ROSE PALETTE
+   Replace the previous darker-color block with this
    ========================================================= */
 
 body.lotus-organic {
-    --lotus-pink-accent: #E58CD3;
-    --lotus-gradient-yellow: #3B2038;
-    --lotus-gradient-pink: #552441;
+    --lotus-pink-accent: #F09BC5;
+    --lotus-gradient-yellow: #48252B;
+    --lotus-gradient-pink: #713344;
 }
 
-/* Darker gradients across the main story panels */
+/* Deep rose gradients across the main panels */
 body.lotus-organic .lotus-overview,
 body.lotus-organic .lotus-challenge,
 body.lotus-organic .lotus-prototype,
@@ -2813,62 +2814,51 @@ body.lotus-organic .lotus-experience,
 body.lotus-organic .lotus-process {
     background: linear-gradient(
         135deg,
-        #321B30 0%,
-        #51223F 55%,
-        #3D1B37 100%
+        #48252B 0%,
+        #713344 55%,
+        #572832 100%
     );
-    color: #FFF5FA;
+    color: #FFF5F5;
 }
 
-/* Keep headings and body copy readable on dark panels */
+/* Light text on dark rose panels */
 body.lotus-organic .lotus-section h2,
 body.lotus-organic .lotus-section h3,
 body.lotus-organic .project-story h2,
 body.lotus-organic .project-story h3,
 body.lotus-organic .lotus-section p,
 body.lotus-organic .project-story .story-text p {
-    color: #FFF5FA;
+    color: #FFF5F5;
 }
 
-/* Soft pink section labels */
+/* Blush-pink section labels */
 body.lotus-organic .lotus-eyebrow {
-    color: #ECA6D8;
+    color: #F5B5D2;
 }
 
-/* Challenge and solution cards: darker than before */
+/* Dark inset challenge and solution cards */
 body.lotus-organic .lotus-statement,
 body.lotus-organic .lotus-challenge-card,
 body.lotus-organic .lotus-solution-card {
-    background: rgba(16, 8, 20, 0.48);
-    color: #FFF5FA;
-    border-color: rgba(236, 166, 216, 0.28);
+    background: rgba(30, 10, 16, 0.48);
+    color: #FFF5F5;
+    border-color: rgba(245, 181, 210, 0.3);
 }
 
-/* Prevent the App Experience area from appearing white */
+/* Match the App Experience panel to the rest of the page */
 body.lotus-organic .lotus-experience {
     background: linear-gradient(
         135deg,
-        #321B30 0%,
-        #51223F 55%,
-        #3D1B37 100%
+        #48252B 0%,
+        #713344 55%,
+        #572832 100%
     );
 }
 
-/* Keep captions legible against the darker backgrounds */
+/* Captions remain readable */
 body.lotus-organic .lotus-feature-image figcaption,
 body.lotus-organic .story-image > p {
-    color: #F6E8F1;
-}
-
-/* Preserve the portfolio-wide Contact Me button typography */
-body.lotus-organic .lotus-contact .enter-button {
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    color: #00E5FF;
-    text-decoration: none;
+    color: #FFF0F3;
 }
 
 
