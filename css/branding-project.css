@@ -113,7 +113,7 @@ background:
 linear-gradient(
 180deg,
 #081522,
-#760052
+#670031
 );
 }
 
@@ -2792,75 +2792,74 @@ body.lotus-organic {
 }
 
 
-
 /* =========================================================
-   LOTUS LINGO — DARK ROSE PALETTE
-   Replace the previous darker-color block with this
+   LOTUS LINGO — GREEN, PINK & BABY BLUE GRADIENTS
+   Replace the previous Lotus gradient overrides with this
    ========================================================= */
 
 body.lotus-organic {
     --lotus-pink-accent: #F09BC5;
-    --lotus-gradient-yellow: #48252B;
-    --lotus-gradient-pink: #713344;
+    --lotus-gradient-green: #426B4B;
+    --lotus-gradient-pink: #A94F76;
+    --lotus-gradient-blue: #648FA9;
 }
 
-/* Deep rose gradients across the main panels */
+/* Main panels: steep diagonal, green → pink → blue */
 body.lotus-organic .lotus-overview,
 body.lotus-organic .lotus-challenge,
 body.lotus-organic .lotus-prototype,
-body.lotus-organic .lotus-direction,
-body.lotus-organic .lotus-brand,
 body.lotus-organic .lotus-experience,
 body.lotus-organic .lotus-process {
     background: linear-gradient(
         135deg,
-        #48252B 0%,
-        #713344 55%,
-        #572832 100%
+        #426B4B 0%,
+        #A94F76 58%,
+        #648FA9 100%
     );
-    color: #FFF5F5;
+    color: #FFF8FC;
 }
 
-/* Light text on dark rose panels */
+/* Alternating panels: reverse the steep diagonal */
+body.lotus-organic .lotus-direction,
+body.lotus-organic .lotus-brand {
+    background: linear-gradient(
+        225deg,
+        #426B4B 0%,
+        #A94F76 58%,
+        #648FA9 100%
+    );
+    color: #FFF8FC;
+}
+
+/* Keep headings and body copy readable */
 body.lotus-organic .lotus-section h2,
 body.lotus-organic .lotus-section h3,
 body.lotus-organic .project-story h2,
 body.lotus-organic .project-story h3,
 body.lotus-organic .lotus-section p,
 body.lotus-organic .project-story .story-text p {
-    color: #FFF5F5;
+    color: #FFF8FC;
 }
 
-/* Blush-pink section labels */
+/* Soft pink section labels */
 body.lotus-organic .lotus-eyebrow {
-    color: #F5B5D2;
+    color: #FFD0E5;
 }
 
-/* Dark inset challenge and solution cards */
+/* Darker inset cards for contrast against the gradients */
 body.lotus-organic .lotus-statement,
 body.lotus-organic .lotus-challenge-card,
 body.lotus-organic .lotus-solution-card {
-    background: rgba(30, 10, 16, 0.48);
-    color: #FFF5F5;
-    border-color: rgba(245, 181, 210, 0.3);
+    background: rgba(25, 17, 25, 0.58);
+    color: #FFF8FC;
+    border-color: rgba(255, 208, 229, 0.35);
 }
 
-/* Match the App Experience panel to the rest of the page */
-body.lotus-organic .lotus-experience {
-    background: linear-gradient(
-        135deg,
-        #48252B 0%,
-        #713344 55%,
-        #572832 100%
-    );
-}
-
-/* Captions remain readable */
+/* Keep captions readable */
 body.lotus-organic .lotus-feature-image figcaption,
 body.lotus-organic .story-image > p {
-    color: #FFF0F3;
+    color: #FFF0F7;
 }
-
 
 /* =========================================================
    CLEAN FUTURE NETWORK — REDUCE WATER BOTTLE FEATURE SIZE
