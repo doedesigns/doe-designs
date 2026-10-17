@@ -3,103 +3,200 @@
 /*=========================================================
     DOE DESIGNS PORTFOLIO
     File: design.css
-=========================================================*/
+========================================================= */
 
 
 /*=========================================================
     DESIGN PAGE
-=========================================================*/
+========================================================= */
 
-body.design-page{
-    background:#251036;
+body.design-page {
+    background: #251036;
 }
 
 
 /*=========================================================
     PAGE LAYOUT
-=========================================================*/
+========================================================= */
 
-body.design-page .page-content{
-    display:flex;
-    flex-direction:column;
-    min-height:calc(100vh - 70px);
+body.design-page .page-content {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 70px);
 }
+
 
 /*=========================================================
     DESIGN GRID
-=========================================================*/
+========================================================= */
 
-.design-grid{
-    flex:1;
-    display:grid;
-    grid-template-columns:repeat(3,260px);
-    justify-content:center;
-    align-content:center;
-    gap:60px;
-    width:100%;
-    margin:0 auto;
-    position:relative;
-    z-index:2;
+.design-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 260px);
+    justify-content: center;
+    align-content: center;
+    gap: 60px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
+
 
 /*=========================================================
     DESIGN CARDS
-=========================================================*/
+========================================================= */
 
-.design-card{
-    position:relative;
-    z-index:2;
-    width:260px;
-    height:260px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    border:2px solid rgba(255,255,255,.15);
-    text-decoration:none;
+.design-card {
+    position: relative;
+    z-index: 2;
+    width: 260px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: visible;
+    border: none;
+    text-decoration: none;
+    background: transparent;
+    transition: transform .35s ease;
+}
+
+/* Square project image */
+
+.design-card img {
+    box-sizing: border-box;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+    border: 2px solid rgba(255, 255, 255, .15);
     transition:
         border-color .35s ease,
-        box-shadow .35s ease,
-        transform .35s ease;
+        box-shadow .35s ease;
 }
 
-.design-card img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
+/* Static title beneath the image */
+
+.design-card .card-project-title {
+    display: block;
+    margin: 14px 0 0;
+    color: #00E5FF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: .06em;
+    text-align: center;
 }
 
-.design-card:hover{
-    border-color:#00E5FF;
-    box-shadow:
-        0 0 30px rgba(0,229,255,.40);
-    transform:translateY(-8px);
+/* Card hover */
+
+.design-card:hover {
+    transform: translateY(-8px);
 }
+
+.design-card:hover img {
+    border-color: #00E5FF;
+    box-shadow: 0 0 30px rgba(0, 229, 255, .40);
+}
+
+
+/*=========================================================
+    DELIVERABLES HOVER OVERLAY
+========================================================= */
+
+.design-card .software-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 260px;
+    box-sizing: border-box;
+    background: rgba(0, 229, 255, .78);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: translateY(-100%);
+    transition: transform .6s cubic-bezier(.22, 1, .36, 1);
+    z-index: 3;
+}
+
+.design-card:hover .software-overlay {
+    transform: translateY(0);
+}
+
+.design-card .software-overlay-content {
+    width: 82%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.design-card .software-overlay .project-name {
+    display: none;
+}
+
+.design-card .software-overlay h3 {
+    margin: 0 0 12px;
+    color: #061C2B;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: .18em;
+}
+
+.design-card .software-overlay .software-list {
+    margin: 0;
+    color: #061C2B;
+    font-family: "Jost", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.65;
+    letter-spacing: .02em;
+}
+
+.design-card .software-overlay .software-list.loading {
+    opacity: .70;
+}
+
+.design-card .software-overlay .software-list.error {
+    font-size: 12px;
+    line-height: 1.5;
+}
+
 
 /*=========================================================
     CONTACT
-=========================================================*/
+========================================================= */
 
-.design-page .page-contact-link{
-    margin:35px auto 25px;
+.design-page .page-contact-link {
+    margin: 35px auto 25px;
 }
 
-.design-page .page-contact-link p{
-    color:#ffffff;
-    font-size:18px;
-    letter-spacing:.04em;
+.design-page .page-contact-link p {
+    color: #ffffff;
+    font-size: 18px;
+    letter-spacing: .04em;
 }
+
 
 /*=========================================================
     MOBILE
-=========================================================*/
+========================================================= */
 
-@media (max-width:900px){
-    .design-grid{
-        grid-template-columns:1fr;
-        gap:40px;
-        justify-items:center;
+@media (max-width: 900px) {
+    .design-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        justify-items: center;
     }
+}
 
+@media (max-width: 600px) {
+    .design-card {
+        width: 260px;
+    }
 }

@@ -2,282 +2,246 @@
 
 /*=========================================================
     DOE DESIGNS PORTFOLIO
-
     File: branding.css
-=========================================================*/
+========================================================= */
+
 
 /*=========================================================
     BRANDING PAGE
-=========================================================*/
+========================================================= */
 
-body.branding-page{
-    background:#061C2B;
+body.branding-page {
+    background: #061C2B;
 }
+
 
 /*=========================================================
     BACKGROUND GLOW
-=========================================================*/
+========================================================= */
 
-.branding-effect{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-
+.branding-effect {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
     background:
         radial-gradient(
             ellipse at left center,
-            rgba(0,229,255,.35),
-            rgba(0,229,255,.15) 20%,
+            rgba(0, 229, 255, .35),
+            rgba(0, 229, 255, .15) 20%,
             transparent 55%
         );
-
-    z-index:0;
+    z-index: 0;
 }
+
 
 /*=========================================================
     PAGE LAYOUT
-=========================================================*/
+========================================================= */
 
-body.branding-page .page-content{
-    display:flex;
-    flex-direction:column;
-    min-height:calc(100vh - 70px);
+body.branding-page .page-content {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 70px);
 }
+
 
 /*=========================================================
     BRANDING GRID
-=========================================================*/
+========================================================= */
 
-.branding-grid{
-    flex:1;
-
-    display:grid;
-    grid-template-columns:repeat(3,260px);
-
-    justify-content:center;
-    align-content:center;
-
-    gap:60px;
-
-    width:100%;
-    margin:0 auto;
-
-    position:relative;
-    z-index:2;
+.branding-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 260px);
+    justify-content: center;
+    align-content: center;
+    gap: 60px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 
 /*=========================================================
     BRANDING CARDS
-=========================================================*/
+========================================================= */
 
-.branding-card{
-    width:260px;
-    height:260px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    overflow:hidden;
-    border:2px solid rgba(255,255,255,.15);
-    text-decoration:none;
-    position:relative;
+.branding-card {
+    box-sizing: border-box;
+    width: 260px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: visible;
+    border: none;
+    text-decoration: none;
+    background: transparent;
+    position: relative;
+    transition: transform .35s ease;
+}
+
+/* Square project image */
+
+.branding-card img {
+    box-sizing: border-box;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    display: block;
+    border: 2px solid rgba(255, 255, 255, .15);
     transition:
-        transform .35s ease,
+        transform .5s ease,
         border-color .35s ease,
         box-shadow .35s ease;
 }
 
-.branding-card img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    transition:
-        transform .5s ease;
-}
 
 /*=========================================================
-    BRANDING CARD HOVER
-=========================================================*/
+    STATIC PROJECT TITLE
+========================================================= */
 
-.branding-card:hover{
-    transform:translateY(-8px);
-    border-color:#00E5FF;
-    box-shadow:
-        0 0 30px rgba(0,229,255,.50);
-}
-
-/*=========================================================
-    SOFTWARE HOVER OVERLAY
-=========================================================*/
-
-.software-overlay{
-    position:absolute;
-
-    top:0;
-    left:0;
-
-    width:100%;
-    height:100%;
-
-    /*
-        More transparent than the previous .88.
-        This allows the project image to remain
-        clearly visible underneath the cyan.
-    */
-
-    background:rgba(0,229,255,.68);
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    transform:translateY(-100%);
-    transition:
-        transform .6s cubic-bezier(.22,1,.36,1);
-    z-index:2;
-}
-
-.branding-card:hover .software-overlay{
-    transform:translateY(0);
-}
-
-/*=========================================================
-    SOFTWARE OVERLAY CONTENT
-=========================================================*/
-
-.software-overlay-content{
-    width:82%;
-
-    text-align:center;
-
-    /*
-        Prevents long software lists from feeling
-        cramped against the card edges.
-    */
-
-    padding:10px 0;
+.branding-card .card-project-title {
+    display: block;
+    margin: 14px 0 0;
+    color: #00E5FF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: .06em;
+    text-align: center;
 }
 
 
 /*=========================================================
-    PROJECT TITLE
-=========================================================*/
+    BRANDING CARD HOVER
+========================================================= */
 
-.software-overlay .project-name{
-    margin:0 0 12px;
-    color:#061C2B;
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:24px;
-    font-weight:900;
-    line-height:1.05;
-    letter-spacing:.10em;
-    text-transform:uppercase;
+.branding-card:hover {
+    transform: translateY(-8px);
+}
+
+.branding-card:hover img {
+    border-color: #00E5FF;
+    box-shadow: 0 0 30px rgba(0, 229, 255, .50);
+}
+
+
+/*=========================================================
+    DELIVERABLES HOVER OVERLAY
+========================================================= */
+
+.branding-card .software-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 260px;
+    box-sizing: border-box;
+    background: rgba(0, 229, 255, .68);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: translateY(-100%);
+    transition: transform .6s cubic-bezier(.22, 1, .36, 1);
+    z-index: 3;
+}
+
+.branding-card:hover .software-overlay {
+    transform: translateY(0);
+}
+
+.branding-card .software-overlay-content {
+    width: 82%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* The title is shown beneath the image instead */
+
+.branding-card .software-overlay .project-name {
+    display: none;
 }
 
 
 /*=========================================================
     SOFTWARE HEADING
-=========================================================*/
+========================================================= */
 
-.software-overlay h3{
-    margin:0 0 12px;
-
-    color:#061C2B;
-
-    font-family:"Barlow Condensed",sans-serif;
-
-    font-size:17px;
-
-    font-weight:900;
-
-    line-height:1;
-
-    letter-spacing:.18em;
+.branding-card .software-overlay h3 {
+    margin: 0 0 12px;
+    color: #061C2B;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: .18em;
 }
 
 
 /*=========================================================
     SOFTWARE LIST
-=========================================================*/
+========================================================= */
 
-.software-overlay .software-list{
-    margin:0;
-
-    color:#061C2B;
-
-    font-family:"Jost",sans-serif;
-
-    font-size:14px;
-
-    font-weight:500;
-
-    line-height:1.65;
-
-    letter-spacing:.02em;
+.branding-card .software-overlay .software-list {
+    margin: 0;
+    color: #061C2B;
+    font-family: "Jost", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.65;
+    letter-spacing: .02em;
 }
 
 
 /*=========================================================
     SOFTWARE LOADING / ERROR STATE
-=========================================================*/
+========================================================= */
 
-.software-overlay .software-list.loading,
-.software-overlay .project-name.loading{
-    opacity:.70;
+.branding-card .software-overlay .software-list.loading {
+    opacity: .70;
 }
 
-
-.software-overlay .software-list.error{
-    font-size:12px;
-
-    line-height:1.5;
+.branding-card .software-overlay .software-list.error {
+    font-size: 12px;
+    line-height: 1.5;
 }
 
 
 /*=========================================================
     CONTACT
-=========================================================*/
+========================================================= */
 
-.branding-page .page-contact-link{
-    margin:35px auto 25px;
+.branding-page .page-contact-link {
+    margin: 35px auto 25px;
 }
 
-
-.branding-page .page-contact-link p{
-    color:#ffffff;
-
-    font-family:"Jost",sans-serif;
-
-    font-size:18px;
-
-    font-weight:400;
-
-    letter-spacing:.04em;
+.branding-page .page-contact-link p {
+    color: #ffffff;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: .04em;
 }
 
 
 /*=========================================================
     MOBILE
-=========================================================*/
+========================================================= */
 
-@media (max-width:900px){
-
-    .branding-grid{
-        grid-template-columns:1fr;
-
-        gap:40px;
-
-        justify-items:center;
+@media (max-width: 900px) {
+    .branding-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        justify-items: center;
     }
-
 }
 
-
-@media (max-width:600px){
-
-    .branding-card{
-        width:260px;
-        height:260px;
+@media (max-width: 600px) {
+    .branding-card {
+        width: 260px;
     }
-
 }

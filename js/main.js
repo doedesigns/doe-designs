@@ -18,12 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ============================================
 // HOME PAGE HELLO SPEECH BUBBLE
-//
-// Bubble appears when hovering:
-// - CONTACT ME
-// - the cartoon MP4
-//
-// It does NOT appear automatically.
 // ============================================
 
     if (speechBubble) {
@@ -34,30 +28,23 @@ document.addEventListener("DOMContentLoaded", () => {
         const homeVideo =
             document.querySelector(".home-video");
 
-
         const showHello = () => {
 
             if (
-                window.matchMedia(
-                    "(max-width: 768px)"
-                ).matches
+                window.matchMedia("(max-width: 768px)").matches
             ) {
                 return;
             }
 
             speechBubble.classList.add("show-hello");
             speechBubble.classList.add("wave");
-
         };
-
 
         const hideHello = () => {
 
             speechBubble.classList.remove("wave");
             speechBubble.classList.remove("show-hello");
-
         };
-
 
         if (contactArea) {
 
@@ -70,7 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 "mouseleave",
                 hideHello
             );
-
         }
 
         if (homeVideo) {
@@ -84,7 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 "mouseleave",
                 hideHello
             );
-
         }
     }
 
@@ -95,7 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const pageLinks = document.querySelectorAll(
         'a[href]:not([target="_blank"]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"])'
     );
-
 
     pageLinks.forEach(link => {
 
@@ -110,28 +94,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-// ========================================
-// PORTFOLIO PROJECT CARDS
-// ========================================
-
+            // Portfolio project cards handle their own navigation.
             if (link.hasAttribute("data-project")) {
                 return;
             }
 
-
-// INDEX ENTER PORTFOLIO
             if (link.id === "enterPortfolio") {
                 return;
             }
 
-
             const destination = link.href;
-
 
             if (destination === window.location.href) {
                 return;
             }
-
 
             if (
                 window.matchMedia(
@@ -141,16 +117,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-
             event.preventDefault();
 
             document.body.classList.add("page-leaving");
 
-
             setTimeout(() => {
                 window.location.href = destination;
             }, 500);
-
         });
     });
 
@@ -160,7 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const date =
         document.getElementById("contactDate");
-
 
     if (date) {
 
@@ -182,12 +154,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const footer =
         document.getElementById("footerCopyright");
 
-
     if (footer) {
 
         footer.innerHTML =
             `© ${new Date().getFullYear()} Doe Designs · Portfolio website designed & developed from concept to code by Jen Doehne`;
-
     }
 
 // ============================================
@@ -203,7 +173,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const projectTitleNav =
         document.querySelector(".project-title-nav");
 
-
     if (
         projectPage &&
         navbar &&
@@ -214,15 +183,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (window.scrollY > 80) {
 
-                navbar.classList.add(
-                    "project-scrolled"
-                );
+                navbar.classList.add("project-scrolled");
 
             } else {
 
-                navbar.classList.remove(
-                    "project-scrolled"
-                );
+                navbar.classList.remove("project-scrolled");
             }
         });
     }
@@ -249,8 +214,29 @@ document.addEventListener("DOMContentLoaded", () => {
 // GENERIC PROJECT CARD INFORMATION
 // ============================================
 
-    const projectInfoCache =
-        new Map();
+    const projectInfoCache = new Map();
+
+// ============================================
+// PROJECT CARD TYPE
+//
+// Category cards being updated:
+// - .design-card (UI/UX and Design)
+// - .branding-card
+//
+// Their titles will be static below the images.
+// Their hover overlays will show deliverables only.
+//
+// The index page retains its title + deliverables.
+// Motion cards are intentionally left unchanged.
+// ============================================
+
+    function isCategoryCardWithoutOverlayTitle(card) {
+
+        return (
+            card.classList.contains("design-card") ||
+            card.classList.contains("branding-card")
+        );
+    }
 
 // ============================================
 // CREATE / PREPARE PROJECT OVERLAY
@@ -259,53 +245,50 @@ document.addEventListener("DOMContentLoaded", () => {
     function createSoftwareOverlay(card) {
 
         let overlay =
-            card.querySelector(
-                ".software-overlay"
-            );
+            card.querySelector(".software-overlay");
 
+        if (!overlay) {
 
-        if (overlay) {
+            overlay = document.createElement("div");
+            overlay.className = "software-overlay";
 
-            let content =
-                overlay.querySelector(
-                    ".software-overlay-content"
-                );
+            card.appendChild(overlay);
+        }
 
+        let content =
+            overlay.querySelector(".software-overlay-content");
 
-            if (!content) {
+        if (!content) {
 
-                content =
-                    document.createElement("div");
+            content = document.createElement("div");
+            content.className = "software-overlay-content";
 
-                content.className =
-                    "software-overlay-content";
+            overlay.appendChild(content);
+        }
 
-                overlay.appendChild(content);
+        // Find an existing project title in the overlay.
+        let projectName =
+            content.querySelector(".project-name");
 
+        // UI/UX, Design, and Branding:
+        // remove the title from the hover overlay.
+        if (isCategoryCardWithoutOverlayTitle(card)) {
+
+            if (projectName) {
+                projectName.remove();
             }
 
+        } else {
 
-            let projectName =
-                content.querySelector(
-                    ".project-name"
-                );
-
-
+            // Preserve the existing title behavior for
+            // the index page and other cards, including Motion.
             if (!projectName) {
 
-                projectName =
-                    document.createElement("h2");
+                projectName = document.createElement("h2");
+                projectName.className = "project-name";
+                projectName.textContent = "Loading...";
 
-                projectName.className =
-                    "project-name";
-
-                projectName.textContent =
-                    "Loading...";
-
-
-                const heading =
-                    content.querySelector("h3");
-
+                const heading = content.querySelector("h3");
 
                 if (heading) {
 
@@ -316,70 +299,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 } else {
 
-                    content.appendChild(
-                        projectName
-                    );
-
+                    content.appendChild(projectName);
                 }
-
             }
-
-            let deliverablesList =
-                content.querySelector(
-                    ".software-list"
-                );
-
-
-            if (!deliverablesList) {
-
-                deliverablesList =
-                    document.createElement("p");
-
-                deliverablesList.className =
-                    "software-list loading";
-
-                deliverablesList.textContent =
-                    "Loading...";
-
-                content.appendChild(
-                    deliverablesList
-                );
-
-            }
-
-            return overlay;
-
         }
 
-        overlay =
-            document.createElement("div");
+        // Ensure the Deliverables heading exists.
+        let heading = content.querySelector("h3");
 
-        overlay.className =
-            "software-overlay";
+        if (!heading) {
 
+            heading = document.createElement("h3");
+            heading.textContent = "DELIVERABLES";
 
-        overlay.innerHTML = `
-            <div class="software-overlay-content">
+            content.appendChild(heading);
+        }
 
-                <h2 class="project-name">
-                    Loading...
-                </h2>
+        // Ensure the deliverables list exists.
+        let deliverablesList =
+            content.querySelector(".software-list");
 
-                <h3>
-                    DELIVERABLES
-                </h3>
+        if (!deliverablesList) {
 
-                <p class="software-list loading">
-                    Loading...
-                </p>
+            deliverablesList = document.createElement("p");
 
-            </div>
-        `;
+            deliverablesList.className =
+                "software-list loading";
 
-        card.appendChild(overlay);
+            deliverablesList.textContent = "Loading...";
+
+            content.appendChild(deliverablesList);
+        }
 
         return overlay;
-
     }
 
 // ============================================
@@ -389,25 +341,16 @@ document.addEventListener("DOMContentLoaded", () => {
     function getProjectTitle(projectDocument) {
 
         const title =
-            projectDocument.querySelector(
-                ".project-title h1"
-            );
-
+            projectDocument.querySelector(".project-title h1");
 
         if (!title) {
             return "PROJECT";
         }
 
-
-        const titleClone =
-            title.cloneNode(true);
-
+        const titleClone = title.cloneNode(true);
 
         const titleBreak =
-            titleClone.querySelector(
-                ".title-break"
-            );
-
+            titleClone.querySelector(".title-break");
 
         if (titleBreak) {
             titleBreak.remove();
@@ -418,9 +361,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 .replace(/\s+/g, " ")
                 .trim();
 
-
         return projectName || "PROJECT";
-
     }
 
 // ============================================
@@ -438,18 +379,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         detailBoxes.forEach(box => {
 
-            const heading =
-                box.querySelector("h3");
+            const heading = box.querySelector("h3");
 
             if (
                 heading &&
-                heading.textContent
-                    .trim()
-                    .toUpperCase() === "DELIVERABLES"
+                heading.textContent.trim().toUpperCase() ===
+                    "DELIVERABLES"
             ) {
                 deliverablesBox = box;
             }
-
         });
 
         if (!deliverablesBox) {
@@ -482,13 +420,11 @@ document.addEventListener("DOMContentLoaded", () => {
             return projectInfoCache.get(projectURL);
         }
 
-        const controller =
-            new AbortController();
+        const controller = new AbortController();
 
-        const timeout =
-            setTimeout(() => {
-                controller.abort();
-            }, 7000);
+        const timeout = setTimeout(() => {
+            controller.abort();
+        }, 7000);
 
         try {
 
@@ -514,14 +450,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 throw new Error(
                     `Project page returned ${response.status}`
                 );
-
             }
 
-            const html =
-                await response.text();
+            const html = await response.text();
 
-            const parser =
-                new DOMParser();
+            const parser = new DOMParser();
 
             const projectDocument =
                 parser.parseFromString(
@@ -530,14 +463,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 );
 
             const projectName =
-                getProjectTitle(
-                    projectDocument
-                );
+                getProjectTitle(projectDocument);
 
             const deliverables =
-                getDeliverablesList(
-                    projectDocument
-                );
+                getDeliverablesList(projectDocument);
 
             const projectInfo = {
                 title: projectName,
@@ -569,33 +498,23 @@ document.addEventListener("DOMContentLoaded", () => {
 // SHOW PROJECT INFORMATION
 // ============================================
 
-    function showProjectInfo(
-        card,
-        projectInfo
-    ) {
+    function showProjectInfo(card, projectInfo) {
 
-        const overlay =
-            createSoftwareOverlay(card);
-
+        const overlay = createSoftwareOverlay(card);
 
         const projectName =
-            overlay.querySelector(
-                ".project-name"
-            );
+            overlay.querySelector(".project-name");
 
-
-        const deliverablesList =
-            overlay.querySelector(
-                ".software-list"
-            );
-
-
+        // Update a title only when this card's overlay
+        // is supposed to display one.
         if (projectName) {
 
             projectName.textContent =
                 projectInfo.title;
-
         }
+
+        const deliverablesList =
+            overlay.querySelector(".software-list");
 
         if (deliverablesList) {
 
@@ -614,14 +533,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 deliverablesList.textContent =
                     "Deliverables information unavailable.";
 
-                deliverablesList.classList.remove(
-                    "loading"
-                );
-
-                deliverablesList.classList.add(
-                    "error"
-                );
-
+                deliverablesList.classList.remove("loading");
+                deliverablesList.classList.add("error");
             }
         }
     }
@@ -632,46 +545,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showProjectInfoError(card) {
 
-        const overlay =
-            createSoftwareOverlay(card);
-
+        const overlay = createSoftwareOverlay(card);
 
         const projectName =
-            overlay.querySelector(
-                ".project-name"
-            );
+            overlay.querySelector(".project-name");
 
-        const deliverablesList =
-            overlay.querySelector(
-                ".software-list"
-            );
-
-
+        // Keep the existing fallback title for cards
+        // that display a title in their overlay.
         if (projectName) {
 
-            const image =
-                card.querySelector("img");
+            const image = card.querySelector("img");
 
             projectName.textContent =
                 image && image.alt
                     ? image.alt
                     : "PROJECT";
-
         }
+
+        const deliverablesList =
+            overlay.querySelector(".software-list");
 
         if (deliverablesList) {
 
             deliverablesList.textContent =
                 "Deliverables information unavailable.";
 
-            deliverablesList.classList.remove(
-                "loading"
-            );
-
-            deliverablesList.classList.add(
-                "error"
-            );
-
+            deliverablesList.classList.remove("loading");
+            deliverablesList.classList.add("error");
         }
     }
 
@@ -680,16 +580,11 @@ document.addEventListener("DOMContentLoaded", () => {
 // ============================================
 
     const projectCards =
-        document.querySelectorAll(
-            "[data-project]"
-        );
-
+        document.querySelectorAll("[data-project]");
 
     projectCards.forEach(card => {
 
-        const projectURL =
-            card.dataset.project;
-
+        const projectURL = card.dataset.project;
 
         if (!projectURL) {
             return;
@@ -697,38 +592,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         createSoftwareOverlay(card);
 
-
         loadProjectInfo(projectURL)
-            .then(
-                projectInfo => {
+            .then(projectInfo => {
 
-                    showProjectInfo(
-                        card,
-                        projectInfo
-                    );
+                showProjectInfo(
+                    card,
+                    projectInfo
+                );
+            })
+            .catch(() => {
 
-                }
-            )
-            .catch(
-                () => {
-
-                    showProjectInfoError(
-                        card
-                    );
-
-                }
-            );
+                showProjectInfoError(card);
+            });
     });
 
 // ============================================
 // MOTION CARD HOVER VIDEO PREVIEWS
+// UNCHANGED
 // ============================================
 
     const motionCards =
         document.querySelectorAll(
             ".motion-card, .motion-home-card"
         );
-
 
     motionCards.forEach(card => {
 
@@ -737,111 +623,74 @@ document.addEventListener("DOMContentLoaded", () => {
                 ".motion-video, .home-motion-video"
             );
 
-
         const fallback =
             card.querySelector(
                 ".motion-still, .home-motion-fallback"
             );
 
-
         if (!video) {
             return;
         }
 
-        card.addEventListener(
-            "mouseenter",
-            () => {
+        card.addEventListener("mouseenter", () => {
 
-                if (
-                    fallback
-                ) {
-
-                    fallback.style.opacity =
-                        "0";
-                }
-
-                video.style.opacity =
-                    "1";
-
-                const startTime =
-                    Number(
-                        video.dataset.start || 0
-                    );
-
-                try {
-
-                    video.currentTime =
-                        startTime;
-
-                } catch (error) {
-                }
-
-                const playPromise =
-                    video.play();
-
-
-                if (
-                    playPromise &&
-                    typeof playPromise.catch ===
-                        "function"
-                ) {
-
-                    playPromise.catch(
-                        error => {
-
-                            console.warn(
-                                "Motion preview could not play:",
-                                error
-                            );
-
-                        }
-                    );
-
-                }
-
+            if (fallback) {
+                fallback.style.opacity = "0";
             }
-        );
 
-        card.addEventListener(
-            "mouseleave",
-            () => {
+            video.style.opacity = "1";
 
-                video.pause();
+            const startTime =
+                Number(video.dataset.start || 0);
 
-                const startTime =
-                    Number(
-                        video.dataset.start || 0
-                    );
-
-
-                try {
-
-                    video.currentTime =
-                        startTime;
-
-                } catch (error) {
-                }
-
-                video.style.opacity =
-                    "0";
-
-                if (
-                    fallback
-                ) {
-
-                    fallback.style.opacity =
-                        "1";
-
-                }
+            try {
+                video.currentTime = startTime;
+            } catch (error) {
+                // Keep the existing preview behavior.
             }
-        );
 
+            const playPromise = video.play();
+
+            if (
+                playPromise &&
+                typeof playPromise.catch === "function"
+            ) {
+
+                playPromise.catch(error => {
+
+                    console.warn(
+                        "Motion preview could not play:",
+                        error
+                    );
+                });
+            }
+        });
+
+        card.addEventListener("mouseleave", () => {
+
+            video.pause();
+
+            const startTime =
+                Number(video.dataset.start || 0);
+
+            try {
+                video.currentTime = startTime;
+            } catch (error) {
+                // Keep the existing preview behavior.
+            }
+
+            video.style.opacity = "0";
+
+            if (fallback) {
+                fallback.style.opacity = "1";
+            }
+        });
     });
 
 // ============================================
 // YOUTUBE MOTION PREVIEWS
-//
-// Works on the Motion page and homepage.
+// WORKS ON THE MOTION PAGE AND HOMEPAGE
+// UNCHANGED
 // ============================================
 
     const youtubeCards =
@@ -849,220 +698,149 @@ document.addEventListener("DOMContentLoaded", () => {
             ".youtube-motion-card, .motion-home-card[data-video-id]"
         );
 
-
     if (youtubeCards.length) {
 
-        const youtubeScript =
-            document.createElement("script");
-
+        const youtubeScript = document.createElement("script");
 
         youtubeScript.src =
             "https://www.youtube.com/iframe_api";
 
+        document.head.appendChild(youtubeScript);
 
-        document.head.appendChild(
-            youtubeScript
-        );
+        const youtubePlayers = new Map();
 
+        let youtubeAPIReady = false;
 
-        const youtubePlayers =
-            new Map();
+        window.onYouTubeIframeAPIReady = function() {
 
+            youtubeAPIReady = true;
 
-        let youtubeAPIReady =
-            false;
+            youtubeCards.forEach(card => {
 
+                let preview =
+                    card.querySelector(
+                        ".youtube-motion-preview"
+                    );
 
-        window.onYouTubeIframeAPIReady =
-            function () {
+                if (!preview) {
 
-                youtubeAPIReady =
-                    true;
-
-
-                youtubeCards.forEach(
-                    card => {
-
-                        let preview =
-                            card.querySelector(
-                                ".youtube-motion-preview"
-                            );
-
-                        if (!preview) {
-
-                            const previewImage =
-                                card.querySelector(
-                                    ".home-motion-fallback"
-                                );
-
-
-                            if (!previewImage) {
-                                return;
-                            }
-
-
-                            preview =
-                                document.createElement(
-                                    "div"
-                                );
-
-
-                            preview.className =
-                                "youtube-motion-preview";
-
-
-                            preview.dataset.videoId =
-                                card.dataset.videoId;
-
-
-                            preview.dataset.start =
-                                card.dataset.start || 0;
-
-
-                            const parent =
-                                previewImage.parentElement;
-
-
-                            parent.appendChild(
-                                preview
-                            );
-
-                        }
-
-                        const videoId =
-                            preview.dataset.videoId ||
-                            card.dataset.videoId;
-
-
-                        const startTime =
-                            Number(
-                                preview.dataset.start ||
-                                card.dataset.start ||
-                                0
-                            );
-
-
-                        if (!videoId) {
-                            return;
-                        }
-
-
-                        const player =
-                            new YT.Player(
-                                preview,
-                                {
-                                    videoId:
-                                        videoId,
-
-                                    playerVars: {
-                                        autoplay: 0,
-                                        controls: 0,
-                                        playsinline: 1,
-                                        rel: 0,
-                                        modestbranding: 1,
-                                        origin:
-                                            window.location.origin
-                                    },
-
-                                    events: {
-
-                                        onReady:
-                                            function(event) {
-
-                                                event.target.mute();
-
-                                                event.target.seekTo(
-                                                    startTime,
-                                                    true
-                                                );
-
-                                            }
-                                    }
-
-                                }
-                            );
-
-                        youtubePlayers.set(
-                            card,
-                            {
-                                player:
-                                    player,
-                                start:
-                                    startTime
-                            }
+                    const previewImage =
+                        card.querySelector(
+                            ".home-motion-fallback"
                         );
 
-                        card.addEventListener(
-                            "mouseenter",
-                            () => {
+                    if (!previewImage) {
+                        return;
+                    }
 
-                                const playerData =
-                                    youtubePlayers.get(
-                                        card
-                                    );
+                    preview = document.createElement("div");
 
+                    preview.className =
+                        "youtube-motion-preview";
 
-                                if (
-                                    !playerData
-                                ) {
-                                    return;
-                                }
+                    preview.dataset.videoId =
+                        card.dataset.videoId;
 
+                    preview.dataset.start =
+                        card.dataset.start || 0;
 
-                                playerData.player.mute();
+                    const parent = previewImage.parentElement;
 
+                    parent.appendChild(preview);
+                }
 
-                                playerData.player.seekTo(
-                                    playerData.start,
+                const videoId =
+                    preview.dataset.videoId ||
+                    card.dataset.videoId;
+
+                const startTime =
+                    Number(
+                        preview.dataset.start ||
+                        card.dataset.start ||
+                        0
+                    );
+
+                if (!videoId) {
+                    return;
+                }
+
+                const player = new YT.Player(
+                    preview,
+                    {
+                        videoId: videoId,
+
+                        playerVars: {
+                            autoplay: 0,
+                            controls: 0,
+                            playsinline: 1,
+                            rel: 0,
+                            modestbranding: 1,
+                            origin: window.location.origin
+                        },
+
+                        events: {
+
+                            onReady: function(event) {
+
+                                event.target.mute();
+
+                                event.target.seekTo(
+                                    startTime,
                                     true
                                 );
-
-
-                                playerData.player.playVideo();
-
                             }
-                        );
-
-
-                        card.addEventListener(
-                            "mouseleave",
-                            () => {
-
-                                const playerData =
-                                    youtubePlayers.get(
-                                        card
-                                    );
-
-
-                                if (
-                                    !playerData
-                                ) {
-                                    return;
-                                }
-
-                                playerData.player.pauseVideo();
-
-
-                                playerData.player.seekTo(
-                                    playerData.start,
-                                    true
-                                );
-
-                            }
-                        );
-
+                        }
                     }
                 );
 
-            };
+                youtubePlayers.set(
+                    card,
+                    {
+                        player: player,
+                        start: startTime
+                    }
+                );
 
-        if (
-            window.YT &&
-            window.YT.Player
-        ) {
+                card.addEventListener("mouseenter", () => {
 
+                    const playerData =
+                        youtubePlayers.get(card);
+
+                    if (!playerData) {
+                        return;
+                    }
+
+                    playerData.player.mute();
+
+                    playerData.player.seekTo(
+                        playerData.start,
+                        true
+                    );
+
+                    playerData.player.playVideo();
+                });
+
+                card.addEventListener("mouseleave", () => {
+
+                    const playerData =
+                        youtubePlayers.get(card);
+
+                    if (!playerData) {
+                        return;
+                    }
+
+                    playerData.player.pauseVideo();
+
+                    playerData.player.seekTo(
+                        playerData.start,
+                        true
+                    );
+                });
+            });
+        };
+
+        if (window.YT && window.YT.Player) {
             window.onYouTubeIframeAPIReady();
-
         }
     }
 
@@ -1071,39 +849,25 @@ document.addEventListener("DOMContentLoaded", () => {
 // ============================================
 
     const menuToggle =
-        document.querySelector(
-            ".menu-toggle"
-        );
+        document.querySelector(".menu-toggle");
 
     const navLinks =
-        document.querySelector(
-            ".nav-links"
-        );
+        document.querySelector(".nav-links");
 
-    if (
-        menuToggle &&
-        navLinks
-    ) {
+    if (menuToggle && navLinks) {
 
-        menuToggle.addEventListener(
-            "click",
-            () => {
+        menuToggle.addEventListener("click", () => {
 
-                const isOpen =
-                    menuToggle.classList.toggle(
-                        "active"
-                    );
+            const isOpen =
+                menuToggle.classList.toggle("active");
 
-                navLinks.classList.toggle(
-                    "mobile-open"
-                );
+            navLinks.classList.toggle("mobile-open");
 
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    isOpen
-                );
-            }
-        );
+            menuToggle.setAttribute(
+                "aria-expanded",
+                isOpen
+            );
+        });
     }
 
 // ============================================
@@ -1111,10 +875,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // ============================================
 
     const portfolioButton =
-        document.getElementById(
-            "enterPortfolio"
-        );
-
+        document.getElementById("enterPortfolio");
 
     if (portfolioButton) {
 
@@ -1150,19 +911,15 @@ document.addEventListener("DOMContentLoaded", () => {
 // RESTORE HOME PAGE AFTER BROWSER BACK
 // ============================================
 
-    window.addEventListener(
-        "pageshow",
-        function() {
+    window.addEventListener("pageshow", function() {
 
-            document.body.classList.remove(
-                "entering-portfolio"
-            );
+        document.body.classList.remove(
+            "entering-portfolio"
+        );
 
-            document.body.classList.remove(
-                "page-leaving"
-            );
-
-        }
-    );
+        document.body.classList.remove(
+            "page-leaving"
+        );
+    });
 
 });

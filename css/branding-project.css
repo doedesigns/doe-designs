@@ -4627,7 +4627,59 @@ body.deets-page {
 .deets-page .deets-text-link {
     color: #E8E45C;
 }
+ 
+/* MY DEETS — FINAL SUMMARY BOX FIX */
 
+.deets-page .project-details .detail-box {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 12px 0 0 !important;
+}
+
+.deets-page .project-details {
+    gap: 28px;
+}
+
+.deets-page .project-details .detail-box h3 {
+    color: #E8E45C;
+}
+
+.deets-page .project-details .detail-box p {
+    color: #FFFFFF;
+}
+
+
+/* MY DEETS — CATEGORY ICON SIZING */
+
+.deets-page .deets-category-orb {
+    flex-shrink: 0;
+    width: 78px;
+    height: 78px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.deets-page .deets-category-orb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    border: none;
+    box-shadow: none;
+}
+
+/* MY DEETS — LIFE-STAGE SPACING */
+
+.deets-page .deets-life-feature {
+    margin-bottom: 56px;
+}
+
+.deets-page .deets-life-grid {
+    margin-top: 0;
+}
 
 /*=========================================================
 MOBILE
