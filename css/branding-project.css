@@ -3955,6 +3955,291 @@ body.deets-page {
     }
 }
 
+/* =========================================================
+   MY DEETS — LAYOUT AND TYPOGRAPHY REFINEMENTS
+   Add this block at the very bottom of branding-project.css
+   ========================================================= */
+
+/* 1. PROJECT TITLE COLORS */
+
+.deets-page .project-title h1 {
+    color: #00E5FF;
+}
+
+.deets-page .project-title .title-break {
+    color: #FFFFFF;
+}
+
+
+/* 2. SHARED PROJECT SUMMARY — REMOVE THE FOUR CARDS */
+
+.project-details {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.project-details .detail-box {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0 12px 0 0;
+}
+
+.project-details .detail-box h3 {
+    margin-bottom: 12px;
+    letter-spacing: 0.12em;
+}
+
+.project-details .detail-box p {
+    margin: 5px 0;
+}
+
+
+/* 3. LOGO ABOVE THE FULL-WIDTH INTRODUCTION */
+
+.deets-page .deets-intro-logo {
+    width: min(230px, 45%);
+    max-width: 230px;
+    margin: 36px auto 22px;
+}
+
+.deets-page .deets-intro-logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.deets-page .deets-intro {
+    display: block;
+    width: 100%;
+}
+
+.deets-page .deets-intro-copy {
+    width: 100%;
+    max-width: none;
+}
+
+.deets-page .deets-intro-copy > p {
+    margin-bottom: 22px;
+}
+
+.deets-page .deets-intro-copy > p:last-of-type {
+    margin-bottom: 26px;
+}
+
+
+/* 4. MORE LETTER SPACING FOR DISPLAY HEADINGS */
+
+.deets-page h2 {
+    letter-spacing: 0.045em;
+    line-height: 1.16;
+}
+
+.deets-page h3 {
+    letter-spacing: 0.035em;
+    line-height: 1.25;
+}
+
+.deets-page .deets-prototype-copy h2,
+.deets-page .deets-system-copy h2,
+.deets-page .deets-settings-copy h2 {
+    letter-spacing: 0.055em;
+}
+
+
+/* 5. REDUCE THE DASHBOARD IMAGE */
+
+.deets-page .deets-screen-feature {
+    align-items: center;
+}
+
+.deets-page .deets-screen-feature .deets-screen-image {
+    width: 36%;
+    max-width: 360px;
+    margin-inline: auto;
+}
+
+.deets-page .deets-screen-feature .deets-screen-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* REDUCE THE FINANCES AND IDENTIFICATION IMAGES */
+
+.deets-page .deets-screen-card .deets-screen-image {
+    width: 50%;
+    max-width: 300px;
+    margin: 0 auto 24px;
+}
+
+.deets-page .deets-screen-card .deets-screen-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* 6. DESIGN SYSTEM PANEL — CENTERED PRESENTATION */
+
+.deets-page .deets-system-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+}
+
+.deets-page .deets-system-copy {
+    width: 100%;
+    max-width: 760px;
+}
+
+.deets-page .deets-system-copy h2 {
+    margin-inline: auto;
+}
+
+.deets-page .deets-system-copy > p:not(.deets-eyebrow) {
+    max-width: 700px;
+    margin: 0 auto 18px;
+    line-height: 1.8;
+}
+
+.deets-page .deets-system-image {
+    width: 88%;
+    max-width: 1000px;
+    margin-inline: auto;
+}
+
+.deets-page .deets-system-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* 7. LIFE-STAGE ILLUSTRATION — KEEP IT SUPPORTING THE STORY */
+
+.deets-page .deets-life-illustration {
+    width: 72%;
+    max-width: 850px;
+    margin: 32px auto;
+}
+
+.deets-page .deets-life-illustration img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* 8. SETTINGS PANEL — MATCH THE DESIGN SYSTEM PANEL */
+
+.deets-page .deets-settings-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+}
+
+.deets-page .deets-settings-copy {
+    width: 100%;
+    max-width: 760px;
+}
+
+.deets-page .deets-settings-copy h2 {
+    margin-inline: auto;
+}
+
+.deets-page .deets-settings-copy > p {
+    max-width: 700px;
+    margin: 0 auto 18px;
+    line-height: 1.8;
+}
+
+.deets-page .deets-settings-image {
+    width: 70%;
+    max-width: 720px;
+    margin-inline: auto;
+}
+
+.deets-page .deets-settings-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* MOBILE ADJUSTMENTS */
+
+@media (max-width: 850px) {
+    .project-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 24px;
+    }
+
+    .deets-page .deets-screen-feature .deets-screen-image {
+        width: 55%;
+    }
+
+    .deets-page .deets-screen-card .deets-screen-image {
+        width: 65%;
+    }
+
+    .deets-page .deets-life-illustration {
+        width: 90%;
+    }
+
+    .deets-page .deets-system-image {
+        width: 100%;
+    }
+
+    .deets-page .deets-settings-image {
+        width: 85%;
+    }
+}
+
+@media (max-width: 600px) {
+    .project-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px 16px;
+    }
+
+    .project-details .detail-box {
+        padding-right: 0;
+    }
+
+    .deets-page .deets-intro-logo {
+        width: 180px;
+        max-width: 55%;
+    }
+
+    .deets-page h2 {
+        letter-spacing: 0.035em;
+    }
+
+    .deets-page .deets-screen-feature .deets-screen-image {
+        width: 70%;
+    }
+
+    .deets-page .deets-screen-card .deets-screen-image {
+        width: 75%;
+    }
+
+    .deets-page .deets-life-illustration {
+        width: 100%;
+    }
+
+    .deets-page .deets-settings-image {
+        width: 100%;
+    }
+}
+
+
 /*=========================================================
 MOBILE
 =========================================================*/
