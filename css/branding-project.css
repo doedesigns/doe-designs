@@ -2905,6 +2905,30 @@ body.lotus-organic .lotus-contact > p {
 
 
 /* =========================================================
+   LOTUS LINGO — FINAL HEADING & PROTOTYPE CONTRAST FIX
+   Add at the VERY BOTTOM of branding-project.css
+   ========================================================= */
+
+/* Make all main section headings share one bright color */
+body.lotus-organic .lotus-overview h2,
+body.lotus-organic .lotus-challenge .lotus-section-heading h2,
+body.lotus-organic .lotus-prototype .lotus-section-heading h2,
+body.lotus-organic .lotus-experience .lotus-section-heading h2,
+body.lotus-organic .lotus-brand .lotus-section-heading h2 {
+    color: #E6F5FF !important;
+}
+
+/* Make the prototype introduction and its overlay text white */
+body.lotus-organic .lotus-prototype .lotus-section-heading p {
+    color: #FFFFFF !important;
+}
+
+body.lotus-organic .lotus-prototype-overlay {
+    color: #FFFFFF !important;
+}
+
+
+/* =========================================================
    CLEAN FUTURE NETWORK — REDUCE WATER BOTTLE FEATURE SIZE
    Applies only to the first feature figure in Brand in Action
    ========================================================= */
