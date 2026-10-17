@@ -2950,6 +2950,136 @@ body.lotus-organic .lotus-section-heading h2::after {
 
 
 /* =========================================================
+   LOTUS LINGO — LOTUS ART & HANDWRITTEN PROTOTYPE CALLOUT
+   ========================================================= */
+
+/* Decorative lotus artwork */
+body.lotus-organic .lotus-decoration {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    z-index: 0;
+    width: clamp(75px, 10vw, 125px);
+    height: auto;
+    color: #FFD0E5;
+    opacity: 0.28;
+    pointer-events: none;
+}
+
+/* Keep section content above decorative artwork */
+body.lotus-organic .lotus-overview,
+body.lotus-organic .lotus-challenge,
+body.lotus-organic .lotus-brand {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Don't let decorative flowers cover text */
+body.lotus-organic .lotus-overview .story-text,
+body.lotus-organic .lotus-overview .story-image,
+body.lotus-organic .lotus-challenge .lotus-section-heading,
+body.lotus-organic .lotus-challenge .lotus-challenge-grid,
+body.lotus-organic .lotus-brand .lotus-section-heading,
+body.lotus-organic .lotus-brand .lotus-logo-animation {
+    position: relative;
+    z-index: 1;
+}
+
+/* Image and handwritten callout side by side */
+body.lotus-organic .lotus-prototype-showcase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(24px, 5vw, 64px);
+    width: 100%;
+    margin: 30px auto 18px;
+}
+
+/* Override the older centered-image rules */
+body.lotus-organic .lotus-prototype .lotus-prototype-showcase
+.prototype-image-link {
+    flex: 0 1 240px;
+    width: 240px;
+    min-width: 0;
+    margin: 0;
+}
+
+/* Handwritten clickable callout */
+body.lotus-organic .lotus-prototype-callout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 220px;
+    gap: 0;
+    color: #FFD0E5;
+    font-family: "Caveat", cursive;
+    font-size: clamp(25px, 3vw, 34px);
+    font-weight: 600;
+    line-height: 1.1;
+    text-align: center;
+    text-decoration: none;
+    transform: rotate(-3deg);
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+body.lotus-organic .lotus-curved-arrow {
+    display: block;
+    width: 120px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 4px;
+    color: #FFD0E5;
+}
+
+body.lotus-organic .lotus-prototype-callout:hover {
+    color: #FFFFFF;
+    transform: rotate(0deg) translateY(-2px);
+}
+
+body.lotus-organic .lotus-prototype-callout:hover .lotus-curved-arrow {
+    color: #FFFFFF;
+}
+
+/* Mobile: stack the image and callout comfortably */
+@media (max-width: 560px) {
+    body.lotus-organic .lotus-prototype-showcase {
+        flex-direction: column;
+        gap: 16px;
+        margin-top: 24px;
+    }
+
+    body.lotus-organic .lotus-prototype .lotus-prototype-showcase
+    .prototype-image-link {
+        flex: none;
+        width: min(75%, 240px);
+        max-width: 240px;
+    }
+
+    body.lotus-organic .lotus-prototype-callout {
+        flex: none;
+        width: 100%;
+        max-width: 240px;
+        font-size: 29px;
+        transform: none;
+    }
+
+    body.lotus-organic .lotus-curved-arrow {
+        width: 90px;
+        transform: rotate(75deg);
+        margin-bottom: 10px;
+    }
+
+    body.lotus-organic .lotus-decoration {
+        top: 8px;
+        right: 8px;
+        width: 65px;
+        opacity: 0.2;
+    }
+}
+
+
+/* =========================================================
    CLEAN FUTURE NETWORK — REDUCE WATER BOTTLE FEATURE SIZE
    Applies only to the first feature figure in Brand in Action
    ========================================================= */
