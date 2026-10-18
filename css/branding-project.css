@@ -1534,7 +1534,6 @@ PROJECT FOOTER LINK
     object-fit: contain;
 }
 
-
 /* =========================================================
    CLEAN FUTURE NETWORK — ORGANIC CASE STUDY
    Scoped to .clean-organic so other projects stay unchanged
@@ -3389,6 +3388,33 @@ body.lotus-organic .project-year {
     color: #F3B7D5;
 }
 
+/* LOTUS LINGO — CAPTIONS, NAV TITLE & SUMMARY HEADINGS */
+
+body.lotus-organic .story-image > p,
+body.lotus-organic .lotus-feature-image figcaption,
+body.lotus-organic .lotus-games-figure figcaption,
+body.lotus-organic .lotus-logo-animation figcaption {
+    color: #FFFFFF !important;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+body.lotus-organic .project-title-nav h1 {
+    color: #00E5FF !important;
+}
+
+body.lotus-organic .lotus-details .detail-box h3 {
+    color: #F3B7D5 !important;
+    font-size: 18px;
+}
+
+/* Keep the summary area free of boxes */
+body.lotus-organic .lotus-details .detail-box {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
 /* =========================================================
    CLEAN FUTURE NETWORK — REDUCE WATER BOTTLE FEATURE SIZE
    Applies only to the first feature figure in Brand in Action
@@ -3489,7 +3515,6 @@ body.lotus-organic .project-year {
     font-size: inherit;
     line-height: inherit;
 }
-
 
 /* =========================================================
    MY DEETS — CONSOLIDATED PAGE STYLES
@@ -5335,6 +5360,60 @@ body.deets-page {
         grid-row: 2;
         justify-self: center;
         max-width: 300px;
+    }
+}
+
+/* MY DEETS — TITLE, SUBTITLE & PROTOTYPE CTA */
+
+body.deets-page .project-title h1,
+body.deets-page .project-title-nav h1 {
+    color: #00E5FF !important;
+}
+
+body.deets-page .project-title .title-break {
+    color: #E8E45C !important;
+}
+
+/* Make the prototype action distinct */
+body.deets-page .deets-prototype-copy .enter-button {
+    color: #302632 !important;
+    background: #E8E45C !important;
+    border: 1px solid #E8E45C;
+    font-weight: 600;
+}
+
+body.deets-page .deets-prototype-copy .enter-button:hover {
+    color: #FFFFFF !important;
+    background: #866F84 !important;
+    border-color: #E8E45C;
+}
+
+/* DESIGN SYSTEM — TEXT AND IMAGE SIDE BY SIDE */
+
+body.deets-page .deets-system-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 64px);
+}
+
+body.deets-page .deets-system-copy,
+body.deets-page .deets-system-image {
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+}
+
+body.deets-page .deets-system-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 760px) {
+    body.deets-page .deets-system-section {
+        grid-template-columns: 1fr;
+        gap: 28px;
     }
 }
 
