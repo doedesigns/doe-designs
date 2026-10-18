@@ -6,16 +6,16 @@
 
     <title>Doe Designs | Graphic Designer</title>
 
-    <!-- Google Fonts -->
+<!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Site CSS -->
+<!-- Site CSS -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/home.css">
 
-    <!-- Google Analytics -->
+<!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KJK785TLB8"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -24,7 +24,7 @@
         gtag('config', 'G-KJK785TLB8');
     </script>
 
-    <!-- Microsoft Clarity -->
+<!-- Microsoft Clarity -->
     <script>
         (function(c,l,a,r,i,t,y){
             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -38,8 +38,8 @@
 
     <canvas id="dust"></canvas>
 
-    <!-- NAVIGATION -->
-    <header>
+<!-- NAVIGATION -->
+<header>
         <nav class="navbar">
 
             <a href="index.html" class="logo">
@@ -65,37 +65,42 @@
             </ul>
 
         </nav>
-    </header>
+</header>
 
-    <main class="home-content">
+<main class="home-content">
 
-        <!-- INTRO -->
-        <section class="home-intro">
 
-            <img
-                src="logo/doe-designs-logo.jpg"
-                alt="Doe Designs"
-                class="hero-logo"
-                id="heroLogo">
+<!-- INTRO -->
+<section class="home-intro">
 
-            <p class="hero-subtitle">GRAPHIC DESIGNER</p>
+    <div class="home-intro-logo">
+        <img
+            src="logo/doe-designs-logo.jpg"
+            alt="Doe Designs"
+            class="hero-logo"
+            id="heroLogo">
+    </div>
 
-            <p class="hero-intro">
-                An attorney turned graphic designer, I pair 20+ years
-                of professional experience with a strategist’s eye
-                and a designer’s curiosity—turning complex ideas into
-                clear, purposeful visual experiences and meaningful designs.
-            </p>
+    <div class="home-intro-copy">
+        <p class="hero-subtitle">GRAPHIC DESIGNER</p>
 
-        </section>
+        <p class="hero-intro">
+            An attorney turned graphic designer, I pair 20+ years of
+            professional experience with a strategist’s eye and a
+            designer’s curiosity—turning complex ideas into clear,
+            purposeful visual experiences and meaningful designs.
+        </p>
+    </div>
 
-        <!-- SINGLE PROJECT SHOWCASE -->
-        <section class="home-project-grid"
+</section>
+
+<!-- SINGLE PROJECT SHOWCASE -->
+<section class="home-project-grid"
                  aria-label="Selected portfolio projects">
 
             <div class="home-project-showcase" id="homeProjectShowcase">
 
-                <!-- CATEGORY TITLES -->
+<!-- CATEGORY TITLES -->
                 <div class="home-category-tabs"
                      role="tablist"
                      aria-label="Project categories">
@@ -141,12 +146,13 @@
                     </button>
 
                 </div>
+				<div class="home-category-track" aria-hidden="true"></div>
 
-                <!-- PROJECT PANELS -->
+<!-- PROJECT PANELS -->
                 <div class="home-project-stage">
 
-                    <!-- UI/UX -->
-                    <section class="home-project-section home-project-panel is-active initial-entry"
+<!-- UI/UX -->
+<section class="home-project-section home-project-panel is-active initial-entry"
                              data-category="uiux"
                              id="panel-uiux"
                              role="tabpanel"
@@ -154,57 +160,57 @@
                              aria-hidden="false">
 
                         <div class="home-project-row">
+							
+<!-- Clean Future Network -->
+						<a href="ui-design-projects/clean-future.html"
+						   class="home-project-card"
+						   data-project="ui-design-projects/clean-future.html">
 
-                            <!-- Phasepoint Technologies -->
-                            <a href="ui-design-projects/chrono.html"
-                               class="home-project-card"
-                               data-project="ui-design-projects/chrono.html">
+							<img
+								src="images/ui/clean/2.6.7-clean-website-square.jpg"
+								alt="Clean Future Network - Website Design and Development">
 
-                                <img
-                                    src="images/ui/chrono/4.1.2-ppt-computer-mockup.jpg"
-                                    alt="Phasepoint Technologies - Webpage Mockup">
+							<div class="software-overlay">
+								<div class="software-overlay-content">
+									<h3>DELIVERABLES</h3>
+									<p class="software-list">Loading...</p>
+								</div>
+							</div>
+						</a>
 
-                                <div class="software-overlay">
-                                    <div class="software-overlay-content">
-                                        <h3>DELIVERABLES</h3>
-                                        <p class="software-list">Loading...</p>
-                                    </div>
-                                </div>
-                            </a>
+<!-- Phasepoint Technologies -->
+						<a href="ui-design-projects/chrono.html"
+						   class="home-project-card"
+						   data-project="ui-design-projects/chrono.html">
 
-                            <!-- My Deets -->
-                            <a href="ui-design-projects/my-deets.html"
-                               class="home-project-card"
-                               data-project="ui-design-projects/my-deets.html">
+							<img
+								src="images/ui/chrono/4.1.2-ppt-computer-mockup.jpg"
+								alt="Phasepoint Technologies - Webpage Mockup">
 
-                                <img
-                                    src="images/ui/my-deets/2.2.9-deets-multi-mockup.jpg"
-                                    alt="My Deets - Phone App Mockup">
+							<div class="software-overlay">
+								<div class="software-overlay-content">
+									<h3>DELIVERABLES</h3>
+									<p class="software-list">Loading...</p>
+								</div>
+							</div>
+						</a>
 
-                                <div class="software-overlay">
-                                    <div class="software-overlay-content">
-                                        <h3>DELIVERABLES</h3>
-                                        <p class="software-list">Loading...</p>
-                                    </div>
-                                </div>
-                            </a>
+<!-- My Deets -->
+						<a href="ui-design-projects/my-deets.html"
+						   class="home-project-card"
+						   data-project="ui-design-projects/my-deets.html">
 
-                            <!-- Clean Future Network -->
-                            <a href="ui-design-projects/clean-future.html"
-                               class="home-project-card"
-                               data-project="ui-design-projects/clean-future.html">
+							<img
+								src="images/ui/my-deets/2.2.9-deets-multi-mockup.jpg"
+								alt="My Deets - Phone App Mockup">
 
-                                <img
-                                    src="images/ui/clean/2.6.7-clean-website-square.jpg"
-                                    alt="Clean Future Network - Website Design and Development">
-
-                                <div class="software-overlay">
-                                    <div class="software-overlay-content">
-                                        <h3>DELIVERABLES</h3>
-                                        <p class="software-list">Loading...</p>
-                                    </div>
-                                </div>
-                            </a>
+							<div class="software-overlay">
+								<div class="software-overlay-content">
+									<h3>DELIVERABLES</h3>
+									<p class="software-list">Loading...</p>
+								</div>
+							</div>
+						</a>
 
                         </div>
 
@@ -212,10 +218,10 @@
                             See more UI/UX projects.
                         </a>
 
-                    </section>
+</section>
 
-                    <!-- DESIGN -->
-                    <section class="home-project-section home-project-panel"
+<!-- DESIGN -->
+<section class="home-project-section home-project-panel"
                              data-category="design"
                              id="panel-design"
                              role="tabpanel"
@@ -224,245 +230,263 @@
 
                         <div class="home-project-row">
 
-                            <!-- Death By Music -->
-                            <a href="design-projects/death-by-music.html"
-                               class="home-project-card"
-                               data-project="design-projects/death-by-music.html">
+<!-- Death By Music -->
+						<a href="design-projects/death-by-music.html"
+						   class="home-project-card"
+						   data-project="design-projects/death-by-music.html">
 
-                                <img
-                                    src="images/design/death/2.1.1-death-by-music-mockup.jpg"
-                                    alt="Death By Music Book Cover Mockup">
+							<img
+								src="images/design/death/2.1.1-death-by-music-mockup.jpg"
+								alt="Death By Music Book Cover Mockup">
 
-                                <div class="software-overlay">
-                                    <div class="software-overlay-content">
-                                        <h3>DELIVERABLES</h3>
-                                        <p class="software-list">Loading...</p>
-                                    </div>
-                                </div>
-                            </a>
+							<div class="software-overlay">
+								<div class="software-overlay-content">
+									<h3>DELIVERABLES</h3>
+									<p class="software-list">Loading...</p>
+								</div>
+							</div>
+						</a>
 
-                            <!-- Fox in the City -->
-                            <a href="design-projects/fox-in-the-city.html"
-                               class="home-project-card"
-                               data-project="design-projects/fox-in-the-city.html">
+<!-- Fox in the City -->
+						<a href="design-projects/fox-in-the-city.html"
+						   class="home-project-card"
+						   data-project="design-projects/fox-in-the-city.html">
 
-                                <img
-                                    src="images/design/fox/2.2.2-book-square-mockup.jpg"
-                                    alt="Fox in the City Book Cover Mockup">
+							<img
+								src="images/design/fox/2.2.2-book-square-mockup.jpg"
+								alt="Fox in the City Book Cover Mockup">
 
-                                <div class="software-overlay">
-                                    <div class="software-overlay-content">
-                                        <h3>DELIVERABLES</h3>
-                                        <p class="software-list">Loading...</p>
-                                    </div>
-                                </div>
-                            </a>
+							<div class="software-overlay">
+								<div class="software-overlay-content">
+									<h3>DELIVERABLES</h3>
+									<p class="software-list">Loading...</p>
+								</div>
+							</div>
+						</a>
 
-                            <!-- The Tip -->
-                            <a href="design-projects/the-tip.html"
-                               class="home-project-card"
-                               data-project="design-projects/the-tip.html">
+<!-- The Tip -->
+						<a href="design-projects/the-tip.html"
+						   class="home-project-card"
+						   data-project="design-projects/the-tip.html">
 
-                                <img
-                                    src="images/design/tip/2.3.3-tip-cover-square.jpg"
-                                    alt="The Tip Magazine Cover Mockup">
+							<img
+								src="images/design/tip/2.3.3-tip-cover-square.jpg"
+								alt="The Tip Magazine Cover Mockup">
 
-                                <div class="software-overlay">
-                                    <div class="software-overlay-content">
-                                        <h3>DELIVERABLES</h3>
-                                        <p class="software-list">Loading...</p>
-                                    </div>
-                                </div>
-                            </a>
+							<div class="software-overlay">
+								<div class="software-overlay-content">
+									<h3>DELIVERABLES</h3>
+									<p class="software-list">Loading...</p>
+								</div>
+							</div>
+						</a>
 
-                        </div>
+					</div>
 
-                        <a href="design.html" class="see-more">
-                            See more design projects.
-                        </a>
+					<a href="design.html" class="see-more">
+						See more design projects.
+					</a>
 
-                    </section>
+</section>
 
-                    <!-- BRANDING -->
-                    <section class="home-project-section home-project-panel"
-                             data-category="branding"
-                             id="panel-branding"
-                             role="tabpanel"
-                             aria-labelledby="tab-branding"
-                             aria-hidden="true">
+<!-- BRANDING -->
+<section class="home-project-section home-project-panel"
+						 data-category="branding"
+						 id="panel-branding"
+						 role="tabpanel"
+						 aria-labelledby="tab-branding"
+						 aria-hidden="true">
 
-                        <div class="home-project-row">
+					<div class="home-project-row">
 
-                            <!-- Barking Dog Bookstore -->
-                            <a href="branding-projects/barking-dog-branding-project.html"
-                               class="home-project-card"
-                               data-project="branding-projects/barking-dog-branding-project.html">
+<!-- Barking Dog Bookstore -->
+						<a href="branding-projects/barking-dog-branding-project.html"
+						   class="home-project-card"
+						   data-project="branding-projects/barking-dog-branding-project.html">
 
-                                <img
-                                    src="images/branding/barking-dog/1.1.4-barking-dog-socialmedia.jpg"
-                                    alt="Barking Dog Bookstore">
+							<img
+								src="images/branding/barking-dog/1.1.4-barking-dog-socialmedia.jpg"
+								alt="Barking Dog Bookstore">
 
-                                <div class="software-overlay">
-                                    <div class="software-overlay-content">
-                                        <h3>DELIVERABLES</h3>
-                                        <p class="software-list">Loading...</p>
-                                    </div>
-                                </div>
-                            </a>
+							<div class="software-overlay">
+								<div class="software-overlay-content">
+									<h3>DELIVERABLES</h3>
+									<p class="software-list">Loading...</p>
+								</div>
+							</div>
+						</a>
 
-                            <!-- Strategic Estate Planning -->
-                            <a href="branding-projects/strategic-branding-project.html"
-                               class="home-project-card"
-                               data-project="branding-projects/strategic-branding-project.html">
+<!-- Strategic Estate Planning -->
+						<a href="branding-projects/strategic-branding-project.html"
+						   class="home-project-card"
+						   data-project="branding-projects/strategic-branding-project.html">
 
-                                <img
-                                    src="images/branding/strategic/1.3.1-strategic-mockup_business_card.jpg"
-                                    alt="Strategic Estate Planning">
+							<img
+								src="images/branding/strategic/1.3.1-strategic-mockup_business_card.jpg"
+								alt="Strategic Estate Planning">
 
-                                <div class="software-overlay">
-                                    <div class="software-overlay-content">
-                                        <h3>DELIVERABLES</h3>
-                                        <p class="software-list">Loading...</p>
-                                    </div>
-                                </div>
-                            </a>
+							<div class="software-overlay">
+								<div class="software-overlay-content">
+									<h3>DELIVERABLES</h3>
+									<p class="software-list">Loading...</p>
+								</div>
+							</div>
+						</a>
 
-                            <!-- MontraPac -->
-                            <a href="branding-projects/montrapac-branding-project.html"
-                               class="home-project-card"
-                               data-project="branding-projects/montrapac-branding-project.html">
+<!-- MontraPac -->
+						<a href="branding-projects/montrapac-branding-project.html"
+						   class="home-project-card"
+						   data-project="branding-projects/montrapac-branding-project.html">
 
-                                <img
-                                    src="images/branding/montrapac/1.4.1-montrapac-bus-ad.jpg"
-                                    alt="MontraPac">
+							<img
+								src="images/branding/montrapac/1.4.1-montrapac-bus-ad.jpg"
+								alt="MontraPac">
 
-                                <div class="software-overlay">
-                                    <div class="software-overlay-content">
-                                        <h3>DELIVERABLES</h3>
-                                        <p class="software-list">Loading...</p>
-                                    </div>
-                                </div>
-                            </a>
+							<div class="software-overlay">
+								<div class="software-overlay-content">
+									<h3>DELIVERABLES</h3>
+									<p class="software-list">Loading...</p>
+								</div>
+							</div>
+						</a>
 
-                        </div>
+					</div>
 
-                        <a href="branding.html" class="see-more">
-                            See more branding projects.
-                        </a>
+					<a href="branding.html" class="see-more">
+						See more branding projects.
+					</a>
 
-                    </section>
+</section>
 
-                    <!-- MOTION -->
-                    <section class="home-project-section home-project-panel"
-                             data-category="motion"
-                             id="panel-motion"
-                             role="tabpanel"
-                             aria-labelledby="tab-motion"
-                             aria-hidden="true">
+<!-- MOTION -->
+<section class="home-project-section home-project-panel"
+						 data-category="motion"
+						 id="panel-motion"
+						 role="tabpanel"
+						 aria-labelledby="tab-motion"
+						 aria-hidden="true">
 
-                        <div class="home-project-row">
+					<div class="home-project-row">
 
-                            <!-- Bang Bang -->
-                            <a href="motion-projects/bang-bang.html"
-                               class="home-project-card motion-home-card"
-                               data-project="motion-projects/bang-bang.html">
+<!-- Bang Bang -->
+						<a href="motion-projects/bang-bang.html"
+						   class="home-project-card motion-home-card"
+						   data-project="motion-projects/bang-bang.html">
 
-                                <div class="home-motion-preview">
-                                    <img
-                                        src="images/motion/bang/3.4-bangbangmockup.jpg"
-                                        alt="Bang Bang - Music Video Preview"
-                                        class="home-motion-fallback">
+							<div class="home-motion-preview">
+								<img
+									src="images/motion/bang/3.4-bangbangmockup.jpg"
+									alt="Bang Bang - Music Video Preview"
+									class="home-motion-fallback">
 
-                                    <video class="home-motion-video"
-                                           preload="metadata"
-                                           muted
-                                           playsinline
-                                           data-start="3">
-                                        <source
-                                            src="images/motion/bang/3.1-bang-bang-musicvideo.mp4"
-                                            type="video/mp4">
-                                    </video>
-                                </div>
+								<video class="home-motion-video"
+									   preload="metadata"
+									   muted
+									   playsinline
+									   data-start="3">
+									<source
+										src="images/motion/bang/3.1-bang-bang-musicvideo.mp4"
+										type="video/mp4">
+								</video>
+							</div>
 
-                                <div class="software-overlay">
-                                    <div class="software-overlay-content">
-                                        <h3>DELIVERABLES</h3>
-                                        <p class="software-list">Loading...</p>
-                                    </div>
-                                </div>
-                            </a>
+							<div class="software-overlay">
+								<div class="software-overlay-content">
+									<h3>DELIVERABLES</h3>
+									<p class="software-list">Loading...</p>
+								</div>
+							</div>
+						</a>
 
-                            <!-- California Dreamin -->
-                            <a href="motion-projects/cali-dreamin.html"
-                               class="home-project-card motion-home-card"
-                               data-project="motion-projects/cali-dreamin.html">
+<!-- California Dreamin -->
+						<a href="motion-projects/cali-dreamin.html"
+						   class="home-project-card motion-home-card"
+						   data-project="motion-projects/cali-dreamin.html">
 
-                                <div class="home-motion-preview">
-                                    <img
-                                        src="images/motion/cali/cali-mockup.jpg"
-                                        alt="California Dreamin - Music Video"
-                                        class="home-motion-fallback">
+							<div class="home-motion-preview">
+								<img
+									src="images/motion/cali/cali-mockup.jpg"
+									alt="California Dreamin - Music Video"
+									class="home-motion-fallback">
 
-                                    <video class="home-motion-video"
-                                           preload="metadata"
-                                           muted
-                                           playsinline
-                                           data-start="3">
-                                        <source
-                                            src="images/motion/cali/3.2-cali-dreaming-video.mp4"
-                                            type="video/mp4">
-                                    </video>
-                                </div>
+								<video class="home-motion-video"
+									   preload="metadata"
+									   muted
+									   playsinline
+									   data-start="3">
+									<source
+										src="images/motion/cali/3.2-cali-dreaming-video.mp4"
+										type="video/mp4">
+								</video>
+							</div>
 
-                                <div class="software-overlay">
-                                    <div class="software-overlay-content">
-                                        <h3>DELIVERABLES</h3>
-                                        <p class="software-list">Loading...</p>
-                                    </div>
-                                </div>
-                            </a>
+							<div class="software-overlay">
+								<div class="software-overlay-content">
+									<h3>DELIVERABLES</h3>
+									<p class="software-list">Loading...</p>
+								</div>
+							</div>
+						</a>
 
-                            <!-- Unconventional -->
-                            <a href="motion-projects/unconventional.html"
-                               class="home-project-card motion-home-card"
-                               data-project="motion-projects/unconventional.html"
-                               data-video-id="kQ2aQSZqL9U"
-                               data-start="3">
+<!-- Unconventional -->
+						<a href="motion-projects/unconventional.html"
+						   class="home-project-card motion-home-card"
+						   data-project="motion-projects/unconventional.html"
+						   data-video-id="kQ2aQSZqL9U"
+						   data-start="3">
 
-                                <div class="home-motion-preview">
-                                    <img
-                                        src="images/motion/unconventional/3.3.5-unconventional-square.jpg"
-                                        alt="Unconventional Life - Video Preview"
-                                        class="home-motion-fallback">
+							<div class="home-motion-preview">
+								<img
+									src="images/motion/unconventional/3.3.5-unconventional-square.jpg"
+									alt="Unconventional Life - Video Preview"
+									class="home-motion-fallback">
 
-                                    <div class="youtube-motion-preview"
-                                         data-video-id="kQ2aQSZqL9U"
-                                         data-start="3">
-                                    </div>
-                                </div>
+								<div class="youtube-motion-preview"
+									 data-video-id="kQ2aQSZqL9U"
+									 data-start="3">
+								</div>
+							</div>
 
-                                <div class="software-overlay">
-                                    <div class="software-overlay-content">
-                                        <h3>DELIVERABLES</h3>
-                                        <p class="software-list">Loading...</p>
-                                    </div>
-                                </div>
-                            </a>
+							<div class="software-overlay">
+								<div class="software-overlay-content">
+									<h3>DELIVERABLES</h3>
+									<p class="software-list">Loading...</p>
+								</div>
+							</div>
+						</a>
 
-                        </div>
+					</div>
 
-                        <a href="motion.html" class="see-more">
-                            See more motion projects.
-                        </a>
-
-                    </section>
-
+					<a href="motion.html" class="see-more">
+						See more motion projects.
+					</a>
+</section>
                 </div>
             </div>
+</section>
 
-        </section>
 
-        <!-- CONTACT PROMPT -->
+<!-- BOTTOM CALL TO ACTION -->
+<section class="home-bottom-layout">
+
+    <!-- CARTOON / VIDEO -->
+    <div class="home-video">
+
+        <div class="speech-bubble">Hello!</div>
+
+        <video
+            src="images/jen2face.mp4"
+            autoplay
+            muted
+            loop
+            playsinline>
+        </video>
+
+    </div>
+
+<!-- CONTACT PROMPT + SECRET STASH -->
+    <div class="home-bottom-copy">
+
         <section class="page-contact-link">
 
             <p>Prepared to start the adventure?</p>
@@ -471,32 +495,20 @@
 
         </section>
 
-        <!-- CARTOON / VIDEO -->
-        <section class="home-video">
-
-            <div class="speech-bubble">Hello!</div>
-
-            <video
-                src="images/jen2face.mp4"
-                autoplay
-                muted
-                loop
-                playsinline>
-            </video>
-
-        </section>
-
         <!-- SECRET STASH -->
-        <div class="secret-stash" aria-hidden="true">
+        <div class="secret-stash">
             <a href="secret-stash.html">Secret Stash</a>
         </div>
 
-    </main>
+    </div>
 
-    <!-- FOOTER -->
+</section>
+</main>
+
+<!-- FOOTER -->
     <footer id="footerCopyright"></footer>
 
-    <!-- Site JavaScript -->
+<!-- Site JavaScript -->
     <script src="js/paper-dust.js"></script>
     <script src="js/about-dust.js"></script>
     <script src="js/main.js"></script>

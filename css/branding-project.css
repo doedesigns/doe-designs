@@ -4564,7 +4564,7 @@ body.deets-page {
     display: inline-block;
     width: auto;
     max-width: 100%;
-    margin: 20px 0 0;
+    margin: 30px 0 0;
     text-align: center;
 }
 
@@ -5046,7 +5046,7 @@ body.deets-page {
 
 .deets-page .deets-life-illustration {
     width: 72%;
-    max-width: 850px;
+    max-width: 1000px;
     margin: 32px auto;
 }
 
@@ -5055,7 +5055,6 @@ body.deets-page {
     width: 100%;
     height: auto;
 }
-
 
 /* 8. SETTINGS PANEL — MATCH THE DESIGN SYSTEM PANEL */
 
@@ -5415,6 +5414,56 @@ body.deets-page .deets-system-image img {
         grid-template-columns: 1fr;
         gap: 28px;
     }
+}
+
+
+/* MY DEETS — PROJECT TITLE COLORS */
+
+body.deets-page .project-title h1 {
+    color: #866F84 !important;
+}
+
+/* Yellow subtitle beneath the main project title */
+body.deets-page .project-title .title-break {
+    color: #E8E45C !important;
+}
+
+/* Keep the project title cyan in the navigation bar */
+body.deets-page .project-title-nav h1,
+body.deets-page .project-navigation h1 {
+    color: #00E5FF !important;
+}
+
+/* MY DEETS — PROTOTYPE PREVIEW REFINEMENT */
+
+body.deets-page .deets-prototype-preview {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 340px;
+    padding: 8px;
+    margin-inline: auto;
+    border: 1px solid rgba(232, 228, 92, 0.45);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+body.deets-page .deets-prototype-preview img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+/* MY DEETS — INTERACTIVE PROTOTYPE LINK */
+
+body.deets-page .deets-prototype-section .deets-text-link {
+    display: inline-block;
+    padding: 12px 28px;
+    border: 1px solid #E8E45C;
+    border-radius: 999px;
+    text-decoration: none;
+    text-align: center;
 }
 
 

@@ -1,4 +1,3 @@
-
 /*=========================================================
     HOMEPAGE PROJECT CATEGORY SWITCHER
     File: js/home-showcase.js
@@ -41,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
             tab.tabIndex = selected ? 0 : -1;
 
         });
-
     }
 
     function showCategory(category) {
@@ -176,9 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
             tabs[nextIndex].focus();
 
             showCategory(tabs[nextIndex].dataset.category);
-
         });
-
     });
 
     /* Establish the initial UI/UX state. */
@@ -195,12 +191,9 @@ document.addEventListener("DOMContentLoaded", () => {
             "aria-hidden",
             active ? "false" : "true"
         );
-
     });
 
     if (initialPanel) {
         setSelectedTab(initialPanel.dataset.category);
     }
-
 });
-// JavaScript Document
