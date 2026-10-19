@@ -857,12 +857,11 @@ body.home-page {
     }
 }
 
-
 /* =========================================================
    HOMEPAGE REFINEMENTS — OCTOBER 2026
 ========================================================= */
 
-/* 1. Reduce the main portfolio logo by approximately 50% */
+/* 1. Main portfolio logo */
 
 .home-page .hero-logo {
     width: clamp(90px, 11.5vw, 135px);
@@ -870,19 +869,19 @@ body.home-page {
     height: auto;
 }
 
-/* 2. Reduce the cartoon MP4 by approximately 25% */
+/* 2. Cartoon video */
 
 .home-page .home-video {
     max-width: 173px;
 }
 
-/* 3. Reduce the space between the project showcase and CTA */
+/* 3. Spacing below the project showcase */
 
 .home-page .home-bottom-layout {
     margin-top: 25px;
 }
 
-/* 4. Make the introductory CTA larger than CONTACT ME */
+/* 4. Contact prompt */
 
 .home-page .page-contact-link p {
     font-size: clamp(22px, 2.2vw, 26px);
@@ -890,8 +889,6 @@ body.home-page {
     letter-spacing: .04em;
     margin-bottom: 8px;
 }
-
-/* Match CONTACT ME to the site's underlined link style */
 
 .home-page .page-contact-link a {
     position: relative;
@@ -928,7 +925,9 @@ body.home-page {
     transform: scaleX(1);
 }
 
-/* 5. Keep SECRET STASH invisible until the contact area is hovered */
+/* 5. Secret Stash
+   Hidden by default. Reveal only when the Secret Stash
+   area itself is hovered or keyboard-focused. */
 
 .home-page .secret-stash {
     display: flex;
@@ -941,12 +940,34 @@ body.home-page {
     transition: opacity .3s ease;
 }
 
-.home-page .home-bottom-copy:hover .secret-stash,
-.home-page .home-bottom-copy:focus-within .secret-stash {
+.home-page .secret-stash:hover,
+.home-page .secret-stash:focus-within {
     opacity: 1;
 }
 
-/* 6. Keep the reduced logo and video proportional on smaller screens */
+.home-page .secret-stash a {
+    display: inline-block;
+    padding: 4px 8px;
+}
+
+/* 6. Slightly smaller project cards with more space between */
+
+.home-page .home-project-row {
+    gap: clamp(24px, 3.2vw, 32px);
+    padding: 0 8px;
+    box-sizing: border-box;
+}
+
+/* Keep the project row from becoming cramped on tablets */
+
+@media (max-width: 900px) {
+    .home-page .home-project-row {
+        gap: 22px;
+        padding: 0 6px;
+    }
+}
+
+/* 7. Responsive refinements */
 
 @media (max-width: 900px) {
     .home-page .hero-logo {
@@ -979,5 +1000,11 @@ body.home-page {
 
     .home-page .secret-stash {
         margin-top: 10px;
+    }
+
+    /* Preserve the single-column mobile project layout */
+    .home-page .home-project-row {
+        gap: 22px;
+        padding: 0;
     }
 }

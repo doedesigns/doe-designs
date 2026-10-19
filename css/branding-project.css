@@ -17,6 +17,7 @@ PROJECT PAGE BACKGROUND
 body.project-page{
     background:#061C2B;
     overflow-x:hidden;
+    font-size:18px;
 }
 
 /*=========================================================
@@ -401,7 +402,7 @@ HERO IMAGE
     margin-top:30px;
     color:rgba(255,255,255,.8);
     font-family:"Jost",sans-serif;
-    font-size:16px;
+    font-size:18px;
     line-height:1.8;
     letter-spacing:.04em;
     text-align:center;
@@ -435,7 +436,7 @@ PROJECT DETAILS
     margin-bottom:12px;
     color:#00E5FF;
     font-family:"Jost",sans-serif;
-    font-size:12px;
+    font-size:18px;
     letter-spacing:.3em;
 }
 
@@ -443,7 +444,7 @@ PROJECT DETAILS
     margin:0;
     color:white;
     font-family:"Jost",sans-serif;
-    font-size:15px;
+    font-size:18px;
     line-height:1.7;
 }
 
@@ -494,7 +495,7 @@ PROJECT DESCRIPTION
     margin-bottom:25px;
     color:rgba(255,255,255,.82);
     font-family:"Jost",sans-serif;
-    font-size:17px;
+    font-size:18px;
     line-height:1.8;
 }
 
@@ -556,7 +557,7 @@ PROJECT STORY SECTIONS
     margin:0 0 20px;
     color:rgba(255,255,255,.82);
     font-family:"Jost",sans-serif;
-    font-size:17px;
+    font-size:18px;
     line-height:1.8;
 }
 
@@ -610,7 +611,7 @@ PROJECT STORY SECTIONS
     margin:20px auto 0;
     color:rgba(255,255,255,.75);
     font-family:"Jost",sans-serif;
-    font-size:15px;
+    font-size:18px;
     line-height:1.6;
     letter-spacing:.04em;
     text-align:center;
@@ -664,7 +665,7 @@ PROJECT APPROACH
     margin-bottom:12px;
     color:#00E5FF;
     font-family:"Jost",sans-serif;
-    font-size:12px;
+    font-size:18px;
     letter-spacing:.3em;
 	line-height:1.5;
 }
@@ -673,7 +674,7 @@ PROJECT APPROACH
     margin:0;
     color:white;
     font-family:"Jost",sans-serif;
-    font-size:15px;
+    font-size:18px;
     line-height:1.7;
 }
 
@@ -727,7 +728,7 @@ STORY SECTIONS MOBILE
     }
 
     .story-text p{
-        font-size:16px;
+        font-size:18px;
     }
 
     .story-image{
@@ -785,7 +786,7 @@ PROJECT IMAGES
     margin:25px auto 0;
     color:rgba(255,255,255,.75);
     font-family:"Jost",sans-serif;
-    font-size:16px;
+    font-size:18px;
     line-height:1.8;
     letter-spacing:.04em;
 }
@@ -1102,7 +1103,7 @@ PROJECT FOOTER LINK
 .chrono-page .overview-intro {
     max-width: 780px;
     margin: 0 auto 10px;
-    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    font-size:clamp(1.125rem, 2vw, 1.3rem);
     text-align: center;
 }
 
@@ -1159,7 +1160,7 @@ PROJECT FOOTER LINK
 .chrono-page .carousel-toolbar > p {
     margin: 0;
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 0.95rem;
+    font-size:1.125rem;
     letter-spacing: 0.12em;
 }
 
@@ -1223,7 +1224,7 @@ PROJECT FOOTER LINK
 .chrono-page .carousel-slide figcaption {
     margin-top: 10px;
     color: var(--chrono-muted);
-    font-size: 0.9rem;
+    font-size:1.125rem;
 }
 
 
@@ -1305,7 +1306,7 @@ PROJECT FOOTER LINK
 .chrono-page .creative-visual figcaption {
     margin-top: 8px;
     color: var(--chrono-muted);
-    font-size: 0.9rem;
+    font-size:1.125rem;
 }
 
 
@@ -1415,13 +1416,13 @@ PROJECT FOOTER LINK
 .chrono-page .ux-item h3 {
     margin: 0 0 5px;
     color: var(--chrono-cyan);
-    font-size: 1rem;
+    font-size:1.125rem;
 }
 
 .chrono-page .ux-item p {
     margin: 0;
     color: var(--chrono-muted);
-    font-size: 0.95rem;
+    font-size:1.125rem;
 }
 
 
@@ -1513,6 +1514,24 @@ PROJECT FOOTER LINK
         transition: none;
         scroll-behavior: auto;
     }
+}
+
+
+/* CHRONO NEXUS — CAROUSEL IMAGE HOVER */
+.chrono-page .carousel-slide img {
+    transition: filter 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+.chrono-page .carousel-slide:hover img {
+    filter: brightness(0.82) sepia(0.15) hue-rotate(155deg) saturate(1.4);
+    box-shadow: 0 0 0 2px rgba(0, 174, 255, 0.8),
+                0 0 18px rgba(0, 174, 255, 0.3);
+}
+
+.chrono-page .carousel-slide img:focus-visible {
+    outline: 2px solid #00AEFF;
+    outline-offset: 4px;
 }
 
 
@@ -1629,7 +1648,7 @@ PROJECT FOOTER LINK
 .clean-organic .clean-eyebrow {
     margin: 0 0 14px;
     color: var(--clean-sage);
-    font-size: 0.75rem;
+    font-size:1.125rem;
     font-weight: 600;
     letter-spacing: 0.2em;
     line-height: 1.6;
@@ -1646,7 +1665,7 @@ PROJECT FOOTER LINK
     max-width: 690px;
     margin: 24px auto 0;
     color: rgba(242, 240, 229, 0.78);
-    font-size: 1rem;
+    font-size:1.125rem;
     line-height: 1.85;
     text-align: center;
 }
@@ -1712,7 +1731,7 @@ PROJECT FOOTER LINK
     max-width: 760px;
     margin: 0 auto;
     color: rgba(242, 240, 229, 0.78);
-    font-size: 1rem;
+    font-size:1.125rem;
     line-height: 1.9;
     text-align: center;
 }
@@ -1760,7 +1779,7 @@ PROJECT FOOTER LINK
 
 .clean-organic .clean-statement > p {
     color: var(--clean-cream);
-    font-size: 1rem;
+    font-size:1.125rem;
     font-weight: 500;
     line-height: 1.75;
 }
@@ -1826,7 +1845,7 @@ PROJECT FOOTER LINK
     display: block;
     margin-bottom: 10px;
     color: var(--clean-sage);
-    font-size: 0.7rem;
+    font-size:1.125rem;
     font-weight: 600;
     letter-spacing: 0.16em;
 }
@@ -1839,7 +1858,7 @@ PROJECT FOOTER LINK
 .clean-organic .clean-process-card > p {
     margin: 0;
     color: rgba(242, 240, 229, 0.73);
-    font-size: 0.95rem;
+    font-size:1.125rem;
     line-height: 1.8;
 }
 
@@ -1866,7 +1885,7 @@ PROJECT FOOTER LINK
 .clean-organic .clean-campaign-image figcaption {
     padding: 16px 8px 8px;
     color: var(--clean-sage);
-    font-size: 0.8rem;
+    font-size:1.125rem;
     letter-spacing: 0.05em;
     line-height: 1.6;
 }
@@ -1951,7 +1970,7 @@ PROJECT FOOTER LINK
     border: 1px solid rgba(242, 240, 229, 0.8);
     border-radius: 30px;
     color: #F2F0E5;
-    font-size: 0.8rem;
+    font-size:1.125rem;
     font-weight: 600;
     letter-spacing: 0.13em;
 }
@@ -2124,7 +2143,7 @@ body.lotus-organic {
     margin: 0 0 10px;
     color: var(--lotus-pink);
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 0.85rem;
+    font-size:1.125rem;
     font-weight: 700;
     letter-spacing: 0.16em;
     line-height: 1.5;
@@ -2172,7 +2191,7 @@ body.lotus-organic {
 .lotus-organic .lotus-direction .story-image p,
 .lotus-organic .lotus-process .story-image p {
     color: var(--lotus-muted);
-    font-size: 0.9rem;
+    font-size:1.125rem;
     line-height: 1.6;
 }
 
@@ -2284,7 +2303,7 @@ body.lotus-organic {
     background: rgba(80, 21, 47, 0.92);
     color: white;
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 0.95rem;
+    font-size:1.125rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-align: center;
@@ -2355,7 +2374,7 @@ body.lotus-organic {
     gap: 5px;
     padding: 16px 4px 4px;
     color: var(--lotus-muted);
-    font-size: 0.92rem;
+    font-size:1.125rem;
     line-height: 1.6;
 }
 
@@ -2391,7 +2410,7 @@ body.lotus-organic {
     margin-top: 12px;
     color: var(--lotus-muted);
     text-align: center;
-    font-size: 0.9rem;
+    font-size:1.125rem;
 }
 
 
@@ -2472,7 +2491,7 @@ body.lotus-organic .lotus-contact > p {
     .lotus-organic .lotus-prototype-overlay {
         min-height: 44px;
         padding: 10px;
-        font-size: 0.8rem;
+        font-size:1.125rem;
         opacity: 1;
     }
 
@@ -2638,7 +2657,7 @@ body.lotus-organic {
     padding: 12px 8px;
     box-sizing: border-box;
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 0.9rem;
+    font-size:1.125rem;
     font-weight: 700;
     letter-spacing: 0.07em;
     text-align: center;
@@ -2783,7 +2802,7 @@ body.lotus-organic {
 
     .lotus-organic .lotus-prototype .lotus-prototype-button {
         padding: 13px 18px;
-        font-size: 0.95rem;
+        font-size:1.125rem;
     }
 
     .lotus-organic .lotus-direction .story-image,
@@ -2897,7 +2916,7 @@ body.lotus-organic .lotus-prototype .lotus-prototype-overlay {
 /* Contact closing sentence: white and comfortably readable */
 body.lotus-organic .lotus-contact > p {
     color: #FFFFFF;
-    font-size: 16px;
+    font-size:18px;
     font-weight: 400;
     line-height: 1.6;
 }
@@ -3112,7 +3131,7 @@ body.lotus-organic .lotus-callout-row.lotus-callout-right
 
 body.lotus-organic .lotus-games-figure .video-player {
     width: 100%;
-    max-width: 760px;
+    max-width: 240px;
     margin: 0 auto;
 }
 
@@ -3415,9 +3434,14 @@ body.lotus-organic .lotus-details .detail-box {
     box-shadow: none;
 }
 
-/* LOTUS LINGO — FINAL PROTOTYPE IMAGE SIZE */
+/* =========================================
+   LOTUS LINGO — MATCHED MEDIA SIZES
+   Prototype preview and games walkthrough
+   ========================================= */
 
+/* Interactive prototype preview */
 body.lotus-organic .lotus-prototype-showcase .prototype-image-link {
+    display: block;
     flex: 0 1 180px;
     width: 180px;
     max-width: 180px;
@@ -3431,10 +3455,28 @@ body.lotus-organic .lotus-prototype-showcase .prototype-image-link img {
     height: auto;
 }
 
-/* Keep the smaller image centered on mobile, too */
+/* Games walkthrough — match the prototype width */
+body.lotus-organic .lotus-games-figure {
+    flex: 0 1 180px;
+    width: 180px;
+    max-width: 180px;
+    min-width: 0;
+    margin: 0;
+}
+
+body.lotus-organic .lotus-games-figure video.video-player {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+/* Keep both elements within the available space on mobile */
 @media (max-width: 560px) {
-    body.lotus-organic .lotus-prototype-showcase .prototype-image-link {
-        flex: none;
+    body.lotus-organic .lotus-prototype-showcase .prototype-image-link,
+    body.lotus-organic .lotus-games-figure {
+        flex: 0 1 180px;
         width: 180px;
         max-width: 75%;
     }
@@ -3528,7 +3570,7 @@ body.lotus-organic .lotus-prototype-showcase .prototype-image-link img {
 
     .clean-organic .clean-prototype-overlay span {
         padding: 10px 14px;
-        font-size: 0.68rem;
+        font-size:1.125rem;
     }
 
     .clean-organic .clean-contact {
@@ -3651,7 +3693,7 @@ body.deets-page .project-navigation h1 {
     margin: 0 0 14px;
     color: var(--deets-yellow);
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 0.85rem;
+    font-size:1.125rem;
     font-weight: 700;
     letter-spacing: 0.16em;
     line-height: 1.5;
@@ -3717,7 +3759,7 @@ body.deets-page .project-navigation h1 {
     border-bottom: 1px solid transparent;
     color: var(--deets-yellow);
     font-family: "Jost", sans-serif;
-    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    font-size:clamp(1.125rem, 1.8vw, 1.35rem);
     font-weight: 600;
     letter-spacing: 0.01em;
     text-decoration: none;
@@ -3789,7 +3831,7 @@ body.deets-page .project-navigation h1 {
 
 .deets-page .deets-lead {
     color: var(--deets-white);
-    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+    font-size:clamp(1.125rem, 1.5vw, 1.2rem);
 }
 
 .deets-page .deets-intro-copy > p {
@@ -3858,7 +3900,7 @@ body.deets-page .project-navigation h1 {
     z-index: 2;
     color: var(--deets-yellow);
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 0.72rem;
+    font-size:1.125rem;
     font-weight: 700;
     letter-spacing: 0.17em;
 }
@@ -3914,7 +3956,7 @@ body.deets-page .project-navigation h1 {
     padding: 15px 4px 5px;
     color: var(--deets-yellow);
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 0.9rem;
+    font-size:1.125rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-align: center;
@@ -3991,7 +4033,7 @@ body.deets-page .project-navigation h1 {
     margin-top: 18px;
     color: var(--deets-yellow);
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 0.9rem;
+    font-size:1.125rem;
     font-weight: 700;
     letter-spacing: 0.14em;
 }
@@ -4072,7 +4114,7 @@ body.deets-page .project-navigation h1 {
     margin-bottom: 12px;
     color: var(--deets-yellow);
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 0.78rem;
+    font-size:1.125rem;
     font-weight: 700;
     letter-spacing: 0.16em;
 }
@@ -4126,7 +4168,7 @@ body.deets-page .project-navigation h1 {
 
 .deets-page .deets-swatch span {
     font-family: "DM Mono", monospace;
-    font-size: clamp(0.58rem, 0.9vw, 0.75rem);
+    font-size:18px;
     font-weight: 700;
     overflow-wrap: anywhere;
 }
@@ -4229,7 +4271,7 @@ body.deets-page .project-navigation h1 {
     max-width: 260px;
     margin: 0;
     color: var(--deets-pale);
-    font-size: 0.95rem;
+    font-size:1.125rem;
 }
 
 /* Support for the alternate category-circle layout */
@@ -4301,7 +4343,7 @@ body.deets-page .project-navigation h1 {
 .deets-page .deets-stage-tag {
     margin: 0 0 16px;
     color: var(--deets-yellow);
-    font-size: 0.82rem;
+    font-size:1.125rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -4556,7 +4598,7 @@ body.deets-page .project-navigation h1 {
     }
 
     .deets-page .deets-swatch span {
-        font-size: 0.62rem;
+        font-size:1.125rem;
     }
 
     .deets-page .deets-life-grid,
@@ -4640,7 +4682,7 @@ MOBILE
     }
 
     .project-title-nav h1{
-        font-size:16px;
+        font-size:18px;
     }
 
     .project-arrow{
