@@ -5687,18 +5687,46 @@ body.tip-page .page-contact-link .enter-button:hover {
 /* =========================================================
    FINAL PROJECT PAGE REFINEMENTS
    Lotus Lingo, Clean Future Network, and shared text sizing
-   ========================================================= */
+========================================================= */
 
-/* Enforce an 18px minimum for project-page text */
-body.project-page p,
-body.project-page li,
-body.project-page figcaption,
-body.project-page .lightbox-description,
-body.project-page .project-year,
-body.project-page .project-details .detail-box h3,
-body.project-page .project-details .detail-box p,
-body.project-page .title-break {
-    font-size: max(18px, 1em);
+body.project-page .project-title .title-break {
+    font-size: 18px !important;
+}
+
+/* Keep the subtitle readable on smaller screens too. */
+@media (max-width: 600px) {
+    body.project-page .project-title .title-break {
+        font-size: 18px !important;
+    }
+}
+
+/* 2. Remove the unwanted cyan underline from Lotus Lingo.
+   The pseudo-element is what created the added line. */
+
+body.lotus-organic .lotus-prototype-callout span::after {
+    content: none !important;
+    display: none !important;
+}
+
+body.lotus-organic .lotus-prototype-callout span {
+    padding-bottom: 0 !important;
+    text-decoration: none !important;
+}
+
+/* 3. Remove the unwanted cyan underline from Clean Future
+   and Lotus prototype links/callouts. */
+
+body.clean-organic .clean-prototype-callout span::after,
+body.clean-organic .clean-prototype-callout::after,
+body.clean-organic .clean-prototype-link::after,
+body.lotus-organic .lotus-prototype-callout::after {
+    content: none !important;
+    display: none !important;
+}
+
+body.clean-organic .clean-prototype-callout,
+body.clean-organic .clean-prototype-link {
+    text-decoration: none !important;
 }
 
 /* ---------------------------------------------------------
