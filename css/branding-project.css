@@ -5801,6 +5801,378 @@ body.lotus-organic .lotus-feature-image figcaption strong {
     color: #FFFFFF;
 }
 
+
+/* =========================================================
+   DESIGN PROJECT REFINEMENTS
+   Death by Music • Fox in the City • The Tip
+   Add at the end of branding-project.css
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. PROJECT SUBTITLES
+   Keep subtitles compact and consistent across all 3 pages
+--------------------------------------------------------- */
+
+body.death-page .project-title .title-break,
+body.fox-page .project-title .title-break,
+body.tip-page .project-title .title-break {
+    display: block;
+    margin-top: 10px;
+    font-family: "Jost", sans-serif;
+    font-size: 18px !important;
+    line-height: 1.5;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+
+/* ---------------------------------------------------------
+   2. PROJECT CATEGORY LABEL IN THE SCROLLED NAVBAR
+--------------------------------------------------------- */
+
+body.death-page .project-title-nav h1,
+body.fox-page .project-title-nav h1,
+body.tip-page .project-title-nav h1 {
+    position: relative;
+}
+
+body.death-page .project-title-nav h1::before,
+body.fox-page .project-title-nav h1::before,
+body.tip-page .project-title-nav h1::before {
+    content: "DESIGN";
+    display: block;
+    margin-bottom: 4px;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "Jost", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    line-height: 1.2;
+    text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   3. WHITE ARROW TRIANGLES
+   Preserve each project's colored circle and hover effects
+--------------------------------------------------------- */
+
+body.death-page .project-arrow.prev .arrow-triangle,
+body.fox-page .project-arrow.prev .arrow-triangle,
+body.tip-page .project-arrow.prev .arrow-triangle {
+    border-right-color: #FFFFFF !important;
+}
+
+body.death-page .project-arrow.next .arrow-triangle,
+body.fox-page .project-arrow.next .arrow-triangle,
+body.tip-page .project-arrow.next .arrow-triangle {
+    border-left-color: #FFFFFF !important;
+}
+
+body.death-page .project-arrow:hover .arrow-triangle,
+body.fox-page .project-arrow:hover .arrow-triangle,
+body.tip-page .project-arrow:hover .arrow-triangle {
+    border-left-color: #FFFFFF !important;
+    border-right-color: #FFFFFF !important;
+}
+
+
+/* ---------------------------------------------------------
+   4. IMAGE SIZING
+   Hero and supporting images are reduced to 50% width
+--------------------------------------------------------- */
+
+body.death-page .project-hero img,
+body.fox-page .project-hero img,
+body.tip-page .project-hero img {
+    display: block;
+    width: 50%;
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+}
+
+body.death-page .death-feature-image img,
+body.fox-page .fox-feature-image img,
+body.tip-page .tip-feature-image img {
+    display: block;
+    width: 50%;
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+}
+
+/* Exception: preserve the three-cover comparison image's size. */
+
+body.death-page .death-feature-image img[src*="2.1.3-death-options"] {
+    width: 90%;
+    max-width: 100%;
+}
+
+/* Keep image captions visually connected to the smaller images. */
+
+body.death-page .death-feature-image > p,
+body.fox-page .fox-feature-image > p,
+body.tip-page .tip-feature-image > p {
+    width: 70%;
+    margin: 18px auto 0;
+    color: rgba(255, 255, 255, 0.78);
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+
+/* ---------------------------------------------------------
+   5. DEATH BY MUSIC
+   Dramatic editorial treatment with numbered sections
+--------------------------------------------------------- */
+
+body.death-page .death-case-section {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.75fr) minmax(0, 1.4fr);
+    align-items: start;
+    gap: clamp(24px, 5vw, 70px);
+    width: min(100%, 1050px);
+    margin: 0 auto 55px;
+    padding: 30px 0 38px;
+    border-top: 1px solid rgba(200, 16, 46, 0.55);
+}
+
+body.death-page .death-section-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+body.death-page .death-section-number {
+    flex-shrink: 0;
+    color: #C8102E;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+body.death-page .death-section-heading h2 {
+    margin: 0;
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(24px, 2.5vw, 34px);
+    line-height: 1.15;
+    letter-spacing: 0.08em;
+}
+
+body.death-page .death-section-text {
+    max-width: 650px;
+}
+
+body.death-page .death-section-text p {
+    margin: 0 0 18px;
+    font-size: 18px;
+    line-height: 1.85;
+}
+
+body.death-page .death-feature-image {
+    width: 100%;
+    margin: 0 auto 80px;
+    text-align: center;
+}
+
+body.death-page .death-final-heading {
+    border-top-color: rgba(200, 16, 46, 0.85);
+}
+
+
+/* ---------------------------------------------------------
+   6. FOX IN THE CITY
+   Softer, story-led layout with rose accents
+--------------------------------------------------------- */
+
+body.fox-page .fox-case-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(180px, 0.75fr);
+    align-items: start;
+    gap: clamp(24px, 5vw, 70px);
+    width: min(100%, 1050px);
+    margin: 0 auto 55px;
+    padding: 30px 0 38px;
+    border-top: 1px solid rgba(235, 163, 190, 0.5);
+}
+
+body.fox-page .fox-section-heading {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+body.fox-page .fox-section-text {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: 650px;
+}
+
+body.fox-page .fox-section-number {
+    flex-shrink: 0;
+    color: #EBA3BE;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+body.fox-page .fox-section-heading h2 {
+    margin: 0;
+    color: #FFF6F8;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(24px, 2.5vw, 34px);
+    line-height: 1.15;
+    letter-spacing: 0.08em;
+}
+
+body.fox-page .fox-section-text p {
+    margin: 0 0 18px;
+    font-size: 18px;
+    line-height: 1.85;
+}
+
+body.fox-page .fox-feature-image {
+    width: 100%;
+    margin: 0 auto 80px;
+    text-align: center;
+}
+
+body.fox-page .fox-final-heading {
+    border-top-color: rgba(235, 163, 190, 0.85);
+}
+
+
+/* ---------------------------------------------------------
+   7. THE TIP
+   Structured magazine-inspired editorial layout
+--------------------------------------------------------- */
+
+body.tip-page .tip-case-section {
+    display: grid;
+    grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr);
+    align-items: start;
+    gap: clamp(24px, 5vw, 70px);
+    width: min(100%, 1050px);
+    margin: 0 auto 55px;
+    padding: 30px 0 38px;
+    border-top: 1px solid rgba(112, 205, 139, 0.55);
+}
+
+body.tip-page .tip-section-heading {
+    display: block;
+}
+
+body.tip-page .tip-section-number {
+    display: block;
+    margin-bottom: 10px;
+    color: #70CD8B;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+body.tip-page .tip-section-heading h2 {
+    margin: 0;
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(24px, 2.5vw, 34px);
+    line-height: 1.15;
+    letter-spacing: 0.08em;
+}
+
+body.tip-page .tip-section-text {
+    max-width: 680px;
+    padding-left: 24px;
+    border-left: 2px solid rgba(112, 205, 139, 0.55);
+}
+
+body.tip-page .tip-section-text p {
+    margin: 0 0 18px;
+    font-size: 18px;
+    line-height: 1.85;
+}
+
+body.tip-page .tip-feature-image {
+    width: 100%;
+    margin: 0 auto 80px;
+    text-align: center;
+}
+
+body.tip-page .tip-final-heading {
+    border-top-color: rgba(112, 205, 139, 0.85);
+}
+
+body.tip-page .tip-spread-image img {
+    width: 50%;
+}
+
+
+/* ---------------------------------------------------------
+   8. MOBILE AND NARROW SCREEN ADJUSTMENTS
+--------------------------------------------------------- */
+
+@media (max-width: 760px) {
+
+    body.death-page .death-case-section,
+    body.fox-page .fox-case-section,
+    body.tip-page .tip-case-section {
+        display: block;
+        margin-bottom: 38px;
+        padding-top: 24px;
+    }
+
+    body.death-page .death-section-heading,
+    body.fox-page .fox-section-heading,
+    body.tip-page .tip-section-heading {
+        margin-bottom: 20px;
+    }
+
+    body.fox-page .fox-section-heading,
+    body.fox-page .fox-section-text {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    body.tip-page .tip-section-text {
+        padding-left: 16px;
+    }
+
+    body.death-page .project-hero img,
+    body.fox-page .project-hero img,
+    body.tip-page .project-hero img,
+    body.death-page .death-feature-image img,
+    body.fox-page .fox-feature-image img,
+    body.tip-page .tip-feature-image img {
+        width: 85%;
+    }
+
+    body.death-page .death-feature-image img[src*="2.1.3-death-options"] {
+        width: 100%;
+    }
+
+    body.death-page .death-feature-image > p,
+    body.fox-page .fox-feature-image > p,
+    body.tip-page .tip-feature-image > p {
+        width: 90%;
+    }
+}
+
+
 /* ---------------------------------------------------------
    CLEAN FUTURE NETWORK — REDUCE PROTOTYPE PREVIEW
 --------------------------------------------------------- */
