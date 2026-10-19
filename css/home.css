@@ -958,6 +958,12 @@ body.home-page {
     box-sizing: border-box;
 }
 
+/* LANDING PAGE: USE THE INTRO LOGO INSTEAD OF THE NAV LOGO */
+
+.home-page .navbar > .logo {
+    display: none;
+}
+
 /* Keep the project row from becoming cramped on tablets */
 
 @media (max-width: 900px) {

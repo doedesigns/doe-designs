@@ -132,7 +132,7 @@ background:
 linear-gradient(
 180deg,
 #081522,
-#000000
+#590000
 );
 }
 
@@ -1590,6 +1590,10 @@ PROJECT FOOTER LINK
     --clean-accent: #C28A55;
 }
 
+body.clean-organic .project-year {
+    color: #B8C9A7;
+}
+
 /* Main page background */
 
 .clean-organic .project-container {
@@ -2122,12 +2126,6 @@ body.lotus-organic {
 .lotus-organic .project-container {
     position: relative;
     z-index: 1;
-}
-
-/* Project year — restore the portfolio cyan */
-
-.lotus-organic .project-year {
-    color: #00E5FF;
 }
 
 /* General section spacing */
@@ -2703,7 +2701,6 @@ body.lotus-organic {
     opacity: 1;
 }
 
-
 /* Clear, readable prototype button */
 
 .lotus-organic .lotus-prototype .lotus-prototype-button {
@@ -2844,7 +2841,6 @@ body.lotus-organic {
         max-width: 100%;
     }
 }
-
 
 /* =========================================================
    LOTUS LINGO — GREEN, PINK & BABY BLUE GRADIENTS
@@ -3663,13 +3659,6 @@ body.deets-page {
     --deets-panel-light: #49384E;
     --deets-panel-border: #5C4961;
 
-    background:
-        linear-gradient(
-            180deg,
-            #081522 0%,
-            #00465A 100%
-        );
-
     color: var(--deets-white);
     overflow-x: hidden;
 }
@@ -3677,6 +3666,9 @@ body.deets-page {
 .deets-page .project-container {
     position: relative;
     z-index: 2;
+}
+body.deets-page .project-year {
+    color: #a690a6;
 }
 
 /* ---------------------------------------------------------
@@ -5690,6 +5682,121 @@ body.tip-page .page-contact-link .enter-button:hover {
     background: #287847;
     color: #FFFFFF;
 }
+
+
+/* =========================================================
+   FINAL PROJECT PAGE REFINEMENTS
+   Lotus Lingo, Clean Future Network, and shared text sizing
+   ========================================================= */
+
+/* Enforce an 18px minimum for project-page text */
+body.project-page p,
+body.project-page li,
+body.project-page figcaption,
+body.project-page .lightbox-description,
+body.project-page .project-year,
+body.project-page .project-details .detail-box h3,
+body.project-page .project-details .detail-box p,
+body.project-page .title-break {
+    font-size: max(18px, 1em);
+}
+
+/* ---------------------------------------------------------
+   LOTUS LINGO — CLEARER PROTOTYPE CALL TO ACTION
+--------------------------------------------------------- */
+
+/* Make the section label and heading easy to read */
+body.lotus-organic .lotus-prototype .lotus-eyebrow {
+    color: #F3B7D5;
+}
+
+body.lotus-organic .lotus-prototype .lotus-section-heading h2 {
+    color: #FFFFFF !important;
+}
+
+/* Brighten the interactive prototype button */
+body.lotus-organic .lotus-prototype .lotus-prototype-button {
+    border: 2px solid #F3B7D5;
+    background: #B83268;
+    color: #FFFFFF;
+}
+
+body.lotus-organic .lotus-prototype .lotus-prototype-button:hover,
+body.lotus-organic .lotus-prototype .lotus-prototype-button:focus-visible {
+    border-color: #FFFFFF;
+    background: #71344F;
+    color: #FFFFFF;
+}
+
+/* Keep the handwritten prototype link distinct and readable */
+body.lotus-organic .lotus-prototype-callout {
+    color: #F3B7D5;
+    text-decoration: none;
+}
+
+body.lotus-organic .lotus-prototype-callout:hover,
+body.lotus-organic .lotus-prototype-callout:focus-visible {
+    color: #FFFFFF;
+}
+
+/* Lower the decorative cyan underline beneath the link */
+body.lotus-organic .lotus-prototype-callout span {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 28px;
+}
+
+body.lotus-organic .lotus-prototype-callout span::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #00E5FF;
+    transform: translateX(-50%);
+}
+
+/* Give the high-fidelity preview a blue-green frame,
+   matching the Challenge and Solution panels */
+body.lotus-organic .lotus-feature-image {
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    background: linear-gradient(
+        135deg,
+        #365F7D 0%,
+        #426B4B 100%
+    );
+}
+
+body.lotus-organic .lotus-feature-image figcaption,
+body.lotus-organic .lotus-feature-image figcaption strong {
+    color: #FFFFFF;
+}
+
+/* ---------------------------------------------------------
+   CLEAN FUTURE NETWORK — REDUCE PROTOTYPE PREVIEW
+--------------------------------------------------------- */
+
+/* Reduce the preview image by approximately half */
+body.clean-organic .clean-prototype-preview {
+    width: min(212px, 100%);
+    max-width: 212px;
+    margin: 0 auto;
+}
+
+/* Keep the preview responsive on smaller screens */
+@media (max-width: 560px) {
+    body.clean-organic .clean-prototype-preview {
+        width: min(212px, 75%);
+        max-width: 212px;
+    }
+}
+
+/* Keep the prototype button comfortably spaced below the image */
+body.clean-organic .clean-prototype-button {
+    margin-top: 28px;
+}
+
 
 /* RESPONSIVE */
 
