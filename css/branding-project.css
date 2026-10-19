@@ -1211,14 +1211,23 @@ PROJECT FOOTER LINK
     scroll-snap-align: start;
 }
 
+/* CHRONO NEXUS — CYAN IMAGE HOVER */
+
 .chrono-page .carousel-slide img {
-    display: block;
-    width: 100%;
-    height: 300px;
-    object-fit: contain;
-    background: rgba(255,255,255,0.025);
-    border: 1px solid var(--chrono-border);
-    border-radius: 8px;
+    transition: filter 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+}
+
+.chrono-page .carousel-slide:hover img {
+    filter: brightness(0.86) saturate(1.08);
+    box-shadow:
+        0 0 0 2px rgba(0, 229, 255, 0.85),
+        0 0 18px rgba(0, 229, 255, 0.3);
+}
+
+.chrono-page .carousel-slide img:focus-visible {
+    outline: 2px solid #00E5FF;
+    outline-offset: 4px;
 }
 
 .chrono-page .carousel-slide figcaption {
@@ -1532,6 +1541,18 @@ PROJECT FOOTER LINK
 .chrono-page .carousel-slide img:focus-visible {
     outline: 2px solid #00AEFF;
     outline-offset: 4px;
+}
+
+/* Chrono Nexus — keep the lightbox wrapper aligned with the cards */
+
+.chrono-page .approach-image-frame {
+    margin: 0 0 20px;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.chrono-page .approach-image-frame .approach-image {
+    margin-bottom: 0;
 }
 
 
@@ -1940,7 +1961,7 @@ PROJECT FOOTER LINK
     position: relative;
     display: block;
     overflow: hidden;
-    width: min(850px, 100%);
+    width: min(425px, 100%);
     margin: 0 auto;
     border: 1px solid rgba(184, 201, 167, 0.24);
     border-radius: 34px 8px 34px 8px;
@@ -1987,6 +2008,16 @@ PROJECT FOOTER LINK
 
 .clean-organic .clean-prototype-button {
     margin-top: 28px;
+    border-color: #B8C9A7;
+    background: #B8C9A7;
+    color: #193628;
+}
+
+.clean-organic .clean-prototype-button:hover,
+.clean-organic .clean-prototype-button:focus-visible {
+    border-color: #D7E3C7;
+    background: #D7E3C7;
+    color: #193628;
 }
 
 /* Gallery */
@@ -2735,7 +2766,6 @@ body.lotus-organic {
     height: auto;
     object-fit: contain;
 }
-
 
 /* 6. BRAND ANIMATION PANEL */
 
@@ -3641,15 +3671,46 @@ body.deets-page .project-title .title-break {
     color: var(--deets-yellow) !important;
 }
 
-/* Keep the navigation title cyan */
+/* Keep only the small navigation title cyan.
+   The main project title should remain mauve. */
 
-body.deets-page .project-title-nav h1,
-body.deets-page .project-navigation h1 {
+body.deets-page .project-title-nav h1 {
     color: var(--deets-cyan) !important;
 }
 
-.deets-page .project-year {
-    color: var(--deets-cyan);
+/* Align Explore the Experience to the right */
+
+.deets-page .deets-intro-copy > .deets-text-link {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 12px 0 0 auto;
+    text-align: right;
+}
+
+/* Remove the cyan underline from the prototype action */
+
+.deets-page .deets-prototype-section .enter-button::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Space after the featured-screen introduction */
+
+.deets-page #deets-screens .deets-section-heading {
+    margin-bottom: 36px;
+}
+
+/* Add breathing room before the category cards */
+
+.deets-page #deets-categories .deets-category-grid {
+    margin-top: 34px;
+}
+
+/* Give the growing-up illustration room beneath it */
+
+.deets-page .deets-life-illustration {
+    margin-bottom: 38px;
 }
 
 /* ---------------------------------------------------------
@@ -3662,26 +3723,28 @@ body.deets-page .project-navigation h1 {
     gap: 16px;
 }
 
+/* MY DEETS — CLEAN PROJECT SUMMARY, NO BOX BACKGROUNDS */
+
 .deets-page .project-details .detail-box {
     box-sizing: border-box;
     min-width: 0;
-    padding: 20px;
-    border: 1px solid var(--deets-yellow);
-    border-radius: 3px;
-    background: var(--deets-pale);
-    color: var(--deets-plum);
+    padding: 20px 10px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: var(--deets-white);
     box-shadow: none;
 }
 
 .deets-page .project-details .detail-box h3 {
     margin-bottom: 12px;
-    color: var(--deets-plum);
+    color: var(--deets-yellow);
     letter-spacing: 0.12em;
 }
 
 .deets-page .project-details .detail-box p {
     margin: 5px 0;
-    color: var(--deets-plum);
+    color: var(--deets-white);
     line-height: 1.6;
 }
 
@@ -4619,6 +4682,17 @@ body.deets-page .project-navigation h1 {
         padding-right: 0;
         padding-left: 0;
     }
+}
+
+/* My Deets — growth line beneath the life-stage illustration */
+
+.deets-page .deets-growth-line {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    margin: 18px auto 0;
+    overflow: visible;
 }
 
 /* ---------------------------------------------------------
