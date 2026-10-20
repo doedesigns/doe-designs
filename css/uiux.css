@@ -3,6 +3,194 @@
 
 /* UI/UX project-specific rules: Phasepoint/Chrono Nexus, Clean Future Network, Lotus Lingo, My Deets. */
 
+/* =========================================================
+   SHARED UI/UX PROJECT HEADER AND OVERVIEW LAYOUT
+   Keep these shared desktop rules here. mobile.css loads last
+   and provides the responsive overrides.
+   ========================================================= */
+body.project-page {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-size: 18px;
+}
+
+.project-container {
+    position: relative;
+    z-index: 2;
+    width: min(1200px, 92vw);
+    margin: 0 auto;
+    padding-top: 120px;
+    padding-bottom: 60px;
+}
+
+.project-navigation {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 55px;
+    width: 100%;
+    margin: 0 auto 60px;
+    z-index: 5;
+}
+
+.project-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-align: center;
+}
+
+.project-title h1 {
+    margin: 0;
+    color: #00E5FF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 58px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    line-height: 1.12;
+    text-align: center;
+    text-transform: uppercase;
+    overflow-wrap: normal;
+}
+
+.project-title .title-break {
+    display: block;
+    margin-top: 8px;
+    color: #FFFFFF;
+    font-family: "Jost", sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+    text-transform: none;
+}
+
+.project-arrow {
+    flex: 0 0 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.arrow-circle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    transform: translateY(-2px);
+    transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.arrow-triangle {
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+.project-arrow.prev .arrow-triangle {
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-right: 14px solid currentColor;
+}
+
+.project-arrow.next .arrow-triangle {
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 14px solid currentColor;
+}
+
+.project-arrow:hover,
+.project-arrow:focus-visible {
+    color: #00E5FF;
+}
+
+.project-arrow:hover .arrow-circle,
+.project-arrow:focus-visible .arrow-circle {
+    transform: translateY(-2px) scale(1.08);
+}
+
+.project-hero {
+    width: 100%;
+    margin: 0 auto 60px;
+    text-align: center;
+}
+
+.project-hero > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
+}
+
+.project-hero .lightbox-description {
+    display: none;
+}
+
+.project-hero.video-hero {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.video-player {
+    display: block;
+    width: 70%;
+    max-width: 700px;
+    margin: 0 auto 45px;
+}
+
+.video-player iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+    border-radius: 8px;
+}
+
+.project-details {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    gap: 30px;
+    width: 100%;
+    margin: 0 auto 70px;
+}
+
+.project-details .detail-box {
+    min-width: 0;
+    text-align: center;
+}
+
+.project-details .detail-box h3 {
+    margin: 0 0 12px;
+    color: #00E5FF;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.project-details .detail-box p {
+    margin: 0 0 5px;
+    color: #FFFFFF;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+
 body.deets-page {
 background:
 linear-gradient(
@@ -2836,3 +3024,126 @@ body.lotus-organic .lotus-prototype .lotus-prototype-button, body.lotus-organic 
 .chrono-page .carousel-slide { position:relative; flex:0 0 min(65%,620px); width:min(65%,620px); min-width:0; margin:0; scroll-snap-align:start; }
 .chrono-page .carousel-slide img { display:block; width:100%; max-width:100%; height:auto; filter:none; box-shadow:none; transition:none; }
 .chrono-page .carousel-slide:hover img, .chrono-page .case-carousel .carousel-slide:hover img { filter:none !important; box-shadow:none !important; }
+
+
+/* =========================================================
+   TAGGED REPAIR — OCTOBER 2026
+   Shared UI/UX project header, video, and overview alignment.
+   Keep these overrides at the END of uiux.css so they win
+   over older project-specific declarations above.
+   ========================================================= */
+body.project-page .project-container {
+    box-sizing: border-box;
+    width: min(1200px, 92vw);
+    margin-inline: auto;
+}
+
+body.project-page .project-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    margin-inline: auto;
+}
+
+body.project-page .project-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: 100%;
+    text-align: center;
+}
+
+body.project-page .project-title h1 {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: clamp(36px, 4.2vw, 58px);
+    line-height: 1.12;
+}
+
+body.project-page .project-title .title-break {
+    display: block;
+    width: 100%;
+    margin: 8px auto 0;
+    font-size: clamp(18px, 2vw, 28px);
+    line-height: 1.35;
+    text-align: center;
+    letter-spacing: 0.08em;
+}
+
+body.project-page .project-hero.video-hero {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    margin-inline: auto;
+    text-align: center;
+}
+
+body.project-page .project-hero.video-hero .video-player {
+    flex: 0 1 700px;
+    width: min(70%, 700px);
+    max-width: 700px;
+    margin: 0 auto 45px;
+}
+
+body.project-page .project-hero.video-hero .video-player iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    margin: 0 auto;
+}
+
+body.project-page .project-year {
+    display: block;
+    width: 100%;
+    margin: 0 auto 28px;
+    text-align: center;
+}
+
+body.project-page .project-details {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    width: 100%;
+    margin: 0 auto 70px;
+}
+
+body.project-page .project-details .detail-box {
+    box-sizing: border-box;
+    min-width: 0;
+    width: 100%;
+    text-align: center;
+}
+
+body.project-page .project-details .detail-box h3,
+body.project-page .project-details .detail-box p {
+    font-size: max(18px, 1rem);
+    overflow-wrap: anywhere;
+}
+
+/* My Deets: cyan main title, yellow subtitle, and centered overview. */
+body.deets-page .project-title h1 {
+    color: var(--deets-cyan, #00E5FF) !important;
+}
+body.deets-page .project-title .title-break {
+    color: var(--deets-yellow, #E8E45C) !important;
+    font-size: clamp(18px, 2vw, 28px);
+    letter-spacing: 0.08em;
+    text-align: center;
+}
+body.deets-page .project-details {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    text-align: center;
+}
+
+/* Phasepoint: cyan hover treatment for Concept in Focus carousel. */
+.chrono-page .carousel-slide:hover img,
+.chrono-page .case-carousel .carousel-slide:hover img {
+    filter: none !important;
+    box-shadow: 0 0 0 2px #00E5FF, 0 0 24px rgba(0, 229, 255, 0.28) !important;
+}
