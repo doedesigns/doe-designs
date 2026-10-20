@@ -1284,3 +1284,336 @@ body.death-page .death-development-section .death-sketch-image img {
         width: 100%;
     }
 }
+
+
+/* =========================================================
+   FINAL CORRECTIONS — DESIGN PROJECT PAGES
+   ========================================================= */
+
+/* 1. Add breathing room below the fixed navigation.
+   Keep the project title centered and restore both arrows. */
+
+body.project-page.scroll-page .project-container {
+    padding-top: 75px;
+}
+
+body.project-page.scroll-page .project-navigation {
+    display: grid;
+    grid-template-columns: 50px minmax(0, 1fr) 50px;
+    align-items: center;
+    justify-content: initial;
+    gap: 12px;
+    width: 100%;
+}
+
+body.project-page.scroll-page .project-navigation .project-title {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    min-width: 0;
+    text-align: center;
+}
+
+body.project-page.scroll-page .project-navigation .project-arrow.prev {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    visibility: visible;
+    opacity: 1;
+    z-index: 2;
+}
+
+body.project-page.scroll-page .project-navigation .project-arrow.next {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+    visibility: visible;
+    opacity: 1;
+    z-index: 2;
+}
+
+/* 2. FOX IN THE CITY
+   Restore the four outline illustrations.
+   The previous 16% width was being calculated against
+   an already narrow grid column, making the art too small. */
+
+body.fox-page .fox-case-section .fox-art-placeholder {
+    width: 100%;
+    max-width: 220px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+}
+
+body.fox-page .fox-case-section .fox-art-placeholder img,
+body.fox-page .fox-case-section .fox-art-placeholder img.img-small {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    object-fit: contain;
+}
+
+body.fox-page .fox-city-art,
+body.fox-page .fox-paw-art,
+body.fox-page .fox-neon-art {
+    width: 100%;
+    max-width: 220px;
+}
+
+body.fox-page .fox-head-art {
+    width: 100%;
+    max-width: 180px;
+}
+
+/* Section 1 — The Story
+   Keep the heading right-aligned.
+   Put the text below its underline, beside the city outline. */
+
+body.fox-page .fox-case-section:has(.fox-city-art) {
+    grid-template-columns: minmax(0, 1fr) minmax(160px, 220px);
+    column-gap: clamp(24px, 5vw, 64px);
+}
+
+body.fox-page .fox-case-section:has(.fox-city-art) .fox-section-heading {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-self: stretch;
+    text-align: right;
+}
+
+body.fox-page .fox-case-section:has(.fox-city-art) .fox-section-heading h2 {
+    text-align: right;
+}
+
+body.fox-page .fox-case-section:has(.fox-city-art) .fox-section-text {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+body.fox-page .fox-case-section:has(.fox-city-art) .fox-art-placeholder {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+    align-self: start;
+}
+
+/* Section 2 — Creative Direction
+   Keep the heading above the fox outline and text. */
+
+body.fox-page .fox-case-section:has(.fox-head-art) {
+    grid-template-columns: minmax(160px, 220px) minmax(0, 1fr);
+}
+
+body.fox-page .fox-case-section:has(.fox-head-art) .fox-section-heading {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    text-align: left;
+}
+
+body.fox-page .fox-case-section:has(.fox-head-art) .fox-section-heading h2 {
+    text-align: left;
+}
+
+body.fox-page .fox-case-section:has(.fox-head-art) .fox-art-placeholder {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+    align-self: start;
+}
+
+body.fox-page .fox-case-section:has(.fox-head-art) .fox-section-text {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+/* Section 3 — Design Development
+   Right-aligned heading; text below the underline,
+   with the paw outline to the right of the text. */
+
+body.fox-page .fox-case-section:has(.fox-paw-art) {
+    grid-template-columns: minmax(0, 1fr) minmax(160px, 220px);
+}
+
+body.fox-page .fox-case-section:has(.fox-paw-art) .fox-section-heading {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    text-align: right;
+}
+
+body.fox-page .fox-case-section:has(.fox-paw-art) .fox-section-heading h2 {
+    text-align: right;
+}
+
+body.fox-page .fox-case-section:has(.fox-paw-art) .fox-section-text {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+body.fox-page .fox-case-section:has(.fox-paw-art) .fox-art-placeholder {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+    align-self: start;
+}
+
+/* Section 4 — Final Design
+   Left-aligned heading and underline.
+   Artwork on the left, final-design text on the right. */
+
+body.fox-page .fox-case-section:has(.fox-neon-art) {
+    grid-template-columns: minmax(160px, 220px) minmax(0, 1fr);
+}
+
+body.fox-page .fox-case-section:has(.fox-neon-art) .fox-section-heading {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    text-align: left;
+}
+
+body.fox-page .fox-case-section:has(.fox-neon-art) .fox-section-heading h2 {
+    text-align: left;
+}
+
+body.fox-page .fox-case-section:has(.fox-neon-art) .fox-art-placeholder {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+    align-self: start;
+    margin-top: 12px;
+}
+
+body.fox-page .fox-case-section:has(.fox-neon-art) .fox-section-text {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+/* 3. THE TIP
+   Reduce the 01 publication cover image by approximately 60%.
+   This targets the section you identified in your HTML. */
+
+body.tip-page section.tip-feature-image.lightbox-image {
+    width: 40%;
+    max-width: 1100px;
+    margin: 30px auto 80px;
+}
+
+body.tip-page section.tip-feature-image.lightbox-image img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* Tablet adjustments */
+
+@media (max-width: 850px) {
+    body.project-page.scroll-page .project-container {
+        padding-top: 55px;
+    }
+
+    body.fox-page .fox-case-section:has(.fox-city-art),
+    body.fox-page .fox-case-section:has(.fox-paw-art) {
+        grid-template-columns: minmax(0, 1fr) minmax(130px, 180px);
+    }
+
+    body.fox-page .fox-case-section:has(.fox-head-art),
+    body.fox-page .fox-case-section:has(.fox-neon-art) {
+        grid-template-columns: minmax(130px, 180px) minmax(0, 1fr);
+    }
+
+    body.fox-page .fox-case-section .fox-art-placeholder {
+        max-width: 180px;
+    }
+
+    body.tip-page section.tip-feature-image.lightbox-image {
+        width: 60%;
+    }
+}
+
+/* Mobile adjustments */
+
+@media (max-width: 560px) {
+    body.project-page.scroll-page .project-container {
+        padding-top: 40px;
+    }
+
+    body.project-page.scroll-page .project-navigation {
+        grid-template-columns: 36px minmax(0, 1fr) 36px;
+        gap: 6px;
+    }
+
+    body.project-page.scroll-page .project-navigation .project-arrow {
+        transform: scale(0.85);
+    }
+
+    body.fox-page .fox-case-section,
+    body.fox-page .fox-case-section:has(.fox-city-art),
+    body.fox-page .fox-case-section:has(.fox-head-art),
+    body.fox-page .fox-case-section:has(.fox-paw-art),
+    body.fox-page .fox-case-section:has(.fox-neon-art) {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 18px;
+    }
+
+    body.fox-page .fox-case-section .fox-section-heading,
+    body.fox-page .fox-case-section:has(.fox-city-art) .fox-section-heading,
+    body.fox-page .fox-case-section:has(.fox-head-art) .fox-section-heading,
+    body.fox-page .fox-case-section:has(.fox-paw-art) .fox-section-heading,
+    body.fox-page .fox-case-section:has(.fox-neon-art) .fox-section-heading {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    body.fox-page .fox-case-section .fox-section-text,
+    body.fox-page .fox-case-section:has(.fox-city-art) .fox-section-text,
+    body.fox-page .fox-case-section:has(.fox-head-art) .fox-section-text,
+    body.fox-page .fox-case-section:has(.fox-paw-art) .fox-section-text,
+    body.fox-page .fox-case-section:has(.fox-neon-art) .fox-section-text {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    body.fox-page .fox-case-section .fox-art-placeholder,
+    body.fox-page .fox-case-section:has(.fox-city-art) .fox-art-placeholder,
+    body.fox-page .fox-case-section:has(.fox-head-art) .fox-art-placeholder,
+    body.fox-page .fox-case-section:has(.fox-paw-art) .fox-art-placeholder,
+    body.fox-page .fox-case-section:has(.fox-neon-art) .fox-art-placeholder {
+        grid-column: 1;
+        grid-row: 3;
+        justify-self: center;
+        width: min(65%, 220px);
+        max-width: 220px;
+        margin: 8px auto 0;
+    }
+
+    body.fox-page .fox-case-section:has(.fox-city-art) .fox-section-heading,
+    body.fox-page .fox-case-section:has(.fox-paw-art) .fox-section-heading {
+        text-align: right;
+    }
+
+    body.fox-page .fox-case-section:has(.fox-city-art) .fox-section-heading h2,
+    body.fox-page .fox-case-section:has(.fox-paw-art) .fox-section-heading h2 {
+        text-align: right;
+    }
+
+    body.fox-page .fox-case-section:has(.fox-head-art) .fox-section-heading,
+    body.fox-page .fox-case-section:has(.fox-neon-art) .fox-section-heading,
+    body.fox-page .fox-case-section:has(.fox-head-art) .fox-section-heading h2,
+    body.fox-page .fox-case-section:has(.fox-neon-art) .fox-section-heading h2 {
+        text-align: left;
+    }
+
+    body.tip-page section.tip-feature-image.lightbox-image {
+        width: 85%;
+    }
+}
