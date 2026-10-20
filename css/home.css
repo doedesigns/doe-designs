@@ -958,11 +958,92 @@ body.home-page {
     box-sizing: border-box;
 }
 
-/* LANDING PAGE: USE THE INTRO LOGO INSTEAD OF THE NAV LOGO */
+/*=========================================================
+    HOMEPAGE NAVIGATION
+=========================================================*/
 
-.home-page .navbar > .logo {
-    display: none;
+.home-page .home-navbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
+/* Secret Stash — left */
+
+.home-page .secret-stash-link {
+    display: inline-block;
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: .28em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color .3s ease;
+}
+
+.home-page .secret-stash-link:hover,
+.home-page .secret-stash-link:focus-visible {
+    color: #00E5FF;
+}
+
+/* Graphic Designer — centered */
+
+.home-page .home-nav-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: .28em;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+/* About and Contact — right */
+
+.home-page .home-navbar > .nav-links {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 55px;
+}
+
+/* Keep the mobile menu usable */
+
+@media (max-width: 900px) {
+    .home-page .home-navbar > .nav-links {
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-page .home-navbar {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .home-page .home-nav-title {
+        font-size: 12px;
+        letter-spacing: .18em;
+    }
+
+    .home-page .secret-stash-link {
+        font-size: 12px;
+        letter-spacing: .14em;
+    }
+
+    .home-page .home-navbar > .nav-links {
+        margin-left: 0;
+    }
+}
+
 
 /* Keep the project row from becoming cramped on tablets */
 
@@ -1002,10 +1083,6 @@ body.home-page {
 
     .home-page .page-contact-link a {
         font-size: 18px;
-    }
-
-    .home-page .secret-stash {
-        margin-top: 10px;
     }
 
     /* Preserve the single-column mobile project layout */

@@ -17,6 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
         showcase.querySelectorAll(".home-project-panel")
     );
 
+    const categoryPages = {
+        uiux: "uiux.html",
+        design: "design.html",
+        branding: "branding.html",
+        motion: "motion.html"
+    };
+
     const reduceMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)"
     ).matches;
@@ -44,8 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showCategory(category) {
 
-        if (switching) return;
-
         const nextPanel = panels.find(
             (panel) => panel.dataset.category === category
         );
@@ -54,7 +59,28 @@ document.addEventListener("DOMContentLoaded", () => {
             (panel) => panel.classList.contains("is-active")
         );
 
-        if (!nextPanel || nextPanel === currentPanel) return;
+        const selectedTab = tabs.find(
+            (tab) => tab.dataset.category === category
+        );
+
+        if (!nextPanel || !selectedTab) return;
+
+        /*
+         * Clicking the already-selected category opens
+         * that category's homepage.
+         */
+        if (nextPanel === currentPanel) {
+
+            const destination = categoryPages[category];
+
+            if (destination) {
+                window.location.href = destination;
+            }
+
+            return;
+        }
+
+        if (switching) return;
 
         window.clearTimeout(switchTimer);
 
@@ -62,8 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         switching = true;
 
-        /* If the visitor prefers reduced motion,
-           change categories without sliding animations. */
+        /* Reduced-motion preference: switch immediately. */
 
         if (reduceMotion) {
 
@@ -108,8 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
-        /* New category enters from the left.
-           Its See More link enters from the right. */
+        /* New category enters from the left. */
 
         nextPanel.classList.remove(
             "initial-entry",
@@ -123,9 +147,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         nextPanel.setAttribute("aria-hidden", "false");
 
-        /* Keep all cards in the document so the existing
-           deliverables dropdown and motion previews can
-           continue working. */
+        /*
+         * Leave all project cards in the document so
+         * deliverables overlays and motion previews continue
+         * working as before.
+         */
 
         switchTimer = window.setTimeout(() => {
 
@@ -196,4 +222,5 @@ document.addEventListener("DOMContentLoaded", () => {
     if (initialPanel) {
         setSelectedTab(initialPanel.dataset.category);
     }
+
 });

@@ -59,7 +59,6 @@ main{
     margin-top:0;
 }
 
-
 /* ===================================
 HEADER / NAVIGATION
 =================================== */
@@ -253,7 +252,6 @@ GLOBAL BUTTON
     transform:scaleX(1);
 }
 
-
 /* ===================================
 GLOBAL PAGE LAYOUT
 =================================== */
@@ -408,6 +406,38 @@ PAGE CONTACT LINK
     letter-spacing:.08em;
     text-align:center;
 }
+
+
+/*=========================================================
+    SHARED CONTACT LINKS
+=========================================================*/
+
+.page-contact-link .enter-button {
+    display: inline-block;
+    width: auto;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    color: #00E5FF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: .35em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color .3s ease, letter-spacing .3s ease;
+}
+
+.page-contact-link .enter-button:hover,
+.page-contact-link .enter-button:focus-visible {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    color: #FFFFFF;
+}
+
 
 /* ===================================
 FOOTER

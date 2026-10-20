@@ -1194,14 +1194,14 @@ PROJECT FOOTER LINK
 
 .chrono-page .carousel-track {
     display: grid;
-    grid-auto-columns: minmax(78%, 1fr);
+    grid-auto-columns: minmax(65%, 1fr);
     grid-auto-flow: column;
-    gap: 18px;
+    gap: 32px;
     overflow-x: auto;
-    padding: 0 0 14px;
+    padding: 8px 4px 18px;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    scrollbar-color: var(--chrono-cyan) rgba(255,255,255,0.1);
+    scrollbar-color: var(--chrono-cyan) rgba(255, 255, 255, .1);
     scrollbar-width: thin;
 }
 
@@ -3488,6 +3488,7 @@ body.lotus-organic .lotus-games-figure {
     max-width: 180px;
     min-width: 0;
     margin: 0;
+	align-items: center;
 }
 
 body.lotus-organic .lotus-games-figure video.video-player {
@@ -4948,19 +4949,6 @@ body.death-page .page-contact-link p {
     line-height: 1.7;
 }
 
-body.death-page .page-contact-link .enter-button {
-    border-color: #C8102E;
-    color: #FFFFFF;
-    background: rgba(130, 0, 20, 0.16);
-}
-
-body.death-page .page-contact-link .enter-button:hover {
-    border-color: #F0445E;
-    background: #A90D27;
-    color: #FFFFFF;
-}
-
-
 /* =========================================================
    DEATH BY MUSIC — FULL-WIDTH CASE STUDY SECTIONS
    ========================================================= */
@@ -5353,18 +5341,6 @@ body.fox-page .page-contact-link p {
     line-height: 1.7;
 }
 
-body.fox-page .page-contact-link .enter-button {
-    border-color: #D58DA7;
-    color: #FFFFFF;
-    background: rgba(213, 141, 167, 0.1);
-}
-
-body.fox-page .page-contact-link .enter-button:hover {
-    border-color: #F0B3C8;
-    background: #B76E8A;
-    color: #FFFFFF;
-}
-
 /* RESPONSIVE LAYOUT */
 
 @media (max-width: 900px) {
@@ -5671,19 +5647,6 @@ body.tip-page .page-contact-link p {
     line-height: 1.7;
 }
 
-body.tip-page .page-contact-link .enter-button {
-    border-color: #70CD8B;
-    color: #FFFFFF;
-    background: rgba(55, 120, 76, 0.16);
-}
-
-body.tip-page .page-contact-link .enter-button:hover {
-    border-color: #9BE9B1;
-    background: #287847;
-    color: #FFFFFF;
-}
-
-
 /* =========================================================
    FINAL PROJECT PAGE REFINEMENTS
    Lotus Lingo, Clean Future Network, and shared text sizing
@@ -5838,19 +5801,38 @@ body.tip-page .project-title-nav h1 {
     position: relative;
 }
 
-body.death-page .project-title-nav h1::before,
-body.fox-page .project-title-nav h1::before,
-body.tip-page .project-title-nav h1::before {
-    content: "DESIGN";
-    display: block;
-    margin-bottom: 4px;
-    color: rgba(255, 255, 255, 0.7);
-    font-family: "Jost", sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.3em;
+
+/*=========================================================
+    PROJECT NAVIGATION CATEGORY LINK
+=========================================================*/
+
+.project-title-nav .project-category-link {
+    display: inline-block;
+    flex: 0 0 auto;
+    margin: 0;
+    color: #00E5FF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: .12em;
     line-height: 1.2;
-    text-align: center;
+    text-align: right;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color .3s ease;
+}
+
+.project-title-nav .project-category-link:hover,
+.project-title-nav .project-category-link:focus-visible {
+    color: #FFFFFF;
+}
+
+@media (max-width: 760px) {
+    .project-title-nav .project-category-link {
+        font-size: 18px;
+        letter-spacing: .06em;
+    }
 }
 
 
@@ -6247,8 +6229,6 @@ body.fox-page .fox-art-placeholder::before {
     content: "";
     position: absolute;
     inset: 12px;
-    border: 1px solid rgba(243, 160, 194, 0.12);
-    border-radius: 8px;
     pointer-events: none;
 }
 
@@ -6256,37 +6236,22 @@ body.fox-page .fox-art-placeholder span {
     position: relative;
     z-index: 1;
     color: #F3A0C2;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
 }
 
 /* Slightly different proportions for each future illustration */
 
 body.fox-page .fox-city-art {
-    min-height: 125px;
+    min-height: 75px;
 }
 
 body.fox-page .fox-head-art {
-    min-height: 155px;
-    max-width: 540px;
+    min-height: 95px;
+    max-width: 75px;
 }
 
 body.fox-page .fox-paw-art {
-    min-height: 110px;
-    max-width: 640px;
-    border-style: dotted;
-}
-
-body.fox-page .fox-neon-art {
-    min-height: 240px;
-    width: min(100%, 900px);
-    border-style: solid;
-    border-color: rgba(243, 160, 194, 0.42);
-    box-shadow:
-        inset 0 0 35px rgba(243, 160, 194, 0.055),
-        0 0 25px rgba(243, 70, 150, 0.09);
+    min-height: 75px;
+    max-width: 75px;
 }
 
 /* Preserve readable section copy */
@@ -6661,7 +6626,7 @@ body.clean-organic .project-title h1 {
 
 /* Center the combined callout and video arrangement */
 body.lotus-organic .lotus-callout-row.lotus-callout-left {
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 /* Keep the video centered within its figure */
@@ -6961,7 +6926,7 @@ body.tip-page .tip-development-image img {
 
 @media (max-width: 760px) {
     body.lotus-organic .lotus-callout-row.lotus-callout-left {
-        justify-content: center;
+        justify-content: justify-content;
     }
 
     body.lotus-organic .lotus-games-figure figcaption {

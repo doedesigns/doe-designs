@@ -160,8 +160,9 @@ document.addEventListener("DOMContentLoaded", () => {
             `© ${new Date().getFullYear()} Doe Designs · Portfolio website designed & developed from concept to code by Jen Doehne`;
     }
 
+
 // ============================================
-// PROJECT SCROLL NAV
+// PROJECT SCROLL NAV + CATEGORY LINK
 // ============================================
 
     const projectPage =
@@ -179,36 +180,77 @@ document.addEventListener("DOMContentLoaded", () => {
         projectTitleNav
     ) {
 
+// Show the project navigation when scrolling.
         window.addEventListener("scroll", () => {
 
             if (window.scrollY > 80) {
-
                 navbar.classList.add("project-scrolled");
-
             } else {
-
                 navbar.classList.remove("project-scrolled");
             }
         });
-    }
 
-// ============================================
-// RETURN TO TOP
-// ============================================
+// Build a real category link from the active
+// category in the main navigation.
+        const activeCategoryLink =
+            document.querySelector(".nav-links a.active");
 
-    if (projectTitleNav) {
+        const projectTitle =
+            projectTitleNav.querySelector("h1");
 
-        projectTitleNav.addEventListener(
-            "click",
-            () => {
+        if (activeCategoryLink && projectTitle) {
+
+// Avoid inserting the category link twice.
+            let categoryLink =
+                projectTitleNav.querySelector(
+                    ".project-category-link"
+                );
+
+            if (!categoryLink) {
+
+                categoryLink =
+                    document.createElement("a");
+
+                categoryLink.className =
+                    "project-category-link";
+
+// Preserve the category's actual destination.
+                categoryLink.href =
+                    activeCategoryLink.href;
+
+// Preserve the displayed category name.
+                categoryLink.textContent =
+                    activeCategoryLink.textContent.trim();
+
+                categoryLink.setAttribute(
+                    "aria-label",
+                    "View " +
+                    activeCategoryLink.textContent.trim() +
+                    " projects"
+                );
+
+// Place the category immediately before
+// the project title.
+                projectTitleNav.insertBefore(
+                    categoryLink,
+                    projectTitle
+                );
+            }
+        }
+
+// Clicking the project title returns to the top.
+// Category links and previous/next arrows retain
+// their own navigation behavior.
+        if (projectTitle) {
+
+            projectTitle.addEventListener("click", () => {
 
                 window.scrollTo({
                     top: 0,
                     behavior: "smooth"
                 });
-            }
-        );
-    }
+            });
+        }
 
 // ============================================
 // GENERIC PROJECT CARD INFORMATION
