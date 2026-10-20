@@ -205,14 +205,135 @@ NAVIGATION LINKS
 
 
 /* =========================================================
-   PROJECT NAVIGATION — RIGHT ALIGNMENT
+   PROJECT NAVIGATION — SCROLL TRANSITION
 ========================================================= */
 
-.navbar > .project-title-nav {
-    margin-left: auto;
-    margin-right: 0;
+/* The navbar clips the project navigation as it moves in. */
+.navbar {
+    overflow: hidden;
 }
 
+/* Keep the regular navigation on the right at the page top. */
+.navbar > .nav-links {
+    margin-left: auto;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition:
+        opacity 0.35s ease,
+        transform 0.45s ease,
+        visibility 0s linear 0s;
+}
+
+/* Project navigation starts below the visible navbar. */
+.navbar > .project-title-nav {
+    position: absolute;
+    top: 0;
+    right: 40px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    margin: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%);
+    transition:
+        transform 0.45s cubic-bezier(.22, 1, .36, 1),
+        opacity 0.3s ease,
+        visibility 0s linear 0.45s;
+    z-index: 2;
+}
+
+/* Project title in the compact navbar. */
+.project-title-nav h1 {
+    margin: 0;
+    color: #fff;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+/* Category link is placed immediately before the title by main.js.
+   Position it at the far right in the scrolled layout. */
+.project-title-nav .project-category-link {
+    position: absolute;
+    left: calc(100% + 40px);
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00E5FF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        opacity 0.3s ease,
+        color 0.3s ease;
+}
+
+.project-title-nav .project-category-link:hover {
+    color: #fff;
+}
+
+/* Scrolled state: regular links leave; project navigation rises in. */
+.navbar.project-scrolled > .nav-links {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+    pointer-events: none;
+    transition:
+        opacity 0.25s ease,
+        transform 0.45s ease,
+        visibility 0s linear 0.45s;
+}
+
+.navbar.project-scrolled > .project-title-nav {
+    right: 40px;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition:
+        transform 0.45s cubic-bezier(.22, 1, .36, 1),
+        opacity 0.3s ease 0.08s,
+        visibility 0s;
+}
+
+/* Keep the logo fixed at the left of the navbar. */
+.navbar > .logo {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 3;
+}
+
+/* Responsive desktop spacing. */
+@media (max-width: 1100px) {
+    .navbar > .project-title-nav {
+        right: 20px;
+        gap: 14px;
+    }
+
+    .navbar.project-scrolled > .project-title-nav {
+        right: 20px;
+    }
+
+    .project-title-nav h1 {
+        font-size: 17px;
+    }
+
+    .project-title-nav .project-category-link {
+        display: none;
+    }
+}
 
 /* ===================================
 GLOBAL BUTTON
@@ -826,42 +947,6 @@ TABLET / SMALL DESKTOP NAV
     .logo-designs{
         font-size:14px;
     }
-
-}
-
-/* =========================================================
-   MOBILE PROJECT NAVIGATION
-   When a project page is scrolled, keep only the
-   previous/next arrows centered in the fixed navbar.
-========================================================= */
-
-@media (max-width:768px){
-
-    .project-scrolled .project-title-nav{
-        left:50%;
-        top:50%;
-        transform:translate(-50%,-50%);
-        gap:30px;
-        width:auto;
-        z-index:1;
-    }
-
-    .project-scrolled .project-title-nav h1{
-        display:none;
-    }
-
-    .project-scrolled .project-title-nav .project-arrow{
-        width:40px;
-        height:40px;
-    }
-
-    /* Keep the logo and hamburger above the project arrows */
-    .navbar .logo,
-    .navbar .menu-toggle{
-        position:relative;
-        z-index:10002;
-    }
-
 }
 
 /* ===================================

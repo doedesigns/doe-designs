@@ -893,3 +893,261 @@ body.tip-page .tip-feature-image img {
         padding-inline: 8px;
     }
 }
+
+
+/* =========================================================
+   SHARED RESPONSIVE NAVIGATION + DESIGN PROJECT LAYOUT
+   Tagged repair: keep the desktop nav intact and make the
+   compact menu and scrolled project title work together.
+   ========================================================= */
+@media (max-width: 900px) {
+    body.project-page .project-container {
+        width: 90vw;
+        padding-top: 105px;
+    }
+
+    body.project-page .project-navigation {
+        gap: 24px;
+    }
+
+    body.project-page .project-title h1 {
+        font-size: clamp(36px, 5.2vw, 48px);
+    }
+
+    body.project-page .project-title .title-break {
+        font-size: clamp(18px, 2.5vw, 24px);
+    }
+
+    body.project-page .project-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 22px;
+    }
+}
+
+@media (max-width: 760px) {
+    .navbar {
+        position: relative;
+        justify-content: space-between;
+        padding: 0 18px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        left: 0;
+        z-index: 10002;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 10px 18px 18px;
+        background: rgba(0, 0, 0, .96);
+        border-bottom: 1px solid rgba(255,255,255,.12);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: opacity .25s ease, visibility .25s ease, transform .25s ease;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: inline-block;
+        padding: 13px 8px;
+        font-size: 18px;
+        letter-spacing: .12em;
+    }
+
+    .nav-links.mobile-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    /* Allow the menu to open even when project scroll mode hides desktop links. */
+    .project-scrolled .nav-links.mobile-open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .project-title-nav {
+        left: auto;
+        right: 66px;
+        gap: 10px;
+        max-width: calc(100% - 150px);
+        justify-content: flex-end;
+        transform: translateY(-50px);
+    }
+
+    .project-scrolled .project-title-nav {
+        transform: translateY(-50%);
+    }
+
+    .project-title-nav h1 {
+        font-size: 18px;
+        letter-spacing: .04em;
+    }
+
+    .project-title-nav .project-category-link {
+        font-size: 18px;
+        letter-spacing: .04em;
+    }
+
+    .project-title-nav .project-arrow {
+        flex: 0 0 28px;
+        width: 28px;
+        height: 38px;
+    }
+
+    .project-title-nav .arrow-circle {
+        width: 24px;
+        height: 24px;
+    }
+
+    .project-title-nav .project-arrow.prev .arrow-triangle {
+        border-top-width: 6px;
+        border-bottom-width: 6px;
+        border-right-width: 9px;
+    }
+
+    .project-title-nav .project-arrow.next .arrow-triangle {
+        border-top-width: 6px;
+        border-bottom-width: 6px;
+        border-left-width: 9px;
+    }
+
+    body.project-page .project-navigation {
+        gap: 12px;
+        margin-bottom: 42px;
+    }
+
+    body.project-page .project-arrow {
+        flex: 0 0 34px;
+        width: 34px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    body.project-page .project-container {
+        width: 92vw;
+        padding-top: 94px;
+    }
+
+    body.project-page .project-title h1 {
+        font-size: clamp(30px, 8vw, 36px);
+        letter-spacing: .045em;
+        overflow-wrap: break-word;
+    }
+
+    body.project-page .project-title .title-break {
+        margin-top: 7px;
+        font-size: 18px;
+        letter-spacing: .04em;
+        line-height: 1.45;
+    }
+
+    body.project-page .project-details {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    body.project-page .project-details .detail-box {
+        padding-inline: 10px;
+    }
+
+    .project-title-nav {
+        right: 58px;
+        max-width: calc(100% - 130px);
+        gap: 7px;
+    }
+
+    .project-title-nav h1,
+    .project-title-nav .project-category-link {
+        font-size: 18px;
+        letter-spacing: .02em;
+    }
+}
+
+@media (max-width: 420px) {
+    .navbar {
+        padding: 0 10px;
+    }
+
+    .project-title-nav {
+        right: 54px;
+        max-width: calc(100% - 112px);
+        gap: 5px;
+    }
+
+    .project-title-nav h1,
+    .project-title-nav .project-category-link {
+        font-size: 18px;
+        letter-spacing: 0;
+    }
+}
+
+/* =========================================================
+   MOBILE PROJECT NAVIGATION
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .navbar {
+        overflow: visible;
+    }
+
+    .navbar > .project-title-nav {
+        top: 0;
+        left: 50%;
+        right: auto;
+        height: 70px;
+        width: auto;
+        gap: 30px;
+        transform: translate(-50%, 100%);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .navbar.project-scrolled > .project-title-nav {
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, 0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .navbar.project-scrolled > .project-title-nav h1,
+    .navbar.project-scrolled > .project-title-nav .project-category-link {
+        display: none;
+    }
+
+    .navbar.project-scrolled > .project-title-nav .project-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .navbar > .logo,
+    .navbar > .menu-toggle {
+        position: relative;
+        z-index: 10002;
+    }
+
+    .navbar.project-scrolled > .nav-links {
+        visibility: hidden;
+        pointer-events: none;
+    }
+}

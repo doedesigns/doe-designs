@@ -759,9 +759,8 @@ body.death-page .project-title .title-break,
 body.fox-page .project-title .title-break,
 body.tip-page .project-title .title-break { display:block; margin-top:10px; font-family:"Jost",sans-serif; font-size:18px !important; line-height:1.5; font-weight:400; letter-spacing:.1em; text-transform:uppercase; }
 
-/* DESIGN category label beside the scrolled project title. */
-.project-title-nav h1 { position:relative; }
-.project-title-nav h1::before { content:"DESIGN"; position:absolute; right:calc(100% + 26px); top:0; width:max-content; color:#00E5FF; font-family:"Barlow Condensed",sans-serif; font-size:18px; font-weight:700; letter-spacing:.12em; text-align:right; white-space:nowrap; }
+/* The scrolled navigation category is inserted as a real link by main.js.
+   Do not add a second category label with a pseudo-element. */
 
 /* White arrow triangles; retain each project's colored circle. */
 body.death-page .project-arrow.prev .arrow-triangle, body.fox-page .project-arrow.prev .arrow-triangle, body.tip-page .project-arrow.prev .arrow-triangle { border-right-color:#FFFFFF !important; }
