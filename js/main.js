@@ -251,6 +251,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             });
         }
+	}
 
 // ============================================
 // GENERIC PROJECT CARD INFORMATION

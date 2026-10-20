@@ -7030,6 +7030,207 @@ body.clean-organic .clean-prototype-button {
     }
 }
 
+/* =========================================================
+   OCTOBER 2026 FIXES
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   LOTUS LINGO — CENTER GAME AND PROTOTYPE
+   Keep the handwritten callout left-aligned.
+   --------------------------------------------------------- */
+
+body.lotus-organic .lotus-callout-row.lotus-callout-left {
+    justify-content: flex-start;
+}
+
+body.lotus-organic .lotus-games-figure {
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+}
+
+body.lotus-organic .lotus-games-figure video.video-player {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+body.lotus-organic .lotus-prototype {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+body.lotus-organic .lotus-prototype .prototype-image-link {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.lotus-organic .lotus-prototype .lotus-prototype-button,
+body.lotus-organic .lotus-prototype .enter-button {
+    align-self: center;
+}
+
+
+/* ---------------------------------------------------------
+   CLEAN FUTURE NETWORK — REMOVE PROTOTYPE UNDERLINE
+   --------------------------------------------------------- */
+
+body.clean-organic .clean-prototype .enter-button::after {
+    display: none;
+}
+
+
+/* ---------------------------------------------------------
+   CHRONO NEXUS — PREVENT CAROUSEL OVERLAP
+   Remove hover recoloring/glow for now.
+   --------------------------------------------------------- */
+
+.chrono-page .carousel-track {
+    display: flex;
+    align-items: flex-start;
+    gap: 36px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 8px 22px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.chrono-page .carousel-slide {
+    position: relative;
+    flex: 0 0 min(65%, 620px);
+    width: min(65%, 620px);
+    min-width: 0;
+    margin: 0;
+    scroll-snap-align: start;
+}
+
+.chrono-page .carousel-slide img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    filter: none;
+    box-shadow: none;
+    transition: none;
+}
+
+.chrono-page .carousel-slide:hover img,
+.chrono-page .case-carousel .carousel-slide:hover img {
+    filter: none;
+    box-shadow: none;
+}
+
+@media (max-width: 700px) {
+    .chrono-page .carousel-slide {
+        flex-basis: 85%;
+        width: 85%;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   FOX IN THE CITY — OUTLINE ARTWORK
+   No boxes; artwork sits immediately beneath each heading.
+   City: right | Fox: left | Paw: right | Fox + city: left.
+   --------------------------------------------------------- */
+
+body.fox-page .fox-case-section {
+    display: flex;
+    flex-direction: column;
+}
+
+body.fox-page .fox-case-section .fox-section-heading {
+    order: 1;
+}
+
+body.fox-page .fox-case-section .fox-art-placeholder {
+    order: 2;
+    display: block;
+    flex: 0 0 auto;
+    width: min(16%, 160px);
+    max-width: 160px;
+    margin-top: 0;
+    margin-bottom: 24px;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+}
+
+body.fox-page .fox-case-section .fox-art-placeholder img.img-small {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+body.fox-page .fox-case-section .fox-art-placeholder span {
+    display: none;
+}
+
+body.fox-page .fox-case-section .fox-section-text {
+    order: 3;
+}
+
+/* 1 — The Story: city outline on the right */
+body.fox-page .fox-city-art {
+    align-self: flex-end;
+}
+
+/* 2 — Creative Direction: fox outline on the left */
+body.fox-page .fox-head-art {
+    align-self: flex-start;
+}
+
+/* 3 — Design Development: paw outline on the right */
+body.fox-page .fox-paw-art {
+    align-self: flex-end;
+}
+
+/* 4 — Final Design: fox + city outline on the left */
+body.fox-page .fox-neon-art {
+    align-self: flex-start;
+}
+
+@media (max-width: 700px) {
+    body.fox-page .fox-case-section .fox-art-placeholder {
+        width: min(30%, 140px);
+        max-width: 140px;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   THE TIP — ADD SPACE BEFORE EDITORIAL DEVELOPMENT
+   --------------------------------------------------------- */
+
+body.tip-page .tip-feature-image + .tip-case-section {
+    margin-top: 100px !important;
+    padding-top: 10px;
+}
+
+
+/* Hide Secret Stash in the homepage navigation */
+.home-page .secret-stash-link {
+    display: none !important;
+}
+
 
 /*=========================================================
 MOBILE
