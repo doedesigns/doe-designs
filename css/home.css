@@ -690,10 +690,13 @@ body.home-page {
     justify-content: space-between;
 }
 
-/* Secret Stash is hidden in the navigation. */
+/* Secret Stash: reserve space at the far left,
+   but keep the link invisible and inaccessible. */
 
 .home-page .secret-stash-link {
-    display: none !important;
+    display: inline-block;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 /* Centered navigation title. */
