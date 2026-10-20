@@ -3147,3 +3147,393 @@ body.deets-page .project-details {
     filter: none !important;
     box-shadow: 0 0 0 2px #00E5FF, 0 0 24px rgba(0, 229, 255, 0.28) !important;
 }
+
+/* =========================================================
+   LOTUS LINGO + CHRONO NEXUS — TARGETED OCTOBER 2026 FIXES
+   Added after existing rules to resolve older conflicting styles.
+   ========================================================= */
+
+/* Restore the animated cyan ring around the project navigation arrows. */
+body.project-page .project-arrow .arrow-circle {
+    position: relative;
+    isolation: isolate;
+}
+
+body.project-page .project-arrow .arrow-circle::before {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    z-index: -1;
+    border: 2px solid #00E5FF;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0.55);
+    pointer-events: none;
+}
+
+body.project-page .project-arrow:hover .arrow-circle::before,
+body.project-page .project-arrow:focus-visible .arrow-circle::before {
+    animation: project-arrow-cyan-orbit 1.15s ease-out infinite;
+}
+
+@keyframes project-arrow-cyan-orbit {
+    0% { opacity: 0.85; transform: scale(0.55); }
+    75%, 100% { opacity: 0; transform: scale(1.45); }
+}
+
+/* Bring the Lotus year closer to the walkthrough while keeping it centered
+   above the four project-detail columns. */
+body.lotus-organic .project-hero.video-hero.lotus-video {
+    margin-bottom: 12px;
+}
+
+body.lotus-organic .project-year {
+    margin: 0 auto 24px;
+    text-align: center;
+}
+
+/* Overview: separate the copy from the mockup and style its caption with
+   the existing solution green. */
+body.lotus-organic .lotus-overview .story-text p:last-child {
+    margin-bottom: clamp(26px, 4vw, 44px);
+}
+
+body.lotus-organic .lotus-overview .story-image {
+    align-self: center;
+    min-width: 0;
+}
+
+body.lotus-organic .lotus-overview .story-image > p {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 14px auto 0;
+    padding: 12px 16px;
+    background: #426B4B;
+    color: #FFFFFF !important;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Prototype: preserve the existing 240px image size and center it on the
+   page; position the linked handwritten arrow/callout to its right. */
+body.lotus-organic .lotus-prototype-showcase {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 240px minmax(0, 1fr);
+    align-items: center;
+    justify-items: stretch;
+    gap: clamp(18px, 3vw, 42px);
+    width: 100%;
+    margin: 30px auto 18px;
+}
+
+body.lotus-organic .lotus-prototype .lotus-prototype-showcase .prototype-image-link {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    flex: 0 0 240px;
+    width: 240px;
+    max-width: 100%;
+    margin: 0;
+    border-color: #FFFFFF;
+    box-shadow: 0 12px 30px rgba(54, 95, 125, 0.2);
+}
+
+body.lotus-organic .lotus-prototype-callout {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: start;
+    align-self: center;
+    width: 100%;
+    max-width: 220px;
+    margin: 0;
+    color: #365F7D;
+    transform: none;
+}
+
+body.lotus-organic .lotus-prototype-callout .lotus-curved-arrow {
+    color: #365F7D;
+}
+
+body.lotus-organic .lotus-prototype-callout:hover,
+body.lotus-organic .lotus-prototype-callout:focus-visible {
+    color: #173C61;
+    transform: translateY(-2px);
+}
+
+body.lotus-organic .lotus-prototype-callout:hover .lotus-curved-arrow,
+body.lotus-organic .lotus-prototype-callout:focus-visible .lotus-curved-arrow {
+    color: #173C61;
+}
+
+/* Use the existing challenge blue for the prototype hover overlay instead
+   of introducing maroon. */
+body.lotus-organic .lotus-prototype .prototype-image-link:hover,
+body.lotus-organic .lotus-prototype .prototype-image-link:focus-visible {
+    border-color: #365F7D;
+}
+
+body.lotus-organic .lotus-prototype .prototype-image-link:hover .lotus-prototype-overlay,
+body.lotus-organic .lotus-prototype .prototype-image-link:focus-visible .lotus-prototype-overlay {
+    background: rgba(54, 95, 125, 0.96);
+    color: #FFFFFF !important;
+}
+
+/* Creative direction: challenge blue image panel, centered caption, and
+   enough space before the following COLOR, TYPE & COMPONENTS eyebrow. */
+body.lotus-organic .lotus-direction .story-image {
+    box-sizing: border-box;
+    padding: clamp(12px, 2vw, 22px);
+    background: #365F7D;
+}
+
+body.lotus-organic .lotus-direction .story-image > p {
+    margin: 14px auto 0;
+    color: #FFFFFF !important;
+    text-align: center;
+}
+
+body.lotus-organic .lotus-direction .story-text .lotus-eyebrow {
+    margin-top: clamp(24px, 4vw, 44px);
+}
+
+body.lotus-organic .lotus-direction .story-text > p:first-child {
+    margin-top: clamp(24px, 4vw, 44px);
+}
+
+/* Process: switch the former maroon/plum panel to the existing solution
+   green. Scale the concept-map image and its caption together to 50%. */
+body.lotus-organic .lotus-process {
+    background: #426B4B;
+    color: #FFFFFF;
+}
+
+body.lotus-organic .lotus-process .story-text p,
+body.lotus-organic .lotus-process .story-text .lotus-eyebrow,
+body.lotus-organic .lotus-process .story-text h2 {
+    color: #FFFFFF !important;
+}
+
+body.lotus-organic .lotus-process .story-image {
+    width: 50%;
+    max-width: 270px;
+    min-width: 0;
+    justify-self: center;
+    padding: 10px;
+    background: #426B4B;
+}
+
+body.lotus-organic .lotus-process .story-image img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+}
+
+body.lotus-organic .lotus-process .story-image > p {
+    margin: 12px auto 0;
+    color: #FFFFFF !important;
+    text-align: center;
+}
+
+/* The app experience: keep the games video centered within the row while
+   the handwritten callout remains on its left. */
+body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left {
+    display: grid;
+    grid-template-columns: minmax(150px, 220px) minmax(0, 1fr);
+    align-items: center;
+    justify-content: center;
+    gap: clamp(24px, 5vw, 60px);
+}
+
+body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-handwritten-callout {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    max-width: 220px;
+    flex: initial;
+}
+
+body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-games-figure {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+    width: 180px;
+    max-width: 100%;
+    flex: 0 1 180px;
+    margin: 0 auto;
+}
+
+body.lotus-organic .lotus-experience .lotus-games-figure video.video-player {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Katakana lesson panel: challenge blue, centered white caption. */
+body.lotus-organic .lotus-experience .lotus-feature-image {
+    box-sizing: border-box;
+    padding: clamp(12px, 2vw, 22px);
+    background: #365F7D;
+}
+
+body.lotus-organic .lotus-experience .lotus-feature-image figcaption {
+    align-items: center;
+    width: 100%;
+    padding: 16px 4px 4px;
+    color: #FFFFFF !important;
+    text-align: center;
+}
+
+body.lotus-organic .lotus-experience .lotus-feature-image figcaption strong,
+body.lotus-organic .lotus-experience .lotus-feature-image figcaption span {
+    color: #FFFFFF !important;
+    text-align: center;
+}
+
+/* Chrono Nexus: retain each carousel image's natural proportions, prevent
+   flex/grid stretching and overlapping, and keep the cyan hover outline. */
+body.chrono-page .case-carousel {
+    min-width: 0;
+    max-width: 100%;
+}
+
+body.chrono-page .carousel-track {
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 10px 8px 22px;
+    scroll-snap-type: x mandatory;
+    isolation: isolate;
+}
+
+body.chrono-page .carousel-slide {
+    position: relative;
+    display: block;
+    flex: 0 0 min(65%, 620px);
+    width: min(65%, 620px);
+    min-width: 0;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    scroll-snap-align: start;
+}
+
+body.chrono-page .carousel-slide img {
+    position: static;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto !important;
+    max-height: none;
+    margin: 0;
+    object-fit: contain;
+    object-position: center;
+    filter: none;
+    box-shadow: none;
+    transition: box-shadow 0.25s ease;
+}
+
+body.chrono-page .carousel-slide:hover img,
+body.chrono-page .case-carousel .carousel-slide:hover img {
+    filter: none !important;
+    box-shadow: 0 0 0 2px #00E5FF, 0 0 24px rgba(0, 229, 255, 0.28) !important;
+}
+
+body.chrono-page .ux-icon {
+    position: relative;
+    flex: 0 0 38px;
+    width: 38px;
+    min-width: 38px;
+    height: 38px;
+    min-height: 38px;
+    box-sizing: border-box;
+}
+
+body.chrono-page .ux-icon svg,
+body.chrono-page .ux-icon img {
+    display: block;
+    width: 21px !important;
+    max-width: 21px !important;
+    height: 21px !important;
+    max-height: 21px !important;
+    object-fit: contain;
+}
+
+@media (max-width: 760px) {
+    body.lotus-organic .lotus-prototype-showcase {
+        grid-template-columns: minmax(0, 1fr) 240px minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    body.lotus-organic .lotus-prototype-callout {
+        max-width: 100%;
+        font-size: clamp(18px, 3.5vw, 25px);
+    }
+
+    body.lotus-organic .lotus-prototype-callout .lotus-curved-arrow {
+        width: 90px;
+    }
+
+    body.lotus-organic .lotus-process .story-image {
+        width: 60%;
+        max-width: 270px;
+    }
+}
+
+@media (max-width: 560px) {
+    body.lotus-organic .lotus-prototype-showcase {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    body.lotus-organic .lotus-prototype .lotus-prototype-showcase .prototype-image-link {
+        flex: 0 1 240px;
+        width: 240px;
+        max-width: 100%;
+    }
+
+    body.lotus-organic .lotus-prototype-callout {
+        align-self: center;
+        width: auto;
+        max-width: 100%;
+    }
+
+    body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-handwritten-callout {
+        order: 0;
+        width: 100%;
+        max-width: 220px;
+    }
+
+    body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-games-figure {
+        order: 1;
+        width: 180px;
+        max-width: 75%;
+    }
+
+    body.lotus-organic .lotus-process .story-image {
+        width: 70%;
+        max-width: 270px;
+    }
+
+    body.chrono-page .carousel-slide {
+        flex-basis: 88%;
+        width: 88%;
+    }
+}

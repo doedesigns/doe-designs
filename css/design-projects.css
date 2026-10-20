@@ -1,10 +1,3 @@
-/* =========================================================
-   TAGGED REFERENCE COPY — DO NOT USE AS THE UI/UX FIX
-   Purpose: preserve the older/full branding-project.css as a
-   reference when repairing the Design pages and shared nav.
-   Active UI/UX project pages load uiux.css and mobile.css.
-   ========================================================= */
-
 @charset "UTF-8";
 
 /*=========================================================
@@ -11247,5 +11240,104 @@ body.tip-page section.tip-feature-image.tip-spread-image.tip-final-spread img {
         width: 96vw;
         margin-top: 25px;
         margin-bottom: 65px;
+    }
+}
+
+
+/* ---------------------------------------------------------
+   DEATH BY MUSIC — DESIGN DEVELOPMENT LAYOUT + FINAL MOCKUP
+   The development section uses two columns:
+   left = heading and sketches; right = process copy and options.
+   --------------------------------------------------------- */
+
+body.death-page .death-development-section {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-areas:
+        "heading copy"
+        "sketches options";
+    align-items: start;
+    column-gap: clamp(24px, 5vw, 70px);
+    row-gap: 24px;
+}
+
+body.death-page .death-development-section > .death-section-heading {
+    grid-area: heading;
+}
+
+body.death-page .death-development-section > .death-section-text {
+    grid-area: copy;
+    max-width: none;
+}
+
+body.death-page .death-development-section > .death-sketch-image {
+    grid-area: sketches;
+    width: 100%;
+    margin: 0;
+    align-self: start;
+}
+
+/* The sketches are 50% larger than the previous 50%-width treatment. */
+body.death-page .death-development-section > .death-sketch-image img {
+    display: block;
+    width: 75%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+body.death-page .death-development-section > .death-sketch-image > p {
+    width: 100%;
+    margin: 14px auto 0;
+    text-align: center;
+}
+
+/* Keep the three cover directions in the right column beneath the copy. */
+body.death-page .death-development-section > .death-options-image {
+    grid-area: options;
+    width: 100%;
+    margin: 0;
+    align-self: start;
+}
+
+body.death-page .death-development-section > .death-options-image img {
+    width: 100%;
+    max-width: 100%;
+}
+
+body.death-page .death-development-section > .death-options-image > p {
+    width: 100%;
+    margin: 14px auto 0;
+    text-align: center;
+}
+
+/* Enlarge the final publication mockup by 25% (from 50% to 62.5%). */
+body.death-page .death-feature-image img[src*="2.1.5-death-mockup-full-cover"] {
+    width: 62.5%;
+    max-width: 100%;
+}
+
+@media (max-width: 760px) {
+    body.death-page .death-development-section {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "heading"
+            "copy"
+            "sketches"
+            "options";
+        row-gap: 22px;
+    }
+
+    body.death-page .death-development-section > .death-sketch-image img {
+        width: 75%;
+    }
+
+    body.death-page .death-development-section > .death-options-image img {
+        width: 90%;
+    }
+
+    body.death-page .death-feature-image img[src*="2.1.5-death-mockup-full-cover"] {
+        width: 85%;
     }
 }
