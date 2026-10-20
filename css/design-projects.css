@@ -841,3 +841,201 @@ body.tip-page .page-contact-link .enter-button:focus-visible {
     color:#FFFFFF !important;
     background:transparent !important;
 }
+
+
+/* =========================================================
+   DESIGN PROJECTS — IMAGE SIZE & DETAIL BOX ALIGNMENT
+   October 2026
+   Append at the very end of design-projects.css
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   1. PROJECT DETAIL BOXES
+   Center Tools, My Role, Deliverables, Assets & Credits
+--------------------------------------------------------- */
+
+body.death-page .project-details .detail-box,
+body.fox-page .project-details .detail-box,
+body.tip-page .project-details .detail-box {
+    box-sizing: border-box;
+    text-align: center;
+    padding: 25px 20px;
+}
+
+body.death-page .project-details .detail-box h3,
+body.fox-page .project-details .detail-box h3,
+body.tip-page .project-details .detail-box h3 {
+    width: 100%;
+    margin: 0 0 14px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+body.death-page .project-details .detail-box p,
+body.fox-page .project-details .detail-box p,
+body.tip-page .project-details .detail-box p {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+
+/* ---------------------------------------------------------
+   2. MAIN PROJECT HERO IMAGE
+   Limit the image and its surrounding container
+--------------------------------------------------------- */
+
+body.death-page .project-hero,
+body.fox-page .project-hero,
+body.tip-page .project-hero {
+    box-sizing: border-box;
+    width: min(90%, 1000px);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px;
+}
+
+body.death-page .project-hero img,
+body.fox-page .project-hero img,
+body.tip-page .project-hero img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 560px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+}
+
+
+/* ---------------------------------------------------------
+   3. FEATURE IMAGES THROUGHOUT EACH PROJECT
+--------------------------------------------------------- */
+
+body.death-page .death-feature-image,
+body.fox-page .fox-feature-image,
+body.tip-page .tip-feature-image {
+    box-sizing: border-box;
+    width: min(90%, 900px);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+body.death-page .death-feature-image img,
+body.fox-page .fox-feature-image img,
+body.tip-page .tip-feature-image img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 600px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+}
+
+
+/* ---------------------------------------------------------
+   4. OTHER IMAGES WITHIN PROJECT STORY SECTIONS
+   Prevent oversized images while preserving their proportions
+--------------------------------------------------------- */
+
+body.death-page .story-image img,
+body.death-page .project-image-block img,
+body.fox-page .story-image img,
+body.fox-page .project-image-block img,
+body.tip-page .story-image img,
+body.tip-page .project-image-block img {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    max-height: 600px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+}
+
+
+/* ---------------------------------------------------------
+   5. THE TIP — FINAL SPREAD
+   Keep the wide layout, but prevent it from dominating
+   the entire viewport
+--------------------------------------------------------- */
+
+body.tip-page .tip-final-spread,
+body.tip-page .tip-spread-image.tip-final-spread {
+    width: min(90vw, 1100px);
+    max-width: 1100px;
+}
+
+body.tip-page .tip-final-spread img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+}
+
+
+/* ---------------------------------------------------------
+   6. RESPONSIVE ADJUSTMENTS
+--------------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    body.death-page .project-hero,
+    body.fox-page .project-hero,
+    body.tip-page .project-hero {
+        width: 94%;
+        padding: 10px;
+    }
+
+    body.death-page .project-hero img,
+    body.fox-page .project-hero img,
+    body.tip-page .project-hero img {
+        max-height: 420px;
+    }
+
+    body.death-page .death-feature-image,
+    body.fox-page .fox-feature-image,
+    body.tip-page .tip-feature-image {
+        width: 94%;
+    }
+
+    body.death-page .death-feature-image img,
+    body.fox-page .fox-feature-image img,
+    body.tip-page .tip-feature-image img {
+        max-height: 450px;
+    }
+
+    body.death-page .project-details .detail-box,
+    body.fox-page .project-details .detail-box,
+    body.tip-page .project-details .detail-box {
+        padding: 22px 16px;
+    }
+
+    body.death-page .story-image img,
+    body.death-page .project-image-block img,
+    body.fox-page .story-image img,
+    body.fox-page .project-image-block img,
+    body.tip-page .story-image img,
+    body.tip-page .project-image-block img {
+        max-height: 450px;
+    }
+
+    body.tip-page .tip-final-spread,
+    body.tip-page .tip-spread-image.tip-final-spread {
+        width: 94%;
+        max-width: 900px;
+    }
+}
+
