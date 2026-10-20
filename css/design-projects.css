@@ -844,198 +844,443 @@ body.tip-page .page-contact-link .enter-button:focus-visible {
 
 
 /* =========================================================
-   DESIGN PROJECTS — IMAGE SIZE & DETAIL BOX ALIGNMENT
-   October 2026
-   Append at the very end of design-projects.css
-========================================================= */
+   DESIGN PROJECT PAGES — TARGETED LAYOUT REFINEMENTS
+   ========================================================= */
 
-
-/* ---------------------------------------------------------
-   1. PROJECT DETAIL BOXES
-   Center Tools, My Role, Deliverables, Assets & Credits
---------------------------------------------------------- */
-
-body.death-page .project-details .detail-box,
-body.fox-page .project-details .detail-box,
-body.tip-page .project-details .detail-box {
-    box-sizing: border-box;
-    text-align: center;
-    padding: 25px 20px;
-}
-
-body.death-page .project-details .detail-box h3,
-body.fox-page .project-details .detail-box h3,
-body.tip-page .project-details .detail-box h3 {
-    width: 100%;
-    margin: 0 0 14px;
-    text-align: center;
-    line-height: 1.4;
-}
-
-body.death-page .project-details .detail-box p,
-body.fox-page .project-details .detail-box p,
-body.tip-page .project-details .detail-box p {
-    width: 100%;
-    margin: 0;
-    text-align: center;
-    font-size: 18px;
-    line-height: 1.75;
-}
-
-
-/* ---------------------------------------------------------
-   2. MAIN PROJECT HERO IMAGE
-   Limit the image and its surrounding container
---------------------------------------------------------- */
-
-body.death-page .project-hero,
-body.fox-page .project-hero,
-body.tip-page .project-hero {
-    box-sizing: border-box;
-    width: min(90%, 1000px);
+/* Content margins and space below fixed navigation */
+body.project-page.scroll-page .project-container {
+    width: calc(100% - 48px);
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-    padding: 16px;
+    padding-top: 35px;
+    box-sizing: border-box;
 }
 
-body.death-page .project-hero img,
-body.fox-page .project-hero img,
-body.tip-page .project-hero img {
+/* Center project heading and subtitle */
+body.project-page.scroll-page .project-navigation {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+body.project-page.scroll-page .project-navigation .project-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-align: center;
+}
+
+body.project-page.scroll-page .project-navigation .project-title h1,
+body.project-page.scroll-page .project-navigation .title-break {
+    text-align: center;
+}
+
+/* Four-column project summary */
+body.project-page.scroll-page .project-details {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    gap: 24px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.project-page.scroll-page .project-details .detail-box {
+    min-width: 0;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+body.project-page.scroll-page .project-details .detail-box h3,
+body.project-page.scroll-page .project-details .detail-box p {
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+/* FOX IN THE CITY */
+
+/* Reduce hero image by approximately 25% */
+body.fox-page .project-hero {
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+body.fox-page .project-hero > img {
     display: block;
-    width: 100%;
-    max-width: 100%;
-    max-height: 560px;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    object-fit: contain;
-}
-
-
-/* ---------------------------------------------------------
-   3. FEATURE IMAGES THROUGHOUT EACH PROJECT
---------------------------------------------------------- */
-
-body.death-page .death-feature-image,
-body.fox-page .fox-feature-image,
-body.tip-page .tip-feature-image {
-    box-sizing: border-box;
-    width: min(90%, 900px);
+    width: 75%;
     max-width: 900px;
+    max-height: none;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
 }
 
+/* Story sections */
+body.fox-page .fox-case-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(130px, 180px);
+    align-items: start;
+    column-gap: clamp(24px, 5vw, 64px);
+    row-gap: 18px;
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto 55px;
+    padding: 30px 0;
+    box-sizing: border-box;
+}
+
+body.fox-page .fox-case-section .fox-section-heading,
+body.fox-page .fox-case-section .fox-section-text,
+body.fox-page .fox-case-section .fox-art-placeholder {
+    min-width: 0;
+    margin-top: 0;
+}
+
+body.fox-page .fox-case-section .fox-section-heading {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: stretch;
+    text-align: right;
+}
+
+body.fox-page .fox-case-section .fox-section-heading h2 {
+    text-align: right;
+}
+
+body.fox-page .fox-case-section .fox-section-text {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    max-width: none;
+    text-align: left;
+}
+
+body.fox-page .fox-case-section .fox-art-placeholder {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+    align-self: start;
+}
+
+/* Preserve city and paw artwork sizing */
+body.fox-page .fox-city-art,
+body.fox-page .fox-paw-art {
+    width: min(16%, 160px);
+    max-width: 160px;
+}
+
+/* Creative Direction: fox outline left, copy right */
+body.fox-page .fox-case-section:has(.fox-head-art) {
+    grid-template-columns: minmax(130px, 180px) minmax(0, 1fr);
+}
+
+body.fox-page .fox-case-section:has(.fox-head-art) .fox-section-heading {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    text-align: left;
+}
+
+body.fox-page .fox-case-section:has(.fox-head-art) .fox-section-heading h2 {
+    text-align: left;
+}
+
+body.fox-page .fox-case-section:has(.fox-head-art) .fox-section-text {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+body.fox-page .fox-case-section:has(.fox-head-art) .fox-art-placeholder {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+}
+
+body.fox-page .fox-head-art {
+    width: min(16%, 150px);
+    max-width: 150px;
+}
+
+/* Design Development: text left, heading above paw on right */
+body.fox-page .fox-case-section:has(.fox-paw-art) .fox-section-heading {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+body.fox-page .fox-case-section:has(.fox-paw-art) .fox-section-text {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+body.fox-page .fox-case-section:has(.fox-paw-art) .fox-art-placeholder {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+/* Final Design: outline left, text right */
+body.fox-page .fox-case-section:has(.fox-neon-art) {
+    grid-template-columns: minmax(130px, 220px) minmax(0, 1fr);
+}
+
+body.fox-page .fox-case-section:has(.fox-neon-art) .fox-section-heading {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: left;
+}
+
+body.fox-page .fox-case-section:has(.fox-neon-art) .fox-section-heading h2 {
+    text-align: left;
+}
+
+body.fox-page .fox-case-section:has(.fox-neon-art) .fox-section-text {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+body.fox-page .fox-case-section:has(.fox-neon-art) .fox-art-placeholder {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    justify-self: start;
+}
+
+/* Fox moodboard and sketches: 50% of their normal container width */
+body.fox-page .fox-feature-image:has(img[src*="2.2.5-fox-moodboard"]),
+body.fox-page .fox-feature-image:has(img[src*="2.2.4-fox-sketch"]) {
+    width: 50%;
+    max-width: 1100px;
+    margin: 30px auto 60px;
+}
+
+body.fox-page .fox-feature-image:has(img[src*="2.2.5-fox-moodboard"]) img,
+body.fox-page .fox-feature-image:has(img[src*="2.2.4-fox-sketch"]) img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+}
+
+/* Fox final cover: approximately 25% smaller */
+body.fox-page .fox-feature-image:has(img[src*="2.2.3-fox-mockup"]) {
+    width: 75%;
+    max-width: 1100px;
+    margin: 30px auto 60px;
+}
+
+body.fox-page .fox-feature-image:has(img[src*="2.2.3-fox-mockup"]) img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+}
+
+/* DEATH BY MUSIC */
+
+/* Reduce the hero image */
+body.death-page .project-hero {
+    text-align: center;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+body.death-page .project-hero > img {
+    display: block;
+    width: 75%;
+    max-width: 900px;
+    max-height: none;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Give the case sections breathing room */
+body.death-page .death-case-section {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto 55px;
+    padding: 30px 0 38px;
+}
+
+/* Moodboard: approximately 50% width */
+body.death-page .death-feature-image:has(img[src*="2.1.4-death-moodboard"]) {
+    width: 50%;
+    max-width: 1100px;
+    margin: 30px auto 60px;
+}
+
+/* Sketches: approximately 75% width */
+body.death-page .death-feature-image:has(img[src*="2.1.2-death-sketches"]) {
+    width: 75%;
+    max-width: 1100px;
+    margin: 30px auto 60px;
+}
+
+/* Complete cover design: approximately 75% width */
+body.death-page .death-feature-image:has(img[src*="2.1.6-death-full-cover"]) {
+    width: 75%;
+    max-width: 1100px;
+    margin: 30px auto 60px;
+}
+
+/* Final publication: approximately 75% width */
+body.death-page .death-feature-image:has(img[src*="2.1.5-death-mockup-full-cover"]) {
+    width: 75%;
+    max-width: 1100px;
+    margin: 30px auto 60px;
+}
+
+/* Ensure resized images fill their own containers */
 body.death-page .death-feature-image img,
-body.fox-page .fox-feature-image img,
-body.tip-page .tip-feature-image img {
+body.fox-page .fox-feature-image img {
     display: block;
     width: 100%;
     max-width: 100%;
-    max-height: 600px;
     height: auto;
+    max-height: none;
     margin-left: auto;
     margin-right: auto;
-    object-fit: contain;
 }
 
-
-/* ---------------------------------------------------------
-   4. OTHER IMAGES WITHIN PROJECT STORY SECTIONS
-   Prevent oversized images while preserving their proportions
---------------------------------------------------------- */
-
-body.death-page .story-image img,
-body.death-page .project-image-block img,
-body.fox-page .story-image img,
-body.fox-page .project-image-block img,
-body.tip-page .story-image img,
-body.tip-page .project-image-block img {
-    display: block;
+/* The three-cover comparison stays at its existing size */
+body.death-page .death-feature-image:has(img[src*="2.1.3-death-options"]) {
     width: 100%;
-    max-width: 800px;
-    max-height: 600px;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    object-fit: contain;
-}
-
-
-/* ---------------------------------------------------------
-   5. THE TIP — FINAL SPREAD
-   Keep the wide layout, but prevent it from dominating
-   the entire viewport
---------------------------------------------------------- */
-
-body.tip-page .tip-final-spread,
-body.tip-page .tip-spread-image.tip-final-spread {
-    width: min(90vw, 1100px);
     max-width: 1100px;
 }
 
-body.tip-page .tip-final-spread img {
+/* Section 03: sketches beside heading and text.
+   Requires the death-development-section HTML replacement
+   provided in the previous message. */
+body.death-page .death-development-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
+    align-items: start;
+    column-gap: clamp(24px, 4vw, 55px);
+    row-gap: 16px;
+}
+
+body.death-page .death-development-section .death-section-heading {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+body.death-page .death-development-section .death-section-text {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+body.death-page .death-development-section .death-sketch-image {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    width: 100%;
+    margin: 0;
+}
+
+body.death-page .death-development-section .death-sketch-image img {
     display: block;
     width: 100%;
     max-width: 100%;
     height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    object-fit: contain;
+    max-height: none;
 }
 
-
-/* ---------------------------------------------------------
-   6. RESPONSIVE ADJUSTMENTS
---------------------------------------------------------- */
-
-@media (max-width: 768px) {
-
-    body.death-page .project-hero,
-    body.fox-page .project-hero,
-    body.tip-page .project-hero {
-        width: 94%;
-        padding: 10px;
+/* RESPONSIVE LAYOUT */
+@media (max-width: 850px) {
+    body.project-page.scroll-page .project-container {
+        width: calc(100% - 32px);
+        padding-top: 25px;
     }
 
-    body.death-page .project-hero img,
-    body.fox-page .project-hero img,
-    body.tip-page .project-hero img {
-        max-height: 420px;
+    body.project-page.scroll-page .project-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
     }
 
-    body.death-page .death-feature-image,
-    body.fox-page .fox-feature-image,
-    body.tip-page .tip-feature-image {
-        width: 94%;
+    body.fox-page .project-hero > img,
+    body.death-page .project-hero > img {
+        width: 90%;
     }
 
-    body.death-page .death-feature-image img,
-    body.fox-page .fox-feature-image img,
-    body.tip-page .tip-feature-image img {
-        max-height: 450px;
+    body.fox-page .fox-case-section,
+    body.fox-page .fox-case-section:has(.fox-head-art),
+    body.fox-page .fox-case-section:has(.fox-neon-art) {
+        column-gap: 20px;
     }
 
-    body.death-page .project-details .detail-box,
-    body.fox-page .project-details .detail-box,
-    body.tip-page .project-details .detail-box {
-        padding: 22px 16px;
-    }
-
-    body.death-page .story-image img,
-    body.death-page .project-image-block img,
-    body.fox-page .story-image img,
-    body.fox-page .project-image-block img,
-    body.tip-page .story-image img,
-    body.tip-page .project-image-block img {
-        max-height: 450px;
-    }
-
-    body.tip-page .tip-final-spread,
-    body.tip-page .tip-spread-image.tip-final-spread {
-        width: 94%;
-        max-width: 900px;
+    body.fox-page .fox-feature-image:has(img[src*="2.2.5-fox-moodboard"]),
+    body.fox-page .fox-feature-image:has(img[src*="2.2.4-fox-sketch"]),
+    body.death-page .death-feature-image:has(img[src*="2.1.4-death-moodboard"]) {
+        width: 70%;
     }
 }
 
+@media (max-width: 700px) {
+    body.death-page .death-development-section {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    body.death-page .death-development-section .death-section-heading,
+    body.death-page .death-development-section .death-section-text,
+    body.death-page .death-development-section .death-sketch-image {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    body.death-page .death-development-section .death-sketch-image {
+        width: 75%;
+        margin: 10px auto 0;
+    }
+}
+
+@media (max-width: 560px) {
+    body.project-page.scroll-page .project-container {
+        width: calc(100% - 28px);
+    }
+
+    body.project-page.scroll-page .project-details {
+        grid-template-columns: 1fr;
+    }
+
+    body.fox-page .fox-case-section,
+    body.fox-page .fox-case-section:has(.fox-head-art),
+    body.fox-page .fox-case-section:has(.fox-neon-art) {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    body.fox-page .fox-case-section .fox-section-heading,
+    body.fox-page .fox-case-section:has(.fox-head-art) .fox-section-heading,
+    body.fox-page .fox-case-section:has(.fox-neon-art) .fox-section-heading {
+        grid-column: 1;
+        grid-row: 1;
+        text-align: left;
+    }
+
+    body.fox-page .fox-case-section .fox-section-heading h2,
+    body.fox-page .fox-case-section:has(.fox-neon-art) .fox-section-heading h2 {
+        text-align: left;
+    }
+
+    body.fox-page .fox-case-section .fox-section-text,
+    body.fox-page .fox-case-section:has(.fox-head-art) .fox-section-text,
+    body.fox-page .fox-case-section:has(.fox-neon-art) .fox-section-text {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    body.fox-page .fox-case-section .fox-art-placeholder,
+    body.fox-page .fox-case-section:has(.fox-head-art) .fox-art-placeholder,
+    body.fox-page .fox-case-section:has(.fox-neon-art) .fox-art-placeholder {
+        grid-column: 1;
+        grid-row: 3;
+        justify-self: center;
+        width: min(45%, 160px);
+    }
+
+    body.fox-page .fox-feature-image:has(img[src*="2.2.5-fox-moodboard"]),
+    body.fox-page .fox-feature-image:has(img[src*="2.2.4-fox-sketch"]),
+    body.fox-page .fox-feature-image:has(img[src*="2.2.3-fox-mockup"]),
+    body.death-page .death-feature-image:has(img[src*="2.1.4-death-moodboard"]),
+    body.death-page .death-feature-image:has(img[src*="2.1.2-death-sketches"]),
+    body.death-page .death-feature-image:has(img[src*="2.1.5-death-mockup-full-cover"]) {
+        width: 100%;
+    }
+}
