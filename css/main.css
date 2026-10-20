@@ -205,6 +205,16 @@ NAVIGATION LINKS
 }
 
 
+/* =========================================================
+   PROJECT NAVIGATION — RIGHT ALIGNMENT
+========================================================= */
+
+.navbar > .project-title-nav {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+
 /* ===================================
 GLOBAL BUTTON
 =================================== */

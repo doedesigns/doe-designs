@@ -6439,6 +6439,117 @@ body.tip-page .tip-final-spread img {
     body.fox-page .fox-section-heading h2 {
         font-size: 34px;
     }
+	
+
+/* =========================================================
+   FOX IN THE CITY — NEON OUTLINE ARTWORK
+========================================================= */
+
+body.fox-page .fox-art-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 0;
+    max-width: none;
+    margin: 12px 0 30px;
+    padding: 0;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+    text-align: inherit;
+}
+
+body.fox-page .fox-art-placeholder::before {
+    display: none;
+}
+
+body.fox-page .fox-art-placeholder img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 180px;
+    max-height: 120px;
+    object-fit: contain;
+    border: 0;
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
+}
+
+/* Individual outline proportions */
+
+body.fox-page .fox-city-art img {
+    max-width: 180px;
+    max-height: 100px;
+}
+
+body.fox-page .fox-head-art img {
+    max-width: 150px;
+    max-height: 120px;
+}
+
+body.fox-page .fox-paw-art img {
+    max-width: 150px;
+    max-height: 100px;
+}
+
+body.fox-page .fox-neon-art img {
+    max-width: 220px;
+    max-height: 150px;
+}
+
+/* Alternate text alignment for the four story sections */
+
+body.fox-page .fox-case-section:nth-of-type(1) {
+    text-align: right;
+}
+
+body.fox-page .fox-case-section:nth-of-type(2) {
+    text-align: left;
+}
+
+body.fox-page .fox-case-section:nth-of-type(4) {
+    text-align: right;
+}
+
+body.fox-page .fox-case-section.fox-final-heading {
+    text-align: left;
+}
+
+/* Keep the illustrations centered directly beneath their headings */
+
+body.fox-page .fox-art-placeholder {
+    justify-content: center;
+}
+
+body.fox-page .fox-final-heading + .fox-feature-image img {
+    width: 125%;
+    max-width: 125%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (max-width: 700px) {
+    body.fox-page .fox-art-placeholder img,
+    body.fox-page .fox-city-art img,
+    body.fox-page .fox-head-art img,
+    body.fox-page .fox-paw-art img,
+    body.fox-page .fox-neon-art img {
+        max-width: 150px;
+        max-height: 100px;
+    }
+
+    body.fox-page .fox-final-heading + .fox-feature-image img {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        transform: none;
+    }
+}
+
 
     /* The Tip section 03 stacks on smaller screens */
 
@@ -6638,6 +6749,209 @@ body.lotus-organic .lotus-feature-image figcaption strong {
 .chrono-page .case-carousel .carousel-slide img:focus-visible {
     outline: 2px solid #00E5FF;
     outline-offset: 4px;
+}
+
+
+/* =========================================================
+   SHARED PROJECT CONTACT BUTTON — DOE DESIGNS CYAN
+========================================================= */
+
+.project-page .page-contact-link .enter-button {
+    border-color: #00E5FF;
+    color: #00E5FF;
+    background: transparent;
+    transition:
+        color 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.project-page .page-contact-link .enter-button:hover,
+.project-page .page-contact-link .enter-button:focus-visible {
+    border-color: #FFFFFF;
+    color: #FFFFFF;
+    background: transparent;
+}
+
+
+/* =========================================================
+   THE TIP — EDITORIAL DEVELOPMENT
+   Text left, supporting image right
+========================================================= */
+
+body.tip-page .tip-development-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.5fr);
+    align-items: center;
+    column-gap: 40px;
+}
+
+body.tip-page .tip-development-layout .tip-section-heading {
+    grid-column: 1 / -1;
+}
+
+body.tip-page .tip-development-layout .tip-section-text {
+    grid-column: 1;
+    grid-row: 2;
+    min-width: 0;
+}
+
+body.tip-page .tip-development-image {
+    width: 50%;
+    max-width: 50%;
+    margin: 0 0 0 auto;
+}
+
+body.tip-page .tip-development-image img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+body.tip-page .tip-development-image > p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+    body.tip-page .tip-development-layout {
+        display: block;
+    }
+
+    body.tip-page .tip-development-image {
+        width: 70%;
+        max-width: 70%;
+        margin: 25px auto 45px;
+    }
+}
+
+
+/* =========================================================
+   THE TIP — SECTION 03: EDITORIAL DEVELOPMENT
+   ========================================================= */
+
+body.tip-page .tip-development-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 0.8fr);
+    align-items: start;
+    column-gap: clamp(24px, 4vw, 56px);
+    row-gap: 0;
+}
+
+/* Heading stays above the text and spans the left column */
+body.tip-page .tip-development-layout .tip-section-heading {
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 28px;
+}
+
+/* Text sits directly beneath the heading */
+body.tip-page .tip-development-layout .tip-section-text {
+    grid-column: 1;
+    grid-row: 2;
+    min-width: 0;
+    margin-top: 0;
+}
+
+/* Tall photography image sits immediately to the right */
+body.tip-page .tip-development-photo {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    align-self: start;
+}
+
+body.tip-page .tip-development-photo img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 540px;
+    object-fit: contain;
+    object-position: top center;
+    margin: 0 auto;
+}
+
+body.tip-page .tip-development-photo > p {
+    margin-top: 12px;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Give the editorial heading and body copy breathing room */
+body.tip-page .tip-development-layout .tip-section-heading h2 {
+    margin-bottom: 0;
+}
+
+body.tip-page .tip-development-layout .tip-section-text p:first-child {
+    margin-top: 0;
+}
+
+/* =========================================================
+   THE TIP — INITIAL SKETCHES
+   Reduce the sketches image by at least 50%
+   ========================================================= */
+
+body.tip-page .tip-development-image {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.tip-page .tip-development-image img {
+    display: block;
+    width: 45%;
+    max-width: 45%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================================================
+   THE TIP — RESPONSIVE LAYOUT
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    body.tip-page .tip-development-layout {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 24px;
+    }
+
+    body.tip-page .tip-development-layout .tip-section-heading {
+        grid-column: 1;
+        grid-row: 1;
+        margin-bottom: 20px;
+    }
+
+    body.tip-page .tip-development-layout .tip-section-text {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    body.tip-page .tip-development-photo {
+        grid-column: 1;
+        grid-row: 3;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    body.tip-page .tip-development-photo img {
+        width: auto;
+        max-width: 100%;
+        max-height: 480px;
+    }
+
+    body.tip-page .tip-development-image img {
+        width: 70%;
+        max-width: 70%;
+    }
 }
 
 
