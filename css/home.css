@@ -3,7 +3,10 @@
 /*=========================================================
     DOE DESIGNS PORTFOLIO
     File: home.css
-=========================================================*/
+
+    Homepage core styles.
+    Responsive rules are in mobile.css.
+========================================================= */
 
 body.home-page {
     background: #06080B;
@@ -19,12 +22,12 @@ body.home-page {
 }
 
 /*=========================================================
-    HOME INTRO — LOGO LEFT, TEXT RIGHT
-=========================================================*/
+    HOME INTRO
+========================================================= */
 
 .home-intro {
     display: grid;
-    grid-template-columns: minmax(180px, 0.8fr) minmax(0, 2fr);
+    grid-template-columns: minmax(180px, .8fr) minmax(0, 2fr);
     align-items: center;
     gap: clamp(30px, 5vw, 65px);
     width: 100%;
@@ -40,9 +43,9 @@ body.home-page {
     min-width: 0;
 }
 
-.hero-logo {
+.home-page .hero-logo {
     display: block;
-    width: clamp(180px, 23vw, 270px);
+    width: clamp(90px, 11.5vw, 135px);
     max-width: 100%;
     height: auto;
     margin: 0 auto;
@@ -75,7 +78,7 @@ body.home-page {
 
 /*=========================================================
     PROJECT SHOWCASE
-=========================================================*/
+========================================================= */
 
 .home-project-grid {
     width: 100%;
@@ -97,11 +100,9 @@ body.home-page {
     justify-content: space-between;
     flex-wrap: nowrap;
     gap: clamp(18px, 4vw, 52px);
-
     width: 100%;
     margin: 0 auto 30px;
     padding: 0 0 15px;
-
     border-bottom: 2px solid #00E5FF;
     box-sizing: border-box;
 }
@@ -115,7 +116,6 @@ body.home-page {
     border-radius: 0;
     padding: 0 0 8px;
     background: transparent;
-
     color: rgba(255, 255, 255, .78);
     font-family: "Barlow Condensed", sans-serif;
     font-size: clamp(22px, 3vw, 32px);
@@ -124,11 +124,8 @@ body.home-page {
     line-height: 1.1;
     white-space: nowrap;
     cursor: pointer;
-
     transition: color .25s ease;
 }
-
-/* The active category is identified by its cyan text. */
 
 .home-category-tab:hover,
 .home-category-tab:focus-visible,
@@ -142,13 +139,10 @@ body.home-page {
     content: none;
 }
 
-/* Keyboard focus indicator */
-
 .home-category-tab:focus-visible {
     outline: 2px solid #00E5FF;
     outline-offset: 6px;
 }
-
 
 .home-category-track {
     width: 100%;
@@ -157,7 +151,7 @@ body.home-page {
     background: rgba(255, 255, 255, .16);
 }
 
-/* ALL FOUR PANELS SHARE THE SAME SHOWCASE SPACE */
+/* CATEGORY PANELS SHARE THE SAME SHOWCASE SPACE */
 
 .home-project-stage {
     display: grid;
@@ -183,14 +177,14 @@ body.home-page {
     visibility: visible;
 }
 
-.home-project-stage > .home-project-panel.is-active {
-    opacity: 1;
-    pointer-events: auto;
-}
-
+.home-project-stage > .home-project-panel.is-active,
 .home-project-stage > .home-project-panel.is-transitioning-in,
 .home-project-stage > .home-project-panel.is-transitioning-out {
     opacity: 1;
+}
+
+.home-project-stage > .home-project-panel.is-active {
+    pointer-events: auto;
 }
 
 .home-project-panel.is-transitioning-out,
@@ -198,13 +192,15 @@ body.home-page {
     pointer-events: none;
 }
 
-/* THREE PROJECT CARDS */
+/* PROJECT CARDS */
 
 .home-project-row {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 24px;
+    gap: clamp(24px, 3.2vw, 32px);
     width: 100%;
+    padding: 0 8px;
+    box-sizing: border-box;
 }
 
 .home-project-card {
@@ -247,7 +243,7 @@ body.home-page {
 
 /*=========================================================
     PROJECT INFORMATION DROPDOWN
-=========================================================*/
+========================================================= */
 
 .software-overlay {
     position: absolute;
@@ -340,7 +336,7 @@ body.home-page {
 
 /*=========================================================
     SEE MORE LINKS
-=========================================================*/
+========================================================= */
 
 .see-more {
     display: block;
@@ -362,7 +358,7 @@ body.home-page {
 
 /*=========================================================
     CATEGORY TRANSITIONS
-=========================================================*/
+========================================================= */
 
 .home-project-panel.initial-entry .home-project-card {
     animation: homeCardEnterRight .8s cubic-bezier(.22, .7, .2, 1) both;
@@ -444,7 +440,7 @@ body.home-page {
 
 /*=========================================================
     MOTION PROJECT PREVIEWS
-=========================================================*/
+========================================================= */
 
 .home-motion-preview {
     position: absolute;
@@ -516,16 +512,16 @@ body.home-page {
 
 /*=========================================================
     BOTTOM CALL TO ACTION
-=========================================================*/
+========================================================= */
 
-.home-bottom-layout {
+.home-page .home-bottom-layout {
     display: grid;
     grid-template-columns: minmax(180px, .8fr) minmax(0, 1.4fr);
     align-items: center;
     gap: clamp(30px, 6vw, 75px);
     width: 100%;
     max-width: 760px;
-    margin: 55px auto 25px;
+    margin: 25px auto 25px;
 }
 
 .home-bottom-copy {
@@ -538,35 +534,58 @@ body.home-page {
 }
 
 .home-page .page-contact-link p {
-    margin: 0 0 14px;
+    margin: 0 0 8px;
     color: #fff;
     font-family: "Jost", sans-serif;
-    font-size: 18px;
+    font-size: clamp(22px, 2.2vw, 26px);
     font-weight: 400;
+    line-height: 1.3;
     letter-spacing: .04em;
 }
 
 .home-page .page-contact-link a {
+    position: relative;
     display: inline-block;
+    padding-bottom: 8px;
     color: #00E5FF;
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 500;
-    letter-spacing: .1em;
+    letter-spacing: .35em;
     text-decoration: none;
-    transition: color .3s ease;
+    transition: color .3s ease, letter-spacing .3s ease;
+}
+
+.home-page .page-contact-link a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #00E5FF;
+    transform: scaleX(.3);
+    transform-origin: center;
+    transition: transform .35s ease;
 }
 
 .home-page .page-contact-link a:hover {
     color: #fff;
+    letter-spacing: .42em;
 }
 
-/* VIDEO / HELLO BUBBLE */
+.home-page .page-contact-link a:hover::after {
+    transform: scaleX(1);
+}
 
-.home-video {
+/*=========================================================
+    CARTOON VIDEO AND SPEECH BUBBLE
+========================================================= */
+
+.home-page .home-video {
     position: relative;
     width: 100%;
-    max-width: 230px;
+    max-width: 173px;
     margin: 0 auto;
     text-align: center;
 }
@@ -625,309 +644,9 @@ body.home-page {
     75% { transform: scale(1) rotate(-2deg); }
 }
 
-/* SECRET STASH */
-
-.secret-stash {
-    width: 180px;
-    min-height: 32px;
-    margin: 20px 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    opacity: .65;
-    transition: opacity .3s ease;
-}
-
-.secret-stash:hover {
-    opacity: 1;
-}
-
-.secret-stash a {
-    color: #00E5FF;
-    font-family: "Caveat", cursive;
-    font-size: 20px;
-    letter-spacing: .04em;
-    text-decoration: none;
-    transition: color .3s ease;
-}
-
-.secret-stash a:hover {
-    color: #fff;
-}
-
 /*=========================================================
-    RESPONSIVE LAYOUT
-=========================================================*/
-
-@media (max-width: 900px) {
-    .home-content {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .home-intro {
-        grid-template-columns: minmax(150px, .75fr) minmax(0, 1.5fr);
-        gap: 30px;
-    }
-
-    .hero-logo {
-        width: clamp(150px, 24vw, 220px);
-    }
-
-    .home-project-row {
-        gap: 18px;
-    }
-
-    .software-overlay-content {
-        padding: 8px;
-    }
-
-    .software-overlay h2,
-    .software-overlay .project-name {
-        font-size: clamp(12px, 2.7vw, 25px);
-        line-height: .95;
-        margin-bottom: 7px;
-    }
-
-    .software-overlay h3 {
-        font-size: clamp(10px, 1.9vw, 18px);
-        margin-bottom: 4px;
-    }
-
-    .software-list {
-        font-size: clamp(8px, 1.55vw, 13px);
-        line-height: 1.2;
-    }
-
-    .home-project-card[data-project*="clean-future"] .project-name,
-    .home-project-card[data-project*="strategic-branding"] .project-name,
-    .home-project-card[data-project*="unconventional"] .project-name {
-        font-size: clamp(11px, 2.2vw, 23px);
-    }
-
-    .home-bottom-layout {
-        gap: 35px;
-    }
-}
-
-@media (max-width: 600px) {
-    .home-content {
-        padding-top: 80px;
-    }
-
-    .home-intro {
-        grid-template-columns: 1fr;
-        gap: 22px;
-        margin-bottom: 48px;
-        text-align: center;
-    }
-
-    .home-intro-logo {
-        width: 100%;
-    }
-
-    .hero-logo {
-        width: clamp(150px, 48vw, 210px);
-    }
-
-    .hero-subtitle {
-        margin-bottom: 14px;
-        font-size: 13px;
-    }
-
-    .hero-intro {
-        font-size: 16px;
-        line-height: 1.65;
-    }
-
-    .home-category-tabs {
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 24px;
-        padding-bottom: 12px;
-    }
-
-    .home-category-tab {
-        font-size: clamp(19px, 5vw, 23px);
-        letter-spacing: .035em;
-    }
-
-    .home-category-tab::after {
-        bottom: -13px;
-    }
-
-    .home-project-row {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        width: 100%;
-        max-width: 320px;
-        margin: 0 auto;
-    }
-
-    .home-project-section {
-        margin-bottom: 55px;
-    }
-
-    .see-more {
-        margin-top: 16px;
-        text-align: center;
-    }
-
-    .home-project-panel.is-transitioning-out .home-project-card,
-    .home-project-panel.is-transitioning-in .home-project-card,
-    .home-project-panel.initial-entry .home-project-card {
-        animation-duration: .45s;
-    }
-
-    .home-bottom-layout {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        margin-top: 40px;
-        margin-bottom: 20px;
-    }
-
-    .home-video {
-        width: 180px;
-        max-width: 180px;
-    }
-
-    .home-page .page-contact-link {
-        margin: 10px auto 0;
-        text-align: center;
-    }
-
-    .home-page .page-contact-link p {
-        font-size: 17px;
-    }
-
-    .home-page .page-contact-link a {
-        font-size: 22px;
-    }
-
-    .speech-bubble {
-        display: none;
-    }
-
-    .secret-stash {
-        justify-content: center;
-        width: 100%;
-        margin-top: 12px;
-        min-height: 28px;
-        opacity: .8;
-    }
-}
-
-/* SMALL SCREENS: KEEP CATEGORY TITLES ON ONE LINE */
-
-@media (max-width: 380px) {
-    .home-content {
-        padding-left: 14px;
-        padding-right: 14px;
-    }
-
-    .home-category-tabs {
-        gap: 8px;
-    }
-
-    .home-category-tab {
-        font-size: 18px;
-        letter-spacing: .02em;
-    }
-}
-
-/* ACCESSIBILITY: RESPECT REDUCED-MOTION PREFERENCES */
-
-@media (prefers-reduced-motion: reduce) {
-    .home-project-panel.initial-entry .home-project-card,
-    .home-project-panel.initial-entry .see-more,
-    .home-project-panel.is-transitioning-out .home-project-card,
-    .home-project-panel.is-transitioning-out .see-more,
-    .home-project-panel.is-transitioning-in .home-project-card,
-    .home-project-panel.is-transitioning-in .see-more {
-        animation: none !important;
-        opacity: 1;
-        transform: none;
-    }
-
-    .home-category-tab,
-    .home-category-tab::after,
-    .home-project-card,
-    .see-more {
-        transition: none;
-    }
-}
-
-/* =========================================================
-   HOMEPAGE REFINEMENTS — OCTOBER 2026
+    SECRET STASH
 ========================================================= */
-
-/* 1. Main portfolio logo */
-
-.home-page .hero-logo {
-    width: clamp(90px, 11.5vw, 135px);
-    max-width: 100%;
-    height: auto;
-}
-
-/* 2. Cartoon video */
-
-.home-page .home-video {
-    max-width: 173px;
-}
-
-/* 3. Spacing below the project showcase */
-
-.home-page .home-bottom-layout {
-    margin-top: 25px;
-}
-
-/* 4. Contact prompt */
-
-.home-page .page-contact-link p {
-    font-size: clamp(22px, 2.2vw, 26px);
-    line-height: 1.3;
-    letter-spacing: .04em;
-    margin-bottom: 8px;
-}
-
-.home-page .page-contact-link a {
-    position: relative;
-    display: inline-block;
-    padding-bottom: 8px;
-    color: #00E5FF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: .35em;
-    text-decoration: none;
-    transition: color .3s ease, letter-spacing .3s ease;
-}
-
-.home-page .page-contact-link a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background: #00E5FF;
-    transform: scaleX(.3);
-    transform-origin: center;
-    transition: transform .35s ease;
-}
-
-.home-page .page-contact-link a:hover {
-    color: #fff;
-    letter-spacing: .42em;
-}
-
-.home-page .page-contact-link a:hover::after {
-    transform: scaleX(1);
-}
-
-/* 5. Secret Stash
-   Hidden by default. Reveal only when the Secret Stash
-   area itself is hovered or keyboard-focused. */
 
 .home-page .secret-stash {
     display: flex;
@@ -948,19 +667,21 @@ body.home-page {
 .home-page .secret-stash a {
     display: inline-block;
     padding: 4px 8px;
+    color: #00E5FF;
+    font-family: "Caveat", cursive;
+    font-size: 20px;
+    letter-spacing: .04em;
+    text-decoration: none;
+    transition: color .3s ease;
 }
 
-/* 6. Slightly smaller project cards with more space between */
-
-.home-page .home-project-row {
-    gap: clamp(24px, 3.2vw, 32px);
-    padding: 0 8px;
-    box-sizing: border-box;
+.home-page .secret-stash a:hover {
+    color: #fff;
 }
 
 /*=========================================================
     HOMEPAGE NAVIGATION
-=========================================================*/
+========================================================= */
 
 .home-page .home-navbar {
     position: relative;
@@ -969,33 +690,20 @@ body.home-page {
     justify-content: space-between;
 }
 
-/* Secret Stash — left */
+/* Secret Stash is hidden in the navigation. */
 
 .home-page .secret-stash-link {
-    display: inline-block;
-    color: #FFFFFF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: .28em;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color .3s ease;
+    display: none !important;
 }
 
-.home-page .secret-stash-link:hover,
-.home-page .secret-stash-link:focus-visible {
-    color: #00E5FF;
-}
-
-/* Graphic Designer — centered */
+/* Centered navigation title. */
 
 .home-page .home-nav-title {
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    color: #FFFFFF;
+    color: #fff;
     font-family: "Barlow Condensed", sans-serif;
     font-size: 13px;
     font-weight: 400;
@@ -1006,88 +714,11 @@ body.home-page {
     pointer-events: none;
 }
 
-/* About and Contact — right */
+/* About and Contact sit on the right. */
 
 .home-page .home-navbar > .nav-links {
-    margin-left: auto;
     display: flex;
     align-items: center;
     gap: 55px;
-}
-
-/* Keep the mobile menu usable */
-
-@media (max-width: 900px) {
-    .home-page .home-navbar > .nav-links {
-        gap: 24px;
-    }
-}
-
-@media (max-width: 768px) {
-    .home-page .home-navbar {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .home-page .home-nav-title {
-        font-size: 12px;
-        letter-spacing: .18em;
-    }
-
-    .home-page .secret-stash-link {
-        font-size: 12px;
-        letter-spacing: .14em;
-    }
-
-    .home-page .home-navbar > .nav-links {
-        margin-left: 0;
-    }
-}
-
-
-/* Keep the project row from becoming cramped on tablets */
-
-@media (max-width: 900px) {
-    .home-page .home-project-row {
-        gap: 22px;
-        padding: 0 6px;
-    }
-}
-
-/* 7. Responsive refinements */
-
-@media (max-width: 900px) {
-    .home-page .hero-logo {
-        width: clamp(90px, 17vw, 110px);
-    }
-}
-
-@media (max-width: 600px) {
-    .home-page .hero-logo {
-        width: clamp(75px, 24vw, 105px);
-    }
-
-    .home-page .home-video {
-        width: 135px;
-        max-width: 135px;
-    }
-
-    .home-page .home-bottom-layout {
-        gap: 15px;
-        margin-top: 25px;
-    }
-
-    .home-page .page-contact-link p {
-        font-size: 22px;
-    }
-
-    .home-page .page-contact-link a {
-        font-size: 18px;
-    }
-
-    /* Preserve the single-column mobile project layout */
-    .home-page .home-project-row {
-        gap: 22px;
-        padding: 0;
-    }
+    margin-left: auto;
 }

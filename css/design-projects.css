@@ -1,0 +1,844 @@
+@charset "UTF-8";
+/* Doe Designs — consolidated stylesheet. Keep main.css loaded before this file. */
+
+/* Print/design project-specific rules: Death by Music, Fox in the City, The Tip. */
+
+body.tip-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#002534
+);
+}
+
+body.fox-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#400046
+);
+}
+
+body.death-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#590000
+);
+}
+
+body.death-page {
+    background:
+        radial-gradient(
+            ellipse at 50% 12%,
+            rgba(130, 0, 20, 0.22) 0%,
+            transparent 42%
+        ),
+        linear-gradient(
+            180deg,
+            #080708 0%,
+            #100609 48%,
+            #050505 100%
+        );
+    color: #FFFFFF;
+}
+
+body.death-page .project-title h1 {
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 0.045em;
+}
+
+body.death-page .project-title .title-break {
+    display: block;
+    margin-top: 10px;
+    color: #D8D0D1;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+body.death-page .project-arrow .arrow-circle {
+    border-color: rgba(190, 15, 42, 0.8);
+}
+
+body.death-page .project-arrow .arrow-triangle {
+    border-left-color: #C8102E;
+}
+
+body.death-page .project-hero {
+    position: relative;
+    width: 100%;
+    margin: 0 auto 45px;
+    padding: 20px;
+    border-top: 1px solid rgba(200, 16, 46, 0.65);
+    border-bottom: 1px solid rgba(200, 16, 46, 0.35);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.025),
+            transparent 45%,
+            rgba(150, 0, 20, 0.07)
+        );
+}
+
+body.death-page .project-hero img {
+    width: 100%;
+    max-height: 760px;
+    object-fit: contain;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+        0 20px 65px rgba(0, 0, 0, 0.65),
+        0 0 32px rgba(150, 0, 25, 0.12);
+}
+
+body.death-page .project-year {
+    margin: -12px auto 48px;
+    color: #E0D5D7;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-align: center;
+}
+
+body.death-page .project-details {
+    gap: 18px;
+    margin-bottom: 100px;
+}
+
+body.death-page .project-details .detail-box {
+    position: relative;
+    padding: 25px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 2px solid #A90D27;
+    background: rgba(20, 12, 14, 0.72);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+body.death-page .project-details .detail-box h3 {
+    color: #E11D3F;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+body.death-page .project-details .detail-box p {
+    color: #F1EAEB;
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+body.death-page .project-story {
+    gap: clamp(35px, 5vw, 75px);
+    margin-bottom: 110px;
+}
+
+body.death-page .story-text h2,
+body.death-page .project-gallery-heading h2 {
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+}
+
+body.death-page .story-text h2::after,
+body.death-page .project-gallery-heading h2::after {
+    left: 0;
+    width: 75px;
+    height: 3px;
+    background: #C8102E;
+    transform: none;
+}
+
+body.death-page .story-text h2:hover,
+body.death-page .project-gallery-heading h2:hover {
+    color: #F0445E;
+}
+
+body.death-page .story-text h2:hover::after,
+body.death-page .project-gallery-heading h2:hover::after {
+    width: 100%;
+}
+
+body.death-page .story-text p {
+    color: #E2DADC;
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+body.death-page .story-image img,
+body.death-page .project-image-block img {
+    border: 1px solid rgba(200, 16, 46, 0.25);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45),
+        0 0 18px rgba(150, 0, 25, 0.07);
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+body.death-page .story-image img:hover,
+body.death-page .project-image-block img:hover {
+    border-color: rgba(200, 16, 46, 0.7);
+    box-shadow:
+        0 24px 55px rgba(0, 0, 0, 0.55),
+        0 0 24px rgba(200, 16, 46, 0.12);
+}
+
+body.death-page .story-image > p,
+body.death-page .project-image-block > p {
+    color: #BEB2B5;
+    font-size: 18px;
+    line-height: 1.7;
+    letter-spacing: 0.035em;
+}
+
+body.death-page .project-gallery-heading {
+    position: relative;
+    margin: 20px auto 55px;
+    padding: 30px 0;
+    border-top: 1px solid rgba(200, 16, 46, 0.35);
+    border-bottom: 1px solid rgba(200, 16, 46, 0.35);
+}
+
+body.death-page .project-gallery-heading h2 {
+    margin: 0;
+}
+
+body.death-page .page-contact-link {
+    margin-top: 35px;
+    padding: 50px 20px 25px;
+    border-top: 1px solid rgba(200, 16, 46, 0.45);
+    text-align: center;
+}
+
+body.death-page .page-contact-link p {
+    color: #F1EAEB;
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+body.death-page .page-contact-link .enter-button {
+    border-color: #C8102E;
+    color: #FFFFFF;
+    background: rgba(130, 0, 20, 0.16);
+}
+
+body.death-page .page-contact-link .enter-button:hover {
+    border-color: #F0445E;
+    background: #A90D27;
+    color: #FFFFFF;
+}
+
+body.death-page .death-case-section {
+    width: min(100%, 1050px);
+    margin: 0 auto 42px;
+}
+
+body.death-page .death-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 22px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(200, 16, 46, 0.5);
+}
+
+body.death-page .death-section-number {
+    flex: 0 0 auto;
+    color: #E11D3F;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+body.death-page .death-section-heading h2 {
+    margin: 0;
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+}
+
+body.death-page .death-section-text {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+body.death-page .death-section-text p {
+    margin: 0 0 20px;
+    color: #E2DADC;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+body.death-page .death-feature-image {
+    width: min(100%, 1100px);
+    margin: 0 auto 95px;
+    text-align: center;
+}
+
+body.death-page .death-feature-image img {
+    display: block;
+    width: 100%;
+    max-height: none;
+    height: auto;
+    object-fit: contain;
+    border: 1px solid rgba(200, 16, 46, 0.25);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+body.death-page .death-feature-image > p {
+    margin: 15px 0 0;
+    color: #BEB2B5;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+body.death-page .death-final-heading {
+    margin-top: 10px;
+}
+
+body.fox-page {
+    background:
+        radial-gradient(
+            ellipse at 50% 12%,
+            rgba(235, 155, 180, 0.2) 0%,
+            transparent 43%
+        ),
+        linear-gradient(
+            180deg,
+            #21151B 0%,
+            #171116 42%,
+            #090809 100%
+        );
+    color: #FFFFFF;
+}
+
+body.fox-page .project-title h1 {
+    color: #FFF6F8;
+}
+
+body.fox-page .project-title .title-break {
+    display: block;
+    margin-top: 10px;
+    color: #E9C9D4;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+body.fox-page .project-arrow .arrow-circle {
+    border-color: rgba(237, 163, 190, 0.7);
+}
+
+body.fox-page .project-arrow .arrow-triangle {
+    border-left-color: #EBA3BE;
+}
+
+body.fox-page .project-hero {
+    position: relative;
+    width: 100%;
+    margin: 0 auto 45px;
+    padding: 20px;
+    border-top: 1px solid rgba(235, 163, 190, 0.65);
+    border-bottom: 1px solid rgba(235, 163, 190, 0.35);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(235, 163, 190, 0.08),
+            transparent 55%,
+            rgba(170, 92, 69, 0.06)
+        );
+}
+
+body.fox-page .project-hero img {
+    width: 100%;
+    max-height: 760px;
+    object-fit: contain;
+    border: 1px solid rgba(255, 235, 241, 0.16);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.45),
+        0 0 35px rgba(235, 163, 190, 0.08);
+}
+
+body.fox-page .project-year {
+    margin: -12px auto 48px;
+    color: #F0CFDA;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-align: center;
+}
+
+body.fox-page .project-details {
+    gap: 18px;
+    margin-bottom: 100px;
+}
+
+body.fox-page .project-details .detail-box {
+    padding: 25px 14px;
+    border: 1px solid rgba(255, 235, 241, 0.12);
+    border-top: 2px solid #D58DA7;
+    background: rgba(34, 23, 29, 0.78);
+}
+
+body.fox-page .project-details .detail-box h3 {
+    color: #F0B3C8;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+body.fox-page .project-details .detail-box p {
+    color: #F5EDEF;
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+body.fox-page .fox-case-section {
+    width: min(100%, 1050px);
+    margin: 0 auto 42px;
+}
+
+body.fox-page .fox-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 22px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(235, 163, 190, 0.48);
+}
+
+body.fox-page .fox-section-number {
+    flex: 0 0 auto;
+    color: #EBA3BE;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+body.fox-page .fox-section-heading h2 {
+    margin: 0;
+    color: #FFF6F8;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: 0.09em;
+}
+
+body.fox-page .fox-section-text {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+body.fox-page .fox-section-text p {
+    margin: 0 0 20px;
+    color: #E9DDE1;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+body.fox-page .fox-feature-image {
+    width: min(100%, 1100px);
+    margin: 0 auto 95px;
+    text-align: center;
+}
+
+body.fox-page .fox-feature-image img {
+    display: block;
+    width: 100%;
+    max-height: none;
+    height: auto;
+    object-fit: contain;
+    border: 1px solid rgba(235, 163, 190, 0.28);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.4),
+        0 0 22px rgba(235, 163, 190, 0.05);
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+body.fox-page .fox-feature-image img:hover {
+    border-color: rgba(235, 163, 190, 0.7);
+    box-shadow:
+        0 24px 55px rgba(0, 0, 0, 0.48),
+        0 0 28px rgba(235, 163, 190, 0.1);
+}
+
+body.fox-page .fox-feature-image > p {
+    margin: 15px 0 0;
+    color: #D6BFC8;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+body.fox-page .fox-final-heading {
+    margin-top: 10px;
+}
+
+body.fox-page .page-contact-link {
+    margin-top: 35px;
+    padding: 50px 20px 25px;
+    border-top: 1px solid rgba(235, 163, 190, 0.4);
+    text-align: center;
+}
+
+body.fox-page .page-contact-link p {
+    color: #F5EDEF;
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+body.fox-page .page-contact-link .enter-button {
+    border-color: #D58DA7;
+    color: #FFFFFF;
+    background: rgba(213, 141, 167, 0.1);
+}
+
+body.fox-page .page-contact-link .enter-button:hover {
+    border-color: #F0B3C8;
+    background: #B76E8A;
+    color: #FFFFFF;
+}
+
+body.tip-page {
+    background:
+        radial-gradient(
+            ellipse at 50% 10%,
+            rgba(83, 180, 111, 0.15) 0%,
+            transparent 42%
+        ),
+        linear-gradient(
+            180deg,
+            #07172D 0%,
+            #0B1724 48%,
+            #05080D 100%
+        );
+    color: #FFFFFF;
+}
+
+body.tip-page .project-title h1 {
+    color: #FFFFFF;
+}
+
+body.tip-page .project-title .title-break {
+    display: block;
+    margin-top: 10px;
+    color: #B8D8C2;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+body.tip-page .project-arrow .arrow-circle {
+    border-color: rgba(112, 205, 139, 0.7);
+}
+
+body.tip-page .project-arrow .arrow-triangle {
+    border-left-color: #70CD8B;
+}
+
+body.tip-page .project-hero {
+    position: relative;
+    width: 100%;
+    margin: 0 auto 45px;
+    padding: 20px;
+    border-top: 1px solid rgba(112, 205, 139, 0.55);
+    border-bottom: 1px solid rgba(112, 205, 139, 0.3);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.035),
+            transparent 55%,
+            rgba(65, 145, 92, 0.07)
+        );
+}
+
+body.tip-page .project-hero img {
+    width: 100%;
+    max-height: 800px;
+    object-fit: contain;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(72, 171, 105, 0.07);
+}
+
+body.tip-page .project-year {
+    margin: -12px auto 48px;
+    color: #C6E8CF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.35em;
+    text-align: center;
+}
+
+body.tip-page .project-details {
+    gap: 18px;
+    margin-bottom: 100px;
+}
+
+body.tip-page .project-details .detail-box {
+    padding: 25px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-top: 2px solid #70CD8B;
+    background: rgba(9, 23, 39, 0.8);
+}
+
+body.tip-page .project-details .detail-box h3 {
+    color: #8DE3A6;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+body.tip-page .project-details .detail-box p {
+    color: #F0F5F2;
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+body.tip-page .tip-case-section {
+    width: min(100%, 1050px);
+    margin: 0 auto 42px;
+}
+
+body.tip-page .tip-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 22px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(112, 205, 139, 0.5);
+}
+
+body.tip-page .tip-section-number {
+    flex: 0 0 auto;
+    color: #8DE3A6;
+    font-family: "Racing Sans One", sans-serif;
+    font-size: 23px;
+}
+
+body.tip-page .tip-section-heading h2 {
+    margin: 0;
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 34px;
+    font-weight: 900;
+    letter-spacing: 0.09em;
+}
+
+body.tip-page .tip-section-heading h2::after {
+    content: "";
+    display: block;
+    width: 58px;
+    height: 3px;
+    margin-top: 9px;
+    background: #70CD8B;
+    transform: skewX(-28deg);
+}
+
+body.tip-page .tip-section-text {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+body.tip-page .tip-section-text p {
+    margin: 0 0 20px;
+    color: #E0E9E4;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+body.tip-page .tip-feature-image {
+    width: min(100%, 1100px);
+    margin: 0 auto 95px;
+    text-align: center;
+}
+
+body.tip-page .tip-feature-image img {
+    display: block;
+    width: 100%;
+    max-height: none;
+    height: auto;
+    object-fit: contain;
+    border: 1px solid rgba(112, 205, 139, 0.25);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.42),
+        0 0 20px rgba(72, 171, 105, 0.05);
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+body.tip-page .tip-feature-image img:hover {
+    border-color: rgba(112, 205, 139, 0.7);
+    box-shadow:
+        0 24px 55px rgba(0, 0, 0, 0.5),
+        0 0 25px rgba(72, 171, 105, 0.1);
+}
+
+body.tip-page .tip-feature-image > p {
+    margin: 15px 0 0;
+    color: #B9CEC1;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+body.tip-page .tip-spread-image {
+    width: min(100%, 1200px);
+}
+
+body.tip-page .tip-final-heading {
+    margin-top: 10px;
+}
+
+body.tip-page .page-contact-link {
+    margin-top: 35px;
+    padding: 50px 20px 25px;
+    border-top: 1px solid rgba(112, 205, 139, 0.4);
+    text-align: center;
+}
+
+body.tip-page .page-contact-link p {
+    color: #F0F5F2;
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+body.tip-page .page-contact-link .enter-button {
+    border-color: #70CD8B;
+    color: #FFFFFF;
+    background: rgba(55, 120, 76, 0.16);
+}
+
+body.tip-page .page-contact-link .enter-button:hover {
+    border-color: #9BE9B1;
+    background: #287847;
+    color: #FFFFFF;
+}
+
+
+/* ===== OCTOBER 2026 FINAL DESIGN-PAGE REFINEMENTS ===== */
+
+/* Consistent 18px minimum for project copy and compact subtitles. */
+body.death-page .project-title .title-break,
+body.fox-page .project-title .title-break,
+body.tip-page .project-title .title-break { display:block; margin-top:10px; font-family:"Jost",sans-serif; font-size:18px !important; line-height:1.5; font-weight:400; letter-spacing:.1em; text-transform:uppercase; }
+
+/* DESIGN category label beside the scrolled project title. */
+.project-title-nav h1 { position:relative; }
+.project-title-nav h1::before { content:"DESIGN"; position:absolute; right:calc(100% + 26px); top:0; width:max-content; color:#00E5FF; font-family:"Barlow Condensed",sans-serif; font-size:18px; font-weight:700; letter-spacing:.12em; text-align:right; white-space:nowrap; }
+
+/* White arrow triangles; retain each project's colored circle. */
+body.death-page .project-arrow.prev .arrow-triangle, body.fox-page .project-arrow.prev .arrow-triangle, body.tip-page .project-arrow.prev .arrow-triangle { border-right-color:#FFFFFF !important; }
+body.death-page .project-arrow.next .arrow-triangle, body.fox-page .project-arrow.next .arrow-triangle, body.tip-page .project-arrow.next .arrow-triangle { border-left-color:#FFFFFF !important; }
+body.death-page .project-arrow:hover .arrow-triangle, body.fox-page .project-arrow:hover .arrow-triangle, body.tip-page .project-arrow:hover .arrow-triangle { border-left-color:#FFFFFF !important; border-right-color:#FFFFFF !important; }
+
+/* Death by Music title and section styling. */
+body.death-page .project-title h1 { color:#E11D3F !important; }
+body.death-page .project-title .title-break { color:#D8D0D1 !important; }
+body.death-page .death-case-section { display:grid; grid-template-columns:minmax(180px,.75fr) minmax(0,1.4fr); align-items:start; gap:clamp(24px,5vw,70px); width:min(100%,1050px); margin:0 auto 55px; padding:30px 0 38px; border-top:1px solid rgba(200,16,46,.55); }
+body.death-page .death-section-heading { display:flex; align-items:flex-start; gap:16px; }
+body.death-page .death-section-number { flex-shrink:0; color:#C8102E; font-family:"Barlow Condensed",sans-serif; font-size:22px; font-weight:700; letter-spacing:.08em; }
+body.death-page .death-section-heading h2 { margin:0; color:#FFFFFF; font-family:"Barlow Condensed",sans-serif; font-size:clamp(24px,2.5vw,34px); line-height:1.15; letter-spacing:.08em; }
+body.death-page .death-section-text { max-width:650px; }
+body.death-page .death-section-text p { margin:0 0 18px; font-size:18px; line-height:1.85; }
+body.death-page .death-feature-image { width:100%; margin:0 auto 80px; text-align:center; }
+body.death-page .death-final-heading { border-top-color:rgba(200,16,46,.85); }
+
+/* Fox in the City: soft pink, script headings and clean outline art. */
+body.fox-page .project-title h1 { color:#F3A0C2 !important; }
+body.fox-page .project-title .title-break { color:#D5D0D3 !important; }
+body.fox-page .fox-section-heading { position:relative; align-items:baseline; gap:20px; padding-bottom:17px; border-bottom:1px solid rgba(243,160,194,.45); }
+body.fox-page .fox-section-number { color:#F3A0C2 !important; font-family:"Barlow Condensed",sans-serif; font-size:25px; font-weight:700; letter-spacing:.08em; }
+body.fox-page .fox-section-heading h2 { color:#F3A0C2 !important; font-family:"Caveat","Segoe Script",cursive; font-size:clamp(34px,4vw,48px); font-weight:700; letter-spacing:.01em; line-height:1.2; }
+body.fox-page .fox-section-heading h2::after { display:none !important; }
+body.fox-page .fox-section-text p { font-size:18px; line-height:1.85; }
+body.fox-page .fox-case-section { display:flex; flex-direction:column; }
+body.fox-page .fox-case-section .fox-section-heading { order:1; }
+body.fox-page .fox-case-section .fox-art-placeholder { order:2; display:block; flex:0 0 auto; width:min(16%,160px); max-width:160px; margin:0 0 24px; padding:0; border:0; outline:0; border-radius:0; background:transparent; box-shadow:none; overflow:visible; }
+body.fox-page .fox-case-section .fox-art-placeholder::before { display:none !important; }
+body.fox-page .fox-case-section .fox-art-placeholder img, body.fox-page .fox-case-section .fox-art-placeholder img.img-small { display:block; width:100%; max-width:100%; max-height:none; height:auto; margin:0; padding:0; border:0; border-radius:0; background:transparent; box-shadow:none; object-fit:contain; }
+body.fox-page .fox-case-section .fox-art-placeholder span { display:none; }
+body.fox-page .fox-case-section .fox-section-text { order:3; }
+body.fox-page .fox-city-art, body.fox-page .fox-paw-art { align-self:flex-end; }
+body.fox-page .fox-head-art, body.fox-page .fox-neon-art { align-self:flex-start; }
+body.fox-page .fox-final-heading + .fox-feature-image img { width:100%; max-width:100%; margin:0 auto; transform:none; }
+
+/* The Tip: magazine-inspired sections and sketch/image layouts. */
+body.tip-page .tip-case-section { display:grid; grid-template-columns:minmax(0,.65fr) minmax(0,1.35fr); align-items:start; gap:clamp(24px,5vw,70px); width:min(100%,1050px); margin:0 auto 55px; padding:30px 0 38px; border-top:1px solid rgba(112,205,139,.55); }
+body.tip-page .tip-section-heading { display:block; }
+body.tip-page .tip-section-number { display:block; margin-bottom:10px; color:#70CD8B; font-family:"Barlow Condensed",sans-serif; font-size:22px; font-weight:700; letter-spacing:.08em; }
+body.tip-page .tip-section-heading h2 { margin:0; color:#FFFFFF; font-family:"Barlow Condensed",sans-serif; font-size:clamp(24px,2.5vw,34px); line-height:1.15; letter-spacing:.045em; font-style:italic; font-weight:800; }
+body.tip-page .tip-section-number { font-style:normal; }
+body.tip-page .tip-section-text { max-width:680px; padding-left:24px; border-left:2px solid rgba(112,205,139,.55); }
+body.tip-page .tip-section-text p { margin:0 0 18px; font-size:18px; line-height:1.85; }
+body.tip-page .tip-feature-image { width:100%; margin:0 auto 80px; text-align:center; }
+body.tip-page .tip-final-heading { border-top-color:rgba(112,205,139,.85); }
+body.tip-page .tip-development-layout { display:grid; grid-template-columns:minmax(0,1.7fr) minmax(0,.8fr); align-items:start; column-gap:clamp(24px,4vw,56px); row-gap:0; }
+body.tip-page .tip-development-layout .tip-section-heading { grid-column:1; grid-row:1; margin-bottom:28px; }
+body.tip-page .tip-development-layout .tip-section-text { grid-column:1; grid-row:2; min-width:0; margin-top:0; }
+body.tip-page .tip-development-photo { grid-column:2; grid-row:1 / span 2; width:100%; max-width:100%; min-width:0; margin:0; align-self:start; }
+body.tip-page .tip-development-photo img { display:block; width:100%; max-width:100%; height:auto; max-height:540px; object-fit:contain; object-position:top center; margin:0 auto; }
+body.tip-page .tip-development-photo > p { margin-top:12px; font-size:18px; line-height:1.5; text-align:center; }
+body.tip-page .tip-development-layout .tip-section-heading h2 { margin-bottom:0; }
+body.tip-page .tip-development-layout .tip-section-text p:first-child { margin-top:0; }
+body.tip-page .tip-development-image { width:100%; max-width:100%; margin-left:auto; margin-right:auto; }
+body.tip-page .tip-development-image img { display:block; width:45%; max-width:45%; height:auto; margin-left:auto; margin-right:auto; }
+body.tip-page .tip-final-spread, body.tip-page .tip-spread-image.tip-final-spread { position:relative; left:50%; width:min(94vw,1600px); max-width:none; margin:35px 0 95px; transform:translateX(-50%); text-align:center; }
+body.tip-page .tip-final-spread img { display:block; width:100%; max-width:none; height:auto; margin:0 auto; object-fit:contain; }
+body.tip-page .tip-feature-image + .tip-case-section { margin-top:100px !important; padding-top:10px; }
+
+
+/* Contact CTA is cyan on every design project and turns white on hover. */
+body.death-page .page-contact-link .enter-button,
+body.fox-page .page-contact-link .enter-button,
+body.tip-page .page-contact-link .enter-button {
+    border-color:#00E5FF !important;
+    color:#00E5FF !important;
+    background:transparent !important;
+}
+body.death-page .page-contact-link .enter-button:hover,
+body.death-page .page-contact-link .enter-button:focus-visible,
+body.fox-page .page-contact-link .enter-button:hover,
+body.fox-page .page-contact-link .enter-button:focus-visible,
+body.tip-page .page-contact-link .enter-button:hover,
+body.tip-page .page-contact-link .enter-button:focus-visible {
+    border-color:#FFFFFF !important;
+    color:#FFFFFF !important;
+    background:transparent !important;
+}

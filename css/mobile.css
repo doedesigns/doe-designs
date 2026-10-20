@@ -1,326 +1,223 @@
 @charset "UTF-8";
-/* ===================================
-   DOE DESIGNS
-   MOBILE OVERRIDES
-   Do not affect desktop
-=================================== */
 
+/*=========================================================
+    DOE DESIGNS PORTFOLIO
+    File: mobile.css
 
-/* ===================================
-   MOBILE NAVIGATION
-=================================== */
+    Shared responsive stylesheet.
+    Homepage responsive rules are included below.
+    Project-page responsive rules will be consolidated here
+    when branding-project.css and uiux.css are finalized.
+========================================================= */
 
-@media (max-width:768px){
+/*=========================================================
+    HOMEPAGE — TABLETS
+========================================================= */
 
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
+@media (max-width: 900px) {
+
+    .home-page .home-content {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .home-page .home-intro {
+        grid-template-columns: minmax(150px, .75fr) minmax(0, 1.5fr);
+        gap: 30px;
+    }
+
+    .home-page .hero-logo {
+        width: clamp(90px, 17vw, 110px);
+    }
+
+    .home-page .home-project-row {
+        gap: 22px;
+        padding: 0 6px;
+    }
+
+    .home-page .home-bottom-layout {
+        gap: 35px;
+    }
+
+    .home-page .home-navbar > .nav-links {
+        gap: 24px;
+    }
 }
 
+/*=========================================================
+    HOMEPAGE NAVIGATION — SMALLER SCREENS
+========================================================= */
 
-.navbar{
+@media (max-width: 768px) {
 
-    height:60px;
-    padding:0 18px;
+    .home-page .home-navbar {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
-    background:
-    rgba(0,0,0,.92);
+    .home-page .home-nav-title {
+        font-size: 12px;
+        letter-spacing: .18em;
+    }
 
-    border-bottom:
-    1px solid rgba(0,229,255,.12);
-
+    .home-page .home-navbar > .nav-links {
+        margin-left: 0;
+    }
 }
 
+/*=========================================================
+    HOMEPAGE — MOBILE
+========================================================= */
 
-/* LOGO */
+@media (max-width: 600px) {
 
-.logo-doe{
+    .home-page .home-content {
+        padding-top: 80px;
+    }
 
-    font-size:30px;
+    .home-page .home-intro {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        margin-bottom: 48px;
+        text-align: center;
+    }
 
+    .home-page .home-intro-logo {
+        width: 100%;
+    }
+
+    .home-page .hero-logo {
+        width: clamp(75px, 24vw, 105px);
+    }
+
+    .home-page .hero-subtitle {
+        margin-bottom: 14px;
+        font-size: 13px;
+    }
+
+    .home-page .hero-intro {
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+    .home-page .home-category-tabs {
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 24px;
+        padding-bottom: 12px;
+    }
+
+    .home-page .home-category-tab {
+        font-size: clamp(19px, 5vw, 23px);
+        letter-spacing: .035em;
+    }
+
+    .home-page .home-project-row {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .home-page .home-project-section {
+        margin-bottom: 55px;
+    }
+
+    .home-page .see-more {
+        margin-top: 16px;
+        text-align: center;
+    }
+
+    .home-page .home-project-panel.is-transitioning-out .home-project-card,
+    .home-page .home-project-panel.is-transitioning-in .home-project-card,
+    .home-page .home-project-panel.initial-entry .home-project-card {
+        animation-duration: .45s;
+    }
+
+    .home-page .home-bottom-layout {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 25px;
+        margin-bottom: 20px;
+    }
+
+    .home-page .home-video {
+        width: 135px;
+        max-width: 135px;
+    }
+
+    .home-page .page-contact-link {
+        margin: 10px auto 0;
+        text-align: center;
+    }
+
+    .home-page .page-contact-link p {
+        font-size: 22px;
+    }
+
+    .home-page .page-contact-link a {
+        font-size: 18px;
+    }
+
+    .home-page .speech-bubble {
+        display: none;
+    }
+
+    .home-page .secret-stash {
+        justify-content: center;
+        width: 100%;
+        margin-top: 12px;
+        min-height: 28px;
+        opacity: .8;
+    }
 }
 
+/*=========================================================
+    HOMEPAGE — VERY SMALL SCREENS
+========================================================= */
 
-.logo-designs{
+@media (max-width: 380px) {
 
-    font-size:14px;
+    .home-page .home-content {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
 
+    .home-page .home-category-tabs {
+        gap: 8px;
+    }
+
+    .home-page .home-category-tab {
+        font-size: 18px;
+        letter-spacing: .02em;
+    }
 }
 
+/*=========================================================
+    ACCESSIBILITY — REDUCED MOTION
+========================================================= */
 
+@media (prefers-reduced-motion: reduce) {
 
-/* HAMBURGER BUTTON */
+    .home-page .home-project-panel.initial-entry .home-project-card,
+    .home-page .home-project-panel.initial-entry .see-more,
+    .home-page .home-project-panel.is-transitioning-out .home-project-card,
+    .home-page .home-project-panel.is-transitioning-out .see-more,
+    .home-page .home-project-panel.is-transitioning-in .home-project-card,
+    .home-page .home-project-panel.is-transitioning-in .see-more {
+        animation: none !important;
+        opacity: 1;
+        transform: none;
+    }
 
-.menu-toggle{
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    gap:6px;
-
-    width:38px;
-    height:38px;
-
-    background:none;
-    border:none;
-
-    cursor:pointer;
-
+    .home-page .home-category-tab,
+    .home-page .home-category-tab::after,
+    .home-page .home-project-card,
+    .home-page .see-more,
+    .home-page .secret-stash,
+    .home-page .page-contact-link a {
+        transition: none;
+    }
 }
-
-
-.menu-toggle span{
-
-    width:22px;
-    height:2px;
-
-    background:#00E5FF;
-
-    transition:.3s ease;
-
-}
-
-
-/* ACTIVE X */
-
-.menu-toggle.active span:nth-child(1){
-
-    transform:
-    translateY(8px)
-    rotate(45deg);
-
-}
-
-
-.menu-toggle.active span:nth-child(2){
-
-    opacity:0;
-
-}
-
-
-.menu-toggle.active span:nth-child(3){
-
-    transform:
-    translateY(-8px)
-    rotate(-45deg);
-
-}
-
-
-
-/* MOBILE MENU PANEL */
-
-.nav-links{
-
-    position:absolute;
-
-    top:60px;
-    right:0;
-
-    width:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    gap:28px;
-
-    padding:35px 0;
-
-
-    background:
-    rgba(0,0,0,.96);
-
-
-    border-bottom:
-    1px solid rgba(0,229,255,.12);
-
-
-    transform:
-    translateY(-120%);
-
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:.4s ease;
-
-}
-
-
-
-.nav-links.mobile-open{
-
-    transform:
-    translateY(0);
-
-
-    opacity:1;
-
-    pointer-events:auto;
-
-}
-
-
-.nav-links a{
-
-    font-size:16px;
-
-    letter-spacing:.25em;
-
-}
-
-
-
-/* ===================================
-   HOME PAGE MOBILE
-=================================== */
-
-
-body.home-page{
-
-    overflow:hidden;
-
-}
-
-
-.hero{
-
-    height:100vh;
-
-    min-height:100vh;
-
-    padding:
-
-    70px 20px 30px;
-
-}
-
-
-
-.hero-content{
-
-    max-height:
-
-    calc(100vh - 90px);
-
-    gap:12px;
-
-}
-
-
-
-/* LOGO IMAGE */
-
-.hero-logo-image{
-
-    width:
-
-    clamp(170px,45vw,240px);
-
-}
-
-
-
-/* SUBTITLE */
-
-.hero-subtitle{
-
-    font-size:11px;
-
-    letter-spacing:.4em;
-
-}
-
-
-
-/* INTRO */
-
-.hero-intro{
-
-    font-size:15px;
-
-    line-height:1.5;
-
-    max-width:90%;
-
-}
-
-
-
-/* HERO VIDEO */
-
-.hero-video{
-
-    height:
-
-    clamp(90px,15vh,150px);
-
-}
-
-
-
-/* ENTER MESSAGE */
-
-.hero-entry-message{
-
-    font-size:14px;
-
-}
-
-
-
-/* SECRET STASH */
-
-.hero-entry .secret-stash{
-
-    margin-top:25px;
-
-}
-
-
-
-/* ===================================
-   GENERAL MOBILE PAGE SPACING
-=================================== */
-
-
-.page-content{
-
-    width:92vw;
-
-    padding-top:80px;
-
-    padding-bottom:40px;
-
-}
-
-
-
-/* IMAGES */
-
-.img-large{
-
-    width:90%;
-
-}
-
-
-.img-medium{
-
-    width:85%;
-
-}
-
-
-
-}
-
