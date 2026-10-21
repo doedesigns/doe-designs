@@ -1684,12 +1684,13 @@ body.tip-page .tip-final-spread img {
    ========================================================= */
 
 body.fox-page .fox-case-section {
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 body.fox-page .fox-case-section .fox-art-placeholder {
     margin-bottom: 0;
+	padding-bottom: 0;
 }
 
 

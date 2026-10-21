@@ -6,17 +6,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const heroSubtitle = document.getElementById("heroSubtitle");
     const speechBubble = document.querySelector(".speech-bubble");
 
-// ============================================
-// REDUCED MOTION
-// ============================================
+    // ============================================
+    // REDUCED MOTION
+    // ============================================
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         document.body.classList.add("reduce-motion");
     }
 
-// ============================================
-// HOME PAGE HELLO SPEECH BUBBLE
-// ============================================
+    // ============================================
+    // HOME PAGE HELLO SPEECH BUBBLE
+    // ============================================
 
     if (speechBubble) {
         const contactArea = document.querySelector(".page-contact-link");
@@ -42,9 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-// ============================================
-// GLOBAL PAGE TRANSITIONS
-// ============================================
+    // ============================================
+    // GLOBAL PAGE TRANSITIONS
+    // ============================================
 
     const pageLinks = document.querySelectorAll(
         'a[href]:not([target="_blank"]):not([href^="#"]):not([href^="mailto:"]):not([href^="tel:"])'
@@ -68,12 +68,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-// ============================================
-// CONTACT DATE
-// ============================================
+    // ============================================
+    // CONTACT DATE
+    // ============================================
 
     const date = document.getElementById("contactDate");
-
     if (date) {
         date.textContent = new Date().toLocaleDateString("en-US", {
             year: "numeric",
@@ -82,19 +81,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-// ============================================
-// FOOTER
-// ============================================
+    // ============================================
+    // FOOTER
+    // ============================================
 
     const footer = document.getElementById("footerCopyright");
-
     if (footer) {
         footer.innerHTML = `© ${new Date().getFullYear()} Doe Designs · Portfolio website designed & developed from concept to code by Jen Doehne`;
     }
 
-// ============================================
-// PROJECT SCROLL NAV + CATEGORY LINK
-// ============================================
+    // ============================================
+    // PROJECT SCROLL NAV + CATEGORY LINK
+    // ============================================
 
     const projectPage = document.querySelector("body.project-page, .project-page");
     const navbar = document.querySelector("header .navbar, .navbar");
@@ -110,31 +108,20 @@ document.addEventListener("DOMContentLoaded", () => {
         // Initialize immediately and keep the state correct after scrolling
         // or browser-back restoration.
         updateProjectNavState();
-
-        window.addEventListener("scroll", updateProjectNavState, {
-            passive: true
-        });
-
+        window.addEventListener("scroll", updateProjectNavState, { passive: true });
         window.addEventListener("pageshow", updateProjectNavState);
 
         const projectTitle = projectTitleNav.querySelector("h1");
-
-        let categoryLink = projectTitleNav.querySelector(
-            ".project-category-link"
-        );
-
+        let categoryLink = projectTitleNav.querySelector(".project-category-link");
         let activeCategoryLink = document.querySelector(
             ".nav-links a.active, .nav-links a[aria-current='page']"
         );
 
-        // If the page does not mark a category link active,
-        // infer the category from the page's body classes.
+        // If the page does not mark a category link active, infer it from
+        // the page's body classes.
         if (!activeCategoryLink) {
             const classText = document.body.className.toLowerCase();
-            const links = Array.from(
-                document.querySelectorAll(".nav-links a")
-            );
-
+            const links = Array.from(document.querySelectorAll(".nav-links a"));
             let categoryName = "";
 
             if (/\b(death-page|fox-page|tip-page|design-page|design-project)\b/.test(classText)) {
@@ -148,9 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             if (categoryName) {
-                const normalizedCategory = categoryName
-                    .toLowerCase()
-                    .replace(/\s+/g, "");
+                const normalizedCategory = categoryName.toLowerCase().replace(/\s+/g, "");
 
                 activeCategoryLink = links.find(link =>
                     link.textContent.trim().toLowerCase().replace(/\s+/g, "") === normalizedCategory
@@ -165,13 +150,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 categoryLink = document.createElement("a");
                 categoryLink.className = "project-category-link";
 
-                // CSS positions this link independently at the far right.
-                navbar.appendChild(categoryLink);
+                // Keep the category link inside the compact title group so it
+                // appears alongside the title and arrows when the page is scrolled.
+                projectTitleNav.appendChild(categoryLink);
             }
 
             categoryLink.href = activeCategoryLink.href;
             categoryLink.textContent = activeCategoryLink.textContent.trim();
-
             categoryLink.setAttribute(
                 "aria-label",
                 "View " + activeCategoryLink.textContent.trim() + " projects"
@@ -180,35 +165,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Clicking the compact project title returns to the top.
         // Add the handler only once.
-        if (
-            projectTitle &&
-            projectTitle.dataset.scrollTopHandler !== "true"
-        ) {
+        if (projectTitle && projectTitle.dataset.scrollTopHandler !== "true") {
             projectTitle.dataset.scrollTopHandler = "true";
-
             projectTitle.addEventListener("click", () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
+                window.scrollTo({ top: 0, behavior: "smooth" });
             });
         }
     }
 
-// ============================================
-// GENERIC PROJECT CARD INFORMATION
-// ============================================
+    // ============================================
+    // GENERIC PROJECT CARD INFORMATION
+    // ============================================
 
     const projectInfoCache = new Map();
 
     function isCategoryCardWithoutOverlayTitle(card) {
         return card.classList.contains("design-card") ||
-               card.classList.contains("branding-card");
+            card.classList.contains("branding-card");
     }
 
-// ============================================
-// CREATE / PREPARE PROJECT OVERLAY
-// ============================================
+    // ============================================
+    // CREATE / PREPARE PROJECT OVERLAY
+    // ============================================
 
     function createSoftwareOverlay(card) {
         let overlay = card.querySelector(".software-overlay");
@@ -265,9 +243,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return overlay;
     }
 
-// ============================================
-// GET PROJECT TITLE
-// ============================================
+    // ============================================
+    // GET PROJECT TITLE
+    // ============================================
 
     function getProjectTitle(projectDocument) {
         const title = projectDocument.querySelector(".project-title h1");
@@ -282,9 +260,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return titleClone.textContent.replace(/\s+/g, " ").trim() || "PROJECT";
     }
 
-// ============================================
-// GET DELIVERABLES LIST
-// ============================================
+    // ============================================
+    // GET DELIVERABLES LIST
+    // ============================================
 
     function getDeliverablesList(projectDocument) {
         const detailBoxes = projectDocument.querySelectorAll(
@@ -296,10 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
         detailBoxes.forEach(box => {
             const heading = box.querySelector("h3");
 
-            if (
-                heading &&
-                heading.textContent.trim().toUpperCase() === "DELIVERABLES"
-            ) {
+            if (heading && heading.textContent.trim().toUpperCase() === "DELIVERABLES") {
                 deliverablesBox = box;
             }
         });
@@ -318,9 +293,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return deliverablesHTML || null;
     }
 
-// ============================================
-// LOAD PROJECT INFORMATION
-// ============================================
+    // ============================================
+    // LOAD PROJECT INFORMATION
+    // ============================================
 
     async function loadProjectInfo(projectURL) {
         if (projectInfoCache.has(projectURL)) {
@@ -346,11 +321,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const html = await response.text();
             const parser = new DOMParser();
-
-            const projectDocument = parser.parseFromString(
-                html,
-                "text/html"
-            );
+            const projectDocument = parser.parseFromString(html, "text/html");
 
             const projectInfo = {
                 title: getProjectTitle(projectDocument),
@@ -358,25 +329,18 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             projectInfoCache.set(projectURL, projectInfo);
-
             return projectInfo;
 
         } catch (error) {
             clearTimeout(timeout);
-
-            console.error(
-                "Unable to load project information:",
-                projectURL,
-                error
-            );
-
+            console.error("Unable to load project information:", projectURL, error);
             throw error;
         }
     }
 
-// ============================================
-// SHOW PROJECT INFORMATION
-// ============================================
+    // ============================================
+    // SHOW PROJECT INFORMATION
+    // ============================================
 
     function showProjectInfo(card, projectInfo) {
         const overlay = createSoftwareOverlay(card);
@@ -393,18 +357,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 deliverablesList.innerHTML = projectInfo.deliverables;
                 deliverablesList.classList.remove("loading", "error");
             } else {
-                deliverablesList.textContent =
-                    "Deliverables information unavailable.";
-
+                deliverablesList.textContent = "Deliverables information unavailable.";
                 deliverablesList.classList.remove("loading");
                 deliverablesList.classList.add("error");
             }
         }
     }
 
-// ============================================
-// PROJECT INFORMATION ERROR
-// ============================================
+    // ============================================
+    // PROJECT INFORMATION ERROR
+    // ============================================
 
     function showProjectInfoError(card) {
         const overlay = createSoftwareOverlay(card);
@@ -412,25 +374,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (projectName) {
             const image = card.querySelector("img");
-
-            projectName.textContent =
-                image && image.alt ? image.alt : "PROJECT";
+            projectName.textContent = image && image.alt ? image.alt : "PROJECT";
         }
 
         const deliverablesList = overlay.querySelector(".software-list");
 
         if (deliverablesList) {
-            deliverablesList.textContent =
-                "Deliverables information unavailable.";
-
+            deliverablesList.textContent = "Deliverables information unavailable.";
             deliverablesList.classList.remove("loading");
             deliverablesList.classList.add("error");
         }
     }
 
-// ============================================
-// FIND PROJECT CARDS
-// ============================================
+    // ============================================
+    // FIND PROJECT CARDS
+    // ============================================
 
     const projectCards = document.querySelectorAll("[data-project]");
 
@@ -446,23 +404,16 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch(() => showProjectInfoError(card));
     });
 
-// ============================================
-// MOTION CARD HOVER VIDEO PREVIEWS
-// UNCHANGED
-// ============================================
+    // ============================================
+    // MOTION CARD HOVER VIDEO PREVIEWS
+    // UNCHANGED
+    // ============================================
 
-    const motionCards = document.querySelectorAll(
-        ".motion-card, .motion-home-card"
-    );
+    const motionCards = document.querySelectorAll(".motion-card, .motion-home-card");
 
     motionCards.forEach(card => {
-        const video = card.querySelector(
-            ".motion-video, .home-motion-video"
-        );
-
-        const fallback = card.querySelector(
-            ".motion-still, .home-motion-fallback"
-        );
+        const video = card.querySelector(".motion-video, .home-motion-video");
+        const fallback = card.querySelector(".motion-still, .home-motion-fallback");
 
         if (!video) return;
 
@@ -476,15 +427,12 @@ document.addEventListener("DOMContentLoaded", () => {
             try {
                 video.currentTime = startTime;
             } catch (error) {
-                /* Preserve preview behavior. */
+                // Preserve preview behavior.
             }
 
             const playPromise = video.play();
 
-            if (
-                playPromise &&
-                typeof playPromise.catch === "function"
-            ) {
+            if (playPromise && typeof playPromise.catch === "function") {
                 playPromise.catch(error =>
                     console.warn("Motion preview could not play:", error)
                 );
@@ -499,7 +447,7 @@ document.addEventListener("DOMContentLoaded", () => {
             try {
                 video.currentTime = startTime;
             } catch (error) {
-                /* Preserve preview behavior. */
+                // Preserve preview behavior.
             }
 
             video.style.opacity = "0";
@@ -508,11 +456,11 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-// ============================================
-// YOUTUBE MOTION PREVIEWS
-// WORKS ON THE MOTION PAGE AND HOMEPAGE
-// UNCHANGED
-// ============================================
+    // ============================================
+    // YOUTUBE MOTION PREVIEWS
+    // WORKS ON THE MOTION PAGE AND HOMEPAGE
+    // UNCHANGED
+    // ============================================
 
     const youtubeCards = document.querySelectorAll(
         ".youtube-motion-card, .motion-home-card[data-video-id]"
@@ -520,7 +468,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (youtubeCards.length) {
         const youtubeScript = document.createElement("script");
-
         youtubeScript.src = "https://www.youtube.com/iframe_api";
         document.head.appendChild(youtubeScript);
 
@@ -531,127 +478,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 let preview = card.querySelector(".youtube-motion-preview");
 
                 if (!preview) {
-                    const previewImage = card.querySelector(
-                        ".home-motion-fallback"
-                    );
+                    const previewImage = card.querySelector(".home-motion-fallback");
 
                     if (!previewImage) return;
 
                     preview = document.createElement("div");
-                    preview.className = "youtube-motion-preview";
-                    preview.dataset.videoId = card.dataset.videoId;
-                    preview.dataset.start = card.dataset.start || 0;
-
-                    previewImage.parentElement.appendChild(preview);
-                }
-
-                const videoId =
-                    preview.dataset.videoId || card.dataset.videoId;
-
-                const startTime = Number(
-                    preview.dataset.start || card.dataset.start || 0
-                );
-
-                if (!videoId) return;
-
-                const player = new YT.Player(preview, {
-                    videoId,
-
-                    playerVars: {
-                        autoplay: 0,
-                        controls: 0,
-                        playsinline: 1,
-                        rel: 0,
-                        modestbranding: 1,
-                        origin: window.location.origin
-                    },
-
-                    events: {
-                        onReady: function(event) {
-                            event.target.mute();
-                            event.target.seekTo(startTime, true);
-                        }
-                    }
-                });
-
-                youtubePlayers.set(card, {
-                    player,
-                    start: startTime
-                });
-
-                card.addEventListener("mouseenter", () => {
-                    const playerData = youtubePlayers.get(card);
-
-                    if (!playerData) return;
-
-                    playerData.player.mute();
-                    playerData.player.seekTo(playerData.start, true);
-                    playerData.player.playVideo();
-                });
-
-                card.addEventListener("mouseleave", () => {
-                    const playerData = youtubePlayers.get(card);
-
-                    if (!playerData) return;
-
-                    playerData.player.pauseVideo();
-                    playerData.player.seekTo(playerData.start, true);
-                });
-            });
-        };
-
-        if (window.YT && window.YT.Player) {
-            window.onYouTubeIframeAPIReady();
-        }
-    }
-
-// ============================================
-// MOBILE NAVIGATION
-// ============================================
-
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
-
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener("click", () => {
-            const isOpen = menuToggle.classList.toggle("active");
-
-            navLinks.classList.toggle("mobile-open");
-            menuToggle.setAttribute("aria-expanded", isOpen);
-        });
-    }
-
-// ============================================
-// INDEX → PORTFOLIO TRANSITION
-// ============================================
-
-    const portfolioButton = document.getElementById("enterPortfolio");
-
-    if (portfolioButton) {
-        portfolioButton.addEventListener("click", function(event) {
-            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-                return;
-            }
-
-            event.preventDefault();
-
-            document.body.classList.add("entering-portfolio");
-
-            setTimeout(() => {
-                window.location.href = portfolioButton.href;
-            }, 700);
-        });
-    }
-
-// ============================================
-// RESTORE HOME PAGE AFTER BROWSER BACK
-// ============================================
-
-    window.addEventListener("pageshow", function() {
-        document.body.classList.remove(
-            "entering-portfolio",
-            "page-leaving"
-        );
-    });
-
-});
+                    preview
