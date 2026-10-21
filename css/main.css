@@ -1382,7 +1382,6 @@ body.page-leaving{
     }
 }
 
-
 @media (min-width: 1101px) {
     /* Allow the centered title group and right-side category to remain visible. */
     header,
@@ -1527,4 +1526,3 @@ body.page-leaving{
         transition: none !important;
     }
 }
-

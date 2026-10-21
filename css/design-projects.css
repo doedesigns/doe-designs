@@ -1,4 +1,7 @@
 @charset "UTF-8";
+/* Doe Designs — consolidated stylesheet. Keep main.css loaded before this file. */
+
+/* Print/design project-specific rules: Death by Music, Fox in the City, The Tip. */
 
 body.tip-page {
 background:
@@ -1612,108 +1615,5 @@ body.tip-page section.tip-feature-image.lightbox-image img {
 
     body.tip-page section.tip-feature-image.lightbox-image {
         width: 85%;
-    }
-}
-/* =========================================================
-   DESKTOP PROJECT NAVIGATION REPAIR — October 2026
-   Appended overrides only. Existing project styling above is preserved.
-   Mobile navigation is intentionally left unchanged for the next pass.
-========================================================= */
-@media (min-width: 1101px) {
-    /* Allow the centered project title and arrows to move without clipping. */
-    header,
-    header .navbar {
-        overflow: visible;
-    }
-
-    header .navbar {
-        position: relative;
-    }
-
-    /* Keep the normal site links in their original position at the top. */
-    header .navbar > .nav-links {
-        margin-left: auto;
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-        pointer-events: auto;
-        transition:
-            opacity 0.3s ease,
-            transform 0.4s ease,
-            visibility 0s linear 0s;
-    }
-
-    /* Project title navigation sits centered as one group, including arrows. */
-    header .navbar > .project-title-nav {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        right: auto;
-        height: 70px;
-        width: max-content;
-        max-width: calc(100% - 360px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 22px;
-        margin: 0;
-        opacity: 0;
-        visibility: hidden;
-        transform: translate(-50%, 100%);
-        transition:
-            transform 0.45s cubic-bezier(.22, 1, .36, 1),
-            opacity 0.3s ease,
-            visibility 0s linear 0.45s;
-        z-index: 2;
-    }
-
-    header .navbar.project-scrolled > .nav-links {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-100%);
-        pointer-events: none;
-        transition:
-            opacity 0.25s ease,
-            transform 0.4s ease,
-            visibility 0s linear 0.4s;
-    }
-
-    header .navbar.project-scrolled > .project-title-nav {
-        left: 50%;
-        right: auto;
-        opacity: 1;
-        visibility: visible;
-        transform: translate(-50%, 0);
-        transition:
-            transform 0.45s cubic-bezier(.22, 1, .36, 1),
-            opacity 0.3s ease 0.08s,
-            visibility 0s;
-    }
-
-    /* The category link is shown to the right of the centered title group. */
-    header .navbar > .project-title-nav .project-category-link {
-        display: block;
-        position: absolute;
-        left: calc(100% + 36px);
-        top: 50%;
-        transform: translateY(-50%);
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        white-space: nowrap;
-        transition: opacity 0.3s ease, color 0.3s ease, visibility 0s linear 0.3s;
-    }
-
-    header .navbar.project-scrolled > .project-title-nav .project-category-link {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        transition: opacity 0.3s ease 0.12s, color 0.3s ease, visibility 0s;
-    }
-
-    header .navbar > .logo {
-        position: relative;
-        z-index: 3;
-        flex-shrink: 0;
     }
 }

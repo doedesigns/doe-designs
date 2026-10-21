@@ -967,9 +967,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-/* =========================================================
-   DOE DESIGNS — DESKTOP PROJECT NAVIGATION STATE FIX
-========================================================= */
 (function () {
     "use strict";
 
