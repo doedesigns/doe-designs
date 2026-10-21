@@ -1,45 +1,44 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-    const heroLogo = document.getElementById("heroLogo");
-    const heroObject = document.getElementById("hero-object");
     const enterButton = document.getElementById("enterPortfolio");
-    const heroSubtitle = document.getElementById("heroSubtitle");
-    const speechBubble = document.querySelector(".speech-bubble");
 
 // ============================================
 // REDUCED MOTION
 // ============================================
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (prefersReducedMotion) {
         document.body.classList.add("reduce-motion");
     }
 
 // ============================================
-// HOME PAGE HELLO SPEECH BUBBLE
+// HOME PAGE SPEECH BUBBLE
 // ============================================
+
+    const speechBubble = document.querySelector(".speech-bubble");
 
     if (speechBubble) {
         const contactArea = document.querySelector(".page-contact-link");
         const homeVideo = document.querySelector(".home-video");
 
-        const showHello = () => {
+        function showHello() {
             if (window.matchMedia("(max-width: 768px)").matches) return;
+
             speechBubble.classList.add("show-hello", "wave");
-        };
-
-        const hideHello = () => {
-            speechBubble.classList.remove("wave", "show-hello");
-        };
-
-        if (contactArea) {
-            contactArea.addEventListener("mouseenter", showHello);
-            contactArea.addEventListener("mouseleave", hideHello);
         }
 
-        if (homeVideo) {
-            homeVideo.addEventListener("mouseenter", showHello);
-            homeVideo.addEventListener("mouseleave", hideHello);
+        function hideHello() {
+            speechBubble.classList.remove("show-hello", "wave");
         }
+
+        [contactArea, homeVideo].forEach(element => {
+            if (!element) return;
+
+            element.addEventListener("mouseenter", showHello);
+            element.addEventListener("mouseleave", hideHello);
+        });
     }
 
 // ============================================
@@ -51,18 +50,33 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     pageLinks.forEach(link => {
-        link.addEventListener("click", function(event) {
-            if (event.ctrlKey || event.shiftKey || event.metaKey || event.altKey) return;
-            if (link.hasAttribute("data-project")) return;
-            if (link.id === "enterPortfolio") return;
+        link.addEventListener("click", event => {
+            if (
+                event.ctrlKey ||
+                event.shiftKey ||
+                event.metaKey ||
+                event.altKey
+            ) {
+                return;
+            }
+
+            if (
+                link.hasAttribute("data-project") ||
+                link.id === "enterPortfolio"
+            ) {
+                return;
+            }
 
             const destination = link.href;
-            if (destination === window.location.href) return;
-            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+            if (destination === window.location.href || prefersReducedMotion) {
+                return;
+            }
 
             event.preventDefault();
             document.body.classList.add("page-leaving");
-            setTimeout(() => {
+
+            window.setTimeout(() => {
                 window.location.href = destination;
             }, 500);
         });
@@ -72,10 +86,10 @@ document.addEventListener("DOMContentLoaded", () => {
 // CONTACT DATE
 // ============================================
 
-    const date = document.getElementById("contactDate");
+    const contactDate = document.getElementById("contactDate");
 
-    if (date) {
-        date.textContent = new Date().toLocaleDateString("en-US", {
+    if (contactDate) {
+        contactDate.textContent = new Date().toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
             day: "numeric"
@@ -83,29 +97,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 // ============================================
-// FOOTER
+// FOOTER COPYRIGHT
 // ============================================
 
     const footer = document.getElementById("footerCopyright");
 
     if (footer) {
-        footer.innerHTML = `© ${new Date().getFullYear()} Doe Designs · Portfolio website designed & developed from concept to code by Jen Doehne`;
+        footer.textContent =
+            `© ${new Date().getFullYear()} Doe Designs · Portfolio website designed & developed from concept to code by Jen Doehne`;
     }
 
 // ============================================
-// GENERIC PROJECT CARD INFORMATION
+// PROJECT CARD INFORMATION
 // ============================================
 
     const projectInfoCache = new Map();
 
     function isCategoryCardWithoutOverlayTitle(card) {
-        return card.classList.contains("design-card") ||
-               card.classList.contains("branding-card");
+        return (
+            card.classList.contains("design-card") ||
+            card.classList.contains("branding-card")
+        );
     }
-
-// ============================================
-// CREATE / PREPARE PROJECT OVERLAY
-// ============================================
 
     function createSoftwareOverlay(card) {
         let overlay = card.querySelector(".software-overlay");
@@ -127,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let projectName = content.querySelector(".project-name");
 
         if (isCategoryCardWithoutOverlayTitle(card)) {
-            if (projectName) projectName.remove();
+            projectName?.remove();
         } else if (!projectName) {
             projectName = document.createElement("h2");
             projectName.className = "project-name";
@@ -162,62 +175,44 @@ document.addEventListener("DOMContentLoaded", () => {
         return overlay;
     }
 
-// ============================================
-// GET PROJECT TITLE
-// ============================================
-
     function getProjectTitle(projectDocument) {
         const title = projectDocument.querySelector(".project-title h1");
 
         if (!title) return "PROJECT";
 
         const titleClone = title.cloneNode(true);
-        const titleBreak = titleClone.querySelector(".title-break");
-
-        if (titleBreak) titleBreak.remove();
+        titleClone.querySelector(".title-break")?.remove();
 
         return titleClone.textContent.replace(/\s+/g, " ").trim() || "PROJECT";
     }
-
-// ============================================
-// GET DELIVERABLES LIST
-// ============================================
 
     function getDeliverablesList(projectDocument) {
         const detailBoxes = projectDocument.querySelectorAll(
             ".project-details .detail-box"
         );
 
-        let deliverablesBox = null;
-
-        detailBoxes.forEach(box => {
+        const deliverablesBox = Array.from(detailBoxes).find(box => {
             const heading = box.querySelector("h3");
 
-            if (
+            return (
                 heading &&
                 heading.textContent.trim().toUpperCase() === "DELIVERABLES"
-            ) {
-                deliverablesBox = box;
-            }
+            );
         });
 
         if (!deliverablesBox) return null;
 
-        const deliverablesParagraphs = deliverablesBox.querySelectorAll("p");
+        const paragraphs = Array.from(
+            deliverablesBox.querySelectorAll("p")
+        );
 
-        if (!deliverablesParagraphs.length) return null;
-
-        const deliverablesHTML = Array.from(deliverablesParagraphs)
-            .map(p => p.innerHTML.trim())
+        const deliverablesHTML = paragraphs
+            .map(paragraph => paragraph.innerHTML.trim())
             .filter(Boolean)
             .join("<br>");
 
         return deliverablesHTML || null;
     }
-
-// ============================================
-// LOAD PROJECT INFORMATION
-// ============================================
 
     async function loadProjectInfo(projectURL) {
         if (projectInfoCache.has(projectURL)) {
@@ -225,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 7000);
+        const timeout = window.setTimeout(() => controller.abort(), 7000);
 
         try {
             const resolvedURL = new URL(projectURL, document.baseURI).href;
@@ -235,16 +230,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 cache: "no-cache"
             });
 
-            clearTimeout(timeout);
-
             if (!response.ok) {
                 throw new Error(`Project page returned ${response.status}`);
             }
 
             const html = await response.text();
-            const parser = new DOMParser();
-
-            const projectDocument = parser.parseFromString(
+            const projectDocument = new DOMParser().parseFromString(
                 html,
                 "text/html"
             );
@@ -257,64 +248,46 @@ document.addEventListener("DOMContentLoaded", () => {
             projectInfoCache.set(projectURL, projectInfo);
 
             return projectInfo;
-
         } catch (error) {
-            clearTimeout(timeout);
-
-            console.error(
-                "Unable to load project information:",
-                projectURL,
-                error
-            );
-
+            console.error("Unable to load project information:", projectURL, error);
             throw error;
+        } finally {
+            window.clearTimeout(timeout);
         }
     }
 
-// ============================================
-// SHOW PROJECT INFORMATION
-// ============================================
-
-    function showProjectInfo(card, projectInfo) {
+    function updateProjectOverlay(card, projectInfo) {
         const overlay = createSoftwareOverlay(card);
         const projectName = overlay.querySelector(".project-name");
+        const deliverablesList = overlay.querySelector(".software-list");
 
         if (projectName) {
             projectName.textContent = projectInfo.title;
         }
 
-        const deliverablesList = overlay.querySelector(".software-list");
+        if (!deliverablesList) return;
 
-        if (deliverablesList) {
-            if (projectInfo.deliverables) {
-                deliverablesList.innerHTML = projectInfo.deliverables;
-                deliverablesList.classList.remove("loading", "error");
-            } else {
-                deliverablesList.textContent =
-                    "Deliverables information unavailable.";
+        if (projectInfo.deliverables) {
+            deliverablesList.innerHTML = projectInfo.deliverables;
+            deliverablesList.classList.remove("loading", "error");
+        } else {
+            deliverablesList.textContent =
+                "Deliverables information unavailable.";
 
-                deliverablesList.classList.remove("loading");
-                deliverablesList.classList.add("error");
-            }
+            deliverablesList.classList.remove("loading");
+            deliverablesList.classList.add("error");
         }
     }
-
-// ============================================
-// PROJECT INFORMATION ERROR
-// ============================================
 
     function showProjectInfoError(card) {
         const overlay = createSoftwareOverlay(card);
         const projectName = overlay.querySelector(".project-name");
+        const deliverablesList = overlay.querySelector(".software-list");
 
         if (projectName) {
             const image = card.querySelector("img");
-
-            projectName.textContent =
-                image && image.alt ? image.alt : "PROJECT";
+            projectName.textContent = image?.alt || "PROJECT";
         }
-
-        const deliverablesList = overlay.querySelector(".software-list");
 
         if (deliverablesList) {
             deliverablesList.textContent =
@@ -325,13 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-// ============================================
-// FIND PROJECT CARDS
-// ============================================
-
-    const projectCards = document.querySelectorAll("[data-project]");
-
-    projectCards.forEach(card => {
+    document.querySelectorAll("[data-project]").forEach(card => {
         const projectURL = card.dataset.project;
 
         if (!projectURL) return;
@@ -339,24 +306,16 @@ document.addEventListener("DOMContentLoaded", () => {
         createSoftwareOverlay(card);
 
         loadProjectInfo(projectURL)
-            .then(projectInfo => showProjectInfo(card, projectInfo))
+            .then(projectInfo => updateProjectOverlay(card, projectInfo))
             .catch(() => showProjectInfoError(card));
     });
 
 // ============================================
 // MOTION CARD HOVER VIDEO PREVIEWS
-// UNCHANGED
 // ============================================
 
-    const motionCards = document.querySelectorAll(
-        ".motion-card, .motion-home-card"
-    );
-
-    motionCards.forEach(card => {
-        const video = card.querySelector(
-            ".motion-video, .home-motion-video"
-        );
-
+    document.querySelectorAll(".motion-card, .motion-home-card").forEach(card => {
+        const video = card.querySelector(".motion-video, .home-motion-video");
         const fallback = card.querySelector(
             ".motion-still, .home-motion-fallback"
         );
@@ -368,35 +327,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
             video.style.opacity = "1";
 
-            const startTime = Number(video.dataset.start || 0);
-
             try {
-                video.currentTime = startTime;
+                video.currentTime = Number(video.dataset.start || 0);
             } catch (error) {
-                /* Preserve preview behavior. */
+                // Keep the preview working if seeking is unavailable.
             }
 
             const playPromise = video.play();
 
-            if (
-                playPromise &&
-                typeof playPromise.catch === "function"
-            ) {
-                playPromise.catch(error =>
-                    console.warn("Motion preview could not play:", error)
-                );
+            if (playPromise?.catch) {
+                playPromise.catch(error => {
+                    console.warn("Motion preview could not play:", error);
+                });
             }
         });
 
         card.addEventListener("mouseleave", () => {
             video.pause();
 
-            const startTime = Number(video.dataset.start || 0);
-
             try {
-                video.currentTime = startTime;
+                video.currentTime = Number(video.dataset.start || 0);
             } catch (error) {
-                /* Preserve preview behavior. */
+                // Keep the preview working if seeking is unavailable.
             }
 
             video.style.opacity = "0";
@@ -407,8 +359,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ============================================
 // YOUTUBE MOTION PREVIEWS
-// WORKS ON THE MOTION PAGE AND HOMEPAGE
-// UNCHANGED
 // ============================================
 
     const youtubeCards = document.querySelectorAll(
@@ -416,35 +366,30 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     if (youtubeCards.length) {
+        const youtubePlayers = new Map();
         const youtubeScript = document.createElement("script");
 
         youtubeScript.src = "https://www.youtube.com/iframe_api";
         document.head.appendChild(youtubeScript);
-
-        const youtubePlayers = new Map();
 
         window.onYouTubeIframeAPIReady = function() {
             youtubeCards.forEach(card => {
                 let preview = card.querySelector(".youtube-motion-preview");
 
                 if (!preview) {
-                    const previewImage = card.querySelector(
-                        ".home-motion-fallback"
-                    );
+                    const fallback = card.querySelector(".home-motion-fallback");
 
-                    if (!previewImage) return;
+                    if (!fallback) return;
 
                     preview = document.createElement("div");
                     preview.className = "youtube-motion-preview";
                     preview.dataset.videoId = card.dataset.videoId;
                     preview.dataset.start = card.dataset.start || 0;
 
-                    previewImage.parentElement.appendChild(preview);
+                    fallback.parentElement.appendChild(preview);
                 }
 
-                const videoId =
-                    preview.dataset.videoId || card.dataset.videoId;
-
+                const videoId = preview.dataset.videoId || card.dataset.videoId;
                 const startTime = Number(
                     preview.dataset.start || card.dataset.start || 0
                 );
@@ -453,7 +398,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const player = new YT.Player(preview, {
                     videoId,
-
                     playerVars: {
                         autoplay: 0,
                         controls: 0,
@@ -462,9 +406,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         modestbranding: 1,
                         origin: window.location.origin
                     },
-
                     events: {
-                        onReady: function(event) {
+                        onReady(event) {
                             event.target.mute();
                             event.target.seekTo(startTime, true);
                         }
@@ -497,7 +440,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         };
 
-        if (window.YT && window.YT.Player) {
+        if (window.YT?.Player) {
             window.onYouTubeIframeAPIReady();
         }
     }
@@ -513,42 +456,33 @@ document.addEventListener("DOMContentLoaded", () => {
         menuToggle.addEventListener("click", () => {
             const isOpen = menuToggle.classList.toggle("active");
 
-            navLinks.classList.toggle("mobile-open");
-            menuToggle.setAttribute("aria-expanded", isOpen);
+            navLinks.classList.toggle("mobile-open", isOpen);
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
         });
     }
 
 // ============================================
-// INDEX → PORTFOLIO TRANSITION
+// HOME PAGE → PORTFOLIO TRANSITION
 // ============================================
 
-    const portfolioButton = document.getElementById("enterPortfolio");
-
-    if (portfolioButton) {
-        portfolioButton.addEventListener("click", function(event) {
-            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-                return;
-            }
+    if (enterButton) {
+        enterButton.addEventListener("click", event => {
+            if (prefersReducedMotion) return;
 
             event.preventDefault();
-
             document.body.classList.add("entering-portfolio");
 
-            setTimeout(() => {
-                window.location.href = portfolioButton.href;
+            window.setTimeout(() => {
+                window.location.href = enterButton.href;
             }, 700);
         });
     }
 
 // ============================================
-// RESTORE HOME PAGE AFTER BROWSER BACK
+// RESTORE PAGE AFTER BROWSER BACK
 // ============================================
 
-    window.addEventListener("pageshow", function() {
-        document.body.classList.remove(
-            "entering-portfolio",
-            "page-leaving"
-        );
+    window.addEventListener("pageshow", () => {
+        document.body.classList.remove("entering-portfolio", "page-leaving");
     });
-
 });
