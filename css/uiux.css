@@ -1,6 +1,4 @@
 @charset "UTF-8";
-/* Doe Designs — consolidated stylesheet. Keep main.css loaded before this file. */
-
 /* UI/UX project-specific rules: Phasepoint/Chrono Nexus, Clean Future Network, Lotus Lingo, My Deets. */
 
 /* =========================================================
@@ -3125,9 +3123,9 @@ body.project-page .project-details .detail-box p {
     overflow-wrap: anywhere;
 }
 
-/* My Deets: cyan main title, yellow subtitle, and centered overview. */
+/* My Deets: purple main title, yellow subtitle, and centered overview. */
 body.deets-page .project-title h1 {
-    color: var(--deets-cyan, #00E5FF) !important;
+    color: var(--deets-purple, #866F84) !important;
 }
 body.deets-page .project-title .title-break {
     color: var(--deets-yellow, #E8E45C) !important;
@@ -3141,44 +3139,54 @@ body.deets-page .project-details {
     text-align: center;
 }
 
+/* ============================================
+   MY DEETS — REQUESTED PAGE ADJUSTMENTS
+============================================ */
+
+/* 01 / Dashboard: reduce the image container to 50%. */
+body.deets-page #deets-screens .deets-screen-feature .deets-screen-image {
+    width: 50%;
+    max-width: none;
+    margin-inline: auto;
+}
+
+/* Add 10px more space between the illustration and growth arrow. */
+body.deets-page .deets-life-illustration .deets-growth-line {
+    margin-top: 28px;
+}
+
+/* Keep all life-stage text together in the left column. */
+body.deets-page .deets-life-text-column {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+}
+
+/* Keep the illustration in the right column. */
+body.deets-page .deets-life-illustration {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+/* Stack the text and illustration on smaller screens. */
+@media (max-width: 700px) {
+    body.deets-page .deets-life-text-column {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    body.deets-page .deets-life-illustration {
+        grid-column: 1;
+        grid-row: 2;
+    }
+}
+
+
 /* Phasepoint: cyan hover treatment for Concept in Focus carousel. */
 .chrono-page .carousel-slide:hover img,
 .chrono-page .case-carousel .carousel-slide:hover img {
     filter: none !important;
     box-shadow: 0 0 0 2px #00E5FF, 0 0 24px rgba(0, 229, 255, 0.28) !important;
-}
-
-/* =========================================================
-   LOTUS LINGO + CHRONO NEXUS — TARGETED OCTOBER 2026 FIXES
-   Added after existing rules to resolve older conflicting styles.
-   ========================================================= */
-
-/* Restore the animated cyan ring around the project navigation arrows. */
-body.project-page .project-arrow .arrow-circle {
-    position: relative;
-    isolation: isolate;
-}
-
-body.project-page .project-arrow .arrow-circle::before {
-    content: "";
-    position: absolute;
-    inset: 2px;
-    z-index: -1;
-    border: 2px solid #00E5FF;
-    border-radius: 50%;
-    opacity: 0;
-    transform: scale(0.55);
-    pointer-events: none;
-}
-
-body.project-page .project-arrow:hover .arrow-circle::before,
-body.project-page .project-arrow:focus-visible .arrow-circle::before {
-    animation: project-arrow-cyan-orbit 1.15s ease-out infinite;
-}
-
-@keyframes project-arrow-cyan-orbit {
-    0% { opacity: 0.85; transform: scale(0.55); }
-    75%, 100% { opacity: 0; transform: scale(1.45); }
 }
 
 /* Bring the Lotus year closer to the walkthrough while keeping it centered
@@ -3535,5 +3543,376 @@ body.chrono-page .ux-icon img {
     body.chrono-page .carousel-slide {
         flex-basis: 88%;
         width: 88%;
+    }
+}
+
+
+/* ============================================
+   LOTUS LINGO — REQUESTED VISUAL REFINEMENTS
+   October 2026
+============================================ */
+
+/* Match each eyebrow/title box to the requested existing palette color. */
+body.lotus-organic .lotus-overview .lotus-eyebrow {
+    background: #365F7D;
+    color: #FFFFFF;
+}
+
+body.lotus-organic .lotus-prototype .lotus-eyebrow {
+    background: #426B4B;
+    color: #FFFFFF;
+}
+
+body.lotus-organic .lotus-direction .lotus-eyebrow {
+    background: #365F7D;
+    color: #FFFFFF;
+}
+
+body.lotus-organic .lotus-process .lotus-eyebrow {
+    background: #71344F;
+    color: #FFFFFF;
+}
+
+body.lotus-organic .lotus-experience .lotus-eyebrow {
+    background: #426B4B;
+    color: #FFFFFF;
+}
+
+body.lotus-organic .lotus-brand .lotus-eyebrow {
+    background: #365F7D;
+    color: #FFFFFF;
+}
+
+/* Keep the eyebrow boxes neat and consistent. */
+body.lotus-organic .lotus-eyebrow {
+    display: table;
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 18px;
+    padding: 8px 14px;
+    line-height: 1.5;
+}
+
+/* Remove the green box from the mobile app mockup caption. */
+body.lotus-organic .lotus-overview .story-image > p {
+    background: transparent;
+    padding: 0;
+}
+
+/* Use the Design Opportunity maroon around the design-system image. */
+body.lotus-organic .lotus-direction .story-image {
+    background: #71344F;
+}
+
+/* Return the prototype arrow and link to the existing pink accent. */
+body.lotus-organic .lotus-prototype-callout {
+    color: #F3B7D5;
+}
+
+body.lotus-organic .lotus-prototype-callout .lotus-curved-arrow {
+    color: #F3B7D5;
+}
+
+body.lotus-organic .lotus-prototype-callout:hover,
+body.lotus-organic .lotus-prototype-callout:focus-visible {
+    color: #F3B7D5;
+    transform: translateY(-2px);
+}
+
+body.lotus-organic .lotus-prototype-callout:hover .lotus-curved-arrow,
+body.lotus-organic .lotus-prototype-callout:focus-visible .lotus-curved-arrow {
+    color: #F3B7D5;
+}
+
+/* Add consistent space after paragraphs throughout Lotus Lingo. */
+body.lotus-organic .project-story .story-text p,
+body.lotus-organic .lotus-section p {
+    margin-bottom: 1.1em;
+}
+
+body.lotus-organic .project-story .story-text p:last-child,
+body.lotus-organic .lotus-section p:last-child {
+    margin-bottom: 0;
+}
+
+/* App concept map: text on the left, image on the right. */
+body.lotus-organic .lotus-process {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 64px);
+}
+
+body.lotus-organic .lotus-process .story-text {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+}
+
+body.lotus-organic .lotus-process .story-image {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    width: 100%;
+    max-width: 360px;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 10px;
+    background: #71344F;
+}
+
+/* Center the games video and make its presentation match the prototype. */
+body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+body.lotus-organic .lotus-experience .lotus-games-figure {
+    display: flex;
+    flex: 0 1 240px;
+    flex-direction: column;
+    align-items: center;
+    width: 240px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+body.lotus-organic .lotus-experience .lotus-games-figure video.video-player {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Put the animated-logo caption directly underneath its video. */
+body.lotus-organic .lotus-brand .project-hero.video-hero.lotus-logo-animation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    gap: 0;
+}
+
+body.lotus-organic .lotus-brand .lotus-logo-animation .video-player {
+    display: block;
+    flex: none;
+    width: min(100%, 760px);
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+body.lotus-organic .lotus-brand .lotus-logo-animation figcaption {
+    display: block;
+    width: 100%;
+    margin: 14px auto 0;
+    text-align: center;
+}
+
+/* =========================================================
+   CHRONO NEXUS — TARGETED OCTOBER 2026 REPAIRS
+   ========================================================= */
+
+/* 1. Overview summary: match the full width of both cards */
+body.chrono-page .overview-summary {
+    display: block;
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+}
+
+
+/* 2. Restore the Chrono lightbox overlay */
+body.chrono-page .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 20000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+    background: rgba(3, 8, 16, 0.92);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+body.chrono-page .lightbox.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+body.chrono-page .lightbox-box {
+    position: relative;
+    width: min(1200px, 96vw);
+    max-height: 90vh;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 34px;
+    background: #081522;
+    border: 1px solid rgba(0, 229, 255, 0.4);
+    border-radius: 16px;
+}
+
+body.chrono-page .lightbox-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.8fr);
+    align-items: start;
+    gap: 32px;
+}
+
+body.chrono-page .lightbox-image-panel {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.chrono-page .lightbox-image-large {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+    cursor: default;
+}
+
+body.chrono-page .lightbox-content {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+}
+
+body.chrono-page .lightbox-text-content {
+    width: 100%;
+}
+
+body.chrono-page .lightbox-title {
+    color: #00E5FF;
+    margin-top: 0;
+}
+
+body.chrono-page .lightbox-description {
+    color: rgba(255, 255, 255, 0.86);
+    line-height: 1.8;
+}
+
+body.chrono-page .lightbox-supporting-images {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+body.chrono-page .lightbox-supporting-images[hidden] {
+    display: none !important;
+}
+
+body.chrono-page .lightbox-support-item {
+    width: min(100%, 320px);
+    margin: 0;
+    text-align: right;
+}
+
+body.chrono-page .lightbox-support-item img {
+    display: block;
+    width: 100%;
+    max-height: 260px;
+    object-fit: contain;
+    margin-left: auto;
+}
+
+body.chrono-page .lightbox-support-item figcaption {
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+body.chrono-page .approach-card.lightbox-image img {
+    cursor: zoom-in;
+}
+
+
+/* 3. Gallery: four images in two side-by-side pairs */
+body.chrono-page .gallery-section .project-gallery-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 36px;
+    width: 100%;
+}
+
+body.chrono-page .gallery-section .project-image-block {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body.chrono-page .gallery-section .project-image-block img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+    margin-inline: auto;
+}
+
+body.chrono-page .gallery-section .project-image-block p {
+    text-align: center;
+}
+
+
+/* Responsive adjustments for these same elements */
+@media (max-width: 760px) {
+    body.chrono-page .lightbox {
+        padding: 12px;
+    }
+
+    body.chrono-page .lightbox-box {
+        padding: 24px 18px;
+        max-height: 94vh;
+    }
+
+    body.chrono-page .lightbox-main {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    body.chrono-page .lightbox-image-large {
+        max-height: 48vh;
+    }
+
+    body.chrono-page .lightbox-supporting-images {
+        align-items: center;
+    }
+
+    body.chrono-page .lightbox-support-item {
+        width: min(100%, 320px);
+        text-align: center;
+    }
+
+    body.chrono-page .lightbox-support-item figcaption {
+        text-align: center;
+    }
+
+    body.chrono-page .gallery-section .project-gallery-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
     }
 }

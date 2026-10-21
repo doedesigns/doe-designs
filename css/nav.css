@@ -558,3 +558,18 @@ header {
         animation: arrowSpinLeft 5s linear infinite !important;
     }
 }
+
+
+/* ============================================
+   SHARED PROJECT NAV — RIGHT ALIGNMENT
+============================================ */
+
+@media (min-width: 1101px) {
+    header .navbar > .project-title-nav {
+        left: auto !important;
+        right: 180px;
+        transform: translateY(-50%);
+        justify-content: flex-end;
+        margin-left: auto;
+    }
+}

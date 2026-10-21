@@ -1151,3 +1151,51 @@ body.tip-page .tip-feature-image img {
         pointer-events: none;
     }
 }
+
+
+/* ============================================
+   LOTUS LINGO — RESPONSIVE REFINEMENTS
+============================================ */
+
+@media (max-width: 900px) {
+    body.lotus-organic .lotus-process {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+        gap: 24px;
+    }
+
+    body.lotus-organic .lotus-process .story-text {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    body.lotus-organic .lotus-process .story-image {
+        grid-column: 2;
+        grid-row: 1;
+        width: 100%;
+        max-width: 360px;
+    }
+}
+
+@media (max-width: 600px) {
+    body.lotus-organic .lotus-process {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    body.lotus-organic .lotus-process .story-text {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    body.lotus-organic .lotus-process .story-image {
+        grid-column: 1;
+        grid-row: 2;
+        width: 100%;
+        max-width: 360px;
+    }
+
+    body.lotus-organic .lotus-experience .lotus-games-figure {
+        width: 240px;
+        max-width: 100%;
+    }
+}
+
