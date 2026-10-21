@@ -1,0 +1,403 @@
+@charset "UTF-8";
+/* ============================================
+   DOE DESIGNS — SHARED NAVIGATION
+   Desktop navigation and project scroll state
+   nav.css
+============================================ */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+
+.navbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    padding: 0 40px;
+    background: rgba(0, 0, 0, .82);
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.logo-doe {
+    color: #00E5FF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: .08em;
+}
+
+.logo-designs {
+    position: relative;
+    margin-left: 4px;
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 17px;
+    font-weight: 300;
+    transform: translateY(5px);
+    transition: color .3s ease;
+}
+
+.logo:hover .logo-designs {
+    color: #00E5FF;
+}
+
+.logo-designs::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 2px;
+    background: #00E5FF;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s ease;
+}
+
+.logo:hover .logo-designs::after {
+    transform: scaleX(1);
+}
+
+/* STANDARD NAVIGATION LINKS */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 55px;
+    margin-left: auto;
+    list-style: none;
+    transition: opacity .45s ease, transform .45s ease;
+}
+
+.nav-links a {
+    position: relative;
+    display: inline-block;
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 13px;
+    letter-spacing: .28em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color .3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    height: 2px;
+    background: #00E5FF;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .35s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+    color: #00E5FF;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after,
+.nav-links a.active::after,
+.nav-links a[aria-current="page"]::after {
+    transform: scaleX(1);
+}
+
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
+    color: #00E5FF;
+}
+
+/* PROJECT NAVIGATION GROUP */
+
+.project-title-nav {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    width: max-content;
+    max-width: calc(100vw - 420px);
+    height: 70px;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(-50%, -100%);
+    transition:
+        opacity .3s ease,
+        transform .45s cubic-bezier(.22, 1, .36, 1),
+        visibility 0s linear .45s;
+}
+
+.navbar.project-scrolled > .project-title-nav {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+    transition:
+        opacity .3s ease .05s,
+        transform .45s cubic-bezier(.22, 1, .36, 1),
+        visibility 0s;
+}
+
+.navbar.project-scrolled > .nav-links {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-100%);
+}
+
+/* COMPACT PROJECT TITLE */
+
+.project-title-nav h1 {
+    position: relative;
+    flex: 0 1 auto;
+    margin: 0;
+    color: #00E5FF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    line-height: 1.15;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.project-title-nav h1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #FFFFFF;
+    transition: width .3s ease;
+}
+
+.project-title-nav h1:hover::after {
+    width: 100%;
+}
+
+/* PROJECT CATEGORY — PART OF THE SAME COMPACT GROUP */
+
+.project-title-nav .project-category-link {
+    position: relative;
+    display: inline-block;
+    flex: 0 0 auto;
+    margin-left: 8px;
+    color: #00E5FF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    line-height: 1.15;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color .3s ease;
+}
+
+.project-title-nav .project-category-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background: #FFFFFF;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s ease;
+}
+
+.project-title-nav .project-category-link:hover,
+.project-title-nav .project-category-link:focus-visible {
+    color: #FFFFFF;
+}
+
+.project-title-nav .project-category-link:hover::after,
+.project-title-nav .project-category-link:focus-visible::after {
+    transform: scaleX(1);
+}
+
+/* PREVIOUS / NEXT ARROWS */
+
+.project-title-nav > .project-arrow {
+    display: flex;
+    flex: 0 0 42px;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 48px;
+    text-decoration: none;
+}
+
+.arrow-circle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    transform: translateY(-2px);
+}
+
+.arrow-triangle {
+    width: 0;
+    height: 0;
+}
+
+.project-arrow.prev .arrow-triangle {
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-right: 14px solid #FFFFFF;
+}
+
+.project-arrow.next .arrow-triangle {
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 14px solid #FFFFFF;
+}
+
+.arrow-circle::before {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border: 2px solid transparent;
+    border-top-color: #00E5FF;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+.project-arrow:hover .arrow-triangle,
+.project-arrow:focus-visible .arrow-triangle {
+    border-left-color: #00E5FF;
+    border-right-color: #00E5FF;
+}
+
+.project-arrow:hover .arrow-circle::before,
+.project-arrow:focus-visible .arrow-circle::before {
+    opacity: 1;
+}
+
+.project-arrow.next:hover .arrow-circle::before {
+    animation: arrowSpinRight 5s linear infinite;
+}
+
+.project-arrow.prev:hover .arrow-circle::before {
+    animation: arrowSpinLeft 5s linear infinite;
+}
+
+@keyframes arrowSpinRight {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes arrowSpinLeft {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+/* HAMBURGER — EXISTING MARKUP */
+
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 3px;
+    background: transparent;
+    cursor: pointer;
+    z-index: 10003;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #FFFFFF;
+    transition: transform .25s ease, opacity .25s ease;
+}
+
+.menu-toggle.active span:first-child {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:last-child {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* DESKTOP */
+
+@media (min-width: 1101px) {
+    header,
+    header .navbar {
+        overflow: visible;
+    }
+
+    header .navbar {
+        isolation: isolate;
+    }
+
+    header .navbar > .logo {
+        position: relative;
+        z-index: 10003;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+    .project-title-nav,
+    .project-title-nav h1::after,
+    .project-title-nav .project-category-link,
+    .project-title-nav .project-category-link::after,
+    .nav-links,
+    .menu-toggle span {
+        transition: none !important;
+    }
+
+    .project-arrow:hover .arrow-circle::before {
+        animation: none !important;
+    }
+}
+

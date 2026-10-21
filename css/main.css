@@ -818,6 +818,8 @@ body.project-page.scroll-page .project-details .detail-box li {
     text-align: center !important;
 }
 
+/* Keep project name and project type cyan on the page and in the compact navbar. */
+
 body.project-page.scroll-page .project-title-nav h1 {
     color: #00E5FF !important;
 }
