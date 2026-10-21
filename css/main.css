@@ -1381,3 +1381,150 @@ body.page-leaving{
         max-height: 160px;
     }
 }
+
+
+@media (min-width: 1101px) {
+    /* Allow the centered title group and right-side category to remain visible. */
+    header,
+    .navbar {
+        overflow: visible !important;
+    }
+
+    .navbar {
+        position: relative !important;
+        isolation: isolate;
+    }
+
+    /* Regular navigation stays at the right when at the top. */
+    .navbar > .nav-links {
+        position: relative;
+        z-index: 2;
+        margin-left: auto !important;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+        transition: opacity .3s ease, transform .45s cubic-bezier(.22, 1, .36, 1), visibility 0s linear 0s;
+    }
+
+    /* The project title and its arrows form one centered group. */
+    .navbar > .project-title-nav {
+        position: absolute !important;
+        top: 0 !important;
+        left: 50% !important;
+        right: auto !important;
+        width: max-content;
+        max-width: calc(100% - 430px);
+        height: 70px;
+        margin: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 22px;
+        z-index: 4;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translate(-50%, -100%) !important;
+        transition: opacity .3s ease, transform .45s cubic-bezier(.22, 1, .36, 1), visibility 0s linear .45s;
+    }
+
+    .navbar.project-scrolled > .project-title-nav,
+    .project-scrolled .navbar > .project-title-nav {
+        left: 50% !important;
+        right: auto !important;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translate(-50%, 0) !important;
+        transition: opacity .3s ease .05s, transform .45s cubic-bezier(.22, 1, .36, 1), visibility 0s;
+    }
+
+    .navbar.project-scrolled > .nav-links,
+    .project-scrolled .navbar > .nav-links {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transform: translateY(-100%) !important;
+        pointer-events: none !important;
+        transition: opacity .25s ease, transform .45s cubic-bezier(.22, 1, .36, 1), visibility 0s linear .45s;
+    }
+
+    /* Keep the project title compact in the fixed navbar. */
+    .navbar > .project-title-nav h1 {
+        position: relative;
+        margin: 0;
+        color: #00E5FF;
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: .12em;
+        line-height: 1.15;
+        text-align: center;
+        text-transform: uppercase;
+        white-space: nowrap;
+        cursor: pointer;
+    }
+
+    /* The active category sits at the far right, not inside the centered group. */
+    .navbar .project-title-nav .project-category-link {
+        position: fixed !important;
+        top: 35px !important;
+        right: 40px !important;
+        left: auto !important;
+        display: inline-block !important;
+        width: auto;
+        margin: 0 !important;
+        padding: 0;
+        color: #00E5FF;
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: .2em;
+        line-height: 1.2;
+        text-align: right;
+        text-decoration: none;
+        text-transform: uppercase;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-100%);
+        transition: opacity .3s ease, transform .45s cubic-bezier(.22, 1, .36, 1), visibility 0s linear .45s, color .3s ease;
+        z-index: 10002;
+    }
+
+    .navbar.project-scrolled .project-title-nav .project-category-link {
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        transform: translateY(0) !important;
+        transition: opacity .3s ease .08s, transform .45s cubic-bezier(.22, 1, .36, 1), visibility 0s, color .3s ease;
+    }
+
+    .navbar .project-title-nav .project-category-link:hover,
+    .navbar .project-title-nav .project-category-link:focus-visible {
+        color: #FFFFFF !important;
+    }
+
+    /* Preserve the existing arrow artwork and hover animations. */
+    .navbar .project-title-nav .project-arrow {
+        position: relative;
+        z-index: 1;
+        flex: 0 0 55px;
+        width: 55px;
+        height: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .navbar > .nav-links,
+    .navbar > .project-title-nav,
+    .navbar .project-title-nav .project-category-link {
+        transition: none !important;
+    }
+}
+

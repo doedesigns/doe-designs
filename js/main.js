@@ -966,3 +966,66 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+/* =========================================================
+   DOE DESIGNS — DESKTOP PROJECT NAVIGATION STATE FIX
+========================================================= */
+(function () {
+    "use strict";
+
+    function initializeDesktopProjectNav() {
+        const projectPage = document.querySelector(".project-page");
+        const navbar = document.querySelector(".navbar");
+        const projectTitleNav = document.querySelector(".project-title-nav");
+
+        if (!projectPage || !navbar || !projectTitleNav) {
+            return;
+        }
+
+        const updateScrollState = function () {
+            navbar.classList.toggle("project-scrolled", window.scrollY > 80);
+        };
+
+        // Set the correct state immediately, including browser-back restoration.
+        updateScrollState();
+
+        // Keep the compact project navigation synchronized with scrolling.
+        window.addEventListener("scroll", updateScrollState, { passive: true });
+        window.addEventListener("pageshow", updateScrollState);
+
+        // Ensure the category link is present and points to the active category.
+        const activeCategoryLink = document.querySelector(".nav-links a.active");
+        const projectTitle = projectTitleNav.querySelector("h1");
+
+        if (activeCategoryLink && projectTitle) {
+            let categoryLink = projectTitleNav.querySelector(".project-category-link");
+
+            if (!categoryLink) {
+                categoryLink = document.createElement("a");
+                categoryLink.className = "project-category-link";
+                projectTitleNav.insertBefore(categoryLink, projectTitle);
+            }
+
+            categoryLink.href = activeCategoryLink.href;
+            categoryLink.textContent = activeCategoryLink.textContent.trim();
+            categoryLink.setAttribute(
+                "aria-label",
+                "View " + activeCategoryLink.textContent.trim() + " projects"
+            );
+        }
+
+        // Clicking the project title returns to the top; avoid adding duplicate handlers.
+        if (projectTitle && projectTitle.dataset.scrollTopHandler !== "true") {
+            projectTitle.dataset.scrollTopHandler = "true";
+            projectTitle.addEventListener("click", function () {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        }
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initializeDesktopProjectNav, { once: true });
+    } else {
+        initializeDesktopProjectNav();
+    }
+})();
