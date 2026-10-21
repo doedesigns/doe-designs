@@ -1617,3 +1617,112 @@ body.tip-page section.tip-feature-image.lightbox-image img {
         width: 85%;
     }
 }
+
+
+/* =========================================================
+   FOX IN THE CITY — REDUCE EXCESS SPACE IN SECTION 1
+   ========================================================= */
+
+/* Tighten the spacing after the Story section's content.
+   The more specific selectors keep this change Fox-only. */
+
+body.fox-page .fox-story {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+body.fox-page .fox-story > :last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   THE TIP — CENTER AND ENLARGE THE FINAL IMAGE
+   ========================================================= */
+
+body.tip-page .tip-final-spread,
+body.tip-page .tip-spread-image.tip-final-spread {
+    position: relative;
+    left: 50%;
+    width: min(94vw, 1600px);
+    max-width: none;
+    margin: 35px 0 60px;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+body.tip-page .tip-final-spread img {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   PROJECT TITLE COLORS
+   Keep shared navigation cyan; let each project theme
+   control its own main title and subtitle.
+   ========================================================= */
+
+/* Shared styling should not force every main title cyan. */
+.project-title h1 {
+    color: inherit;
+}
+
+/* Preserve the cyan title in the compact scrolling nav. */
+.project-title-nav h1 {
+    color: #00E5FF;
+}
+
+
+/* =========================================================
+   FOX IN THE CITY — SECTION 1: THE STORY
+   Reduce excess space beneath the city illustration
+   ========================================================= */
+
+body.fox-page .fox-case-section {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+body.fox-page .fox-case-section .fox-art-placeholder {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   THE TIP — FINAL FEATURE SPREAD
+   Center the image and display it at a much larger size
+   ========================================================= */
+
+body.tip-page section.tip-feature-image.tip-spread-image.tip-final-spread {
+    position: relative;
+    display: block;
+    left: auto;
+    right: auto;
+    width: 100%;
+    max-width: 1500px;
+    margin: 40px auto 70px;
+    padding: 0;
+    transform: none;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+body.tip-page section.tip-feature-image.tip-spread-image.tip-final-spread img.img-large {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+body.tip-page section.tip-feature-image.tip-spread-image.tip-final-spread p {
+    width: 100%;
+    margin: 16px auto 0;
+    text-align: center;
+}

@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 categoryLink.className = "project-category-link";
 
                 // CSS positions this link independently at the far right.
-                projectTitleNav.appendChild(categoryLink);
+                navbar.appendChild(categoryLink);
             }
 
             categoryLink.href = activeCategoryLink.href;
