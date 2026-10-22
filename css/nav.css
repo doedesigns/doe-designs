@@ -432,13 +432,22 @@ header {
         box-sizing: border-box;
     }
 
-    /*
-      The category is positioned independently so it cannot
-      shift the centered title and arrows.
-    */
-    header .navbar > .project-title-nav > .project-category-link {
-        right: calc((100vw - 100%) / 2 + 40px);
-    }
+header .navbar {
+    position: relative;
+}
+
+header .navbar > .project-title-nav > .project-category-link {
+    position: fixed;
+    top: 35px;
+    right: 40px;
+    left: auto;
+    width: auto;
+    max-width: 160px;
+    margin: 0;
+    transform: translateY(-50%);
+    text-align: right;
+    white-space: nowrap;
+}
 }
 
 /* REDUCED MOTION */
