@@ -99,7 +99,7 @@ body.design-page .page-content {
 
 .design-card:hover img {
     border-color: #00E5FF;
-    box-shadow: 0 0 30px rgba(0, 229, 255, .40);
+    box-shadow: 0 0 30px rgba(0, 229, 255, .82);
 }
 
 
@@ -114,7 +114,7 @@ body.design-page .page-content {
     width: 100%;
     height: 260px;
     box-sizing: border-box;
-    background: rgba(0, 229, 255, .78);
+    background: rgba(0, 229, 255, .82);
     display: flex;
     justify-content: center;
     align-items: center;

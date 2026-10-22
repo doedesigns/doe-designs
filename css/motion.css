@@ -375,7 +375,7 @@ body.motion-page .motion-preview {
 
 body.motion-page .motion-card:hover .motion-preview {
     border-color: #00E5FF;
-    box-shadow: 0 0 25px rgba(0, 229, 255, 0.3);
+    box-shadow: 0 0 25px rgba(0, 229, .82, 0.3);
 }
 
 /* Keep the existing video previews filling the square */
@@ -487,12 +487,13 @@ body.motion-page .motion-card:focus-visible .portfolio-card-title {
    ========================================================= */
 
 body.motion-page .motion-grid {
-    grid-template-columns: repeat(3, minmax(0, 220px));
+    grid-template-columns: repeat(3, minmax(0, 260px));
     justify-content: center;
     align-content: start;
     align-items: start;
-    gap: 28px;
-    margin-top: 10px;
+    gap: 48px 40px;
+    width: 100%;
+    margin: 35px auto 0;
 }
 
 body.motion-page .motion-card {
@@ -532,7 +533,7 @@ body.motion-page .motion-preview {
 body.motion-page .motion-card:hover .motion-preview,
 body.motion-page .motion-card:focus-visible .motion-preview {
     border-color: #00E5FF;
-    box-shadow: 0 0 25px rgba(0, 229, 255, 0.3);
+    box-shadow: 0 0 25px rgba(0, 229, 0.82, 0.3);
 }
 
 body.motion-page .motion-still,
@@ -559,7 +560,7 @@ body.motion-page .motion-preview .software-overlay {
     padding: 16px;
     box-sizing: border-box;
     overflow-y: auto;
-    background: rgba(0, 229, 255, 0.92);
+    background: rgba(0, 229, 255, 0.82);
     color: #000000;
     opacity: 1;
     visibility: hidden;
@@ -635,14 +636,14 @@ body.motion-page .motion-card:focus-visible .portfolio-card-title {
 
 @media (max-width: 900px) {
     body.motion-page .motion-grid {
-        grid-template-columns: repeat(2, minmax(0, 220px));
-        gap: 24px;
+        grid-template-columns: repeat(2, minmax(0, 260px));
+        gap: 36px 28px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     body.motion-page .motion-grid {
-        grid-template-columns: minmax(0, 300px);
-        gap: 28px;
+        grid-template-columns: minmax(0, 320px);
+        gap: 32px;
     }
 }

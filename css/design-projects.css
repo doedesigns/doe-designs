@@ -1936,3 +1936,288 @@ body.death-page .death-development-section > .death-sketch-image > p {
     }
 }
 
+/* =========================================================
+   FOX IN THE CITY — DETAIL BOXES AND SECTION SPACING
+   These overrides apply only to the Fox in the City page.
+========================================================= */
+
+/* Give Fox's four detail boxes their own editorial treatment */
+
+body.fox-page .project-details {
+    gap: 18px;
+    margin-bottom: 85px;
+}
+
+body.fox-page .project-details .detail-box {
+    position: relative;
+    padding: 24px 16px 22px;
+    text-align: center;
+
+    background: linear-gradient(
+        145deg,
+        rgba(83, 43, 76, 0.76),
+        rgba(30, 19, 35, 0.88)
+    );
+
+    border: 1px solid rgba(240, 179, 200, 0.32);
+    border-top: 2px solid rgba(240, 179, 200, 0.78);
+    border-bottom: 3px solid rgba(240, 179, 200, 0.6);
+
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+body.fox-page .project-details .detail-box h3 {
+    margin: 0 0 14px;
+    padding-bottom: 10px;
+
+    color: #F0B3C8;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    line-height: 1.4;
+
+    border-bottom: 1px solid rgba(240, 179, 200, 0.3);
+}
+
+body.fox-page .project-details .detail-box p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.88);
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+/* Reduce the gap between the detail boxes and 1 THE STORY */
+
+body.fox-page .project-details {
+    margin-bottom: 85px;
+}
+
+/* Tighten the gap between THE STORY and CREATIVE DIRECTION */
+
+body.fox-page .fox-case-section + .fox-case-section {
+    margin-top: -20px;
+}
+
+/* Keep the hero's source description hidden on the page.
+   The lightbox displays it when the image is opened. */
+
+body.fox-page .project-hero .lightbox-description {
+    display: none;
+}
+
+/* Mobile adjustments for the four detail boxes */
+
+@media (max-width: 768px) {
+    body.fox-page .project-details {
+        gap: 14px;
+        margin-bottom: 65px;
+    }
+
+    body.fox-page .project-details .detail-box {
+        padding: 18px 12px;
+    }
+
+    body.fox-page .project-details .detail-box h3 {
+        font-size: 16px;
+        letter-spacing: 0.14em;
+    }
+
+    body.fox-page .project-details .detail-box p {
+        font-size: 15px;
+    }
+
+    body.fox-page .fox-case-section + .fox-case-section {
+        margin-top: -10px;
+    }
+}
+
+/* ==========================================
+   THE TIP — PROJECT TITLE
+========================================== */
+
+body.tip-page .project-container > .project-navigation .project-title h1 {
+    color: #3987F5;
+}
+
+/* Preserve the subtitle's existing styling. */
+body.tip-page .project-container > .project-navigation
+.project-title h1 .title-break {
+    color: inherit;
+}
+
+
+/* ==========================================
+   THE TIP — UNIFIED SPORTS EDITORIAL DETAILS
+========================================== */
+
+body.tip-page .project-details {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    padding: 26px 20px;
+    margin-top: 0;
+    background: linear-gradient(135deg, #081729, #0B2035);
+    border: 1px solid rgba(57, 135, 245, 0.35);
+    border-top: 3px solid #3987F5;
+    border-radius: 4px;
+}
+
+body.tip-page .project-details .detail-box {
+    min-width: 0;
+    padding: 8px 18px;
+    background: transparent;
+    border: 0;
+    border-right: 1px solid rgba(166, 184, 206, 0.25);
+    text-align: left;
+}
+
+body.tip-page .project-details .detail-box:last-child {
+    border-right: 0;
+}
+
+body.tip-page .project-details .detail-box h3 {
+    margin-bottom: 14px;
+    color: #3987F5;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+body.tip-page .project-details .detail-box p {
+    color: #E6EDF5;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+
+/* ==========================================
+   THE TIP — SECTION 03 EDITORIAL LAYOUT
+========================================== */
+
+body.tip-page .tip-development-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    column-gap: 38px;
+    row-gap: 22px;
+    align-items: start;
+}
+
+body.tip-page .tip-development-layout .tip-section-heading {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+}
+
+body.tip-page .tip-development-photo {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+body.tip-page .tip-development-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    clip-path: polygon(0 0, 100% 0, 78% 100%, 0 100%);
+}
+
+body.tip-page .tip-development-photo > p {
+    margin-top: 12px;
+    text-align: left;
+}
+
+body.tip-page .tip-development-intro {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+    padding-top: 8px;
+}
+
+body.tip-page .tip-development-intro p {
+    margin-top: 0;
+    text-align: left;
+}
+
+body.tip-page .tip-development-followup {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    width: 100%;
+    margin-top: 0;
+}
+
+body.tip-page .tip-development-followup p {
+    margin-top: 0;
+    text-align: left;
+}
+
+
+/* ==========================================
+   RESPONSIVE LAYOUT
+========================================== */
+
+@media (max-width: 900px) {
+    body.tip-page .project-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 22px;
+    }
+
+    body.tip-page .project-details .detail-box:nth-child(2) {
+        border-right: 0;
+    }
+
+    body.tip-page .project-details .detail-box:nth-child(3) {
+        border-right: 1px solid rgba(166, 184, 206, 0.25);
+    }
+
+    body.tip-page .project-details .detail-box:nth-child(4) {
+        border-right: 0;
+    }
+
+    body.tip-page .tip-development-layout {
+        column-gap: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    body.tip-page .project-details {
+        grid-template-columns: 1fr;
+        padding: 20px 16px;
+        row-gap: 14px;
+    }
+
+    body.tip-page .project-details .detail-box,
+    body.tip-page .project-details .detail-box:nth-child(3) {
+        padding: 14px 4px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(166, 184, 206, 0.25);
+    }
+
+    body.tip-page .project-details .detail-box:last-child {
+        border-bottom: 0;
+    }
+
+    body.tip-page .tip-development-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    body.tip-page .tip-development-layout .tip-section-heading,
+    body.tip-page .tip-development-photo,
+    body.tip-page .tip-development-intro,
+    body.tip-page .tip-development-followup {
+        width: 100%;
+        margin: 0;
+    }
+
+    body.tip-page .tip-development-photo img {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+

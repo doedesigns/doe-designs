@@ -401,9 +401,10 @@ header {
     }
 }
 
+
 /* =========================================================
    DOE DESIGNS — DESKTOP PROJECT NAVIGATION
-   Stable positioning at different browser zoom levels
+   Center title/arrows; independently align category at right
    ========================================================= */
 
 @media (min-width: 1101px) {
@@ -418,58 +419,42 @@ header {
         isolation: isolate;
     }
 
-    /* Full-width container keeps the title/arrows centered
-       and gives the category a reliable right-hand anchor. */
     header .navbar > .project-title-nav {
         position: absolute !important;
-        top: 0 !important;
-        right: 0 !important;
-        bottom: auto !important;
-        left: 0 !important;
-
+        inset: 0 !important;
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
         justify-content: center !important;
         gap: 18px !important;
-
         width: 100% !important;
         max-width: none !important;
         height: 70px !important;
         margin: 0 !important;
-        padding: 0 !important;
+        padding: 0 210px !important;
         box-sizing: border-box !important;
-
         transform: translateY(-100%) !important;
         opacity: 0 !important;
         visibility: hidden !important;
         pointer-events: none !important;
         z-index: 10001 !important;
-
         transition:
             opacity .3s ease,
             transform .45s cubic-bezier(.22, 1, .36, 1),
             visibility 0s linear .45s;
     }
 
-    /* Reveal the project navigation after scrolling. */
     header .navbar.project-scrolled > .project-title-nav {
-        top: 0 !important;
-        right: 0 !important;
-        left: 0 !important;
-
         transform: translateY(0) !important;
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: auto !important;
-
         transition:
             opacity .3s ease .05s,
             transform .45s cubic-bezier(.22, 1, .36, 1),
             visibility 0s;
     }
 
-    /* Hide standard links only while the project nav is active. */
     header .navbar.project-scrolled > .nav-links {
         opacity: 0 !important;
         visibility: hidden !important;
@@ -477,70 +462,60 @@ header {
         transform: translateY(-100%) !important;
     }
 
-    /* Keep the title and arrows together in the center. */
+    /* Keep the title centered between the arrows. */
     header .navbar > .project-title-nav > h1 {
-        position: relative !important;
-        flex: 0 0 auto !important;
-        width: auto !important;
-        max-width: none !important;
+        flex: 0 1 auto !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
-
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
         color: #00E5FF !important;
         text-align: center !important;
         white-space: nowrap !important;
+        line-height: 1.2 !important;
     }
 
     header .navbar > .project-title-nav > .project-arrow {
-        position: relative !important;
-        display: flex !important;
         flex: 0 0 42px !important;
-        align-items: center !important;
-        justify-content: center !important;
-
         width: 42px !important;
         min-width: 42px !important;
         height: 48px !important;
-
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: auto !important;
     }
 
-    /* Anchor the project category to the right edge of the
-       full-width project navigation container. */
+    /* Category is independent of the centered title-and-arrows group. */
     header .navbar > .project-title-nav > .project-category-link {
         position: absolute !important;
         top: 50% !important;
         right: 40px !important;
         left: auto !important;
         bottom: auto !important;
-
         display: inline-block !important;
         width: auto !important;
-        max-width: calc(100% - 80px) !important;
+        max-width: 160px !important;
         margin: 0 !important;
         padding: 0 !important;
-
+        transform: translateY(-50%) !important;
         color: #00E5FF !important;
         text-align: right !important;
         white-space: nowrap !important;
-
-        transform: translateY(-50%) !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        pointer-events: none !important;
         z-index: 10004 !important;
     }
 
-    header .navbar.project-scrolled
-    > .project-title-nav > .project-category-link {
+    header .navbar.project-scrolled > .project-title-nav
+    > .project-category-link {
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: auto !important;
     }
 
-    /* Preserve the arrow hover animation. */
     header .navbar > .project-title-nav
     > .project-arrow .arrow-circle {
         position: relative !important;
@@ -557,7 +532,7 @@ header {
         border: 2px solid transparent !important;
         border-top-color: #00E5FF !important;
         border-radius: 50% !important;
-        opacity: 0 !important;
+        opacity: 0;
         animation: none;
     }
 

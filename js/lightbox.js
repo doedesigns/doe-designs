@@ -68,17 +68,32 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     let previouslyFocusedElement = null;
+    let previousBodyOverflow = "";
 
-    /* FIND THE EXISTING IMAGE CAPTION */
+    /* FIND THE EXISTING IMAGE CAPTION OR DESCRIPTION */
 
     function getCaptionElement(img) {
-        const parent = img.closest("figure");
+        /* First: standard figure captions */
+        const figure = img.closest("figure");
 
-        if (parent) {
-            const figcaption = parent.querySelector("figcaption");
+        if (figure) {
+            const figcaption = figure.querySelector("figcaption");
+
             if (figcaption) return figcaption;
         }
 
+        /* Second: descriptions stored beside the hero image */
+        const imageSection = img.closest(".lightbox-image");
+
+        if (imageSection) {
+            const description = imageSection.querySelector(
+                ".lightbox-description"
+            );
+
+            if (description) return description;
+        }
+
+        /* Third: captions inside project image blocks */
         const container = img.closest(".project-image-block");
 
         if (container) {
@@ -167,6 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function openLightbox(img) {
         previouslyFocusedElement = document.activeElement;
+        previousBodyOverflow = document.body.style.overflow;
 
         const caption = getCaptionElement(img);
 
@@ -185,7 +201,8 @@ document.addEventListener("DOMContentLoaded", () => {
         addSupportingImage(img, 1);
         addSupportingImage(img, 2);
 
-        const hasSupportingImages = supportingImages.children.length > 0;
+        const hasSupportingImages =
+            supportingImages.children.length > 0;
 
         supportingImages.hidden = !hasSupportingImages;
 
@@ -201,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function closeLightbox() {
         lightbox.classList.remove("active");
         document.body.classList.remove("lightbox-open");
-        document.body.style.overflow = "";
+        document.body.style.overflow = previousBodyOverflow;
 
         largeImage.src = "";
         largeImage.alt = "";
@@ -221,7 +238,10 @@ document.addEventListener("DOMContentLoaded", () => {
     /* CONNECT ALL PORTFOLIO IMAGES */
 
     lightboxTriggers.forEach((img) => {
-        img.addEventListener("click", () => {
+        img.addEventListener("click", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
             openLightbox(img);
         });
 
@@ -238,6 +258,8 @@ document.addEventListener("DOMContentLoaded", () => {
         img.addEventListener("keydown", (event) => {
             if (event.key === "Enter" || event.key === " ") {
                 event.preventDefault();
+                event.stopPropagation();
+
                 openLightbox(img);
             }
         });
