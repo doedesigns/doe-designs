@@ -69,7 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const destination = link.href;
 
-            if (destination === window.location.href || prefersReducedMotion) {
+            if (
+                destination === window.location.href ||
+                prefersReducedMotion
+            ) {
                 return;
             }
 
@@ -113,12 +116,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const projectInfoCache = new Map();
 
+// Category cards show project titles outside their overlays.
+// Their overlays are reserved for deliverables information.
+
     function isCategoryCardWithoutOverlayTitle(card) {
         return (
             card.classList.contains("design-card") ||
-            card.classList.contains("branding-card")
+            card.classList.contains("branding-card") ||
+            card.classList.contains("motion-card") ||
+            card.classList.contains("motion-home-card")
         );
     }
+
+// ============================================
+// MOTION PROJECT TITLES
+// Place titles beneath the image, not in the overlay.
+// ============================================
+
+    function updateMotionCardTitle(card, titleText) {
+        const isMotionCard =
+            card.classList.contains("motion-card") ||
+            card.classList.contains("motion-home-card");
+
+        if (!isMotionCard) return;
+
+        let title = card.querySelector(".portfolio-card-title");
+
+        if (!title) {
+            title = document.createElement("h2");
+            title.className = "portfolio-card-title";
+
+            const preview = card.querySelector(
+                ".motion-preview, .home-motion-fallback, .home-motion-preview"
+            );
+
+            if (preview) {
+                preview.insertAdjacentElement("afterend", title);
+            } else {
+                card.appendChild(title);
+            }
+        }
+
+        title.textContent = titleText;
+    }
+
+// ============================================
+// CREATE / PREPARE PROJECT OVERLAY
+// ============================================
 
     function createSoftwareOverlay(card) {
         let overlay = card.querySelector(".software-overlay");
@@ -175,6 +219,10 @@ document.addEventListener("DOMContentLoaded", () => {
         return overlay;
     }
 
+// ============================================
+// GET PROJECT TITLE
+// ============================================
+
     function getProjectTitle(projectDocument) {
         const title = projectDocument.querySelector(".project-title h1");
 
@@ -183,8 +231,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const titleClone = title.cloneNode(true);
         titleClone.querySelector(".title-break")?.remove();
 
-        return titleClone.textContent.replace(/\s+/g, " ").trim() || "PROJECT";
+        return (
+            titleClone.textContent.replace(/\s+/g, " ").trim() ||
+            "PROJECT"
+        );
     }
+
+// ============================================
+// GET DELIVERABLES LIST
+// ============================================
 
     function getDeliverablesList(projectDocument) {
         const detailBoxes = projectDocument.querySelectorAll(
@@ -214,16 +269,26 @@ document.addEventListener("DOMContentLoaded", () => {
         return deliverablesHTML || null;
     }
 
+// ============================================
+// LOAD PROJECT INFORMATION
+// ============================================
+
     async function loadProjectInfo(projectURL) {
         if (projectInfoCache.has(projectURL)) {
             return projectInfoCache.get(projectURL);
         }
 
         const controller = new AbortController();
-        const timeout = window.setTimeout(() => controller.abort(), 7000);
+        const timeout = window.setTimeout(
+            () => controller.abort(),
+            7000
+        );
 
         try {
-            const resolvedURL = new URL(projectURL, document.baseURI).href;
+            const resolvedURL = new URL(
+                projectURL,
+                document.baseURI
+            ).href;
 
             const response = await fetch(resolvedURL, {
                 signal: controller.signal,
@@ -231,10 +296,13 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             if (!response.ok) {
-                throw new Error(`Project page returned ${response.status}`);
+                throw new Error(
+                    `Project page returned ${response.status}`
+                );
             }
 
             const html = await response.text();
+
             const projectDocument = new DOMParser().parseFromString(
                 html,
                 "text/html"
@@ -249,22 +317,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
             return projectInfo;
         } catch (error) {
-            console.error("Unable to load project information:", projectURL, error);
+            console.error(
+                "Unable to load project information:",
+                projectURL,
+                error
+            );
+
             throw error;
         } finally {
             window.clearTimeout(timeout);
         }
     }
 
+// ============================================
+// UPDATE PROJECT OVERLAY AND CARD TITLE
+// ============================================
+
     function updateProjectOverlay(card, projectInfo) {
         const overlay = createSoftwareOverlay(card);
         const projectName = overlay.querySelector(".project-name");
         const deliverablesList = overlay.querySelector(".software-list");
 
+        // Keep the title in the overlay only on cards that need it.
         if (projectName) {
             projectName.textContent = projectInfo.title;
         }
 
+        // Motion titles appear underneath their images.
+        updateMotionCardTitle(card, projectInfo.title);
+
+        // Keep deliverables inside the existing overlay.
         if (!deliverablesList) return;
 
         if (projectInfo.deliverables) {
@@ -279,15 +361,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+// ============================================
+// PROJECT INFORMATION ERROR
+// ============================================
+
     function showProjectInfoError(card) {
         const overlay = createSoftwareOverlay(card);
         const projectName = overlay.querySelector(".project-name");
         const deliverablesList = overlay.querySelector(".software-list");
 
+        const image = card.querySelector("img");
+        const fallbackTitle =
+            image?.alt?.trim() || "PROJECT";
+
         if (projectName) {
-            const image = card.querySelector("img");
-            projectName.textContent = image?.alt || "PROJECT";
+            projectName.textContent = fallbackTitle;
         }
+
+        // Still show a title beneath a Motion card if loading fails.
+        updateMotionCardTitle(card, fallbackTitle);
 
         if (deliverablesList) {
             deliverablesList.textContent =
@@ -297,6 +389,10 @@ document.addEventListener("DOMContentLoaded", () => {
             deliverablesList.classList.add("error");
         }
     }
+
+// ============================================
+// FIND PROJECT CARDS
+// ============================================
 
     document.querySelectorAll("[data-project]").forEach(card => {
         const projectURL = card.dataset.project;
@@ -312,10 +408,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ============================================
 // MOTION CARD HOVER VIDEO PREVIEWS
+// Preserved
 // ============================================
 
-    document.querySelectorAll(".motion-card, .motion-home-card").forEach(card => {
-        const video = card.querySelector(".motion-video, .home-motion-video");
+    document.querySelectorAll(
+        ".motion-card, .motion-home-card"
+    ).forEach(card => {
+        const video = card.querySelector(
+            ".motion-video, .home-motion-video"
+        );
+
         const fallback = card.querySelector(
             ".motion-still, .home-motion-fallback"
         );
@@ -337,7 +439,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (playPromise?.catch) {
                 playPromise.catch(error => {
-                    console.warn("Motion preview could not play:", error);
+                    console.warn(
+                        "Motion preview could not play:",
+                        error
+                    );
                 });
             }
         });
@@ -359,6 +464,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // ============================================
 // YOUTUBE MOTION PREVIEWS
+// Preserved
 // ============================================
 
     const youtubeCards = document.querySelectorAll(
@@ -374,10 +480,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         window.onYouTubeIframeAPIReady = function() {
             youtubeCards.forEach(card => {
-                let preview = card.querySelector(".youtube-motion-preview");
+                let preview = card.querySelector(
+                    ".youtube-motion-preview"
+                );
 
                 if (!preview) {
-                    const fallback = card.querySelector(".home-motion-fallback");
+                    const fallback = card.querySelector(
+                        ".home-motion-fallback"
+                    );
 
                     if (!fallback) return;
 
@@ -389,7 +499,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     fallback.parentElement.appendChild(preview);
                 }
 
-                const videoId = preview.dataset.videoId || card.dataset.videoId;
+                const videoId =
+                    preview.dataset.videoId || card.dataset.videoId;
+
                 const startTime = Number(
                     preview.dataset.start || card.dataset.start || 0
                 );
@@ -483,6 +595,9 @@ document.addEventListener("DOMContentLoaded", () => {
 // ============================================
 
     window.addEventListener("pageshow", () => {
-        document.body.classList.remove("entering-portfolio", "page-leaving");
+        document.body.classList.remove(
+            "entering-portfolio",
+            "page-leaving"
+        );
     });
 });

@@ -328,3 +328,156 @@ body.motion-page .page-contact-actions .copy-button:hover {
         letter-spacing: 0.2em;
     }
 }
+
+
+/* =========================================================
+   MOTION CATEGORY CARDS — MATCH DESIGN / BRANDING
+   Cyan hover overlay, black text, title below image
+   ========================================================= */
+
+body.motion-page .motion-grid {
+    grid-template-columns: repeat(3, minmax(0, 260px));
+    align-items: start;
+    gap: 30px;
+}
+
+body.motion-page .motion-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    transform: none;
+}
+
+body.motion-page .motion-card:hover {
+    border: 0;
+    box-shadow: none;
+    transform: none;
+}
+
+body.motion-page .motion-preview {
+    position: relative;
+    flex: 0 0 auto;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #050505;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.motion-page .motion-card:hover .motion-preview {
+    border-color: #00E5FF;
+    box-shadow: 0 0 25px rgba(0, 229, 255, 0.3);
+}
+
+/* Keep the existing video previews filling the square */
+body.motion-page .motion-still,
+body.motion-page .motion-video,
+body.motion-page .youtube-motion-preview {
+    width: 100%;
+    height: 100%;
+}
+
+/* Cyan deliverables overlay */
+body.motion-page .motion-card .software-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #00E5FF;
+    color: #000000;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+body.motion-page .motion-card:hover .software-overlay,
+body.motion-page .motion-card:focus-visible .software-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.motion-page .motion-card .software-overlay-content {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    color: #000000;
+    overflow-wrap: anywhere;
+}
+
+body.motion-page .motion-card .software-overlay-content h3,
+body.motion-page .motion-card .software-overlay-content .software-list {
+    color: #000000;
+    text-align: center;
+}
+
+body.motion-page .motion-card .software-overlay-content h3 {
+    margin: 0 0 12px;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+body.motion-page .motion-card .software-overlay-content .software-list {
+    margin: 0;
+    font-family: "Jost", sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Project title beneath each image */
+body.motion-page .motion-card .portfolio-card-title {
+    display: block;
+    width: 100%;
+    margin: 10px 0 0;
+    padding: 0;
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+}
+
+body.motion-page .motion-card:hover .portfolio-card-title,
+body.motion-page .motion-card:focus-visible .portfolio-card-title {
+    color: #00E5FF;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+@media (max-width: 900px) {
+    body.motion-page .motion-grid {
+        grid-template-columns: repeat(2, minmax(0, 260px));
+        gap: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    body.motion-page .motion-grid {
+        grid-template-columns: minmax(0, 320px);
+        gap: 28px;
+    }
+}
