@@ -2223,87 +2223,91 @@ body.tip-page .project-hero .lightbox-description {
     display: none;
 }
 
+
 /* =========================================================
-   THE TIP — SECTION 03: RESPONSIVE EDITORIAL COMPOSITION
+   THE TIP — SECTION 03: ART-DIRECTED DIAGONAL COMPOSITION
    ========================================================= */
 
 body.tip-page .tip-development-layout {
     display: block;
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 body.tip-page .tip-development-layout > .tip-section-heading {
     width: 100%;
-    margin: 0 0 clamp(24px, 3vw, 42px);
+    margin: 0 0 35px;
 }
 
 body.tip-page .tip-development-composition {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-rows: auto auto;
-    column-gap: clamp(20px, 3vw, 44px);
-    row-gap: clamp(24px, 3vw, 40px);
-    align-items: start;
     position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(230px, auto) minmax(260px, auto);
+    gap: 0;
+    width: 100%;
+    isolation: isolate;
 }
 
-/* Diagonal image between the two text areas */
+/* Large diagonal image */
 body.tip-page .tip-development-photo {
-    grid-column: 1;
-    grid-row: 1 / 3;
-    width: 100%;
-    min-width: 0;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 20%;
+    width: 60%;
+    height: 100%;
     margin: 0;
-    align-self: stretch;
-    position: relative;
+    overflow: hidden;
+    pointer-events: none;
 }
 
 body.tip-page .tip-development-photo img {
     display: block;
     width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
     clip-path: polygon(
         0 0,
         100% 0,
-        62% 100%,
+        48% 100%,
         0 100%
     );
 }
 
-body.tip-page .tip-development-photo > p {
-    margin-top: 12px;
-    font-size: 15px;
-    line-height: 1.6;
-    text-align: left;
-}
-
-/* First paragraph: upper-right */
+/* Upper-right paragraph: longest line first, shorter lines below */
 body.tip-page .tip-development-intro {
     grid-column: 2;
     grid-row: 1;
-    min-width: 0;
-    padding-top: clamp(0px, 2vw, 24px);
-    position: relative;
     z-index: 1;
+    align-self: start;
+    justify-self: end;
+    width: 100%;
+    padding: 10px 0 0 20%;
+    box-sizing: border-box;
 }
 
 body.tip-page .tip-development-intro p {
     margin: 0;
-    text-align: left;
+    text-align: right;
     line-height: 1.8;
 }
 
-/* Second paragraph: lower-left */
+body.tip-page .tip-development-intro p span {
+    display: block;
+    width: 100%;
+    margin-left: auto;
+}
+
+/* Lower-left paragraph: short lines first, longer lines below */
 body.tip-page .tip-development-followup {
     grid-column: 1;
     grid-row: 2;
-    min-width: 0;
-    position: relative;
     z-index: 1;
+    align-self: end;
+    justify-self: start;
+    width: 100%;
+    padding: 0 20% 10px 0;
+    box-sizing: border-box;
 }
 
 body.tip-page .tip-development-followup p {
@@ -2312,43 +2316,81 @@ body.tip-page .tip-development-followup p {
     line-height: 1.8;
 }
 
-/* Medium screens */
-@media (max-width: 760px) {
+body.tip-page .tip-development-followup p span {
+    display: block;
+    width: 100%;
+    margin-right: auto;
+}
+
+/* Give the diagonal more room on medium screens */
+@media (max-width: 900px) and (min-width: 601px) {
     body.tip-page .tip-development-composition {
-        column-gap: 20px;
-        row-gap: 24px;
+        grid-template-rows: minmax(270px, auto) minmax(300px, auto);
     }
 
-    body.tip-page .tip-development-intro,
+    body.tip-page .tip-development-photo {
+        left: 15%;
+        width: 70%;
+    }
+
+    body.tip-page .tip-development-intro {
+        padding-left: 12%;
+    }
+
     body.tip-page .tip-development-followup {
-        font-size: 16px;
+        padding-right: 12%;
+    }
+
+    body.tip-page .tip-development-intro p,
+    body.tip-page .tip-development-followup p {
+        font-size: 15px;
     }
 }
 
-/* Phones: restore a straightforward, readable flow */
-@media (max-width: 560px) {
+/* Mobile: remove fixed line shapes and diagonal */
+@media (max-width: 600px) {
     body.tip-page .tip-development-composition {
         display: flex;
         flex-direction: column;
         gap: 22px;
     }
 
-    body.tip-page .tip-development-photo,
-    body.tip-page .tip-development-intro,
-    body.tip-page .tip-development-followup {
+    body.tip-page .tip-development-photo {
+        position: relative;
+        inset: auto;
         width: 100%;
-        max-width: 100%;
+        height: auto;
+        overflow: visible;
+        pointer-events: auto;
     }
 
     body.tip-page .tip-development-photo img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
         clip-path: none;
     }
 
-    body.tip-page .tip-development-photo > p {
+    body.tip-page .tip-development-intro,
+    body.tip-page .tip-development-followup {
+        width: 100%;
+        padding: 0;
+    }
+
+    body.tip-page .tip-development-intro p,
+    body.tip-page .tip-development-followup p {
         text-align: left;
     }
 
-    body.tip-page .tip-development-intro {
-        padding-top: 0;
+    body.tip-page .tip-development-intro p span,
+    body.tip-page .tip-development-followup p span {
+        display: inline;
+        width: auto;
+        margin: 0;
+    }
+
+    body.tip-page .tip-development-intro p span::after,
+    body.tip-page .tip-development-followup p span::after {
+        content: " ";
     }
 }
