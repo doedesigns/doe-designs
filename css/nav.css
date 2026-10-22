@@ -234,13 +234,13 @@ header {
     width: 100%;
 }
 
-/* PROJECT CATEGORY — ANCHORED TO THE RIGHT EDGE OF THE NAVBAR */
+/* PROJECT CATEGORY — RIGHT EDGE OF NAVBAR */
 
 .navbar > .project-title-nav > .project-category-link {
-    position: fixed;
-    top: 35px;
-    right: 40px;
-    left: auto;
+    position: absolute;
+    top: 50%;
+    left: calc(100vw / 2 - 50%);
+    right: auto;
     z-index: 10002;
 
     display: inline-block;
