@@ -839,6 +839,7 @@ MOBILE
 =========================================================*/
 
 /* ===== SHARED PROJECT NAVIGATION AND CONTACT BUTTON ===== */
+/*
 .project-title-nav {
     left:auto;
     right:clamp(18px,4vw,60px);
@@ -867,6 +868,8 @@ MOBILE
 }
 .project-title-nav .project-category-link:hover,
 .project-title-nav .project-category-link:focus-visible { color:#FFFFFF; }
+
+*/
 
 body.project-page .page-contact-link .enter-button {
     border-color:#00E5FF !important;
