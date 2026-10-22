@@ -998,3 +998,166 @@ body.barking-page .enter-button:focus-visible {
     }
 }
 
+/* =========================================================
+   BARKING DOG — PROTOTYPE LAYOUT + WHIMSY
+========================================================= */
+
+/* Put the introduction beside the phone, not at its bottom */
+body.barking-page .barking-prototype {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-rows: auto auto;
+    column-gap: clamp(35px, 6vw, 85px);
+    row-gap: 35px;
+    align-items: center;
+}
+
+/* Phone image on the right */
+body.barking-page .barking-prototype > img {
+    grid-column: 2;
+    grid-row: 1;
+    width: auto;
+    height: min(68vh, 720px);
+    max-width: 100%;
+    justify-self: center;
+    object-fit: contain;
+}
+
+/* Introduction on the left, vertically centered */
+body.barking-page .barking-prototype .barking-prototype-intro {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    text-align: left;
+    padding: 25px 0;
+}
+
+/* Make the introduction feel like its own little feature */
+body.barking-page .barking-prototype-intro h2 {
+    max-width: 400px;
+    margin: 0 0 22px;
+    color: #F2E18D;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(34px, 4vw, 52px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: .08em;
+}
+
+/* A playful, warm underline */
+body.barking-page .barking-prototype-intro h2::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 4px;
+    margin-top: 18px;
+    background: #D97823;
+    border-radius: 50%;
+    transform: rotate(-2deg);
+}
+
+body.barking-page .barking-prototype-intro p {
+    max-width: 320px;
+    margin: 0;
+    color: rgba(255,255,255,.85);
+    font-family: "Jost", sans-serif;
+    font-size: 19px;
+    line-height: 1.8;
+}
+
+/* Put the prototype button below both columns */
+body.barking-page .barking-prototype > a.enter-button {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: center;
+    margin: 0 auto 25px;
+    text-decoration: none !important;
+    border-bottom: 2px solid #63B6BF;
+}
+
+/* Remove any inherited cyan underline or animated underline */
+body.barking-page .barking-prototype > a.enter-button::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Make the button match the bookstore palette */
+body.barking-page .barking-prototype > a.enter-button,
+body.barking-page .barking-prototype > a.enter-button:visited {
+    color: #63B6BF !important;
+    border-color: #63B6BF !important;
+    background: transparent !important;
+}
+
+body.barking-page .barking-prototype > a.enter-button:hover,
+body.barking-page .barking-prototype > a.enter-button:focus-visible {
+    color: #061C2B !important;
+    border-color: #F2E18D !important;
+    background: #F2E18D !important;
+}
+
+/* Small hand-drawn-style accent beside the introduction */
+body.barking-page .barking-prototype-intro {
+    position: relative;
+}
+
+body.barking-page .barking-prototype-intro::before {
+    content: "↝";
+    display: block;
+    margin-bottom: 10px;
+    color: #D97823;
+    font-family: "Jost", sans-serif;
+    font-size: 48px;
+    line-height: 1;
+    transform: rotate(-12deg);
+    transform-origin: left center;
+}
+
+/* Tablet and mobile: stack the introduction, phone, and button */
+@media (max-width: 760px) {
+    body.barking-page .barking-prototype {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 25px;
+    }
+
+    body.barking-page .barking-prototype .barking-prototype-intro {
+        grid-column: 1;
+        grid-row: 1;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    body.barking-page .barking-prototype-intro h2 {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    body.barking-page .barking-prototype-intro h2::after {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    body.barking-page .barking-prototype-intro p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    body.barking-page .barking-prototype-intro::before {
+        text-align: center;
+        transform: rotate(12deg);
+        transform-origin: center;
+    }
+
+    body.barking-page .barking-prototype > img {
+        grid-column: 1;
+        grid-row: 2;
+        height: min(70vh, 620px);
+        max-width: 90%;
+    }
+
+    body.barking-page .barking-prototype > a.enter-button {
+        grid-column: 1;
+        grid-row: 3;
+        margin-top: 5px;
+    }
+}
