@@ -234,16 +234,14 @@ header {
     width: 100%;
 }
 
-/* PROJECT CATEGORY
-   Applies when .project-category-link exists in the HTML.
-   It is anchored to the right edge of the navbar.
-*/
+/* PROJECT CATEGORY — ANCHORED TO THE RIGHT EDGE OF THE NAVBAR */
 
 .navbar > .project-title-nav > .project-category-link {
-    position: absolute;
-    top: 50%;
-    right: -180px;
+    position: fixed;
+    top: 35px;
+    right: 40px;
     left: auto;
+    z-index: 10002;
 
     display: inline-block;
     width: auto;
@@ -434,19 +432,6 @@ header {
 
 header .navbar {
     position: relative;
-}
-
-header .navbar > .project-title-nav > .project-category-link {
-    position: fixed;
-    top: 35px;
-    right: 40px;
-    left: auto;
-    width: auto;
-    max-width: 160px;
-    margin: 0;
-    transform: translateY(-50%);
-    text-align: right;
-    white-space: nowrap;
 }
 }
 
