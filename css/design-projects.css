@@ -1727,3 +1727,212 @@ body.tip-page section.tip-feature-image.tip-spread-image.tip-final-spread p {
     margin: 16px auto 0;
     text-align: center;
 }
+
+
+/* =========================================================
+   DEATH BY MUSIC — SHARED LIGHTBOX REPAIR
+   ========================================================= */
+
+/* Keep the lightbox hidden until an image is clicked. */
+body.death-page .lightbox {
+    position: fixed !important;
+    inset: 0;
+    z-index: 20000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 24px;
+    background: rgba(4, 3, 5, 0.94);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+body.death-page .lightbox.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+body.death-page .lightbox-box {
+    position: relative;
+    width: min(1200px, 96vw);
+    max-height: 90vh;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 32px;
+    background: #100609;
+    border: 1px solid rgba(200, 16, 46, 0.65);
+    border-radius: 12px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65);
+}
+
+body.death-page .lightbox-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.8fr);
+    align-items: center;
+    gap: 32px;
+}
+
+body.death-page .lightbox-image-panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+}
+
+body.death-page .lightbox-image-large {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 72vh;
+    height: auto;
+    object-fit: contain;
+    border: 0;
+    box-shadow: none;
+    cursor: default;
+}
+
+body.death-page .lightbox-content {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+body.death-page .lightbox-title {
+    margin: 0 0 16px;
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 25px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+body.death-page .lightbox-description {
+    display: block;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.82);
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    text-align: left;
+}
+
+/* Close button */
+body.death-page .lightbox-close {
+    position: sticky;
+    top: 0;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin: -18px -18px 8px 12px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    background: #100609;
+    cursor: pointer;
+    z-index: 2;
+}
+
+body.death-page .lightbox-close span {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+body.death-page .lightbox-close span::before,
+body.death-page .lightbox-close span::after {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 1px;
+    width: 18px;
+    height: 2px;
+    background: #FFFFFF;
+}
+
+body.death-page .lightbox-close span::before {
+    transform: rotate(45deg);
+}
+
+body.death-page .lightbox-close span::after {
+    transform: rotate(-45deg);
+}
+
+body.death-page .lightbox-close:hover {
+    border-color: #C8102E;
+}
+
+body.death-page .lightbox-close:hover span::before,
+body.death-page .lightbox-close:hover span::after {
+    background: #C8102E;
+}
+
+body.death-page .lightbox-supporting-images[hidden] {
+    display: none !important;
+}
+
+/* Keep the original page images clickable. */
+body.death-page .lightbox-image img {
+    cursor: zoom-in;
+}
+
+
+/* =========================================================
+   DEATH BY MUSIC — REDUCE EXCESS SECTION SPACING
+   ========================================================= */
+
+/* Reduce the gap after the section copy. */
+body.death-page .death-section-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Bring the sketches closer to their heading and text. */
+body.death-page .death-development-section {
+    row-gap: 8px;
+    margin-bottom: 40px;
+}
+
+body.death-page .death-development-section > .death-sketch-image > p {
+    margin-top: 8px;
+}
+
+
+/* RESPONSIVE LIGHTBOX */
+@media (max-width: 760px) {
+    body.death-page .lightbox {
+        padding: 12px;
+    }
+
+    body.death-page .lightbox-box {
+        width: 100%;
+        max-height: 94vh;
+        padding: 22px 16px;
+    }
+
+    body.death-page .lightbox-main {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    body.death-page .lightbox-image-large {
+        max-height: 48vh;
+    }
+
+    body.death-page .lightbox-title {
+        font-size: 22px;
+    }
+
+    body.death-page .lightbox-description {
+        font-size: 15px;
+    }
+}
+
