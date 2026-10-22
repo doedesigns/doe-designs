@@ -1,6 +1,4 @@
 @charset "UTF-8";
-/* Doe Designs — consolidated stylesheet. Keep main.css loaded before this file. */
-
 /* Print/design project-specific rules: Death by Music, Fox in the City, The Tip. */
 
 body.tip-page {
@@ -1635,7 +1633,6 @@ body.fox-page .fox-story > :last-child {
     margin-bottom: 0;
 }
 
-
 /* =========================================================
    THE TIP — CENTER AND ENLARGE THE FINAL IMAGE
    ========================================================= */
@@ -1660,7 +1657,6 @@ body.tip-page .tip-final-spread img {
     object-fit: contain;
 }
 
-
 /* =========================================================
    PROJECT TITLE COLORS
    Keep shared navigation cyan; let each project theme
@@ -1677,7 +1673,6 @@ body.tip-page .tip-final-spread img {
     color: #00E5FF;
 }
 
-
 /* =========================================================
    FOX IN THE CITY — SECTION 1: THE STORY
    Reduce excess space beneath the city illustration
@@ -1692,7 +1687,6 @@ body.fox-page .fox-case-section .fox-art-placeholder {
     margin-bottom: 0;
 	padding-bottom: 0;
 }
-
 
 /* =========================================================
    THE TIP — FINAL FEATURE SPREAD
@@ -2216,5 +2210,145 @@ body.tip-page .tip-development-followup p {
 
     body.tip-page .tip-development-photo img {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+
+body.tip-page .project-hero {
+    width: clamp(280px, 65%, 900px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.tip-page .project-hero .lightbox-description {
+    display: none;
+}
+
+/* =========================================================
+   THE TIP — SECTION 03: RESPONSIVE EDITORIAL COMPOSITION
+   ========================================================= */
+
+body.tip-page .tip-development-layout {
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.tip-page .tip-development-layout > .tip-section-heading {
+    width: 100%;
+    margin: 0 0 clamp(24px, 3vw, 42px);
+}
+
+body.tip-page .tip-development-composition {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: clamp(20px, 3vw, 44px);
+    row-gap: clamp(24px, 3vw, 40px);
+    align-items: start;
+    position: relative;
+}
+
+/* Diagonal image between the two text areas */
+body.tip-page .tip-development-photo {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    align-self: stretch;
+    position: relative;
+}
+
+body.tip-page .tip-development-photo img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        62% 100%,
+        0 100%
+    );
+}
+
+body.tip-page .tip-development-photo > p {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* First paragraph: upper-right */
+body.tip-page .tip-development-intro {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    padding-top: clamp(0px, 2vw, 24px);
+    position: relative;
+    z-index: 1;
+}
+
+body.tip-page .tip-development-intro p {
+    margin: 0;
+    text-align: left;
+    line-height: 1.8;
+}
+
+/* Second paragraph: lower-left */
+body.tip-page .tip-development-followup {
+    grid-column: 1;
+    grid-row: 2;
+    min-width: 0;
+    position: relative;
+    z-index: 1;
+}
+
+body.tip-page .tip-development-followup p {
+    margin: 0;
+    text-align: left;
+    line-height: 1.8;
+}
+
+/* Medium screens */
+@media (max-width: 760px) {
+    body.tip-page .tip-development-composition {
+        column-gap: 20px;
+        row-gap: 24px;
+    }
+
+    body.tip-page .tip-development-intro,
+    body.tip-page .tip-development-followup {
+        font-size: 16px;
+    }
+}
+
+/* Phones: restore a straightforward, readable flow */
+@media (max-width: 560px) {
+    body.tip-page .tip-development-composition {
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    body.tip-page .tip-development-photo,
+    body.tip-page .tip-development-intro,
+    body.tip-page .tip-development-followup {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    body.tip-page .tip-development-photo img {
+        clip-path: none;
+    }
+
+    body.tip-page .tip-development-photo > p {
+        text-align: left;
+    }
+
+    body.tip-page .tip-development-intro {
+        padding-top: 0;
     }
 }
