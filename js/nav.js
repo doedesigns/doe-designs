@@ -1,4 +1,3 @@
-
 /* =========================================================
    DOE DESIGNS — SHARED PROJECT NAVIGATION
 ========================================================= */
@@ -12,8 +11,8 @@
         }
 
         const navbar = document.querySelector("header .navbar");
-        const projectTitleNav = document.querySelector(
-            "header .navbar > .project-title-nav"
+        const projectTitleNav = navbar?.querySelector(
+            ":scope > .project-title-nav"
         );
 
         if (!navbar || !projectTitleNav) {
@@ -28,9 +27,12 @@
 
         navbar.dataset.projectNavInitialized = "true";
 
-        // Show the compact navigation after scrolling.
+        // Show compact navigation after scrolling.
         function updateProjectNavState() {
-            navbar.classList.toggle("project-scrolled", window.scrollY > 80);
+            navbar.classList.toggle(
+                "project-scrolled",
+                window.scrollY > 80
+            );
         }
 
         updateProjectNavState();
@@ -41,12 +43,11 @@
 
         window.addEventListener("pageshow", updateProjectNavState);
 
-        // Find the active category from the main navigation.
-        let activeCategoryLink = document.querySelector(
+        // Identify the active project category.
+        let activeCategoryLink = navbar.querySelector(
             ".nav-links a.active, .nav-links a[aria-current='page']"
         );
 
-        // Infer the category from the page's body classes if needed.
         if (!activeCategoryLink) {
             const classes = body.className.toLowerCase();
             let categoryName = "";
@@ -62,35 +63,47 @@
             }
 
             if (categoryName) {
-                const normalized = categoryName.toLowerCase().replace(/\s+/g, "");
+                const normalized = categoryName
+                    .toLowerCase()
+                    .replace(/\s+/g, "");
 
                 activeCategoryLink = Array.from(
-                    document.querySelectorAll(".nav-links a")
+                    navbar.querySelectorAll(".nav-links a")
                 ).find(link =>
-                    link.textContent.trim().toLowerCase().replace(/\s+/g, "") === normalized
+                    link.textContent.trim().toLowerCase()
+                        .replace(/\s+/g, "") === normalized
                 );
             }
         }
 
-        // Create or update the category label.
+        // Create the category label directly inside the navbar,
+        // independently of the centered project title and arrows.
         if (activeCategoryLink) {
-            let categoryLink = projectTitleNav.querySelector(
-                ".project-category-link"
+            let categoryLink = navbar.querySelector(
+                ":scope > .project-category-link"
             );
 
             if (!categoryLink) {
                 categoryLink = document.createElement("a");
                 categoryLink.className = "project-category-link";
-                projectTitleNav.appendChild(categoryLink);
+                navbar.appendChild(categoryLink);
             }
 
             categoryLink.href = activeCategoryLink.href;
-            categoryLink.textContent = activeCategoryLink.textContent.trim();
+            categoryLink.textContent =
+                activeCategoryLink.textContent.trim();
+
             categoryLink.setAttribute(
                 "aria-label",
                 "View " + activeCategoryLink.textContent.trim() + " projects"
             );
         }
+
+        // Remove any category label left inside the centered title group
+        // by an earlier version of this script.
+        projectTitleNav.querySelectorAll(
+            ".project-category-link"
+        ).forEach(link => link.remove());
 
         // Clicking the compact project title returns to the top.
         const projectTitle = projectTitleNav.querySelector("h1");
@@ -100,7 +113,10 @@
             projectTitle.style.cursor = "pointer";
             projectTitle.setAttribute("role", "button");
             projectTitle.setAttribute("tabindex", "0");
-            projectTitle.setAttribute("aria-label", "Return to top of project");
+            projectTitle.setAttribute(
+                "aria-label",
+                "Return to top of project"
+            );
 
             function returnToTop() {
                 window.scrollTo({
@@ -122,7 +138,7 @@
         }
     }
 
-    // Works whether this file loads before or after DOMContentLoaded.
+    // Support scripts loaded before or after DOMContentLoaded.
     if (document.readyState === "loading") {
         document.addEventListener(
             "DOMContentLoaded",

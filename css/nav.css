@@ -234,13 +234,14 @@ header {
     width: 100%;
 }
 
-/* PROJECT CATEGORY — RIGHT EDGE OF NAVBAR */
 
-.navbar > .project-title-nav > .project-category-link {
+/* PROJECT CATEGORY — INDEPENDENT OF CENTERED PROJECT TITLE */
+
+.navbar > .project-category-link {
     position: absolute;
     top: 50%;
-    left: calc(100vw / 2 - 50%);
-    right: auto;
+    right: 40px;
+    left: auto;
     z-index: 10002;
 
     display: inline-block;
@@ -264,7 +265,7 @@ header {
     transition: color .3s ease;
 }
 
-.project-title-nav .project-category-link::after {
+.navbar > .project-category-link::after {
     content: "";
     position: absolute;
     left: 0;
@@ -277,13 +278,13 @@ header {
     transition: transform .3s ease;
 }
 
-.project-title-nav .project-category-link:hover,
-.project-title-nav .project-category-link:focus-visible {
+.navbar > .project-category-link:hover,
+.navbar > .project-category-link:focus-visible {
     color: #FFFFFF;
 }
 
-.project-title-nav .project-category-link:hover::after,
-.project-title-nav .project-category-link:focus-visible::after {
+.navbar > .project-category-link:hover::after,
+.navbar > .project-category-link:focus-visible::after {
     transform: scaleX(1);
 }
 
@@ -440,8 +441,8 @@ header .navbar {
 @media (prefers-reduced-motion: reduce) {
     .project-title-nav,
     .project-title-nav h1::after,
-    .project-title-nav .project-category-link,
-    .project-title-nav .project-category-link::after,
+	.navbar > .project-category-link,
+	.navbar > .project-category-link::after,
     .nav-links,
     .menu-toggle span {
         transition: none !important;
