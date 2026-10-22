@@ -311,7 +311,7 @@ body.home-page {
     box-sizing: border-box;
     color: #050505;
     font-family: "Jost", sans-serif;
-    font-size: clamp(8px, 1.15vw, 15px);
+    font-size: clamp(11px, 1.35vw, 16px);
     font-weight: 500;
     line-height: 1.25;
     overflow: visible;

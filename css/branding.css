@@ -376,3 +376,106 @@ body.branding-page .branding-card .card-project-title {
         width: 260px;
     }
 }
+
+
+/* =========================================================
+   CATEGORY PAGE ALIGNMENT AND CONTACT ACTIONS
+   BRANDING PAGE
+   ========================================================= */
+
+body.branding-page .portfolio-header {
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.branding-page .portfolio-header h1,
+body.branding-page .portfolio-header p {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.branding-page .portfolio-card-title {
+    color: #FFFFFF;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+body.branding-page .branding-grid a:hover .portfolio-card-title,
+body.branding-page .branding-grid a:focus-visible .portfolio-card-title {
+    color: #00E5FF;
+    text-decoration: underline;
+    text-decoration-color: #00E5FF;
+    text-underline-offset: 6px;
+}
+
+/* Contact sentence */
+body.branding-page .page-contact-link {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 30px auto 12px;
+    text-align: center;
+}
+
+body.branding-page .page-contact-link p {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+/* Contact and resume links on one row */
+body.branding-page .page-contact-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+}
+
+body.branding-page .page-contact-actions .enter-button,
+body.branding-page .page-contact-actions .copy-button {
+    display: inline-block;
+    margin: 0;
+}
+
+body.branding-page .page-contact-actions .copy-button {
+    color: #00E5FF;
+    text-decoration: none;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
+}
+
+body.branding-page .page-contact-actions .copy-button:hover {
+    color: #FFFFFF;
+    letter-spacing: 0.42em;
+}
+
+body.branding-page .branding-grid {
+    margin-bottom: 0;
+}
+
+body.branding-page .copy-wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 600px) {
+    body.branding-page .page-contact-actions {
+        gap: 16px;
+    }
+
+    body.branding-page .page-contact-actions .enter-button,
+    body.branding-page .page-contact-actions .copy-button {
+        font-size: 13px;
+        letter-spacing: 0.2em;
+    }
+}
