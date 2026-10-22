@@ -238,7 +238,9 @@ header {
 /* PROJECT CATEGORY — INDEPENDENT OF CENTERED PROJECT TITLE */
 
 .navbar > .project-category-link {
-    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+	position: absolute;
     top: 50%;
     right: 40px;
     left: auto;
@@ -262,7 +264,15 @@ header {
     white-space: nowrap;
 
     transform: translateY(-50%);
-    transition: color .3s ease;
+    transition: color .3s ease, opacity .3s ease, visibility 0s linear .3s;
+}
+
+/* Show category only when compact project navigation is active */
+
+.navbar.project-scrolled > .project-category-link {
+    opacity: 1;
+    visibility: visible;
+	transition: color .3s ease, opacity .3s ease, visibility 0s;
 }
 
 .navbar > .project-category-link::after {
