@@ -751,7 +751,6 @@ body.tip-page .tip-feature-image img {
     }
 }
 
-
 /* ===== CONSOLIDATED RESPONSIVE REFINEMENTS ===== */
 @media (max-width: 900px) {
   .project-container { width:90vw; padding-top:100px; }
