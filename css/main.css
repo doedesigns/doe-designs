@@ -227,7 +227,6 @@ body:not(.scroll-page) footer {
 
 @media (max-width:900px){
 
-
     .nav-links{
         gap:24px;
     }

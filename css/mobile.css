@@ -1122,7 +1122,7 @@ body.tip-page .tip-feature-image img {
     }
 
     .navbar.project-scrolled > .project-title-nav {
-        left: 50%;
+        left: 5%;
         right: auto;
         transform: translate(-50%, 0);
         opacity: 1;
