@@ -577,3 +577,158 @@ header {
         animation: arrowSpinLeft 5s linear infinite !important;
     }
 }
+
+
+/* =========================================================
+   INAL DESKTOP PROJECT NAVIGATION OVERRIDE
+   Fixes zoom overflow and right-aligns the category label.
+   ========================================================= */
+
+@media (min-width: 1101px) {
+
+    header,
+    header .navbar {
+        overflow: visible !important;
+    }
+
+    header .navbar {
+        position: relative !important;
+        width: 100%;
+        box-sizing: border-box;
+        isolation: isolate;
+    }
+
+    /* Full-width positioning area for the project navigation */
+    header .navbar > .project-title-nav {
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: auto !important;
+        left: 0 !important;
+
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        width: 100% !important;
+        max-width: none !important;
+        height: 70px !important;
+        margin: 0 !important;
+
+        /*
+         * Reserve space at both ends so the centered group
+         * doesn't collide with the logo or category label.
+         */
+        padding: 0 clamp(150px, 17vw, 250px) !important;
+        box-sizing: border-box !important;
+        gap: clamp(8px, 1.2vw, 18px) !important;
+
+        transform: translateY(-100%) !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        z-index: 10001 !important;
+
+        transition:
+            opacity .3s ease,
+            transform .45s cubic-bezier(.22, 1, .36, 1),
+            visibility 0s linear .45s;
+    }
+
+    /* Show the compact navigation when the page is scrolled */
+    header .navbar.project-scrolled > .project-title-nav {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+
+        transition:
+            opacity .3s ease .05s,
+            transform .45s cubic-bezier(.22, 1, .36, 1),
+            visibility 0s;
+    }
+
+    /* Hide regular links while the compact navigation is visible */
+    header .navbar.project-scrolled > .nav-links {
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        transform: translateY(-100%) !important;
+    }
+
+    /* Keep the title and arrows together in the center */
+    header .navbar > .project-title-nav > h1 {
+        position: relative !important;
+        flex: 0 1 auto !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+
+        font-size: clamp(14px, 1.3vw, 20px) !important;
+        line-height: 1.2 !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Stable arrow dimensions */
+    header .navbar > .project-title-nav > .project-arrow {
+        position: relative !important;
+        display: flex !important;
+        flex: 0 0 42px !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        width: 42px !important;
+        min-width: 42px !important;
+        height: 48px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    header .navbar > .project-title-nav
+    > .project-arrow .arrow-circle {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex: 0 0 42px !important;
+        width: 42px !important;
+        height: 42px !important;
+    }
+
+    /* Category label always anchors to the navbar's right side */
+    header .navbar > .project-title-nav > .project-category-link {
+        position: absolute !important;
+        top: 50% !important;
+        right: 40px !important;
+        left: auto !important;
+        bottom: auto !important;
+
+        display: inline-block !important;
+        width: auto !important;
+        max-width: 140px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        transform: translateY(-50%) !important;
+
+        font-size: clamp(13px, 1.2vw, 20px) !important;
+        line-height: 1.15 !important;
+        text-align: right !important;
+        white-space: nowrap !important;
+
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        z-index: 10004 !important;
+    }
+}

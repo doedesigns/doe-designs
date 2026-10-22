@@ -2225,172 +2225,130 @@ body.tip-page .project-hero .lightbox-description {
 
 
 /* =========================================================
-   THE TIP — SECTION 03: ART-DIRECTED DIAGONAL COMPOSITION
+   THE TIP — SECTION 03 LAYOUT
    ========================================================= */
 
 body.tip-page .tip-development-layout {
-    display: block;
-    width: 100%;
-}
-
-body.tip-page .tip-development-layout > .tip-section-heading {
-    width: 100%;
-    margin: 0 0 35px;
-}
-
-body.tip-page .tip-development-composition {
-    position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: minmax(230px, auto) minmax(260px, auto);
-    gap: 0;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    column-gap: clamp(28px, 4vw, 56px);
+    row-gap: 28px;
+    align-items: start;
     width: 100%;
-    isolation: isolate;
 }
 
-/* Large diagonal image */
-body.tip-page .tip-development-photo {
-    position: absolute;
-    z-index: 0;
-    top: 0;
-    left: 20%;
-    width: 60%;
-    height: 100%;
+/* Heading above both columns */
+body.tip-page .tip-development-layout > .tip-section-heading {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
     margin: 0;
-    overflow: hidden;
-    pointer-events: none;
+}
+
+/* Image directly below the heading, left column */
+body.tip-page .tip-development-layout > .tip-development-photo {
+    grid-column: 1;
+    grid-row: 2;
+    position: static;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    pointer-events: auto;
 }
 
 body.tip-page .tip-development-photo img {
     display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    clip-path: polygon(
-        0 0,
-        100% 0,
-        48% 100%,
-        0 100%
-    );
-}
-
-/* Upper-right paragraph: longest line first, shorter lines below */
-body.tip-page .tip-development-intro {
-    grid-column: 2;
-    grid-row: 1;
-    z-index: 1;
-    align-self: start;
-    justify-self: end;
-    width: 100%;
-    padding: 10px 0 0 20%;
-    box-sizing: border-box;
-}
-
-body.tip-page .tip-development-intro p {
+    max-width: 100%;
+    height: auto;
+    max-height: none;
     margin: 0;
-    text-align: right;
-    line-height: 1.8;
+    object-fit: contain;
+    object-position: center top;
+    clip-path: none;
 }
 
-body.tip-page .tip-development-intro p span {
-    display: block;
-    width: 100%;
-    margin-left: auto;
-}
-
-/* Lower-left paragraph: short lines first, longer lines below */
-body.tip-page .tip-development-followup {
-    grid-column: 1;
+/* Reconnect both paragraphs in one right-hand column */
+body.tip-page .tip-development-copy {
+    grid-column: 2;
     grid-row: 2;
-    z-index: 1;
-    align-self: end;
-    justify-self: start;
+    min-width: 0;
+    align-self: start;
+}
+
+body.tip-page .tip-development-copy .tip-development-intro,
+body.tip-page .tip-development-copy .tip-development-followup {
+    position: static;
     width: 100%;
-    padding: 0 20% 10px 0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-body.tip-page .tip-development-followup p {
+body.tip-page .tip-development-copy .tip-development-intro {
+    margin-bottom: 24px;
+}
+
+body.tip-page .tip-development-copy p {
     margin: 0;
     text-align: left;
     line-height: 1.8;
 }
 
-body.tip-page .tip-development-followup p span {
-    display: block;
-    width: 100%;
-    margin-right: auto;
+body.tip-page .tip-development-photo > p {
+    margin-top: 12px;
+    text-align: left;
 }
 
-/* Give the diagonal more room on medium screens */
-@media (max-width: 900px) and (min-width: 601px) {
-    body.tip-page .tip-development-composition {
-        grid-template-rows: minmax(270px, auto) minmax(300px, auto);
+/* Tablet and mobile: stack image and copy */
+@media (max-width: 760px) {
+    body.tip-page .tip-development-layout {
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 24px;
     }
 
-    body.tip-page .tip-development-photo {
-        left: 15%;
-        width: 70%;
+    body.tip-page .tip-development-layout > .tip-section-heading {
+        grid-column: 1;
+        grid-row: 1;
     }
 
-    body.tip-page .tip-development-intro {
-        padding-left: 12%;
+    body.tip-page .tip-development-layout > .tip-development-photo {
+        grid-column: 1;
+        grid-row: 2;
+        width: 100%;
+        max-width: 100%;
     }
 
-    body.tip-page .tip-development-followup {
-        padding-right: 12%;
-    }
-
-    body.tip-page .tip-development-intro p,
-    body.tip-page .tip-development-followup p {
-        font-size: 15px;
+    body.tip-page .tip-development-copy {
+        grid-column: 1;
+        grid-row: 3;
     }
 }
 
-/* Mobile: remove fixed line shapes and diagonal */
-@media (max-width: 600px) {
-    body.tip-page .tip-development-composition {
-        display: flex;
-        flex-direction: column;
-        gap: 22px;
-    }
 
-    body.tip-page .tip-development-photo {
-        position: relative;
-        inset: auto;
-        width: 100%;
-        height: auto;
-        overflow: visible;
-        pointer-events: auto;
-    }
+/* =========================================================
+   THE TIP — TITLE COLORS
+   Main title stays blue; subtitle returns to green
+   ========================================================= */
 
-    body.tip-page .tip-development-photo img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-        clip-path: none;
-    }
+body.tip-page .project-container > .project-navigation
+.project-title h1 {
+    color: #3987F5 !important;
+}
 
-    body.tip-page .tip-development-intro,
-    body.tip-page .tip-development-followup {
-        width: 100%;
-        padding: 0;
-    }
+body.tip-page .project-container > .project-navigation
+.project-title h1 .title-break {
+    color: #70CD8B !important;
+}
 
-    body.tip-page .tip-development-intro p,
-    body.tip-page .tip-development-followup p {
-        text-align: left;
-    }
 
-    body.tip-page .tip-development-intro p span,
-    body.tip-page .tip-development-followup p span {
-        display: inline;
-        width: auto;
-        margin: 0;
-    }
+/* =========================================================
+   THE TIP — SUBTLE BLUE VERTICAL DIVIDERS
+   Adds blue accents without overpowering the green palette
+   ========================================================= */
 
-    body.tip-page .tip-development-intro p span::after,
-    body.tip-page .tip-development-followup p span::after {
-        content: " ";
-    }
+body.tip-page .project-details .detail-box + .detail-box {
+    border-left: 1px solid rgba(57, 135, 245, 0.55);
 }
