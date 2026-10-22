@@ -398,6 +398,7 @@ body:not(.scroll-page) footer {
     text-transform: none;
 }
 
+/* duplicate in nav.css?
 .project-title-nav {
     position: absolute;
     top: 50%;
@@ -413,7 +414,7 @@ body:not(.scroll-page) footer {
     pointer-events: none;
     transform: translate(-50%, -50px);
     transition: opacity .35s ease, visibility .35s ease, transform .45s ease;
-}
+} */
 
 .project-title-nav h1 {
     position: relative;
