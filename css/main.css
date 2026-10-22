@@ -227,9 +227,6 @@ body:not(.scroll-page) footer {
 
 @media (max-width:900px){
 
-    .navbar{
-        padding:0 20px;
-    }
 
     .nav-links{
         gap:24px;
@@ -261,9 +258,6 @@ body:not(.scroll-page) footer {
 
 /* =========================================================
    SHARED PROJECT-PAGE STRUCTURE
-   Kept in main.css so Design pages receive the same reliable
-   title, arrow, summary and scrolled-navigation foundation.
-   More specific project styles remain in their own CSS files.
    ========================================================= */
 
 .project-container {
@@ -315,24 +309,6 @@ body:not(.scroll-page) footer {
     line-height: 1.35;
     text-transform: none;
 }
-
-/* duplicate in nav.css?
-.project-title-nav {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 10001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 28px;
-    max-width: calc(100% - 260px);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translate(-50%, -50px);
-    transition: opacity .35s ease, visibility .35s ease, transform .45s ease;
-} */
 
 .project-title-nav h1 {
     position: relative;
