@@ -799,7 +799,7 @@ body.fox-page .fox-final-heading + .fox-feature-image img { width:100%; max-widt
 /* The Tip: magazine-inspired sections and sketch/image layouts. */
 body.tip-page .tip-case-section { display:grid; grid-template-columns:minmax(0,.65fr) minmax(0,1.35fr); align-items:start; gap:clamp(24px,5vw,70px); width:min(100%,1050px); margin:0 auto 55px; padding:30px 0 38px; border-top:1px solid rgba(112,205,139,.55); }
 body.tip-page .tip-section-heading { display:block; }
-body.tip-page .tip-section-number { display:block; margin-bottom:10px; color:#70CD8B; font-family:"Barlow Condensed",sans-serif; font-size:22px; font-weight:700; letter-spacing:.08em; }
+body.tip-page .tip-section-number { display:block; margin-bottom:10px; color:#3987F5; font-family:"Barlow Condensed",sans-serif; font-size:22px; font-weight:700; letter-spacing:.08em; }
 body.tip-page .tip-section-heading h2 { margin:0; color:#FFFFFF; font-family:"Barlow Condensed",sans-serif; font-size:clamp(24px,2.5vw,34px); line-height:1.15; letter-spacing:.045em; font-style:italic; font-weight:800; }
 body.tip-page .tip-section-number { font-style:normal; }
 body.tip-page .tip-section-text { max-width:680px; padding-left:24px; border-left:2px solid rgba(112,205,139,.55); }
@@ -2114,7 +2114,7 @@ body.tip-page .tip-development-photo {
 
 body.tip-page .tip-development-photo img {
     display: block;
-    width: 100%;
+    width: 70%;
     height: auto;
     clip-path: polygon(0 0, 100% 0, 78% 100%, 0 100%);
 }

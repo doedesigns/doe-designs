@@ -834,43 +834,6 @@ PROJECT FOOTER LINK
     object-fit: contain;
 }
 
-/*=========================================================
-MOBILE
-=========================================================*/
-
-/* ===== SHARED PROJECT NAVIGATION AND CONTACT BUTTON ===== */
-/*
-.project-title-nav {
-    left:auto;
-    right:clamp(18px,4vw,60px);
-    justify-content:flex-end;
-    gap:clamp(14px,2vw,35px);
-    max-width:calc(100% - 36px);
-}
-.project-scrolled .project-title-nav {
-    transform:translateY(-50%);
-}
-.project-title-nav .project-category-link {
-    display:inline-block;
-    flex:0 0 auto;
-    margin:0;
-    color:#00E5FF;
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:22px;
-    font-weight:700;
-    letter-spacing:.12em;
-    line-height:1.2;
-    text-align:right;
-    text-decoration:none;
-    text-transform:uppercase;
-    white-space:nowrap;
-    transition:color .3s ease;
-}
-.project-title-nav .project-category-link:hover,
-.project-title-nav .project-category-link:focus-visible { color:#FFFFFF; }
-
-*/
-
 body.project-page .page-contact-link .enter-button {
     border-color:#00E5FF !important;
     color:#00E5FF !important;
@@ -883,3 +846,155 @@ body.project-page .page-contact-link .enter-button:focus-visible {
     color:#FFFFFF !important;
     background:transparent !important;
 }
+
+
+/* =========================================================
+   BARKING DOG BOOKSTORE — BRAND-SPECIFIC STYLING
+   Palette:
+   Deep teal:       #1C5359
+   Turquoise:       #63B6BF
+   Warm cream:      #F2E18D
+   Book-spine orange: #D97823
+   Brick red:       #A53222
+
+   These rules apply ONLY to Barking Dog Bookstore.
+========================================================= */
+
+/* ---------------------------------------------------------
+   PROJECT TITLE + COMPACT NAVIGATION
+--------------------------------------------------------- */
+
+body.barking-page .project-title h1 {
+    color: #63B6BF;
+}
+
+body.barking-page .project-title .title-break {
+    color: #F2E18D;
+}
+
+body.barking-page .project-title-nav h1 {
+    color: #63B6BF;
+}
+
+body.barking-page .navbar > .project-category-link {
+    color: #63B6BF;
+}
+
+body.barking-page .navbar > .project-category-link:hover,
+body.barking-page .navbar > .project-category-link:focus-visible {
+    color: #F2E18D;
+}
+
+/* ---------------------------------------------------------
+   PROJECT ARROWS — PLAYFUL TURQUOISE
+--------------------------------------------------------- */
+
+body.barking-page .project-arrow .arrow-triangle {
+    transition: border-color .3s ease, transform .3s ease;
+}
+
+body.barking-page .project-arrow.prev .arrow-triangle {
+    border-right-color: #63B6BF;
+}
+
+body.barking-page .project-arrow.next .arrow-triangle {
+    border-left-color: #63B6BF;
+}
+
+body.barking-page .project-arrow .arrow-circle::before {
+    border-top-color: #D97823;
+    border-right-color: #63B6BF;
+    border-bottom-color: #F2E18D;
+    border-left-color: #A53222;
+}
+
+body.barking-page .project-arrow:hover .arrow-triangle {
+    border-left-color: #F2E18D;
+    border-right-color: #F2E18D;
+}
+
+body.barking-page .project-arrow:hover .arrow-circle {
+    transform: translateY(-2px) rotate(-8deg);
+}
+
+/* ---------------------------------------------------------
+   PROJECT DETAILS — SOFTWARE / ROLE / DELIVERABLES / CREDITS
+--------------------------------------------------------- */
+
+body.barking-page .detail-box h3,
+body.barking-page .approach-box h3 {
+    color: #63B6BF;
+}
+
+/* ---------------------------------------------------------
+   SECTION HEADINGS + UNDERLINES
+--------------------------------------------------------- */
+
+body.barking-page .project-description h2,
+body.barking-page .story-text h2,
+body.barking-page .project-gallery-heading h2 {
+    color: #F2E18D;
+}
+
+body.barking-page .project-description h2::after,
+body.barking-page .story-text h2::after,
+body.barking-page .project-gallery-heading h2::after {
+    background: #D97823;
+}
+
+body.barking-page .project-description h2:hover,
+body.barking-page .story-text h2:hover,
+body.barking-page .project-gallery-heading h2:hover {
+    color: #63B6BF;
+}
+
+body.barking-page .project-description h2:hover::after,
+body.barking-page .story-text h2:hover::after,
+body.barking-page .project-gallery-heading h2:hover::after {
+    background: #63B6BF;
+}
+
+/* ---------------------------------------------------------
+   IMAGE CAPTIONS — WARMER BRAND ACCENT
+--------------------------------------------------------- */
+
+body.barking-page .story-image > p,
+body.barking-page .project-image-block > p {
+    color: #F2E18D;
+}
+
+/* ---------------------------------------------------------
+   INTERACTIVE PROTOTYPE + CONTACT BUTTONS
+--------------------------------------------------------- */
+
+body.barking-page .enter-button {
+    border-color: #63B6BF !important;
+    color: #63B6BF !important;
+    background: transparent !important;
+    transition:
+        color .3s ease,
+        background-color .3s ease,
+        border-color .3s ease,
+        transform .3s ease;
+}
+
+body.barking-page .enter-button:hover,
+body.barking-page .enter-button:focus-visible {
+    border-color: #F2E18D !important;
+    color: #061C2B !important;
+    background: #F2E18D !important;
+    transform: translateY(-2px);
+}
+
+/* ---------------------------------------------------------
+   REDUCED MOTION ACCESSIBILITY
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    body.barking-page .project-arrow .arrow-triangle,
+    body.barking-page .project-arrow .arrow-circle,
+    body.barking-page .enter-button {
+        transition: none !important;
+    }
+}
+
