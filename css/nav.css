@@ -401,10 +401,9 @@ header {
     }
 }
 
-
 /* =========================================================
    DOE DESIGNS — DESKTOP PROJECT NAVIGATION
-   Center title/arrows; independently align category at right
+   Keep title/arrows centered; category label stays right.
    ========================================================= */
 
 @media (min-width: 1101px) {
@@ -417,44 +416,57 @@ header {
     header .navbar {
         position: relative !important;
         isolation: isolate;
+        box-sizing: border-box;
+        width: 100%;
     }
 
+    /* Full-width positioning layer for the project navigation */
     header .navbar > .project-title-nav {
         position: absolute !important;
-        inset: 0 !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: auto !important;
+        left: 0 !important;
+
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
         justify-content: center !important;
         gap: 18px !important;
+
         width: 100% !important;
         max-width: none !important;
         height: 70px !important;
         margin: 0 !important;
-        padding: 0 210px !important;
+        padding: 0 220px !important;
         box-sizing: border-box !important;
+
         transform: translateY(-100%) !important;
         opacity: 0 !important;
         visibility: hidden !important;
         pointer-events: none !important;
         z-index: 10001 !important;
+
         transition:
             opacity .3s ease,
             transform .45s cubic-bezier(.22, 1, .36, 1),
             visibility 0s linear .45s;
     }
 
+    /* Slide the group into the navbar after scrolling */
     header .navbar.project-scrolled > .project-title-nav {
         transform: translateY(0) !important;
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: auto !important;
+
         transition:
             opacity .3s ease .05s,
             transform .45s cubic-bezier(.22, 1, .36, 1),
             visibility 0s;
     }
 
+    /* Hide the normal navigation links while the project nav is shown */
     header .navbar.project-scrolled > .nav-links {
         opacity: 0 !important;
         visibility: hidden !important;
@@ -462,8 +474,9 @@ header {
         transform: translateY(-100%) !important;
     }
 
-    /* Keep the title centered between the arrows. */
+    /* Project title */
     header .navbar > .project-title-nav > h1 {
+        position: relative !important;
         flex: 0 1 auto !important;
         min-width: 0 !important;
         max-width: 100% !important;
@@ -471,37 +484,42 @@ header {
         padding: 0 !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
+
         color: #00E5FF !important;
         text-align: center !important;
         white-space: nowrap !important;
         line-height: 1.2 !important;
     }
 
+    /* Previous and next arrows */
     header .navbar > .project-title-nav > .project-arrow {
+        display: flex !important;
         flex: 0 0 42px !important;
+        align-items: center !important;
+        justify-content: center !important;
         width: 42px !important;
         min-width: 42px !important;
         height: 48px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
         opacity: 1 !important;
         visibility: visible !important;
         pointer-events: auto !important;
     }
 
-    /* Category is independent of the centered title-and-arrows group. */
+    /* Category label: independently aligned to the navbar's right edge */
     header .navbar > .project-title-nav > .project-category-link {
         position: absolute !important;
         top: 50% !important;
         right: 40px !important;
         left: auto !important;
         bottom: auto !important;
+
         display: inline-block !important;
+        flex: 0 0 auto !important;
         width: auto !important;
         max-width: 160px !important;
         margin: 0 !important;
         padding: 0 !important;
+
         transform: translateY(-50%) !important;
         color: #00E5FF !important;
         text-align: right !important;
@@ -509,6 +527,7 @@ header {
         z-index: 10004 !important;
     }
 
+    /* Keep the category visible when the compact nav appears */
     header .navbar.project-scrolled > .project-title-nav
     > .project-category-link {
         opacity: 1 !important;
@@ -516,6 +535,7 @@ header {
         pointer-events: auto !important;
     }
 
+    /* Arrow circle styling */
     header .navbar > .project-title-nav
     > .project-arrow .arrow-circle {
         position: relative !important;
