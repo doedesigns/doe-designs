@@ -1728,7 +1728,6 @@ body.tip-page section.tip-feature-image.tip-spread-image.tip-final-spread p {
     text-align: center;
 }
 
-
 /* =========================================================
    DEATH BY MUSIC — SHARED LIGHTBOX REPAIR
    ========================================================= */
@@ -2094,7 +2093,6 @@ body.tip-page .project-details .detail-box p {
     overflow-wrap: anywhere;
 }
 
-
 /* ==========================================
    THE TIP — SECTION 03 EDITORIAL LAYOUT
 ========================================== */
@@ -2220,4 +2218,3 @@ body.tip-page .tip-development-followup p {
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     }
 }
-
