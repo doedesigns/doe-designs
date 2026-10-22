@@ -163,61 +163,73 @@ document.addEventListener("DOMContentLoaded", () => {
 // ============================================
 // CREATE / PREPARE PROJECT OVERLAY
 // ============================================
+ 
+	function createSoftwareOverlay(card) {
+		const isMotionCard =
+			card.classList.contains("motion-card") ||
+			card.classList.contains("motion-home-card");
 
-    function createSoftwareOverlay(card) {
-        let overlay = card.querySelector(".software-overlay");
+		const preview = isMotionCard
+			? card.querySelector(".motion-preview, .home-motion-preview")
+			: null;
 
-        if (!overlay) {
-            overlay = document.createElement("div");
-            overlay.className = "software-overlay";
-            card.appendChild(overlay);
-        }
+		const overlayParent = preview || card;
 
-        let content = overlay.querySelector(".software-overlay-content");
+		let overlay = card.querySelector(".software-overlay");
 
-        if (!content) {
-            content = document.createElement("div");
-            content.className = "software-overlay-content";
-            overlay.appendChild(content);
-        }
+		if (!overlay) {
+			overlay = document.createElement("div");
+			overlay.className = "software-overlay";
+			overlayParent.appendChild(overlay);
+		} else if (isMotionCard && preview && !preview.contains(overlay)) {
+			preview.appendChild(overlay);
+		}
 
-        let projectName = content.querySelector(".project-name");
+		let content = overlay.querySelector(".software-overlay-content");
 
-        if (isCategoryCardWithoutOverlayTitle(card)) {
-            projectName?.remove();
-        } else if (!projectName) {
-            projectName = document.createElement("h2");
-            projectName.className = "project-name";
-            projectName.textContent = "Loading...";
+		if (!content) {
+			content = document.createElement("div");
+			content.className = "software-overlay-content";
+			overlay.appendChild(content);
+		}
 
-            const heading = content.querySelector("h3");
+		let projectName = content.querySelector(".project-name");
 
-            if (heading) {
-                content.insertBefore(projectName, heading);
-            } else {
-                content.appendChild(projectName);
-            }
-        }
+		if (isCategoryCardWithoutOverlayTitle(card)) {
+			projectName?.remove();
+		} else if (!projectName) {
+			projectName = document.createElement("h2");
+			projectName.className = "project-name";
+			projectName.textContent = "Loading...";
 
-        let heading = content.querySelector("h3");
+			const heading = content.querySelector("h3");
 
-        if (!heading) {
-            heading = document.createElement("h3");
-            heading.textContent = "DELIVERABLES";
-            content.appendChild(heading);
-        }
+			if (heading) {
+				content.insertBefore(projectName, heading);
+			} else {
+				content.appendChild(projectName);
+			}
+		}
 
-        let deliverablesList = content.querySelector(".software-list");
+		let heading = content.querySelector("h3");
 
-        if (!deliverablesList) {
-            deliverablesList = document.createElement("p");
-            deliverablesList.className = "software-list loading";
-            deliverablesList.textContent = "Loading...";
-            content.appendChild(deliverablesList);
-        }
+		if (!heading) {
+			heading = document.createElement("h3");
+			heading.textContent = "DELIVERABLES";
+			content.appendChild(heading);
+		}
 
-        return overlay;
-    }
+		let deliverablesList = content.querySelector(".software-list");
+
+		if (!deliverablesList) {
+			deliverablesList = document.createElement("p");
+			deliverablesList.className = "software-list loading";
+			deliverablesList.textContent = "Loading...";
+			content.appendChild(deliverablesList);
+		}
+
+		return overlay;
+	}
 
 // ============================================
 // GET PROJECT TITLE
@@ -335,6 +347,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateProjectOverlay(card, projectInfo) {
         const overlay = createSoftwareOverlay(card);
+		updateMotionCardTitle(card, projectInfo.title);
         const projectName = overlay.querySelector(".project-name");
         const deliverablesList = overlay.querySelector(".software-list");
 

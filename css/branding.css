@@ -479,3 +479,82 @@ body.branding-page .copy-wrapper {
         letter-spacing: 0.2em;
     }
 }
+
+/* =========================================================
+   BRANDING CATEGORY PAGE — COMPACT GRID
+   ========================================================= */
+
+body.branding-page .branding-grid {
+    flex: 0 0 auto;
+    grid-template-columns: repeat(3, minmax(0, 220px));
+    justify-content: center;
+    align-content: start;
+    align-items: start;
+    gap: 24px;
+    max-width: 900px;
+    margin: 10px auto 0;
+}
+
+body.branding-page .branding-card {
+    width: 100%;
+    min-width: 0;
+    height: auto;
+}
+
+body.branding-page .branding-card .card-image-wrap {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    flex: 0 0 auto;
+    overflow: hidden;
+}
+
+body.branding-page .branding-card .card-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+body.branding-page .branding-card .card-image-wrap .software-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 229, 255, 0.92);
+    transform: translateY(-100%);
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        transform 0.6s cubic-bezier(.22, 1, .36, 1),
+        visibility 0s linear 0.6s;
+}
+
+body.branding-page .branding-card:hover .card-image-wrap .software-overlay,
+body.branding-page .branding-card:focus-visible .card-image-wrap .software-overlay {
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition:
+        transform 0.6s cubic-bezier(.22, 1, .36, 1),
+        visibility 0s;
+}
+
+body.branding-page .branding-card .portfolio-card-title {
+    margin-top: 8px;
+    font-size: 16px;
+    line-height: 1.25;
+}
+
+@media (max-width: 900px) {
+    body.branding-page .branding-grid {
+        grid-template-columns: repeat(2, minmax(0, 220px));
+        gap: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    body.branding-page .branding-grid {
+        grid-template-columns: minmax(0, 280px);
+        gap: 28px;
+    }
+}
