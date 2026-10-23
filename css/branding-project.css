@@ -872,19 +872,6 @@ body.barking-page .project-title .title-break {
     color: #F2E18D;
 }
 
-body.barking-page .project-title-nav h1 {
-    color: #63B6BF;
-}
-
-body.barking-page .navbar > .project-category-link {
-    color: #63B6BF;
-}
-
-body.barking-page .navbar > .project-category-link:hover,
-body.barking-page .navbar > .project-category-link:focus-visible {
-    color: #F2E18D;
-}
-
 /* ---------------------------------------------------------
    PROJECT ARROWS — PLAYFUL TURQUOISE
 --------------------------------------------------------- */
@@ -1066,14 +1053,16 @@ body.barking-page .barking-prototype-intro p {
 }
 
 /* Larger, more expressive arrow */
+
 body.barking-page .barking-prototype-arrow {
-    margin: 4px 0 0 30px;
+    margin: 0;
     color: #D97823;
     font-family: Georgia, serif;
     font-size: clamp(80px, 10vw, 135px);
     line-height: .8;
-    transform: rotate(12deg);
-    transform-origin: left center;
+    text-align: right;
+    transform: translateX(35px) rotate(12deg);
+    transform-origin: right center;
 }
 
 body.barking-page .barking-prototype-intro .barking-prototype-hint {
@@ -1167,4 +1156,23 @@ body.barking-page .barking-animation-section > img {
     body.barking-page .barking-prototype-phone img {
         transition: none !important;
     }
+}
+
+/* BARKING DOG — DISTINCTIVE BRAND SECTION HEADING */
+
+body.barking-page .project-gallery-heading h2 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: clamp(42px, 5vw, 64px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: #F2E18D;
+}
+
+body.barking-page .story-text h2 {
+    font-family: "Jost", sans-serif;
+    font-size: clamp(25px, 2.5vw, 34px);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.04em;
 }
