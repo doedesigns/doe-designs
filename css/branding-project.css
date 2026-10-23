@@ -914,7 +914,7 @@ body.barking-page .approach-box h3 {
 }
 
 /* ---------------------------------------------------------
-   SECTION HEADINGS + UNDERLINES
+   SECTION HEADINGS + PLAYFUL ORANGE UNDERLINES
 --------------------------------------------------------- */
 
 body.barking-page .project-description h2,
@@ -923,10 +923,20 @@ body.barking-page .project-gallery-heading h2 {
     color: #F2E18D;
 }
 
+/* Crooked, hand-drawn-style underline */
 body.barking-page .project-description h2::after,
 body.barking-page .story-text h2::after,
 body.barking-page .project-gallery-heading h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -12px;
+    width: 72px;
+    height: 5px;
     background: #D97823;
+    border-radius: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    transition: width .3s ease, background-color .3s ease;
 }
 
 body.barking-page .project-description h2:hover,
@@ -938,7 +948,8 @@ body.barking-page .project-gallery-heading h2:hover {
 body.barking-page .project-description h2:hover::after,
 body.barking-page .story-text h2:hover::after,
 body.barking-page .project-gallery-heading h2:hover::after {
-    background: #63B6BF;
+    width: 95px;
+    background: #D97823;
 }
 
 /* ---------------------------------------------------------
@@ -994,20 +1005,19 @@ body.barking-page .barking-prototype-feature {
     display: grid;
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
     align-items: center;
-    gap: clamp(35px, 7vw, 100px);
+    gap: clamp(25px, 4vw, 55px);
     width: 100%;
-    margin: 20px auto 110px;
+    margin: 20px auto 100px;
     padding: clamp(25px, 4vw, 55px);
     box-sizing: border-box;
-    position: relative;
+    background: #1C5359;
+    border: 1px solid rgba(99, 182, 191, .45);
+    border-radius: 6px;
+    overflow: hidden;
 }
 
-/* STORYBOOK INTRODUCTION */
-
 body.barking-page .barking-prototype-intro {
-    position: relative;
-    text-align: left;
-    padding: 20px 0;
+    min-width: 0;
 }
 
 body.barking-page .barking-prototype-eyebrow {
@@ -1075,32 +1085,75 @@ body.barking-page .barking-prototype-intro .barking-prototype-hint {
 
 /* CLICKABLE PHONE PREVIEW */
 
-body.barking-page .barking-prototype-phone {
+body.barking-page .barking-prototype-phone img {
     display: block;
     width: 100%;
-    max-width: 470px;
-    justify-self: center;
-    position: relative;
-    text-decoration: none;
-    outline-offset: 8px;
+    max-width: 100%;
+    height: auto;
+    max-height: 650px;
+    object-fit: contain;
+    margin: 0 auto;
+    border: 1px solid rgba(28, 83, 89, .25);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .25);
+    transition: transform .35s ease, box-shadow .35s ease;
+	overflow: visible;
 }
 
 body.barking-page .barking-prototype-phone img {
     display: block;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     height: auto;
-    max-height: 720px;
+    max-height: 650px;
     object-fit: contain;
     margin: 0 auto;
-    border: 1px solid rgba(99,182,191,.35);
-    box-shadow: 0 25px 65px rgba(0,0,0,.45);
+    border: 1px solid rgba(28, 83, 89, .25);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .25);
     transition: transform .35s ease, box-shadow .35s ease;
 }
 
 body.barking-page .barking-prototype-phone:hover img,
 body.barking-page .barking-prototype-phone:focus-visible img {
     transform: translateY(-7px) rotate(1deg);
-    box-shadow: 0 32px 70px rgba(0,0,0,.55);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, .35);
+}
+
+/* Diagonal prototype label */
+body.barking-page .barking-prototype-phone::after {
+    content: "VIEW THE PROTOTYPE  ↗";
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    z-index: 2;
+    width: max-content;
+    max-width: 90%;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    background: #D97823;
+    color: #06080B;
+    border: 2px solid #F2E18D;
+    font-family: "Jost", sans-serif;
+    font-size: clamp(12px, 1.5vw, 16px);
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-align: center;
+    opacity: 0;
+    transform: translate(-50%, 10px) rotate(-8deg);
+    transition: opacity .25s ease, transform .25s ease;
+    pointer-events: none;
+}
+
+body.barking-page .barking-prototype-phone:hover::after,
+body.barking-page .barking-prototype-phone:focus-visible::after {
+    opacity: 1;
+    transform: translate(-50%, 0) rotate(-8deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.barking-page .barking-prototype-phone img,
+    body.barking-page .barking-prototype-phone::after {
+        transition: none;
+    }
 }
 
 /* REDUCE THE ANIMATED SOCIAL MEDIA IMAGE BY ABOUT 50% */
@@ -1118,8 +1171,17 @@ body.barking-page .barking-animation-section > img {
     body.barking-page .barking-prototype-feature {
         grid-template-columns: minmax(0, 1fr);
         gap: 25px;
-        padding: 20px 5px;
-        margin-bottom: 75px;
+        padding: 22px;
+    }
+
+    body.barking-page .barking-prototype-phone {
+        width: 100%;
+        max-width: 380px;
+    }
+
+    body.barking-page .barking-prototype-phone::after {
+        opacity: 1;
+        transform: translate(-50%, 0) rotate(-8deg);
     }
 
     body.barking-page .barking-prototype-intro {
@@ -1142,11 +1204,6 @@ body.barking-page .barking-animation-section > img {
         text-align: center;
     }
 
-    body.barking-page .barking-prototype-phone {
-        width: 90%;
-        max-width: 400px;
-    }
-
     body.barking-page .barking-animation-section > img {
         width: 75%;
     }
@@ -1157,6 +1214,28 @@ body.barking-page .barking-animation-section > img {
         transition: none !important;
     }
 }
+
+/* BARKING DOG — PLAYFUL IMAGE HOVER */
+
+body.barking-page .project-image-block img {
+    transition: transform .35s ease, box-shadow .35s ease;
+}
+
+body.barking-page .project-image-block:hover img {
+    transform: translateY(-5px) rotate(.5deg);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, .3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.barking-page .project-image-block img {
+        transition: none;
+    }
+
+    body.barking-page .project-image-block:hover img {
+        transform: none;
+    }
+}
+
 
 /* BARKING DOG — DISTINCTIVE BRAND SECTION HEADING */
 
