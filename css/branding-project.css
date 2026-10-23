@@ -873,35 +873,15 @@ body.barking-page .project-title .title-break {
 }
 
 /* ---------------------------------------------------------
-   PROJECT ARROWS — PLAYFUL TURQUOISE
+   BARKING DOG — COLORED ARROW CIRCLES ONLY
+   Keep the shared arrow shapes and hover behavior.
 --------------------------------------------------------- */
 
-body.barking-page .project-arrow .arrow-triangle {
-    transition: border-color .3s ease, transform .3s ease;
-}
-
-body.barking-page .project-arrow.prev .arrow-triangle {
-    border-right-color: #63B6BF;
-}
-
-body.barking-page .project-arrow.next .arrow-triangle {
-    border-left-color: #63B6BF;
-}
-
-body.barking-page .project-arrow .arrow-circle::before {
+body.barking-page .project-navigation .project-arrow .arrow-circle::before {
     border-top-color: #D97823;
     border-right-color: #63B6BF;
     border-bottom-color: #F2E18D;
     border-left-color: #A53222;
-}
-
-body.barking-page .project-arrow:hover .arrow-triangle {
-    border-left-color: #F2E18D;
-    border-right-color: #F2E18D;
-}
-
-body.barking-page .project-arrow:hover .arrow-circle {
-    transform: translateY(-2px) rotate(-8deg);
 }
 
 /* ---------------------------------------------------------
@@ -1122,7 +1102,7 @@ body.barking-page .barking-prototype-phone:focus-visible img {
 body.barking-page .barking-prototype-phone::after {
     content: "VIEW THE PROTOTYPE  ↗";
     position: absolute;
-    top: 50%;
+    top: 10%;
     left: 50%;
     z-index: 2;
     width: max-content;
@@ -1292,3 +1272,340 @@ body.barking-page .barking-social-section {
         gap: 30px;
     }
 }
+
+
+/* =========================================================
+   OLD DOG CAFE — MIDNIGHT EDITORIAL REDESIGN
+   Applies ONLY to body.odc-page.
+   Navigation and footer are intentionally excluded.
+========================================================= */
+
+/* BACKGROUND */
+
+body.odc-page {
+    background: linear-gradient(
+        180deg,
+        #000000 0%,
+        #071522 25%,
+        #102C50 60%,
+        #24183D 100%
+    );
+    color: #FFFFFF;
+}
+
+/* MAIN PROJECT TITLE */
+
+body.odc-page .project-title h1 {
+    color: #55B4E5;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(42px, 5vw, 58px);
+    letter-spacing: .06em;
+}
+
+body.odc-page .project-title .title-break {
+    color: #FFFFFF;
+    font-family: "Jost", sans-serif;
+    font-size: clamp(18px, 2vw, 25px);
+    letter-spacing: .12em;
+}
+
+/* HERO IMAGE */
+
+body.odc-page .project-hero {
+    margin-bottom: 35px;
+}
+
+body.odc-page .project-hero img {
+    border: 1px solid rgba(85, 180, 229, .4);
+    box-shadow: 0 25px 65px rgba(0, 0, 0, .4);
+}
+
+/* YEAR */
+
+body.odc-page .project-year {
+    margin: 0 auto 45px;
+    color: #C09BFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .3em;
+    text-align: center;
+}
+
+/* PROJECT DETAILS */
+
+body.odc-page .project-details {
+    gap: 24px;
+    margin-bottom: 75px;
+}
+
+body.odc-page .detail-box {
+    padding: 0 12px;
+    border-right: 1px solid rgba(85, 180, 229, .35);
+}
+
+body.odc-page .detail-box:last-child {
+    border-right: 0;
+}
+
+body.odc-page .detail-box h3 {
+    color: #55B4E5;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: .16em;
+}
+
+body.odc-page .detail-box p {
+    color: rgba(255, 255, 255, .88);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* SECTION HEADINGS */
+
+body.odc-page .story-text h2,
+body.odc-page .project-gallery-heading h2 {
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(28px, 3vw, 38px);
+    font-weight: 700;
+    letter-spacing: .1em;
+}
+
+body.odc-page .story-text h2::after,
+body.odc-page .project-gallery-heading h2::after {
+    background: #55B4E5;
+    height: 3px;
+    width: 55px;
+}
+
+body.odc-page .story-text h2:hover,
+body.odc-page .project-gallery-heading h2:hover {
+    color: #55B4E5;
+}
+
+body.odc-page .story-text h2:hover::after,
+body.odc-page .project-gallery-heading h2:hover::after {
+    width: 85px;
+    background: #55B4E5;
+}
+
+/* SHORTER, CLEANER BODY COPY */
+
+body.odc-page .story-text p {
+    color: rgba(255, 255, 255, .85);
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+body.odc-page .story-image p,
+body.odc-page .project-image-block p,
+body.odc-page .video-player > p {
+    color: rgba(255, 255, 255, .7);
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+/* IMAGE TREATMENT */
+
+body.odc-page .story-image img,
+body.odc-page .project-image-block img {
+    border: 1px solid rgba(192, 155, 255, .22);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, .3);
+}
+
+/* KEEP SKETCHES MODEST */
+
+body.odc-page .story-image img.img-medium {
+    width: 85%;
+    max-width: 100%;
+}
+
+/* GALLERY SPACING */
+
+body.odc-page .project-gallery-heading {
+    margin: 30px auto 40px;
+}
+
+body.odc-page .project-gallery-row {
+    gap: 24px;
+    margin-bottom: 55px;
+}
+
+body.odc-page .project-gallery-row .project-image-block p {
+    margin-top: 16px;
+}
+
+/* VIDEO FEATURE */
+
+body.odc-page .video-player {
+    width: 75%;
+    max-width: 820px;
+    margin: 70px auto;
+}
+
+body.odc-page .video-player video {
+    border: 1px solid rgba(85, 180, 229, .4);
+    box-shadow: 0 20px 55px rgba(0, 0, 0, .4);
+}
+
+/* CONTACT BUTTON — PROJECT CONTENT ONLY */
+
+body.odc-page .page-contact-link .enter-button {
+    border-color: #55B4E5 !important;
+    color: #55B4E5 !important;
+    background: transparent !important;
+}
+
+body.odc-page .page-contact-link .enter-button:hover,
+body.odc-page .page-contact-link .enter-button:focus-visible {
+    border-color: #FFFFFF !important;
+    color: #FFFFFF !important;
+    background: transparent !important;
+}
+
+/* RESPONSIVE DETAILS */
+
+@media (max-width: 760px) {
+    body.odc-page .project-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 12px;
+    }
+
+    body.odc-page .detail-box {
+        padding: 0 6px;
+        border-right: 0;
+    }
+
+    body.odc-page .project-gallery-row {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    body.odc-page .video-player {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.odc-page .story-image img,
+    body.odc-page .project-image-block img {
+        transition: none !important;
+    }
+}
+
+
+/* =========================================================
+   OLD DOG CAFE — HORIZONTAL IMAGE CAROUSELS
+========================================================= */
+
+body.odc-page .odc-gallery-section {
+    margin: 0 auto 70px;
+}
+
+body.odc-page .odc-gallery-section .project-gallery-heading {
+    margin: 0 auto 28px;
+}
+
+body.odc-page .odc-carousel {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr) 42px;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+}
+
+body.odc-page .carousel-track {
+    display: flex;
+    gap: 22px;
+    min-width: 0;
+    overflow-x: auto;
+    padding: 8px 2px 20px;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #55B4E5 rgba(255,255,255,.12);
+}
+
+body.odc-page .carousel-slide {
+    flex: 0 0 calc(50% - 11px);
+    min-width: 0;
+    scroll-snap-align: start;
+}
+
+body.odc-page .carousel-slide .project-image-block {
+    width: 100%;
+    margin: 0;
+}
+
+body.odc-page .carousel-slide .project-image-block img {
+    display: block;
+    width: 100%;
+    height: 360px;
+    object-fit: contain;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+body.odc-page .odc-carousel-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid #55B4E5;
+    border-radius: 50%;
+    background: transparent;
+    color: #55B4E5;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    transition: color .2s ease, background .2s ease,
+                border-color .2s ease;
+}
+
+body.odc-page .odc-carousel-btn:hover,
+body.odc-page .odc-carousel-btn:focus-visible {
+    background: #55B4E5;
+    border-color: #55B4E5;
+    color: #000000;
+}
+
+body.odc-page .odc-carousel-btn:focus-visible {
+    outline: 2px solid #FFFFFF;
+    outline-offset: 4px;
+}
+
+@media (max-width: 760px) {
+    body.odc-page .odc-carousel {
+        grid-template-columns: 34px minmax(0, 1fr) 34px;
+        gap: 8px;
+    }
+
+    body.odc-page .odc-carousel-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 19px;
+    }
+
+    body.odc-page .carousel-slide {
+        flex-basis: 100%;
+    }
+
+    body.odc-page .carousel-slide .project-image-block img {
+        height: 280px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.odc-page .carousel-track {
+        scroll-behavior: auto;
+    }
+
+    body.odc-page .odc-carousel-btn {
+        transition: none;
+    }
+}
+
