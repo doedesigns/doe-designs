@@ -2185,3 +2185,339 @@ body.odc-page .odc-motion-section .video-player > p {
         width: calc(100% - 32px);
     }
 }
+
+/* =========================================
+   OLD DOG CAFE — PAGE-SPECIFIC STYLES
+   Isolated from shared navigation and project styles.
+   ========================================= */
+
+.odc-page {
+    --odc-purple: #8d6bd1;
+    --odc-lilac: #c7b6ef;
+    --odc-ink: #0b0b10;
+    --odc-copy: #e8e5ee;
+}
+
+/* Intro: style guide and flyer are independent visual moments. */
+.odc-page .odc-intro-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 76px);
+    padding: clamp(48px, 7vw, 100px) 6%;
+}
+
+.odc-page .odc-intro-copy {
+    grid-column: 1 / -1;
+    max-width: 900px;
+    margin: 0 auto 12px;
+    text-align: center;
+}
+
+.odc-page .odc-intro-copy h2,
+.odc-page .project-gallery-heading h2 {
+    text-wrap: balance;
+}
+
+.odc-page .odc-intro-image {
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+}
+
+.odc-page .odc-intro-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 720px;
+    object-fit: contain;
+    cursor: zoom-in;
+}
+
+/* Flyer follows the hero and detail row, before the intro content. */
+.odc-page .odc-intro-image.odc-flyer-image {
+    grid-column: 1 / -1;
+    max-width: 760px;
+    justify-self: center;
+    margin: 0 auto 12px;
+}
+
+/* Sections and headings */
+.odc-page .odc-gallery-section,
+.odc-page .odc-proposal-section,
+.odc-page .odc-motion-section {
+    padding: clamp(54px, 7vw, 104px) 6%;
+}
+
+.odc-page .project-gallery-heading {
+    width: min(100%, 900px);
+    margin: 0 auto clamp(28px, 4vw, 52px);
+    text-align: center;
+}
+
+.odc-page .odc-eyebrow {
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+.odc-page .odc-section-intro {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* Carousel layout. Keep this scoped to ODC; shared project arrows untouched. */
+.odc-page .odc-carousel {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(10px, 2vw, 24px);
+    width: 100%;
+}
+
+.odc-page .odc-carousel .carousel-track {
+    display: flex;
+    align-items: stretch;
+    gap: clamp(18px, 2.5vw, 36px);
+    min-width: 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding: 12px 2px 22px;
+}
+
+.odc-page .odc-carousel .carousel-track::-webkit-scrollbar {
+    display: none;
+}
+
+.odc-page .odc-carousel .carousel-slide {
+    flex: 0 0 clamp(240px, 31vw, 440px);
+    min-width: 0;
+    scroll-snap-align: center;
+}
+
+.odc-page .odc-carousel .project-image-block {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.odc-page .odc-carousel .project-image-block img {
+    display: block;
+    width: 100%;
+    max-height: 560px;
+    object-fit: contain;
+    cursor: zoom-in;
+}
+
+.odc-page .odc-slide-caption {
+    margin: 14px 0 0;
+    text-align: center;
+    letter-spacing: .04em;
+}
+
+.odc-page .odc-carousel-btn {
+    display: inline-grid;
+    place-items: center;
+    width: clamp(42px, 4vw, 54px);
+    height: clamp(42px, 4vw, 54px);
+    padding: 0;
+    border: 1px solid var(--odc-purple);
+    border-radius: 50%;
+    color: #fff;
+    background: var(--odc-purple);
+    font: inherit;
+    font-size: 1.45rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: transform .22s ease, background-color .22s ease, color .22s ease;
+}
+
+.odc-page .odc-carousel-btn:hover,
+.odc-page .odc-carousel-btn:focus-visible {
+    color: var(--odc-purple);
+    background: transparent;
+}
+
+.odc-page .odc-carousel [data-carousel-prev]:hover {
+    transform: translateX(-3px);
+}
+
+.odc-page .odc-carousel [data-carousel-next]:hover {
+    transform: translateX(3px);
+}
+
+/* Menus get their own carousel, visually distinct from brand applications. */
+.odc-page .odc-menus-section {
+    padding: clamp(48px, 6vw, 84px) 6%;
+}
+
+/* Business concept proposal */
+.odc-page .odc-proposal-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+    align-items: start;
+    gap: clamp(28px, 5vw, 72px);
+}
+
+.odc-page .odc-proposal-gallery {
+    min-width: 0;
+}
+
+.odc-page .odc-proposal-gallery .odc-carousel .carousel-slide {
+    flex-basis: clamp(250px, 30vw, 420px);
+}
+
+.odc-page .odc-proposal-gallery .project-image-block img {
+    max-height: 680px;
+}
+
+.odc-page .odc-proposal-summary {
+    padding: clamp(18px, 2.5vw, 34px);
+    border-left: 2px solid var(--odc-purple);
+}
+
+.odc-page .odc-proposal-summary h3 {
+    margin-top: 0;
+}
+
+.odc-page .odc-proposal-summary li + li {
+    margin-top: 1rem;
+}
+
+.odc-page .odc-proposal-note {
+    display: none;
+}
+
+.odc-page .odc-proposal-hint {
+    margin: 12px 0 0;
+    text-align: center;
+    font-size: .9rem;
+    opacity: .8;
+}
+
+/* Page-specific proposal controls inserted into the shared lightbox by JS. */
+.odc-page .lightbox .odc-lightbox-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    margin-top: 18px;
+}
+
+.odc-page .lightbox .odc-lightbox-nav {
+    display: inline-grid;
+    place-items: center;
+    min-width: 42px;
+    min-height: 42px;
+    padding: 8px 14px;
+    border: 1px solid var(--odc-purple);
+    border-radius: 999px;
+    color: #fff;
+    background: var(--odc-purple);
+    font: inherit;
+    cursor: pointer;
+}
+
+.odc-page .lightbox .odc-lightbox-nav:hover,
+.odc-page .lightbox .odc-lightbox-nav:focus-visible {
+    color: var(--odc-purple);
+    background: transparent;
+}
+
+.odc-page .lightbox .odc-lightbox-count {
+    margin: 0 auto;
+    text-align: center;
+    font-size: .9rem;
+    letter-spacing: .08em;
+}
+
+/* Subtle reveal: content moves in gently; no shared navigation is affected. */
+@media (prefers-reduced-motion: no-preference) and (min-width: 900px) {
+    .odc-page .odc-intro-section,
+    .odc-page .odc-gallery-section,
+    .odc-page .odc-proposal-section,
+    .odc-page .odc-motion-section,
+    .odc-page .odc-menus-section {
+        animation: odc-section-arrive .65s ease both;
+    }
+
+    @keyframes odc-section-arrive {
+        from { opacity: .82; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+}
+
+@media (max-width: 900px) {
+    .odc-page .odc-intro-section {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .odc-page .odc-proposal-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .odc-page .odc-proposal-summary {
+        border-left: 0;
+        border-top: 2px solid var(--odc-purple);
+        padding: 24px 0 0;
+    }
+
+    .odc-page .odc-carousel .carousel-slide,
+    .odc-page .odc-proposal-gallery .odc-carousel .carousel-slide {
+        flex-basis: min(78vw, 390px);
+    }
+
+    .odc-page .odc-carousel {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .odc-page .odc-gallery-section,
+    .odc-page .odc-proposal-section,
+    .odc-page .odc-motion-section,
+    .odc-page .odc-menus-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .odc-page .odc-carousel .carousel-slide,
+    .odc-page .odc-proposal-gallery .odc-carousel .carousel-slide {
+        flex-basis: 76vw;
+    }
+
+    .odc-page .odc-carousel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
+
+    .odc-page .odc-carousel {
+        gap: 5px;
+    }
+
+    .odc-page .odc-lightbox-navigation {
+        gap: 6px;
+    }
+
+    .odc-page .lightbox .odc-lightbox-nav {
+        min-width: 36px;
+        min-height: 36px;
+        padding: 6px 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .odc-page .odc-carousel .carousel-track {
+        scroll-behavior: auto;
+    }
+
+    .odc-page .odc-carousel-btn {
+        transition: none;
+    }
+}
+
