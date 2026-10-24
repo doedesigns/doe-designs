@@ -2556,3 +2556,2081 @@ body.odc-page .odc-motion-section .video-player > p {
     margin-top: 10px;
     letter-spacing: 0.02em;
 }
+
+/* =========================================
+   OLD DOG CAFÉ — PROPOSAL LIGHTBOX ARROWS
+   ========================================= */
+
+body.odc-page .odc-lightbox-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    width: 100%;
+    margin-top: 24px;
+}
+
+body.odc-page .odc-lightbox-navigation[hidden] {
+    display: none;
+}
+
+body.odc-page .odc-lightbox-nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    background: transparent;
+    color: #ffffff;
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+body.odc-page .odc-lightbox-nav:hover,
+body.odc-page .odc-lightbox-nav:focus-visible {
+    background: #ffffff;
+    color: #111111;
+    border-color: #ffffff;
+}
+
+body.odc-page .odc-lightbox-nav:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 4px;
+}
+
+body.odc-page .odc-lightbox-count {
+    min-width: 72px;
+    margin: 0;
+    color: #ffffff;
+    font-size: 0.9rem;
+    letter-spacing: 0.12em;
+    text-align: center;
+}
+
+/* =========================================================
+   STRATEGIC ESTATE PLANNING — REFINED EDITORIAL REDESIGN
+   Scoped to this page only; shared branding styles stay intact.
+   ========================================================= */
+
+body.strategic-page {
+    --strategic-ink: #252a3a;
+    --strategic-lavender: #676b98;
+    --strategic-blue: #bbd7f1;
+    --strategic-paper: #ffffff;
+    --strategic-soft: #f4f5f9;
+    color: var(--strategic-ink);
+}
+
+body.strategic-page .project-year {
+    color: var(--strategic-lavender);
+}
+
+body.strategic-page .project-details {
+    background: #fff;
+    border: 1px solid rgba(103,107,152,.28);
+    padding: clamp(22px,3vw,38px);
+    margin: 30px auto clamp(64px,8vw,110px);
+    gap: 0;
+    box-shadow: none;
+}
+
+body.strategic-page .project-details .detail-box {
+    padding: 8px 22px;
+    border-right: 1px solid rgba(103,107,152,.24);
+    background: transparent;
+    text-align: center;
+}
+
+body.strategic-page .project-details .detail-box:last-child {
+    border-right: 0;
+}
+
+body.strategic-page .project-details .detail-box h3 {
+    color: #676b98;
+    letter-spacing: .13em;
+}
+
+body.strategic-page .project-details .detail-box p {
+    color: #252a3a;
+}
+
+body.strategic-page .strategic-panel {
+    width: min(1180px,calc(100% - 48px));
+    margin: clamp(52px,7vw,94px) auto;
+    padding: clamp(24px,4vw,58px);
+    background: #fff;
+    border: 1px solid rgba(103,107,152,.24);
+    box-shadow: none;
+    position: relative;
+    isolation: isolate;
+}
+
+body.strategic-page .strategic-kicker {
+    display: block;
+    margin: 0 0 14px;
+    color: #676b98;
+    font: 500 .78rem/1.4 "Jost",sans-serif;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+body.strategic-page .strategic-panel h2 {
+    margin: 0 0 22px;
+    color: #252a3a;
+    font-family: "Barlow Condensed",sans-serif;
+    font-size: clamp(2rem,3.4vw,3.15rem);
+    font-weight: 500;
+    letter-spacing: .025em;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+body.strategic-page .strategic-panel h2::after {
+    content: "";
+    display: block;
+    width: 62px;
+    height: 2px;
+    margin-top: 18px;
+    background: #bbd7f1;
+}
+
+body.strategic-page .strategic-panel p {
+    color: #45495a;
+    font-size: clamp(.98rem,1.15vw,1.08rem);
+    line-height: 1.8;
+}
+
+body.strategic-page .strategic-intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr);
+    align-items: center;
+    gap: clamp(28px,5vw,76px);
+}
+
+body.strategic-page .strategic-intro-copy {
+    max-width: 510px;
+}
+
+body.strategic-page .strategic-principles {
+    display: grid;
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    gap: 14px;
+    margin-top: 30px;
+}
+
+body.strategic-page .strategic-principle {
+    padding: 18px 14px;
+    border-top: 2px solid #bbd7f1;
+    background: #f4f5f9;
+    color: #252a3a;
+    font: 500 clamp(1.05rem,1.6vw,1.35rem)/1.25 "Barlow Condensed",sans-serif;
+    letter-spacing: .045em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+body.strategic-page .strategic-system-image {
+    margin: 0;
+    padding: clamp(10px,1.5vw,18px);
+    background: #f4f5f9;
+    border: 1px solid rgba(103,107,152,.18);
+}
+
+body.strategic-page .strategic-system-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+body.strategic-page .strategic-system-image figcaption,
+body.strategic-page .strategic-figure figcaption {
+    margin-top: 12px;
+    color: #62677a;
+    font-size: .86rem;
+    line-height: 1.55;
+}
+
+body.strategic-page .strategic-print-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: clamp(18px,2.5vw,34px);
+    align-items: start;
+}
+
+body.strategic-page .strategic-figure {
+    margin: 0;
+    padding: 18px;
+    background: #f4f5f9;
+    border: 1px solid rgba(103,107,152,.18);
+}
+
+body.strategic-page .strategic-figure img {
+    display: block;
+    width: 100%;
+    max-height: 680px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+body.strategic-page .strategic-figure figcaption {
+    color: #676b98;
+    font: 500 1.12rem/1.4 "Barlow Condensed",sans-serif;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+
+body.strategic-page .strategic-document-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: clamp(18px,2.5vw,30px);
+    margin-top: 28px;
+}
+
+body.strategic-page .strategic-document-card {
+    min-width: 0;
+    padding: clamp(18px,2.5vw,30px);
+    background: #f4f5f9;
+    border: 1px solid rgba(103,107,152,.2);
+}
+
+body.strategic-page .strategic-document-card h3 {
+    margin: 0 0 8px;
+    color: #676b98;
+    font: 500 clamp(1.25rem,2vw,1.65rem)/1.2 "Barlow Condensed",sans-serif;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+body.strategic-page .strategic-document-card > p {
+    margin: 0 0 18px;
+    font-size: .95rem;
+    line-height: 1.65;
+}
+
+body.strategic-page .strategic-document-card .project-image-block {
+    padding: 0;
+    margin: 0;
+    background: transparent;
+}
+
+body.strategic-page .strategic-document-card .project-image-block img {
+    width: 100%;
+    max-height: 660px;
+    object-fit: contain;
+    background: #fff;
+    border: 1px solid rgba(103,107,152,.16);
+}
+
+body.strategic-page .strategic-document-card .project-image-block p {
+    color: #62677a;
+    font-size: .84rem;
+    text-align: left;
+}
+
+body.strategic-page .strategic-website-panel .video-player {
+    width: 100%;
+    max-width: 1000px;
+    margin: 28px auto 0;
+    border: 1px solid rgba(103,107,152,.24);
+    background: #f4f5f9;
+    padding: 10px;
+}
+
+body.strategic-page .strategic-website-panel > p {
+    max-width: 760px;
+    margin: 20px auto 0;
+    text-align: center;
+}
+
+body.strategic-page .strategic-final-brochure {
+    display: grid;
+    grid-template-columns: minmax(0,.7fr) minmax(0,1.3fr);
+    align-items: center;
+    gap: clamp(24px,4vw,56px);
+}
+
+body.strategic-page .strategic-final-brochure .strategic-figure {
+    max-width: 620px;
+    width: 100%;
+    justify-self: end;
+}
+
+body.strategic-page .strategic-contact-panel {
+    text-align: center;
+}
+
+body.strategic-page .strategic-contact-panel h2::after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.strategic-page .strategic-contact-panel p {
+    margin-bottom: 24px;
+}
+
+body.strategic-page .strategic-contact-panel .enter-button {
+    background: #676b98;
+    border: 1px solid #676b98;
+    color: #fff;
+}
+
+body.strategic-page .strategic-contact-panel .enter-button:hover,
+body.strategic-page .strategic-contact-panel .enter-button:focus-visible {
+    background: #fff;
+    color: #676b98;
+}
+
+@media (max-width: 850px) {
+    body.strategic-page .project-details {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+
+    body.strategic-page .project-details .detail-box:nth-child(2) {
+        border-right: 0;
+    }
+
+    body.strategic-page .project-details .detail-box:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(103,107,152,.24);
+        padding-bottom: 22px;
+        margin-bottom: 14px;
+    }
+
+    body.strategic-page .strategic-intro-grid,
+    body.strategic-page .strategic-final-brochure {
+        grid-template-columns: 1fr;
+    }
+
+    body.strategic-page .strategic-final-brochure .strategic-figure {
+        justify-self: stretch;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    body.strategic-page .strategic-panel {
+        width: calc(100% - 28px);
+        margin: 34px auto;
+        padding: 22px 18px;
+    }
+
+    body.strategic-page .strategic-principles,
+    body.strategic-page .strategic-print-grid,
+    body.strategic-page .strategic-document-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.strategic-page .strategic-principles {
+        gap: 8px;
+    }
+
+    body.strategic-page .strategic-principle {
+        padding: 13px;
+    }
+
+    body.strategic-page .project-details {
+        padding: 18px 10px;
+    }
+
+    body.strategic-page .project-details .detail-box {
+        padding: 8px 10px;
+    }
+
+    body.strategic-page .strategic-figure,
+    body.strategic-page .strategic-document-card {
+        padding: 12px;
+    }
+}
+
+
+/* =========================================================
+   MONTRAPAC — OUTDOOR BRANDING REDESIGN
+   Page-specific styles only.
+   ========================================================= */
+
+body.montrapac-page {
+    --mp-ink: #171817;
+    --mp-charcoal: #242624;
+    --mp-paper: #f5f2eb;
+    --mp-white: #ffffff;
+    --mp-brown: #79563e;
+    --mp-red: #ed292e;
+    --mp-muted: #6c6b65;
+    color: var(--mp-ink);
+}
+
+body.montrapac-page .project-container {
+    position: relative;
+    z-index: 1;
+}
+
+body.montrapac-page .project-navigation {
+    margin-bottom: 28px;
+}
+
+body.montrapac-page .project-title h1 {
+    color: var(--mp-ink);
+}
+
+body.montrapac-page .project-title .title-break {
+    color: var(--mp-brown);
+}
+
+body.montrapac-page .project-year {
+    color: var(--mp-red);
+    letter-spacing: .16em;
+}
+
+body.montrapac-page .project-details {
+    width: min(1200px, calc(100% - 48px));
+    margin: 30px auto clamp(64px, 8vw, 110px);
+    padding: clamp(24px, 3vw, 38px);
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    background: rgba(245, 242, 235, .98);
+    border: 1px solid rgba(23, 24, 23, .15);
+    box-shadow: none;
+}
+
+body.montrapac-page .project-details .detail-box {
+    padding: 8px 20px;
+    text-align: center;
+    background: transparent;
+    border-right: 1px solid rgba(23, 24, 23, .17);
+}
+
+body.montrapac-page .project-details .detail-box:last-child {
+    border-right: 0;
+}
+
+body.montrapac-page .project-details .detail-box h3 {
+    color: var(--mp-brown);
+    letter-spacing: .13em;
+    font-size: .78rem;
+}
+
+body.montrapac-page .project-details .detail-box p {
+    color: var(--mp-ink);
+    font-size: .91rem;
+    line-height: 1.8;
+}
+
+body.montrapac-page .mp-panel {
+    width: min(1200px, calc(100% - 48px));
+    margin: clamp(52px, 7vw, 96px) auto;
+    padding: clamp(28px, 4.5vw, 64px);
+    background: rgba(245, 242, 235, .98);
+    border: 1px solid rgba(23, 24, 23, .13);
+    box-shadow: none;
+    position: relative;
+    isolation: isolate;
+}
+
+body.montrapac-page .mp-kicker {
+    display: block;
+    margin-bottom: 14px;
+    color: var(--mp-red);
+    font: 600 .76rem/1.5 "Jost", sans-serif;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+}
+
+body.montrapac-page .mp-panel h2,
+body.montrapac-page .mp-section-heading h2 {
+    margin: 0 0 24px;
+    color: var(--mp-ink);
+    font: 500 clamp(2.3rem, 4.6vw, 4.5rem)/.98 "Barlow Condensed", sans-serif;
+    letter-spacing: .015em;
+    text-transform: uppercase;
+}
+
+body.montrapac-page .mp-panel h2::after,
+body.montrapac-page .mp-section-heading h2::after {
+    content: "";
+    display: block;
+    width: 58px;
+    height: 3px;
+    margin-top: 20px;
+    background: var(--mp-red);
+}
+
+body.montrapac-page .mp-panel p,
+body.montrapac-page .mp-section-heading p {
+    color: #454640;
+    font-size: clamp(.98rem, 1.15vw, 1.08rem);
+    line-height: 1.85;
+}
+
+body.montrapac-page .mp-overview {
+    display: grid;
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+    align-items: center;
+    gap: clamp(30px, 5vw, 72px);
+    background: rgba(36, 38, 36, .98);
+    border-color: rgba(255, 255, 255, .13);
+}
+
+body.montrapac-page .mp-overview h2 {
+    color: var(--mp-white);
+}
+
+body.montrapac-page .mp-overview p {
+    color: #e5e3dc;
+}
+
+body.montrapac-page .mp-overview h2::after {
+    background: var(--mp-red);
+}
+
+body.montrapac-page .mp-overview .mp-kicker {
+    color: #ff5a5e;
+}
+
+body.montrapac-page .mp-values {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 30px;
+}
+
+body.montrapac-page .mp-values span {
+    padding: 14px 8px;
+    border-top: 2px solid var(--mp-red);
+    background: rgba(255, 255, 255, .06);
+    color: var(--mp-white);
+    font: 500 1.1rem/1.2 "Barlow Condensed", sans-serif;
+    letter-spacing: .08em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+body.montrapac-page .mp-image-frame {
+    min-width: 0;
+    margin: 0;
+    padding: clamp(10px, 1.4vw, 18px);
+    background: #fff;
+    border: 1px solid rgba(23, 24, 23, .14);
+}
+
+body.montrapac-page .mp-image-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+body.montrapac-page .mp-image-frame figcaption,
+body.montrapac-page .mp-editorial-image figcaption {
+    margin-top: 13px;
+    color: var(--mp-muted);
+    font-size: .84rem;
+    line-height: 1.6;
+}
+
+body.montrapac-page .mp-identity-grid {
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+    gap: clamp(24px, 4vw, 56px);
+    align-items: center;
+}
+
+body.montrapac-page .mp-identity-note h3 {
+    margin: 20px 0 12px;
+    color: var(--mp-ink);
+    font: 500 clamp(1.5rem, 2.4vw, 2rem)/1.1 "Barlow Condensed", sans-serif;
+    text-transform: uppercase;
+}
+
+body.montrapac-page .mp-red-rule {
+    display: block;
+    width: 46px;
+    height: 4px;
+    background: var(--mp-red);
+}
+
+body.montrapac-page .mp-palette {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+}
+
+body.montrapac-page .mp-swatch {
+    display: block;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(0, 0, 0, .18);
+    border-radius: 50%;
+}
+
+body.montrapac-page .mp-swatch-black { background: #171817; }
+body.montrapac-page .mp-swatch-white { background: #fff; }
+body.montrapac-page .mp-swatch-red { background: #ed292e; }
+body.montrapac-page .mp-swatch-leather { background: #79563e; }
+
+body.montrapac-page .mp-palette-label {
+    margin-top: 10px;
+    font-size: .82rem;
+    color: var(--mp-muted);
+}
+
+body.montrapac-page .mp-section-heading {
+    max-width: 790px;
+    margin-bottom: 34px;
+}
+
+body.montrapac-page .mp-video-frame {
+    padding: clamp(10px, 1.5vw, 18px);
+    background: #fff;
+    border: 1px solid rgba(23, 24, 23, .14);
+}
+
+body.montrapac-page .mp-video-frame .video-player {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+body.montrapac-page .mp-motion-footer {
+    display: grid;
+    grid-template-columns: 46px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    max-width: 850px;
+    margin: 28px auto 38px;
+}
+
+body.montrapac-page .mp-motion-footer .mp-red-rule {
+    margin-top: 12px;
+}
+
+body.montrapac-page .mp-motion-footer p {
+    margin: 0;
+}
+
+body.montrapac-page .mp-editorial-image {
+    width: min(760px, 100%);
+    margin: 0 auto;
+    padding: 14px;
+    background: #fff;
+    border: 1px solid rgba(23, 24, 23, .14);
+}
+
+body.montrapac-page .mp-editorial-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+body.montrapac-page .mp-gallery-section {
+    width: min(1200px, calc(100% - 48px));
+    margin: clamp(60px, 8vw, 110px) auto;
+}
+
+body.montrapac-page .mp-gallery-heading {
+    max-width: 800px;
+    margin-bottom: 36px;
+    padding: clamp(26px, 4vw, 48px);
+    background: rgba(245, 242, 235, .98);
+    border: 1px solid rgba(23, 24, 23, .13);
+}
+
+body.montrapac-page .mp-campaign-feature {
+    padding: clamp(12px, 1.8vw, 22px);
+    background: rgba(36, 38, 36, .98);
+    border: 1px solid rgba(255, 255, 255, .12);
+}
+
+body.montrapac-page .mp-campaign-feature img {
+    display: block;
+    width: 100%;
+    max-height: 780px;
+    object-fit: contain;
+    background: #fff;
+}
+
+body.montrapac-page .mp-campaign-caption {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 17px 4px 2px;
+    color: var(--mp-white);
+}
+
+body.montrapac-page .mp-campaign-caption span,
+body.montrapac-page .mp-campaign-card figcaption span {
+    color: var(--mp-red);
+    font: 700 1rem/1 "Jost", sans-serif;
+}
+
+body.montrapac-page .mp-campaign-caption p {
+    margin: 0;
+    color: #f5f2eb;
+    font-size: .92rem;
+}
+
+body.montrapac-page .mp-campaign-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(18px, 2.5vw, 30px);
+    margin-top: clamp(20px, 3vw, 36px);
+}
+
+body.montrapac-page .mp-campaign-card {
+    min-width: 0;
+    margin: 0;
+    padding: clamp(12px, 1.5vw, 18px);
+    background: rgba(245, 242, 235, .98);
+    border: 1px solid rgba(23, 24, 23, .13);
+}
+
+body.montrapac-page .mp-campaign-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 560px;
+    object-fit: contain;
+    background: #fff;
+}
+
+body.montrapac-page .mp-campaign-card figcaption {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 14px;
+    color: var(--mp-ink);
+    font: 500 1.15rem/1.3 "Barlow Condensed", sans-serif;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+
+body.montrapac-page .mp-contact {
+    position: relative;
+    z-index: 1;
+    padding: 32px 20px;
+    background: rgba(36, 38, 36, .98);
+    border-top: 3px solid var(--mp-red);
+}
+
+body.montrapac-page .mp-contact p {
+    color: #fff;
+}
+
+body.montrapac-page .mp-contact .enter-button {
+    background: var(--mp-red);
+    border: 1px solid var(--mp-red);
+    color: #fff;
+}
+
+body.montrapac-page .mp-contact .enter-button:hover,
+body.montrapac-page .mp-contact .enter-button:focus-visible {
+    background: #fff;
+    border-color: #fff;
+    color: var(--mp-ink);
+}
+
+@media (max-width: 850px) {
+    body.montrapac-page .project-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body.montrapac-page .project-details .detail-box:nth-child(2) {
+        border-right: 0;
+    }
+
+    body.montrapac-page .project-details .detail-box:nth-child(-n+2) {
+        padding-bottom: 22px;
+        margin-bottom: 14px;
+        border-bottom: 1px solid rgba(23, 24, 23, .17);
+    }
+
+    body.montrapac-page .mp-overview,
+    body.montrapac-page .mp-identity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.montrapac-page .mp-identity-image {
+        max-width: 760px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    body.montrapac-page .mp-panel,
+    body.montrapac-page .mp-gallery-section {
+        width: calc(100% - 28px);
+    }
+
+    body.montrapac-page .mp-panel {
+        margin: 34px auto;
+        padding: 22px 18px;
+    }
+
+    body.montrapac-page .project-details {
+        width: calc(100% - 28px);
+        padding: 18px 10px;
+    }
+
+    body.montrapac-page .project-details .detail-box {
+        padding: 8px 10px;
+    }
+
+    body.montrapac-page .mp-campaign-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.montrapac-page .mp-values {
+        gap: 6px;
+    }
+
+    body.montrapac-page .mp-values span {
+        padding: 12px 4px;
+        font-size: 1rem;
+    }
+
+    body.montrapac-page .mp-swatch {
+        width: 36px;
+        height: 36px;
+    }
+
+    body.montrapac-page .mp-motion-footer {
+        grid-template-columns: 28px minmax(0, 1fr);
+        gap: 12px;
+    }
+}
+
+
+/* =========================================================
+   HORSEHAIR — DARK FANTASY / ALTERNATIVE BEAUTY
+   Scoped to HorseHair only.
+   ========================================================= */
+
+body.horsehair-page {
+    --hh-black: #0c0b10;
+    --hh-panel: #17141b;
+    --hh-panel-light: #211a22;
+    --hh-orange: #ff6a1a;
+    --hh-yellow: #ffe45c;
+    --hh-teal: #20d5c5;
+    --hh-white: #f8f3ed;
+    --hh-muted: #b8adb8;
+    color: var(--hh-white);
+}
+
+body.horsehair-page .project-container {
+    position: relative;
+    z-index: 1;
+}
+
+body.horsehair-page .project-title h1 {
+    color: var(--hh-yellow);
+}
+
+body.horsehair-page .project-title .title-break {
+    color: var(--hh-orange);
+}
+
+body.horsehair-page .project-year {
+    color: var(--hh-orange);
+    letter-spacing: .17em;
+}
+
+body.horsehair-page .project-details {
+    width: min(1200px, calc(100% - 48px));
+    margin: 30px auto clamp(60px, 8vw, 100px);
+    padding: clamp(22px, 3vw, 36px);
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    background: rgba(23, 20, 27, .98);
+    border: 1px solid rgba(255, 106, 26, .34);
+    box-shadow: none;
+}
+
+body.horsehair-page .project-details .detail-box {
+    padding: 8px 18px;
+    text-align: center;
+    background: transparent;
+    border-right: 1px solid rgba(255, 228, 92, .18);
+}
+
+body.horsehair-page .project-details .detail-box:last-child {
+    border-right: 0;
+}
+
+body.horsehair-page .project-details .detail-box h3 {
+    color: var(--hh-yellow);
+    letter-spacing: .13em;
+    font-size: .78rem;
+}
+
+body.horsehair-page .project-details .detail-box p {
+    color: var(--hh-white);
+    font-size: .9rem;
+    line-height: 1.8;
+}
+
+/* HERO */
+
+body.horsehair-page .hh-hero {
+    width: min(1200px, calc(100% - 48px));
+    min-height: 390px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background: var(--hh-black);
+    border: 1px solid rgba(255, 106, 26, .35);
+    isolation: isolate;
+}
+
+body.horsehair-page .hh-hero > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -2;
+}
+
+body.horsehair-page .hh-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(
+        90deg,
+        rgba(12, 11, 16, .97) 0%,
+        rgba(12, 11, 16, .86) 36%,
+        rgba(12, 11, 16, .28) 74%,
+        rgba(12, 11, 16, .08) 100%
+    );
+}
+
+body.horsehair-page .hh-hero-overlay {
+    width: min(560px, 68%);
+    padding: clamp(28px, 5vw, 68px);
+}
+
+body.horsehair-page .hh-eyebrow {
+    display: block;
+    margin-bottom: 18px;
+    color: var(--hh-teal);
+    font: 600 .76rem/1.5 "Jost", sans-serif;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+body.horsehair-page .hh-hero-overlay h2 {
+    margin: 0;
+    color: var(--hh-yellow);
+    font: 900 clamp(3rem, 7vw, 6.8rem)/.82 "Barlow Condensed", sans-serif;
+    letter-spacing: -.015em;
+    text-transform: uppercase;
+}
+
+body.horsehair-page .hh-hero-overlay h2 span {
+    color: var(--hh-orange);
+}
+
+body.horsehair-page .hh-hero-overlay p {
+    margin: 25px 0 0;
+    color: var(--hh-white);
+    font: 500 clamp(1rem, 1.6vw, 1.3rem)/1.5 "Jost", sans-serif;
+}
+
+/* PANELS AND HEADINGS */
+
+body.horsehair-page .hh-panel {
+    width: min(1200px, calc(100% - 48px));
+    margin: clamp(50px, 7vw, 90px) auto;
+    padding: clamp(28px, 4.5vw, 62px);
+    position: relative;
+    isolation: isolate;
+    background: rgba(23, 20, 27, .98);
+    border: 1px solid rgba(255, 106, 26, .25);
+    box-shadow: none;
+}
+
+body.horsehair-page .hh-kicker {
+    display: block;
+    margin-bottom: 14px;
+    color: var(--hh-teal);
+    font: 600 .75rem/1.5 "Jost", sans-serif;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+body.horsehair-page .hh-panel h2,
+body.horsehair-page .hh-section-heading h2 {
+    margin: 0 0 24px;
+    color: var(--hh-yellow);
+    font: 700 clamp(2.5rem, 5vw, 4.8rem)/.93 "Barlow Condensed", sans-serif;
+    letter-spacing: -.01em;
+    text-transform: uppercase;
+}
+
+body.horsehair-page .hh-panel h2::after,
+body.horsehair-page .hh-section-heading h2::after {
+    content: "";
+    display: block;
+    width: 58px;
+    height: 4px;
+    margin-top: 20px;
+    background: var(--hh-orange);
+}
+
+body.horsehair-page .hh-panel p,
+body.horsehair-page .hh-section-heading p {
+    color: #d5cbd5;
+    font-size: clamp(.97rem, 1.12vw, 1.08rem);
+    line-height: 1.8;
+}
+
+body.horsehair-page .hh-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+    gap: clamp(28px, 5vw, 70px);
+    align-items: center;
+    background: rgba(12, 11, 16, .98);
+}
+
+body.horsehair-page .hh-intro-copy {
+    max-width: 570px;
+}
+
+body.horsehair-page .hh-intro .hh-kicker {
+    color: var(--hh-orange);
+}
+
+body.horsehair-page .hh-manifesto {
+    margin-top: 30px;
+    padding-left: 18px;
+    border-left: 4px solid var(--hh-teal);
+    color: var(--hh-orange);
+    font: 900 clamp(2rem, 4vw, 3.7rem)/.88 "Barlow Condensed", sans-serif;
+    letter-spacing: .025em;
+}
+
+body.horsehair-page .hh-mascot,
+body.horsehair-page .hh-moodboard,
+body.horsehair-page .hh-product-feature,
+body.horsehair-page .hh-product-line,
+body.horsehair-page .hh-guidelines {
+    min-width: 0;
+    margin: 0;
+    padding: 14px;
+    background: var(--hh-panel-light);
+    border: 1px solid rgba(32, 213, 197, .22);
+}
+
+body.horsehair-page .hh-mascot img,
+body.horsehair-page .hh-moodboard img,
+body.horsehair-page .hh-product-feature img,
+body.horsehair-page .hh-product-line img,
+body.horsehair-page .hh-guidelines img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+body.horsehair-page .hh-mascot figcaption,
+body.horsehair-page .hh-moodboard figcaption,
+body.horsehair-page .hh-product-feature figcaption,
+body.horsehair-page .hh-product-line figcaption,
+body.horsehair-page .hh-guidelines figcaption {
+    margin-top: 13px;
+    color: var(--hh-teal);
+    font: 500 1.08rem/1.4 "Barlow Condensed", sans-serif;
+    letter-spacing: .055em;
+    text-transform: uppercase;
+}
+
+/* IDENTITY */
+
+body.horsehair-page .hh-section-heading {
+    max-width: 780px;
+    margin-bottom: 34px;
+}
+
+body.horsehair-page .hh-identity-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+    gap: clamp(24px, 4vw, 54px);
+    align-items: center;
+}
+
+body.horsehair-page .hh-identity-copy h3 {
+    margin: 20px 0 12px;
+    color: var(--hh-orange);
+    font: 700 clamp(1.6rem, 2.5vw, 2.3rem)/1.05 "Barlow Condensed", sans-serif;
+    text-transform: uppercase;
+}
+
+body.horsehair-page .hh-orange-line {
+    display: block;
+    width: 46px;
+    height: 4px;
+    background: var(--hh-orange);
+}
+
+body.horsehair-page .hh-palette {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+body.horsehair-page .hh-swatch {
+    display: block;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, .35);
+    border-radius: 50%;
+}
+
+body.horsehair-page .hh-black { background: #0c0b10; }
+body.horsehair-page .hh-orange { background: #ff6a1a; }
+body.horsehair-page .hh-yellow { background: #ffe45c; }
+body.horsehair-page .hh-teal { background: #20d5c5; }
+
+body.horsehair-page .hh-palette-caption {
+    margin-top: 10px;
+    color: var(--hh-muted);
+    font-size: .82rem !important;
+}
+
+body.horsehair-page .hh-guidelines {
+    width: min(900px, 100%);
+    margin: clamp(28px, 4vw, 48px) auto 0;
+}
+
+/* PRODUCT LINE */
+
+body.horsehair-page .hh-products {
+    background: rgba(12, 11, 16, .98);
+}
+
+body.horsehair-page .hh-product-grid {
+    display: grid;
+    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+    align-items: start;
+    gap: clamp(18px, 3vw, 34px);
+}
+
+body.horsehair-page .hh-product-feature img {
+    max-height: 700px;
+}
+
+body.horsehair-page .hh-product-line img {
+    max-height: 620px;
+}
+
+/* ADVERTISING CAMPAIGN */
+
+body.horsehair-page .hh-campaign-section {
+    width: min(1200px, calc(100% - 48px));
+    margin: clamp(60px, 8vw, 110px) auto;
+}
+
+body.horsehair-page .hh-campaign-section > .hh-section-heading {
+    width: min(850px, 100%);
+    padding: clamp(26px, 4vw, 48px);
+    background: rgba(23, 20, 27, .98);
+    border: 1px solid rgba(255, 106, 26, .25);
+}
+
+body.horsehair-page .hh-ad-feature {
+    padding: clamp(12px, 1.7vw, 20px);
+    background: rgba(23, 20, 27, .98);
+    border: 1px solid rgba(32, 213, 197, .2);
+}
+
+body.horsehair-page .hh-ad-feature > img {
+    display: block;
+    width: 100%;
+    max-height: 780px;
+    object-fit: contain;
+    background: var(--hh-black);
+}
+
+body.horsehair-page .hh-ad-label {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 17px 4px 2px;
+}
+
+body.horsehair-page .hh-ad-label span,
+body.horsehair-page .hh-ad-card figcaption > span {
+    color: var(--hh-orange);
+    font: 700 .95rem/1 "Jost", sans-serif;
+    letter-spacing: .1em;
+}
+
+body.horsehair-page .hh-ad-label p {
+    margin: 0;
+    color: var(--hh-white);
+    font-size: .9rem;
+}
+
+body.horsehair-page .hh-ad-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(18px, 2.5vw, 30px);
+    margin-top: clamp(20px, 3vw, 34px);
+}
+
+body.horsehair-page .hh-ad-card {
+    min-width: 0;
+    margin: 0;
+    padding: clamp(12px, 1.5vw, 18px);
+    background: rgba(23, 20, 27, .98);
+    border: 1px solid rgba(255, 106, 26, .24);
+}
+
+body.horsehair-page .hh-ad-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 680px;
+    object-fit: contain;
+    background: var(--hh-black);
+}
+
+body.horsehair-page .hh-ad-card figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-top: 17px;
+}
+
+body.horsehair-page .hh-ad-card figcaption strong {
+    color: var(--hh-yellow);
+    font: 600 clamp(1.4rem, 2.4vw, 2rem)/1.1 "Barlow Condensed", sans-serif;
+    text-transform: uppercase;
+}
+
+/* CONTACT */
+
+body.horsehair-page .hh-contact {
+    position: relative;
+    z-index: 1;
+    padding: 34px 20px;
+    background: rgba(12, 11, 16, .98);
+    border-top: 3px solid var(--hh-orange);
+}
+
+body.horsehair-page .hh-contact p {
+    color: var(--hh-yellow);
+}
+
+body.horsehair-page .hh-contact .enter-button {
+    background: var(--hh-orange);
+    border: 1px solid var(--hh-orange);
+    color: var(--hh-black);
+}
+
+body.horsehair-page .hh-contact .enter-button:hover,
+body.horsehair-page .hh-contact .enter-button:focus-visible {
+    background: var(--hh-teal);
+    border-color: var(--hh-teal);
+    color: var(--hh-black);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+    body.horsehair-page .project-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body.horsehair-page .project-details .detail-box:nth-child(2) {
+        border-right: 0;
+    }
+
+    body.horsehair-page .project-details .detail-box:nth-child(-n+2) {
+        padding-bottom: 22px;
+        margin-bottom: 14px;
+        border-bottom: 1px solid rgba(255, 228, 92, .18);
+    }
+
+    body.horsehair-page .hh-intro,
+    body.horsehair-page .hh-identity-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.horsehair-page .hh-mascot {
+        width: min(650px, 100%);
+        margin: 0 auto;
+    }
+
+    body.horsehair-page .hh-hero {
+        min-height: 340px;
+    }
+
+    body.horsehair-page .hh-hero-overlay {
+        width: 75%;
+    }
+}
+
+@media (max-width: 600px) {
+    body.horsehair-page .hh-hero,
+    body.horsehair-page .hh-panel,
+    body.horsehair-page .hh-campaign-section {
+        width: calc(100% - 28px);
+    }
+
+    body.horsehair-page .hh-hero {
+        min-height: 330px;
+    }
+
+    body.horsehair-page .hh-hero-overlay {
+        width: 100%;
+        padding: 25px 20px;
+    }
+
+    body.horsehair-page .hh-hero::after {
+        background: rgba(12, 11, 16, .72);
+    }
+
+    body.horsehair-page .hh-panel {
+        margin: 34px auto;
+        padding: 22px 18px;
+    }
+
+    body.horsehair-page .project-details {
+        width: calc(100% - 28px);
+        padding: 18px 10px;
+    }
+
+    body.horsehair-page .project-details .detail-box {
+        padding: 8px 10px;
+    }
+
+    body.horsehair-page .hh-product-grid,
+    body.horsehair-page .hh-ad-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.horsehair-page .hh-campaign-section > .hh-section-heading {
+        padding: 22px 18px;
+    }
+
+    body.horsehair-page .hh-swatch {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* =========================================================
+   DRIFTWOOD OUTDOOR GEAR
+   Scoped styles — do not remove shared branding rules
+========================================================= */
+
+body.driftwood-page {
+    --drift-forest: #203d2c;
+    --drift-green: #426847;
+    --drift-moss: #82966b;
+    --drift-brown: #73553c;
+    --drift-earth: #b49a78;
+    --drift-paper: #f0ede3;
+    --drift-ink: #20281f;
+    --drift-muted: #c4cbbd;
+    --drift-line: rgba(131, 153, 112, 0.45);
+    color: var(--drift-paper);
+    background: #101711;
+}
+
+body.driftwood-page .project-container {
+    position: relative;
+    z-index: 1;
+    width: min(1440px, 100%);
+    margin: 0 auto;
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+
+body.driftwood-page .project-navigation {
+    padding-top: 52px;
+    padding-bottom: 26px;
+    align-items: center;
+}
+
+body.driftwood-page .project-title h1 {
+    color: var(--drift-paper);
+    text-align: center;
+    letter-spacing: 0.02em;
+}
+
+body.driftwood-page .project-title .title-break {
+    display: block;
+    margin-top: 10px;
+    color: var(--drift-moss);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.42em;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+body.driftwood-page .project-year {
+    margin: 20px auto 36px;
+    color: var(--drift-moss);
+    text-align: center;
+    letter-spacing: 0.24em;
+}
+
+body.driftwood-page .project-details {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    margin: 0 0 105px;
+    padding: 28px 0;
+    border-top: 1px solid var(--drift-line);
+    border-bottom: 1px solid var(--drift-line);
+    background: rgba(19, 29, 21, 0.97);
+}
+
+body.driftwood-page .project-details .detail-box {
+    padding: 8px 24px;
+    text-align: center;
+    border-right: 1px solid var(--drift-line);
+}
+
+body.driftwood-page .project-details .detail-box:last-child {
+    border-right: 0;
+}
+
+body.driftwood-page .project-details .detail-box h3 {
+    margin: 0 0 15px;
+    color: var(--drift-moss);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+body.driftwood-page .project-details .detail-box p {
+    margin: 0;
+    color: var(--drift-paper);
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* General section styling */
+
+body.driftwood-page .driftwood-section-label {
+    margin-bottom: 28px;
+    color: var(--drift-moss);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+body.driftwood-page .driftwood-intro,
+body.driftwood-page .driftwood-identity,
+body.driftwood-page .driftwood-guidelines,
+body.driftwood-page .driftwood-campaign,
+body.driftwood-page .driftwood-digital,
+body.driftwood-page .driftwood-products {
+    margin: 0 0 115px;
+}
+
+body.driftwood-page .driftwood-intro h2,
+body.driftwood-page .driftwood-identity h2,
+body.driftwood-page .driftwood-guidelines h2,
+body.driftwood-page .driftwood-digital h2,
+body.driftwood-page .driftwood-products h2 {
+    margin: 0;
+    color: var(--drift-paper);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(42px, 5.5vw, 76px);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+}
+
+body.driftwood-page .driftwood-intro p,
+body.driftwood-page .driftwood-identity p,
+body.driftwood-page .driftwood-guidelines p,
+body.driftwood-page .driftwood-digital p,
+body.driftwood-page .driftwood-products p,
+body.driftwood-page .driftwood-motion p {
+    color: var(--drift-muted);
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+/* Hero */
+
+body.driftwood-page .driftwood-hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--drift-forest);
+}
+
+body.driftwood-page .driftwood-hero > img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+body.driftwood-page .driftwood-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        90deg,
+        rgba(16, 35, 23, 0.82) 0%,
+        rgba(16, 35, 23, 0.46) 42%,
+        rgba(16, 35, 23, 0.03) 78%
+    );
+}
+
+body.driftwood-page .driftwood-hero-overlay {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 7%;
+    width: min(43%, 500px);
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+body.driftwood-page .driftwood-eyebrow {
+    display: block;
+    margin-bottom: 22px;
+    color: #d4dfbd;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(11px, 1.2vw, 16px);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+}
+
+body.driftwood-page .driftwood-hero-overlay h2 {
+    margin: 0;
+    color: #f5f1e6;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(44px, 7.5vw, 104px);
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+}
+
+body.driftwood-page .driftwood-hero-overlay p {
+    margin: 25px 0 0;
+    color: #f5f1e6;
+    font-family: 'Jost', sans-serif;
+    font-size: clamp(13px, 1.3vw, 18px);
+    letter-spacing: 0.04em;
+}
+
+/* Overview */
+
+body.driftwood-page .driftwood-intro {
+    padding: 60px 5%;
+    background: rgba(23, 34, 24, 0.98);
+    border-top: 1px solid var(--drift-line);
+    border-bottom: 1px solid var(--drift-line);
+}
+
+body.driftwood-page .driftwood-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    gap: 10%;
+    align-items: start;
+}
+
+body.driftwood-page .driftwood-intro-copy {
+    max-width: 540px;
+}
+
+body.driftwood-page .driftwood-intro-copy p:first-child {
+    margin-top: 0;
+    color: #e0e6d4;
+    font-size: 22px;
+    line-height: 1.55;
+}
+
+body.driftwood-page .driftwood-value-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid var(--drift-line);
+}
+
+body.driftwood-page .driftwood-value-row > div {
+    padding-right: 18px;
+}
+
+body.driftwood-page .driftwood-value-row span {
+    color: var(--drift-moss);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+}
+
+body.driftwood-page .driftwood-value-row h3 {
+    margin: 10px 0 5px;
+    color: var(--drift-paper);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 27px;
+    letter-spacing: 0.1em;
+}
+
+body.driftwood-page .driftwood-value-row p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Identity */
+
+body.driftwood-page .driftwood-identity-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 7%;
+    align-items: center;
+}
+
+body.driftwood-page .driftwood-identity-copy h2 {
+    margin-bottom: 25px;
+}
+
+body.driftwood-page .driftwood-identity-copy p {
+    max-width: 470px;
+}
+
+body.driftwood-page .driftwood-identity-image img,
+body.driftwood-page .driftwood-guideline-image img,
+body.driftwood-page .driftwood-boots-image img,
+body.driftwood-page .driftwood-social-item img,
+body.driftwood-page .driftwood-product-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+body.driftwood-page .driftwood-identity-image p,
+body.driftwood-page .driftwood-guideline-image p,
+body.driftwood-page .driftwood-boots-image p,
+body.driftwood-page .driftwood-social-item p,
+body.driftwood-page .driftwood-product-card p {
+    margin: 12px 0 0;
+    color: var(--drift-moss);
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+}
+
+/* Guidelines */
+
+body.driftwood-page .driftwood-guidelines {
+    padding: 65px 5%;
+    background: rgba(24, 35, 25, 0.98);
+    border-top: 1px solid var(--drift-line);
+    border-bottom: 1px solid var(--drift-line);
+}
+
+body.driftwood-page .driftwood-guidelines > h2 {
+    max-width: 700px;
+}
+
+body.driftwood-page .driftwood-guidelines-intro {
+    max-width: 590px;
+    margin: 20px 0 42px;
+}
+
+body.driftwood-page .driftwood-guidelines-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    align-items: start;
+}
+
+body.driftwood-page .driftwood-guideline-image {
+    padding: 14px;
+    background: rgba(10, 18, 12, 0.92);
+    border: 1px solid var(--drift-line);
+}
+
+body.driftwood-page .driftwood-guideline-image p {
+    margin: 14px 4px 4px;
+}
+
+/* Campaign slogan */
+
+body.driftwood-page .driftwood-campaign-panel {
+    position: relative;
+    padding: clamp(32px, 6vw, 80px);
+    overflow: hidden;
+    color: var(--drift-ink);
+    background: var(--drift-paper);
+}
+
+body.driftwood-page .driftwood-campaign-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.22;
+    background-image:
+        repeating-radial-gradient(
+            ellipse at 90% 10%,
+            transparent 0,
+            transparent 27px,
+            rgba(66, 104, 71, 0.3) 28px,
+            transparent 30px
+        );
+}
+
+body.driftwood-page .driftwood-campaign-kicker,
+body.driftwood-page .driftwood-campaign-bottom {
+    position: relative;
+    z-index: 1;
+    color: var(--drift-green);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+}
+
+body.driftwood-page .driftwood-campaign-panel h2 {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    margin: 35px 0 50px;
+    color: var(--drift-forest);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(32px, 5.3vw, 72px);
+    font-weight: 700;
+    line-height: 1.05;
+}
+
+body.driftwood-page .driftwood-campaign-panel h2 span {
+    display: block;
+    color: var(--drift-green);
+    font-weight: 400;
+    font-style: italic;
+}
+
+body.driftwood-page .driftwood-campaign-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(32, 61, 44, 0.35);
+}
+
+body.driftwood-page .driftwood-boots-image {
+    width: 78%;
+    margin: 35px auto 0;
+}
+
+/* Digital campaign */
+
+body.driftwood-page .driftwood-digital-heading {
+    display: grid;
+    grid-template-columns: 1fr 0.7fr;
+    gap: 8%;
+    align-items: end;
+    margin-bottom: 40px;
+}
+
+body.driftwood-page .driftwood-digital-heading p {
+    max-width: 460px;
+    margin: 0 0 4px;
+}
+
+body.driftwood-page .driftwood-social-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    align-items: start;
+}
+
+body.driftwood-page .driftwood-social-item {
+    min-width: 0;
+}
+
+body.driftwood-page .driftwood-motion {
+    display: grid;
+    grid-template-columns: 0.7fr 1.3fr;
+    gap: 7%;
+    align-items: center;
+    margin-top: 65px;
+    padding: 38px;
+    background: rgba(23, 34, 24, 0.98);
+    border: 1px solid var(--drift-line);
+}
+
+body.driftwood-page .driftwood-motion-label {
+    color: var(--drift-moss);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.17em;
+}
+
+body.driftwood-page .driftwood-motion-copy h3 {
+    margin: 18px 0;
+    color: var(--drift-paper);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1;
+}
+
+body.driftwood-page .driftwood-motion-video video {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 640px;
+    object-fit: contain;
+    background: #101711;
+}
+
+/* Product applications */
+
+body.driftwood-page .driftwood-products {
+    padding-top: 10px;
+}
+
+body.driftwood-page .driftwood-products > h2 {
+    max-width: 760px;
+    margin-bottom: 40px;
+}
+
+body.driftwood-page .driftwood-product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+}
+
+body.driftwood-page .driftwood-product-card {
+    min-width: 0;
+}
+
+body.driftwood-page .driftwood-product-card:nth-child(2) {
+    margin-top: 48px;
+}
+
+body.driftwood-page .driftwood-product-card:nth-child(3) {
+    margin-top: 90px;
+}
+
+/* Contact */
+
+body.driftwood-page .driftwood-contact {
+    margin-top: 50px;
+    padding: 55px 20px;
+    background: rgba(23, 34, 24, 0.98);
+    border-top: 1px solid var(--drift-line);
+}
+
+body.driftwood-page .driftwood-contact p {
+    color: var(--drift-paper);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(26px, 4vw, 42px);
+    letter-spacing: 0.02em;
+}
+
+body.driftwood-page .driftwood-contact .enter-button {
+    background: var(--drift-green);
+    border: 1px solid var(--drift-moss);
+    color: #fff;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+body.driftwood-page .driftwood-contact .enter-button:hover {
+    background: var(--drift-paper);
+    color: var(--drift-forest);
+}
+
+/* Keep image captions and panels above the dust canvas */
+
+body.driftwood-page .project-details,
+body.driftwood-page .driftwood-intro,
+body.driftwood-page .driftwood-guidelines,
+body.driftwood-page .driftwood-campaign-panel,
+body.driftwood-page .driftwood-motion,
+body.driftwood-page .driftwood-contact {
+    position: relative;
+    z-index: 1;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+    body.driftwood-page .project-container {
+        padding-right: 4%;
+        padding-left: 4%;
+    }
+
+    body.driftwood-page .project-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 24px;
+    }
+
+    body.driftwood-page .project-details .detail-box:nth-child(2) {
+        border-right: 0;
+    }
+
+    body.driftwood-page .project-details .detail-box:nth-child(1),
+    body.driftwood-page .project-details .detail-box:nth-child(2) {
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--drift-line);
+    }
+
+    body.driftwood-page .driftwood-intro-grid,
+    body.driftwood-page .driftwood-identity-grid,
+    body.driftwood-page .driftwood-digital-heading {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    body.driftwood-page .driftwood-identity-grid {
+        gap: 35px;
+    }
+
+    body.driftwood-page .driftwood-motion {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    body.driftwood-page .driftwood-boots-image {
+        width: 90%;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    body.driftwood-page .project-navigation {
+        padding-top: 35px;
+        padding-bottom: 20px;
+    }
+
+    body.driftwood-page .project-details {
+        grid-template-columns: 1fr;
+        margin-bottom: 65px;
+    }
+
+    body.driftwood-page .project-details .detail-box {
+        padding: 20px 10px;
+        border-right: 0;
+        border-bottom: 1px solid var(--drift-line);
+    }
+
+    body.driftwood-page .project-details .detail-box:last-child {
+        border-bottom: 0;
+    }
+
+    body.driftwood-page .project-details .detail-box:nth-child(2) {
+        border-bottom: 1px solid var(--drift-line);
+    }
+
+    body.driftwood-page .driftwood-hero-overlay {
+        left: 5%;
+        width: 65%;
+    }
+
+    body.driftwood-page .driftwood-hero-overlay h2 {
+        font-size: clamp(34px, 10vw, 56px);
+    }
+
+    body.driftwood-page .driftwood-eyebrow {
+        margin-bottom: 10px;
+        font-size: 9px;
+    }
+
+    body.driftwood-page .driftwood-hero-overlay p {
+        margin-top: 12px;
+        font-size: 11px;
+    }
+
+    body.driftwood-page .driftwood-intro,
+    body.driftwood-page .driftwood-guidelines {
+        padding: 35px 6%;
+    }
+
+    body.driftwood-page .driftwood-intro,
+    body.driftwood-page .driftwood-identity,
+    body.driftwood-page .driftwood-guidelines,
+    body.driftwood-page .driftwood-campaign,
+    body.driftwood-page .driftwood-digital,
+    body.driftwood-page .driftwood-products {
+        margin-bottom: 70px;
+    }
+
+    body.driftwood-page .driftwood-value-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 35px;
+    }
+
+    body.driftwood-page .driftwood-value-row > div {
+        padding-bottom: 18px;
+        border-bottom: 1px solid var(--drift-line);
+    }
+
+    body.driftwood-page .driftwood-guidelines-grid,
+    body.driftwood-page .driftwood-social-grid,
+    body.driftwood-page .driftwood-product-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    body.driftwood-page .driftwood-product-card:nth-child(2),
+    body.driftwood-page .driftwood-product-card:nth-child(3) {
+        margin-top: 0;
+    }
+
+    body.driftwood-page .driftwood-campaign-panel {
+        padding: 30px 24px;
+    }
+
+    body.driftwood-page .driftwood-campaign-panel h2 {
+        margin: 25px 0 35px;
+        font-size: clamp(32px, 9vw, 48px);
+    }
+
+    body.driftwood-page .driftwood-campaign-bottom {
+        flex-direction: column;
+        gap: 10px;
+        font-size: 11px;
+    }
+
+    body.driftwood-page .driftwood-boots-image {
+        width: 100%;
+    }
+
+    body.driftwood-page .driftwood-motion {
+        padding: 24px 18px;
+    }
+
+    body.driftwood-page .driftwood-contact {
+        padding: 35px 15px;
+    }
+}
