@@ -5252,3 +5252,54 @@ body.montrapac-page .page-contact-link .enter-button:hover {
         margin-right: 14px;
     }
 }
+
+/* =========================================================
+   STRATEGIC ESTATE PLANNING — REMOVE WHITE BOXES
+   Paste at the VERY BOTTOM of branding-project.css
+   ========================================================= */
+
+/* Main content panels */
+body.strategic-page .strategic-panel,
+body.strategic-page .strategic-intro-grid,
+body.strategic-page .strategic-principles,
+body.strategic-page .strategic-principle,
+body.strategic-page .strategic-document-card,
+body.strategic-page .strategic-final-brochure,
+body.strategic-page .strategic-website-panel,
+body.strategic-page .strategic-system-image,
+body.strategic-page .strategic-document-grid {
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Remove white backgrounds from nested elements */
+body.strategic-page .strategic-panel *,
+body.strategic-page .strategic-document-card *,
+body.strategic-page .strategic-final-brochure * {
+    box-shadow: none;
+}
+
+/* Keep text readable against the dark page background */
+body.strategic-page .strategic-panel,
+body.strategic-page .strategic-principle,
+body.strategic-page .strategic-document-card,
+body.strategic-page .strategic-final-brochure,
+body.strategic-page .strategic-website-panel {
+    color: #E8EAF0;
+}
+
+/* Prevent white backgrounds on common content wrappers */
+body.strategic-page .strategic-intro-grid,
+body.strategic-page .strategic-principles,
+body.strategic-page .strategic-document-grid,
+body.strategic-page .strategic-document-card,
+body.strategic-page .strategic-final-brochure,
+body.strategic-page .strategic-website-panel {
+    border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* Keep images at their existing sizes */
+body.strategic-page .project-image-block img,
+body.strategic-page .strategic-system-image img {
+    height: auto;
+}
