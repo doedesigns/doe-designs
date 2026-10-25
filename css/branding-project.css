@@ -153,56 +153,33 @@ PROJECT HEADER TITLE + ARROWS
 
 /* =========================================================
    PROJECT ARROWS
-   Shared styling is maintained in main.css.
+   Use the shared arrow styling from main.css.
    ========================================================= */
 
-/* Keep the existing arrow dimensions consistent. */
 body.project-page .project-arrow {
     width: 55px;
     height: 55px;
     display: flex;
+    flex: 0 0 55px;
     justify-content: center;
     align-items: center;
     text-decoration: none;
 }
 
 body.project-page .arrow-circle {
-    position: relative;
     width: 42px;
     height: 42px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     transform: translateY(-2px);
-    transition: .35s ease;
 }
 
-/* Use the shared cyan hover circle and clockwise animation. */
-body.project-page .arrow-circle::before {
-    inset: -8px;
-}
-
+/* Keep the hover circle cyan and rotate clockwise for both arrows. */
 body.project-page .project-arrow:hover .arrow-circle::before,
 body.project-page .project-arrow:focus-visible .arrow-circle::before {
     opacity: 1;
     animation: arrowSpinRight 5s linear infinite;
 }
 
-/* Keep arrowheads white until hover or keyboard focus. */
-body.project-page .project-arrow.prev .arrow-triangle {
-    border-top: 9px solid transparent;
-    border-bottom: 9px solid transparent;
-    border-right: 14px solid #FFFFFF;
-    border-left: 0;
-}
-
-body.project-page .project-arrow.next .arrow-triangle {
-    border-top: 9px solid transparent;
-    border-bottom: 9px solid transparent;
-    border-left: 14px solid #FFFFFF;
-    border-right: 0;
-}
-
+/* Keep both arrowheads white normally and cyan on hover or focus. */
 body.project-page .project-arrow:hover .arrow-triangle,
 body.project-page .project-arrow:focus-visible .arrow-triangle {
     border-left-color: #00E5FF;
@@ -941,7 +918,6 @@ body.barking-page .enter-button:focus-visible {
         transition: none !important;
     }
 }
-
 
 /* =========================================================
    BARKING DOG — STORYBOOK PROTOTYPE FEATURE
@@ -4170,6 +4146,48 @@ body.strategic-page .detail-box h3 {
 body.strategic-page .detail-box p,
 body.strategic-page .detail-box li {
     color: #E2E4E8;
+}
+
+
+/* =========================================================
+   DRIFTWOOD — CAPTION AND DIGITAL CAMPAIGN ALIGNMENT
+   ========================================================= */
+
+/* Center the sketch caption directly beneath the sketch image. */
+body.driftwood-page .driftwood-identity-image > p {
+    width: 50%;
+    margin: 12px auto 0;
+    text-align: center;
+}
+
+/* Align the digital campaign heading with the left edge
+   of the Facebook sale advertisement (second image). */
+body.driftwood-page .driftwood-digital-heading {
+    width: calc(50% - 15px);
+    margin-left: calc(50% + 15px);
+    margin-right: 0;
+    grid-template-columns: 1fr;
+}
+
+/* Keep the heading and paragraph aligned to the same left edge. */
+body.driftwood-page .driftwood-digital-heading h2,
+body.driftwood-page .driftwood-digital-heading p {
+    text-align: left;
+    max-width: none;
+}
+
+/* Restore the normal full-width layout on tablet and mobile. */
+@media (max-width: 900px) {
+    body.driftwood-page .driftwood-digital-heading {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    body.driftwood-page .driftwood-identity-image > p {
+        width: 100%;
+    }
 }
 
 /* ==========================================
