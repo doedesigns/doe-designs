@@ -5140,7 +5140,6 @@ body.montrapac-page .mp-campaign-grid::-webkit-scrollbar-thumb {
     }
 }
 
-
 /* MONTRAPAC — SUBTLE RAISED RED DIVIDERS */
 
 /* Red dividing lines with soft shadows above and below */
@@ -5156,4 +5155,27 @@ body.montrapac-page .mp-content-panel .mp-gallery-section {
 body.montrapac-page .mp-content-panel .mp-panel + .mp-panel,
 body.montrapac-page .mp-content-panel .mp-gallery-section {
     position: relative;
+}
+
+
+/* =========================================
+   LIGHTBOX CLOSE BUTTON — ROTATING CIRCLE
+   ========================================= */
+
+body.project-page .lightbox-close::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border: 2px solid transparent;
+    border-top-color: #00E5FF;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+body.project-page .lightbox-close:hover::after,
+body.project-page .lightbox-close:focus-visible::after {
+    opacity: 1;
+    animation: arrowSpinRight 5s linear infinite;
 }

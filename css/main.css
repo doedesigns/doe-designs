@@ -816,7 +816,7 @@ body.project-page .lightbox-close:hover {
 
 body.project-page .lightbox-close:hover span::before,
 body.project-page .lightbox-close:hover span::after {
-    background: #00E5FF;
+    background: #FFFFFF;
 }
 
 /* Supporting images and clickable source images. */
