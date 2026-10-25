@@ -2557,6 +2557,69 @@ body.odc-page .odc-lightbox-count {
 }
 
 /* =========================================================
+   OLD DOG CAFE — CAROUSEL ARROW HOVER FIX
+   Only affects the round buttons beside image carousels.
+   Does not affect project navigation or the lightbox X.
+========================================================= */
+
+body.odc-page .odc-carousel .odc-carousel-btn {
+    position: relative;
+    isolation: isolate;
+    overflow: visible;
+    border: 1px solid #55B4E5;
+    background: transparent;
+    color: #55B4E5;
+    transition: color .25s ease, border-color .25s ease;
+}
+
+/* Rotating cyan outline */
+body.odc-page .odc-carousel .odc-carousel-btn::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border: 2px solid transparent;
+    border-top-color: #00E5FF;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+    z-index: -1;
+}
+
+/* Cyan arrow and visible rotating ring on hover or keyboard focus */
+body.odc-page .odc-carousel .odc-carousel-btn:hover,
+body.odc-page .odc-carousel .odc-carousel-btn:focus-visible {
+    background: transparent;
+    border-color: #00E5FF;
+    color: #00E5FF;
+}
+
+body.odc-page .odc-carousel .odc-carousel-btn:hover::before,
+body.odc-page .odc-carousel .odc-carousel-btn:focus-visible::before {
+    opacity: 1;
+    animation: odcCarouselArrowSpin 5s linear infinite;
+}
+
+/* Accessible keyboard focus */
+body.odc-page .odc-carousel .odc-carousel-btn:focus-visible {
+    outline: 2px solid #FFFFFF;
+    outline-offset: 7px;
+}
+
+/* Stop animation when reduced motion is requested */
+@keyframes odcCarouselArrowSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.odc-page .odc-carousel .odc-carousel-btn:hover::before,
+    body.odc-page .odc-carousel .odc-carousel-btn:focus-visible::before {
+        animation: none;
+    }
+}
+
+/* =========================================================
    STRATEGIC ESTATE PLANNING — REFINED EDITORIAL REDESIGN
    Scoped to this page only; shared branding styles stay intact.
    ========================================================= */
