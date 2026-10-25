@@ -421,12 +421,14 @@ body:not(.scroll-page) footer {
     opacity: 1;
 }
 
-.project-arrow.next:hover .arrow-circle::before {
+.project-arrow.next:hover .arrow-circle::before,
+.project-arrow.next:focus-visible .arrow-circle::before {
     animation: arrowSpinRight 5s linear infinite;
 }
 
-.project-arrow.prev:hover .arrow-circle::before {
-    animation: arrowSpinLeft 5s linear infinite;
+.project-arrow.prev:hover .arrow-circle::before,
+.project-arrow.prev:focus-visible .arrow-circle::before {
+    animation: arrowSpinRight 5s linear infinite;
 }
 
 @keyframes arrowSpinRight {

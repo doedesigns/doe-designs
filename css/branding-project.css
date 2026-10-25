@@ -150,94 +150,63 @@ PROJECT HEADER TITLE + ARROWS
     color:#ffffff;
 }
 
-/*=========================================================
-PROJECT ARROWS
-=========================================================*/
 
-.project-arrow {
-    width:55px;
-    height:55px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-decoration:none;
+/* =========================================================
+   PROJECT ARROWS
+   Shared styling is maintained in main.css.
+   ========================================================= */
+
+/* Keep the existing arrow dimensions consistent. */
+body.project-page .project-arrow {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
-.arrow-circle {
-    position:relative;
-    width:42px;
-    height:42px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    transform:translateY(-2px);
-    transition:.35s ease;
+body.project-page .arrow-circle {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-2px);
+    transition: .35s ease;
 }
 
-.arrow-triangle {
-    width:0;
-    height:0;
+/* Use the shared cyan hover circle and clockwise animation. */
+body.project-page .arrow-circle::before {
+    inset: -8px;
 }
 
-.project-arrow.prev .arrow-triangle {
-    border-top:9px solid transparent;
-    border-bottom:9px solid transparent;
-    border-right:14px solid white;
+body.project-page .project-arrow:hover .arrow-circle::before,
+body.project-page .project-arrow:focus-visible .arrow-circle::before {
+    opacity: 1;
+    animation: arrowSpinRight 5s linear infinite;
 }
 
-.project-arrow.next .arrow-triangle {
-    border-top:9px solid transparent;
-    border-bottom:9px solid transparent;
-    border-left:14px solid white;
+/* Keep arrowheads white until hover or keyboard focus. */
+body.project-page .project-arrow.prev .arrow-triangle {
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-right: 14px solid #FFFFFF;
+    border-left: 0;
 }
 
-.arrow-circle::before {
-    content:"";
-    position:absolute;
-    inset:-12px;
-    border-radius:50%;
-    border:2px solid transparent;
-    border-top-color:#00E5FF;
-    opacity:0;
+body.project-page .project-arrow.next .arrow-triangle {
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 14px solid #FFFFFF;
+    border-right: 0;
 }
 
-.project-arrow:hover .arrow-triangle {
-    border-left-color:#00E5FF;
-    border-right-color:#00E5FF;
-}
-
-.project-arrow:hover .arrow-circle::before {
-    opacity:1;
-}
-
-.project-arrow.next:hover .arrow-circle::before {
-    animation:arrowSpinRight 5s linear infinite;
-}
-
-.project-arrow.prev:hover .arrow-circle::before {
-    animation:arrowSpinLeft 5s linear infinite;
-}
-
-@keyframes arrowSpinRight {
-
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-@keyframes arrowSpinLeft {
-
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(-360deg);
-    }
+body.project-page .project-arrow:hover .arrow-triangle,
+body.project-page .project-arrow:focus-visible .arrow-triangle {
+    border-left-color: #00E5FF;
+    border-right-color: #00E5FF;
 }
 
 /*=========================================================
@@ -5211,5 +5180,48 @@ body.odc-page .odc-motion-section {
         padding-top: 28px;
         padding-bottom: 28px;
         margin-bottom: 24px;
+    }
+}
+
+/* =========================================================
+   STRATEGIC ESTATE PLANNING — PRINCIPLE BOXES + EYEBROWS
+   ========================================================= */
+
+/* Keep all three principle labels inside their boxes. */
+body.strategic-page .strategic-principles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+body.strategic-page .strategic-principle {
+    box-sizing: border-box;
+    min-width: 0;
+    padding: 18px 8px;
+    font-size: clamp(0.95rem, 1.35vw, 1.25rem);
+    letter-spacing: 0.025em;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+    text-align: center;
+}
+
+/* Improve contrast for the small uppercase eyebrow labels. */
+body.strategic-page .strategic-kicker {
+    color: #75D7F0 !important;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+}
+
+/* Keep the principle boxes readable on narrow screens. */
+@media (max-width: 600px) {
+    body.strategic-page .strategic-principles {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    body.strategic-page .strategic-principle {
+        padding: 14px 12px;
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
+        overflow-wrap: normal;
     }
 }
