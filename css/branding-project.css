@@ -2950,466 +2950,6 @@ body.strategic-page .strategic-contact-panel .enter-button:focus-visible {
     }
 }
 
-
-/* =========================================================
-   MONTRAPAC — OUTDOOR BRANDING REDESIGN
-   Page-specific styles only.
-   ========================================================= */
-
-body.montrapac-page {
-    --mp-ink: #171817;
-    --mp-charcoal: #242624;
-    --mp-paper: #f5f2eb;
-    --mp-white: #ffffff;
-    --mp-brown: #79563e;
-    --mp-red: #ed292e;
-    --mp-muted: #6c6b65;
-    color: var(--mp-ink);
-}
-
-body.montrapac-page .project-container {
-    position: relative;
-    z-index: 1;
-}
-
-body.montrapac-page .project-navigation {
-    margin-bottom: 28px;
-}
-
-body.montrapac-page .project-title h1 {
-    color: var(--mp-ink);
-}
-
-body.montrapac-page .project-title .title-break {
-    color: var(--mp-brown);
-}
-
-body.montrapac-page .project-year {
-    color: var(--mp-red);
-    letter-spacing: .16em;
-}
-
-body.montrapac-page .project-details {
-    width: min(1200px, calc(100% - 48px));
-    margin: 30px auto clamp(64px, 8vw, 110px);
-    padding: clamp(24px, 3vw, 38px);
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0;
-    background: rgba(245, 242, 235, .98);
-    border: 1px solid rgba(23, 24, 23, .15);
-    box-shadow: none;
-}
-
-body.montrapac-page .project-details .detail-box {
-    padding: 8px 20px;
-    text-align: center;
-    background: transparent;
-    border-right: 1px solid rgba(23, 24, 23, .17);
-}
-
-body.montrapac-page .project-details .detail-box:last-child {
-    border-right: 0;
-}
-
-body.montrapac-page .project-details .detail-box h3 {
-    color: var(--mp-brown);
-    letter-spacing: .13em;
-    font-size: .78rem;
-}
-
-body.montrapac-page .project-details .detail-box p {
-    color: var(--mp-ink);
-    font-size: .91rem;
-    line-height: 1.8;
-}
-
-body.montrapac-page .mp-panel {
-    width: min(1200px, calc(100% - 48px));
-    margin: clamp(52px, 7vw, 96px) auto;
-    padding: clamp(28px, 4.5vw, 64px);
-    background: rgba(245, 242, 235, .98);
-    border: 1px solid rgba(23, 24, 23, .13);
-    box-shadow: none;
-    position: relative;
-    isolation: isolate;
-}
-
-body.montrapac-page .mp-kicker {
-    display: block;
-    margin-bottom: 14px;
-    color: var(--mp-red);
-    font: 600 .76rem/1.5 "Jost", sans-serif;
-    letter-spacing: .17em;
-    text-transform: uppercase;
-}
-
-body.montrapac-page .mp-panel h2,
-body.montrapac-page .mp-section-heading h2 {
-    margin: 0 0 24px;
-    color: var(--mp-ink);
-    font: 500 clamp(2.3rem, 4.6vw, 4.5rem)/.98 "Barlow Condensed", sans-serif;
-    letter-spacing: .015em;
-    text-transform: uppercase;
-}
-
-body.montrapac-page .mp-panel h2::after,
-body.montrapac-page .mp-section-heading h2::after {
-    content: "";
-    display: block;
-    width: 58px;
-    height: 3px;
-    margin-top: 20px;
-    background: var(--mp-red);
-}
-
-body.montrapac-page .mp-panel p,
-body.montrapac-page .mp-section-heading p {
-    color: #454640;
-    font-size: clamp(.98rem, 1.15vw, 1.08rem);
-    line-height: 1.85;
-}
-
-body.montrapac-page .mp-overview {
-    display: grid;
-    grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
-    align-items: center;
-    gap: clamp(30px, 5vw, 72px);
-    background: rgba(36, 38, 36, .98);
-    border-color: rgba(255, 255, 255, .13);
-}
-
-body.montrapac-page .mp-overview h2 {
-    color: var(--mp-white);
-}
-
-body.montrapac-page .mp-overview p {
-    color: #e5e3dc;
-}
-
-body.montrapac-page .mp-overview h2::after {
-    background: var(--mp-red);
-}
-
-body.montrapac-page .mp-overview .mp-kicker {
-    color: #ff5a5e;
-}
-
-body.montrapac-page .mp-values {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
-    margin-top: 30px;
-}
-
-body.montrapac-page .mp-values span {
-    padding: 14px 8px;
-    border-top: 2px solid var(--mp-red);
-    background: rgba(255, 255, 255, .06);
-    color: var(--mp-white);
-    font: 500 1.1rem/1.2 "Barlow Condensed", sans-serif;
-    letter-spacing: .08em;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-body.montrapac-page .mp-image-frame {
-    min-width: 0;
-    margin: 0;
-    padding: clamp(10px, 1.4vw, 18px);
-    background: #fff;
-    border: 1px solid rgba(23, 24, 23, .14);
-}
-
-body.montrapac-page .mp-image-frame img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-body.montrapac-page .mp-image-frame figcaption,
-body.montrapac-page .mp-editorial-image figcaption {
-    margin-top: 13px;
-    color: var(--mp-muted);
-    font-size: .84rem;
-    line-height: 1.6;
-}
-
-body.montrapac-page .mp-identity-grid {
-    display: grid;
-    grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
-    gap: clamp(24px, 4vw, 56px);
-    align-items: center;
-}
-
-body.montrapac-page .mp-identity-note h3 {
-    margin: 20px 0 12px;
-    color: var(--mp-ink);
-    font: 500 clamp(1.5rem, 2.4vw, 2rem)/1.1 "Barlow Condensed", sans-serif;
-    text-transform: uppercase;
-}
-
-body.montrapac-page .mp-red-rule {
-    display: block;
-    width: 46px;
-    height: 4px;
-    background: var(--mp-red);
-}
-
-body.montrapac-page .mp-palette {
-    display: flex;
-    gap: 10px;
-    margin-top: 28px;
-}
-
-body.montrapac-page .mp-swatch {
-    display: block;
-    width: 44px;
-    height: 44px;
-    border: 1px solid rgba(0, 0, 0, .18);
-    border-radius: 50%;
-}
-
-body.montrapac-page .mp-swatch-black { background: #171817; }
-body.montrapac-page .mp-swatch-white { background: #fff; }
-body.montrapac-page .mp-swatch-red { background: #ed292e; }
-body.montrapac-page .mp-swatch-leather { background: #79563e; }
-
-body.montrapac-page .mp-palette-label {
-    margin-top: 10px;
-    font-size: .82rem;
-    color: var(--mp-muted);
-}
-
-body.montrapac-page .mp-section-heading {
-    max-width: 790px;
-    margin-bottom: 34px;
-}
-
-body.montrapac-page .mp-video-frame {
-    padding: clamp(10px, 1.5vw, 18px);
-    background: #fff;
-    border: 1px solid rgba(23, 24, 23, .14);
-}
-
-body.montrapac-page .mp-video-frame .video-player {
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-body.montrapac-page .mp-motion-footer {
-    display: grid;
-    grid-template-columns: 46px minmax(0, 1fr);
-    gap: 18px;
-    align-items: start;
-    max-width: 850px;
-    margin: 28px auto 38px;
-}
-
-body.montrapac-page .mp-motion-footer .mp-red-rule {
-    margin-top: 12px;
-}
-
-body.montrapac-page .mp-motion-footer p {
-    margin: 0;
-}
-
-body.montrapac-page .mp-editorial-image {
-    width: min(760px, 100%);
-    margin: 0 auto;
-    padding: 14px;
-    background: #fff;
-    border: 1px solid rgba(23, 24, 23, .14);
-}
-
-body.montrapac-page .mp-editorial-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-body.montrapac-page .mp-gallery-section {
-    width: min(1200px, calc(100% - 48px));
-    margin: clamp(60px, 8vw, 110px) auto;
-}
-
-body.montrapac-page .mp-gallery-heading {
-    max-width: 800px;
-    margin-bottom: 36px;
-    padding: clamp(26px, 4vw, 48px);
-    background: rgba(245, 242, 235, .98);
-    border: 1px solid rgba(23, 24, 23, .13);
-}
-
-body.montrapac-page .mp-campaign-feature {
-    padding: clamp(12px, 1.8vw, 22px);
-    background: rgba(36, 38, 36, .98);
-    border: 1px solid rgba(255, 255, 255, .12);
-}
-
-body.montrapac-page .mp-campaign-feature img {
-    display: block;
-    width: 100%;
-    max-height: 780px;
-    object-fit: contain;
-    background: #fff;
-}
-
-body.montrapac-page .mp-campaign-caption {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 17px 4px 2px;
-    color: var(--mp-white);
-}
-
-body.montrapac-page .mp-campaign-caption span,
-body.montrapac-page .mp-campaign-card figcaption span {
-    color: var(--mp-red);
-    font: 700 1rem/1 "Jost", sans-serif;
-}
-
-body.montrapac-page .mp-campaign-caption p {
-    margin: 0;
-    color: #f5f2eb;
-    font-size: .92rem;
-}
-
-body.montrapac-page .mp-campaign-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(18px, 2.5vw, 30px);
-    margin-top: clamp(20px, 3vw, 36px);
-}
-
-body.montrapac-page .mp-campaign-card {
-    min-width: 0;
-    margin: 0;
-    padding: clamp(12px, 1.5vw, 18px);
-    background: rgba(245, 242, 235, .98);
-    border: 1px solid rgba(23, 24, 23, .13);
-}
-
-body.montrapac-page .mp-campaign-card img {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: 560px;
-    object-fit: contain;
-    background: #fff;
-}
-
-body.montrapac-page .mp-campaign-card figcaption {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    margin-top: 14px;
-    color: var(--mp-ink);
-    font: 500 1.15rem/1.3 "Barlow Condensed", sans-serif;
-    letter-spacing: .04em;
-    text-transform: uppercase;
-}
-
-body.montrapac-page .mp-contact {
-    position: relative;
-    z-index: 1;
-    padding: 32px 20px;
-    background: rgba(36, 38, 36, .98);
-    border-top: 3px solid var(--mp-red);
-}
-
-body.montrapac-page .mp-contact p {
-    color: #fff;
-}
-
-body.montrapac-page .mp-contact .enter-button {
-    background: var(--mp-red);
-    border: 1px solid var(--mp-red);
-    color: #fff;
-}
-
-body.montrapac-page .mp-contact .enter-button:hover,
-body.montrapac-page .mp-contact .enter-button:focus-visible {
-    background: #fff;
-    border-color: #fff;
-    color: var(--mp-ink);
-}
-
-@media (max-width: 850px) {
-    body.montrapac-page .project-details {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    body.montrapac-page .project-details .detail-box:nth-child(2) {
-        border-right: 0;
-    }
-
-    body.montrapac-page .project-details .detail-box:nth-child(-n+2) {
-        padding-bottom: 22px;
-        margin-bottom: 14px;
-        border-bottom: 1px solid rgba(23, 24, 23, .17);
-    }
-
-    body.montrapac-page .mp-overview,
-    body.montrapac-page .mp-identity-grid {
-        grid-template-columns: 1fr;
-    }
-
-    body.montrapac-page .mp-identity-image {
-        max-width: 760px;
-        width: 100%;
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 600px) {
-    body.montrapac-page .mp-panel,
-    body.montrapac-page .mp-gallery-section {
-        width: calc(100% - 28px);
-    }
-
-    body.montrapac-page .mp-panel {
-        margin: 34px auto;
-        padding: 22px 18px;
-    }
-
-    body.montrapac-page .project-details {
-        width: calc(100% - 28px);
-        padding: 18px 10px;
-    }
-
-    body.montrapac-page .project-details .detail-box {
-        padding: 8px 10px;
-    }
-
-    body.montrapac-page .mp-campaign-grid {
-        grid-template-columns: 1fr;
-    }
-
-    body.montrapac-page .mp-values {
-        gap: 6px;
-    }
-
-    body.montrapac-page .mp-values span {
-        padding: 12px 4px;
-        font-size: 1rem;
-    }
-
-    body.montrapac-page .mp-swatch {
-        width: 36px;
-        height: 36px;
-    }
-
-    body.montrapac-page .mp-motion-footer {
-        grid-template-columns: 28px minmax(0, 1fr);
-        gap: 12px;
-    }
-}
-
-
 /* =========================================================
    HORSEHAIR — DARK FANTASY / ALTERNATIVE BEAUTY
    Scoped to HorseHair only.
@@ -4745,514 +4285,6 @@ body.strategic-page .project-gallery-row {
     background-color: #20242C;
 }
 
-/* =====================================================
-   MONTRAPAC — URBAN / BOLD / SOPHISTICATED REDESIGN
-   ===================================================== */
-
-body.montrapac-page {
-    --mp-bg: #101114;
-    --mp-panel: #191a1f;
-    --mp-panel-alt: #202126;
-    --mp-text: #e5e4e2;
-    --mp-muted: #aaa9ad;
-    --mp-red: #f0444e;
-    --mp-line: #38393f;
-    background-color: var(--mp-bg);
-    color: var(--mp-text);
-}
-
-/* Keep the project clear of the fixed navigation */
-body.montrapac-page .project-container {
-    padding-top: 0;
-}
-
-body.montrapac-page .project-navigation {
-    padding-top: 80px;
-    padding-bottom: 28px;
-}
-
-body.montrapac-page .project-title h1 {
-    color: #f1f0ee;
-    line-height: 1.05;
-}
-
-body.montrapac-page .project-title .title-break {
-    display: block;
-    margin-top: 12px;
-    color: #b9b8bc;
-    font-family: 'Jost', sans-serif;
-    font-size: 0.42em;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-/* HERO — let the billboard lead */
-body.montrapac-page .montrapac-hero {
-    position: relative;
-    margin: 0 auto 22px;
-    overflow: hidden;
-    background: #08090b;
-}
-
-body.montrapac-page .montrapac-hero > img {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: 720px;
-    object-fit: contain;
-}
-
-body.montrapac-page .montrapac-hero .lightbox-description {
-    padding: 14px 0;
-    color: var(--mp-muted);
-    font-size: 0.92rem;
-    line-height: 1.6;
-}
-
-/* YEAR */
-body.montrapac-page .project-year {
-    color: var(--mp-red);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-}
-
-/* PROJECT DETAILS — four understated columns */
-body.montrapac-page .montrapac-details {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0;
-    margin: 26px 0 64px;
-    border-top: 1px solid var(--mp-line);
-    border-bottom: 1px solid var(--mp-line);
-}
-
-body.montrapac-page .montrapac-details .detail-box {
-    min-width: 0;
-    padding: 24px 20px;
-    background: transparent;
-    border: 0;
-    border-right: 1px solid var(--mp-line);
-    border-radius: 0;
-    box-shadow: none;
-}
-
-body.montrapac-page .montrapac-details .detail-box:last-child {
-    border-right: 0;
-}
-
-body.montrapac-page .montrapac-details .detail-box h3 {
-    margin-bottom: 12px;
-    color: var(--mp-red);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 1.05rem;
-    letter-spacing: 0.12em;
-}
-
-body.montrapac-page .montrapac-details .detail-box p {
-    color: var(--mp-text);
-    font-size: 0.92rem;
-    line-height: 1.85;
-}
-
-/* SHARED SECTION RHYTHM */
-body.montrapac-page .mp-panel,
-body.montrapac-page .mp-gallery-section {
-    margin: 0 auto;
-    padding: 76px 0;
-}
-
-body.montrapac-page .mp-panel {
-    border-top: 1px solid var(--mp-line);
-}
-
-body.montrapac-page .mp-overview,
-body.montrapac-page .mp-identity,
-body.montrapac-page .mp-motion,
-body.montrapac-page .mp-gallery-section {
-    background: transparent;
-    color: var(--mp-text);
-}
-
-body.montrapac-page .mp-kicker {
-    display: block;
-    margin-bottom: 16px;
-    color: var(--mp-red);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-}
-
-body.montrapac-page .mp-panel h2,
-body.montrapac-page .mp-gallery-section h2 {
-    margin: 0 0 20px;
-    color: #f2f1ef;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(2.4rem, 5vw, 4.5rem);
-    font-weight: 700;
-    line-height: 0.98;
-    letter-spacing: 0.015em;
-    text-transform: uppercase;
-}
-
-body.montrapac-page .mp-panel p,
-body.montrapac-page .mp-gallery-section p {
-    color: var(--mp-muted);
-    font-size: 1rem;
-    line-height: 1.8;
-}
-
-/* OVERVIEW — copy and sketches, not boxed buttons */
-body.montrapac-page .mp-overview {
-    display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    align-items: center;
-    gap: clamp(32px, 6vw, 84px);
-}
-
-body.montrapac-page .mp-overview-copy {
-    max-width: 600px;
-}
-
-body.montrapac-page .mp-overview-copy > p {
-    margin-bottom: 16px;
-}
-
-body.montrapac-page .mp-values {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 12px 24px;
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 1px solid var(--mp-line);
-}
-
-body.montrapac-page .mp-values span {
-    display: inline-block;
-    padding: 0;
-    background: transparent;
-    border: 0;
-    border-radius: 0;
-    color: #f0efed;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(1.1rem, 1.8vw, 1.5rem);
-    font-weight: 700;
-    letter-spacing: 0.08em;
-}
-
-body.montrapac-page .mp-values span + span::before {
-    content: "/";
-    margin-right: 22px;
-    color: var(--mp-red);
-}
-
-/* IMAGE TREATMENT — no forced square crops */
-body.montrapac-page .mp-image-frame,
-body.montrapac-page .mp-editorial-image,
-body.montrapac-page .mp-campaign-feature,
-body.montrapac-page .mp-campaign-card {
-    min-width: 0;
-    margin: 0;
-    background: var(--mp-panel);
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    overflow: hidden;
-}
-
-body.montrapac-page .mp-image-frame img,
-body.montrapac-page .mp-editorial-image img,
-body.montrapac-page .mp-campaign-feature > img,
-body.montrapac-page .mp-campaign-card > img {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    object-fit: contain;
-    object-position: center;
-}
-
-body.montrapac-page .mp-image-frame figcaption,
-body.montrapac-page .mp-editorial-image figcaption,
-body.montrapac-page .mp-campaign-card figcaption {
-    padding: 14px 18px;
-    color: var(--mp-muted);
-    font-size: 0.9rem;
-    line-height: 1.6;
-}
-
-/* IDENTITY */
-body.montrapac-page .mp-section-heading {
-    max-width: 760px;
-    margin-bottom: 34px;
-}
-
-body.montrapac-page .mp-identity-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: center;
-    gap: clamp(30px, 5vw, 70px);
-}
-
-body.montrapac-page .mp-identity-note {
-    padding: 0;
-    background: transparent;
-    border: 0;
-}
-
-body.montrapac-page .mp-identity-note h3 {
-    margin: 20px 0 12px;
-    color: #f0efed;
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: clamp(1.6rem, 2.5vw, 2.3rem);
-    text-transform: uppercase;
-}
-
-body.montrapac-page .mp-red-rule {
-    display: block;
-    width: 54px;
-    height: 4px;
-    background: var(--mp-red);
-}
-
-body.montrapac-page .mp-palette {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 28px;
-}
-
-body.montrapac-page .mp-swatch {
-    display: block;
-    width: 36px;
-    height: 36px;
-    border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 50%;
-}
-
-body.montrapac-page .mp-swatch-black {
-    background: #101114;
-}
-
-body.montrapac-page .mp-swatch-white {
-    background: #e5e4e2;
-}
-
-body.montrapac-page .mp-swatch-red {
-    background: #f0444e;
-}
-
-body.montrapac-page .mp-swatch-leather {
-    background: #785440;
-}
-
-body.montrapac-page .mp-palette-label {
-    margin-top: 12px;
-    font-size: 0.85rem;
-}
-
-/* MOTION — make the video the main event */
-body.montrapac-page .mp-video-frame {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0;
-    background: #08090b;
-    border: 1px solid var(--mp-line);
-}
-
-body.montrapac-page .mp-video-frame .video-player {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-}
-
-body.montrapac-page .mp-video-frame iframe {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    height: auto;
-    border: 0;
-}
-
-body.montrapac-page .mp-motion-footer {
-    display: grid;
-    grid-template-columns: 54px minmax(0, 1fr);
-    align-items: start;
-    gap: 22px;
-    max-width: 1000px;
-    margin: 26px auto 40px;
-}
-
-body.montrapac-page .mp-motion-footer p {
-    margin: -8px 0 0;
-}
-
-body.montrapac-page .mp-editorial-image {
-    max-width: 780px;
-    margin: 0 auto;
-}
-
-/* CAMPAIGN FEATURE */
-body.montrapac-page .mp-campaign-feature {
-    position: relative;
-    margin-bottom: 32px;
-    background: #08090b;
-}
-
-body.montrapac-page .mp-campaign-feature > img {
-    max-height: 650px;
-}
-
-body.montrapac-page .mp-campaign-caption {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    padding: 14px 20px;
-    border-top: 1px solid var(--mp-line);
-}
-
-body.montrapac-page .mp-campaign-caption > span,
-body.montrapac-page .mp-campaign-card figcaption span {
-    color: var(--mp-red);
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-}
-
-body.montrapac-page .mp-campaign-caption p {
-    margin: 0;
-}
-
-/* VARIED CAMPAIGN GRID — natural image proportions */
-body.montrapac-page .mp-campaign-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
-    gap: 32px;
-}
-
-body.montrapac-page .mp-campaign-card img {
-    height: auto;
-    aspect-ratio: auto;
-}
-
-body.montrapac-page .mp-campaign-card figcaption {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    border-top: 1px solid var(--mp-line);
-}
-
-body.montrapac-page .mp-campaign-card figcaption span {
-    flex: 0 0 auto;
-}
-
-/* SHARED CONTACT — do not give MontraPac a separate design */
-body.montrapac-page .page-contact-link {
-    margin-top: 0;
-    padding: 64px 20px;
-    background: transparent;
-    border-top: 1px solid var(--mp-line);
-    text-align: center;
-}
-
-body.montrapac-page .page-contact-link p {
-    color: var(--mp-text);
-}
-
-body.montrapac-page .page-contact-link .enter-button {
-    background: #00E5FF;
-    color: #06080B;
-    border-color: #00E5FF;
-}
-
-body.montrapac-page .page-contact-link .enter-button:hover {
-    background: #fff;
-    color: #06080B;
-    border-color: #fff;
-}
-
-/* RESPONSIVE */
-@media (max-width: 850px) {
-    body.montrapac-page .montrapac-details {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    body.montrapac-page .montrapac-details .detail-box:nth-child(2) {
-        border-right: 0;
-    }
-
-    body.montrapac-page .montrapac-details .detail-box:nth-child(-n+2) {
-        border-bottom: 1px solid var(--mp-line);
-    }
-
-    body.montrapac-page .mp-overview,
-    body.montrapac-page .mp-identity-grid {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    body.montrapac-page .mp-overview {
-        gap: 32px;
-    }
-
-    body.montrapac-page .mp-overview-copy {
-        max-width: none;
-    }
-
-    body.montrapac-page .mp-identity-grid {
-        gap: 28px;
-    }
-
-    body.montrapac-page .mp-panel,
-    body.montrapac-page .mp-gallery-section {
-        padding-top: 54px;
-        padding-bottom: 54px;
-    }
-}
-
-@media (max-width: 560px) {
-    body.montrapac-page .project-navigation {
-        padding-top: 64px;
-    }
-
-    body.montrapac-page .montrapac-details {
-        grid-template-columns: minmax(0, 1fr);
-    }
-
-    body.montrapac-page .montrapac-details .detail-box {
-        padding: 18px 8px;
-        border-right: 0;
-        border-bottom: 1px solid var(--mp-line);
-    }
-
-    body.montrapac-page .montrapac-details .detail-box:last-child {
-        border-bottom: 0;
-    }
-
-    body.montrapac-page .mp-campaign-grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 24px;
-    }
-
-    body.montrapac-page .mp-motion-footer {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    body.montrapac-page .mp-values {
-        gap: 10px 16px;
-    }
-
-    body.montrapac-page .mp-values span + span::before {
-        margin-right: 14px;
-    }
-}
-
 /* =========================================================
    STRATEGIC ESTATE PLANNING — REMOVE WHITE BOXES
    Paste at the VERY BOTTOM of branding-project.css
@@ -5302,4 +4334,666 @@ body.strategic-page .strategic-website-panel {
 body.strategic-page .project-image-block img,
 body.strategic-page .strategic-system-image img {
     height: auto;
+}
+
+/* =========================================================
+   STRATEGIC ESTATE PLANNING — READABLE DARK BLUE PANELS
+   Paste at the bottom of branding-project.css
+   ========================================================= */
+
+body.strategic-page {
+    color: #F0F5FA;
+}
+
+/* Main content panels */
+body.strategic-page .strategic-panel,
+body.strategic-page .strategic-intro-grid,
+body.strategic-page .strategic-principles,
+body.strategic-page .strategic-principle,
+body.strategic-page .strategic-document-card,
+body.strategic-page .strategic-final-brochure,
+body.strategic-page .strategic-website-panel,
+body.strategic-page .strategic-system-image,
+body.strategic-page .strategic-document-grid {
+    background-color: #0D2A40 !important;
+    color: #F0F5FA !important;
+    border: 1px solid rgba(105, 174, 210, 0.25);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* Give the larger content sections comfortable spacing */
+body.strategic-page .strategic-panel,
+body.strategic-page .strategic-intro-grid,
+body.strategic-page .strategic-principles,
+body.strategic-page .strategic-document-grid,
+body.strategic-page .strategic-final-brochure,
+body.strategic-page .strategic-website-panel {
+    padding: 28px;
+}
+
+/* Make headings stand out */
+body.strategic-page .strategic-panel h2,
+body.strategic-page .strategic-panel h3,
+body.strategic-page .strategic-intro-grid h2,
+body.strategic-page .strategic-principles h2,
+body.strategic-page .strategic-principle h3,
+body.strategic-page .strategic-document-card h3,
+body.strategic-page .strategic-final-brochure h2,
+body.strategic-page .strategic-website-panel h2 {
+    color: #75D7F0 !important;
+}
+
+/* Ensure paragraphs and supporting text are readable */
+body.strategic-page .strategic-panel p,
+body.strategic-page .strategic-intro-grid p,
+body.strategic-page .strategic-principle p,
+body.strategic-page .strategic-document-card p,
+body.strategic-page .strategic-final-brochure p,
+body.strategic-page .strategic-website-panel p,
+body.strategic-page .strategic-panel li {
+    color: #E0EAF2 !important;
+    line-height: 1.7;
+}
+
+/* Document captions and smaller labels */
+body.strategic-page .strategic-document-card figcaption,
+body.strategic-page .strategic-document-card .image-caption,
+body.strategic-page .strategic-final-brochure .image-caption {
+    color: #C6D8E6 !important;
+}
+
+/* Keep images responsive without changing their intended width */
+body.strategic-page .strategic-panel img,
+body.strategic-page .strategic-document-card img,
+body.strategic-page .strategic-final-brochure img,
+body.strategic-page .strategic-system-image img {
+    height: auto;
+}
+
+/* =========================================================
+   MONTRAPAC — PREMIUM OUTDOOR BRANDING
+   One continuous editorial panel, restrained red accents.
+   ========================================================= */
+
+body.montrapac-page {
+    --mp-ink: #17191B;
+    --mp-panel: #D0D0CC;
+    --mp-panel-alt: #C4C5C1;
+    --mp-red: #C52A32;
+    --mp-muted: #555752;
+    --mp-line: rgba(23, 25, 27, 0.24);
+    color: var(--mp-ink);
+}
+
+/* Keep the project above the dust canvas */
+body.montrapac-page .project-container {
+    position: relative;
+    z-index: 1;
+    padding-top: 0;
+}
+
+/* PROJECT TITLE */
+body.montrapac-page .project-navigation {
+    padding-top: 80px;
+    padding-bottom: 28px;
+    margin-bottom: 0;
+}
+
+body.montrapac-page .project-title h1 {
+    color: var(--mp-ink);
+    line-height: 1.05;
+}
+
+body.montrapac-page .project-title .title-break {
+    display: block;
+    margin-top: 12px;
+    color: #595B57;
+    font-family: "Jost", sans-serif;
+    font-size: 0.42em;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+/* HERO — preserve the billboard's natural proportions */
+body.montrapac-page .montrapac-hero {
+    position: relative;
+    margin: 0 auto 22px;
+    overflow: hidden;
+    background: transparent;
+}
+
+body.montrapac-page .montrapac-hero > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 720px;
+    object-fit: contain;
+}
+
+body.montrapac-page .montrapac-hero .lightbox-description {
+    padding: 14px 0;
+    color: #B9BAB7;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+/* YEAR */
+body.montrapac-page .project-year {
+    margin-top: 8px;
+    color: var(--mp-red);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+
+/* PROJECT DETAILS — four columns above the main panel */
+body.montrapac-page .montrapac-details {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    width: 100%;
+    margin: 26px 0 64px;
+    padding: 22px 0;
+    background: transparent;
+    border-top: 1px solid rgba(208, 208, 204, 0.35);
+    border-bottom: 1px solid rgba(208, 208, 204, 0.35);
+    box-shadow: none;
+}
+
+body.montrapac-page .montrapac-details .detail-box {
+    min-width: 0;
+    padding: 12px 20px;
+    text-align: left;
+    background: transparent;
+    border: 0;
+    border-right: 1px solid rgba(208, 208, 204, 0.25);
+    border-radius: 0;
+    box-shadow: none;
+}
+
+body.montrapac-page .montrapac-details .detail-box:last-child {
+    border-right: 0;
+}
+
+body.montrapac-page .montrapac-details .detail-box h3 {
+    margin-bottom: 12px;
+    color: #F05A60;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+body.montrapac-page .montrapac-details .detail-box p {
+    margin: 0;
+    color: #E3E4E1;
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+/* ONE CONTINUOUS PANEL — wraps sections 01 through 04 */
+body.montrapac-page .mp-content-panel {
+    width: 100%;
+    margin: 0 auto;
+    padding: clamp(30px, 5vw, 68px);
+    background: var(--mp-panel);
+    color: var(--mp-ink);
+}
+
+/* Remove the old separate section cards */
+body.montrapac-page .mp-content-panel .mp-panel,
+body.montrapac-page .mp-content-panel .mp-gallery-section {
+    width: 100%;
+    margin: 0;
+    padding: clamp(38px, 5vw, 70px) 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    color: var(--mp-ink);
+    isolation: auto;
+}
+
+/* Red dividing lines between sections */
+body.montrapac-page .mp-content-panel .mp-panel + .mp-panel,
+body.montrapac-page .mp-content-panel .mp-gallery-section {
+    border-top: 1px solid var(--mp-line);
+}
+
+/* SECTION LABELS */
+body.montrapac-page .mp-kicker {
+    display: block;
+    margin-bottom: 16px;
+    color: var(--mp-red);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+/* HEADINGS */
+body.montrapac-page .mp-panel h2,
+body.montrapac-page .mp-section-heading h2 {
+    margin: 0 0 22px;
+    color: var(--mp-ink);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(2.4rem, 4.8vw, 4.4rem);
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: 0.015em;
+    text-transform: uppercase;
+}
+
+body.montrapac-page .mp-panel h2::after,
+body.montrapac-page .mp-section-heading h2::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 3px;
+    margin-top: 18px;
+    background: var(--mp-red);
+}
+
+/* BODY TEXT */
+body.montrapac-page .mp-panel p,
+body.montrapac-page .mp-section-heading p,
+body.montrapac-page .mp-identity-note p {
+    color: #343633;
+    font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+    line-height: 1.8;
+}
+
+body.montrapac-page .mp-section-heading {
+    max-width: 790px;
+    margin-bottom: 34px;
+}
+
+/* 01 — OVERVIEW */
+body.montrapac-page .mp-overview {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 70px);
+}
+
+body.montrapac-page .mp-overview-copy {
+    min-width: 0;
+    max-width: 600px;
+}
+
+body.montrapac-page .mp-overview-copy > p {
+    margin-bottom: 16px;
+}
+
+body.montrapac-page .mp-values {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--mp-line);
+}
+
+body.montrapac-page .mp-values span {
+    padding: 0;
+    background: transparent;
+    border: 0;
+    color: var(--mp-ink);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(1.1rem, 1.7vw, 1.45rem);
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+body.montrapac-page .mp-values span + span::before {
+    content: "/";
+    margin-right: 20px;
+    color: var(--mp-red);
+}
+
+/* IMAGE FRAMES — no white cards */
+body.montrapac-page .mp-image-frame,
+body.montrapac-page .mp-editorial-image,
+body.montrapac-page .mp-campaign-feature,
+body.montrapac-page .mp-campaign-card {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: hidden;
+}
+
+body.montrapac-page .mp-image-frame img,
+body.montrapac-page .mp-editorial-image img,
+body.montrapac-page .mp-campaign-feature > img,
+body.montrapac-page .mp-campaign-card > img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* Keep the logo sketches from dominating the overview */
+body.montrapac-page .mp-identity-image {
+    width: 100%;
+    max-width: 620px;
+    justify-self: center;
+}
+
+body.montrapac-page .mp-identity-image img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: contain;
+}
+
+/* Captions */
+body.montrapac-page .mp-image-frame figcaption,
+body.montrapac-page .mp-editorial-image figcaption,
+body.montrapac-page .mp-campaign-card figcaption {
+    padding: 12px 0;
+    color: var(--mp-muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+/* 02 — IDENTITY */
+body.montrapac-page .mp-identity-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 68px);
+}
+
+body.montrapac-page .mp-identity-note {
+    min-width: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+}
+
+body.montrapac-page .mp-identity-note h3 {
+    margin: 20px 0 12px;
+    color: var(--mp-ink);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+body.montrapac-page .mp-red-rule {
+    display: block;
+    width: 48px;
+    height: 4px;
+    background: var(--mp-red);
+}
+
+body.montrapac-page .mp-palette {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 26px;
+}
+
+body.montrapac-page .mp-swatch {
+    display: block;
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(0, 0, 0, 0.22);
+    border-radius: 50%;
+}
+
+body.montrapac-page .mp-swatch-black { background: #171817; }
+body.montrapac-page .mp-swatch-white { background: #FFFFFF; }
+body.montrapac-page .mp-swatch-red { background: #C52A32; }
+body.montrapac-page .mp-swatch-leather { background: #79563E; }
+
+body.montrapac-page .mp-palette-label {
+    margin-top: 10px;
+    color: var(--mp-muted);
+    font-size: 0.85rem;
+}
+
+/* 03 — MOTION */
+body.montrapac-page .mp-video-frame {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+    background: #17191B;
+    border: 0;
+}
+
+body.montrapac-page .mp-video-frame .video-player {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+body.montrapac-page .mp-video-frame iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+}
+
+body.montrapac-page .mp-motion-footer {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    align-items: start;
+    gap: 20px;
+    max-width: 900px;
+    margin: 28px auto 36px;
+}
+
+body.montrapac-page .mp-motion-footer .mp-red-rule {
+    margin-top: 12px;
+}
+
+body.montrapac-page .mp-motion-footer p {
+    margin: 0;
+}
+
+body.montrapac-page .mp-editorial-image {
+    width: min(760px, 100%);
+    margin: 0 auto;
+}
+
+/* 04 — CAMPAIGN APPLICATIONS */
+body.montrapac-page .mp-gallery-heading {
+    max-width: 800px;
+    margin-bottom: 36px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+}
+
+body.montrapac-page .mp-campaign-feature {
+    margin-bottom: 30px;
+}
+
+body.montrapac-page .mp-campaign-feature > img {
+    max-height: 650px;
+}
+
+body.montrapac-page .mp-campaign-caption {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 0 0;
+    border-top: 1px solid var(--mp-line);
+}
+
+body.montrapac-page .mp-campaign-caption span,
+body.montrapac-page .mp-campaign-card figcaption span {
+    flex: 0 0 auto;
+    color: var(--mp-red);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+body.montrapac-page .mp-campaign-caption p {
+    margin: 0;
+    color: #343633;
+    font-size: 0.95rem;
+}
+
+/* Campaign grid: retain natural image proportions */
+body.montrapac-page .mp-campaign-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: clamp(24px, 3vw, 38px);
+}
+
+body.montrapac-page .mp-campaign-card img {
+    height: auto;
+    max-height: none;
+    aspect-ratio: auto;
+}
+
+body.montrapac-page .mp-campaign-card figcaption {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-top: 12px;
+    padding: 12px 0 0;
+    border-top: 1px solid var(--mp-line);
+    color: var(--mp-ink);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 1.35;
+    text-transform: uppercase;
+}
+
+/* CONTACT — preserve the site's shared contact styling */
+body.montrapac-page .page-contact-link {
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+    padding: 64px 20px;
+    background: transparent;
+    border-top: 0;
+    text-align: center;
+}
+
+body.montrapac-page .page-contact-link p {
+    color: #F0EFED;
+}
+
+body.montrapac-page .page-contact-link .enter-button {
+    background: #00E5FF;
+    color: #06080B;
+    border-color: #00E5FF;
+}
+
+body.montrapac-page .page-contact-link .enter-button:hover,
+body.montrapac-page .page-contact-link .enter-button:focus-visible {
+    background: #FFFFFF;
+    color: #06080B;
+    border-color: #FFFFFF;
+}
+
+/* TABLET */
+@media (max-width: 850px) {
+    body.montrapac-page .montrapac-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body.montrapac-page .montrapac-details .detail-box:nth-child(2) {
+        border-right: 0;
+    }
+
+    body.montrapac-page .montrapac-details .detail-box:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(208, 208, 204, 0.25);
+    }
+
+    body.montrapac-page .mp-content-panel {
+        padding: 28px;
+    }
+
+    body.montrapac-page .mp-overview,
+    body.montrapac-page .mp-identity-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+    }
+
+    body.montrapac-page .mp-overview-copy {
+        max-width: 100%;
+    }
+
+    body.montrapac-page .mp-identity-image {
+        width: 100%;
+        max-width: 620px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 560px) {
+    body.montrapac-page .project-navigation {
+        padding-top: 64px;
+    }
+
+    body.montrapac-page .montrapac-details {
+        grid-template-columns: minmax(0, 1fr);
+        margin-bottom: 36px;
+    }
+
+    body.montrapac-page .montrapac-details .detail-box {
+        padding: 18px 8px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(208, 208, 204, 0.25);
+    }
+
+    body.montrapac-page .montrapac-details .detail-box:last-child {
+        border-bottom: 0;
+    }
+
+    body.montrapac-page .mp-content-panel {
+        padding: 12px 18px;
+    }
+
+    body.montrapac-page .mp-content-panel .mp-panel,
+    body.montrapac-page .mp-content-panel .mp-gallery-section {
+        padding: 36px 0;
+    }
+
+    body.montrapac-page .mp-campaign-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    body.montrapac-page .mp-motion-footer {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    body.montrapac-page .mp-values {
+        gap: 10px 14px;
+    }
+
+    body.montrapac-page .mp-values span + span::before {
+        margin-right: 12px;
+    }
+
+    body.montrapac-page .mp-swatch {
+        width: 34px;
+        height: 34px;
+    }
 }
