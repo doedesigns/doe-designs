@@ -777,7 +777,7 @@ body.project-page .lightbox-close {
     height: 42px;
     margin: -18px -18px 8px 12px;
     padding: 0;
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border: 1px solid transparent;
     border-radius: 50%;
     background: #0B0D11;
     cursor: pointer;
@@ -810,12 +810,15 @@ body.project-page .lightbox-close span::after {
     transform: rotate(-45deg);
 }
 
-body.project-page .lightbox-close:hover {
-    border-color: #00E5FF;
+body.project-page .lightbox-close:hover,
+body.project-page .lightbox-close:focus-visible {
+    border-color: transparent;
 }
 
 body.project-page .lightbox-close:hover span::before,
-body.project-page .lightbox-close:hover span::after {
+body.project-page .lightbox-close:hover span::after,
+body.project-page .lightbox-close:focus-visible span::before,
+body.project-page .lightbox-close:focus-visible span::after {
     background: #FFFFFF;
 }
 
