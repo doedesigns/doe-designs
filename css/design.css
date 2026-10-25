@@ -5,7 +5,6 @@
     File: design.css
 ========================================================= */
 
-
 /*=========================================================
     DESIGN PAGE
 ========================================================= */
@@ -13,7 +12,6 @@
 body.design-page {
     background: #251036;
 }
-
 
 /*=========================================================
     PAGE LAYOUT
@@ -24,7 +22,6 @@ body.design-page .page-content {
     flex-direction: column;
     min-height: calc(100vh - 70px);
 }
-
 
 /*=========================================================
     DESIGN GRID
@@ -42,7 +39,6 @@ body.design-page .page-content {
     position: relative;
     z-index: 2;
 }
-
 
 /*=========================================================
     DESIGN CARDS
@@ -101,7 +97,6 @@ body.design-page .page-content {
     border-color: #00E5FF;
     box-shadow: 0 0 30px rgba(0, 229, 255, .82);
 }
-
 
 /*=========================================================
     DELIVERABLES HOVER OVERLAY
@@ -332,7 +327,6 @@ body.branding-page .branding-card .card-project-title {
     }
 }
 
-
 /* =========================================================
    CATEGORY PAGE ALIGNMENT AND CONTACT ACTIONS
    DESIGN PAGE
@@ -436,7 +430,6 @@ body.design-page .copy-wrapper {
     }
 }
 
-
 /* =========================================================
    UI/UX CATEGORY GRID — 4 COLUMNS ON DESKTOP
    Add to the UI/UX CATEGORY stylesheet, not project CSS.
@@ -503,7 +496,6 @@ body.design-page .copy-wrapper {
     }
 }
 
-
 /* =========================================================
    BRANDING CATEGORY GRID — SMALLER IMAGES AND TIGHTER TITLES
    ========================================================= */
@@ -554,3 +546,59 @@ body.branding-page .branding-grid {
     }
 }
 
+/* =========================================================
+   CATEGORY HOME PAGES — COMPACT DESKTOP LAYOUT
+   UI/UX: slightly smaller image boxes
+   Branding: tighter spacing and slightly smaller images
+   Design and Motion: unchanged
+========================================================= */
+
+/* UI/UX — reduce image boxes from 260px to 230px */
+body.design-page .design-card {
+    width: 230px;
+}
+
+body.design-page .design-grid {
+    grid-template-columns: repeat(3, 230px);
+    gap: 40px;
+}
+
+body.design-page .design-card .card-image-wrap {
+    width: 100%;
+    height: 230px;
+    flex: 0 0 230px;
+}
+
+body.design-page .design-card .card-image-wrap img,
+body.design-page .design-card .card-image-wrap .software-overlay {
+    width: 100%;
+    height: 100%;
+}
+
+/* Keep the overlay aligned to the smaller image */
+body.design-page .design-card .software-overlay {
+    top: 0;
+    left: 0;
+}
+
+/* UI/UX title spacing */
+body.design-page .design-card .portfolio-card-title {
+    margin-top: 10px;
+}
+
+/* Preserve the existing mobile card width and layout */
+@media (max-width: 900px) {
+    body.design-page .design-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    body.design-page .design-card {
+        width: 260px;
+    }
+
+    body.design-page .design-card .card-image-wrap {
+        height: 260px;
+        flex-basis: 260px;
+    }
+}
