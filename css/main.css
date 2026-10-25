@@ -865,3 +865,39 @@ body.project-page .lightbox-image img {
         transition: none;
     }
 }
+
+
+/* =========================================
+   LIGHTBOX PROPOSAL NAVIGATION
+   ========================================= */
+
+.lightbox-proposal-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.lightbox-proposal-navigation[hidden] {
+    display: none;
+}
+
+.lightbox-proposal-navigation .project-arrow {
+    flex: 0 0 55px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+.lightbox-proposal-counter {
+    color: #FFFFFF;
+    font-family: "Jost", sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+

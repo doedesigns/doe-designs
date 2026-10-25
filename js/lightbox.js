@@ -3,8 +3,8 @@
    ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-    const lightboxTriggers = document.querySelectorAll(
-        ".lightbox-image img"
+    const lightboxTriggers = Array.from(
+        document.querySelectorAll(".lightbox-image img")
     );
 
     if (!lightboxTriggers.length) return;
@@ -48,6 +48,33 @@ document.addEventListener("DOMContentLoaded", () => {
                         hidden>
                     </div>
 
+				<div
+					class="lightbox-proposal-navigation"
+					hidden>
+
+					<button
+						class="project-arrow prev lightbox-proposal-prev"
+						type="button"
+						aria-label="Previous proposal page">
+						<span class="arrow-circle">
+							<span class="arrow-triangle"></span>
+						</span>
+					</button>
+
+					<span class="lightbox-proposal-counter"
+						aria-live="polite"></span>
+
+					<button
+						class="project-arrow next lightbox-proposal-next"
+						type="button"
+						aria-label="Next proposal page">
+						<span class="arrow-circle">
+							<span class="arrow-triangle"></span>
+						</span>
+					</button>
+
+				</div>
+
                 </div>
 
             </div>
@@ -66,14 +93,28 @@ document.addEventListener("DOMContentLoaded", () => {
     const supportingImages = lightbox.querySelector(
         ".lightbox-supporting-images"
     );
+    const proposalNavigation = lightbox.querySelector(
+        ".lightbox-proposal-navigation"
+    );
+    const proposalPrevious = lightbox.querySelector(
+        ".lightbox-proposal-prev"
+    );
+    const proposalNext = lightbox.querySelector(
+        ".lightbox-proposal-next"
+    );
+    const proposalCounter = lightbox.querySelector(
+        ".lightbox-proposal-counter"
+    );
 
     let previouslyFocusedElement = null;
     let previousBodyOverflow = "";
+    let activeImage = null;
+    let activeProposalImages = [];
+    let activeProposalIndex = -1;
 
     /* FIND THE EXISTING IMAGE CAPTION OR DESCRIPTION */
 
     function getCaptionElement(img) {
-        /* First: standard figure captions */
         const figure = img.closest("figure");
 
         if (figure) {
@@ -82,7 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if (figcaption) return figcaption;
         }
 
-        /* Second: descriptions stored beside the hero image */
         const imageSection = img.closest(".lightbox-image");
 
         if (imageSection) {
@@ -93,7 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if (description) return description;
         }
 
-        /* Third: captions inside project image blocks */
         const container = img.closest(".project-image-block");
 
         if (container) {
@@ -128,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "data-lightbox-text"
         );
 
-        if (customDescription) return customDescription;
+        if (customDescription !== null) return customDescription;
 
         if (caption) {
             const captionClone = caption.cloneNode(true);
@@ -136,10 +175,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (strong) strong.remove();
 
-            return captionClone.textContent.trim();
+            return captionClone.innerHTML.trim();
         }
 
         return "";
+    }
+
+    /* RENDER DESCRIPTION HTML SAFELY
+       Allows normal text and common formatting/list tags.
+       Unsupported elements are reduced to their text content.
+    */
+
+    function renderDescription(content) {
+        descriptionElement.replaceChildren();
+
+        if (!content) return;
+
+        const template = document.createElement("template");
+        template.innerHTML = content;
+
+        const allowedTags = new Set([
+            "UL", "OL", "LI", "P", "STRONG",
+            "EM", "B", "I", "BR"
+        ]);
+
+        function cleanNode(node) {
+            if (node.nodeType === Node.TEXT_NODE) {
+                return document.createTextNode(node.textContent);
+            }
+
+            if (node.nodeType !== Node.ELEMENT_NODE) {
+                return document.createDocumentFragment();
+            }
+
+            if (!allowedTags.has(node.tagName)) {
+                const fragment = document.createDocumentFragment();
+
+                Array.from(node.childNodes).forEach((child) => {
+                    fragment.appendChild(cleanNode(child));
+                });
+
+                return fragment;
+            }
+
+            const cleanElement = document.createElement(
+                node.tagName.toLowerCase()
+            );
+
+            Array.from(node.childNodes).forEach((child) => {
+                cleanElement.appendChild(cleanNode(child));
+            });
+
+            return cleanElement;
+        }
+
+        Array.from(template.content.childNodes).forEach((node) => {
+            descriptionElement.appendChild(cleanNode(node));
+        });
     }
 
     /* ADD OPTIONAL SUPPORTING IMAGES */
@@ -178,11 +270,27 @@ document.addEventListener("DOMContentLoaded", () => {
         supportingImages.appendChild(figure);
     }
 
-    /* OPEN THE LIGHTBOX */
+    /* IDENTIFY THE PROPOSAL CAROUSEL
+       Navigation is enabled only for images inside the
+       Old Dog Cafe proposal carousel.
+    */
 
-    function openLightbox(img) {
-        previouslyFocusedElement = document.activeElement;
-        previousBodyOverflow = document.body.style.overflow;
+    function getProposalImages(img) {
+        const proposalCarousel = img.closest(
+            "#odc-proposal-carousel"
+        );
+
+        if (!proposalCarousel) return [];
+
+        return Array.from(
+            proposalCarousel.querySelectorAll(".lightbox-image img")
+        );
+    }
+
+    /* UPDATE THE CURRENT LIGHTBOX IMAGE */
+
+    function displayImage(img) {
+        activeImage = img;
 
         const caption = getCaptionElement(img);
 
@@ -191,9 +299,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         titleElement.textContent = getImageTitle(img, caption);
 
-        descriptionElement.textContent = getImageDescription(
-            img,
-            caption
+        renderDescription(
+            getImageDescription(img, caption)
         );
 
         supportingImages.replaceChildren();
@@ -201,10 +308,38 @@ document.addEventListener("DOMContentLoaded", () => {
         addSupportingImage(img, 1);
         addSupportingImage(img, 2);
 
-        const hasSupportingImages =
-            supportingImages.children.length > 0;
+        supportingImages.hidden =
+            supportingImages.children.length === 0;
 
-        supportingImages.hidden = !hasSupportingImages;
+        if (activeProposalImages.length > 1) {
+            proposalNavigation.hidden = false;
+
+            proposalCounter.textContent =
+                `${activeProposalIndex + 1} of ${activeProposalImages.length}`;
+
+            proposalPrevious.disabled = false;
+            proposalNext.disabled = false;
+        } else {
+            proposalNavigation.hidden = true;
+            proposalCounter.textContent = "";
+        }
+    }
+
+    /* OPEN THE LIGHTBOX */
+
+    function openLightbox(img) {
+        previouslyFocusedElement = document.activeElement;
+        previousBodyOverflow = document.body.style.overflow;
+
+        activeProposalImages = getProposalImages(img);
+        activeProposalIndex = activeProposalImages.indexOf(img);
+
+        if (activeProposalIndex < 0) {
+            activeProposalImages = [];
+            activeProposalIndex = -1;
+        }
+
+        displayImage(img);
 
         lightbox.classList.add("active");
         document.body.classList.add("lightbox-open");
@@ -212,6 +347,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
         closeButton.focus();
     }
+
+    /* MOVE THROUGH PROPOSAL PAGES */
+
+    function moveProposal(direction) {
+        if (activeProposalImages.length < 2) return;
+
+        activeProposalIndex =
+            (activeProposalIndex + direction + activeProposalImages.length) %
+            activeProposalImages.length;
+
+        displayImage(activeProposalImages[activeProposalIndex]);
+    }
+
+    proposalPrevious.addEventListener("click", () => {
+        moveProposal(-1);
+    });
+
+    proposalNext.addEventListener("click", () => {
+        moveProposal(1);
+    });
 
     /* CLOSE THE LIGHTBOX */
 
@@ -223,9 +378,15 @@ document.addEventListener("DOMContentLoaded", () => {
         largeImage.src = "";
         largeImage.alt = "";
         titleElement.textContent = "";
-        descriptionElement.textContent = "";
+        descriptionElement.replaceChildren();
         supportingImages.replaceChildren();
         supportingImages.hidden = true;
+        proposalNavigation.hidden = true;
+        proposalCounter.textContent = "";
+
+        activeImage = null;
+        activeProposalImages = [];
+        activeProposalIndex = -1;
 
         if (
             previouslyFocusedElement &&
@@ -277,14 +438,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    /* ESCAPE KEY */
+    /* KEYBOARD SUPPORT */
 
     document.addEventListener("keydown", (event) => {
-        if (
-            event.key === "Escape" &&
-            lightbox.classList.contains("active")
-        ) {
+        if (!lightbox.classList.contains("active")) return;
+
+        if (event.key === "Escape") {
             closeLightbox();
+            return;
+        }
+
+        if (event.key === "ArrowLeft") {
+            moveProposal(-1);
+        }
+
+        if (event.key === "ArrowRight") {
+            moveProposal(1);
         }
     });
 

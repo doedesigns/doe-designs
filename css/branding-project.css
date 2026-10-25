@@ -175,11 +175,8 @@ PROJECT ARROWS
 }
 
 .arrow-triangle {
-
     width:0;
-
     height:0;
-
 }
 
 .project-arrow.prev .arrow-triangle {
@@ -4996,4 +4993,167 @@ body.montrapac-page .page-contact-link .enter-button:focus-visible {
         width: 34px;
         height: 34px;
     }
+}
+
+/* =========================================================
+   MONTRAPAC — REFINEMENTS
+   Darker panel, red dividers, clearer title, campaign carousel
+   ========================================================= */
+
+/* Darken the main panel */
+body.montrapac-page {
+    --mp-panel: #A8AAA6;
+    --mp-panel-alt: #9B9D99;
+    --mp-line: rgba(181, 31, 40, 0.75);
+}
+
+/* Make the main title and subtitle readable on the dark page */
+body.montrapac-page .project-title h1 {
+    color: #FFFFFF;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+body.montrapac-page .project-title .title-break {
+    color: #E0E1DE;
+}
+
+/* Red divider lines throughout the main panel */
+body.montrapac-page .mp-content-panel .mp-panel + .mp-panel,
+body.montrapac-page .mp-content-panel .mp-gallery-section {
+    border-top: 2px solid #B51F28;
+}
+
+/* Red separators above and below the four project detail columns */
+body.montrapac-page .montrapac-details {
+    border-top-color: #B51F28;
+    border-bottom-color: #B51F28;
+}
+
+body.montrapac-page .montrapac-details .detail-box {
+    border-right-color: rgba(181, 31, 40, 0.55);
+}
+
+body.montrapac-page .montrapac-details .detail-box:nth-child(-n+2) {
+    border-bottom-color: rgba(181, 31, 40, 0.55);
+}
+
+/* Smaller logo sketch with caption centered directly beneath */
+body.montrapac-page .mp-identity-image {
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+body.montrapac-page .mp-identity-image img {
+    width: 100%;
+    max-height: 360px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+body.montrapac-page .mp-identity-image figcaption {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* =========================================================
+   CAMPAIGN CAROUSEL
+   Uses the existing campaign images and captions.
+   No JavaScript required.
+   ========================================================= */
+
+body.montrapac-page .mp-campaign-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-template-columns: none;
+    gap: 24px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 0 18px;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 2px;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+body.montrapac-page .mp-campaign-card {
+    min-width: 0;
+    scroll-snap-align: start;
+}
+
+/* Image sizes stay proportional */
+body.montrapac-page .mp-campaign-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Subtle scrollbar styling */
+body.montrapac-page .mp-campaign-grid {
+    scrollbar-width: thin;
+    scrollbar-color: #B51F28 rgba(23, 25, 27, 0.12);
+}
+
+body.montrapac-page .mp-campaign-grid::-webkit-scrollbar {
+    height: 7px;
+}
+
+body.montrapac-page .mp-campaign-grid::-webkit-scrollbar-track {
+    background: rgba(23, 25, 27, 0.12);
+}
+
+body.montrapac-page .mp-campaign-grid::-webkit-scrollbar-thumb {
+    background: #B51F28;
+}
+
+/* Tablet and mobile: show part of the next slide as a hint */
+@media (max-width: 850px) {
+    body.montrapac-page .mp-campaign-grid {
+        grid-auto-columns: 82%;
+    }
+
+    body.montrapac-page .mp-identity-image {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 560px) {
+    body.montrapac-page .mp-content-panel {
+        background: #A8AAA6;
+    }
+
+    body.montrapac-page .mp-campaign-grid {
+        grid-auto-columns: 90%;
+        gap: 18px;
+    }
+
+    body.montrapac-page .mp-identity-image {
+        max-width: 340px;
+    }
+
+    body.montrapac-page .mp-identity-image img {
+        max-height: 280px;
+    }
+}
+
+
+/* MONTRAPAC — SUBTLE RAISED RED DIVIDERS */
+
+/* Red dividing lines with soft shadows above and below */
+body.montrapac-page .mp-content-panel .mp-panel + .mp-panel,
+body.montrapac-page .mp-content-panel .mp-gallery-section {
+    border-top: 2px solid #B51F28;
+    box-shadow:
+        0 -5px 9px -7px rgba(0, 0, 0, 0.65),
+        0  5px 9px -7px rgba(0, 0, 0, 0.45);
+}
+
+/* Give the lines a little breathing room */
+body.montrapac-page .mp-content-panel .mp-panel + .mp-panel,
+body.montrapac-page .mp-content-panel .mp-gallery-section {
+    position: relative;
 }
