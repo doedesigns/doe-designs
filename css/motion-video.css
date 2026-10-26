@@ -999,3 +999,40 @@ body.unconventional-page .project-contact {
     }
 }
 
+
+/* ============================================
+   BANG BANG — FINAL COLOR & TYPE REFINEMENTS
+   ============================================ */
+
+/* Rust-red section eyebrows */
+body.bang-page .bang-section-number {
+    color: #C84A4E;
+}
+
+/* Match the closing message to other project pages */
+body.bang-page .page-contact-link p,
+body.bang-page .project-footer-link p {
+    font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+}
+
+
+/* ============================================
+   CALIFORNIA DREAMIN' — ORANGE ACCENTS
+   ============================================ */
+
+body.cali-page {
+    --cali-accent: #F4A261;
+}
+
+/* Orange section eyebrows */
+body.cali-page .cali-eyebrow {
+    color: var(--cali-accent);
+}
+
+/* Orange heading underlines */
+body.cali-page .project-story h2::after,
+body.cali-page .project-gallery-heading h2::after,
+body.cali-page .cali-gallery-heading h2::after {
+    background-color: var(--cali-accent);
+}
+
