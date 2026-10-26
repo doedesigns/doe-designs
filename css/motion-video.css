@@ -1415,3 +1415,64 @@ body.unconventional-page .project-contact p {
     }
 }
 
+/* =========================================================
+   UNCONVENTIONAL LIFE — NAV AND GALLERY HEADING REFINEMENTS
+   ========================================================= */
+
+/* Match the site's condensed navigation typography */
+body.unconventional-page .navbar .nav-links a {
+    font-family: "Barlow Condensed", sans-serif !important;
+    font-weight: 600;
+}
+
+/* Keep the gallery heading underline below the text */
+body.unconventional-page .unconventional-gallery-heading h2 {
+    display: table;
+    position: relative;
+    margin: 0 auto 22px;
+    padding: 0 0 12px;
+    line-height: 1.25;
+    border-bottom: 0 !important;
+}
+
+body.unconventional-page .unconventional-gallery-heading h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: #00E5FF;
+}
+
+/* Give the supporting sentence clear separation from the heading */
+body.unconventional-page .unconventional-gallery-heading > p:not(.unconventional-eyebrow) {
+    margin-top: 24px;
+    line-height: 1.6;
+}
+
+/* Tighten long project copy for easier scanning */
+body.unconventional-page .project-story-content > p:not(.unconventional-eyebrow) {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+body.unconventional-page .project-story-content > p:not(.unconventional-eyebrow) + p {
+    margin-top: 14px;
+}
+
+@media (max-width: 600px) {
+    body.unconventional-page .unconventional-gallery-heading h2 {
+        margin-bottom: 18px;
+        padding-bottom: 10px;
+    }
+
+    body.unconventional-page .unconventional-gallery-heading > p:not(.unconventional-eyebrow) {
+        margin-top: 20px;
+    }
+
+    body.unconventional-page .project-story-content > p:not(.unconventional-eyebrow) {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+}

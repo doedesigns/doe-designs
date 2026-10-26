@@ -637,3 +637,45 @@ body.design-page .design-card .portfolio-card-title {
         margin-top: 8px;
     }
 }
+ /* =========================================================
+   UI/UX HOMEPAGE — FORCE BRANDING-MATCHED IMAGE SIZE
+   ========================================================= */
+
+@media (min-width: 901px) {
+    body.design-page .design-grid {
+        grid-template-columns: repeat(3, 230px) !important;
+        justify-content: center !important;
+        align-content: start !important;
+        column-gap: 40px !important;
+        row-gap: 18px !important;
+        margin-top: 25px !important;
+    }
+
+    body.design-page .design-grid .design-card {
+        width: 230px !important;
+        min-width: 0 !important;
+        max-width: 230px !important;
+    }
+
+    body.design-page .design-grid .design-card .card-image-wrap {
+        width: 230px !important;
+        height: 230px !important;
+        min-height: 230px !important;
+        max-height: 230px !important;
+        flex: 0 0 230px !important;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    body.design-page .design-grid .design-card .card-image-wrap img,
+    body.design-page .design-grid .design-card .card-image-wrap .software-overlay {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+    }
+
+    body.design-page .design-grid .design-card .portfolio-card-title,
+    body.design-page .design-grid .design-card .card-project-title {
+        margin-top: 8px !important;
+    }
+}
