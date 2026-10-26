@@ -647,3 +647,43 @@ body.motion-page .motion-card:focus-visible .portfolio-card-title {
         gap: 32px;
     }
 }
+
+/* =========================================================
+   MOTION HOME — MATCH BRANDING IMAGE SIZE AND SPACING
+   Preserve video previews and hover effects.
+   ========================================================= */
+
+@media (min-width: 901px) {
+    body.motion-page .motion-grid {
+        grid-template-columns: repeat(3, 230px);
+        justify-content: center;
+        align-content: start;
+        column-gap: 40px;
+        row-gap: 18px;
+        margin-top: 25px;
+    }
+
+    body.motion-page .motion-card {
+        width: 230px;
+    }
+
+    body.motion-page .motion-preview {
+        width: 230px;
+        height: 230px;
+        aspect-ratio: 1 / 1;
+        flex: 0 0 230px;
+        box-sizing: border-box;
+    }
+
+    body.motion-page .motion-still,
+    body.motion-page .motion-video,
+    body.motion-page .youtube-motion-preview {
+        width: 100%;
+        height: 100%;
+    }
+
+    body.motion-page .motion-card .portfolio-card-title {
+        margin-top: 8px;
+    }
+}
+

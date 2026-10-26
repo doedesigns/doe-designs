@@ -584,6 +584,21 @@ body.bang-page .page-contact-link .enter-button:hover {
     }
 }
 
+/* ============================================
+   BANG BANG — FINAL COLOR & TYPE REFINEMENTS
+   ============================================ */
+
+/* Rust-red section eyebrows */
+body.bang-page .bang-section-number {
+    color: #C84A4E;
+}
+
+/* Match the closing message to other project pages */
+body.bang-page .page-contact-link p,
+body.bang-page .project-footer-link p {
+    font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+}
+
 /* =========================================================
    CALIFORNIA DREAMIN' — PROJECT-SPECIFIC ART DIRECTION
    Dark, atmospheric seasonal journey: autumn, winter, sunset.
@@ -912,6 +927,71 @@ body.cali-page .page-contact-link .enter-button:hover {
 }
 
 /* ============================================
+   CALIFORNIA DREAMIN' — ORANGE ACCENTS
+   ============================================ */
+
+body.cali-page {
+    --cali-accent: #F4A261;
+}
+
+/* Orange section eyebrows */
+body.cali-page .cali-eyebrow {
+    color: var(--cali-accent);
+}
+
+/* Orange heading underlines */
+body.cali-page .project-story h2::after,
+body.cali-page .project-gallery-heading h2::after,
+body.cali-page .cali-gallery-heading h2::after {
+    background-color: var(--cali-accent);
+}
+
+/* ============================================
+   CALIFORNIA DREAMIN' — FINAL REFINEMENTS
+   ============================================ */
+
+body.cali-page {
+    --cali-accent: #F4A261;
+}
+
+/* Ensure all section eyebrows are orange */
+body.cali-page .cali-eyebrow {
+    color: var(--cali-accent) !important;
+}
+
+/* Add space between the underline and supporting copy */
+body.cali-page .project-gallery-heading h2::after,
+body.cali-page .cali-gallery-heading h2::after {
+    margin-bottom: 22px;
+}
+
+/* Give the supporting sentence its own breathing room */
+body.cali-page .project-gallery-heading p,
+body.cali-page .cali-gallery-heading p {
+    line-height: 1.8;
+}
+
+body.cali-page .project-gallery-heading > p:last-child,
+body.cali-page .cali-gallery-heading > p:last-child {
+    margin-top: 18px;
+}
+
+/* Orange image captions */
+body.cali-page figcaption,
+body.cali-page .project-image-block figcaption {
+    color: var(--cali-accent);
+}
+
+/* Keep captions readable on smaller screens */
+@media (max-width: 700px) {
+    body.cali-page .project-gallery-heading h2::after,
+    body.cali-page .cali-gallery-heading h2::after {
+        margin-bottom: 18px;
+    }
+}
+
+
+/* ============================================
    UNCONVENTIONAL LIFE
    Page-specific styles
    ============================================ */
@@ -999,40 +1079,339 @@ body.unconventional-page .project-contact {
     }
 }
 
-
 /* ============================================
-   BANG BANG — FINAL COLOR & TYPE REFINEMENTS
+   UNCONVENTIONAL LIFE — LAYOUT FIX
+   Scoped to this page only
    ============================================ */
 
-/* Rust-red section eyebrows */
-body.bang-page .bang-section-number {
-    color: #C84A4E;
+/* Page heading */
+body.unconventional-page .unconventional-heading {
+    max-width: 1200px;
+    margin: 0 auto 42px;
+    padding: 40px 24px 0;
+    text-align: center;
 }
 
-/* Match the closing message to other project pages */
-body.bang-page .page-contact-link p,
-body.bang-page .project-footer-link p {
-    font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+body.unconventional-page .unconventional-heading h1 {
+    margin: 0;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(44px, 6vw, 76px);
+    font-weight: 900;
+    letter-spacing: .08em;
+    line-height: 1.05;
+    text-align: center;
 }
 
-
-/* ============================================
-   CALIFORNIA DREAMIN' — ORANGE ACCENTS
-   ============================================ */
-
-body.cali-page {
-    --cali-accent: #F4A261;
+body.unconventional-page .unconventional-heading .project-subtitle {
+    margin: 12px 0 0;
+    font-family: "Jost", sans-serif;
+    font-size: clamp(16px, 1.8vw, 21px);
+    line-height: 1.6;
+    text-align: center;
 }
 
-/* Orange section eyebrows */
-body.cali-page .cali-eyebrow {
-    color: var(--cali-accent);
+body.unconventional-page .unconventional-eyebrow {
+    margin: 0 0 14px;
+    color: #00E5FF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    line-height: 1.5;
+    text-transform: uppercase;
 }
 
-/* Orange heading underlines */
-body.cali-page .project-story h2::after,
-body.cali-page .project-gallery-heading h2::after,
-body.cali-page .cali-gallery-heading h2::after {
-    background-color: var(--cali-accent);
+/* Video */
+body.unconventional-page .video-hero {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto 55px;
+}
+
+body.unconventional-page .video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+body.unconventional-page .video-container iframe {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, .18);
+}
+
+/* Four project-detail columns */
+body.unconventional-page .unconventional-details {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+    width: 90%;
+    max-width: 1250px;
+    margin: 0 auto 100px;
+    padding: 28px 0;
+    border-top: 1px solid rgba(255, 255, 255, .2);
+    border-bottom: 1px solid rgba(255, 255, 255, .2);
+}
+
+body.unconventional-page .unconventional-details .project-detail {
+    min-width: 0;
+    text-align: center;
+}
+
+body.unconventional-page .unconventional-details h3 {
+    margin: 0 0 12px;
+    color: #00E5FF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: .12em;
+}
+
+body.unconventional-page .unconventional-details p {
+    margin: 0;
+    color: #E0DDE3;
+    font-family: "Jost", sans-serif;
+    font-size: 13px;
+    line-height: 1.85;
+    overflow-wrap: anywhere;
+}
+
+/* Story sections: text and image side by side */
+body.unconventional-page .project-story {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(30px, 5vw, 70px);
+    width: 90%;
+    max-width: 1250px;
+    margin: 0 auto 100px;
+}
+
+body.unconventional-page .project-story-content {
+    min-width: 0;
+}
+
+body.unconventional-page .project-story-content h2 {
+    margin: 0 0 22px;
+    color: #F4F0F5;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(30px, 3.5vw, 46px);
+    font-weight: 800;
+    letter-spacing: .06em;
+    line-height: 1.12;
+}
+
+body.unconventional-page .project-story-content h2::after {
+    content: "";
+    display: block;
+    width: 54px;
+    height: 2px;
+    margin-top: 16px;
+    background: #00E5FF;
+}
+
+body.unconventional-page .project-story-content > p:not(.unconventional-eyebrow) {
+    color: #DAD7DE;
+    font-family: "Jost", sans-serif;
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+body.unconventional-page .project-story-content > p + p {
+    margin-top: 16px;
+}
+
+/* Story images */
+body.unconventional-page .project-story .project-image {
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+}
+
+body.unconventional-page .project-story .project-image img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, .16);
+}
+
+body.unconventional-page .project-story .project-image figcaption {
+    margin: 14px auto 0;
+    color: #00E5FF;
+    font-family: "Jost", sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* Put the image first in the creative-direction section */
+body.unconventional-page .unconventional-direction {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+/* Process gallery heading */
+body.unconventional-page .unconventional-gallery-heading {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto 32px;
+    padding-top: 30px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, .18);
+}
+
+body.unconventional-page .unconventional-gallery-heading h2 {
+    margin: 0;
+    color: #F4F0F5;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    letter-spacing: .08em;
+}
+
+body.unconventional-page .unconventional-gallery-heading h2::after {
+    content: "";
+    display: block;
+    width: 54px;
+    height: 2px;
+    margin: 16px auto 22px;
+    background: #00E5FF;
+}
+
+body.unconventional-page .unconventional-gallery-heading > p:last-child {
+    max-width: 620px;
+    margin: 0 auto;
+    color: #DAD7DE;
+    font-family: "Jost", sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* Software screenshots: constrain their width */
+body.unconventional-page .unconventional-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 55px;
+    width: 90%;
+    max-width: 1250px;
+    margin: 0 auto 85px;
+}
+
+body.unconventional-page .unconventional-gallery .project-gallery-item {
+    width: 100%;
+    margin: 0;
+}
+
+body.unconventional-page .unconventional-gallery .project-gallery-item a {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+body.unconventional-page .unconventional-gallery .project-gallery-item img {
+    display: block;
+    width: 82%;
+    max-width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, .16);
+}
+
+body.unconventional-page .unconventional-gallery .project-gallery-item figcaption {
+    margin: 14px auto 0;
+    color: #00E5FF;
+    font-family: "Jost", sans-serif;
+    font-size: 13px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* Contact section */
+body.unconventional-page .project-contact {
+    width: 90%;
+    max-width: 1000px;
+    margin: 70px auto 0;
+    text-align: center;
+}
+
+body.unconventional-page .project-contact h2 {
+    font-size: clamp(26px, 3vw, 36px);
+}
+
+body.unconventional-page .project-contact p {
+    line-height: 1.8;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+    body.unconventional-page .unconventional-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px 20px;
+    }
+
+    body.unconventional-page .project-story {
+        gap: 28px;
+    }
+
+    body.unconventional-page .unconventional-gallery .project-gallery-item img {
+        width: 90%;
+    }
+}
+
+@media (max-width: 700px) {
+    body.unconventional-page .unconventional-heading {
+        padding-top: 28px;
+        margin-bottom: 30px;
+    }
+
+    body.unconventional-page .video-hero {
+        width: 94%;
+        margin-bottom: 40px;
+    }
+
+    body.unconventional-page .unconventional-details {
+        width: 90%;
+        margin-bottom: 65px;
+        padding: 20px 0;
+    }
+
+    body.unconventional-page .project-story {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 90%;
+        margin-bottom: 65px;
+    }
+
+    body.unconventional-page .project-story-content h2 {
+        font-size: 32px;
+    }
+
+    body.unconventional-page .project-story-content > p:not(.unconventional-eyebrow) {
+        font-size: 14px;
+    }
+
+    body.unconventional-page .unconventional-gallery-heading {
+        margin-bottom: 24px;
+        padding-top: 24px;
+    }
+
+    body.unconventional-page .unconventional-gallery {
+        gap: 38px;
+        margin-bottom: 55px;
+    }
+
+    body.unconventional-page .unconventional-gallery .project-gallery-item img {
+        width: 100%;
+    }
+
+    body.unconventional-page .project-contact {
+        margin-top: 45px;
+    }
 }
 

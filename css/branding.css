@@ -499,3 +499,18 @@ body.branding-page .copy-wrapper {
         margin-top: 8px;
     }
 }
+
+/* =========================================================
+   BRANDING HOME — INTRO AND PROJECT GRID SPACING
+   ========================================================= */
+
+@media (min-width: 901px) {
+    body.branding-page .portfolio-header {
+        margin-bottom: 30px;
+    }
+
+    body.branding-page .branding-grid {
+        align-content: start;
+        margin-top: 25px;
+    }
+}
