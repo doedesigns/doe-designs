@@ -991,49 +991,35 @@ body.cali-page .project-image-block figcaption {
 }
 
 /* =========================================================
-   UNCONVENTIONAL LIFE
-   Fantasy Editorial Redesign
-   Page-specific styles only.
-   Shared Motion, Bang Bang, and California Dreamin' styles
-   remain unchanged.
+   UNCONVENTIONAL LIFE — CONSOLIDATED PAGE STYLES
+   Replace the existing Unconventional Life CSS patches with
+   this single block in motion-video.css.
+   All selectors are scoped to body.unconventional-page.
+   Shared navigation, header, footer, and other motion pages
+   are intentionally not styled here.
    ========================================================= */
 
-/* ---------- COLOR + PAGE FOUNDATION ---------- */
+/* ---------- Palette and page background ---------- */
 
 body.unconventional-page {
     --unconventional-night: #081522;
     --unconventional-panel: rgba(20, 31, 49, 0.82);
-    --unconventional-panel-light: rgba(201, 167, 255, 0.07);
     --unconventional-lavender: #C9A7FF;
+    --unconventional-purple: #B99AE8;
+    --unconventional-purple-light: #D8C7F5;
     --unconventional-mint: #DDF5E5;
     --unconventional-white: #F4F0F5;
     --unconventional-muted: #B9BDCD;
     --unconventional-line: rgba(201, 167, 255, 0.32);
 
-    background:
-        radial-gradient(
-            ellipse at 15% 16%,
-            rgba(116, 91, 167, 0.17),
-            transparent 36%
-        ),
-        radial-gradient(
-            ellipse at 88% 48%,
-            rgba(104, 155, 143, 0.10),
-            transparent 32%
-        ),
-        linear-gradient(
-            180deg,
-            #081522 0%,
-            #101629 48%,
-            #081522 100%
-        );
-
     color: var(--unconventional-white);
+    background:
+        radial-gradient(ellipse at 15% 16%, rgba(116, 91, 167, 0.17), transparent 36%),
+        radial-gradient(ellipse at 88% 48%, rgba(104, 155, 143, 0.10), transparent 32%),
+        linear-gradient(180deg, #081522 0%, #101629 48%, #081522 100%);
 }
 
-/* Keep the existing navigation styling and colors unchanged. */
-
-/* ---------- PROJECT TITLE ---------- */
+/* ---------- Main project title (not the shared header/nav) ---------- */
 
 body.unconventional-page .project-navigation {
     position: relative;
@@ -1048,8 +1034,17 @@ body.unconventional-page .project-navigation {
 }
 
 body.unconventional-page .project-navigation .project-title {
-    text-align: center;
     min-width: 0;
+    text-align: center;
+}
+
+body.unconventional-page .project-navigation .project-title::before {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--unconventional-mint);
+    font-size: 1.4rem;
+    line-height: 1;
+    content: "✧";
 }
 
 body.unconventional-page .project-navigation .project-title h1 {
@@ -1069,7 +1064,7 @@ body.unconventional-page .project-navigation .project-subtitle {
 
 body.unconventional-page .unconventional-eyebrow {
     margin: 0 0 14px;
-    color: var(--unconventional-mint);
+    color: var(--unconventional-purple-light);
     font-family: "Barlow Condensed", sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
@@ -1083,26 +1078,12 @@ body.unconventional-page .project-navigation .unconventional-eyebrow {
     color: var(--unconventional-mint);
 }
 
-/* Preserve the existing project-arrow elements and their behavior. */
-
-body.unconventional-page .project-navigation .project-arrow {
+body.unconventional-page .project-navigation > .project-arrow {
     justify-self: center;
     align-self: center;
 }
 
-/* Small decorative star detail; no HTML changes required. */
-
-body.unconventional-page .project-navigation .project-title::before {
-    content: "✧";
-    display: block;
-    margin-bottom: 12px;
-    color: var(--unconventional-mint);
-    font-size: 1.4rem;
-    line-height: 1;
-}
-
-
-/* ---------- HERO VIDEO ---------- */
+/* ---------- Hero video ---------- */
 
 body.unconventional-page .project-hero.video-hero {
     width: 90%;
@@ -1112,15 +1093,9 @@ body.unconventional-page .project-hero.video-hero {
     overflow: hidden;
     border: 1px solid var(--unconventional-line);
     border-radius: 18px;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(201, 167, 255, 0.10),
-            rgba(221, 245, 229, 0.035)
-        );
-    box-shadow:
-        0 22px 70px rgba(0, 0, 0, 0.28),
-        0 0 35px rgba(201, 167, 255, 0.06);
+    background: linear-gradient(135deg, rgba(201, 167, 255, 0.10), rgba(221, 245, 229, 0.035));
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.28), 0 0 35px rgba(201, 167, 255, 0.06);
+    box-sizing: border-box;
 }
 
 body.unconventional-page .project-hero.video-hero .video-container {
@@ -1141,9 +1116,10 @@ body.unconventional-page .project-hero.video-hero iframe {
     border: 0;
 }
 
-/* ---------- FOUR PROJECT DETAIL PANELS ---------- */
+/* ---------- Four project details
+   HTML uses .detail-box, not .project-detail. ---------- */
 
-body.unconventional-page .unconventional-details {
+body.unconventional-page .project-details.unconventional-details {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 18px;
@@ -1152,34 +1128,31 @@ body.unconventional-page .unconventional-details {
     margin: 0 auto 110px;
     padding: 0;
     border: 0;
+    box-sizing: border-box;
 }
 
-body.unconventional-page .unconventional-details .project-detail {
+body.unconventional-page .unconventional-details .detail-box {
     position: relative;
     min-width: 0;
     padding: 28px 22px 30px;
     border: 1px solid var(--unconventional-line);
     border-radius: 12px;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(201, 167, 255, 0.075),
-            rgba(20, 31, 49, 0.70) 65%
-        );
+    background: linear-gradient(145deg, rgba(201, 167, 255, 0.075), rgba(20, 31, 49, 0.70) 65%);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.13);
     text-align: center;
+    box-sizing: border-box;
 }
 
-body.unconventional-page .unconventional-details .project-detail::before {
-    content: "✧";
+body.unconventional-page .unconventional-details .detail-box::before {
     display: block;
     margin-bottom: 13px;
     color: var(--unconventional-mint);
     font-size: 1.1rem;
     line-height: 1;
+    content: "✧";
 }
 
-body.unconventional-page .unconventional-details .project-detail h3 {
+body.unconventional-page .unconventional-details .detail-box h3 {
     margin: 0 0 16px;
     color: var(--unconventional-lavender);
     font-family: "Barlow Condensed", sans-serif;
@@ -1190,7 +1163,7 @@ body.unconventional-page .unconventional-details .project-detail h3 {
     text-align: center;
 }
 
-body.unconventional-page .unconventional-details .project-detail p {
+body.unconventional-page .unconventional-details .detail-box p {
     margin: 0;
     color: var(--unconventional-white);
     font-size: 0.92rem;
@@ -1199,148 +1172,119 @@ body.unconventional-page .unconventional-details .project-detail p {
     text-align: center;
 }
 
+/* ---------- Editorial feature sections ---------- */
 
-/* ---------- STORY SECTIONS ---------- */
-
-body.unconventional-page .project-story {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    align-items: center;
-    gap: clamp(30px, 5vw, 72px);
-    width: 90%;
-    max-width: 1250px;
-    margin: 0 auto 82px;
-    padding: clamp(24px, 4vw, 48px);
-    border: 1px solid rgba(201, 167, 255, 0.20);
-    border-radius: 18px;
-    background:
-        linear-gradient(
-            120deg,
-            rgba(201, 167, 255, 0.055),
-            rgba(8, 21, 34, 0.22) 72%
-        );
+body.unconventional-page .unconventional-feature {
+    display: block;
+    width: 100%;
+    max-width: 1100px;
+    margin: 100px auto;
+    padding: 0 30px;
     box-sizing: border-box;
 }
 
-body.unconventional-page .project-story .project-story-content {
-    min-width: 0;
-}
-
-body.unconventional-page .project-story .project-story-content h2,
-body.unconventional-page .project-gallery-heading h2 {
+body.unconventional-page .unconventional-feature-intro {
     position: relative;
-    display: table;
-    max-width: 100%;
-    margin: 0 0 30px;
-    padding: 0 0 17px;
-    color: var(--unconventional-lavender);
-    font-size: clamp(1.8rem, 3.1vw, 2.65rem);
-    line-height: 1.18;
+    max-width: 820px;
+    margin: 0 auto 42px;
+    text-align: center;
 }
 
-body.unconventional-page .project-story .project-story-content h2::after,
-body.unconventional-page .project-gallery-heading h2::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 76px;
+body.unconventional-page .unconventional-feature-intro h2 {
+    margin: 0 0 24px;
+    color: var(--unconventional-purple-light);
+    font-family: "Playfair Display", serif;
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.2;
+    text-align: center;
+}
+
+body.unconventional-page .unconventional-feature-intro h2::after {
+    display: block;
+    width: 64px;
     height: 2px;
-    background: linear-gradient(
-        90deg,
-        var(--unconventional-mint),
-        var(--unconventional-lavender)
-    );
+    margin: 20px auto 0;
+    background: var(--unconventional-purple);
+    content: "";
 }
 
-body.unconventional-page .project-story .project-story-content p:not(.unconventional-eyebrow) {
-    margin: 0 0 18px;
-    color: var(--unconventional-muted);
-    font-size: 1rem;
-    line-height: 1.9;
+body.unconventional-page .unconventional-feature-intro > p:not(.unconventional-eyebrow) {
+    max-width: 720px;
+    margin: 0 auto 16px;
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.85;
+    text-align: center;
 }
 
-body.unconventional-page .project-story .project-story-content p:last-child {
-    margin-bottom: 0;
+body.unconventional-page .unconventional-feature-intro .unconventional-lead {
+    margin-bottom: 20px;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.7;
 }
 
-body.unconventional-page .project-story .project-story-content em {
-    color: var(--unconventional-mint);
+body.unconventional-page .unconventional-feature-image {
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
 }
 
-/* Alternate the visual balance between story sections. */
-
-body.unconventional-page .unconventional-overview {
-    grid-template-areas: "content image";
-}
-
-body.unconventional-page .unconventional-overview .project-story-content {
-    grid-area: content;
-}
-
-body.unconventional-page .unconventional-overview .project-image {
-    grid-area: image;
-}
-
-body.unconventional-page .unconventional-direction {
-    grid-template-areas: "image content";
-}
-
-body.unconventional-page .unconventional-direction .project-image {
-    grid-area: image;
-}
-
-body.unconventional-page .unconventional-direction .project-story-content {
-    grid-area: content;
-}
-
-body.unconventional-page .unconventional-process {
-    grid-template-areas: "content image";
-}
-
-body.unconventional-page .unconventional-process .project-story-content {
-    grid-area: content;
-}
-
-body.unconventional-page .unconventional-process .project-image {
-    grid-area: image;
-}
-
-/* ---------- STORY IMAGES ---------- */
-
-body.unconventional-page .project-story .project-image {
-    min-width: 0;
-    margin: 0;
-    padding: 10px;
-    border: 1px solid var(--unconventional-line);
-    border-radius: 14px;
-    background: rgba(221, 245, 229, 0.035);
-}
-
-body.unconventional-page .project-story .project-image img {
+body.unconventional-page .unconventional-feature-image img {
     display: block;
     width: 100%;
     height: auto;
-    max-height: 510px;
+    max-height: 680px;
+    margin: 0 auto;
     object-fit: contain;
-    border-radius: 7px;
 }
 
-body.unconventional-page .project-story .project-image figcaption {
-    padding: 13px 8px 3px;
-    color: var(--unconventional-muted);
-    font-size: 0.83rem;
+body.unconventional-page .unconventional-feature-image figcaption {
+    width: 100%;
+    margin: 14px auto 0;
+    color: rgba(255, 255, 255, 0.65);
+    font-family: "Jost", sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
     line-height: 1.6;
     text-align: center;
 }
 
+/* Moodboard is intentionally about half the width of the main feature image. */
 
-/* ---------- BEHIND-THE-SCENES GALLERY INTRO ---------- */
+body.unconventional-page .unconventional-feature-image.unconventional-moodboard {
+    width: 50%;
+    max-width: 450px;
+}
 
-body.unconventional-page .unconventional-gallery-heading {
+body.unconventional-page .unconventional-storyboard {
+    max-width: 900px;
+}
+
+body.unconventional-page .unconventional-feature-note {
+    max-width: 720px;
+    margin: 34px auto 0;
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.9;
+    text-align: center;
+}
+
+body.unconventional-page .unconventional-feature-note p {
+    margin: 0;
+}
+
+/* ---------- Gallery heading ---------- */
+
+body.unconventional-page .project-gallery-heading.unconventional-gallery-heading {
     width: 90%;
     max-width: 1250px;
-    margin: 0 auto 32px;
+    margin: 120px auto 32px;
     padding: 34px 0 0;
     text-align: center;
 }
@@ -1351,13 +1295,25 @@ body.unconventional-page .unconventional-gallery-heading .unconventional-eyebrow
 
 body.unconventional-page .unconventional-gallery-heading h2 {
     display: table;
+    position: relative;
+    max-width: 100%;
     margin: 0 auto 22px;
+    padding: 0 0 17px;
+    color: var(--unconventional-purple-light);
+    font-size: clamp(1.8rem, 3.1vw, 2.65rem);
+    line-height: 1.18;
     text-align: center;
 }
 
 body.unconventional-page .unconventional-gallery-heading h2::after {
+    position: absolute;
     left: 50%;
+    bottom: 0;
+    width: 76px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--unconventional-mint), var(--unconventional-lavender));
     transform: translateX(-50%);
+    content: "";
 }
 
 body.unconventional-page .unconventional-gallery-heading > p:last-child {
@@ -1368,19 +1324,22 @@ body.unconventional-page .unconventional-gallery-heading > p:last-child {
     line-height: 1.8;
 }
 
-/* ---------- TIMELINE + WORKFLOW GALLERY ---------- */
+/* ---------- Timeline gallery: one large image, then two equal images ---------- */
 
-body.unconventional-page .unconventional-gallery {
+body.unconventional-page .project-gallery.unconventional-gallery-redesign {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: minmax(0, 1fr);
     align-items: start;
-    gap: 28px;
-    width: 90%;
-    max-width: 1250px;
+    gap: 32px;
+    width: 100%;
+    max-width: 1100px;
     margin: 0 auto 100px;
+    padding: 0 30px;
+    box-sizing: border-box;
 }
 
-body.unconventional-page .unconventional-gallery .project-gallery-item {
+body.unconventional-page .unconventional-gallery-redesign .project-gallery-item {
+    width: 100%;
     min-width: 0;
     margin: 0;
     padding: 14px;
@@ -1391,47 +1350,57 @@ body.unconventional-page .unconventional-gallery .project-gallery-item {
     box-sizing: border-box;
 }
 
-/* Make the full Premiere timeline the main gallery feature. */
-
-body.unconventional-page .unconventional-gallery .project-gallery-item:first-child {
-    grid-column: 1 / -1;
+body.unconventional-page .unconventional-gallery-redesign .unconventional-gallery-featured {
+    max-width: 100%;
 }
 
-body.unconventional-page .unconventional-gallery .project-gallery-item a {
+body.unconventional-page .unconventional-gallery-redesign .unconventional-gallery-supporting {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 30px;
+    width: 100%;
+    margin: 0;
+}
+
+body.unconventional-page .unconventional-gallery-redesign .project-gallery-item a {
     display: block;
     overflow: hidden;
     border-radius: 8px;
     background: #050912;
 }
 
-body.unconventional-page .unconventional-gallery .project-gallery-item img {
+body.unconventional-page .unconventional-gallery-redesign .project-gallery-item img {
     display: block;
     width: 100%;
     height: auto;
-    max-height: 650px;
+    max-height: none;
     object-fit: contain;
     transition: transform 350ms ease, filter 350ms ease;
 }
 
-body.unconventional-page .unconventional-gallery .project-gallery-item:first-child img {
-    max-height: 720px;
-}
-
-body.unconventional-page .unconventional-gallery .project-gallery-item a:hover img {
-    transform: scale(1.015);
-    filter: brightness(1.06);
-}
-
-body.unconventional-page .unconventional-gallery .project-gallery-item figcaption,
-body.unconventional-page .unconventional-gallery .project-gallery-item > figcaption {
-    padding: 15px 8px 3px;
+body.unconventional-page .unconventional-gallery-redesign .project-gallery-item figcaption {
+    width: 100%;
+    margin-top: 12px;
+    padding: 0 8px 3px;
     color: var(--unconventional-mint);
-    font-size: 0.9rem;
+    font-family: "Jost", sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
     line-height: 1.6;
+    letter-spacing: 0.3px;
     text-align: center;
+    box-sizing: border-box;
 }
 
-/* ---------- CONTACT LINK ---------- */
+@media (hover: hover) {
+    body.unconventional-page .unconventional-gallery-redesign .project-gallery-item a:hover img {
+        transform: scale(1.015);
+        filter: brightness(1.06);
+    }
+}
+
+/* ---------- Contact prompt; shared button styling stays in existing CSS ---------- */
 
 body.unconventional-page .page-contact-link {
     width: 90%;
@@ -1439,6 +1408,7 @@ body.unconventional-page .page-contact-link {
     margin: 0 auto;
     padding: 26px 20px 90px;
     text-align: center;
+    box-sizing: border-box;
 }
 
 body.unconventional-page .page-contact-link p {
@@ -1448,23 +1418,7 @@ body.unconventional-page .page-contact-link p {
     line-height: 1.8;
 }
 
-/* Keep the existing shared .enter-button appearance and hover behavior. */
-
-/* ---------- REDUCED MOTION ---------- */
-
-@media (prefers-reduced-motion: reduce) {
-    body.unconventional-page .unconventional-gallery .project-gallery-item img {
-        transition: none;
-    }
-
-    body.unconventional-page .unconventional-gallery .project-gallery-item a:hover img {
-        transform: none;
-    }
-}
-
-/* =========================================================
-   RESPONSIVE — TABLET
-   ========================================================= */
+/* ---------- Tablet ---------- */
 
 @media (max-width: 1000px) {
     body.unconventional-page .unconventional-details {
@@ -1473,24 +1427,17 @@ body.unconventional-page .page-contact-link p {
         margin-bottom: 80px;
     }
 
-    body.unconventional-page .project-story {
-        gap: 30px;
-        padding: 28px;
-        margin-bottom: 56px;
+    body.unconventional-page .unconventional-feature {
+        margin-top: 75px;
+        margin-bottom: 75px;
     }
 
-    body.unconventional-page .project-story .project-story-content h2 {
-        font-size: clamp(1.7rem, 3.4vw, 2.3rem);
-    }
-
-    body.unconventional-page .unconventional-gallery {
-        gap: 18px;
+    body.unconventional-page .unconventional-gallery-redesign .unconventional-gallery-supporting {
+        gap: 20px;
     }
 }
 
-/* =========================================================
-   RESPONSIVE — MOBILE
-   ========================================================= */
+/* ---------- Mobile ---------- */
 
 @media (max-width: 700px) {
     body.unconventional-page .project-navigation {
@@ -1532,66 +1479,76 @@ body.unconventional-page .page-contact-link p {
         margin-bottom: 64px;
     }
 
-    body.unconventional-page .unconventional-details .project-detail {
+    body.unconventional-page .unconventional-details .detail-box {
         padding: 24px 20px;
     }
 
-    body.unconventional-page .project-story {
-        grid-template-columns: minmax(0, 1fr);
-        grid-template-areas:
-            "content"
-            "image";
+    body.unconventional-page .unconventional-feature {
+        width: 100%;
+        margin: 65px auto;
+        padding: 0 20px;
+    }
+
+    body.unconventional-page .unconventional-feature-intro {
+        margin-bottom: 28px;
+    }
+
+    body.unconventional-page .unconventional-feature-intro h2 {
+        font-size: clamp(28px, 7vw, 38px);
+    }
+
+    body.unconventional-page .unconventional-feature-intro .unconventional-lead {
+        font-size: 17px;
+    }
+
+    body.unconventional-page .unconventional-feature-intro > p:not(.unconventional-eyebrow) {
+        font-size: 15px;
+    }
+
+    body.unconventional-page .unconventional-feature-image figcaption {
+        font-size: 11px;
+    }
+
+    body.unconventional-page .unconventional-feature-image.unconventional-moodboard {
+        width: 80%;
+        max-width: 450px;
+    }
+
+    body.unconventional-page .unconventional-feature-note {
+        margin-top: 24px;
+        font-size: 15px;
+    }
+
+    body.unconventional-page .project-gallery-heading.unconventional-gallery-heading {
         width: 92%;
-        gap: 24px;
-        margin-bottom: 32px;
-        padding: 22px;
-        border-radius: 14px;
-    }
-
-    body.unconventional-page .project-story .project-story-content h2,
-    body.unconventional-page .project-gallery-heading h2 {
-        font-size: clamp(1.8rem, 7vw, 2.35rem);
-        margin-bottom: 24px;
-    }
-
-    body.unconventional-page .project-story .project-story-content p:not(.unconventional-eyebrow) {
-        font-size: 0.96rem;
-        line-height: 1.8;
-    }
-
-    body.unconventional-page .project-story .project-image {
-        padding: 7px;
-    }
-
-    body.unconventional-page .unconventional-gallery-heading {
-        width: 92%;
-        padding-top: 36px;
+        margin-top: 75px;
         margin-bottom: 26px;
+        padding-top: 36px;
     }
 
-    body.unconventional-page .unconventional-gallery {
+    body.unconventional-page .unconventional-gallery-redesign {
+        gap: 24px;
+        width: 100%;
+        margin-bottom: 65px;
+        padding: 0 20px;
+    }
+
+    body.unconventional-page .unconventional-gallery-redesign .unconventional-gallery-supporting {
         grid-template-columns: minmax(0, 1fr);
-        width: 92%;
-        gap: 18px;
-        margin-bottom: 64px;
+        gap: 26px;
     }
 
-    body.unconventional-page .unconventional-gallery .project-gallery-item:first-child {
-        grid-column: auto;
-    }
-
-    body.unconventional-page .unconventional-gallery .project-gallery-item {
+    body.unconventional-page .unconventional-gallery-redesign .project-gallery-item {
         padding: 9px;
     }
 
     body.unconventional-page .page-contact-link {
+        width: 92%;
         padding-bottom: 64px;
     }
 }
 
-/* =========================================================
-   RESPONSIVE — SMALL MOBILE
-   ========================================================= */
+/* ---------- Small mobile ---------- */
 
 @media (max-width: 420px) {
     body.unconventional-page .project-navigation {
@@ -1608,458 +1565,23 @@ body.unconventional-page .page-contact-link p {
         letter-spacing: 0.09em;
     }
 
-    body.unconventional-page .project-story {
-        padding: 18px;
+    body.unconventional-page .unconventional-details .detail-box {
+        padding: 22px 16px;
     }
 
-    body.unconventional-page .unconventional-details .project-detail p {
+    body.unconventional-page .unconventional-details .detail-box p {
         font-size: 0.88rem;
     }
 }
-/* =====================================================
-   UNCONVENTIONAL LIFE — EDITORIAL PROJECT LAYOUT
-   Scoped to this project; leaves shared navigation,
-   header, footer, and other project pages unchanged.
-===================================================== */
 
-.unconventional-page .unconventional-feature {
-    display: block;
-    width: 100%;
-    max-width: 1100px;
-    margin: 100px auto;
-    padding: 0 30px;
-    box-sizing: border-box;
-}
+/* ---------- Reduced motion ---------- */
 
-.unconventional-page .unconventional-feature-intro {
-    max-width: 820px;
-    margin: 0 auto 42px;
-    text-align: center;
-}
-
-.unconventional-page .unconventional-eyebrow {
-    margin: 0 0 18px;
-    color: #00E5FF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-.unconventional-page .unconventional-feature-intro h2 {
-    margin: 0 0 24px;
-    font-family: "Playfair Display", serif;
-    font-size: clamp(30px, 4vw, 48px);
-    line-height: 1.2;
-    text-align: center;
-}
-
-.unconventional-page .unconventional-feature-intro > p:not(.unconventional-eyebrow) {
-    max-width: 720px;
-    margin: 0 auto 16px;
-    font-family: "Jost", sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.85;
-    text-align: center;
-}
-
-.unconventional-page .unconventional-feature-intro .unconventional-lead {
-    margin-bottom: 20px;
-    font-size: 19px;
-    font-weight: 400;
-    line-height: 1.7;
-}
-
-.unconventional-page .unconventional-feature-image {
-    display: block;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0;
-}
-
-.unconventional-page .unconventional-feature-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: 680px;
-    object-fit: contain;
-    margin: 0 auto;
-}
-
-.unconventional-page .unconventional-feature-image figcaption {
-    margin-top: 14px;
-    color: rgba(255, 255, 255, 0.6);
-    font-family: "Jost", sans-serif;
-    font-size: 12px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    text-align: right;
-}
-
-.unconventional-page .unconventional-moodboard {
-    max-width: 900px;
-}
-
-.unconventional-page .unconventional-storyboard {
-    max-width: 900px;
-}
-
-.unconventional-page .unconventional-feature-note {
-    max-width: 720px;
-    margin: 34px auto 0;
-    font-family: "Jost", sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.9;
-    text-align: center;
-}
-
-.unconventional-page .unconventional-feature-note p {
-    margin: 0;
-}
-
-/* More breathing room before the behind-the-scenes gallery */
-.unconventional-page .unconventional-gallery-heading {
-    margin-top: 120px;
-}
-
-/* Responsive layout */
-@media (max-width: 768px) {
-    .unconventional-page .unconventional-feature {
-        margin: 65px auto;
-        padding: 0 20px;
+@media (prefers-reduced-motion: reduce) {
+    body.unconventional-page .unconventional-gallery-redesign .project-gallery-item img {
+        transition: none;
     }
 
-    .unconventional-page .unconventional-feature-intro {
-        margin-bottom: 28px;
-    }
-
-    .unconventional-page .unconventional-feature-intro h2 {
-        font-size: clamp(28px, 7vw, 38px);
-    }
-
-    .unconventional-page .unconventional-feature-intro .unconventional-lead {
-        font-size: 17px;
-    }
-
-    .unconventional-page .unconventional-feature-intro > p:not(.unconventional-eyebrow) {
-        font-size: 15px;
-    }
-
-    .unconventional-page .unconventional-feature-image figcaption {
-        font-size: 11px;
-        line-height: 1.6;
-    }
-
-    .unconventional-page .unconventional-feature-note {
-        margin-top: 24px;
-        font-size: 15px;
-    }
-
-    .unconventional-page .unconventional-gallery-heading {
-        margin-top: 75px;
-    }
-}
-
-/* =====================================================
-   UNCONVENTIONAL LIFE — GALLERY REDESIGN
-===================================================== */
-
-.unconventional-page .unconventional-gallery-redesign {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 38px;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto 100px;
-    padding: 0 30px;
-    box-sizing: border-box;
-}
-
-.unconventional-page .unconventional-gallery-featured {
-    width: 100%;
-    margin: 0;
-}
-
-.unconventional-page .unconventional-gallery-featured img {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: 650px;
-    object-fit: contain;
-}
-
-.unconventional-page .unconventional-gallery-supporting {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 30px;
-    align-items: start;
-}
-
-.unconventional-page .unconventional-gallery-supporting .project-gallery-item {
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-}
-
-.unconventional-page .unconventional-gallery-supporting img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.unconventional-page .unconventional-gallery-redesign .project-gallery-item a {
-    display: block;
-    overflow: hidden;
-}
-
-.unconventional-page .unconventional-gallery-redesign .project-gallery-item img {
-    transition: transform 0.35s ease;
-}
-
-@media (hover: hover) {
-    .unconventional-page .unconventional-gallery-redesign .project-gallery-item a:hover img {
-        transform: scale(1.025);
-    }
-}
-
-.unconventional-page .unconventional-gallery-redesign .project-gallery-item figcaption {
-    margin-top: 12px;
-    font-family: "Jost", sans-serif;
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 1.6;
-    letter-spacing: 0.5px;
-    color: rgba(255, 255, 255, 0.65);
-}
-
-@media (max-width: 768px) {
-    .unconventional-page .unconventional-gallery-redesign {
-        gap: 26px;
-        margin-bottom: 65px;
-        padding: 0 20px;
-    }
-
-    .unconventional-page .unconventional-gallery-supporting {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 28px;
-    }
-}
-
-/* =====================================================
-   UNCONVENTIONAL LIFE — PURPLE ACCENTS & FINAL LAYOUT
-===================================================== */
-
-/* Purple accent palette */
-.unconventional-page {
-    --unconventional-purple: #B99AE8;
-    --unconventional-purple-light: #D8C7F5;
-}
-
-/* Replace cyan accents with purple on this page */
-.unconventional-page .unconventional-eyebrow {
-    color: var(--unconventional-purple);
-}
-
-.unconventional-page .unconventional-feature-intro h2 {
-    color: var(--unconventional-purple-light);
-}
-
-/* Center captions beneath all feature images */
-.unconventional-page .unconventional-feature-image figcaption {
-    width: 100%;
-    text-align: center;
-}
-
-/* Make the moodboard approximately half the previous width */
-.unconventional-page .unconventional-moodboard {
-    width: 50%;
-    max-width: 450px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Add purple detail to the project section headings */
-.unconventional-page .unconventional-feature-intro {
-    position: relative;
-}
-
-.unconventional-page .unconventional-feature-intro h2 {
-    text-decoration: none;
-}
-
-.unconventional-page .unconventional-feature-intro h2::after {
-    content: "";
-    display: block;
-    width: 64px;
-    height: 2px;
-    margin: 20px auto 0;
-    background: var(--unconventional-purple);
-}
-
-/* Center captions under the timeline gallery images */
-.unconventional-page .unconventional-gallery-redesign .project-gallery-item figcaption {
-    width: 100%;
-    text-align: center;
-}
-
-/* =====================================================
-   INSIDE THE TIMELINE — DESCENDING LEFT-ALIGNED LAYOUT
-   1. Full-width timeline
-   2. Half-width soundtrack image, aligned left
-   3. Half the width of image 2, aligned left
-===================================================== */
-
-.unconventional-page .unconventional-gallery-redesign {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 34px;
-}
-
-/* Image 1: full gallery width */
-.unconventional-page .unconventional-gallery-redesign
-.unconventional-gallery-featured {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-}
-
-/* Image 2: approximately 50% of the first image */
-.unconventional-page .unconventional-gallery-supporting {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 50%;
-    gap: 34px;
-    margin: 0;
-}
-
-/* Image 3: approximately 50% of the second image */
-.unconventional-page .unconventional-gallery-supporting
-.project-gallery-item:last-child {
-    width: 50%;
-    margin: 0;
-}
-
-/* Keep both supporting images left-aligned */
-.unconventional-page .unconventional-gallery-supporting
-.project-gallery-item {
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-}
-
-/* Preserve natural screenshot proportions */
-.unconventional-page .unconventional-gallery-redesign
-.project-gallery-item img {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: none;
-    object-fit: contain;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .unconventional-page .unconventional-moodboard {
-        width: 80%;
-        max-width: 450px;
-    }
-
-    .unconventional-page .unconventional-gallery-redesign {
-        gap: 26px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .unconventional-page .unconventional-gallery-supporting {
-        width: 75%;
-        gap: 26px;
-    }
-
-    .unconventional-page .unconventional-gallery-supporting
-    .project-gallery-item:last-child {
-        width: 60%;
-    }
-}
-
-/* =====================================================
-   UNCONVENTIONAL LIFE — TIMELINE GALLERY
-   One large image followed by two equal images
-===================================================== */
-
-.unconventional-page .unconventional-gallery-redesign {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 32px;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto 100px;
-    padding: 0 30px;
-    box-sizing: border-box;
-    align-items: start;
-}
-
-/* Main timeline screenshot */
-.unconventional-page .unconventional-gallery-featured {
-    width: 100%;
-    max-width: 100%;
-    margin: 0;
-}
-
-/* Two supporting screenshots side by side */
-.unconventional-page .unconventional-gallery-supporting {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 30px;
-    width: 100%;
-    margin: 0;
-    align-items: start;
-}
-
-/* Keep each supporting image at full column width */
-.unconventional-page .unconventional-gallery-supporting
-.project-gallery-item,
-.unconventional-page .unconventional-gallery-supporting
-.project-gallery-item:last-child {
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-}
-
-/* Preserve each screenshot's natural proportions */
-.unconventional-page .unconventional-gallery-redesign
-.project-gallery-item img {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: none;
-    object-fit: contain;
-}
-
-/* Center captions under their images */
-.unconventional-page .unconventional-gallery-redesign
-.project-gallery-item figcaption {
-    width: 100%;
-    margin-top: 12px;
-    text-align: center;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .unconventional-page .unconventional-gallery-redesign {
-        gap: 24px;
-        padding: 0 20px;
-        margin-bottom: 65px;
-    }
-
-    .unconventional-page .unconventional-gallery-supporting {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 26px;
+    body.unconventional-page .unconventional-gallery-redesign .project-gallery-item a:hover img {
+        transform: none;
     }
 }
