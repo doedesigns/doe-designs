@@ -1849,3 +1849,217 @@ body.unconventional-page .page-contact-link p {
         gap: 28px;
     }
 }
+
+/* =====================================================
+   UNCONVENTIONAL LIFE — PURPLE ACCENTS & FINAL LAYOUT
+===================================================== */
+
+/* Purple accent palette */
+.unconventional-page {
+    --unconventional-purple: #B99AE8;
+    --unconventional-purple-light: #D8C7F5;
+}
+
+/* Replace cyan accents with purple on this page */
+.unconventional-page .unconventional-eyebrow {
+    color: var(--unconventional-purple);
+}
+
+.unconventional-page .unconventional-feature-intro h2 {
+    color: var(--unconventional-purple-light);
+}
+
+/* Center captions beneath all feature images */
+.unconventional-page .unconventional-feature-image figcaption {
+    width: 100%;
+    text-align: center;
+}
+
+/* Make the moodboard approximately half the previous width */
+.unconventional-page .unconventional-moodboard {
+    width: 50%;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Add purple detail to the project section headings */
+.unconventional-page .unconventional-feature-intro {
+    position: relative;
+}
+
+.unconventional-page .unconventional-feature-intro h2 {
+    text-decoration: none;
+}
+
+.unconventional-page .unconventional-feature-intro h2::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 2px;
+    margin: 20px auto 0;
+    background: var(--unconventional-purple);
+}
+
+/* Center captions under the timeline gallery images */
+.unconventional-page .unconventional-gallery-redesign .project-gallery-item figcaption {
+    width: 100%;
+    text-align: center;
+}
+
+/* =====================================================
+   INSIDE THE TIMELINE — DESCENDING LEFT-ALIGNED LAYOUT
+   1. Full-width timeline
+   2. Half-width soundtrack image, aligned left
+   3. Half the width of image 2, aligned left
+===================================================== */
+
+.unconventional-page .unconventional-gallery-redesign {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 34px;
+}
+
+/* Image 1: full gallery width */
+.unconventional-page .unconventional-gallery-redesign
+.unconventional-gallery-featured {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+}
+
+/* Image 2: approximately 50% of the first image */
+.unconventional-page .unconventional-gallery-supporting {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 50%;
+    gap: 34px;
+    margin: 0;
+}
+
+/* Image 3: approximately 50% of the second image */
+.unconventional-page .unconventional-gallery-supporting
+.project-gallery-item:last-child {
+    width: 50%;
+    margin: 0;
+}
+
+/* Keep both supporting images left-aligned */
+.unconventional-page .unconventional-gallery-supporting
+.project-gallery-item {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+/* Preserve natural screenshot proportions */
+.unconventional-page .unconventional-gallery-redesign
+.project-gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .unconventional-page .unconventional-moodboard {
+        width: 80%;
+        max-width: 450px;
+    }
+
+    .unconventional-page .unconventional-gallery-redesign {
+        gap: 26px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .unconventional-page .unconventional-gallery-supporting {
+        width: 75%;
+        gap: 26px;
+    }
+
+    .unconventional-page .unconventional-gallery-supporting
+    .project-gallery-item:last-child {
+        width: 60%;
+    }
+}
+
+/* =====================================================
+   UNCONVENTIONAL LIFE — TIMELINE GALLERY
+   One large image followed by two equal images
+===================================================== */
+
+.unconventional-page .unconventional-gallery-redesign {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 100px;
+    padding: 0 30px;
+    box-sizing: border-box;
+    align-items: start;
+}
+
+/* Main timeline screenshot */
+.unconventional-page .unconventional-gallery-featured {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+}
+
+/* Two supporting screenshots side by side */
+.unconventional-page .unconventional-gallery-supporting {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    width: 100%;
+    margin: 0;
+    align-items: start;
+}
+
+/* Keep each supporting image at full column width */
+.unconventional-page .unconventional-gallery-supporting
+.project-gallery-item,
+.unconventional-page .unconventional-gallery-supporting
+.project-gallery-item:last-child {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+/* Preserve each screenshot's natural proportions */
+.unconventional-page .unconventional-gallery-redesign
+.project-gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+}
+
+/* Center captions under their images */
+.unconventional-page .unconventional-gallery-redesign
+.project-gallery-item figcaption {
+    width: 100%;
+    margin-top: 12px;
+    text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .unconventional-page .unconventional-gallery-redesign {
+        gap: 24px;
+        padding: 0 20px;
+        margin-bottom: 65px;
+    }
+
+    .unconventional-page .unconventional-gallery-supporting {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px;
+    }
+}
