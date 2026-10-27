@@ -1616,3 +1616,236 @@ body.unconventional-page .page-contact-link p {
         font-size: 0.88rem;
     }
 }
+/* =====================================================
+   UNCONVENTIONAL LIFE — EDITORIAL PROJECT LAYOUT
+   Scoped to this project; leaves shared navigation,
+   header, footer, and other project pages unchanged.
+===================================================== */
+
+.unconventional-page .unconventional-feature {
+    display: block;
+    width: 100%;
+    max-width: 1100px;
+    margin: 100px auto;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+.unconventional-page .unconventional-feature-intro {
+    max-width: 820px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.unconventional-page .unconventional-eyebrow {
+    margin: 0 0 18px;
+    color: #00E5FF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.unconventional-page .unconventional-feature-intro h2 {
+    margin: 0 0 24px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.2;
+    text-align: center;
+}
+
+.unconventional-page .unconventional-feature-intro > p:not(.unconventional-eyebrow) {
+    max-width: 720px;
+    margin: 0 auto 16px;
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.85;
+    text-align: center;
+}
+
+.unconventional-page .unconventional-feature-intro .unconventional-lead {
+    margin-bottom: 20px;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+.unconventional-page .unconventional-feature-image {
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.unconventional-page .unconventional-feature-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 680px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.unconventional-page .unconventional-feature-image figcaption {
+    margin-top: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: "Jost", sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-align: right;
+}
+
+.unconventional-page .unconventional-moodboard {
+    max-width: 900px;
+}
+
+.unconventional-page .unconventional-storyboard {
+    max-width: 900px;
+}
+
+.unconventional-page .unconventional-feature-note {
+    max-width: 720px;
+    margin: 34px auto 0;
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.9;
+    text-align: center;
+}
+
+.unconventional-page .unconventional-feature-note p {
+    margin: 0;
+}
+
+/* More breathing room before the behind-the-scenes gallery */
+.unconventional-page .unconventional-gallery-heading {
+    margin-top: 120px;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .unconventional-page .unconventional-feature {
+        margin: 65px auto;
+        padding: 0 20px;
+    }
+
+    .unconventional-page .unconventional-feature-intro {
+        margin-bottom: 28px;
+    }
+
+    .unconventional-page .unconventional-feature-intro h2 {
+        font-size: clamp(28px, 7vw, 38px);
+    }
+
+    .unconventional-page .unconventional-feature-intro .unconventional-lead {
+        font-size: 17px;
+    }
+
+    .unconventional-page .unconventional-feature-intro > p:not(.unconventional-eyebrow) {
+        font-size: 15px;
+    }
+
+    .unconventional-page .unconventional-feature-image figcaption {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+
+    .unconventional-page .unconventional-feature-note {
+        margin-top: 24px;
+        font-size: 15px;
+    }
+
+    .unconventional-page .unconventional-gallery-heading {
+        margin-top: 75px;
+    }
+}
+
+/* =====================================================
+   UNCONVENTIONAL LIFE — GALLERY REDESIGN
+===================================================== */
+
+.unconventional-page .unconventional-gallery-redesign {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 38px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 100px;
+    padding: 0 30px;
+    box-sizing: border-box;
+}
+
+.unconventional-page .unconventional-gallery-featured {
+    width: 100%;
+    margin: 0;
+}
+
+.unconventional-page .unconventional-gallery-featured img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 650px;
+    object-fit: contain;
+}
+
+.unconventional-page .unconventional-gallery-supporting {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+    align-items: start;
+}
+
+.unconventional-page .unconventional-gallery-supporting .project-gallery-item {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+.unconventional-page .unconventional-gallery-supporting img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.unconventional-page .unconventional-gallery-redesign .project-gallery-item a {
+    display: block;
+    overflow: hidden;
+}
+
+.unconventional-page .unconventional-gallery-redesign .project-gallery-item img {
+    transition: transform 0.35s ease;
+}
+
+@media (hover: hover) {
+    .unconventional-page .unconventional-gallery-redesign .project-gallery-item a:hover img {
+        transform: scale(1.025);
+    }
+}
+
+.unconventional-page .unconventional-gallery-redesign .project-gallery-item figcaption {
+    margin-top: 12px;
+    font-family: "Jost", sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+@media (max-width: 768px) {
+    .unconventional-page .unconventional-gallery-redesign {
+        gap: 26px;
+        margin-bottom: 65px;
+        padding: 0 20px;
+    }
+
+    .unconventional-page .unconventional-gallery-supporting {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+    }
+}
