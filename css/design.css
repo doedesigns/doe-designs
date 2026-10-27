@@ -610,7 +610,7 @@ body.design-page .design-card .portfolio-card-title {
    ========================================================= */
 
 @media (min-width: 901px) {
-    body.design-page .design-grid {
+    body.design-page .uiux-grid {
         grid-template-columns: repeat(2, 230px) !important;
         justify-content: center !important;
         align-content: start !important;
@@ -619,13 +619,13 @@ body.design-page .design-card .portfolio-card-title {
         margin-top: 25px !important;
     }
 
-    body.design-page .design-grid .design-card {
+    body.design-page .uiux-grid .design-card {
         width: 230px !important;
         min-width: 0 !important;
         max-width: 230px !important;
     }
 
-    body.design-page .design-grid .design-card .card-image-wrap {
+    body.design-page .uiux-grid .design-card .card-image-wrap {
         width: 230px !important;
         height: 230px !important;
         min-height: 230px !important;
@@ -635,15 +635,15 @@ body.design-page .design-card .portfolio-card-title {
         box-sizing: border-box;
     }
 
-    body.design-page .design-grid .design-card .card-image-wrap img,
-    body.design-page .design-grid .design-card .card-image-wrap .software-overlay {
+    body.design-page .uiux-grid .design-card .card-image-wrap img,
+    body.design-page .uiux-grid .design-card .card-image-wrap .software-overlay {
         width: 100% !important;
         height: 100% !important;
         object-fit: cover;
     }
 
-    body.design-page .design-grid .design-card .portfolio-card-title,
-    body.design-page .design-grid .design-card .card-project-title {
+    body.design-page .uiux-grid .design-card .portfolio-card-title,
+    body.design-page .uiux-grid .design-card .card-project-title {
         margin-top: 8px !important;
     }
 }
