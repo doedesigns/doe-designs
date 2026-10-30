@@ -608,7 +608,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // ============================================
 
     const uxSection = document.querySelector("body.chrono-page .ux-section");
-    const uxTrigger = uxSection?.querySelector(".ux-list .ux-item:nth-child(5)");
+    const uxTrigger = uxSection?.querySelector(".ux-animation-trigger");
 
     if (
         uxSection &&
@@ -623,13 +623,12 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             {
                 threshold: 0,
-                rootMargin: "0px 0px -5% 0px"
+                rootMargin: "0px 0px -8% 0px"
             }
         );
 
         uxObserver.observe(uxTrigger);
     }
-
 
 // ============================================
 // RESTORE PAGE AFTER BROWSER BACK
@@ -643,3 +642,61 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+// ============================================
+// MY DEETS — CONNECTING LINE ANIMATION
+// ============================================
+
+(() => {
+
+    function initDeetsConnections() {
+
+        const connections = document.querySelectorAll(
+            "body.deets-page .deets-connection"
+        );
+
+        if (!connections.length) return;
+
+        if (
+            window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ) {
+            connections.forEach((connection) => {
+                connection.classList.add("deets-connection-visible");
+            });
+            return;
+        }
+
+        const connectionObserver = new IntersectionObserver(
+            (entries) => {
+
+                entries.forEach((entry) => {
+
+                    entry.target.classList.toggle(
+                        "deets-connection-visible",
+                        entry.isIntersecting
+                    );
+
+                });
+
+            },
+            {
+                threshold: 0.5
+            }
+        );
+
+        connections.forEach((connection) => {
+            connectionObserver.observe(connection);
+        });
+
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener(
+            "DOMContentLoaded",
+            initDeetsConnections
+        );
+    } else {
+        initDeetsConnections();
+    }
+
+})();
