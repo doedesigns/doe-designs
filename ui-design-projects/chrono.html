@@ -595,46 +595,151 @@
     <script src="../js/main.js"></script>
  	<script src="../js/nav.js"></script>
 
-<!-- Carousel controls -->
-    <script>
-        document.querySelectorAll("[data-carousel]").forEach((carousel) => {
-            const track = carousel.querySelector(".carousel-track");
-            const previous = carousel.querySelector("[data-carousel-prev]");
-            const next = carousel.querySelector("[data-carousel-next]");
+<!-- Phasepoint: Continuous Interactive Carousel -->
+<script>
+document.querySelectorAll("[data-carousel]").forEach((carousel) => {
 
-            if (!track || !previous || !next) return;
+    const track = carousel.querySelector(".carousel-track");
+    const previous = carousel.querySelector("[data-carousel-prev]");
+    const next = carousel.querySelector("[data-carousel-next]");
 
-            const getStep = () => {
-                const slide = track.querySelector(".carousel-slide");
-                if (!slide) return track.clientWidth;
+    if (!track || !previous || !next) return;
 
-                const styles = window.getComputedStyle(track);
-                const gap = parseFloat(styles.columnGap || styles.gap) || 0;
+    // Prevent duplicate initialization
+    if (carousel.dataset.initialized === "true") return;
+    carousel.dataset.initialized = "true";
 
-                return slide.getBoundingClientRect().width + gap;
-            };
+    // Duplicate original slides for seamless looping
+    const originalSlides = Array.from(track.children);
 
-            previous.addEventListener("click", () => {
-                const maxScroll = track.scrollWidth - track.clientWidth;
-
-                if (track.scrollLeft <= 1) {
-                    track.scrollTo({ left: maxScroll, behavior: "smooth" });
-                } else {
-                    track.scrollBy({ left: -getStep(), behavior: "smooth" });
-                }
-            });
-
-            next.addEventListener("click", () => {
-                const maxScroll = track.scrollWidth - track.clientWidth;
-
-                if (track.scrollLeft >= maxScroll - 2) {
-                    track.scrollTo({ left: 0, behavior: "smooth" });
-                } else {
-                    track.scrollBy({ left: getStep(), behavior: "smooth" });
-                }
-            });
+    originalSlides.forEach((slide) => {
+        const clone = slide.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        clone.querySelectorAll("[data-lightbox-text]").forEach((img) => {
+            img.removeAttribute("data-lightbox-text");
         });
-    </script>
+        track.appendChild(clone);
+    });
 
+    let position = 0;
+    let isDragging = false;
+    let isHovering = false;
+    let isInteracting = false;
+    let dragStartX = 0;
+    let dragStartPosition = 0;
+    let lastInteraction = 0;
+
+    const speed = 22; // pixels per second
+    let previousTime = null;
+
+    const getLoopWidth = () => {
+        return track.scrollWidth / 2;
+    };
+
+    const wrapPosition = () => {
+        const loopWidth = getLoopWidth();
+
+        if (loopWidth <= 0) return;
+
+        if (position >= loopWidth) position -= loopWidth;
+        if (position < 0) position += loopWidth;
+    };
+
+    const updatePosition = () => {
+        wrapPosition();
+        track.style.transform = `translateX(${-position}px)`;
+    };
+
+    const pauseBriefly = () => {
+        isInteracting = true;
+        lastInteraction = performance.now();
+    };
+
+    // Continuous movement
+    const animate = (time) => {
+        if (previousTime === null) previousTime = time;
+
+        const delta = Math.min((time - previousTime) / 1000, 0.05);
+        previousTime = time;
+
+        if (!isHovering && !isDragging &&
+            !isInteracting) {
+            position += speed * delta;
+            updatePosition();
+        }
+
+        if (isInteracting &&
+            time - lastInteraction > 1800 &&
+            !isHovering && !isDragging) {
+            isInteracting = false;
+        }
+
+        requestAnimationFrame(animate);
+    };
+
+    // Mouse dragging
+    track.addEventListener("pointerdown", (event) => {
+        if (event.target.closest("button")) return;
+
+        isDragging = true;
+        dragStartX = event.clientX;
+        dragStartPosition = position;
+
+        track.setPointerCapture(event.pointerId);
+        track.style.cursor = "grabbing";
+        pauseBriefly();
+    });
+
+    track.addEventListener("pointermove", (event) => {
+        if (!isDragging) return;
+
+        const distance = event.clientX - dragStartX;
+        position = dragStartPosition - distance;
+        updatePosition();
+    });
+
+    const stopDragging = () => {
+        if (!isDragging) return;
+
+        isDragging = false;
+        track.style.cursor = "grab";
+        pauseBriefly();
+    };
+
+    track.addEventListener("pointerup", stopDragging);
+    track.addEventListener("pointercancel", stopDragging);
+
+    // Pause while hovering
+    carousel.addEventListener("mouseenter", () => {
+        isHovering = true;
+    });
+
+    carousel.addEventListener("mouseleave", () => {
+        isHovering = false;
+    });
+
+    // Arrow controls
+    const moveBySlide = (direction) => {
+        const slide = originalSlides[0];
+        if (!slide) return;
+
+        const styles = getComputedStyle(track);
+        const gap = parseFloat(styles.gap) || 0;
+        const step = slide.getBoundingClientRect().width + gap;
+
+        position += direction * step;
+        updatePosition();
+        pauseBriefly();
+    };
+
+    previous.addEventListener("click", () => moveBySlide(-1));
+    next.addEventListener("click", () => moveBySlide(1));
+
+    // Start animation
+    updatePosition();
+    requestAnimationFrame(animate);
+
+});
+</script>
 </body>
 </html>

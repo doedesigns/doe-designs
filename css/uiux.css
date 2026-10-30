@@ -392,40 +392,10 @@ linear-gradient(
     background: var(--chrono-cyan);
 }
 
-.chrono-page .carousel-track {
-    display: grid;
-    grid-auto-columns: minmax(78%, 1fr);
-    grid-auto-flow: column;
-    gap: 18px;
-    overflow-x: auto;
-    padding: 0 0 14px;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    scrollbar-color: var(--chrono-cyan) rgba(255,255,255,0.1);
-    scrollbar-width: thin;
-}
-
 .chrono-page .carousel-slide {
     min-width: 0;
     margin: 0;
     scroll-snap-align: start;
-}
-
-.chrono-page .carousel-slide img {
-    transition: filter 0.25s ease, box-shadow 0.25s ease;
-    cursor: pointer;
-}
-
-.chrono-page .carousel-slide:hover img {
-    filter: brightness(0.86) saturate(1.08);
-    box-shadow:
-        0 0 0 2px rgba(0, 229, 255, 0.85),
-        0 0 18px rgba(0, 229, 255, 0.3);
-}
-
-.chrono-page .carousel-slide img:focus-visible {
-    outline: 2px solid #00E5FF;
-    outline-offset: 4px;
 }
 
 .chrono-page .carousel-slide figcaption {
@@ -636,12 +606,6 @@ linear-gradient(
 .chrono-page .carousel-slide img {
     transition: filter 0.25s ease, box-shadow 0.25s ease;
     cursor: pointer;
-}
-
-.chrono-page .carousel-slide:hover img {
-    filter: brightness(0.82) sepia(0.15) hue-rotate(155deg) saturate(1.4);
-    box-shadow: 0 0 0 2px rgba(0, 174, 255, 0.8),
-                0 0 18px rgba(0, 174, 255, 0.3);
 }
 
 .chrono-page .carousel-slide img:focus-visible {
@@ -3017,13 +2981,6 @@ body.lotus-organic .lotus-prototype { display:flex; flex-direction:column; align
 body.lotus-organic .lotus-prototype .prototype-image-link { display:block; margin-left:auto; margin-right:auto; }
 body.lotus-organic .lotus-prototype .lotus-prototype-button, body.lotus-organic .lotus-prototype .enter-button { align-self:center; }
 
-/* Chrono Nexus: horizontal carousel, no hover glow or recoloring. */
-.chrono-page .carousel-track { display:flex; align-items:flex-start; gap:36px; overflow-x:auto; overflow-y:hidden; padding:10px 8px 22px; scroll-snap-type:x mandatory; scroll-behavior:smooth; }
-.chrono-page .carousel-slide { position:relative; flex:0 0 min(65%,620px); width:min(65%,620px); min-width:0; margin:0; scroll-snap-align:start; }
-.chrono-page .carousel-slide img { display:block; width:100%; max-width:100%; height:auto; filter:none; box-shadow:none; transition:none; }
-.chrono-page .carousel-slide:hover img, .chrono-page .case-carousel .carousel-slide:hover img { filter:none !important; box-shadow:none !important; }
-
-
 /* =========================================================
    TAGGED REPAIR — OCTOBER 2026
    Shared UI/UX project header, video, and overview alignment.
@@ -3454,6 +3411,50 @@ body.chrono-page .carousel-slide:hover img,
 body.chrono-page .case-carousel .carousel-slide:hover img {
     filter: none !important;
     box-shadow: 0 0 0 2px #00E5FF, 0 0 24px rgba(0, 229, 255, 0.28) !important;
+}
+/* ============================================
+   PHASEPOINT — CONTINUOUS CAROUSEL FOUNDATION
+============================================ */
+
+body.chrono-page .case-carousel {
+    overflow: hidden;
+}
+
+body.chrono-page .carousel-track {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    max-width: none;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+    overflow: visible;
+    gap: 28px;
+}
+
+/* Preserve existing image sizing */
+body.chrono-page .carousel-slide {
+    flex: 0 0 min(65%, 620px);
+    width: min(65%, 620px);
+    max-width: 620px;
+    scroll-snap-align: none;
+}
+
+/* Preserve cyan hover outline */
+body.chrono-page .carousel-slide:hover img,
+body.chrono-page .case-carousel .carousel-slide:hover img {
+    filter: none !important;
+    box-shadow:
+        0 0 0 2px #00E5FF,
+        0 0 24px rgba(0, 229, 255, 0.28) !important;
+}
+
+/* Mouse interaction */
+body.chrono-page .carousel-track {
+    cursor: grab;
+}
+
+body.chrono-page .carousel-track:active {
+    cursor: grabbing;
 }
 
 body.chrono-page .ux-icon {
@@ -3917,6 +3918,60 @@ body.chrono-page .gallery-section .project-image-block p {
     }
 }
 
+/* ============================================
+   PHASEPOINT — UX APPROACH SCROLL ANIMATION
+============================================ */
+
+body.chrono-page .ux-section .ux-item {
+    opacity: 0;
+    transition:
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.7s ease;
+    will-change: transform, opacity;
+}
+
+/* Left-side boxes */
+body.chrono-page .ux-section .ux-item:nth-child(odd) {
+    transform: translateX(-110vw);
+}
+
+/* Right-side boxes */
+body.chrono-page .ux-section .ux-item:nth-child(even) {
+    transform: translateX(110vw);
+}
+
+/* First row */
+body.chrono-page .ux-section .ux-item:nth-child(1),
+body.chrono-page .ux-section .ux-item:nth-child(2) {
+    transition-delay: 0s;
+}
+
+/* Second row */
+body.chrono-page .ux-section .ux-item:nth-child(3),
+body.chrono-page .ux-section .ux-item:nth-child(4) {
+    transition-delay: 0.2s;
+}
+
+/* Third row */
+body.chrono-page .ux-section .ux-item:nth-child(5),
+body.chrono-page .ux-section .ux-item:nth-child(6) {
+    transition-delay: 0.4s;
+}
+
+/* Activated when section enters view */
+body.chrono-page .ux-section.ux-visible .ux-item {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    body.chrono-page .ux-section .ux-item {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
 
 /* =========================================================
    UI/UX CATEGORY PAGE — COMPACT DESKTOP GRID

@@ -614,3 +614,32 @@ document.addEventListener("DOMContentLoaded", () => {
         );
     });
 });
+			
+// ============================================
+// PHASEPOINT — UX APPROACH SCROLL ANIMATION
+// ============================================
+
+const uxSection = document.querySelector(
+    "body.chrono-page .ux-section"
+);
+
+if (uxSection && !window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+).matches) {
+
+    const uxObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                uxSection.classList.toggle(
+                    "ux-visible",
+                    entry.isIntersecting
+                );
+            });
+        },
+        {
+            threshold: 0.15
+        }
+    );
+
+    uxObserver.observe(uxSection);
+}

@@ -1622,7 +1622,8 @@ body.unconventional-page {
 body.unconventional-page .unconventional-eyebrow,
 body.unconventional-page .project-title h1,
 body.unconventional-page .unconventional-details h3,
-body.unconventional-page .unconventional-feature h2 {
+body.unconventional-page .unconventional-feature h2, 
+body.unconventional-page .project-gallery-heading h2{
     background: var(--unconventional-gradient);
     background-size: 300% 100%;
     background-clip: text;
