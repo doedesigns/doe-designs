@@ -2970,6 +2970,90 @@ body.clean-organic .clean-prototype-preview { width:min(212px,100%); max-width:2
 body.clean-organic .clean-prototype-button { margin-top:28px; }
 body.clean-organic .clean-prototype .enter-button::after { display:none !important; }
 
+/* =========================================
+   CLEAN FUTURE NETWORK — LIVING ENERGY PULSE
+========================================= */
+
+.clean-organic .clean-energy-pulse {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(420px, 75%);
+    height: 32px;
+    margin: 30px auto 0;
+}
+
+/* Fine connecting line */
+.clean-organic .clean-energy-pulse::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(184, 201, 167, 0.4);
+    transform: translateY(-50%);
+}
+
+/* Three stationary connection points */
+.clean-organic .clean-energy-pulse span {
+    position: relative;
+    z-index: 1;
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--clean-sage);
+    border-radius: 50%;
+    background: #003b18;
+    box-shadow: 0 0 8px rgba(184, 201, 167, 0.25);
+}
+
+/* Traveling energy pulse */
+.clean-organic .clean-energy-pulse i {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 0;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--clean-sage);
+    box-shadow:
+        0 0 8px rgba(184, 201, 167, 0.8),
+        0 0 18px rgba(114, 149, 109, 0.65);
+    transform: translate(-50%, -50%);
+    animation: clean-energy-travel 5.5s ease-in-out infinite;
+}
+
+@keyframes clean-energy-travel {
+    0% {
+        left: 0%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .clean-organic .clean-energy-pulse i {
+        animation: none;
+        left: 50%;
+        opacity: 1;
+    }
+}
+
 /* Lotus Lingo: callout left; game walkthrough and prototype centered. */
 body.lotus-organic .lotus-callout-row.lotus-callout-left { justify-content:flex-start; }
 body.lotus-organic .lotus-games-figure { display:flex; flex:0 0 180px; flex-direction:column; align-items:center; width:180px; max-width:180px; margin-left:auto; margin-right:auto; align-self:center; }
@@ -3971,6 +4055,53 @@ body.chrono-page .ux-section.ux-visible .ux-item {
         transform: none;
         transition: none;
     }
+}
+
+/* =========================================
+   PHASEPOINT — UX APPROACH ANIMATION TIMING
+========================================= */
+
+/* Normal starting position */
+body.chrono-page .ux-section .ux-item {
+    transition:
+        transform 1s cubic-bezier(.22, 1, .36, 1),
+        opacity 0.7s ease;
+}
+
+/* ENTERING: first pair */
+body.chrono-page .ux-section.ux-visible .ux-item:nth-child(1),
+body.chrono-page .ux-section.ux-visible .ux-item:nth-child(2) {
+    transition-delay: 0s;
+}
+
+/* ENTERING: second pair */
+body.chrono-page .ux-section.ux-visible .ux-item:nth-child(3),
+body.chrono-page .ux-section.ux-visible .ux-item:nth-child(4) {
+    transition-delay: 0.2s;
+}
+
+/* ENTERING: final pair */
+body.chrono-page .ux-section.ux-visible .ux-item:nth-child(5),
+body.chrono-page .ux-section.ux-visible .ux-item:nth-child(6) {
+    transition-delay: 0.4s;
+}
+
+/* EXITING: final pair leaves first */
+body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(5),
+body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(6) {
+    transition-delay: 0s;
+}
+
+/* EXITING: middle pair leaves second */
+body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(3),
+body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(4) {
+    transition-delay: 0.2s;
+}
+
+/* EXITING: first pair leaves last */
+body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(1),
+body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(2) {
+    transition-delay: 0.4s;
 }
 
 /* =========================================================
