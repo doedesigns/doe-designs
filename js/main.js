@@ -604,6 +604,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 // ============================================
+// CHRONO — UX APPROACH ANIMATION
+// ============================================
+
+    const uxSection = document.querySelector("body.chrono-page .ux-section");
+    const uxTrigger = uxSection?.querySelector(".ux-list .ux-item:nth-child(5)");
+
+    if (
+        uxSection &&
+        uxTrigger &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+        const uxObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    uxSection.classList.toggle("ux-visible", entry.isIntersecting);
+                });
+            },
+            {
+                threshold: 0,
+                rootMargin: "0px 0px -5% 0px"
+            }
+        );
+
+        uxObserver.observe(uxTrigger);
+    }
+
+
+// ============================================
 // RESTORE PAGE AFTER BROWSER BACK
 // ============================================
 
@@ -613,27 +641,5 @@ document.addEventListener("DOMContentLoaded", () => {
             "page-leaving"
         );
     });
+
 });
-			
-const uxSection = document.querySelector("body.chrono-page .ux-section");
-const uxTrigger = uxSection?.querySelector(".ux-item:nth-child(5)");
-
-if (
-    uxSection &&
-    uxTrigger &&
-    !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-) {
-    const uxObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                uxSection.classList.toggle("ux-visible", entry.isIntersecting);
-            });
-        },
-        {
-            threshold: 0.15,
-            rootMargin: "0px 0px -10% 0px"
-        }
-    );
-
-    uxObserver.observe(uxTrigger);
-}
