@@ -786,9 +786,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!tracks.length) return;
 
-    const ARROW_SPEED = 220; // Pixels per second
-    const OFFSCREEN = 80;
+    const ARROW_SPEED = 220;       // Pixels per second
+    const SEGMENT_LENGTH = 260;    // Visible moving arrow length
+    const OFFSCREEN = 100;
     const TRACK_Y = 56;
+    const ZIGZAG_WIDTH = 310;
 
     const originalPoints = [
         [8, 56],
@@ -811,15 +813,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let visible = false;
         let running = false;
-        let animationFrame = null;
         let generation = 0;
+
+        /* ========================================
+           POSITION TRACK AGAINST THE VIEWPORT
+        ======================================== */
+
+        function positionTrack() {
+
+            const parent = track.parentElement;
+            const parentRect = parent.getBoundingClientRect();
+
+            track.style.left = `${-parentRect.left}px`;
+            track.style.width = `${window.innerWidth}px`;
+        }
+
+        /* ========================================
+           BUILD THE PATH
+        ======================================== */
 
         function getDimensions() {
 
-            const width = document.documentElement.clientWidth;
+            const width = window.innerWidth;
 
             let zigStart;
-            let endX;
 
             if (track.dataset.anchor === "image") {
 
@@ -830,25 +847,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     const rect = image.getBoundingClientRect();
 
-                    // Preserve the original 310px zigzag.
-                    // Start it well before the image.
-                    zigStart = rect.left - 350;
-
-                    // Finish underneath the image, with the
-                    // arrowhead still visible in the viewport.
-                    endX = Math.min(rect.right, width - 24);
+                    // Preserve the original zigzag width.
+                    // Position it toward the RIGHT side of the image.
+                    zigStart = rect.right - ZIGZAG_WIDTH - 24;
 
                 } else {
 
-                    zigStart = width * 0.35;
-                    endX = width - 24;
+                    zigStart = width * 0.55;
                 }
 
             } else {
 
-                // Keep the introductory zigzag centered.
-                zigStart = (width - 310) / 2;
-                endX = width + OFFSCREEN;
+                // Keep the intro zigzag centered.
+                zigStart = (width - ZIGZAG_WIDTH) / 2;
             }
 
             const points = originalPoints.map(([x, y]) => [
@@ -858,25 +869,63 @@ document.addEventListener("DOMContentLoaded", () => {
 
             return {
                 width,
-                points,
                 zigStart,
-                endX
+                points,
+                endX: width + SEGMENT_LENGTH + OFFSCREEN
             };
         }
 
         function buildPath(dimensions) {
 
+            const points = dimensions.points;
+            const lastPoint = points[points.length - 1];
+
             let d = `M ${-OFFSCREEN} ${TRACK_Y}`;
+
+            // Straight horizontal entry.
             d += ` L ${dimensions.zigStart} ${TRACK_Y}`;
 
-            dimensions.points.forEach(([x, y]) => {
+            // Original zigzag proportions.
+            points.forEach(([x, y]) => {
                 d += ` L ${x} ${y}`;
             });
 
+            // Return vertically to the baseline.
+            d += ` L ${lastPoint[0]} ${TRACK_Y}`;
+
+            // Exit in a perfectly horizontal 0-degree line.
             d += ` L ${dimensions.endX} ${TRACK_Y}`;
 
             return d;
         }
+
+        /* ========================================
+           FIND DISTANCE ALONG PATH AT X POSITION
+        ======================================== */
+
+        function distanceAtX(path, targetX) {
+
+            let low = 0;
+            let high = path.getTotalLength();
+
+            for (let i = 0; i < 30; i++) {
+
+                const middle = (low + high) / 2;
+                const point = path.getPointAtLength(middle);
+
+                if (point.x < targetX) {
+                    low = middle;
+                } else {
+                    high = middle;
+                }
+            }
+
+            return (low + high) / 2;
+        }
+
+        /* ========================================
+           POSITION OPEN ARROWHEAD
+        ======================================== */
 
         function positionHead(head, path, distance) {
 
@@ -894,20 +943,30 @@ document.addEventListener("DOMContentLoaded", () => {
             const size = 15;
             const spread = 0.55;
 
-            const leftX = point.x - size * Math.cos(angle - spread);
-            const leftY = point.y - size * Math.sin(angle - spread);
+            const leftX =
+                point.x - size * Math.cos(angle - spread);
 
-            const rightX = point.x - size * Math.cos(angle + spread);
-            const rightY = point.y - size * Math.sin(angle + spread);
+            const leftY =
+                point.y - size * Math.sin(angle - spread);
 
-            // Draw two separate angled strokes meeting at the tip.
+            const rightX =
+                point.x - size * Math.cos(angle + spread);
+
+            const rightY =
+                point.y - size * Math.sin(angle + spread);
+
             head.setAttribute(
                 "d",
-                `M ${leftX} ${leftY} L ${point.x} ${point.y} M ${rightX} ${rightY} L ${point.x} ${point.y}`
+                `M ${leftX} ${leftY} L ${point.x} ${point.y}
+                 M ${rightX} ${rightY} L ${point.x} ${point.y}`
             );
 
             head.style.opacity = "1";
         }
+
+        /* ========================================
+           PREPARE EACH ARROW
+        ======================================== */
 
         function prepareArrow(svg, dimensions) {
 
@@ -927,30 +986,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const length = path.getTotalLength();
 
-            path.style.strokeDasharray = `${length} ${length}`;
-            path.style.strokeDashoffset = length;
+            // A moving dash creates the arrow's trailing line.
+            path.style.strokeDasharray =
+                `${SEGMENT_LENGTH} ${length}`;
+
+            path.style.strokeDashoffset = "0";
 
             head.style.strokeDasharray = "none";
             head.style.strokeDashoffset = "0";
             head.style.fill = "none";
             head.style.opacity = "0";
 
+            const exitDistance = distanceAtX(
+                path,
+                dimensions.width
+            );
+
             return {
                 path,
                 head,
-                length
+                length,
+                exitDistance
             };
         }
 
-        function resetArrow(svg, dimensions) {
+        /* ========================================
+           RESET ARROWS
+        ======================================== */
 
-            const arrow = prepareArrow(svg, dimensions);
+        function resetArrows() {
 
-            if (!arrow) return;
+            positionTrack();
 
-            arrow.path.style.strokeDashoffset = arrow.length;
-            arrow.head.style.opacity = "0";
+            const dimensions = getDimensions();
+
+            svgs.forEach(svg => {
+
+                const arrow = prepareArrow(svg, dimensions);
+
+                if (!arrow) return;
+
+                arrow.path.style.strokeDashoffset = "0";
+                arrow.head.style.opacity = "0";
+            });
         }
+
+        /* ========================================
+           ANIMATE ONE MOVING ARROW
+        ======================================== */
 
         function animateArrow(svg, dimensions, token) {
 
@@ -963,10 +1046,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     return;
                 }
 
-                const duration =
-                    (arrow.length / ARROW_SPEED) * 1000;
-
                 const startTime = performance.now();
+
+                const duration =
+                    (arrow.exitDistance / ARROW_SPEED) * 1000;
 
                 function drawFrame(now) {
 
@@ -980,42 +1063,40 @@ document.addEventListener("DOMContentLoaded", () => {
                         1
                     );
 
-                    const distance = arrow.length * progress;
+                    const distance =
+                        arrow.exitDistance * progress;
 
+                    // Move the line segment to the right.
                     arrow.path.style.strokeDashoffset =
-                        arrow.length - distance;
+                        -distance;
 
-                    if (progress > 0) {
-                        positionHead(
-                            arrow.head,
-                            arrow.path,
-                            distance
-                        );
-                    }
+                    // The arrowhead stays at the leading end.
+                    positionHead(
+                        arrow.head,
+                        arrow.path,
+                        Math.min(
+                            distance + SEGMENT_LENGTH,
+                            arrow.length
+                        )
+                    );
 
                     if (progress < 1) {
 
-                        animationFrame =
-                            requestAnimationFrame(drawFrame);
+                        requestAnimationFrame(drawFrame);
 
                     } else {
-
-                        arrow.path.style.strokeDashoffset = "0";
-
-                        positionHead(
-                            arrow.head,
-                            arrow.path,
-                            arrow.length
-                        );
 
                         resolve(true);
                     }
                 }
 
-                animationFrame =
-                    requestAnimationFrame(drawFrame);
+                requestAnimationFrame(drawFrame);
             });
         }
+
+        /* ========================================
+           RUN ARROWS SEQUENTIALLY AND REPEAT
+        ======================================== */
 
         async function runArrows() {
 
@@ -1025,25 +1106,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const token = ++generation;
 
-            const dimensions = getDimensions();
-
-            svgs.forEach(svg => {
-                resetArrow(svg, dimensions);
-            });
-
-            // Run each arrow to completion before starting the next.
-            // This keeps them from overlapping.
             while (visible && token === generation) {
+
+                positionTrack();
+
+                const dimensions = getDimensions();
 
                 for (const svg of svgs) {
 
                     if (!visible || token !== generation) break;
 
-                    const currentDimensions = getDimensions();
-
                     const completed = await animateArrow(
                         svg,
-                        currentDimensions,
+                        dimensions,
                         token
                     );
 
@@ -1051,26 +1126,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-            running = false;
+            if (token === generation) {
+                running = false;
+            }
         }
+
+        /* ========================================
+           VISIBILITY
+        ======================================== */
 
         function stopArrows() {
 
             visible = false;
             generation++;
 
-            if (animationFrame !== null) {
-                cancelAnimationFrame(animationFrame);
-                animationFrame = null;
-            }
-
-            const dimensions = getDimensions();
-
-            svgs.forEach(svg => {
-                resetArrow(svg, dimensions);
-            });
-
             running = false;
+
+            resetArrows();
         }
 
         const observer = new IntersectionObserver(entries => {
@@ -1087,27 +1159,23 @@ document.addEventListener("DOMContentLoaded", () => {
             threshold: 0.05
         });
 
-        const initialDimensions = getDimensions();
-
-        svgs.forEach(svg => {
-            resetArrow(svg, initialDimensions);
-        });
+        resetArrows();
 
         observer.observe(track);
 
+        /* ========================================
+           RESIZE / BROWSER ZOOM
+        ======================================== */
+
         window.addEventListener("resize", () => {
 
-            if (!running) {
+            generation++;
+            running = false;
 
-                const dimensions = getDimensions();
+            resetArrows();
 
-                svgs.forEach(svg => {
-                    resetArrow(svg, dimensions);
-                });
-
-                if (visible) {
-                    runArrows();
-                }
+            if (visible) {
+                runArrows();
             }
         });
 

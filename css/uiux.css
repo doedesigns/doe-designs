@@ -3226,38 +3226,47 @@ body.deets-page #deets-categories .deets-category-grid.is-settled
 }
 
 
+
 /* ============================================
    MY DEETS — FULL-WIDTH GROWTH ARROWS
-   Shared by the introduction and life-stage sections.
 ============================================ */
 
-/* Full browser-width track, regardless of its parent column. */
+/* Full browser-width arrow track.
+   JavaScript positions it relative to the viewport. */
 
 body.deets-page .deets-growth-track {
     position: relative;
-    left: 50%;
+    left: 0;
     width: 100vw;
     height: 70px;
-    margin-left: -50vw;
+    margin-left: 0;
     overflow: visible;
     pointer-events: none;
 }
 
-/* Introduction arrow: centered beneath the overview. */
+/* Intro arrow spacing */
 
 body.deets-page .deets-growth-track--centered {
     margin-top: 24px;
     margin-bottom: 0;
 }
 
-/* Life-stage arrow: space below the illustration. */
+/* Life-stage arrow spacing */
 
 body.deets-page .deets-life-illustration .deets-growth-track {
     margin-top: 28px;
     margin-bottom: 0;
 }
 
-/* Both SVGs occupy the full browser width. */
+/* Prevent parent containers from clipping the arrow */
+
+body.deets-page .deets-life-section,
+body.deets-page .deets-life-feature,
+body.deets-page .deets-life-illustration {
+    overflow: visible !important;
+}
+
+/* SVG drawing area */
 
 body.deets-page .deets-growth-svg {
     position: absolute;
@@ -3269,7 +3278,7 @@ body.deets-page .deets-growth-svg {
     overflow: visible;
 }
 
-/* The two arrows share the same drawing style. */
+/* Yellow arrow styling */
 
 body.deets-page .deets-growth-path,
 body.deets-page .deets-growth-head {
@@ -3280,14 +3289,11 @@ body.deets-page .deets-growth-head {
     stroke-linejoin: round;
 }
 
-/* Keep the second arrow above the first when they overlap. */
+/* Keep the second arrow above the first */
 
 body.deets-page .deets-growth-svg:nth-child(2) {
     z-index: 2;
 }
-
-/* Reduced-motion presentation is controlled by JavaScript. */
-
 
 /* Clean Future Network: green title, compact prototype preview, no underline. */
 body.clean-organic .project-title h1 { color:#7FD69A !important; }
