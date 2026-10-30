@@ -700,3 +700,136 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 })();
+
+// ============================================
+// MY DEETS — CATEGORY CARD STACK ANIMATION
+// ============================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const grid = document.querySelector(
+        "body.deets-page #deets-categories .deets-category-grid"
+    );
+
+    if (!grid) return;
+
+    const cards = Array.from(
+        grid.querySelectorAll(".deets-category-item")
+    );
+
+    if (cards.length !== 6) return;
+
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    );
+
+    if (reducedMotion.matches) return;
+
+    let settleTimer = null;
+    let isDealt = false;
+
+    // Calculate the starting position for each card.
+    function positionStack() {
+
+        const wasReady = grid.classList.contains("is-ready");
+
+        // Temporarily show the original grid positions
+        // so measurements are accurate.
+        if (wasReady && !isDealt) {
+            grid.classList.remove("is-ready");
+        }
+
+        const gridRect = grid.getBoundingClientRect();
+
+        const gridCenterX = gridRect.left + gridRect.width / 2;
+        const gridCenterY = gridRect.top + gridRect.height / 2;
+
+        cards.forEach((card, index) => {
+
+            const cardRect = card.getBoundingClientRect();
+
+            const cardCenterX = cardRect.left + cardRect.width / 2;
+            const cardCenterY = cardRect.top + cardRect.height / 2;
+
+            const moveX = gridCenterX - cardCenterX;
+            const moveY = gridCenterY - cardCenterY;
+
+            card.style.setProperty("--stack-x", `${moveX}px`);
+            card.style.setProperty("--stack-y", `${moveY}px`);
+            card.style.setProperty("--deal-index", index);
+
+            card.style.zIndex = index + 1;
+
+        });
+
+        if (wasReady && !isDealt) {
+            grid.classList.add("is-ready");
+        }
+    }
+
+    // Establish the initial stack.
+    positionStack();
+    grid.classList.add("is-ready");
+
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach((entry) => {
+
+                        // Play the animation when the section enters view.
+                        if (entry.isIntersecting && !isDealt) {
+
+                            isDealt = true;
+
+                            grid.classList.add("is-dealt");
+
+                            clearTimeout(settleTimer);
+
+                            // Start the synchronized settling motion
+                            // after all six cards have landed.
+                            settleTimer = setTimeout(() => {
+                                grid.classList.add("is-settled");
+                            }, 2900);
+
+                        }
+
+                        // Reset when the section leaves view.
+                        else if (!entry.isIntersecting && isDealt) {
+
+                            isDealt = false;
+
+                            clearTimeout(settleTimer);
+
+                            grid.classList.remove(
+                                "is-settled",
+                                "is-dealt"
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.25
+                }
+            );
+
+            observer.observe(grid);
+
+        });
+    });
+
+    // Recalculate card positions if the window changes size.
+    window.addEventListener("resize", () => {
+
+        if (!isDealt) {
+            positionStack();
+        }
+
+    });
+
+});

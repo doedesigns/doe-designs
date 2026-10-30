@@ -2964,6 +2964,282 @@ body.deets-page .project-title-nav h1 {
 /* My Deets: preserve the project's muted plum/yellow palette. */
 body.deets-page { font-size:18px; }
 
+/* My Deets: purple main title, yellow subtitle, and centered overview. */
+body.deets-page .project-title h1 {
+    color: var(--deets-purple, #866F84) !important;
+}
+body.deets-page .project-title .title-break {
+    color: var(--deets-yellow, #E8E45C) !important;
+    font-size: clamp(18px, 2vw, 28px);
+    letter-spacing: 0.08em;
+    text-align: center;
+}
+body.deets-page .project-details {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: start;
+    text-align: center;
+}
+
+/* ============================================
+   MY DEETS — REQUESTED PAGE ADJUSTMENTS
+============================================ */
+
+/* 01 / Dashboard: reduce the image container to 50%. */
+body.deets-page #deets-screens .deets-screen-feature .deets-screen-image {
+    width: 50%;
+    max-width: none;
+    margin-inline: auto;
+}
+
+/* Add 10px more space between the illustration and growth arrow. */
+body.deets-page .deets-life-illustration .deets-growth-line {
+    margin-top: 28px;
+}
+
+/* Keep all life-stage text together in the left column. */
+body.deets-page .deets-life-text-column {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+}
+
+/* Keep the illustration in the right column. */
+body.deets-page .deets-life-illustration {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+/* Stack the text and illustration on smaller screens. */
+@media (max-width: 700px) {
+    body.deets-page .deets-life-text-column {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    body.deets-page .deets-life-illustration {
+        grid-column: 1;
+        grid-row: 2;
+    }
+}
+
+/* ============================================
+   MY DEETS — CONNECTING LINE ANIMATION
+============================================ */
+
+body.deets-page .deets-connection {
+    width: 100%;
+    max-width: 900px;
+    height: 48px;
+    margin: 55px auto;
+    padding: 0 20px;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+body.deets-page .deets-connection svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+body.deets-page .deets-connection-base {
+    fill: none;
+    stroke: #866F84;
+    stroke-width: 2;
+    stroke-linecap: round;
+    opacity: 0.65;
+}
+
+body.deets-page .deets-connection-highlight {
+    fill: none;
+    stroke: #E8E45C;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-dasharray: 75 845;
+    stroke-dashoffset: 920;
+}
+
+body.deets-page .deets-connection-node {
+    fill: #302632;
+    stroke: #AB8FA8;
+    stroke-width: 2.5;
+    transform-box: fill-box;
+    transform-origin: center;
+    transition:
+        fill 0.35s ease,
+        stroke 0.35s ease,
+        transform 0.35s ease;
+}
+
+/* Animation activates when the line enters the viewport */
+
+body.deets-page .deets-connection.deets-connection-visible {
+    opacity: 1;
+}
+
+body.deets-page .deets-connection-visible .deets-connection-highlight {
+    animation: deetsConnectionTravel 2.4s ease-in-out forwards;
+}
+
+body.deets-page .deets-connection-visible .deets-connection-node {
+    animation: deetsNodeIlluminate 0.45s ease forwards;
+}
+
+/* Stagger the illumination from left to right */
+
+body.deets-page .deets-connection-visible .deets-connection-node:nth-of-type(2) {
+    animation-delay: 0.65s;
+}
+
+body.deets-page .deets-connection-visible .deets-connection-node:nth-of-type(3) {
+    animation-delay: 1.35s;
+}
+
+body.deets-page .deets-connection-visible .deets-connection-node:nth-of-type(4) {
+    animation-delay: 2.05s;
+}
+
+@keyframes deetsConnectionTravel {
+    from {
+        stroke-dashoffset: 920;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes deetsNodeIlluminate {
+    0% {
+        fill: #302632;
+        stroke: #AB8FA8;
+        transform: scale(1);
+    }
+    50% {
+        fill: #E8E45C;
+        stroke: #E8E45C;
+        transform: scale(1.5);
+    }
+    100% {
+        fill: #302632;
+        stroke: #AB8FA8;
+        transform: scale(1);
+    }
+}
+
+/* Reduced-motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    body.deets-page .deets-connection {
+        opacity: 1;
+        transition: none;
+    }
+
+    body.deets-page .deets-connection-highlight,
+    body.deets-page .deets-connection-node {
+        animation: none !important;
+    }
+
+    body.deets-page .deets-connection-highlight {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* ============================================
+   MY DEETS — CATEGORY CARD STACK ANIMATION
+============================================ */
+
+body.deets-page #deets-categories .deets-category-grid {
+    position: relative;
+}
+
+body.deets-page #deets-categories .deets-category-item {
+    position: relative;
+    z-index: 1;
+    translate: 0 0;
+    scale: 1;
+    transition:
+        translate 720ms cubic-bezier(0.2, 0.75, 0.25, 1),
+        scale 420ms ease,
+        box-shadow 420ms ease;
+}
+
+/* Cards begin stacked in the center of the grid. */
+
+body.deets-page #deets-categories .deets-category-grid.is-ready:not(.is-dealt)
+.deets-category-item {
+    translate: var(--stack-x, 0px) var(--stack-y, 0px);
+    scale: 0.94;
+    transition-delay: 0ms;
+}
+
+/* Deal the cards into their original grid positions. */
+
+body.deets-page #deets-categories .deets-category-grid.is-dealt
+.deets-category-item {
+    translate: 0 0;
+    scale: 1;
+    transition-delay: calc(var(--deal-index, 0) * 420ms);
+}
+
+/* Small landing effect as each card arrives. */
+
+body.deets-page #deets-categories .deets-category-grid.is-dealt
+.deets-category-item {
+    animation: deets-category-land 380ms ease-out both;
+    animation-delay: calc(var(--deal-index, 0) * 420ms + 720ms);
+}
+
+@keyframes deets-category-land {
+    0% {
+        scale: 1;
+        box-shadow: 0 0 0 rgba(232, 228, 92, 0);
+    }
+
+    45% {
+        scale: 1.025;
+        box-shadow: 0 0 18px rgba(232, 228, 92, 0.2);
+    }
+
+    100% {
+        scale: 1;
+        box-shadow: 0 0 0 rgba(232, 228, 92, 0);
+    }
+}
+
+/* One subtle synchronized settling motion after the final card lands. */
+
+body.deets-page #deets-categories .deets-category-grid.is-settled
+.deets-category-item {
+    animation: deets-category-settle 420ms ease-in-out both;
+    animation-delay: 0ms;
+}
+
+@keyframes deets-category-settle {
+    0%   { translate: 0 0; }
+    25%  { translate: -2px 0; }
+    50%  { translate: 2px 0; }
+    75%  { translate: -1px 0; }
+    100% { translate: 0 0; }
+}
+
+/* Keep the original card appearance when motion is disabled. */
+
+@media (prefers-reduced-motion: reduce) {
+    body.deets-page #deets-categories .deets-category-item {
+        translate: 0 0 !important;
+        scale: 1 !important;
+        animation: none !important;
+        transition: none !important;
+    }
+
+    body.deets-page #deets-categories .deets-category-grid.is-ready:not(.is-dealt)
+    .deets-category-item {
+        translate: 0 0 !important;
+        scale: 1 !important;
+    }
+}
+
 /* Clean Future Network: green title, compact prototype preview, no underline. */
 body.clean-organic .project-title h1 { color:#7FD69A !important; }
 body.clean-organic .clean-prototype-preview { width:min(212px,100%); max-width:212px; margin:0 auto; }
@@ -3162,187 +3438,6 @@ body.project-page .project-details .detail-box h3,
 body.project-page .project-details .detail-box p {
     font-size: max(18px, 1rem);
     overflow-wrap: anywhere;
-}
-
-/* My Deets: purple main title, yellow subtitle, and centered overview. */
-body.deets-page .project-title h1 {
-    color: var(--deets-purple, #866F84) !important;
-}
-body.deets-page .project-title .title-break {
-    color: var(--deets-yellow, #E8E45C) !important;
-    font-size: clamp(18px, 2vw, 28px);
-    letter-spacing: 0.08em;
-    text-align: center;
-}
-body.deets-page .project-details {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    align-items: start;
-    text-align: center;
-}
-
-/* ============================================
-   MY DEETS — REQUESTED PAGE ADJUSTMENTS
-============================================ */
-
-/* 01 / Dashboard: reduce the image container to 50%. */
-body.deets-page #deets-screens .deets-screen-feature .deets-screen-image {
-    width: 50%;
-    max-width: none;
-    margin-inline: auto;
-}
-
-/* Add 10px more space between the illustration and growth arrow. */
-body.deets-page .deets-life-illustration .deets-growth-line {
-    margin-top: 28px;
-}
-
-/* Keep all life-stage text together in the left column. */
-body.deets-page .deets-life-text-column {
-    grid-column: 1;
-    grid-row: 1;
-    min-width: 0;
-}
-
-/* Keep the illustration in the right column. */
-body.deets-page .deets-life-illustration {
-    grid-column: 2;
-    grid-row: 1;
-}
-
-/* Stack the text and illustration on smaller screens. */
-@media (max-width: 700px) {
-    body.deets-page .deets-life-text-column {
-        grid-column: 1;
-        grid-row: 1;
-    }
-
-    body.deets-page .deets-life-illustration {
-        grid-column: 1;
-        grid-row: 2;
-    }
-}
-
-/* ============================================
-   MY DEETS — CONNECTING LINE ANIMATION
-============================================ */
-
-body.deets-page .deets-connection {
-    width: 100%;
-    max-width: 900px;
-    height: 48px;
-    margin: 55px auto;
-    padding: 0 20px;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-}
-
-body.deets-page .deets-connection svg {
-    display: block;
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-}
-
-body.deets-page .deets-connection-base {
-    fill: none;
-    stroke: #866F84;
-    stroke-width: 2;
-    stroke-linecap: round;
-    opacity: 0.65;
-}
-
-body.deets-page .deets-connection-highlight {
-    fill: none;
-    stroke: #E8E45C;
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-dasharray: 75 845;
-    stroke-dashoffset: 920;
-}
-
-body.deets-page .deets-connection-node {
-    fill: #302632;
-    stroke: #AB8FA8;
-    stroke-width: 2.5;
-    transform-box: fill-box;
-    transform-origin: center;
-    transition:
-        fill 0.35s ease,
-        stroke 0.35s ease,
-        transform 0.35s ease;
-}
-
-/* Animation activates when the line enters the viewport */
-
-body.deets-page .deets-connection.deets-connection-visible {
-    opacity: 1;
-}
-
-body.deets-page .deets-connection-visible .deets-connection-highlight {
-    animation: deetsConnectionTravel 2.4s ease-in-out forwards;
-}
-
-body.deets-page .deets-connection-visible .deets-connection-node {
-    animation: deetsNodeIlluminate 0.45s ease forwards;
-}
-
-/* Stagger the illumination from left to right */
-
-body.deets-page .deets-connection-visible .deets-connection-node:nth-of-type(2) {
-    animation-delay: 0.65s;
-}
-
-body.deets-page .deets-connection-visible .deets-connection-node:nth-of-type(3) {
-    animation-delay: 1.35s;
-}
-
-body.deets-page .deets-connection-visible .deets-connection-node:nth-of-type(4) {
-    animation-delay: 2.05s;
-}
-
-@keyframes deetsConnectionTravel {
-    from {
-        stroke-dashoffset: 920;
-    }
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
-@keyframes deetsNodeIlluminate {
-    0% {
-        fill: #302632;
-        stroke: #AB8FA8;
-        transform: scale(1);
-    }
-    50% {
-        fill: #E8E45C;
-        stroke: #E8E45C;
-        transform: scale(1.5);
-    }
-    100% {
-        fill: #302632;
-        stroke: #AB8FA8;
-        transform: scale(1);
-    }
-}
-
-/* Reduced-motion accessibility */
-
-@media (prefers-reduced-motion: reduce) {
-    body.deets-page .deets-connection {
-        opacity: 1;
-        transition: none;
-    }
-
-    body.deets-page .deets-connection-highlight,
-    body.deets-page .deets-connection-node {
-        animation: none !important;
-    }
-
-    body.deets-page .deets-connection-highlight {
-        stroke-dashoffset: 0;
-    }
 }
 
 /* Phasepoint: cyan hover treatment for Concept in Focus carousel. */
