@@ -2858,7 +2858,7 @@ body.deets-page .project-title-nav h1 {
 .deets-page .deets-life-feature {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
-    align-items: center;
+    align-items: flex-start;
     gap: clamp(30px, 5vw, 70px);
     margin-bottom: 56px;
 }
@@ -2983,9 +2983,9 @@ body.deets-page #deets-screens .deets-screen-feature .deets-screen-image {
 
 /* Keep all life-stage text together in the left column. */
 body.deets-page .deets-life-text-column {
-    grid-column: 1;
-    grid-row: 1;
-    min-width: 0;
+    align-self: flex-start;
+	margin-top: 0;
+	transform: none;
 }
 
 /* Keep the illustration in the right column. */

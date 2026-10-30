@@ -1014,7 +1014,7 @@ document.addEventListener("DOMContentLoaded", () => {
             path.style.strokeDasharray =
                 `${SEGMENT_LENGTH} ${length}`;
 
-            path.style.strokeDashoffset = "0";
+            path.style.strokeDashoffset = SEGMENT_LENGTH;
 
             head.style.strokeDasharray = "none";
             head.style.strokeDashoffset = "0";
@@ -1050,7 +1050,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (!arrow) return;
 
-                arrow.path.style.strokeDashoffset = "0";
+                arrow.path.style.strokeDashoffset = SEGMENT_LENGTH;
                 arrow.head.style.opacity = "0";
             });
         }
