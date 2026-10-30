@@ -962,7 +962,7 @@ body.cali-page .cali-eyebrow {
 /* Add space between the underline and supporting copy */
 body.cali-page .project-gallery-heading h2::after,
 body.cali-page .cali-gallery-heading h2::after {
-    margin-bottom: 22px;
+    bottom: -16px;
 }
 
 /* Give the supporting sentence its own breathing room */
@@ -1584,4 +1584,61 @@ body.unconventional-page .page-contact-link p {
     body.unconventional-page .unconventional-gallery-redesign .project-gallery-item a:hover img {
         transform: none;
     }
+}
+
+/* ============================================
+   UNCONVENTIONAL LIFE — ANIMATED GRADIENT SYSTEM
+============================================ */
+
+body.unconventional-page {
+    --unconventional-gradient: linear-gradient(
+        90deg,
+        #A8F0D0,
+        #B9D9D0,
+        #C9C0DD,
+        #B99BE8,
+        #A8F0D0
+    );
+
+    --unconventional-gradient-speed: 12s;
+}
+
+/* Shared gradient animation */
+@keyframes unconventional-gradient-flow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Animated gradient text */
+body.unconventional-page .unconventional-eyebrow,
+body.unconventional-page .project-title h1,
+body.unconventional-page .unconventional-details h3,
+body.unconventional-page .unconventional-feature h2 {
+    background: var(--unconventional-gradient);
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: unconventional-gradient-flow
+        var(--unconventional-gradient-speed) ease-in-out infinite;
+}
+
+/* Animated gradient underlines */
+body.unconventional-page .unconventional-eyebrow::after,
+body.unconventional-page .unconventional-feature h2::after {
+    background: var(--unconventional-gradient);
+    background-size: 300% 100%;
+
+    animation: unconventional-gradient-flow
+        var(--unconventional-gradient-speed) ease-in-out infinite;
 }
