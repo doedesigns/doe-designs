@@ -852,156 +852,140 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (reducedMotion.matches) return;
 
-    // Original zigzag geometry.
-    const zigzagPoints = [
-        [8, 56],
-        [52, 20],
-        [91, 48],
-        [137, 12],
-        [176, 44],
-        [225, 8],
-        [265, 34],
-        [310, 6]
-    ];
+    // Timing, in seconds.
+    const LEAD_TIME = 1.4;
+    const ZIGZAG_TIME = 2.2;
+    const PAUSE_TIME = 1.5;
+    const EXIT_TIME = 1.4;
 
-    // Straight horizontal starting/ending line.
-    const straightPoints = zigzagPoints.map(
-        ([x]) => [x, 35]
-    );
+    const ACTIVE_TIME =
+        LEAD_TIME + ZIGZAG_TIME + PAUSE_TIME + EXIT_TIME;
 
-    // Original arrowhead geometry.
-    const zigzagHead = [
-        [298, 7],
-        [310, 6],
-        [306, 18]
-    ];
+    // Each arrow repeats every 11.6 seconds.
+    // The second begins while the first is exiting.
+    const CYCLE_TIME = 11.6;
+    const SECOND_ARROW_DELAY = 5.1;
 
-    const straightHead = [
-        [298, 27],
-        [310, 35],
-        [298, 43]
-    ];
+    function setupArrow(svg) {
 
-    const ENTER_TIME = 1.8;
-    const PAUSE_TIME = 1.4;
-    const EXIT_TIME = 1.8;
-    const CYCLE_TIME = 6.4;
+        const lead = svg.querySelector(".deets-growth-lead");
+        const path = svg.querySelector(".deets-growth-path");
+        const head = svg.querySelector(".deets-growth-head");
 
-    const SECOND_ARROW_OFFSET = 4.8;
+        const leadLength = lead.getTotalLength();
+        const pathLength = path.getTotalLength();
+        const headLength = head.getTotalLength();
 
-    function interpolate(start, end, progress) {
-        return start + (end - start) * progress;
-    }
+        // Prepare the SVG strokes for progressive drawing.
+        [lead, path, head].forEach((element, index) => {
 
-    function interpolatePoints(start, end, progress) {
-
-        return start.map((point, index) => {
-
-            return [
-                interpolate(point[0], end[index][0], progress),
-                interpolate(point[1], end[index][1], progress)
+            const lengths = [
+                leadLength,
+                pathLength,
+                headLength
             ];
+
+            element.style.strokeDasharray =
+                `${lengths[index]} ${lengths[index]}`;
+
+            element.style.strokeDashoffset =
+                lengths[index];
 
         });
 
-    }
+        function setDrawing(element, length, progress) {
 
-    function pointsToString(points) {
-
-        return points
-            .map(point => `${point[0]},${point[1]}`)
-            .join(" ");
-
-    }
-
-    function headToString(points) {
-
-        return points
-            .map((point, index) => {
-                return `${index === 0 ? "M" : "L"} ${point[0]} ${point[1]}`;
-            })
-            .join(" ");
-
-    }
-
-    function setupArrow(track, svg, offset) {
-
-        const line = svg.querySelector(".deets-growth-path");
-        const head = svg.querySelector(".deets-growth-head");
-
-        function update(elapsed) {
-
-            const phase = (
-                (elapsed + offset) % CYCLE_TIME
+            const safeProgress = Math.max(
+                0,
+                Math.min(1, progress)
             );
 
-            const trackWidth = track.clientWidth;
-            const svgWidth = svg.getBoundingClientRect().width;
+            element.style.strokeDashoffset =
+                length * (1 - safeProgress);
 
-            let x = -svgWidth;
-            let progress = 0;
+        }
 
-            if (phase < ENTER_TIME) {
+        function update(phase) {
 
-                // Enter from the left while forming the zigzag.
+            // Reset before each new cycle.
+            svg.style.opacity = "0";
+            svg.style.transform = "translateX(0px)";
 
-                progress = phase / ENTER_TIME;
+            setDrawing(lead, leadLength, 0);
+            setDrawing(path, pathLength, 0);
+            setDrawing(head, headLength, 0);
 
-                x = -svgWidth * (1 - progress);
+            if (phase >= ACTIVE_TIME) return;
 
-            } else if (phase < ENTER_TIME + PAUSE_TIME) {
+            svg.style.opacity = "1";
 
-                // Hold the completed growth arrow.
+            // STAGE 1: Straight line enters from the left.
+            if (phase < LEAD_TIME) {
 
-                progress = 1;
-                x = 0;
+                const progress = phase / LEAD_TIME;
 
-            } else if (
-                phase < ENTER_TIME + PAUSE_TIME + EXIT_TIME
-            ) {
+                setDrawing(
+                    lead,
+                    leadLength,
+                    progress
+                );
 
-                // Straighten the arrow and continue offscreen.
-
-                const exitProgress =
-                    (phase - ENTER_TIME - PAUSE_TIME) / EXIT_TIME;
-
-                progress = 1 - exitProgress;
-
-                x = trackWidth * exitProgress;
-
-            } else {
-
-                // Wait offscreen before the next cycle.
-
-                progress = 0;
-                x = trackWidth;
-
+                return;
             }
 
-            const points = interpolatePoints(
-                straightPoints,
-                zigzagPoints,
-                progress
-            );
+            // Straight lead-in is now complete.
+            setDrawing(lead, leadLength, 1);
 
-            const headPoints = interpolatePoints(
-                straightHead,
-                zigzagHead,
-                progress
-            );
+            // STAGE 2: Trace the original zigzag.
+            if (phase < LEAD_TIME + ZIGZAG_TIME) {
 
-            line.setAttribute(
-                "points",
-                pointsToString(points)
-            );
+                const progress =
+                    (phase - LEAD_TIME) / ZIGZAG_TIME;
 
-            head.setAttribute(
-                "d",
-                headToString(headPoints)
-            );
+                setDrawing(
+                    path,
+                    pathLength,
+                    progress
+                );
 
-            svg.style.transform = `translateX(${x}px)`;
+                // Reveal the arrowhead near the end.
+                const headProgress = Math.max(
+                    0,
+                    (progress - 0.85) / 0.15
+                );
 
+                setDrawing(
+                    head,
+                    headLength,
+                    headProgress
+                );
+
+                return;
+            }
+
+            // The complete zigzag and arrowhead are visible.
+            setDrawing(path, pathLength, 1);
+            setDrawing(head, headLength, 1);
+
+            // STAGE 3: Pause at the end.
+            if (
+                phase < LEAD_TIME +
+                ZIGZAG_TIME +
+                PAUSE_TIME
+            ) {
+                return;
+            }
+
+            // STAGE 4: Continue moving off to the right.
+            const exitProgress =
+                (phase - LEAD_TIME - ZIGZAG_TIME - PAUSE_TIME)
+                / EXIT_TIME;
+
+            const exitDistance =
+                svg.parentElement.clientWidth + 40;
+
+            svg.style.transform =
+                `translateX(${exitDistance * exitProgress}px)`;
         }
 
         return update;
@@ -1015,17 +999,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (arrows.length !== 2) return;
 
-        const updateFirst = setupArrow(
-            track,
-            arrows[0],
-            0
-        );
-
-        const updateSecond = setupArrow(
-            track,
-            arrows[1],
-            SECOND_ARROW_OFFSET
-        );
+        const updateFirst = setupArrow(arrows[0]);
+        const updateSecond = setupArrow(arrows[1]);
 
         let animationFrame = null;
         let startTime = null;
@@ -1036,13 +1011,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 startTime = timestamp;
             }
 
-            const elapsed = (timestamp - startTime) / 1000;
+            const elapsed =
+                (timestamp - startTime) / 1000;
 
-            updateFirst(elapsed);
-            updateSecond(elapsed);
+            const firstPhase =
+                elapsed % CYCLE_TIME;
 
-            animationFrame = requestAnimationFrame(animate);
+            const secondPhase =
+                (elapsed - SECOND_ARROW_DELAY +
+                 CYCLE_TIME) % CYCLE_TIME;
 
+            updateFirst(firstPhase);
+            updateSecond(secondPhase);
+
+            animationFrame =
+                requestAnimationFrame(animate);
         }
 
         const observer = new IntersectionObserver(
@@ -1058,7 +1041,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                             animationFrame =
                                 requestAnimationFrame(animate);
-
                         }
 
                     } else {
@@ -1070,12 +1052,14 @@ document.addEventListener("DOMContentLoaded", () => {
                             animationFrame = null;
                             startTime = null;
 
+                            arrows.forEach(svg => {
+                                svg.style.opacity = "0";
+                                svg.style.transform =
+                                    "translateX(0px)";
+                            });
                         }
-
                     }
-
                 });
-
             },
             {
                 threshold: 0.1

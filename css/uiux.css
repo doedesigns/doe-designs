@@ -2953,24 +2953,6 @@ body.deets-page .project-title-nav h1 {
    MY DEETS — ANIMATED GROWTH ARROWS
 ============================================ */
 
-body.deets-page .deets-growth-track {
-    position: relative;
-    display: block;
-    width: 100%;
-    max-width: 320px;
-    height: 70px;
-    margin: 18px auto 0;
-    overflow: hidden;
-    isolation: isolate;
-}
-
-/* Centered arrow between page sections */
-
-body.deets-page .deets-growth-track--centered {
-    max-width: 320px;
-    margin: 38px auto 42px;
-}
-
 /* Moving SVG arrows */
 
 body.deets-page .deets-growth-arrow {
@@ -3286,6 +3268,81 @@ body.deets-page #deets-categories .deets-category-grid.is-settled
     .deets-category-item {
         translate: 0 0 !important;
         scale: 1 !important;
+    }
+}
+
+/* ============================================
+   MY DEETS — CONTINUOUS GROWTH ARROW
+============================================ */
+
+body.deets-page .deets-growth-track {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: 70px;
+    margin: 18px auto 0;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+body.deets-page .deets-life-illustration .deets-growth-track {
+    margin-top: 28px;
+}
+
+/* Second arrow, centered between sections */
+
+body.deets-page .deets-growth-track--centered {
+    max-width: 320px;
+    margin: 38px auto 42px;
+}
+
+/* The two moving arrows */
+
+body.deets-page .deets-growth-arrow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 70px;
+    overflow: visible;
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+/* Preserve the original yellow line appearance */
+
+body.deets-page .deets-growth-lead,
+body.deets-page .deets-growth-path,
+body.deets-page .deets-growth-head {
+    fill: none;
+    stroke: #E8E45C;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Static fallback for reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    body.deets-page .deets-growth-track {
+        overflow: visible;
+    }
+
+    body.deets-page .deets-growth-arrow {
+        display: none;
+    }
+
+    body.deets-page .deets-growth-arrow:first-child {
+        display: block;
+        position: relative;
+        opacity: 1;
+        transform: none !important;
+    }
+
+    body.deets-page .deets-growth-lead {
+        display: none;
     }
 }
 
