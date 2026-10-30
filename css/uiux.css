@@ -1082,1040 +1082,6 @@ body.clean-organic .project-year {
     line-height: inherit;
 }
 
-body.lotus-organic {
-    --lotus-peach: #FFF5EF;
-    --lotus-peach-deep: #F9E4DC;
-    --lotus-green: #C5E6A5;
-    --lotus-green-deep: #477653;
-    --lotus-pink: #B83268;
-    --lotus-pink-dark: #50152F;
-    --lotus-blue: #BDE5F3;
-    --lotus-ink: #302832;
-    --lotus-muted: #71656D;
-    --lotus-white: #FFFCFA;
-
-    background: linear-gradient(
-        180deg,
-        #06080B 0%,
-        #321022 45%,
-        #5B1B3B 75%,
-        #760052 100%
-    );
-
-    color: var(--lotus-ink);
-}
-
-.lotus-organic .project-container {
-    position: relative;
-    z-index: 1;
-}
-
-.lotus-organic .lotus-section,
-.lotus-organic .project-story {
-    position: relative;
-    margin-top: clamp(48px, 7vw, 100px);
-    margin-bottom: clamp(48px, 7vw, 100px);
-}
-
-.lotus-organic .lotus-section {
-    padding: clamp(24px, 4vw, 56px);
-    border-radius: 28px;
-    background: var(--lotus-peach);
-    color: var(--lotus-ink);
-    overflow: hidden;
-}
-
-.lotus-organic .lotus-section p,
-.lotus-organic .lotus-section li {
-    color: var(--lotus-ink);
-}
-
-.lotus-organic .lotus-section-heading {
-    max-width: 820px;
-    margin: 0 auto 32px;
-    text-align: center;
-}
-
-.lotus-organic .lotus-section-heading > p:last-child {
-    max-width: 700px;
-    margin: 16px auto 0;
-    line-height: 1.75;
-}
-
-.lotus-organic .lotus-eyebrow {
-    margin: 0 0 10px;
-    color: var(--lotus-pink);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size:1.125rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    line-height: 1.5;
-    text-transform: uppercase;
-}
-
-.lotus-organic .lotus-section h2,
-.lotus-organic .lotus-section-heading h2 {
-    margin-top: 0;
-    color: var(--lotus-pink-dark);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    font-weight: 700;
-    letter-spacing: 0.035em;
-    line-height: 1.15;
-}
-
-.lotus-organic .project-story .story-text h2 {
-    color: var(--lotus-pink-dark);
-}
-
-.lotus-organic .project-story .story-text p {
-    color: var(--lotus-ink);
-    line-height: 1.8;
-}
-
-.lotus-organic .lotus-overview,
-.lotus-organic .lotus-direction,
-.lotus-organic .lotus-process {
-    padding: clamp(20px, 3vw, 38px);
-    border-radius: 24px;
-    background: var(--lotus-peach);
-    color: var(--lotus-ink);
-}
-
-.lotus-organic .lotus-overview .story-image img,
-.lotus-organic .lotus-direction .story-image img,
-.lotus-organic .lotus-process .story-image img {
-    border-radius: 18px;
-}
-
-.lotus-organic .lotus-overview .story-image p,
-.lotus-organic .lotus-direction .story-image p,
-.lotus-organic .lotus-process .story-image p {
-    color: var(--lotus-muted);
-    font-size:1.125rem;
-    line-height: 1.6;
-}
-
-.lotus-organic .lotus-challenge-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
-}
-
-.lotus-organic .lotus-statement {
-    padding: clamp(22px, 3vw, 36px);
-    border-radius: 22px;
-    color: var(--lotus-ink);
-}
-
-.lotus-organic .lotus-challenge-card {
-    background: var(--lotus-blue);
-}
-
-.lotus-organic .lotus-solution-card {
-    background: var(--lotus-green);
-}
-
-.lotus-organic .lotus-statement p {
-    color: var(--lotus-ink);
-}
-
-.lotus-organic .lotus-number {
-    display: block;
-    margin-bottom: 16px;
-    color: var(--lotus-pink);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 2rem;
-    font-weight: 900;
-    line-height: 1;
-}
-
-.lotus-organic .lotus-statement h3 {
-    margin: 0 0 14px;
-    color: var(--lotus-pink-dark);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-}
-
-.lotus-organic .lotus-statement p {
-    margin: 0 0 14px;
-    line-height: 1.75;
-}
-
-.lotus-organic .lotus-statement p:last-child {
-    margin-bottom: 0;
-}
-
-.lotus-organic .lotus-prototype {
-    text-align: center;
-}
-
-.lotus-organic .lotus-prototype .lotus-section-heading {
-    padding: 0 18px;
-}
-
-.lotus-organic .lotus-prototype .prototype-image-link {
-    position: relative;
-    display: block;
-    width: min(33%, 260px);
-    min-width: 200px;
-    margin: 28px auto;
-    overflow: hidden;
-    border: 5px solid var(--lotus-white);
-    border-radius: 22px;
-    background: var(--lotus-peach-deep);
-    box-shadow: 0 14px 36px rgba(80, 21, 47, 0.16);
-}
-
-.lotus-organic .lotus-prototype .prototype-image-link img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    transition: transform 0.35s ease;
-}
-
-.lotus-organic .lotus-prototype .prototype-image-link:hover img {
-    transform: scale(1.015);
-}
-
-.lotus-organic .lotus-prototype-overlay {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 56px;
-    padding: 12px 10px;
-    box-sizing: border-box;
-    background: rgba(80, 21, 47, 0.92);
-    color: white;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size:1.125rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.25s ease;
-}
-
-.lotus-organic .lotus-prototype .prototype-image-link:hover
-.lotus-prototype-overlay,
-.lotus-organic .lotus-prototype .prototype-image-link:focus-visible
-.lotus-prototype-overlay {
-    opacity: 1;
-}
-
-.lotus-organic .lotus-prototype-button {
-    display: inline-block;
-    margin: 8px auto 0;
-    padding: 15px 38px;
-    box-sizing: border-box;
-}
-
-.lotus-organic .enter-button {
-    border: 1px solid var(--lotus-pink);
-    border-radius: 999px;
-    background: var(--lotus-pink);
-    color: white;
-    transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
-}
-
-.lotus-organic .enter-button:hover {
-    background: var(--lotus-pink-dark);
-    border-color: var(--lotus-pink-dark);
-    color: white;
-    transform: translateY(-2px);
-}
-
-.lotus-organic .lotus-feature-image {
-    width: 100%;
-    max-width: 1100px;
-    margin: 30px auto 44px;
-    padding: clamp(10px, 2vw, 22px);
-    border: 1px solid rgba(80, 21, 47, 0.08);
-    border-radius: 22px;
-    background: var(--lotus-white);
-    box-sizing: border-box;
-}
-
-.lotus-organic .lotus-feature-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 12px;
-}
-
-.lotus-organic .lotus-feature-image figcaption {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 16px 4px 4px;
-    color: var(--lotus-muted);
-    font-size:1.125rem;
-    line-height: 1.6;
-}
-
-.lotus-organic .lotus-feature-image figcaption strong {
-    color: var(--lotus-pink-dark);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-}
-
-.lotus-organic .lotus-logo-animation {
-    width: 100%;
-    max-width: 900px;
-    margin: 28px auto 0;
-}
-
-.lotus-organic .lotus-logo-animation .video-player {
-    overflow: hidden;
-    border: 5px solid var(--lotus-white);
-    border-radius: 20px;
-    background: var(--lotus-peach-deep);
-}
-
-.lotus-organic .lotus-logo-animation video {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.lotus-organic .lotus-logo-animation figcaption {
-    margin-top: 12px;
-    color: var(--lotus-muted);
-    text-align: center;
-    font-size:1.125rem;
-}
-
-.lotus-organic .lotus-contact {
-    margin-top: clamp(48px, 7vw, 100px);
-}
-
-body.lotus-organic .lotus-contact > p {
-    color: #FFFFFF;
-    font-family: "Jost", sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.6;
-}
-
-.lotus-organic .story-image img,
-.lotus-organic .lotus-feature-image img {
-    max-width: 100%;
-}
-
-.lotus-organic a:focus-visible {
-    outline: 3px solid var(--lotus-green-deep);
-    outline-offset: 4px;
-}
-
-body.lotus-organic {
-    --lotus-pink-accent: #D77DBF;
-    --lotus-gradient-yellow: #E8D9A9;
-    --lotus-gradient-pink: #E3C1D1;
-}
-
-.lotus-organic .lotus-overview,
-.lotus-organic .lotus-challenge,
-.lotus-organic .lotus-prototype {
-    background: linear-gradient(
-        135deg,
-        var(--lotus-gradient-yellow) 0%,
-        var(--lotus-gradient-pink) 100%
-    );
-}
-
-.lotus-organic .lotus-direction,
-.lotus-organic .lotus-brand {
-    background: linear-gradient(
-        225deg,
-        var(--lotus-gradient-yellow) 0%,
-        var(--lotus-gradient-pink) 100%
-    );
-}
-
-.lotus-organic .lotus-process {
-    background: linear-gradient(
-        135deg,
-        #FBE5ED 0%,
-        #FFF5CC 100%
-    );
-}
-
-.lotus-organic .lotus-challenge-card {
-    background: #CAE8F9;
-}
-
-.lotus-organic .lotus-solution-card {
-    background: #DDF7DF;
-}
-
-.lotus-organic .lotus-eyebrow {
-    color: #B83268;
-}
-
-.lotus-organic .lotus-prototype-overlay {
-    background: rgba(80, 21, 47, 0.94);
-    color: #FFFFFF;
-}
-
-.lotus-organic .lotus-prototype {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 20px;
-    padding: clamp(28px, 5vw, 58px);
-    border: 1px solid rgba(184, 50, 104, 0.12);
-    border-radius: 26px;
-}
-
-.lotus-organic .lotus-prototype .lotus-section-heading {
-    width: 100%;
-    max-width: 760px;
-    margin: 0 auto;
-}
-
-.lotus-organic .lotus-prototype .lotus-section-heading h2 {
-    color: #50152F;
-}
-
-.lotus-organic .lotus-prototype .lotus-section-heading > p:last-child {
-    color: #302832;
-    line-height: 1.8;
-}
-
-.lotus-organic .lotus-prototype .prototype-image-link {
-    display: block;
-    position: relative;
-    width: min(100%, 240px);
-    min-width: 0;
-    margin: 4px auto;
-    overflow: hidden;
-    border: 3px solid #FFFFFF;
-    border-radius: 20px;
-    background: #FFFFFF;
-    box-shadow: 0 12px 30px rgba(80, 21, 47, 0.13);
-}
-
-.lotus-organic .lotus-prototype .prototype-image-link img {
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s ease;
-}
-
-.lotus-organic .lotus-prototype .prototype-image-link:hover img {
-    transform: scale(1.02);
-}
-
-.lotus-organic .lotus-prototype-overlay {
-    position: absolute;
-    inset: auto 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    padding: 12px 8px;
-    box-sizing: border-box;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size:1.125rem;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.25s ease;
-}
-
-.lotus-organic .lotus-prototype .prototype-image-link:hover
-.lotus-prototype-overlay,
-.lotus-organic .lotus-prototype .prototype-image-link:focus-visible
-.lotus-prototype-overlay {
-    opacity: 1;
-}
-
-.lotus-organic .lotus-prototype .lotus-prototype-button {
-    display: inline-block;
-    width: auto;
-    max-width: 100%;
-    margin: 0;
-    padding: 14px 30px;
-    border: 2px solid #50152F;
-    border-radius: 999px;
-    background: #50152F;
-    color: #FFFFFF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-align: center;
-    text-decoration: none;
-}
-
-.lotus-organic .lotus-prototype .lotus-prototype-button:hover {
-    background: #B83268;
-    border-color: #B83268;
-    color: #FFFFFF;
-}
-
-.lotus-organic .lotus-direction .story-image,
-.lotus-organic .lotus-process .story-image {
-    width: 100%;
-    max-width: 540px;
-    margin-inline: auto;
-}
-
-.lotus-organic .lotus-direction .story-image img,
-.lotus-organic .lotus-process .story-image img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.lotus-organic .lotus-feature-image {
-    width: 100%;
-    max-width: 620px;
-    margin: 30px auto 44px;
-    padding: clamp(10px, 1.5vw, 18px);
-    box-sizing: border-box;
-}
-
-.lotus-organic .lotus-feature-image img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.lotus-organic .lotus-brand .lotus-logo-animation {
-    width: 100%;
-    max-width: 760px;
-    margin: 28px auto 0;
-}
-
-.lotus-organic .lotus-contact .enter-button {
-    display: inline-block;
-    width: auto;
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    background: transparent;
-    color: #00E5FF;
-    box-shadow: none;
-    font-family: "Barlow Condensed", sans-serif;
-	font-size: 18px;
-	font-weight: 400;
-	letter-spacing: 0.35em;
-	text-transform: uppercase;
-    font-weight: inherit;
-    text-decoration: none;
-    transition: color 0.25s ease;
-}
-
-.lotus-organic .lotus-contact .enter-button:hover {
-    border: none;
-    background: transparent;
-    color: #FFFFFF;
-    box-shadow: none;
-    transform: none;
-}
-
-body.lotus-organic {
-    --lotus-pink-accent: #F09BC5;
-    --lotus-gradient-green: #426B4B;
-    --lotus-gradient-pink: #A94F76;
-    --lotus-gradient-blue: #648FA9;
-}
-
-body.lotus-organic .lotus-overview,
-body.lotus-organic .lotus-challenge,
-body.lotus-organic .lotus-prototype,
-body.lotus-organic .lotus-experience,
-body.lotus-organic .lotus-process {
-    background: linear-gradient(
-        135deg,
-        #426B4B 0%,
-        #A94F76 58%,
-        #648FA9 100%
-    );
-    color: #FFF8FC;
-}
-
-body.lotus-organic .lotus-direction,
-body.lotus-organic .lotus-brand {
-    background: linear-gradient(
-        225deg,
-        #426B4B 0%,
-        #A94F76 58%,
-        #648FA9 100%
-    );
-    color: #FFF8FC;
-}
-
-body.lotus-organic .lotus-section h2,
-body.lotus-organic .lotus-section h3,
-body.lotus-organic .project-story h2,
-body.lotus-organic .project-story h3,
-body.lotus-organic .lotus-section p,
-body.lotus-organic .project-story .story-text p {
-    color: #FFF8FC;
-}
-
-body.lotus-organic .lotus-eyebrow {
-    color: #FFD0E5;
-}
-
-body.lotus-organic .lotus-statement,
-body.lotus-organic .lotus-challenge-card,
-body.lotus-organic .lotus-solution-card {
-    background: rgba(25, 17, 25, 0.58);
-    color: #FFF8FC;
-    border-color: rgba(255, 208, 229, 0.35);
-}
-
-body.lotus-organic .lotus-feature-image figcaption,
-body.lotus-organic .story-image > p {
-    color: #FFF0F7;
-}
-
-body.lotus-organic .project-story h2,
-body.lotus-organic .lotus-section-heading h2 {
-    color: #E6F5FF;
-}
-
-body.lotus-organic .project-story h2::after,
-body.lotus-organic .lotus-section-heading h2::after {
-    background-color: #00E5FF;
-}
-
-body.lotus-organic .lotus-number {
-    color: #F3B7D5;
-}
-
-body.lotus-organic .lotus-prototype .lotus-section-heading p,
-body.lotus-organic .lotus-prototype .lotus-prototype-overlay {
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-contact > p {
-    color: #FFFFFF;
-    font-size:18px;
-    font-weight: 400;
-    line-height: 1.6;
-}
-
-body.lotus-organic .lotus-overview h2,
-body.lotus-organic .lotus-challenge .lotus-section-heading h2,
-body.lotus-organic .lotus-prototype .lotus-section-heading h2,
-body.lotus-organic .lotus-experience .lotus-section-heading h2,
-body.lotus-organic .lotus-brand .lotus-section-heading h2 {
-    color: #E6F5FF !important;
-}
-
-body.lotus-organic .lotus-prototype .lotus-section-heading p {
-    color: #FFFFFF !important;
-}
-
-body.lotus-organic .lotus-prototype-overlay {
-    color: #FFFFFF !important;
-}
-
-body.lotus-organic .project-story h2,
-body.lotus-organic .lotus-section h2,
-body.lotus-organic .lotus-section-heading h2 {
-    color: #E6F5FF !important;
-}
-
-body.lotus-organic .project-story h2::after,
-body.lotus-organic .lotus-section h2::after,
-body.lotus-organic .lotus-section-heading h2::after {
-    content: none !important;
-    display: none !important;
-}
-
-body.lotus-organic .lotus-decoration {
-    position: absolute;
-    top: 14px;
-    right: 18px;
-    z-index: 0;
-    width: clamp(75px, 10vw, 125px);
-    height: auto;
-    color: #FFD0E5;
-    opacity: 0.28;
-    pointer-events: none;
-}
-
-body.lotus-organic .lotus-overview,
-body.lotus-organic .lotus-challenge,
-body.lotus-organic .lotus-brand {
-    position: relative;
-    overflow: hidden;
-}
-
-body.lotus-organic .lotus-overview .story-text,
-body.lotus-organic .lotus-overview .story-image,
-body.lotus-organic .lotus-challenge .lotus-section-heading,
-body.lotus-organic .lotus-challenge .lotus-challenge-grid,
-body.lotus-organic .lotus-brand .lotus-section-heading,
-body.lotus-organic .lotus-brand .lotus-logo-animation {
-    position: relative;
-    z-index: 1;
-}
-
-body.lotus-organic .lotus-prototype-showcase {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(24px, 5vw, 64px);
-    width: 100%;
-    margin: 30px auto 18px;
-}
-
-body.lotus-organic .lotus-prototype .lotus-prototype-showcase
-.prototype-image-link {
-    flex: 0 1 240px;
-    width: 240px;
-    min-width: 0;
-    margin: 0;
-}
-
-body.lotus-organic .lotus-prototype-callout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex: 0 1 220px;
-    gap: 0;
-    color: #FFD0E5;
-    font-family: "Caveat", cursive;
-    font-size: clamp(25px, 3vw, 34px);
-    font-weight: 600;
-    line-height: 1.1;
-    text-align: center;
-    text-decoration: none;
-    transform: rotate(-3deg);
-    transition: color 0.25s ease, transform 0.25s ease;
-}
-
-body.lotus-organic .lotus-curved-arrow {
-    display: block;
-    width: 120px;
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 4px;
-    color: #FFD0E5;
-}
-
-body.lotus-organic .lotus-prototype-callout:hover {
-    color: #FFFFFF;
-    transform: rotate(0deg) translateY(-2px);
-}
-
-body.lotus-organic .lotus-prototype-callout:hover .lotus-curved-arrow {
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-callout-row {
-    display: flex;
-    align-items: center;
-    gap: clamp(24px, 4vw, 54px);
-    width: 100%;
-    margin: 42px auto;
-}
-
-body.lotus-organic .lotus-callout-row > * {
-    min-width: 0;
-}
-
-body.lotus-organic .lotus-callout-row.lotus-callout-left
-.lotus-handwritten-callout {
-    flex: 0 0 220px;
-}
-
-body.lotus-organic .lotus-callout-row.lotus-callout-left
-> figure,
-body.lotus-organic .lotus-callout-row.lotus-callout-right
-> figure {
-    flex: 1 1 0;
-    width: auto;
-    max-width: none;
-    margin: 0;
-}
-
-body.lotus-organic .lotus-games-figure .video-player {
-    width: 100%;
-    max-width: 240px;
-    margin: 0 auto;
-}
-
-body.lotus-organic .lotus-brand .lotus-logo-animation {
-    width: auto;
-    max-width: none;
-    margin: 0;
-}
-
-body.lotus-organic .lotus-brand .lotus-logo-animation .video-player {
-    width: 100%;
-    max-width: 760px;
-    margin: 0 auto;
-}
-
-body.lotus-organic .lotus-handwritten-callout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 220px;
-    color: #F3B7D5;
-    font-family: "Caveat", cursive;
-    font-size: clamp(25px, 2.8vw, 34px);
-    font-weight: 600;
-    line-height: 1.15;
-    text-align: center;
-}
-
-body.lotus-organic .lotus-curved-arrow {
-    display: block;
-    width: 125px;
-    max-width: 100%;
-    height: auto;
-    margin: 6px auto 0;
-    color: currentColor;
-    overflow: visible;
-}
-
-body.lotus-organic .lotus-callout-right
-.lotus-handwritten-callout {
-    flex: 0 0 220px;
-}
-
-body.lotus-organic .lotus-games-figure figcaption,
-body.lotus-organic .lotus-logo-animation figcaption {
-    margin-top: 14px;
-    color: #FFF8FC;
-    font-family: "Jost", sans-serif;
-    font-size: 18px;
-    line-height: 1.6;
-    text-align: center;
-}
-
-body.lotus-organic .lotus-games-figure figcaption strong {
-    display: block;
-    margin-bottom: 4px;
-    color: #E6F5FF;
-    font-size: 18px;
-}
-
-body.lotus-organic {
-    background: linear-gradient(
-        120deg,
-        #050507 0%,
-        #173C61 35%,
-        #71344F 66%,
-        #284C37 100%
-    );
-    background-attachment: fixed;
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-overview {
-    background: #173C61;
-}
-
-body.lotus-organic .lotus-challenge {
-    background: #71344F;
-}
-
-body.lotus-organic .lotus-prototype {
-    background: #284C37;
-}
-
-body.lotus-organic .lotus-direction {
-    background: #24445A;
-}
-
-body.lotus-organic .lotus-process {
-    background: #302832;
-}
-
-body.lotus-organic .lotus-experience {
-    background: #284C37;
-}
-
-body.lotus-organic .lotus-brand {
-    background: #71344F;
-}
-
-body.lotus-organic .lotus-section,
-body.lotus-organic .project-story {
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-section p,
-body.lotus-organic .project-story .story-text p,
-body.lotus-organic .story-image > p {
-    color: #FFFFFF;
-}
-
-body.lotus-organic .project-story h2,
-body.lotus-organic .lotus-section h2,
-body.lotus-organic .lotus-section-heading h2 {
-    color: #E6F5FF !important;
-}
-
-body.lotus-organic .project-story h2::after,
-body.lotus-organic .lotus-section h2::after,
-body.lotus-organic .lotus-section-heading h2::after {
-    content: none !important;
-    display: none !important;
-}
-
-body.lotus-organic .lotus-eyebrow {
-    color: #F3B7D5;
-    font-size: 18px;
-    line-height: 1.5;
-}
-
-body.lotus-organic .lotus-challenge-card {
-    background: #365F7D;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-body.lotus-organic .lotus-solution-card {
-    background: #426B4B;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-body.lotus-organic .lotus-statement,
-body.lotus-organic .lotus-statement p,
-body.lotus-organic .lotus-statement h3 {
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-number {
-    color: #F3B7D5;
-}
-
-body.lotus-organic .story-text p,
-body.lotus-organic .lotus-section p,
-body.lotus-organic .story-image > p,
-body.lotus-organic .lotus-feature-image figcaption,
-body.lotus-organic .lotus-games-figure figcaption,
-body.lotus-organic .lotus-logo-animation figcaption {
-    font-size: 18px;
-}
-
-body.lotus-organic .lotus-handwritten-callout {
-    color: #F3B7D5;
-}
-
-body.lotus-organic .lotus-prototype-overlay {
-    font-size: 18px;
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-contact > p {
-    color: #FFFFFF;
-    font-size: 18px;
-}
-
-body.lotus-organic .project-title h1,
-body.lotus-organic .project-title-nav h1 {
-    color: #F3B7D5;
-}
-
-body.lotus-organic .project-title .title-break {
-    color: #E6F5FF;
-}
-
-body.lotus-organic .project-year {
-    color: #F3B7D5;
-}
-
-body.lotus-organic .story-image > p,
-body.lotus-organic .lotus-feature-image figcaption,
-body.lotus-organic .lotus-games-figure figcaption,
-body.lotus-organic .lotus-logo-animation figcaption {
-    color: #FFFFFF !important;
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-body.lotus-organic .project-title-nav h1 {
-    color: #00E5FF !important;
-}
-
-body.lotus-organic .lotus-details .detail-box h3 {
-    color: #F3B7D5 !important;
-    font-size: 18px;
-}
-
-body.lotus-organic .lotus-details .detail-box {
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-}
-
-body.lotus-organic .lotus-prototype-showcase .prototype-image-link {
-    display: block;
-    flex: 0 1 180px;
-    width: 180px;
-    max-width: 180px;
-    min-width: 0;
-    margin: 0;
-}
-
-body.lotus-organic .lotus-prototype-showcase .prototype-image-link img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-body.lotus-organic .lotus-games-figure {
-    flex: 0 1 180px;
-    width: 180px;
-    max-width: 180px;
-    min-width: 0;
-    margin: 0;
-}
-
-body.lotus-organic .lotus-games-figure video.video-player {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    margin: 0;
-}
-
-body.lotus-organic .lotus-callout-row > figure.lotus-games-figure {
-    flex: 0 0 180px;
-    width: 180px;
-    max-width: 180px;
-    min-width: 0;
-    margin: 0;
-}
-
-body.lotus-organic .lotus-callout-row > figure.lotus-games-figure video.video-player {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    margin: 0;
-}
-
 .clean-organic .clean-gallery > figure.clean-homepage-feature:first-of-type {
     width: min(78%, 760px);
     margin-right: auto;
@@ -2134,6 +1100,7 @@ body.lotus-organic .lotus-callout-row > figure.lotus-games-figure video.video-pl
     font-size: inherit;
     line-height: inherit;
 }
+
 
 body.deets-page {
     --deets-plum: #302632;
@@ -3225,8 +2192,6 @@ body.deets-page #deets-categories .deets-category-grid.is-settled
     }
 }
 
-
-
 /* ============================================
    MY DEETS — FULL-WIDTH GROWTH ARROWS
 ============================================ */
@@ -3293,6 +2258,1042 @@ body.deets-page .deets-growth-head {
 
 body.deets-page .deets-growth-svg:nth-child(2) {
     z-index: 2;
+}
+
+/* LOTUS */
+
+body.lotus-organic {
+    --lotus-peach: #FFF5EF;
+    --lotus-peach-deep: #F9E4DC;
+    --lotus-green: #C5E6A5;
+    --lotus-green-deep: #477653;
+    --lotus-pink: #B83268;
+    --lotus-pink-dark: #50152F;
+    --lotus-blue: #BDE5F3;
+    --lotus-ink: #302832;
+    --lotus-muted: #71656D;
+    --lotus-white: #FFFCFA;
+
+    background: linear-gradient(
+        180deg,
+        #06080B 0%,
+        #321022 45%,
+        #5B1B3B 75%,
+        #760052 100%
+    );
+
+    color: var(--lotus-ink);
+}
+
+.lotus-organic .project-container {
+    position: relative;
+    z-index: 1;
+}
+
+.lotus-organic .lotus-section,
+.lotus-organic .project-story {
+    position: relative;
+    margin-top: clamp(48px, 7vw, 100px);
+    margin-bottom: clamp(48px, 7vw, 100px);
+}
+
+.lotus-organic .lotus-section {
+    padding: clamp(24px, 4vw, 56px);
+    border-radius: 28px;
+    background: var(--lotus-peach);
+    color: var(--lotus-ink);
+    overflow: hidden;
+}
+
+.lotus-organic .lotus-section p,
+.lotus-organic .lotus-section li {
+    color: var(--lotus-ink);
+}
+
+.lotus-organic .lotus-section-heading {
+    max-width: 820px;
+    margin: 0 auto 32px;
+    text-align: center;
+}
+
+.lotus-organic .lotus-section-heading > p:last-child {
+    max-width: 700px;
+    margin: 16px auto 0;
+    line-height: 1.75;
+}
+
+.lotus-organic .lotus-eyebrow {
+    margin: 0 0 10px;
+    color: var(--lotus-pink);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size:1.125rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.lotus-organic .lotus-section h2,
+.lotus-organic .lotus-section-heading h2 {
+    margin-top: 0;
+    color: var(--lotus-pink-dark);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: 0.035em;
+    line-height: 1.15;
+}
+
+.lotus-organic .project-story .story-text h2 {
+    color: var(--lotus-pink-dark);
+}
+
+.lotus-organic .project-story .story-text p {
+    color: var(--lotus-ink);
+    line-height: 1.8;
+}
+
+.lotus-organic .lotus-overview,
+.lotus-organic .lotus-direction,
+.lotus-organic .lotus-process {
+    padding: clamp(20px, 3vw, 38px);
+    border-radius: 24px;
+    background: var(--lotus-peach);
+    color: var(--lotus-ink);
+}
+
+.lotus-organic .lotus-overview .story-image img,
+.lotus-organic .lotus-direction .story-image img,
+.lotus-organic .lotus-process .story-image img {
+    border-radius: 18px;
+}
+
+.lotus-organic .lotus-overview .story-image p,
+.lotus-organic .lotus-direction .story-image p,
+.lotus-organic .lotus-process .story-image p {
+    color: var(--lotus-muted);
+    font-size:1.125rem;
+    line-height: 1.6;
+}
+
+.lotus-organic .lotus-challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.lotus-organic .lotus-statement {
+    padding: clamp(22px, 3vw, 36px);
+    border-radius: 22px;
+    color: var(--lotus-ink);
+}
+
+.lotus-organic .lotus-challenge-card {
+    background: var(--lotus-blue);
+}
+
+.lotus-organic .lotus-solution-card {
+    background: var(--lotus-green);
+}
+
+.lotus-organic .lotus-statement p {
+    color: var(--lotus-ink);
+}
+
+.lotus-organic .lotus-number {
+    display: block;
+    margin-bottom: 16px;
+    color: var(--lotus-pink);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.lotus-organic .lotus-statement h3 {
+    margin: 0 0 14px;
+    color: var(--lotus-pink-dark);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+.lotus-organic .lotus-statement p {
+    margin: 0 0 14px;
+    line-height: 1.75;
+}
+
+.lotus-organic .lotus-statement p:last-child {
+    margin-bottom: 0;
+}
+
+.lotus-organic .lotus-prototype {
+    text-align: center;
+}
+
+.lotus-organic .lotus-prototype .lotus-section-heading {
+    padding: 0 18px;
+}
+
+.lotus-organic .lotus-prototype .prototype-image-link {
+    position: relative;
+    display: block;
+    width: min(33%, 260px);
+    min-width: 200px;
+    margin: 28px auto;
+    overflow: hidden;
+    border: 5px solid var(--lotus-white);
+    border-radius: 22px;
+    background: var(--lotus-peach-deep);
+    box-shadow: 0 14px 36px rgba(80, 21, 47, 0.16);
+}
+
+.lotus-organic .lotus-prototype .prototype-image-link img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.35s ease;
+}
+
+.lotus-organic .lotus-prototype .prototype-image-link:hover img {
+    transform: scale(1.015);
+}
+
+.lotus-organic .lotus-prototype-overlay {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 56px;
+    padding: 12px 10px;
+    box-sizing: border-box;
+    background: rgba(80, 21, 47, 0.92);
+    color: white;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size:1.125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.lotus-organic .lotus-prototype .prototype-image-link:hover
+.lotus-prototype-overlay,
+.lotus-organic .lotus-prototype .prototype-image-link:focus-visible
+.lotus-prototype-overlay {
+    opacity: 1;
+}
+
+.lotus-organic .lotus-prototype-button {
+    display: inline-block;
+    margin: 8px auto 0;
+    padding: 15px 38px;
+    box-sizing: border-box;
+}
+
+.lotus-organic .enter-button {
+    border: 1px solid var(--lotus-pink);
+    border-radius: 999px;
+    background: var(--lotus-pink);
+    color: white;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.lotus-organic .enter-button:hover {
+    background: var(--lotus-pink-dark);
+    border-color: var(--lotus-pink-dark);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.lotus-organic .lotus-feature-image {
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto 44px;
+    padding: clamp(10px, 2vw, 22px);
+    border: 1px solid rgba(80, 21, 47, 0.08);
+    border-radius: 22px;
+    background: var(--lotus-white);
+    box-sizing: border-box;
+}
+
+.lotus-organic .lotus-feature-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.lotus-organic .lotus-feature-image figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 16px 4px 4px;
+    color: var(--lotus-muted);
+    font-size:1.125rem;
+    line-height: 1.6;
+}
+
+.lotus-organic .lotus-feature-image figcaption strong {
+    color: var(--lotus-pink-dark);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.lotus-organic .lotus-logo-animation {
+    width: 100%;
+    max-width: 900px;
+    margin: 28px auto 0;
+}
+
+.lotus-organic .lotus-logo-animation .video-player {
+    overflow: hidden;
+    border: 5px solid var(--lotus-white);
+    border-radius: 20px;
+    background: var(--lotus-peach-deep);
+}
+
+.lotus-organic .lotus-logo-animation video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.lotus-organic .lotus-logo-animation figcaption {
+    margin-top: 12px;
+    color: var(--lotus-muted);
+    text-align: center;
+    font-size:1.125rem;
+}
+
+.lotus-organic .lotus-contact {
+    margin-top: clamp(48px, 7vw, 100px);
+}
+
+body.lotus-organic .lotus-contact > p {
+    color: #FFFFFF;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.lotus-organic .story-image img,
+.lotus-organic .lotus-feature-image img {
+    max-width: 100%;
+}
+
+.lotus-organic a:focus-visible {
+    outline: 3px solid var(--lotus-green-deep);
+    outline-offset: 4px;
+}
+
+body.lotus-organic {
+    --lotus-pink-accent: #D77DBF;
+    --lotus-gradient-yellow: #E8D9A9;
+    --lotus-gradient-pink: #E3C1D1;
+}
+
+.lotus-organic .lotus-overview,
+.lotus-organic .lotus-challenge,
+.lotus-organic .lotus-prototype {
+    background: linear-gradient(
+        135deg,
+        var(--lotus-gradient-yellow) 0%,
+        var(--lotus-gradient-pink) 100%
+    );
+}
+
+.lotus-organic .lotus-direction,
+.lotus-organic .lotus-brand {
+    background: linear-gradient(
+        225deg,
+        var(--lotus-gradient-yellow) 0%,
+        var(--lotus-gradient-pink) 100%
+    );
+}
+
+.lotus-organic .lotus-process {
+    background: linear-gradient(
+        135deg,
+        #FBE5ED 0%,
+        #FFF5CC 100%
+    );
+}
+
+.lotus-organic .lotus-challenge-card {
+    background: #CAE8F9;
+}
+
+.lotus-organic .lotus-solution-card {
+    background: #DDF7DF;
+}
+
+.lotus-organic .lotus-eyebrow {
+    color: #B83268;
+}
+
+.lotus-organic .lotus-prototype-overlay {
+    background: rgba(80, 21, 47, 0.94);
+    color: #FFFFFF;
+}
+
+.lotus-organic .lotus-prototype {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: clamp(28px, 5vw, 58px);
+    border: 1px solid rgba(184, 50, 104, 0.12);
+    border-radius: 26px;
+}
+
+.lotus-organic .lotus-prototype .lotus-section-heading {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.lotus-organic .lotus-prototype .lotus-section-heading h2 {
+    color: #50152F;
+}
+
+.lotus-organic .lotus-prototype .lotus-section-heading > p:last-child {
+    color: #302832;
+    line-height: 1.8;
+}
+
+.lotus-organic .lotus-prototype .prototype-image-link {
+    display: block;
+    position: relative;
+    width: min(100%, 240px);
+    min-width: 0;
+    margin: 4px auto;
+    overflow: hidden;
+    border: 3px solid #FFFFFF;
+    border-radius: 20px;
+    background: #FFFFFF;
+    box-shadow: 0 12px 30px rgba(80, 21, 47, 0.13);
+}
+
+.lotus-organic .lotus-prototype .prototype-image-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.lotus-organic .lotus-prototype .prototype-image-link:hover img {
+    transform: scale(1.02);
+}
+
+.lotus-organic .lotus-prototype-overlay {
+    position: absolute;
+    inset: auto 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 8px;
+    box-sizing: border-box;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size:1.125rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.lotus-organic .lotus-prototype .prototype-image-link:hover
+.lotus-prototype-overlay,
+.lotus-organic .lotus-prototype .prototype-image-link:focus-visible
+.lotus-prototype-overlay {
+    opacity: 1;
+}
+
+.lotus-organic .lotus-prototype .lotus-prototype-button {
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    margin: 0;
+    padding: 14px 30px;
+    border: 2px solid #50152F;
+    border-radius: 999px;
+    background: #50152F;
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-align: center;
+    text-decoration: none;
+}
+
+.lotus-organic .lotus-prototype .lotus-prototype-button:hover {
+    background: #B83268;
+    border-color: #B83268;
+    color: #FFFFFF;
+}
+
+.lotus-organic .lotus-direction .story-image,
+.lotus-organic .lotus-process .story-image {
+    width: 100%;
+    max-width: 540px;
+    margin-inline: auto;
+}
+
+.lotus-organic .lotus-direction .story-image img,
+.lotus-organic .lotus-process .story-image img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.lotus-organic .lotus-feature-image {
+    width: 100%;
+    max-width: 620px;
+    margin: 30px auto 44px;
+    padding: clamp(10px, 1.5vw, 18px);
+    box-sizing: border-box;
+}
+
+.lotus-organic .lotus-feature-image img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.lotus-organic .lotus-brand .lotus-logo-animation {
+    width: 100%;
+    max-width: 760px;
+    margin: 28px auto 0;
+}
+
+.lotus-organic .lotus-contact .enter-button {
+    display: inline-block;
+    width: auto;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    color: #00E5FF;
+    box-shadow: none;
+    font-family: "Barlow Condensed", sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	letter-spacing: 0.35em;
+	text-transform: uppercase;
+    font-weight: inherit;
+    text-decoration: none;
+    transition: color 0.25s ease;
+}
+
+.lotus-organic .lotus-contact .enter-button:hover {
+    border: none;
+    background: transparent;
+    color: #FFFFFF;
+    box-shadow: none;
+    transform: none;
+}
+
+body.lotus-organic {
+    --lotus-pink-accent: #F09BC5;
+    --lotus-gradient-green: #426B4B;
+    --lotus-gradient-pink: #A94F76;
+    --lotus-gradient-blue: #648FA9;
+}
+
+body.lotus-organic .lotus-overview,
+body.lotus-organic .lotus-challenge,
+body.lotus-organic .lotus-prototype,
+body.lotus-organic .lotus-experience,
+body.lotus-organic .lotus-process {
+    background: linear-gradient(
+        135deg,
+        #426B4B 0%,
+        #A94F76 58%,
+        #648FA9 100%
+    );
+    color: #FFF8FC;
+}
+
+body.lotus-organic .lotus-direction,
+body.lotus-organic .lotus-brand {
+    background: linear-gradient(
+        225deg,
+        #426B4B 0%,
+        #A94F76 58%,
+        #648FA9 100%
+    );
+    color: #FFF8FC;
+}
+
+body.lotus-organic .lotus-section h2,
+body.lotus-organic .lotus-section h3,
+body.lotus-organic .project-story h2,
+body.lotus-organic .project-story h3,
+body.lotus-organic .lotus-section p,
+body.lotus-organic .project-story .story-text p {
+    color: #FFF8FC;
+}
+
+body.lotus-organic .lotus-eyebrow {
+    color: #FFD0E5;
+}
+
+body.lotus-organic .lotus-statement,
+body.lotus-organic .lotus-challenge-card,
+body.lotus-organic .lotus-solution-card {
+    background: rgba(25, 17, 25, 0.58);
+    color: #FFF8FC;
+    border-color: rgba(255, 208, 229, 0.35);
+}
+
+body.lotus-organic .lotus-feature-image figcaption,
+body.lotus-organic .story-image > p {
+    color: #FFF0F7;
+}
+
+body.lotus-organic .project-story h2,
+body.lotus-organic .lotus-section-heading h2 {
+    color: #E6F5FF;
+}
+
+body.lotus-organic .project-story h2::after,
+body.lotus-organic .lotus-section-heading h2::after {
+    background-color: #00E5FF;
+}
+
+body.lotus-organic .lotus-number {
+    color: #F3B7D5;
+}
+
+body.lotus-organic .lotus-prototype .lotus-section-heading p,
+body.lotus-organic .lotus-prototype .lotus-prototype-overlay {
+    color: #FFFFFF;
+}
+
+body.lotus-organic .lotus-contact > p {
+    color: #FFFFFF;
+    font-size:18px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+body.lotus-organic .lotus-overview h2,
+body.lotus-organic .lotus-challenge .lotus-section-heading h2,
+body.lotus-organic .lotus-prototype .lotus-section-heading h2,
+body.lotus-organic .lotus-experience .lotus-section-heading h2,
+body.lotus-organic .lotus-brand .lotus-section-heading h2 {
+    color: #E6F5FF !important;
+}
+
+body.lotus-organic .lotus-prototype .lotus-section-heading p {
+    color: #FFFFFF !important;
+}
+
+body.lotus-organic .lotus-prototype-overlay {
+    color: #FFFFFF !important;
+}
+
+body.lotus-organic .project-story h2,
+body.lotus-organic .lotus-section h2,
+body.lotus-organic .lotus-section-heading h2 {
+    color: #E6F5FF !important;
+}
+
+body.lotus-organic .project-story h2::after,
+body.lotus-organic .lotus-section h2::after,
+body.lotus-organic .lotus-section-heading h2::after {
+    content: none !important;
+    display: none !important;
+}
+
+body.lotus-organic .lotus-decoration {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    z-index: 0;
+    width: clamp(75px, 10vw, 125px);
+    height: auto;
+    color: #FFD0E5;
+    opacity: 0.28;
+    pointer-events: none;
+}
+
+body.lotus-organic .lotus-overview,
+body.lotus-organic .lotus-challenge,
+body.lotus-organic .lotus-brand {
+    position: relative;
+    overflow: hidden;
+}
+
+body.lotus-organic .lotus-overview .story-text,
+body.lotus-organic .lotus-overview .story-image,
+body.lotus-organic .lotus-challenge .lotus-section-heading,
+body.lotus-organic .lotus-challenge .lotus-challenge-grid,
+body.lotus-organic .lotus-brand .lotus-section-heading,
+body.lotus-organic .lotus-brand .lotus-logo-animation {
+    position: relative;
+    z-index: 1;
+}
+
+body.lotus-organic .lotus-prototype-showcase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(24px, 5vw, 64px);
+    width: 100%;
+    margin: 30px auto 18px;
+}
+
+body.lotus-organic .lotus-prototype .lotus-prototype-showcase
+.prototype-image-link {
+    flex: 0 1 240px;
+    width: 240px;
+    min-width: 0;
+    margin: 0;
+}
+
+body.lotus-organic .lotus-prototype-callout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 220px;
+    gap: 0;
+    color: #FFD0E5;
+    font-family: "Caveat", cursive;
+    font-size: clamp(25px, 3vw, 34px);
+    font-weight: 600;
+    line-height: 1.1;
+    text-align: center;
+    text-decoration: none;
+    transform: rotate(-3deg);
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+body.lotus-organic .lotus-curved-arrow {
+    display: block;
+    width: 120px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 4px;
+    color: #FFD0E5;
+}
+
+body.lotus-organic .lotus-prototype-callout:hover {
+    color: #FFFFFF;
+    transform: rotate(0deg) translateY(-2px);
+}
+
+body.lotus-organic .lotus-prototype-callout:hover .lotus-curved-arrow {
+    color: #FFFFFF;
+}
+
+body.lotus-organic .lotus-callout-row {
+    display: flex;
+    align-items: center;
+    gap: clamp(24px, 4vw, 54px);
+    width: 100%;
+    margin: 42px auto;
+}
+
+body.lotus-organic .lotus-callout-row > * {
+    min-width: 0;
+}
+
+body.lotus-organic .lotus-callout-row.lotus-callout-left
+.lotus-handwritten-callout {
+    flex: 0 0 220px;
+}
+
+body.lotus-organic .lotus-callout-row.lotus-callout-left
+> figure,
+body.lotus-organic .lotus-callout-row.lotus-callout-right
+> figure {
+    flex: 1 1 0;
+    width: auto;
+    max-width: none;
+    margin: 0;
+}
+
+body.lotus-organic .lotus-games-figure .video-player {
+    width: 100%;
+    max-width: 240px;
+    margin: 0 auto;
+}
+
+body.lotus-organic .lotus-brand .lotus-logo-animation {
+    width: auto;
+    max-width: none;
+    margin: 0;
+}
+
+body.lotus-organic .lotus-brand .lotus-logo-animation .video-player {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+body.lotus-organic .lotus-handwritten-callout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 220px;
+    color: #F3B7D5;
+    font-family: "Caveat", cursive;
+    font-size: clamp(25px, 2.8vw, 34px);
+    font-weight: 600;
+    line-height: 1.15;
+    text-align: center;
+}
+
+body.lotus-organic .lotus-curved-arrow {
+    display: block;
+    width: 125px;
+    max-width: 100%;
+    height: auto;
+    margin: 6px auto 0;
+    color: currentColor;
+    overflow: visible;
+}
+
+body.lotus-organic .lotus-callout-right
+.lotus-handwritten-callout {
+    flex: 0 0 220px;
+}
+
+body.lotus-organic .lotus-games-figure figcaption,
+body.lotus-organic .lotus-logo-animation figcaption {
+    margin-top: 14px;
+    color: #FFF8FC;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+body.lotus-organic .lotus-games-figure figcaption strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #E6F5FF;
+    font-size: 18px;
+}
+
+body.lotus-organic {
+    background: linear-gradient(
+        120deg,
+        #050507 0%,
+        #173C61 35%,
+        #71344F 66%,
+        #284C37 100%
+    );
+    background-attachment: fixed;
+    color: #FFFFFF;
+}
+
+body.lotus-organic .lotus-overview {
+    background: #173C61;
+}
+
+body.lotus-organic .lotus-challenge {
+    background: #71344F;
+}
+
+body.lotus-organic .lotus-prototype {
+    background: #284C37;
+}
+
+body.lotus-organic .lotus-direction {
+    background: #24445A;
+}
+
+body.lotus-organic .lotus-process {
+    background: #302832;
+}
+
+body.lotus-organic .lotus-experience {
+    background: #284C37;
+}
+
+body.lotus-organic .lotus-brand {
+    background: #71344F;
+}
+
+body.lotus-organic .lotus-section,
+body.lotus-organic .project-story {
+    color: #FFFFFF;
+}
+
+body.lotus-organic .lotus-section p,
+body.lotus-organic .project-story .story-text p,
+body.lotus-organic .story-image > p {
+    color: #FFFFFF;
+}
+
+body.lotus-organic .project-story h2,
+body.lotus-organic .lotus-section h2,
+body.lotus-organic .lotus-section-heading h2 {
+    color: #E6F5FF !important;
+}
+
+body.lotus-organic .project-story h2::after,
+body.lotus-organic .lotus-section h2::after,
+body.lotus-organic .lotus-section-heading h2::after {
+    content: none !important;
+    display: none !important;
+}
+
+body.lotus-organic .lotus-eyebrow {
+    color: #F3B7D5;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+body.lotus-organic .lotus-challenge-card {
+    background: #365F7D;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+body.lotus-organic .lotus-solution-card {
+    background: #426B4B;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+body.lotus-organic .lotus-statement,
+body.lotus-organic .lotus-statement p,
+body.lotus-organic .lotus-statement h3 {
+    color: #FFFFFF;
+}
+
+body.lotus-organic .lotus-number {
+    color: #F3B7D5;
+}
+
+body.lotus-organic .story-text p,
+body.lotus-organic .lotus-section p,
+body.lotus-organic .story-image > p,
+body.lotus-organic .lotus-feature-image figcaption,
+body.lotus-organic .lotus-games-figure figcaption,
+body.lotus-organic .lotus-logo-animation figcaption {
+    font-size: 18px;
+}
+
+body.lotus-organic .lotus-handwritten-callout {
+    color: #F3B7D5;
+}
+
+body.lotus-organic .lotus-prototype-overlay {
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+body.lotus-organic .lotus-contact > p {
+    color: #FFFFFF;
+    font-size: 18px;
+}
+
+body.lotus-organic .project-title h1,
+body.lotus-organic .project-title-nav h1 {
+    color: #F3B7D5;
+}
+
+body.lotus-organic .project-title .title-break {
+    color: #E6F5FF;
+}
+
+body.lotus-organic .project-year {
+    color: #F3B7D5;
+}
+
+body.lotus-organic .story-image > p,
+body.lotus-organic .lotus-feature-image figcaption,
+body.lotus-organic .lotus-games-figure figcaption,
+body.lotus-organic .lotus-logo-animation figcaption {
+    color: #FFFFFF !important;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+body.lotus-organic .project-title-nav h1 {
+    color: #00E5FF !important;
+}
+
+body.lotus-organic .lotus-details .detail-box h3 {
+    color: #F3B7D5 !important;
+    font-size: 18px;
+}
+
+body.lotus-organic .lotus-details .detail-box {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+body.lotus-organic .lotus-prototype-showcase .prototype-image-link {
+    display: block;
+    flex: 0 1 180px;
+    width: 180px;
+    max-width: 180px;
+    min-width: 0;
+    margin: 0;
+}
+
+body.lotus-organic .lotus-prototype-showcase .prototype-image-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+body.lotus-organic .lotus-games-figure {
+    flex: 0 1 180px;
+    width: 180px;
+    max-width: 180px;
+    min-width: 0;
+    margin: 0;
+}
+
+body.lotus-organic .lotus-games-figure video.video-player {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+body.lotus-organic .lotus-callout-row > figure.lotus-games-figure {
+    flex: 0 0 180px;
+    width: 180px;
+    max-width: 180px;
+    min-width: 0;
+    margin: 0;
+}
+
+body.lotus-organic .lotus-callout-row > figure.lotus-games-figure video.video-player {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
 }
 
 /* Clean Future Network: green title, compact prototype preview, no underline. */
@@ -3384,17 +3385,6 @@ body.clean-organic .clean-prototype .enter-button::after { display:none !importa
         opacity: 1;
     }
 }
-
-/* Lotus Lingo: callout left; game walkthrough and prototype centered. */
-body.lotus-organic .lotus-callout-row.lotus-callout-left { justify-content:flex-start; }
-body.lotus-organic .lotus-games-figure { display:flex; flex:0 0 180px; flex-direction:column; align-items:center; width:180px; max-width:180px; margin-left:auto; margin-right:auto; align-self:center; }
-body.lotus-organic .lotus-games-figure video.video-player { display:block; width:100%; max-width:100%; height:auto; margin:0 auto; }
-body.lotus-organic .lotus-games-figure figcaption { width:max-content; max-width:none; margin:14px 0 0; text-align:center; white-space:nowrap; letter-spacing:.015em; }
-body.lotus-organic .lotus-games-figure figcaption strong { display:block; margin-bottom:4px; font-size:18px; letter-spacing:.055em; white-space:nowrap; }
-body.lotus-organic .lotus-statement h3, body.lotus-organic .lotus-feature-image figcaption strong { letter-spacing:.09em; }
-body.lotus-organic .lotus-prototype { display:flex; flex-direction:column; align-items:center; text-align:center; }
-body.lotus-organic .lotus-prototype .prototype-image-link { display:block; margin-left:auto; margin-right:auto; }
-body.lotus-organic .lotus-prototype .lotus-prototype-button, body.lotus-organic .lotus-prototype .enter-button { align-self:center; }
 
 /* =========================================================
    TAGGED REPAIR — OCTOBER 2026
@@ -3500,219 +3490,6 @@ body.project-page .project-details .detail-box p {
 .chrono-page .case-carousel .carousel-slide:hover img {
     filter: none !important;
     box-shadow: 0 0 0 2px #00E5FF, 0 0 24px rgba(0, 229, 255, 0.28) !important;
-}
-
-/* Bring the Lotus year closer to the walkthrough while keeping it centered
-   above the four project-detail columns. */
-body.lotus-organic .project-hero.video-hero.lotus-video {
-    margin-bottom: 12px;
-}
-
-body.lotus-organic .project-year {
-    margin: 0 auto 24px;
-    text-align: center;
-}
-
-/* Overview: separate the copy from the mockup and style its caption with
-   the existing solution green. */
-body.lotus-organic .lotus-overview .story-text p:last-child {
-    margin-bottom: clamp(26px, 4vw, 44px);
-}
-
-body.lotus-organic .lotus-overview .story-image {
-    align-self: center;
-    min-width: 0;
-}
-
-body.lotus-organic .lotus-overview .story-image > p {
-    box-sizing: border-box;
-    width: 100%;
-    margin: 14px auto 0;
-    padding: 12px 16px;
-    background: #426B4B;
-    color: #FFFFFF !important;
-    text-align: center;
-    line-height: 1.5;
-}
-
-/* Prototype: preserve the existing 240px image size and center it on the
-   page; position the linked handwritten arrow/callout to its right. */
-body.lotus-organic .lotus-prototype-showcase {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 240px minmax(0, 1fr);
-    align-items: center;
-    justify-items: stretch;
-    gap: clamp(18px, 3vw, 42px);
-    width: 100%;
-    margin: 30px auto 18px;
-}
-
-body.lotus-organic .lotus-prototype .lotus-prototype-showcase .prototype-image-link {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: center;
-    flex: 0 0 240px;
-    width: 240px;
-    max-width: 100%;
-    margin: 0;
-    border-color: #FFFFFF;
-    box-shadow: 0 12px 30px rgba(54, 95, 125, 0.2);
-}
-
-body.lotus-organic .lotus-prototype-callout {
-    grid-column: 3;
-    grid-row: 1;
-    justify-self: start;
-    align-self: center;
-    width: 100%;
-    max-width: 220px;
-    margin: 0;
-    color: #365F7D;
-    transform: none;
-}
-
-body.lotus-organic .lotus-prototype-callout .lotus-curved-arrow {
-    color: #365F7D;
-}
-
-body.lotus-organic .lotus-prototype-callout:hover,
-body.lotus-organic .lotus-prototype-callout:focus-visible {
-    color: #173C61;
-    transform: translateY(-2px);
-}
-
-body.lotus-organic .lotus-prototype-callout:hover .lotus-curved-arrow,
-body.lotus-organic .lotus-prototype-callout:focus-visible .lotus-curved-arrow {
-    color: #173C61;
-}
-
-/* Use the existing challenge blue for the prototype hover overlay instead
-   of introducing maroon. */
-body.lotus-organic .lotus-prototype .prototype-image-link:hover,
-body.lotus-organic .lotus-prototype .prototype-image-link:focus-visible {
-    border-color: #365F7D;
-}
-
-body.lotus-organic .lotus-prototype .prototype-image-link:hover .lotus-prototype-overlay,
-body.lotus-organic .lotus-prototype .prototype-image-link:focus-visible .lotus-prototype-overlay {
-    background: rgba(54, 95, 125, 0.96);
-    color: #FFFFFF !important;
-}
-
-/* Creative direction: challenge blue image panel, centered caption, and
-   enough space before the following COLOR, TYPE & COMPONENTS eyebrow. */
-body.lotus-organic .lotus-direction .story-image {
-    box-sizing: border-box;
-    padding: clamp(12px, 2vw, 22px);
-    background: #365F7D;
-}
-
-body.lotus-organic .lotus-direction .story-image > p {
-    margin: 14px auto 0;
-    color: #FFFFFF !important;
-    text-align: center;
-}
-
-body.lotus-organic .lotus-direction .story-text .lotus-eyebrow {
-    margin-top: clamp(24px, 4vw, 44px);
-}
-
-body.lotus-organic .lotus-direction .story-text > p:first-child {
-    margin-top: clamp(24px, 4vw, 44px);
-}
-
-/* Process: switch the former maroon/plum panel to the existing solution
-   green. Scale the concept-map image and its caption together to 50%. */
-body.lotus-organic .lotus-process {
-    background: #426B4B;
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-process .story-text p,
-body.lotus-organic .lotus-process .story-text .lotus-eyebrow,
-body.lotus-organic .lotus-process .story-text h2 {
-    color: #FFFFFF !important;
-}
-
-body.lotus-organic .lotus-process .story-image {
-    width: 50%;
-    max-width: 270px;
-    min-width: 0;
-    justify-self: center;
-    padding: 10px;
-    background: #426B4B;
-}
-
-body.lotus-organic .lotus-process .story-image img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    margin-inline: auto;
-}
-
-body.lotus-organic .lotus-process .story-image > p {
-    margin: 12px auto 0;
-    color: #FFFFFF !important;
-    text-align: center;
-}
-
-/* The app experience: keep the games video centered within the row while
-   the handwritten callout remains on its left. */
-body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left {
-    display: grid;
-    grid-template-columns: minmax(150px, 220px) minmax(0, 1fr);
-    align-items: center;
-    justify-content: center;
-    gap: clamp(24px, 5vw, 60px);
-}
-
-body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-handwritten-callout {
-    grid-column: 1;
-    grid-row: 1;
-    width: 100%;
-    max-width: 220px;
-    flex: initial;
-}
-
-body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-games-figure {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: center;
-    align-self: center;
-    width: 180px;
-    max-width: 100%;
-    flex: 0 1 180px;
-    margin: 0 auto;
-}
-
-body.lotus-organic .lotus-experience .lotus-games-figure video.video-player {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-}
-
-/* Katakana lesson panel: challenge blue, centered white caption. */
-body.lotus-organic .lotus-experience .lotus-feature-image {
-    box-sizing: border-box;
-    padding: clamp(12px, 2vw, 22px);
-    background: #365F7D;
-}
-
-body.lotus-organic .lotus-experience .lotus-feature-image figcaption {
-    align-items: center;
-    width: 100%;
-    padding: 16px 4px 4px;
-    color: #FFFFFF !important;
-    text-align: center;
-}
-
-body.lotus-organic .lotus-experience .lotus-feature-image figcaption strong,
-body.lotus-organic .lotus-experience .lotus-feature-image figcaption span {
-    color: #FFFFFF !important;
-    text-align: center;
 }
 
 /* Chrono Nexus: retain each carousel image's natural proportions, prevent
@@ -3833,244 +3610,10 @@ body.chrono-page .ux-icon img {
     object-fit: contain;
 }
 
-@media (max-width: 760px) {
-    body.lotus-organic .lotus-prototype-showcase {
-        grid-template-columns: minmax(0, 1fr) 240px minmax(0, 1fr);
-        gap: 12px;
-    }
-
-    body.lotus-organic .lotus-prototype-callout {
-        max-width: 100%;
-        font-size: clamp(18px, 3.5vw, 25px);
-    }
-
-    body.lotus-organic .lotus-prototype-callout .lotus-curved-arrow {
-        width: 90px;
-    }
-
-    body.lotus-organic .lotus-process .story-image {
-        width: 60%;
-        max-width: 270px;
-    }
-}
-
-@media (max-width: 560px) {
-    body.lotus-organic .lotus-prototype-showcase {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    body.lotus-organic .lotus-prototype .lotus-prototype-showcase .prototype-image-link {
-        flex: 0 1 240px;
-        width: 240px;
-        max-width: 100%;
-    }
-
-    body.lotus-organic .lotus-prototype-callout {
-        align-self: center;
-        width: auto;
-        max-width: 100%;
-    }
-
-    body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-handwritten-callout {
-        order: 0;
-        width: 100%;
-        max-width: 220px;
-    }
-
-    body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-games-figure {
-        order: 1;
-        width: 180px;
-        max-width: 75%;
-    }
-
-    body.lotus-organic .lotus-process .story-image {
-        width: 70%;
-        max-width: 270px;
-    }
-
     body.chrono-page .carousel-slide {
         flex-basis: 88%;
         width: 88%;
     }
-}
-
-
-/* ============================================
-   LOTUS LINGO — REQUESTED VISUAL REFINEMENTS
-   October 2026
-============================================ */
-
-/* Match each eyebrow/title box to the requested existing palette color. */
-body.lotus-organic .lotus-overview .lotus-eyebrow {
-    background: #365F7D;
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-prototype .lotus-eyebrow {
-    background: #426B4B;
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-direction .lotus-eyebrow {
-    background: #365F7D;
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-process .lotus-eyebrow {
-    background: #71344F;
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-experience .lotus-eyebrow {
-    background: #426B4B;
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-brand .lotus-eyebrow {
-    background: #365F7D;
-    color: #FFFFFF;
-}
-
-/* Keep the eyebrow boxes neat and consistent. */
-body.lotus-organic .lotus-eyebrow {
-    display: table;
-    width: fit-content;
-    max-width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 18px;
-    padding: 8px 14px;
-    line-height: 1.5;
-}
-
-/* Remove the green box from the mobile app mockup caption. */
-body.lotus-organic .lotus-overview .story-image > p {
-    background: transparent;
-    padding: 0;
-}
-
-/* Use the Design Opportunity maroon around the design-system image. */
-body.lotus-organic .lotus-direction .story-image {
-    background: #71344F;
-}
-
-/* Return the prototype arrow and link to the existing pink accent. */
-body.lotus-organic .lotus-prototype-callout {
-    color: #F3B7D5;
-}
-
-body.lotus-organic .lotus-prototype-callout .lotus-curved-arrow {
-    color: #F3B7D5;
-}
-
-body.lotus-organic .lotus-prototype-callout:hover,
-body.lotus-organic .lotus-prototype-callout:focus-visible {
-    color: #F3B7D5;
-    transform: translateY(-2px);
-}
-
-body.lotus-organic .lotus-prototype-callout:hover .lotus-curved-arrow,
-body.lotus-organic .lotus-prototype-callout:focus-visible .lotus-curved-arrow {
-    color: #F3B7D5;
-}
-
-/* Add consistent space after paragraphs throughout Lotus Lingo. */
-body.lotus-organic .project-story .story-text p,
-body.lotus-organic .lotus-section p {
-    margin-bottom: 1.1em;
-}
-
-body.lotus-organic .project-story .story-text p:last-child,
-body.lotus-organic .lotus-section p:last-child {
-    margin-bottom: 0;
-}
-
-/* App concept map: text on the left, image on the right. */
-body.lotus-organic .lotus-process {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
-    align-items: center;
-    gap: clamp(28px, 5vw, 64px);
-}
-
-body.lotus-organic .lotus-process .story-text {
-    grid-column: 1;
-    grid-row: 1;
-    min-width: 0;
-}
-
-body.lotus-organic .lotus-process .story-image {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: center;
-    width: 100%;
-    max-width: 360px;
-    min-width: 0;
-    box-sizing: border-box;
-    padding: 10px;
-    background: #71344F;
-}
-
-/* Center the games video and make its presentation match the prototype. */
-body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-}
-
-body.lotus-organic .lotus-experience .lotus-games-figure {
-    display: flex;
-    flex: 0 1 240px;
-    flex-direction: column;
-    align-items: center;
-    width: 240px;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-body.lotus-organic .lotus-experience .lotus-games-figure video.video-player {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-}
-
-/* Put the animated-logo caption directly underneath its video. */
-body.lotus-organic .lotus-brand .project-hero.video-hero.lotus-logo-animation {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
-    gap: 0;
-}
-
-body.lotus-organic .lotus-brand .lotus-logo-animation .video-player {
-    display: block;
-    flex: none;
-    width: min(100%, 760px);
-    max-width: 760px;
-    margin: 0 auto;
-}
-
-body.lotus-organic .lotus-brand .lotus-logo-animation figcaption {
-    display: block;
-    width: 100%;
-    margin: 14px auto 0;
-    text-align: center;
 }
 
 /* =========================================================
