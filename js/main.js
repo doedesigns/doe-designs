@@ -787,7 +787,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!tracks.length) return;
 
     const ARROW_SPEED = 220;       // Pixels per second
-    const SEGMENT_LENGTH = 260;    // Visible moving arrow length
+    const SEGMENT_LENGTH = 520;    // Visible moving arrow length
     const OFFSCREEN = 100;
     const TRACK_Y = 56;
     const ZIGZAG_WIDTH = 310;
@@ -821,12 +821,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function positionTrack() {
 
-            const parent = track.parentElement;
-            const parentRect = parent.getBoundingClientRect();
+    const parent = track.parentElement;
+    const parentRect = parent.getBoundingClientRect();
 
-            track.style.left = `${-parentRect.left}px`;
-            track.style.width = `${window.innerWidth}px`;
+    track.style.left = `${-parentRect.left}px`;
+    track.style.width = `${window.innerWidth}px`;
+
+    if (track.dataset.anchor === "image") {
+
+        const section = track.closest(".deets-life-section");
+
+        const image = section?.querySelector(
+            ".deets-life-illustration img"
+        );
+
+        const text = section?.querySelector(
+            ".deets-life-text-column"
+        );
+
+        if (image && text) {
+
+            const imageBottom = image.getBoundingClientRect().bottom;
+            const textBottom = text.getBoundingClientRect().bottom;
+
+            const extraSpace = Math.max(
+                28,
+                textBottom - imageBottom + 40
+            );
+
+            track.style.marginTop = `${extraSpace}px`;
         }
+    }
+}
 
         /* ========================================
            BUILD THE PATH
@@ -875,33 +901,31 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         }
 
-        function buildPath(dimensions) {
+			function buildPath(dimensions) {
 
-            const points = dimensions.points;
-            const lastPoint = points[points.length - 1];
+				const points = dimensions.points;
+				const lastPoint = points[points.length - 1];
 
-            let d = `M ${-OFFSCREEN} ${TRACK_Y}`;
+				let d = `M ${-OFFSCREEN} ${TRACK_Y}`;
 
-            // Straight horizontal entry.
-            d += ` L ${dimensions.zigStart} ${TRACK_Y}`;
+				// Straight horizontal entry.
+				d += ` L ${dimensions.zigStart} ${TRACK_Y}`;
 
-            // Original zigzag proportions.
-            points.forEach(([x, y]) => {
-                d += ` L ${x} ${y}`;
-            });
+				// Original up-and-down growth pattern.
+				points.forEach(([x, y]) => {
+					d += ` L ${x} ${y}`;
+				});
 
-            // Return vertically to the baseline.
-            d += ` L ${lastPoint[0]} ${TRACK_Y}`;
+				// Continue horizontally from the final peak.
+				// No downward movement back to the baseline.
+				d += ` L ${dimensions.endX} ${lastPoint[1]}`;
 
-            // Exit in a perfectly horizontal 0-degree line.
-            d += ` L ${dimensions.endX} ${TRACK_Y}`;
+				return d;
+			}
 
-            return d;
-        }
-
-        /* ========================================
-           FIND DISTANCE ALONG PATH AT X POSITION
-        ======================================== */
+/* ========================================
+     FIND DISTANCE ALONG PATH AT X POSITION
+======================================== */
 
         function distanceAtX(path, targetX) {
 
@@ -923,9 +947,9 @@ document.addEventListener("DOMContentLoaded", () => {
             return (low + high) / 2;
         }
 
-        /* ========================================
-           POSITION OPEN ARROWHEAD
-        ======================================== */
+/* ========================================
+  POSITION OPEN ARROWHEAD
+======================================== */
 
         function positionHead(head, path, distance) {
 
@@ -964,9 +988,9 @@ document.addEventListener("DOMContentLoaded", () => {
             head.style.opacity = "1";
         }
 
-        /* ========================================
-           PREPARE EACH ARROW
-        ======================================== */
+/* ========================================
+      PREPARE EACH ARROW
+======================================== */
 
         function prepareArrow(svg, dimensions) {
 
@@ -1010,9 +1034,9 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         }
 
-        /* ========================================
-           RESET ARROWS
-        ======================================== */
+/* ========================================
+  RESET ARROWS
+======================================== */
 
         function resetArrows() {
 
@@ -1031,9 +1055,9 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        /* ========================================
-           ANIMATE ONE MOVING ARROW
-        ======================================== */
+/* ========================================
+    ANIMATE ONE MOVING ARROW
+======================================== */
 
         function animateArrow(svg, dimensions, token) {
 
@@ -1094,9 +1118,9 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        /* ========================================
-           RUN ARROWS SEQUENTIALLY AND REPEAT
-        ======================================== */
+/* ========================================
+   RUN ARROWS SEQUENTIALLY AND REPEAT
+======================================== */
 
         async function runArrows() {
 
@@ -1131,9 +1155,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        /* ========================================
-           VISIBILITY
-        ======================================== */
+/* ========================================
+      VISIBILITY
+======================================== */
 
         function stopArrows() {
 
@@ -1163,9 +1187,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         observer.observe(track);
 
-        /* ========================================
-           RESIZE / BROWSER ZOOM
-        ======================================== */
+/* ========================================
+        RESIZE / BROWSER ZOOM
+======================================== */
 
         window.addEventListener("resize", () => {
 
