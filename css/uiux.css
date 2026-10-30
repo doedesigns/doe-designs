@@ -2949,13 +2949,67 @@ body.deets-page .project-title-nav h1 {
     outline-offset: 4px;
 }
 
-.deets-page .deets-growth-line {
+/* ============================================
+   MY DEETS — ANIMATED GROWTH ARROWS
+============================================ */
+
+body.deets-page .deets-growth-track {
+    position: relative;
     display: block;
     width: 100%;
     max-width: 320px;
-    height: auto;
+    height: 70px;
     margin: 18px auto 0;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Centered arrow between page sections */
+
+body.deets-page .deets-growth-track--centered {
+    max-width: 320px;
+    margin: 38px auto 42px;
+}
+
+/* Moving SVG arrows */
+
+body.deets-page .deets-growth-arrow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 70px;
     overflow: visible;
+    will-change: transform;
+}
+
+/* Keep the original yellow appearance */
+
+body.deets-page .deets-growth-path,
+body.deets-page .deets-growth-head {
+    fill: none;
+    stroke: #E8E45C;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Reduced-motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+    body.deets-page .deets-growth-track {
+        overflow: visible;
+    }
+
+    body.deets-page .deets-growth-arrow:first-child {
+        display: none;
+    }
+
+    body.deets-page .deets-growth-arrow {
+        position: relative;
+        transform: none !important;
+    }
 }
 
 
@@ -2989,11 +3043,6 @@ body.deets-page #deets-screens .deets-screen-feature .deets-screen-image {
     width: 50%;
     max-width: none;
     margin-inline: auto;
-}
-
-/* Add 10px more space between the illustration and growth arrow. */
-body.deets-page .deets-life-illustration .deets-growth-line {
-    margin-top: 28px;
 }
 
 /* Keep all life-stage text together in the left column. */

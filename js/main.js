@@ -833,3 +833,257 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+// ============================================
+// MY DEETS — CONTINUOUS GROWTH ARROW
+// ============================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const tracks = document.querySelectorAll(
+        "body.deets-page [data-deets-growth-track]"
+    );
+
+    if (!tracks.length) return;
+
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    );
+
+    if (reducedMotion.matches) return;
+
+    // Original zigzag geometry.
+    const zigzagPoints = [
+        [8, 56],
+        [52, 20],
+        [91, 48],
+        [137, 12],
+        [176, 44],
+        [225, 8],
+        [265, 34],
+        [310, 6]
+    ];
+
+    // Straight horizontal starting/ending line.
+    const straightPoints = zigzagPoints.map(
+        ([x]) => [x, 35]
+    );
+
+    // Original arrowhead geometry.
+    const zigzagHead = [
+        [298, 7],
+        [310, 6],
+        [306, 18]
+    ];
+
+    const straightHead = [
+        [298, 27],
+        [310, 35],
+        [298, 43]
+    ];
+
+    const ENTER_TIME = 1.8;
+    const PAUSE_TIME = 1.4;
+    const EXIT_TIME = 1.8;
+    const CYCLE_TIME = 6.4;
+
+    const SECOND_ARROW_OFFSET = 4.8;
+
+    function interpolate(start, end, progress) {
+        return start + (end - start) * progress;
+    }
+
+    function interpolatePoints(start, end, progress) {
+
+        return start.map((point, index) => {
+
+            return [
+                interpolate(point[0], end[index][0], progress),
+                interpolate(point[1], end[index][1], progress)
+            ];
+
+        });
+
+    }
+
+    function pointsToString(points) {
+
+        return points
+            .map(point => `${point[0]},${point[1]}`)
+            .join(" ");
+
+    }
+
+    function headToString(points) {
+
+        return points
+            .map((point, index) => {
+                return `${index === 0 ? "M" : "L"} ${point[0]} ${point[1]}`;
+            })
+            .join(" ");
+
+    }
+
+    function setupArrow(track, svg, offset) {
+
+        const line = svg.querySelector(".deets-growth-path");
+        const head = svg.querySelector(".deets-growth-head");
+
+        function update(elapsed) {
+
+            const phase = (
+                (elapsed + offset) % CYCLE_TIME
+            );
+
+            const trackWidth = track.clientWidth;
+            const svgWidth = svg.getBoundingClientRect().width;
+
+            let x = -svgWidth;
+            let progress = 0;
+
+            if (phase < ENTER_TIME) {
+
+                // Enter from the left while forming the zigzag.
+
+                progress = phase / ENTER_TIME;
+
+                x = -svgWidth * (1 - progress);
+
+            } else if (phase < ENTER_TIME + PAUSE_TIME) {
+
+                // Hold the completed growth arrow.
+
+                progress = 1;
+                x = 0;
+
+            } else if (
+                phase < ENTER_TIME + PAUSE_TIME + EXIT_TIME
+            ) {
+
+                // Straighten the arrow and continue offscreen.
+
+                const exitProgress =
+                    (phase - ENTER_TIME - PAUSE_TIME) / EXIT_TIME;
+
+                progress = 1 - exitProgress;
+
+                x = trackWidth * exitProgress;
+
+            } else {
+
+                // Wait offscreen before the next cycle.
+
+                progress = 0;
+                x = trackWidth;
+
+            }
+
+            const points = interpolatePoints(
+                straightPoints,
+                zigzagPoints,
+                progress
+            );
+
+            const headPoints = interpolatePoints(
+                straightHead,
+                zigzagHead,
+                progress
+            );
+
+            line.setAttribute(
+                "points",
+                pointsToString(points)
+            );
+
+            head.setAttribute(
+                "d",
+                headToString(headPoints)
+            );
+
+            svg.style.transform = `translateX(${x}px)`;
+
+        }
+
+        return update;
+    }
+
+    tracks.forEach(track => {
+
+        const arrows = Array.from(
+            track.querySelectorAll(".deets-growth-arrow")
+        );
+
+        if (arrows.length !== 2) return;
+
+        const updateFirst = setupArrow(
+            track,
+            arrows[0],
+            0
+        );
+
+        const updateSecond = setupArrow(
+            track,
+            arrows[1],
+            SECOND_ARROW_OFFSET
+        );
+
+        let animationFrame = null;
+        let startTime = null;
+
+        function animate(timestamp) {
+
+            if (startTime === null) {
+                startTime = timestamp;
+            }
+
+            const elapsed = (timestamp - startTime) / 1000;
+
+            updateFirst(elapsed);
+            updateSecond(elapsed);
+
+            animationFrame = requestAnimationFrame(animate);
+
+        }
+
+        const observer = new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        if (animationFrame === null) {
+
+                            startTime = null;
+
+                            animationFrame =
+                                requestAnimationFrame(animate);
+
+                        }
+
+                    } else {
+
+                        if (animationFrame !== null) {
+
+                            cancelAnimationFrame(animationFrame);
+
+                            animationFrame = null;
+                            startTime = null;
+
+                        }
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.1
+            }
+        );
+
+        observer.observe(track);
+
+    });
+
+});
