@@ -753,7 +753,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
 
                     });
-
                 },
                 {
                     threshold: 0.25
@@ -775,9 +774,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// ============================================
-// MY DEETS — FULL-WIDTH GROWTH ARROWS
-// ============================================
+/* ============================================
+   MY DEETS — FULL-WIDTH GROWTH ARROWS
+============================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -787,15 +786,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!tracks.length) return;
 
-    const SPEED = 500;
-    const ZIGZAG_TIME = 2.2;
-    const PAUSE_TIME = 1.5;
-    const OFFSCREEN = 100;
-    const ARROW_SPACING = 0;
-
-    const reducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    );
+    const ARROW_SPEED = 220; // Pixels per second
+    const OFFSCREEN = 80;
+    const TRACK_Y = 56;
 
     const originalPoints = [
         [8, 56],
@@ -814,24 +807,21 @@ document.addEventListener("DOMContentLoaded", () => {
             track.querySelectorAll(".deets-growth-svg")
         );
 
-        if (!svgs.length) return;
+        if (svgs.length < 2) return;
 
-        let observer = null;
-        let animationFrame = null;
-        let running = false;
         let visible = false;
-        let currentAnimations = [];
+        let running = false;
+        let animationFrame = null;
+        let generation = 0;
 
-        const imageAnchor = track.dataset.anchor === "image";
+        function getDimensions() {
 
-        function getPathPoints() {
-
-            const width = window.innerWidth;
+            const width = document.documentElement.clientWidth;
 
             let zigStart;
-            let zigEnd;
+            let endX;
 
-            if (imageAnchor) {
+            if (track.dataset.anchor === "image") {
 
                 const image = track.closest(".deets-life-section")
                     ?.querySelector(".deets-life-illustration img");
@@ -840,26 +830,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     const rect = image.getBoundingClientRect();
 
-                    // Begin the zigzag before reaching the image.
-                    zigStart = rect.left - 260;
-                    zigEnd = rect.right + 20;
+                    // Preserve the original 310px zigzag.
+                    // Start it well before the image.
+                    zigStart = rect.left - 350;
+
+                    // Finish underneath the image, with the
+                    // arrowhead still visible in the viewport.
+                    endX = Math.min(rect.right, width - 24);
 
                 } else {
 
-                    zigStart = width * 0.25;
-                    zigEnd = width * 0.75;
+                    zigStart = width * 0.35;
+                    endX = width - 24;
                 }
 
             } else {
 
-                zigStart = (width - 320) / 2;
-                zigEnd = zigStart + 320;
+                // Keep the introductory zigzag centered.
+                zigStart = (width - 310) / 2;
+                endX = width + OFFSCREEN;
             }
 
-            const zigWidth = Math.max(200, zigEnd - zigStart);
-
             const points = originalPoints.map(([x, y]) => [
-                zigStart + (x / 310) * zigWidth,
+                zigStart + x,
                 y
             ]);
 
@@ -867,52 +860,53 @@ document.addEventListener("DOMContentLoaded", () => {
                 width,
                 points,
                 zigStart,
-                zigEnd
+                endX
             };
         }
 
-        function makePath(width, points) {
+        function buildPath(dimensions) {
 
-            const startY = 56;
-            const endY = 56;
+            let d = `M ${-OFFSCREEN} ${TRACK_Y}`;
+            d += ` L ${dimensions.zigStart} ${TRACK_Y}`;
 
-            let d = `M ${-OFFSCREEN} ${startY} L ${points[0][0]} ${startY}`;
-
-            points.forEach(([x, y]) => {
+            dimensions.points.forEach(([x, y]) => {
                 d += ` L ${x} ${y}`;
             });
 
-            d += ` L ${width + OFFSCREEN} ${endY}`;
+            d += ` L ${dimensions.endX} ${TRACK_Y}`;
 
             return d;
         }
 
-        function getArrowHead(path, distance) {
+        function positionHead(head, path, distance) {
 
-            const end = path.getPointAtLength(distance);
-            const before = path.getPointAtLength(
+            const point = path.getPointAtLength(distance);
+
+            const previous = path.getPointAtLength(
                 Math.max(0, distance - 12)
             );
 
             const angle = Math.atan2(
-                end.y - before.y,
-                end.x - before.x
+                point.y - previous.y,
+                point.x - previous.x
             );
 
-            const size = 13;
+            const size = 15;
             const spread = 0.55;
 
-            const leftX = end.x - size * Math.cos(angle - spread);
-            const leftY = end.y - size * Math.sin(angle - spread);
+            const leftX = point.x - size * Math.cos(angle - spread);
+            const leftY = point.y - size * Math.sin(angle - spread);
 
-            const rightX = end.x - size * Math.cos(angle + spread);
-            const rightY = end.y - size * Math.sin(angle + spread);
+            const rightX = point.x - size * Math.cos(angle + spread);
+            const rightY = point.y - size * Math.sin(angle + spread);
 
-            return {
-                d: `M ${leftX} ${leftY} L ${end.x} ${end.y} L ${rightX} ${rightY}`,
-                x: end.x,
-                y: end.y
-            };
+            // Draw two separate angled strokes meeting at the tip.
+            head.setAttribute(
+                "d",
+                `M ${leftX} ${leftY} L ${point.x} ${point.y} M ${rightX} ${rightY} L ${point.x} ${point.y}`
+            );
+
+            head.style.opacity = "1";
         }
 
         function prepareArrow(svg, dimensions) {
@@ -929,176 +923,192 @@ document.addEventListener("DOMContentLoaded", () => {
 
             svg.setAttribute("preserveAspectRatio", "none");
 
-            path.setAttribute(
-                "d",
-                makePath(dimensions.width, dimensions.points)
-            );
+            path.setAttribute("d", buildPath(dimensions));
 
             const length = path.getTotalLength();
 
-            path.style.strokeDasharray = length;
+            path.style.strokeDasharray = `${length} ${length}`;
             path.style.strokeDashoffset = length;
 
-            // Keep the arrowhead separate from the moving line.
-            head.style.opacity = "0";
             head.style.strokeDasharray = "none";
             head.style.strokeDashoffset = "0";
-            head.setAttribute("fill", "none");
-
-            const arrowHead = getArrowHead(path, length);
-            head.setAttribute("d", arrowHead.d);
+            head.style.fill = "none";
+            head.style.opacity = "0";
 
             return {
-                svg,
                 path,
                 head,
-                length,
-                arrowHead
+                length
             };
         }
 
-        function stopAnimations() {
+        function resetArrow(svg, dimensions) {
 
-            currentAnimations.forEach(animation => {
-                animation.cancel();
-            });
+            const arrow = prepareArrow(svg, dimensions);
 
-            currentAnimations = [];
+            if (!arrow) return;
+
+            arrow.path.style.strokeDashoffset = arrow.length;
+            arrow.head.style.opacity = "0";
         }
 
-        function resetArrows() {
-
-            stopAnimations();
-
-            const dimensions = getPathPoints();
-
-            svgs.forEach((svg, index) => {
-
-                const arrow = prepareArrow(svg, dimensions);
-
-                if (!arrow) return;
-
-                svg.style.display = index === 0 || !reducedMotion.matches
-                    ? "block"
-                    : "none";
-
-                arrow.path.style.strokeDashoffset = arrow.length;
-                arrow.head.style.opacity = "0";
-            });
-
-            return dimensions;
-        }
-
-        function animateArrow(arrow) {
+        function animateArrow(svg, dimensions, token) {
 
             return new Promise(resolve => {
 
-                const lineAnimation = arrow.path.animate(
-                    [
-                        { strokeDashoffset: arrow.length },
-                        { strokeDashoffset: 0 }
-                    ],
-                    {
-                        duration: SPEED,
-                        easing: "linear",
-                        fill: "forwards"
+                const arrow = prepareArrow(svg, dimensions);
+
+                if (!arrow) {
+                    resolve(false);
+                    return;
+                }
+
+                const duration =
+                    (arrow.length / ARROW_SPEED) * 1000;
+
+                const startTime = performance.now();
+
+                function drawFrame(now) {
+
+                    if (!visible || token !== generation) {
+                        resolve(false);
+                        return;
                     }
-                );
 
-                currentAnimations.push(lineAnimation);
+                    const progress = Math.min(
+                        (now - startTime) / duration,
+                        1
+                    );
 
-                lineAnimation.onfinish = () => {
+                    const distance = arrow.length * progress;
 
-                    arrow.path.style.strokeDashoffset = "0";
+                    arrow.path.style.strokeDashoffset =
+                        arrow.length - distance;
 
-                    arrow.head.style.opacity = "1";
+                    if (progress > 0) {
+                        positionHead(
+                            arrow.head,
+                            arrow.path,
+                            distance
+                        );
+                    }
 
-                    resolve();
-                };
+                    if (progress < 1) {
+
+                        animationFrame =
+                            requestAnimationFrame(drawFrame);
+
+                    } else {
+
+                        arrow.path.style.strokeDashoffset = "0";
+
+                        positionHead(
+                            arrow.head,
+                            arrow.path,
+                            arrow.length
+                        );
+
+                        resolve(true);
+                    }
+                }
+
+                animationFrame =
+                    requestAnimationFrame(drawFrame);
             });
         }
 
-        async function runAnimation() {
+        async function runArrows() {
 
             if (running || !visible) return;
 
             running = true;
 
-            resetArrows();
+            const token = ++generation;
 
-            if (reducedMotion.matches) {
-                running = false;
-                return;
-            }
+            const dimensions = getDimensions();
 
-            for (let i = 0; i < svgs.length; i++) {
+            svgs.forEach(svg => {
+                resetArrow(svg, dimensions);
+            });
 
-                if (!visible) break;
+            // Run each arrow to completion before starting the next.
+            // This keeps them from overlapping.
+            while (visible && token === generation) {
 
-                const dimensions = getPathPoints();
-                const arrow = prepareArrow(svgs[i], dimensions);
+                for (const svg of svgs) {
 
-                if (!arrow) continue;
+                    if (!visible || token !== generation) break;
 
-                // Each arrow starts only after the previous one has
-                // completely finished exiting the right side.
-                await animateArrow(arrow);
+                    const currentDimensions = getDimensions();
 
-                if (!visible) break;
+                    const completed = await animateArrow(
+                        svg,
+                        currentDimensions,
+                        token
+                    );
 
-                if (i < svgs.length - 1) {
-                    await new Promise(resolve => {
-                        window.setTimeout(resolve, PAUSE_TIME * 1000);
-                    });
+                    if (!completed) break;
                 }
             }
 
             running = false;
         }
 
-        function start() {
+        function stopArrows() {
 
-            if (running) return;
+            visible = false;
+            generation++;
 
-            runAnimation();
+            if (animationFrame !== null) {
+                cancelAnimationFrame(animationFrame);
+                animationFrame = null;
+            }
+
+            const dimensions = getDimensions();
+
+            svgs.forEach(svg => {
+                resetArrow(svg, dimensions);
+            });
+
+            running = false;
         }
 
-        function handleVisibility(entries) {
+        const observer = new IntersectionObserver(entries => {
 
             visible = entries[0].isIntersecting;
 
             if (visible) {
-                start();
+                runArrows();
             } else {
-                running = false;
-                resetArrows();
+                stopArrows();
             }
-        }
 
-        resetArrows();
+        }, {
+            threshold: 0.05
+        });
 
-        observer = new IntersectionObserver(handleVisibility, {
-            threshold: 0.1
+        const initialDimensions = getDimensions();
+
+        svgs.forEach(svg => {
+            resetArrow(svg, initialDimensions);
         });
 
         observer.observe(track);
 
         window.addEventListener("resize", () => {
 
-            if (animationFrame) {
-                cancelAnimationFrame(animationFrame);
-            }
+            if (!running) {
 
-            animationFrame = requestAnimationFrame(() => {
+                const dimensions = getDimensions();
 
-                if (!running) {
-                    resetArrows();
+                svgs.forEach(svg => {
+                    resetArrow(svg, dimensions);
+                });
 
-                    if (visible && !reducedMotion.matches) {
-                        start();
-                    }
+                if (visible) {
+                    runArrows();
                 }
-            });
+            }
         });
 
     });
