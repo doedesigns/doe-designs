@@ -2949,24 +2949,50 @@ body.deets-page .project-title-nav h1 {
     outline-offset: 4px;
 }
 
-/* ============================================
-   MY DEETS — ANIMATED GROWTH ARROWS
+//* ============================================
+   MY DEETS — FULL-WIDTH GROWTH ARROW
 ============================================ */
 
-/* Moving SVG arrows */
+body.deets-page .deets-growth-track {
+    position: relative;
 
-body.deets-page .deets-growth-arrow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    width: 100%;
+    width: 100vw;
+    max-width: none;
+
     height: 70px;
-    overflow: visible;
-    will-change: transform;
+
+    margin-left: calc(50% - 50vw);
+    margin-right: 0;
+
+    overflow: hidden;
+    isolation: isolate;
 }
 
-/* Keep the original yellow appearance */
+/* Spacing for the arrow between sections */
+
+body.deets-page .deets-growth-track--centered {
+    margin-top: 38px;
+    margin-bottom: 42px;
+}
+
+/* Full browser-width SVG */
+
+body.deets-page .deets-growth-svg {
+    position: absolute;
+    inset: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 70px;
+
+    overflow: visible;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Yellow line and moving arrowhead */
 
 body.deets-page .deets-growth-path,
 body.deets-page .deets-growth-head {
@@ -2977,21 +3003,14 @@ body.deets-page .deets-growth-head {
     stroke-linejoin: round;
 }
 
-/* Reduced-motion accessibility */
+/* Reduced-motion fallback */
 
 @media (prefers-reduced-motion: reduce) {
-    body.deets-page .deets-growth-track {
-        overflow: visible;
-    }
 
-    body.deets-page .deets-growth-arrow:first-child {
+    body.deets-page .deets-growth-svg {
         display: none;
     }
 
-    body.deets-page .deets-growth-arrow {
-        position: relative;
-        transform: none !important;
-    }
 }
 
 
