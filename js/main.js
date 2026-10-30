@@ -773,7 +773,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
     });
-
 });
 
 // ============================================
@@ -792,10 +791,9 @@ document.addEventListener("DOMContentLoaded", () => {
         "(prefers-reduced-motion: reduce)"
     );
 
-    const SPEED = 500;       // Straight-line speed in pixels/second
-    const ZIGZAG_TIME = 2.2; // Time to trace the original zigzag
-    const PAUSE_TIME = 1.5;  // Pause at the end
-
+    const SPEED = 500;
+    const ZIGZAG_TIME = 2.2;
+    const PAUSE_TIME = 1.5;
     const OFFSCREEN = 100;
 
     // Original My Deets zigzag coordinates.
@@ -809,6 +807,10 @@ document.addEventListener("DOMContentLoaded", () => {
         [265, 34],
         [310, 6]
     ];
+
+    // ============================================
+    // CALCULATE THE FULL-WIDTH ARROW PATH
+    // ============================================
 
     function makeGeometry(track) {
 
@@ -839,7 +841,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const zigWidth = Math.min(320, anchorWidth);
         const scale = zigWidth / 320;
 
-        // Center the original zigzag beneath its anchor.
+        // Center the zigzag beneath its anchor.
         const zigLeft =
             anchorLeft + (anchorWidth - zigWidth) / 2;
 
@@ -851,7 +853,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const firstPoint = points[0];
         const lastPoint = points[points.length - 1];
 
-        // Calculate the length of the original zigzag.
+        // Calculate the length of the zigzag.
         let zigLength = 0;
 
         for (let i = 1; i < points.length; i++) {
@@ -887,6 +889,10 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
+    // ============================================
+    // PREPARE EACH SVG
+    // ============================================
+
     function prepareArrow(svg, geometry) {
 
         const path = svg.querySelector(".deets-growth-path");
@@ -917,88 +923,18 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
-    function drawArrow(arrow, phase, timing) {
+    // ============================================
+    // POSITION THE MOVING ARROWHEAD
+    // ============================================
+
+    function positionArrowHead(arrow, drawnLength) {
 
         const {
-            svg,
             path,
             head,
-            totalLength,
-            geometry
+            totalLength
         } = arrow;
 
-        svg.style.opacity = "0";
-
-        if (phase < 0 || phase >= timing.activeTime) {
-            return;
-        }
-
-        svg.style.opacity = "1";
-
-        const {
-            entryLength,
-            zigLength,
-            exitLength
-        } = geometry;
-
-        let drawnLength = 0;
-
-        // STAGE 1: Travel straight in from the left.
-        if (phase < timing.entryTime) {
-
-            drawnLength =
-                entryLength * (phase / timing.entryTime);
-
-        }
-
-        // STAGE 2: Trace the original zigzag.
-        else if (
-            phase < timing.entryTime + ZIGZAG_TIME
-        ) {
-
-            const progress =
-                (phase - timing.entryTime) / ZIGZAG_TIME;
-
-            drawnLength =
-                entryLength + zigLength * progress;
-
-        }
-
-        // STAGE 3: Pause at the end of the zigzag.
-        else if (
-            phase <
-            timing.entryTime + ZIGZAG_TIME + PAUSE_TIME
-        ) {
-
-            drawnLength = entryLength + zigLength;
-
-        }
-
-        // STAGE 4: Continue straight off the right side.
-        else {
-
-            const exitProgress =
-                (phase -
-                    timing.entryTime -
-                    ZIGZAG_TIME -
-                    PAUSE_TIME) / timing.exitTime;
-
-            drawnLength =
-                entryLength +
-                zigLength +
-                exitLength * exitProgress;
-
-        }
-
-        drawnLength = Math.min(
-            totalLength,
-            Math.max(0, drawnLength)
-        );
-
-        path.style.strokeDashoffset =
-            totalLength - drawnLength;
-
-        // Move the arrowhead to the current drawing tip.
         const point = path.getPointAtLength(drawnLength);
 
         const before = path.getPointAtLength(
@@ -1023,6 +959,123 @@ document.addEventListener("DOMContentLoaded", () => {
         head.style.opacity = drawnLength > 0 ? "1" : "0";
     }
 
+    // ============================================
+    // STATIC ARROW FOR REDUCED-MOTION USERS
+    // ============================================
+
+    function showStaticArrow(arrow) {
+
+        const {
+            path,
+            totalLength,
+            geometry
+        } = arrow;
+
+        const visibleLength =
+            geometry.entryLength + geometry.zigLength;
+
+        // Show only the entry line and zigzag.
+        // Do not show the straight exit section.
+        path.style.strokeDasharray =
+            `${visibleLength} ${totalLength}`;
+
+        path.style.strokeDashoffset = "0";
+
+        positionArrowHead(arrow, visibleLength);
+
+        arrow.svg.style.opacity = "1";
+    }
+
+    // ============================================
+    // ANIMATE ONE ARROW
+    // ============================================
+
+    function drawArrow(arrow, phase, timing) {
+
+        const {
+            svg,
+            path,
+            totalLength,
+            geometry
+        } = arrow;
+
+        svg.style.opacity = "0";
+
+        if (phase < 0 || phase >= timing.activeTime) {
+            return;
+        }
+
+        svg.style.opacity = "1";
+
+        const {
+            entryLength,
+            zigLength,
+            exitLength
+        } = geometry;
+
+        let drawnLength = 0;
+
+        // STAGE 1: Enter from the left.
+        if (phase < timing.entryTime) {
+
+            drawnLength =
+                entryLength * (phase / timing.entryTime);
+
+        }
+
+        // STAGE 2: Trace the zigzag.
+        else if (
+            phase < timing.entryTime + ZIGZAG_TIME
+        ) {
+
+            const progress =
+                (phase - timing.entryTime) / ZIGZAG_TIME;
+
+            drawnLength =
+                entryLength + zigLength * progress;
+
+        }
+
+        // STAGE 3: Pause at the end of the zigzag.
+        else if (
+            phase <
+            timing.entryTime + ZIGZAG_TIME + PAUSE_TIME
+        ) {
+
+            drawnLength = entryLength + zigLength;
+
+        }
+
+        // STAGE 4: Continue off the right side.
+        else {
+
+            const exitProgress =
+                (phase -
+                    timing.entryTime -
+                    ZIGZAG_TIME -
+                    PAUSE_TIME) / timing.exitTime;
+
+            drawnLength =
+                entryLength +
+                zigLength +
+                exitLength * exitProgress;
+        }
+
+        drawnLength = Math.min(
+            totalLength,
+            Math.max(0, drawnLength)
+        );
+
+        path.style.strokeDashoffset =
+            totalLength - drawnLength;
+
+        positionArrowHead(arrow, drawnLength);
+    }
+
+    // ============================================
+    // INITIALIZE EACH GROWTH TRACK
+    // ============================================
+
     tracks.forEach(track => {
 
         const svgs = Array.from(
@@ -1036,6 +1089,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let animationFrame = null;
         let startTime = null;
+
+        // ========================================
+        // RECALCULATE THE TRACK GEOMETRY
+        // ========================================
 
         function configure() {
 
@@ -1055,8 +1112,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 PAUSE_TIME +
                 exitTime;
 
-            // Start the next arrow early enough to enter
-            // from the left as the previous one exits right.
+            // The second arrow begins before the first
+            // has completely left the screen.
             const spawnInterval =
                 entryTime +
                 ZIGZAG_TIME +
@@ -1080,6 +1137,10 @@ document.addEventListener("DOMContentLoaded", () => {
             return true;
         }
 
+        // ========================================
+        // CALCULATE EACH ARROW'S ANIMATION PHASE
+        // ========================================
+
         function getPhase(elapsed, slot) {
 
             const offset =
@@ -1095,6 +1156,10 @@ document.addEventListener("DOMContentLoaded", () => {
             return sinceStart -
                 cycleNumber * timing.slotPeriod;
         }
+
+        // ========================================
+        // ANIMATION FRAME
+        // ========================================
 
         function animate(timestamp) {
 
@@ -1123,31 +1188,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!configure()) return;
 
-   if (reducedMotion.matches) {
+        // ========================================
+        // REDUCED MOTION
+        // ========================================
 
-    const arrow = arrows[0];
+        if (reducedMotion.matches) {
 
-    arrow.path.style.strokeDasharray = "none";
-    arrow.path.style.strokeDashoffset = "0";
+            showStaticArrow(arrows[0]);
 
-    // Put the arrowhead at the end of the zigzag.
-    const endPoint = arrow.path.getPointAtLength(
-        arrow.totalLength - arrow.geometry.exitLength
-    );
+            // Only display one static arrow.
+            svgs[1].style.display = "none";
 
-    arrow.head.setAttribute(
-        "transform",
-        `translate(${endPoint.x} ${endPoint.y})`
-    );
+            return;
+        }
 
-    arrow.head.style.opacity = "1";
-    arrow.svg.style.opacity = "1";
+        // ========================================
+        // STOP AND RESET ANIMATION
+        // ========================================
 
-    // Only show one static arrow.
-    svgs[1].style.display = "none";
-
-    return;
-}
         function reset() {
 
             if (animationFrame !== null) {
@@ -1161,6 +1219,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 svg.style.opacity = "0";
             });
         }
+
+        // ========================================
+        // START / STOP WHEN TRACK ENTERS VIEW
+        // ========================================
 
         const observer = new IntersectionObserver(
             entries => {
@@ -1195,8 +1257,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         observer.observe(track);
 
-        // Recalculate the arrow's position and travel distance
-        // whenever the browser is resized.
+        // ========================================
+        // RECALCULATE AFTER BROWSER RESIZE
+        // ========================================
+
         window.addEventListener("resize", () => {
 
             reset();

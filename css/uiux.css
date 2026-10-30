@@ -2949,71 +2949,6 @@ body.deets-page .project-title-nav h1 {
     outline-offset: 4px;
 }
 
-//* ============================================
-   MY DEETS — FULL-WIDTH GROWTH ARROW
-============================================ */
-
-body.deets-page .deets-growth-track {
-    position: relative;
-
-    width: 100vw;
-    max-width: none;
-
-    height: 70px;
-
-    margin-left: calc(50% - 50vw);
-    margin-right: 0;
-
-    overflow: hidden;
-    isolation: isolate;
-}
-
-/* Spacing for the arrow between sections */
-
-body.deets-page .deets-growth-track--centered {
-    margin-top: 38px;
-    margin-bottom: 42px;
-}
-
-/* Full browser-width SVG */
-
-body.deets-page .deets-growth-svg {
-    position: absolute;
-    inset: 0;
-
-    display: block;
-
-    width: 100%;
-    height: 70px;
-
-    overflow: visible;
-
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* Yellow line and moving arrowhead */
-
-body.deets-page .deets-growth-path,
-body.deets-page .deets-growth-head {
-    fill: none;
-    stroke: #E8E45C;
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-/* Reduced-motion fallback */
-
-@media (prefers-reduced-motion: reduce) {
-
-    body.deets-page .deets-growth-svg {
-        display: none;
-    }
-
-}
-
-
 /* ===== OCTOBER 2026 FINAL UI/UX REFINEMENTS ===== */
 
 /* My Deets: preserve the project's muted plum/yellow palette. */
@@ -3290,35 +3225,41 @@ body.deets-page #deets-categories .deets-category-grid.is-settled
     }
 }
 
+
 /* ============================================
-   MY DEETS — CONTINUOUS GROWTH ARROW
+   MY DEETS — FULL-WIDTH GROWTH ARROWS
+   Shared by the introduction and life-stage sections.
 ============================================ */
+
+/* Full browser-width track, regardless of its parent column. */
 
 body.deets-page .deets-growth-track {
     position: relative;
-    display: block;
-    width: 100%;
-    max-width: 320px;
+    left: 50%;
+    width: 100vw;
     height: 70px;
-    margin: 18px auto 0;
-    overflow: hidden;
-    isolation: isolate;
+    margin-left: -50vw;
+    overflow: visible;
+    pointer-events: none;
 }
+
+/* Introduction arrow: centered beneath the overview. */
+
+body.deets-page .deets-growth-track--centered {
+    margin-top: 24px;
+    margin-bottom: 0;
+}
+
+/* Life-stage arrow: space below the illustration. */
 
 body.deets-page .deets-life-illustration .deets-growth-track {
     margin-top: 28px;
+    margin-bottom: 0;
 }
 
-/* Second arrow, centered between sections */
+/* Both SVGs occupy the full browser width. */
 
-body.deets-page .deets-growth-track--centered {
-    max-width: 320px;
-    margin: 38px auto 42px;
-}
-
-/* The two moving arrows */
-
-body.deets-page .deets-growth-arrow {
+body.deets-page .deets-growth-svg {
     position: absolute;
     top: 0;
     left: 0;
@@ -3326,13 +3267,10 @@ body.deets-page .deets-growth-arrow {
     width: 100%;
     height: 70px;
     overflow: visible;
-    opacity: 0;
-    will-change: transform, opacity;
 }
 
-/* Preserve the original yellow line appearance */
+/* The two arrows share the same drawing style. */
 
-body.deets-page .deets-growth-lead,
 body.deets-page .deets-growth-path,
 body.deets-page .deets-growth-head {
     fill: none;
@@ -3342,28 +3280,14 @@ body.deets-page .deets-growth-head {
     stroke-linejoin: round;
 }
 
-/* Static fallback for reduced-motion preferences */
+/* Keep the second arrow above the first when they overlap. */
 
-@media (prefers-reduced-motion: reduce) {
-    body.deets-page .deets-growth-track {
-        overflow: visible;
-    }
-
-    body.deets-page .deets-growth-arrow {
-        display: none;
-    }
-
-    body.deets-page .deets-growth-arrow:first-child {
-        display: block;
-        position: relative;
-        opacity: 1;
-        transform: none !important;
-    }
-
-    body.deets-page .deets-growth-lead {
-        display: none;
-    }
+body.deets-page .deets-growth-svg:nth-child(2) {
+    z-index: 2;
 }
+
+/* Reduced-motion presentation is controlled by JavaScript. */
+
 
 /* Clean Future Network: green title, compact prototype preview, no underline. */
 body.clean-organic .project-title h1 { color:#7FD69A !important; }
