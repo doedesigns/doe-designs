@@ -999,7 +999,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         { strokeDashoffset: 0 }
                     ],
                     {
-                        duration: SPEED * 1000,
+                        duration: SPEED,
                         easing: "linear",
                         fill: "forwards"
                     }
