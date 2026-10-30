@@ -1072,8 +1072,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const startTime = performance.now();
 
-                const duration =
-                    (arrow.exitDistance / ARROW_SPEED) * 1000;
+                const totalTravelDistance =
+					arrow.exitDistance + SEGMENT_LENGTH;
+
+				const duration =
+					(totalTravelDistance / ARROW_SPEED) * 1000;
 
                 function drawFrame(now) {
 
@@ -1087,22 +1090,19 @@ document.addEventListener("DOMContentLoaded", () => {
                         1
                     );
 
-                    const distance =
-                        arrow.exitDistance * progress;
+                   const distance =
+					totalTravelDistance * progress;
 
-                    // Move the line segment to the right.
-                    arrow.path.style.strokeDashoffset =
-                        -distance;
+// The line follows behind the arrowhead.
+				arrow.path.style.strokeDashoffset =
+					SEGMENT_LENGTH - distance;
 
-                    // The arrowhead stays at the leading end.
-                    positionHead(
-                        arrow.head,
-                        arrow.path,
-                        Math.min(
-                            distance + SEGMENT_LENGTH,
-                            arrow.length
-                        )
-                    );
+// The arrowhead starts offscreen and slides in.
+				positionHead(
+					arrow.head,
+					arrow.path,
+					Math.min(distance, arrow.length)
+				);
 
                     if (progress < 1) {
 
