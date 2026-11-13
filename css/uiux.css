@@ -2428,41 +2428,10 @@ body.lotus-organic .lotus-experience .lotus-feature-image figcaption span {
 	
 /* ============================================
    LOTUS LINGO — REQUESTED VISUAL REFINEMENTS
-   October 2026
+   November 2026
 ============================================ */
 
-/* Match each eyebrow/title box to the requested existing palette color. */
-body.lotus-organic .lotus-overview .lotus-eyebrow {
-    background: #365F7D;
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-prototype .lotus-eyebrow {
-    background: #426B4B;
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-direction .lotus-eyebrow {
-    background: #365F7D;
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-process .lotus-eyebrow {
-    background: #71344F;
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-experience .lotus-eyebrow {
-    background: #426B4B;
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-brand .lotus-eyebrow {
-    background: #365F7D;
-    color: #FFFFFF;
-}
-
-/* Keep the eyebrow boxes neat and consistent. */
+/* Eyebrow labels: use only the existing Lotus palette. */
 body.lotus-organic .lotus-eyebrow {
     display: table;
     width: fit-content;
@@ -2470,52 +2439,110 @@ body.lotus-organic .lotus-eyebrow {
     box-sizing: border-box;
     margin-bottom: 18px;
     padding: 8px 14px;
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
     line-height: 1.5;
+    text-transform: uppercase;
 }
 
-/* Remove the green box from the mobile app mockup caption. */
+/* Main section panels. */
+body.lotus-organic .lotus-overview {
+    background: #173C61;
+}
+
+body.lotus-organic .lotus-challenge,
+body.lotus-organic .lotus-direction,
+body.lotus-organic .lotus-brand {
+    background: #71344F;
+}
+
+body.lotus-organic .lotus-prototype {
+    background: #173C61;
+}
+
+body.lotus-organic .lotus-process {
+    background: #173C61;
+}
+
+body.lotus-organic .lotus-experience {
+    background: #284C37;
+}
+
+/* These selectors are ready for the matching sections if/when they are
+   present in the page markup. */
+body.lotus-organic .lotus-onboarding {
+    background: #426B4B;
+}
+
+body.lotus-organic .lotus-journey {
+    background: #426B4B;
+}
+
+/* Eyebrow label backgrounds. */
+body.lotus-organic .lotus-overview .lotus-eyebrow,
+body.lotus-organic .lotus-onboarding .lotus-eyebrow {
+    background: #71344F;
+}
+
+body.lotus-organic .lotus-challenge .lotus-eyebrow,
+body.lotus-organic .lotus-direction .lotus-eyebrow {
+    background: #426B4B;
+}
+
+body.lotus-organic .lotus-journey .lotus-eyebrow,
+body.lotus-organic .lotus-experience .lotus-eyebrow {
+    background: #173C61;
+}
+
+body.lotus-organic .lotus-process .lotus-eyebrow {
+    background: #71344F;
+}
+
+/* Keep the design-system image panel in the same solution green. */
+body.lotus-organic .lotus-direction .story-image {
+    background: #426B4B;
+}
+
+/* Match every main section heading to the Project Overview heading style. */
+body.lotus-organic .lotus-overview .story-text h2,
+body.lotus-organic .lotus-section-heading h2,
+body.lotus-organic .lotus-direction .story-text h2,
+body.lotus-organic .lotus-process .story-text h2 {
+    color: #E6F5FF !important;
+    font-family: "Jost", sans-serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    letter-spacing: 0.035em;
+    line-height: 1.15;
+}
+
+/* Center the main headings, while retaining the process heading's
+   existing left alignment. */
+body.lotus-organic .lotus-overview .story-text h2,
+body.lotus-organic .lotus-challenge .lotus-section-heading h2,
+body.lotus-organic .lotus-prototype .lotus-section-heading h2,
+body.lotus-organic .lotus-direction .story-text h2,
+body.lotus-organic .lotus-onboarding .lotus-section-heading h2,
+body.lotus-organic .lotus-journey .lotus-section-heading h2,
+body.lotus-organic .lotus-experience .lotus-section-heading h2,
+body.lotus-organic .lotus-brand .lotus-section-heading h2 {
+    text-align: center;
+}
+
+body.lotus-organic .lotus-process .story-text h2 {
+    text-align: left;
+}
+
+/* Keep the app mockup caption unboxed. */
 body.lotus-organic .lotus-overview .story-image > p {
     background: transparent;
     padding: 0;
 }
 
-/* Use the Design Opportunity maroon around the design-system image. */
-body.lotus-organic .lotus-direction .story-image {
-    background: #71344F;
-}
-
-/* Return the prototype arrow and link to the existing pink accent. */
-body.lotus-organic .lotus-prototype-callout {
-    color: #F3B7D5;
-}
-
-body.lotus-organic .lotus-prototype-callout .lotus-curved-arrow {
-    color: #F3B7D5;
-}
-
-body.lotus-organic .lotus-prototype-callout:hover,
-body.lotus-organic .lotus-prototype-callout:focus-visible {
-    color: #F3B7D5;
-    transform: translateY(-2px);
-}
-
-body.lotus-organic .lotus-prototype-callout:hover .lotus-curved-arrow,
-body.lotus-organic .lotus-prototype-callout:focus-visible .lotus-curved-arrow {
-    color: #F3B7D5;
-}
-
-/* Add consistent space after paragraphs throughout Lotus Lingo. */
-body.lotus-organic .project-story .story-text p,
-body.lotus-organic .lotus-section p {
-    margin-bottom: 1.1em;
-}
-
-body.lotus-organic .project-story .story-text p:last-child,
-body.lotus-organic .lotus-section p:last-child {
-    margin-bottom: 0;
-}
-
-/* App concept map: text on the left, image on the right. */
+/* Preserve the existing process layout and keep its heading left-aligned. */
 body.lotus-organic .lotus-process {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
@@ -2541,17 +2568,45 @@ body.lotus-organic .lotus-process .story-image {
     background: #71344F;
 }
 
-/* Center the games video and make its presentation match the prototype. */
-body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
+body.lotus-organic .lotus-process .story-image img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
 }
 
-body.lotus-organic .lotus-experience .lotus-games-figure {
+body.lotus-organic .lotus-process .story-image > p {
+    margin: 12px auto 0;
+    color: #FFFFFF !important;
+    text-align: center;
+}
+
+/* Games walkthrough: handwritten callout at left, video centered in the
+   full row. The Katakana lesson row is intentionally not affected. */
+body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(180px, 240px) minmax(0, 1fr);
+    align-items: center;
+    justify-content: center;
+    gap: clamp(18px, 3vw, 36px);
+}
+
+body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-handwritten-callout {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+    width: 100%;
+    max-width: 220px;
+    flex: initial;
+}
+
+body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-games-figure {
     display: flex;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
     flex: 0 1 240px;
     flex-direction: column;
     align-items: center;
@@ -2568,7 +2623,10 @@ body.lotus-organic .lotus-experience .lotus-games-figure video.video-player {
     margin: 0 auto;
 }
 
-/* Put the animated-logo caption directly underneath its video. */
+/* Do not change the Katakana lesson image or its arrow. */
+
+/* Animated logo: retain its current position and size; make the peach
+   wrapper fit the video instead of stretching vertically. */
 body.lotus-organic .lotus-brand .project-hero.video-hero.lotus-logo-animation {
     display: flex;
     flex-direction: column;
@@ -2585,7 +2643,26 @@ body.lotus-organic .lotus-brand .lotus-logo-animation .video-player {
     flex: none;
     width: min(100%, 760px);
     max-width: 760px;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
     margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    border: 5px solid #FFFCFA;
+    border-radius: 20px;
+    background: #426B4B;
+    line-height: 0;
+}
+
+body.lotus-organic .lotus-brand .lotus-logo-animation video.video-medium {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    margin: 0;
+    object-fit: contain;
 }
 
 body.lotus-organic .lotus-brand .lotus-logo-animation figcaption {
@@ -2593,6 +2670,48 @@ body.lotus-organic .lotus-brand .lotus-logo-animation figcaption {
     width: 100%;
     margin: 14px auto 0;
     text-align: center;
+}
+
+@media (max-width: 760px) {
+    body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left {
+        grid-template-columns: minmax(0, 1fr) minmax(170px, 210px) minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-handwritten-callout {
+        max-width: 100%;
+    }
+
+    body.lotus-organic .lotus-process .story-image {
+        width: 60%;
+        max-width: 270px;
+    }
+}
+
+@media (max-width: 560px) {
+    body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
+
+    body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-handwritten-callout {
+        order: 0;
+        width: 100%;
+        max-width: 220px;
+    }
+
+    body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-games-figure {
+        order: 1;
+        width: 180px;
+        max-width: 75%;
+    }
+
+    body.lotus-organic .lotus-process .story-image {
+        width: 70%;
+        max-width: 270px;
+    }
 }
 
 body.deets-page {
@@ -4442,147 +4561,6 @@ body.design-page .design-card .software-overlay {
     width: 100%;
     height: 100%;
 }
-
-/* =========================================================
-   LOTUS LINGO — ONBOARDING FLOW & USER JOURNEY
-   ========================================================= */
-
-/* Section backgrounds */
-
-body.lotus-organic .lotus-onboarding {
-    background: #365F7D;
-}
-
-body.lotus-organic .lotus-journey {
-    background: #71344F;
-}
-
-/* Onboarding flow */
-
-body.lotus-organic .lotus-flow-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-    margin: 36px 0 0;
-    padding: 0;
-    list-style: none;
-}
-
-body.lotus-organic .lotus-flow-step {
-    min-width: 0;
-    padding: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 18px;
-    background: rgba(6, 8, 11, 0.3);
-}
-
-body.lotus-organic .lotus-flow-number {
-    display: block;
-    margin-bottom: 14px;
-    color: #F3B7D5;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 2rem;
-    font-weight: 900;
-    line-height: 1;
-}
-
-body.lotus-organic .lotus-flow-step h3 {
-    margin: 0 0 10px;
-    color: #FFFFFF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 1.35rem;
-    letter-spacing: 0.04em;
-}
-
-body.lotus-organic .lotus-flow-step p {
-    margin: 0;
-    color: #FFFFFF;
-    font-size: 18px;
-    line-height: 1.7;
-}
-
-body.lotus-organic .lotus-flow-note,
-body.lotus-organic .lotus-journey-note {
-    margin: 26px auto 0;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 15px;
-    line-height: 1.6;
-    text-align: center;
-}
-
-/* User journey */
-
-body.lotus-organic .lotus-journey-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-    margin-top: 36px;
-}
-
-body.lotus-organic .lotus-journey-card {
-    min-width: 0;
-    padding: 26px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 18px;
-    background: rgba(6, 8, 11, 0.3);
-}
-
-body.lotus-organic .lotus-journey-number {
-    display: block;
-    margin-bottom: 14px;
-    color: #F3B7D5;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-}
-
-body.lotus-organic .lotus-journey-card h3 {
-    margin: 0 0 22px;
-    color: #FFFFFF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 1.5rem;
-}
-
-body.lotus-organic .lotus-journey-card h4 {
-    margin: 20px 0 7px;
-    color: #F3B7D5;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-}
-
-body.lotus-organic .lotus-journey-card p {
-    margin: 0;
-    color: #FFFFFF;
-    font-size: 18px;
-    line-height: 1.7;
-}
-
-/* Responsive layout */
-
-@media (max-width: 760px) {
-    body.lotus-organic .lotus-flow-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    body.lotus-organic .lotus-journey-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 560px) {
-    body.lotus-organic .lotus-flow-grid {
-        grid-template-columns: 1fr;
-    }
-
-    body.lotus-organic .lotus-flow-step,
-    body.lotus-organic .lotus-journey-card {
-        padding: 22px;
-    }
-}
-
 
 /* Tablet */
 @media (max-width: 900px) {
