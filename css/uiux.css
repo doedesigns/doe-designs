@@ -2213,35 +2213,34 @@ body.lotus-organic .lotus-prototype-callout {
     width: 100%;
     max-width: 220px;
     margin: 0;
-    color: #365F7D;
+    color: #F3B7D5;
     transform: none;
 }
 
 body.lotus-organic .lotus-prototype-callout .lotus-curved-arrow {
-    color: #365F7D;
+    color: #F3B7D5;
 }
 
 body.lotus-organic .lotus-prototype-callout:hover,
 body.lotus-organic .lotus-prototype-callout:focus-visible {
-    color: #173C61;
+    color: #FFD0E5;
     transform: translateY(-2px);
 }
 
 body.lotus-organic .lotus-prototype-callout:hover .lotus-curved-arrow,
 body.lotus-organic .lotus-prototype-callout:focus-visible .lotus-curved-arrow {
-    color: #173C61;
+    color: #FFD0E5;
 }
 
-/* Use the existing challenge blue for the prototype hover overlay instead
-   of introducing maroon. */
+/* Keep the prototype hover treatment clearly visible in the existing maroon. */
 body.lotus-organic .lotus-prototype .prototype-image-link:hover,
 body.lotus-organic .lotus-prototype .prototype-image-link:focus-visible {
-    border-color: #365F7D;
+    border-color: #71344F;
 }
 
 body.lotus-organic .lotus-prototype .prototype-image-link:hover .lotus-prototype-overlay,
 body.lotus-organic .lotus-prototype .prototype-image-link:focus-visible .lotus-prototype-overlay {
-    background: rgba(54, 95, 125, 0.96);
+    background: rgba(113, 52, 79, 0.96);
     color: #FFFFFF !important;
 }
 
@@ -2481,6 +2480,82 @@ body.lotus-organic .lotus-journey {
     background: #426B4B;
 }
 
+/* Restore an individual card around every onboarding and journey step. */
+body.lotus-organic .lotus-flow-step,
+body.lotus-organic .lotus-journey-card {
+    box-sizing: border-box;
+    min-width: 0;
+    padding: clamp(20px, 2.5vw, 30px);
+    border: 1px solid rgba(255, 208, 229, 0.42);
+    border-radius: 18px;
+    background: #173C61;
+    color: #FFFFFF;
+    box-shadow: 0 10px 26px rgba(25, 17, 25, 0.16);
+}
+
+body.lotus-organic .lotus-flow-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin: 28px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+body.lotus-organic .lotus-journey-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+body.lotus-organic .lotus-flow-number,
+body.lotus-organic .lotus-journey-number {
+    display: inline-block;
+    margin: 0 0 16px;
+    padding: 6px 11px;
+    border-radius: 999px;
+    background: #71344F;
+    color: #FFD0E5;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.2;
+}
+
+body.lotus-organic .lotus-flow-step h3,
+body.lotus-organic .lotus-journey-card h3 {
+    margin: 0 0 12px;
+    color: #E6F5FF;
+    font-family: "Jost", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+body.lotus-organic .lotus-flow-step p,
+body.lotus-organic .lotus-journey-card p {
+    margin: 0;
+    color: #FFFFFF;
+    line-height: 1.65;
+}
+
+body.lotus-organic .lotus-journey-card h4 {
+    margin: 18px 0 6px;
+    color: #FFD0E5;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+body.lotus-organic .lotus-flow-note,
+body.lotus-organic .lotus-journey-note {
+    margin: 22px 0 0;
+    color: #FFFFFF;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
 /* Eyebrow label backgrounds. */
 body.lotus-organic .lotus-overview .lotus-eyebrow,
 body.lotus-organic .lotus-onboarding .lotus-eyebrow {
@@ -2492,9 +2567,12 @@ body.lotus-organic .lotus-direction .lotus-eyebrow {
     background: #426B4B;
 }
 
-body.lotus-organic .lotus-journey .lotus-eyebrow,
-body.lotus-organic .lotus-experience .lotus-eyebrow {
+body.lotus-organic .lotus-journey .lotus-eyebrow {
     background: #173C61;
+}
+
+body.lotus-organic .lotus-prototype .lotus-eyebrow {
+    background: #426B4B;
 }
 
 body.lotus-organic .lotus-process .lotus-eyebrow {
@@ -2534,6 +2612,7 @@ body.lotus-organic .lotus-brand .lotus-section-heading h2 {
 
 body.lotus-organic .lotus-process .story-text h2 {
     text-align: left;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
 }
 
 /* Keep the app mockup caption unboxed. */
@@ -2625,34 +2704,37 @@ body.lotus-organic .lotus-experience .lotus-games-figure video.video-player {
 
 /* Do not change the Katakana lesson image or its arrow. */
 
-/* Animated logo: retain its current position and size; make the peach
-   wrapper fit the video instead of stretching vertically. */
+/* Animated logo: constrain the outer figure within the callout row, then
+   let the bordered player wrap the video's natural aspect ratio. */
 body.lotus-organic .lotus-brand .project-hero.video-hero.lotus-logo-animation {
     display: flex;
+    flex: 0 1 520px;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 auto;
+    width: 520px;
+    max-width: calc(100% - 244px);
+    min-width: 0;
+    margin: 0;
     gap: 0;
 }
 
 body.lotus-organic .lotus-brand .lotus-logo-animation .video-player {
     display: block;
-    flex: none;
-    width: min(100%, 760px);
-    max-width: 760px;
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
     height: auto;
     min-height: 0;
     aspect-ratio: auto;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
     overflow: hidden;
     border: 5px solid #FFFCFA;
     border-radius: 20px;
-    background: #426B4B;
+    background: transparent;
     line-height: 0;
+    box-sizing: border-box;
 }
 
 body.lotus-organic .lotus-brand .lotus-logo-animation video.video-medium {
@@ -2672,7 +2754,20 @@ body.lotus-organic .lotus-brand .lotus-logo-animation figcaption {
     text-align: center;
 }
 
+@media (max-width: 900px) {
+    body.lotus-organic .lotus-flow-grid,
+    body.lotus-organic .lotus-journey-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 @media (max-width: 760px) {
+    body.lotus-organic .lotus-brand .project-hero.video-hero.lotus-logo-animation {
+        flex-basis: 460px;
+        width: 460px;
+        max-width: calc(100% - 220px);
+    }
+
     body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left {
         grid-template-columns: minmax(0, 1fr) minmax(170px, 210px) minmax(0, 1fr);
         gap: 12px;
@@ -2689,6 +2784,22 @@ body.lotus-organic .lotus-brand .lotus-logo-animation figcaption {
 }
 
 @media (max-width: 560px) {
+    body.lotus-organic .lotus-flow-grid,
+    body.lotus-organic .lotus-journey-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.lotus-organic .lotus-brand .lotus-callout-row.lotus-callout-left {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    body.lotus-organic .lotus-brand .project-hero.video-hero.lotus-logo-animation {
+        flex: 0 1 auto;
+        width: 100%;
+        max-width: 520px;
+    }
+
     body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left {
         display: flex;
         flex-direction: column;
