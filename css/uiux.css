@@ -845,12 +845,16 @@ body.chrono-video-open {
 }
 
 .chrono-page .chrono-ecosystem-footer {
+    grid-column: 1 / -1;
+    display: block;
+    width: 100%;
     margin: 22px 0 0;
     color: rgba(0, 229, 255, 0.72);
     font-family: "Barlow Condensed", sans-serif;
     font-size: 0.75rem;
     letter-spacing: 0.2em;
     text-align: right;
+    white-space: nowrap;
 }
 
 /* =========================================================
