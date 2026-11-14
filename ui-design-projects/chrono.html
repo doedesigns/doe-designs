@@ -42,7 +42,6 @@
     <title>Phasepoint Technologies | UX/UI &amp; Digital Product Design | Doe Designs</title>
 </head>
 
-
 <body class="project-page scroll-page chrono-page">
 
     <canvas id="dust"></canvas>
@@ -126,27 +125,39 @@
             </a>
         </section>
 
-        <!-- HERO IMAGE -->
+        <!-- HERO: CLICK TO PLAY WALKTHROUGH -->
 
         <section class="project-hero chrono-hero-image">
-            <img
-                src="../images/ui/chrono/4.1.23-chrono-device-active.png"
-                alt="Chrono Nexus time-travel device in use">
-        </section>
 
-        <!-- WALKTHROUGH -->
+            <button
+                type="button"
+                class="chrono-video-trigger"
+                data-chrono-video-open
+                aria-label="Play the Chrono Nexus product walkthrough">
 
-        <section class="project-hero video-hero">
+                <img
+                    src="../images/ui/chrono/4.1.23-chrono-device-active.png"
+                    alt="Chrono Nexus time-travel device in use">
 
-            <div class="video-player">
-                <iframe
-                    src="https://www.youtube.com/embed/XPHya9a8SBM"
-                    title="Chrono Nexus Figma Walkthrough"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen>
-                </iframe>
-            </div>
+                <span class="chrono-hero-overlay" aria-hidden="true">
+                    <span class="chrono-play-button">
+                        <span class="chrono-play-triangle"></span>
+                    </span>
+                    <span class="chrono-play-label">EXPLORE THE CHRONO NEXUS</span>
+                </span>
+
+                <span class="chrono-hero-index" aria-hidden="true">
+                    PHASEPOINT TECHNOLOGIES
+                    <span>PRODUCT SYSTEM / 01</span>
+                </span>
+
+            </button>
+
+            <p class="chrono-hero-caption">
+                PRECISION BEYOND THE PRESENT.
+                <span>Introducing the Chrono Nexus.</span>
+            </p>
+
         </section>
 
         <!-- PROJECT METADATA -->
@@ -196,6 +207,8 @@
                 src="../images/ui/chrono/4.1.1.-pp-logo.png"
                 alt="Phasepoint Technologies logo">
 
+            <p class="chrono-section-index">SYSTEM BRIEF / 001</p>
+
             <h2 class="case-heading">PROJECT OVERVIEW</h2>
 
             <p class="overview-intro">
@@ -205,13 +218,14 @@
             </p>
 
             <p class="overview-summary">
-                Phasepoint Technologies introduces the Chrono Nexus, a fictional device designed for controlled time travel.<br>
+                Phasepoint Technologies introduces the Chrono Nexus, a fictional device designed for controlled time travel.
                 The goal was to make this extraordinary concept feel like a sophisticated, credible, thoughtfully designed technology product.
             </p>
 
             <div class="overview-grid">
 
                 <div class="overview-statement">
+                    <span class="chrono-card-index">01 / THE PROBLEM</span>
                     <h3>THE CHALLENGE</h3>
                     <p>How do you make an impossible technology feel understandable &amp; trustworthy?</p>
                     <ul>
@@ -222,6 +236,7 @@
                 </div>
 
                 <div class="overview-statement">
+                    <span class="chrono-card-index">02 / THE RESPONSE</span>
                     <h3>THE SOLUTION</h3>
                     <p>Treat time travel like a legitimate technology product, not a science-fiction fantasy.</p>
                     <ul>
@@ -233,71 +248,139 @@
 
             </div>
 
-            <!-- FOUR-PART PRODUCT OVERVIEW -->
+            <!-- PHASEPOINT PRODUCT ECOSYSTEM -->
 
-            <div class="phasepoint-feature-section">
+            <section class="chrono-ecosystem">
 
-                <h3 class="phasepoint-feature-heading">THE PHASEPOINT EXPERIENCE</h3>
+                <div class="chrono-ecosystem-heading">
+                    <div>
+                        <p class="chrono-section-index">PHASEPOINT / PRODUCT ARCHITECTURE</p>
+                        <h3>THE PHASEPOINT EXPERIENCE</h3>
+                    </div>
+                    <p class="chrono-ecosystem-intro">
+                        One technology. Four connected dimensions.
+                    </p>
+                </div>
 
-                <div class="phasepoint-feature-grid">
+                <div class="chrono-ecosystem-grid">
 
-                    <figure class="phasepoint-feature lightbox-image">
-                        <img
-                            src="../images/ui/chrono/4.1.5-chrono-tradeshow.png"
-                            alt="Chrono Nexus device presented at a technology tradeshow"
-                            data-lightbox-text="The Chrono Nexus device presented as a physical product at a tradeshow, bringing the fictional technology concept into a real-world product presentation.">
+                    <!-- DEVICE -->
+
+                    <figure class="chrono-ecosystem-card chrono-ecosystem-device lightbox-image">
+
+                        <div class="chrono-ecosystem-topline">
+                            <span>01 / HARDWARE</span>
+                            <span>CHRONO NEXUS</span>
+                        </div>
+
+                        <div class="chrono-ecosystem-media">
+                            <img
+                                src="../images/ui/chrono/4.1.5-chrono-tradeshow.png"
+                                alt="Chrono Nexus device presented at a technology tradeshow"
+                                data-lightbox-text="The Chrono Nexus device presented as a physical product at a tradeshow, bringing the fictional technology concept into a real-world product presentation.">
+                        </div>
 
                         <figcaption>
-                            <h4>01 — THE DEVICE</h4>
+                            <h4>THE DEVICE</h4>
                             <p>A physical product concept designed to make time travel feel tangible.</p>
                         </figcaption>
+
+                        <span class="chrono-ecosystem-corner" aria-hidden="true">P / 01</span>
+
                     </figure>
 
-                    <figure class="phasepoint-feature lightbox-image">
-                        <img
-                            src="../images/ui/chrono/4.1.17-pp-device-specs-page.png"
-                            alt="Phasepoint Technologies Chrono Nexus device specifications page"
-                            data-lightbox-text="The device specifications page introduces the Chrono Nexus product in detail. Specifications were developed by researching existing handheld devices and adapting the concepts to the fictional time-travel technology.">
+                    <!-- PLATFORM -->
+
+                    <figure class="chrono-ecosystem-card chrono-ecosystem-platform lightbox-image">
+
+                        <div class="chrono-ecosystem-topline">
+                            <span>02 / DIGITAL PLATFORM</span>
+                            <span>INFORMATION SYSTEM</span>
+                        </div>
+
+                        <div class="chrono-ecosystem-media">
+                            <img
+                                src="../images/ui/chrono/4.1.17-pp-device-specs-page.png"
+                                alt="Phasepoint Technologies Chrono Nexus device specifications page"
+                                data-lightbox-text="The device specifications page introduces the Chrono Nexus product in detail. Specifications were developed by researching existing handheld devices and adapting the concepts to the fictional time-travel technology.">
+                        </div>
 
                         <figcaption>
-                            <h4>02 — THE PLATFORM</h4>
+                            <h4>THE PLATFORM</h4>
                             <p>Product information, specifications, and education in one connected experience.</p>
                         </figcaption>
+
+                        <span class="chrono-ecosystem-corner" aria-hidden="true">P / 02</span>
+
                     </figure>
 
-                    <figure class="phasepoint-feature lightbox-image">
-                        <img
-                            src="../images/ui/chrono/4.1.25-phasepoint-user-profile.png"
-                            alt="Phasepoint Technologies traveler user profile interface"
-                            data-lightbox-text="The Phasepoint traveler profile brings personal account information and traveler details into the digital product experience.">
+                    <!-- TRAVELER -->
+
+                    <figure class="chrono-ecosystem-card chrono-ecosystem-traveler lightbox-image">
+
+                        <div class="chrono-ecosystem-topline">
+                            <span>03 / USER INTERFACE</span>
+                            <span>TRAVELER PROFILE</span>
+                        </div>
+
+                        <div class="chrono-ecosystem-media">
+                            <img
+                                src="../images/ui/chrono/4.1.25-phasepoint-user-profile.png"
+                                alt="Phasepoint Technologies traveler user profile interface"
+                                data-lightbox-text="The Phasepoint traveler profile brings personal account information and traveler details into the digital product experience.">
+                        </div>
 
                         <figcaption>
-                            <h4>03 — THE TRAVELER EXPERIENCE</h4>
+                            <h4>THE TRAVELER EXPERIENCE</h4>
                             <p>A personalized account experience for managing traveler information.</p>
                         </figcaption>
+
+                        <span class="chrono-ecosystem-corner" aria-hidden="true">P / 03</span>
+
                     </figure>
 
-                    <figure class="phasepoint-feature lightbox-image">
-                        <img
-                            src="../images/ui/chrono/4.1.24-phasepoint-stabilisation-chart.png"
-                            alt="Phasepoint Technologies Chrono Nexus stabilization data chart"
-                            data-lightbox-text="A stabilization chart illustrating the type of technical data and system information associated with the Chrono Nexus experience.">
+                    <!-- DATA -->
+
+                    <figure class="chrono-ecosystem-card chrono-ecosystem-data lightbox-image">
+
+                        <div class="chrono-ecosystem-topline">
+                            <span>04 / SYSTEM INTELLIGENCE</span>
+                            <span>STABILIZATION DATA</span>
+                        </div>
+
+                        <div class="chrono-ecosystem-media">
+                            <img
+                                src="../images/ui/chrono/4.1.24-phasepoint-stabilisation-chart.png"
+                                alt="Phasepoint Technologies Chrono Nexus stabilization data chart"
+                                data-lightbox-text="A stabilization chart illustrating the type of technical data and system information associated with the Chrono Nexus experience.">
+                        </div>
 
                         <figcaption>
-                            <h4>04 — THE DATA</h4>
+                            <h4>THE DATA</h4>
                             <p>Technical information presented as part of the product experience.</p>
                         </figcaption>
+
+                        <span class="chrono-ecosystem-corner" aria-hidden="true">P / 04</span>
+
                     </figure>
 
                 </div>
-            </div>
+
+                <p class="chrono-ecosystem-footer">
+                    HARDWARE &nbsp; / &nbsp; PLATFORM &nbsp; / &nbsp; PEOPLE &nbsp; / &nbsp; PRECISION
+                </p>
+
+            </section>
 
             <!-- OVERVIEW CAROUSEL -->
 
             <div class="case-carousel" data-carousel>
 
                 <div class="carousel-toolbar">
-                    <p>THE CONCEPT IN FOCUS</p>
+                    <div>
+                        <p class="chrono-section-index">DIGITAL EXPERIENCE / SELECTED SCREENS</p>
+                        <p>THE CONCEPT IN FOCUS</p>
+                    </div>
 
                     <div class="carousel-controls">
                         <button type="button" class="carousel-arrow" data-carousel-prev aria-label="Previous image">
@@ -376,6 +459,7 @@
 
         <section class="case-section approach-section">
 
+            <p class="chrono-section-index">DESIGN DEVELOPMENT / 002</p>
             <h2 class="case-heading">PROJECT APPROACH</h2>
 
             <div class="approach-grid">
@@ -453,6 +537,7 @@
 
         <section class="case-section creative-section">
 
+            <p class="chrono-section-index">VISUAL LANGUAGE / 003</p>
             <h2 class="case-heading">CREATIVE DIRECTION &amp; PROCESS</h2>
 
             <p class="section-lead">
@@ -491,6 +576,7 @@
 
         <section class="case-section prototype-section">
 
+            <p class="chrono-section-index">INTERACTION DESIGN / 004</p>
             <h2 class="case-heading">INTERACTIVE PROTOTYPE</h2>
 
             <p class="section-lead">
@@ -527,6 +613,7 @@
 
         <section class="case-section ux-section">
 
+            <p class="chrono-section-index">USER FLOW / 005</p>
             <h2 class="case-heading">UX APPROACH</h2>
 
             <p class="section-lead">
@@ -605,6 +692,7 @@
 
         <section class="case-section gallery-section">
 
+            <p class="chrono-section-index">ADDITIONAL APPLICATIONS / 006</p>
             <h2 class="case-heading">GALLERY</h2>
 
             <div class="project-gallery-row">
@@ -649,7 +737,37 @@
 
     </main>
 
-    <!-- FOOTER AND SCRIPTS -->
+    <!-- VIDEO MODAL -->
+
+    <div
+        class="chrono-video-modal"
+        data-chrono-video-modal
+        role="dialog"
+        aria-modal="true"
+        aria-label="Chrono Nexus product walkthrough"
+        aria-hidden="true"
+        hidden>
+
+        <div class="chrono-video-modal-panel">
+
+            <button
+                type="button"
+                class="chrono-video-close"
+                data-chrono-video-close
+                aria-label="Close video">
+                &times;
+            </button>
+
+            <div class="chrono-video-frame" data-chrono-video-frame></div>
+
+            <p class="chrono-video-modal-caption">
+                PHASEPOINT TECHNOLOGIES / CHRONO NEXUS PRODUCT WALKTHROUGH
+            </p>
+
+        </div>
+    </div>
+
+    <!-- FOOTER AND SHARED SCRIPTS -->
 
     <footer id="footerCopyright"></footer>
 
@@ -658,7 +776,78 @@
     <script src="../js/main.js"></script>
     <script src="../js/nav.js"></script>
 
-    <!-- Phasepoint: Continuous Interactive Carousel -->
+    <!-- PHASEPOINT: CLICK-TO-PLAY VIDEO -->
+
+    <script>
+    (() => {
+        const openButton = document.querySelector("[data-chrono-video-open]");
+        const modal = document.querySelector("[data-chrono-video-modal]");
+        const closeButton = document.querySelector("[data-chrono-video-close]");
+        const frameContainer = document.querySelector("[data-chrono-video-frame]");
+
+        if (!openButton || !modal || !closeButton || !frameContainer) return;
+
+        let previousFocus = null;
+
+        const openVideo = () => {
+            previousFocus = document.activeElement;
+
+            const iframe = document.createElement("iframe");
+            iframe.src = "https://www.youtube.com/embed/XPHya9a8SBM?autoplay=1&rel=0";
+            iframe.title = "Chrono Nexus Figma Walkthrough";
+            iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+            iframe.referrerPolicy = "strict-origin-when-cross-origin";
+            iframe.allowFullscreen = true;
+
+            frameContainer.replaceChildren(iframe);
+
+            modal.hidden = false;
+            modal.setAttribute("aria-hidden", "false");
+            document.body.classList.add("chrono-video-open");
+
+            requestAnimationFrame(() => {
+                modal.classList.add("active");
+                closeButton.focus();
+            });
+        };
+
+        const closeVideo = () => {
+            modal.classList.remove("active");
+            modal.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("chrono-video-open");
+
+            // Removing the iframe stops playback.
+            frameContainer.replaceChildren();
+
+            window.setTimeout(() => {
+                modal.hidden = true;
+                if (previousFocus) previousFocus.focus();
+            }, 250);
+        };
+
+        openButton.addEventListener("click", openVideo);
+        closeButton.addEventListener("click", closeVideo);
+
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) closeVideo();
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (modal.hidden) return;
+
+            if (event.key === "Escape") {
+                closeVideo();
+            }
+
+            if (event.key === "Tab") {
+                event.preventDefault();
+                closeButton.focus();
+            }
+        });
+    })();
+    </script>
+
+    <!-- PHASEPOINT: CONTINUOUS INTERACTIVE CAROUSEL -->
 
     <script>
     document.querySelectorAll("[data-carousel]").forEach((carousel) => {
@@ -668,20 +857,20 @@
         const next = carousel.querySelector("[data-carousel-next]");
 
         if (!track || !previous || !next) return;
-
-        // Prevent duplicate initialization
         if (carousel.dataset.initialized === "true") return;
+
         carousel.dataset.initialized = "true";
 
-        // Duplicate original slides for seamless looping
         const originalSlides = Array.from(track.children);
 
         originalSlides.forEach((slide) => {
             const clone = slide.cloneNode(true);
             clone.setAttribute("aria-hidden", "true");
+
             clone.querySelectorAll("[data-lightbox-text]").forEach((img) => {
                 img.removeAttribute("data-lightbox-text");
             });
+
             track.appendChild(clone);
         });
 
@@ -692,17 +881,14 @@
         let dragStartX = 0;
         let dragStartPosition = 0;
         let lastInteraction = 0;
-
-        const speed = 25; // pixels per second
         let previousTime = null;
 
-        const getLoopWidth = () => {
-            return track.scrollWidth / 2;
-        };
+        const speed = 25;
+
+        const getLoopWidth = () => track.scrollWidth / 2;
 
         const wrapPosition = () => {
             const loopWidth = getLoopWidth();
-
             if (loopWidth <= 0) return;
 
             if (position >= loopWidth) position -= loopWidth;
@@ -719,29 +905,29 @@
             lastInteraction = performance.now();
         };
 
-        // Continuous movement
         const animate = (time) => {
             if (previousTime === null) previousTime = time;
 
             const delta = Math.min((time - previousTime) / 1000, 0.05);
             previousTime = time;
 
-            if (!isHovering && !isDragging &&
-                !isInteracting) {
+            if (!isHovering && !isDragging && !isInteracting) {
                 position += speed * delta;
                 updatePosition();
             }
 
-            if (isInteracting &&
+            if (
+                isInteracting &&
                 time - lastInteraction > 1800 &&
-                !isHovering && !isDragging) {
+                !isHovering &&
+                !isDragging
+            ) {
                 isInteracting = false;
             }
 
             requestAnimationFrame(animate);
         };
 
-        // Mouse dragging
         track.addEventListener("pointerdown", (event) => {
             if (event.target.closest("button")) return;
 
@@ -773,7 +959,6 @@
         track.addEventListener("pointerup", stopDragging);
         track.addEventListener("pointercancel", stopDragging);
 
-        // Pause while hovering
         carousel.addEventListener("mouseenter", () => {
             isHovering = true;
         });
@@ -782,7 +967,6 @@
             isHovering = false;
         });
 
-        // Arrow controls
         const moveBySlide = (direction) => {
             const slide = originalSlides[0];
             if (!slide) return;
@@ -799,7 +983,6 @@
         previous.addEventListener("click", () => moveBySlide(-1));
         next.addEventListener("click", () => moveBySlide(1));
 
-        // Start animation
         updatePosition();
         requestAnimationFrame(animate);
 

@@ -815,9 +815,9 @@ document.addEventListener("DOMContentLoaded", () => {
         let running = false;
         let generation = 0;
 
-        /* ========================================
-           POSITION TRACK AGAINST THE VIEWPORT
-        ======================================== */
+/* ========================================
+     POSITION TRACK AGAINST THE VIEWPORT
+======================================== */
 
         function positionTrack() {
 
@@ -854,9 +854,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 }
 
-        /* ========================================
-           BUILD THE PATH
-        ======================================== */
+/* ========================================
+		BUILD THE PATH
+======================================== */
 
         function getDimensions() {
 

@@ -216,25 +216,51 @@ linear-gradient(
 );
 }
 
+
+/* =========================================================
+   PHASEPOINT TECHNOLOGIES — CHRONO NEXUS
+   Future technology / temporal systems visual language
+   ========================================================= */
+
 body.chrono-page {
-background:
-linear-gradient(
-180deg,
-#081522,
-#28436b
-);
+    background:
+        radial-gradient(ellipse at 50% 8%, rgba(0, 135, 190, 0.19), transparent 42%),
+        radial-gradient(ellipse at 90% 48%, rgba(0, 65, 125, 0.16), transparent 38%),
+        linear-gradient(180deg, #06111f 0%, #081522 48%, #0b1c30 100%);
 }
 
 .chrono-page {
-    --chrono-cyan: #00E5FF;
-    --chrono-panel: rgba(255, 255, 255, 0.035);
-    --chrono-border: rgba(255, 255, 255, 0.14);
-    --chrono-muted: rgba(255, 255, 255, 0.68);
+    --chrono-cyan: #00e5ff;
+    --chrono-blue: #36a9ff;
+    --chrono-panel: rgba(8, 28, 48, 0.72);
+    --chrono-panel-light: rgba(20, 49, 75, 0.45);
+    --chrono-border: rgba(92, 190, 235, 0.23);
+    --chrono-muted: rgba(225, 239, 248, 0.70);
+    --chrono-white: #f4f9fc;
 }
 
+/* Subtle technical grid */
+
+body.chrono-page::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.15;
+    background-image:
+        linear-gradient(rgba(72, 166, 210, 0.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(72, 166, 210, 0.12) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+/* Main case-study sections */
+
 .chrono-page .case-section {
+    position: relative;
     width: min(1100px, 92%);
-    margin: 80px auto;
+    margin: 92px auto;
 }
 
 .chrono-page .case-heading {
@@ -242,11 +268,13 @@ linear-gradient(
     width: fit-content;
     max-width: 100%;
     margin: 0 auto 34px;
-    padding-bottom: 12px;
+    padding-bottom: 14px;
+    color: var(--chrono-white);
     text-align: center;
     font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
 }
 
@@ -255,21 +283,32 @@ linear-gradient(
     position: absolute;
     left: 50%;
     bottom: 0;
-    width: 42px;
+    width: 54px;
     height: 2px;
     background: var(--chrono-cyan);
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.65);
     transform: translateX(-50%);
-    transition: width 0.3s ease;
+    transition: width 0.35s ease;
 }
 
-.chrono-page .case-heading:hover::after,
-.chrono-page .case-heading:focus-visible::after {
+.chrono-page .case-heading:hover::after {
     width: 100%;
+}
+
+.chrono-page .chrono-section-index {
+    margin: 0 0 12px;
+    color: var(--chrono-cyan);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 .chrono-page .section-lead {
     max-width: 760px;
-    margin: 0 auto 30px;
+    margin: 0 auto 34px;
     color: var(--chrono-muted);
     text-align: center;
     line-height: 1.8;
@@ -280,41 +319,290 @@ linear-gradient(
 }
 
 .chrono-page .case-section li {
-    line-height: 1.65;
     margin-bottom: 8px;
+    line-height: 1.65;
 }
 
 .chrono-page .case-section h3 {
     font-family: "Barlow Condensed", sans-serif;
+    letter-spacing: 0.06em;
+}
+
+/* =========================================================
+   HERO IMAGE + VIDEO LAUNCHER
+   ========================================================= */
+
+body.chrono-page .chrono-hero-image {
+    width: 76%;
+    max-width: 900px;
+    margin: 0 auto 26px;
+}
+
+.chrono-page .chrono-video-trigger {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid rgba(0, 229, 255, 0.32);
+    border-radius: 4px;
+    background: #071522;
+    color: white;
+    cursor: pointer;
+    box-shadow:
+        0 25px 75px rgba(0, 0, 0, 0.48),
+        0 0 35px rgba(0, 130, 190, 0.12);
+    text-align: left;
+}
+
+.chrono-video-trigger::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 229, 255, 0.09),
+        transparent 42%,
+        rgba(0, 70, 140, 0.16)
+    );
+}
+
+.chrono-video-trigger > img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    border: 0;
+    box-shadow: none;
+    transition: transform 0.65s ease, filter 0.65s ease;
+}
+
+.chrono-video-trigger:hover > img,
+.chrono-video-trigger:focus-visible > img {
+    transform: scale(1.025);
+    filter: brightness(0.76);
+}
+
+.chrono-video-trigger:focus-visible {
+    outline: 2px solid var(--chrono-cyan);
+    outline-offset: 5px;
+}
+
+.chrono-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background: radial-gradient(
+        circle,
+        rgba(0, 20, 38, 0.08),
+        rgba(0, 10, 24, 0.38)
+    );
+    transition: background 0.35s ease;
+}
+
+.chrono-video-trigger:hover .chrono-hero-overlay {
+    background: rgba(0, 15, 30, 0.22);
+}
+
+.chrono-play-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 76px;
+    border: 1px solid rgba(0, 229, 255, 0.85);
+    border-radius: 50%;
+    background: rgba(3, 20, 36, 0.72);
+    box-shadow:
+        0 0 0 8px rgba(0, 229, 255, 0.08),
+        0 0 32px rgba(0, 229, 255, 0.28);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chrono-video-trigger:hover .chrono-play-button {
+    transform: scale(1.1);
+    box-shadow:
+        0 0 0 12px rgba(0, 229, 255, 0.08),
+        0 0 42px rgba(0, 229, 255, 0.5);
+}
+
+.chrono-play-triangle {
+    width: 0;
+    height: 0;
+    margin-left: 5px;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+    border-left: 17px solid var(--chrono-cyan);
+}
+
+.chrono-play-label {
+    color: white;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.chrono-hero-index {
+    position: absolute;
+    left: 22px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.chrono-hero-index span {
+    color: var(--chrono-cyan);
+    font-size: 0.7rem;
+}
+
+.chrono-hero-caption {
+    margin: 16px 0 0;
+    color: var(--chrono-cyan);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
+    text-align: center;
+}
+
+.chrono-hero-caption span {
+    display: block;
+    margin-top: 4px;
+    color: var(--chrono-muted);
+    font-family: "Jost", sans-serif;
+    font-size: 0.9rem;
     letter-spacing: 0.04em;
 }
 
+/* Video modal */
+
+body.chrono-video-open {
+    overflow: hidden;
+}
+
+.chrono-video-modal[hidden] {
+    display: none !important;
+}
+
+.chrono-video-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 30000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+    background: rgba(1, 7, 15, 0.94);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.chrono-video-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.chrono-video-modal-panel {
+    position: relative;
+    width: min(1100px, 96vw);
+    padding: 22px;
+    border: 1px solid rgba(0, 229, 255, 0.35);
+    background: #071522;
+    box-shadow: 0 0 60px rgba(0, 110, 180, 0.18);
+}
+
+.chrono-video-close {
+    position: absolute;
+    top: -46px;
+    right: 0;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(0, 229, 255, 0.55);
+    border-radius: 50%;
+    background: rgba(5, 20, 34, 0.9);
+    color: white;
+    font-size: 1.7rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+.chrono-video-close:hover,
+.chrono-video-close:focus-visible {
+    color: #06111f;
+    background: var(--chrono-cyan);
+}
+
+.chrono-video-frame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+}
+
+.chrono-video-frame iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.chrono-video-modal-caption {
+    margin: 14px 0 0;
+    color: var(--chrono-cyan);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-align: center;
+}
+
+/* =========================================================
+   PROJECT OVERVIEW
+   ========================================================= */
+
 .chrono-page .overview-section {
     max-width: 1050px;
-    margin-top: 48px;
+    margin-top: 58px;
 }
 
 .chrono-page .overview-logo {
     display: block;
     width: 74px;
     height: 74px;
+    margin: 0 auto 18px;
     object-fit: contain;
-    margin: 0 auto 16px;
     background: transparent;
 }
 
 .chrono-page .overview-intro {
     max-width: 780px;
-    margin: 0 auto 10px;
-    font-size:clamp(1.125rem, 2vw, 1.3rem);
+    margin: 0 auto 16px;
+    font-size: clamp(1.125rem, 2vw, 1.3rem);
     text-align: center;
 }
 
 .chrono-page .overview-summary {
-    max-width: 780px;
-    margin: 0 auto 28px;
-    text-align: center;
+    display: block;
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto 38px;
     color: var(--chrono-muted);
+    text-align: center;
 }
 
 .chrono-page .overview-grid {
@@ -324,16 +612,39 @@ linear-gradient(
 }
 
 .chrono-page .overview-statement {
-    padding: 24px;
+    position: relative;
+    padding: 28px;
+    overflow: hidden;
     border: 1px solid var(--chrono-border);
-    border-radius: 10px;
-    background: var(--chrono-panel);
+    border-radius: 5px;
+    background:
+        linear-gradient(145deg, rgba(17, 47, 73, 0.82), rgba(5, 20, 35, 0.82));
+}
+
+.chrono-page .overview-statement::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 48px;
+    height: 2px;
+    background: var(--chrono-cyan);
+    box-shadow: 0 0 14px rgba(0, 229, 255, 0.5);
+}
+
+.chrono-page .chrono-card-index {
+    display: block;
+    margin-bottom: 16px;
+    color: var(--chrono-cyan);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
 }
 
 .chrono-page .overview-statement h3 {
     margin: 0 0 12px;
-    color: var(--chrono-cyan);
-    font-size: 1.15rem;
+    color: var(--chrono-white);
+    font-size: 1.2rem;
 }
 
 .chrono-page .overview-statement p {
@@ -343,10 +654,194 @@ linear-gradient(
 .chrono-page .overview-statement ul {
     padding-left: 20px;
     margin-bottom: 0;
+    color: var(--chrono-muted);
 }
 
+/* =========================================================
+   FOUR-PART PRODUCT ECOSYSTEM
+   ========================================================= */
+
+.chrono-page .chrono-ecosystem {
+    position: relative;
+    margin: 78px 0 62px;
+    padding: 34px 0 26px;
+    border-top: 1px solid var(--chrono-border);
+    border-bottom: 1px solid var(--chrono-border);
+}
+
+.chrono-page .chrono-ecosystem-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.chrono-page .chrono-ecosystem-heading .chrono-section-index {
+    text-align: left;
+}
+
+.chrono-page .chrono-ecosystem-heading h3 {
+    margin: 0;
+    color: var(--chrono-white);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.chrono-page .chrono-ecosystem-intro {
+    max-width: 260px;
+    margin: 0 0 4px;
+    color: var(--chrono-muted);
+    font-size: 0.95rem;
+    text-align: right;
+}
+
+.chrono-page .chrono-ecosystem-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(220px, auto));
+    gap: 18px;
+}
+
+.chrono-page .chrono-ecosystem-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin: 0;
+    padding: 16px;
+    overflow: hidden;
+    border: 1px solid var(--chrono-border);
+    border-radius: 4px;
+    background:
+        linear-gradient(145deg, rgba(18, 48, 73, 0.72), rgba(5, 19, 34, 0.92));
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.chrono-page .chrono-ecosystem-card:hover {
+    border-color: rgba(0, 229, 255, 0.7);
+    box-shadow: 0 0 28px rgba(0, 170, 220, 0.13);
+    transform: translateY(-3px);
+}
+
+.chrono-page .chrono-ecosystem-device {
+    grid-column: 1 / span 7;
+    grid-row: 1 / span 2;
+}
+
+.chrono-page .chrono-ecosystem-platform {
+    grid-column: 8 / span 5;
+    grid-row: 1;
+}
+
+.chrono-page .chrono-ecosystem-traveler {
+    grid-column: 1 / span 5;
+    grid-row: 3;
+}
+
+.chrono-page .chrono-ecosystem-data {
+    grid-column: 6 / span 7;
+    grid-row: 2 / span 2;
+}
+
+.chrono-page .chrono-ecosystem-topline {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    color: var(--chrono-cyan);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.13em;
+}
+
+.chrono-page .chrono-ecosystem-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 auto;
+    min-height: 170px;
+    padding: 12px;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at center, rgba(0, 120, 175, 0.13), transparent 72%),
+        rgba(0, 8, 18, 0.38);
+}
+
+.chrono-page .chrono-ecosystem-media img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 360px;
+    margin: 0;
+    object-fit: contain;
+    cursor: zoom-in;
+    transition: transform 0.45s ease, filter 0.35s ease;
+}
+
+.chrono-page .chrono-ecosystem-card:hover .chrono-ecosystem-media img {
+    transform: scale(1.025);
+    filter: brightness(1.06);
+}
+
+.chrono-page .chrono-ecosystem-device .chrono-ecosystem-media {
+    min-height: 400px;
+}
+
+.chrono-page .chrono-ecosystem-device .chrono-ecosystem-media img {
+    max-height: 520px;
+}
+
+.chrono-page .chrono-ecosystem-card figcaption {
+    position: relative;
+    z-index: 1;
+    padding: 18px 4px 4px;
+}
+
+.chrono-page .chrono-ecosystem-card figcaption h4 {
+    margin: 0 0 7px;
+    color: var(--chrono-white);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: 0.12em;
+}
+
+.chrono-page .chrono-ecosystem-card figcaption p {
+    margin: 0;
+    color: var(--chrono-muted);
+    font-size: 0.95rem;
+}
+
+.chrono-page .chrono-ecosystem-corner {
+    position: absolute;
+    top: 48px;
+    right: 16px;
+    color: rgba(0, 229, 255, 0.5);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+}
+
+.chrono-page .chrono-ecosystem-footer {
+    margin: 22px 0 0;
+    color: rgba(0, 229, 255, 0.72);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-align: right;
+}
+
+/* =========================================================
+   CONTINUOUS CAROUSEL
+   ========================================================= */
+
 .chrono-page .case-carousel {
-    margin-top: 30px;
+    min-width: 0;
+    max-width: 100%;
+    margin-top: 52px;
+    overflow: hidden;
 }
 
 .chrono-page .carousel-toolbar {
@@ -357,11 +852,17 @@ linear-gradient(
     margin-bottom: 14px;
 }
 
-.chrono-page .carousel-toolbar > p {
+.chrono-page .carousel-toolbar > div:first-child > p:last-child {
     margin: 0;
+    color: var(--chrono-white);
     font-family: "Barlow Condensed", sans-serif;
-    font-size:1.125rem;
+    font-size: 1.35rem;
     letter-spacing: 0.12em;
+}
+
+.chrono-page .carousel-toolbar .chrono-section-index {
+    margin-bottom: 5px;
+    text-align: left;
 }
 
 .chrono-page .carousel-controls {
@@ -381,28 +882,85 @@ linear-gradient(
     color: white;
     font-size: 1.2rem;
     cursor: pointer;
-    transition: color 0.2s ease, border-color 0.2s ease,
-                background 0.2s ease;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 .chrono-page .carousel-arrow:hover,
 .chrono-page .carousel-arrow:focus-visible {
-    color: #06080B;
+    color: #06111f;
     border-color: var(--chrono-cyan);
     background: var(--chrono-cyan);
 }
 
-.chrono-page .carousel-slide {
+body.chrono-page .carousel-track {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 28px;
+    width: max-content;
     min-width: 0;
+    max-width: none;
+    padding: 10px 8px 22px;
+    overflow: visible;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+    cursor: grab;
+    isolation: isolate;
+}
+
+body.chrono-page .carousel-track:active {
+    cursor: grabbing;
+}
+
+body.chrono-page .carousel-slide {
+    position: relative;
+    display: block;
+    flex: 0 0 min(65%, 620px);
+    width: min(65%, 620px);
+    max-width: 620px;
+    min-width: 0;
+    height: auto;
     margin: 0;
-    scroll-snap-align: start;
+    overflow: visible;
+}
+
+body.chrono-page .carousel-slide img {
+    position: static;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto !important;
+    max-height: none;
+    margin: 0;
+    object-fit: contain;
+    object-position: center;
+    filter: none;
+    box-shadow: none;
+    cursor: pointer;
+    transition: box-shadow 0.25s ease;
+}
+
+body.chrono-page .carousel-slide:hover img {
+    filter: none !important;
+    box-shadow:
+        0 0 0 2px var(--chrono-cyan),
+        0 0 24px rgba(0, 229, 255, 0.28) !important;
 }
 
 .chrono-page .carousel-slide figcaption {
     margin-top: 10px;
     color: var(--chrono-muted);
-    font-size:1.125rem;
+    font-size: 1rem;
 }
+
+.chrono-page .carousel-slide img:focus-visible {
+    outline: 2px solid var(--chrono-cyan);
+    outline-offset: 4px;
+}
+
+/* =========================================================
+   PROJECT APPROACH
+   ========================================================= */
 
 .chrono-page .approach-grid {
     display: grid;
@@ -414,8 +972,14 @@ linear-gradient(
     min-width: 0;
     padding: 18px;
     border: 1px solid var(--chrono-border);
-    border-radius: 10px;
+    border-radius: 5px;
     background: var(--chrono-panel);
+}
+
+.chrono-page .approach-image-frame {
+    margin: 0 0 20px;
+    overflow: hidden;
+    border-radius: 6px;
 }
 
 .chrono-page .approach-image {
@@ -424,7 +988,7 @@ linear-gradient(
     height: 150px;
     margin-bottom: 20px;
     object-fit: contain;
-    background: rgba(255,255,255,0.025);
+    background: rgba(255, 255, 255, 0.025);
     border-radius: 6px;
 }
 
@@ -440,7 +1004,12 @@ linear-gradient(
 
 .chrono-page .approach-card ul {
     padding-left: 18px;
+    color: var(--chrono-muted);
 }
+
+/* =========================================================
+   CREATIVE DIRECTION
+   ========================================================= */
 
 .chrono-page .creative-grid {
     display: grid;
@@ -469,7 +1038,7 @@ linear-gradient(
     width: 100%;
     height: 210px;
     object-fit: contain;
-    background: rgba(255,255,255,0.025);
+    background: rgba(255, 255, 255, 0.025);
     border: 1px solid var(--chrono-border);
     border-radius: 8px;
 }
@@ -477,8 +1046,12 @@ linear-gradient(
 .chrono-page .creative-visual figcaption {
     margin-top: 8px;
     color: var(--chrono-muted);
-    font-size:1.125rem;
+    font-size: 1rem;
 }
+
+/* =========================================================
+   INTERACTIVE PROTOTYPE
+   ========================================================= */
 
 .chrono-page .prototype-section {
     text-align: center;
@@ -492,7 +1065,8 @@ linear-gradient(
     margin: 0 auto 24px;
     overflow: hidden;
     border: 1px solid var(--chrono-border);
-    border-radius: 10px;
+    border-radius: 6px;
+    background: #071522;
 }
 
 .chrono-page .prototype-preview img {
@@ -528,7 +1102,7 @@ linear-gradient(
     padding: 12px 18px;
     border: 1px solid var(--chrono-cyan);
     color: white;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     font-family: "Barlow Condensed", sans-serif;
     letter-spacing: 0.08em;
 }
@@ -537,6 +1111,10 @@ linear-gradient(
     display: inline-block;
     margin-top: 4px;
 }
+
+/* =========================================================
+   UX JOURNEY
+   ========================================================= */
 
 .chrono-page .ux-list {
     display: grid;
@@ -550,44 +1128,271 @@ linear-gradient(
     display: flex;
     align-items: flex-start;
     gap: 14px;
+    min-width: 0;
     padding: 18px;
     border: 1px solid var(--chrono-border);
-    border-radius: 8px;
+    border-radius: 5px;
     background: var(--chrono-panel);
 }
 
 .chrono-page .ux-icon {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex: 0 0 38px;
     width: 38px;
+    min-width: 38px;
     height: 38px;
-    border: 1px solid rgba(0,229,255,0.4);
+    min-height: 38px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 229, 255, 0.4);
     border-radius: 50%;
     color: var(--chrono-cyan);
 }
 
-.chrono-page .ux-icon svg {
-    width: 21px;
-    height: 21px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.6;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+.chrono-page .ux-icon svg,
+.chrono-page .ux-icon img {
+    display: block;
+    width: 21px !important;
+    max-width: 21px !important;
+    height: 21px !important;
+    max-height: 21px !important;
+    object-fit: contain;
 }
 
 .chrono-page .ux-item h3 {
     margin: 0 0 5px;
     color: var(--chrono-cyan);
-    font-size:1.125rem;
+    font-size: 1.125rem;
 }
 
 .chrono-page .ux-item p {
     margin: 0;
     color: var(--chrono-muted);
-    font-size:1.125rem;
+    font-size: 1.05rem;
+}
+
+/* UX journey entrance and exit animation */
+
+body.chrono-page .ux-section .ux-item {
+    opacity: 0;
+    transition:
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.7s ease;
+    will-change: transform, opacity;
+}
+
+body.chrono-page .ux-section .ux-item:nth-child(odd) {
+    transform: translateX(-110vw);
+}
+
+body.chrono-page .ux-section .ux-item:nth-child(even) {
+    transform: translateX(110vw);
+}
+
+body.chrono-page .ux-section.ux-visible .ux-item {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+body.chrono-page .ux-section.ux-visible .ux-item:nth-child(1),
+body.chrono-page .ux-section.ux-visible .ux-item:nth-child(2) {
+    transition-delay: 0s;
+}
+
+body.chrono-page .ux-section.ux-visible .ux-item:nth-child(3),
+body.chrono-page .ux-section.ux-visible .ux-item:nth-child(4) {
+    transition-delay: 0.2s;
+}
+
+body.chrono-page .ux-section.ux-visible .ux-item:nth-child(5),
+body.chrono-page .ux-section.ux-visible .ux-item:nth-child(6) {
+    transition-delay: 0.4s;
+}
+
+body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(5),
+body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(6) {
+    transition-delay: 0s;
+}
+
+body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(3),
+body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(4) {
+    transition-delay: 0.2s;
+}
+
+body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(1),
+body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(2) {
+    transition-delay: 0.4s;
+}
+
+body.chrono-page .ux-animation-trigger {
+    display: block;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* =========================================================
+   LIGHTBOX
+   ========================================================= */
+
+body.chrono-page .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 20000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+    background: rgba(3, 8, 16, 0.94);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+body.chrono-page .lightbox.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+body.chrono-page .lightbox-box {
+    position: relative;
+    width: min(1200px, 96vw);
+    max-height: 90vh;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 34px;
+    background: #081522;
+    border: 1px solid rgba(0, 229, 255, 0.4);
+    border-radius: 12px;
+}
+
+body.chrono-page .lightbox-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.8fr);
+    align-items: start;
+    gap: 32px;
+}
+
+body.chrono-page .lightbox-image-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    gap: 16px;
+}
+
+body.chrono-page .lightbox-image-large {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 62vh;
+    object-fit: contain;
+    cursor: default;
+}
+
+body.chrono-page .lightbox-content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 0;
+    gap: 24px;
+}
+
+body.chrono-page .lightbox-text-content {
+    width: 100%;
+}
+
+body.chrono-page .lightbox-title {
+    width: 100%;
+    margin: 0;
+    color: var(--chrono-cyan);
+    text-align: center;
+    line-height: 1.4;
+}
+
+body.chrono-page .lightbox-description {
+    color: rgba(255, 255, 255, 0.86);
+    line-height: 1.8;
+}
+
+body.chrono-page .lightbox-supporting-images {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    gap: 16px;
+}
+
+body.chrono-page .lightbox-supporting-images[hidden] {
+    display: none !important;
+}
+
+body.chrono-page .lightbox-support-item {
+    width: min(100%, 320px);
+    margin: 0;
+    text-align: right;
+}
+
+body.chrono-page .lightbox-support-item img {
+    display: block;
+    width: 100%;
+    max-height: 260px;
+    margin-left: auto;
+    object-fit: contain;
+}
+
+body.chrono-page .lightbox-support-item figcaption {
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+body.chrono-page .approach-card.lightbox-image img {
+    cursor: zoom-in;
+}
+
+/* =========================================================
+   GALLERY
+   ========================================================= */
+
+.chrono-page .gallery-section .project-gallery-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 36px;
+    width: 100%;
+}
+
+.chrono-page .gallery-section .project-image-block {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.chrono-page .gallery-section .project-image-block img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 420px;
+    margin-inline: auto;
+    object-fit: contain;
+}
+
+.chrono-page .gallery-section .project-image-block p {
+    color: var(--chrono-muted);
+    text-align: center;
 }
 
 .chrono-page .gallery-section .project-gallery-row {
@@ -598,29 +1403,222 @@ linear-gradient(
     margin-bottom: 28px;
 }
 
-.chrono-page .gallery-section .project-image-block p {
-    color: var(--chrono-muted);
-    text-align: center;
+/* =========================================================
+   RESPONSIVE CHRONO RULES
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    body.chrono-page .chrono-hero-image {
+        width: 88%;
+    }
+
+    .chrono-page .chrono-ecosystem-grid {
+        grid-template-rows: auto;
+    }
+
+    .chrono-page .chrono-ecosystem-device {
+        grid-column: 1 / span 7;
+        grid-row: 1 / span 2;
+    }
+
+    .chrono-page .chrono-ecosystem-platform {
+        grid-column: 8 / span 5;
+        grid-row: 1;
+    }
+
+    .chrono-page .chrono-ecosystem-traveler {
+        grid-column: 1 / span 5;
+        grid-row: 3;
+    }
+
+    .chrono-page .chrono-ecosystem-data {
+        grid-column: 6 / span 7;
+        grid-row: 2 / span 2;
+    }
+
+    .chrono-page .approach-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
-.chrono-page .carousel-slide img {
-    transition: filter 0.25s ease, box-shadow 0.25s ease;
-    cursor: pointer;
+@media (max-width: 760px) {
+
+    body.chrono-page .chrono-hero-image {
+        width: 94%;
+    }
+
+    .chrono-page .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chrono-page .chrono-ecosystem-heading {
+        display: block;
+    }
+
+    .chrono-page .chrono-ecosystem-intro {
+        max-width: none;
+        margin-top: 10px;
+        text-align: left;
+    }
+
+    .chrono-page .chrono-ecosystem-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .chrono-page .chrono-ecosystem-device,
+    .chrono-page .chrono-ecosystem-platform,
+    .chrono-page .chrono-ecosystem-traveler,
+    .chrono-page .chrono-ecosystem-data {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .chrono-page .chrono-ecosystem-device {
+        grid-column: 1 / -1;
+    }
+
+    .chrono-page .chrono-ecosystem-device .chrono-ecosystem-media {
+        min-height: 260px;
+    }
+
+    .chrono-page .chrono-ecosystem-card {
+        padding: 12px;
+    }
+
+    .chrono-page .chrono-ecosystem-topline {
+        flex-wrap: wrap;
+        font-size: 0.65rem;
+    }
+
+    .chrono-page .chrono-ecosystem-corner {
+        display: none;
+    }
+
+    .chrono-page .approach-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chrono-page .creative-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chrono-page .ux-list {
+        grid-template-columns: 1fr;
+    }
+
+    .chrono-page .gallery-section .project-gallery-row {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    body.chrono-page .lightbox {
+        padding: 12px;
+    }
+
+    body.chrono-page .lightbox-box {
+        max-height: 94vh;
+        padding: 24px 18px;
+    }
+
+    body.chrono-page .lightbox-main {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    body.chrono-page .lightbox-image-large {
+        max-height: 48vh;
+    }
+
+    body.chrono-page .lightbox-supporting-images {
+        align-items: center;
+    }
+
+    body.chrono-page .lightbox-support-item {
+        width: min(100%, 320px);
+        text-align: center;
+    }
+
+    body.chrono-page .lightbox-support-item figcaption {
+        text-align: center;
+    }
+
+    body.chrono-page .carousel-slide {
+        flex-basis: 88%;
+        width: 88%;
+    }
 }
 
-.chrono-page .carousel-slide img:focus-visible {
-    outline: 2px solid #00AEFF;
-    outline-offset: 4px;
+@media (max-width: 480px) {
+
+    .chrono-page .chrono-ecosystem-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chrono-page .chrono-ecosystem-device {
+        grid-column: auto;
+    }
+
+    .chrono-page .chrono-ecosystem-media {
+        min-height: 190px;
+    }
+
+    .chrono-page .chrono-ecosystem-device .chrono-ecosystem-media {
+        min-height: 230px;
+    }
+
+    .chrono-page .chrono-hero-index {
+        left: 12px;
+        bottom: 12px;
+        font-size: 0.65rem;
+    }
+
+    .chrono-page .chrono-play-button {
+        width: 58px;
+        height: 58px;
+    }
+
+    .chrono-page .chrono-play-label {
+        font-size: 0.75rem;
+    }
+
+    .chrono-page .chrono-video-modal {
+        padding: 12px;
+    }
+
+    .chrono-page .chrono-video-modal-panel {
+        padding: 10px;
+    }
+
+    .chrono-page .chrono-video-close {
+        top: -44px;
+    }
+
+    .chrono-page .carousel-toolbar {
+        align-items: flex-end;
+    }
+
+    .chrono-page .carousel-toolbar > div:first-child > p:last-child {
+        font-size: 1.1rem;
+    }
 }
 
-.chrono-page .approach-image-frame {
-    margin: 0 0 20px;
-    overflow: hidden;
-    border-radius: 6px;
-}
+/* Reduced motion */
 
-.chrono-page .approach-image-frame .approach-image {
-    margin-bottom: 0;
+@media (prefers-reduced-motion: reduce) {
+
+    body.chrono-page .ux-section .ux-item {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .chrono-page .chrono-ecosystem-card,
+    .chrono-page .chrono-ecosystem-media img,
+    .chrono-page .chrono-video-trigger > img {
+        transition: none;
+    }
 }
 
 .clean-organic {
@@ -4187,536 +5185,6 @@ body.project-page .project-details .detail-box h3,
 body.project-page .project-details .detail-box p {
     font-size: max(18px, 1rem);
     overflow-wrap: anywhere;
-}
-
-/* Phasepoint: cyan hover treatment for Concept in Focus carousel. */
-.chrono-page .carousel-slide:hover img,
-.chrono-page .case-carousel .carousel-slide:hover img {
-    filter: none !important;
-    box-shadow: 0 0 0 2px #00E5FF, 0 0 24px rgba(0, 229, 255, 0.28) !important;
-}
-
-/* Chrono Nexus: retain each carousel image's natural proportions, prevent
-   flex/grid stretching and overlapping, and keep the cyan hover outline. */
-body.chrono-page .case-carousel {
-    min-width: 0;
-    max-width: 100%;
-}
-
-body.chrono-page .carousel-track {
-    display: flex;
-    align-items: flex-start;
-    gap: 28px;
-    min-width: 0;
-    max-width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 10px 8px 22px;
-    scroll-snap-type: x mandatory;
-    isolation: isolate;
-}
-
-body.chrono-page .carousel-slide {
-    position: relative;
-    display: block;
-    flex: 0 0 min(65%, 620px);
-    width: min(65%, 620px);
-    min-width: 0;
-    max-width: 100%;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    scroll-snap-align: start;
-}
-
-body.chrono-page .carousel-slide img {
-    position: static;
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto !important;
-    max-height: none;
-    margin: 0;
-    object-fit: contain;
-    object-position: center;
-    filter: none;
-    box-shadow: none;
-    transition: box-shadow 0.25s ease;
-}
-
-body.chrono-page .carousel-slide:hover img,
-body.chrono-page .case-carousel .carousel-slide:hover img {
-    filter: none !important;
-    box-shadow: 0 0 0 2px #00E5FF, 0 0 24px rgba(0, 229, 255, 0.28) !important;
-}
-/* ============================================
-   PHASEPOINT — CONTINUOUS CAROUSEL FOUNDATION
-============================================ */
-
-body.chrono-page .case-carousel {
-    overflow: hidden;
-}
-
-body.chrono-page .carousel-track {
-    display: flex;
-    flex-wrap: nowrap;
-    width: max-content;
-    max-width: none;
-    scroll-snap-type: none;
-    scroll-behavior: auto;
-    overflow: visible;
-    gap: 28px;
-}
-
-/* Preserve existing image sizing */
-body.chrono-page .carousel-slide {
-    flex: 0 0 min(65%, 620px);
-    width: min(65%, 620px);
-    max-width: 620px;
-    scroll-snap-align: none;
-}
-
-/* Preserve cyan hover outline */
-body.chrono-page .carousel-slide:hover img,
-body.chrono-page .case-carousel .carousel-slide:hover img {
-    filter: none !important;
-    box-shadow:
-        0 0 0 2px #00E5FF,
-        0 0 24px rgba(0, 229, 255, 0.28) !important;
-}
-
-/* Mouse interaction */
-body.chrono-page .carousel-track {
-    cursor: grab;
-}
-
-body.chrono-page .carousel-track:active {
-    cursor: grabbing;
-}
-
-body.chrono-page .ux-icon {
-    position: relative;
-    flex: 0 0 38px;
-    width: 38px;
-    min-width: 38px;
-    height: 38px;
-    min-height: 38px;
-    box-sizing: border-box;
-}
-
-body.chrono-page .ux-icon svg,
-body.chrono-page .ux-icon img {
-    display: block;
-    width: 21px !important;
-    max-width: 21px !important;
-    height: 21px !important;
-    max-height: 21px !important;
-    object-fit: contain;
-}
-
-    body.chrono-page .carousel-slide {
-        flex-basis: 88%;
-        width: 88%;
-    }
-}
-
-/* =========================================================
-   CHRONO NEXUS — TARGETED OCTOBER 2026 REPAIRS
-   ========================================================= */
-
-/* 1. Overview summary: match the full width of both cards */
-body.chrono-page .overview-summary {
-    display: block;
-    width: 100%;
-    max-width: none;
-    box-sizing: border-box;
-}
-
-
-/* 2. Restore the Chrono lightbox overlay */
-body.chrono-page .lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 20000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    box-sizing: border-box;
-    background: rgba(3, 8, 16, 0.92);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.25s ease, visibility 0.25s ease;
-}
-
-body.chrono-page .lightbox.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-body.chrono-page .lightbox-box {
-    position: relative;
-    width: min(1200px, 96vw);
-    max-height: 90vh;
-    overflow: auto;
-    box-sizing: border-box;
-    padding: 34px;
-    background: #081522;
-    border: 1px solid rgba(0, 229, 255, 0.4);
-    border-radius: 16px;
-}
-
-body.chrono-page .lightbox-main {
-    display: grid;
-    grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.8fr);
-    align-items: start;
-    gap: 32px;
-}
-
-body.chrono-page .lightbox-image-panel {
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-}
-
-body.chrono-page .lightbox-image-large {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    max-height: 62vh;
-    object-fit: contain;
-    cursor: default;
-}
-
-body.chrono-page .lightbox-content {
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 24px;
-}
-
-body.chrono-page .lightbox-text-content {
-    width: 100%;
-}
-
-body.chrono-page .lightbox-title {
-    width: 100%;
-    color: #00E5FF;
-    margin: 0;
-    text-align: center;
-    line-height: 1.4;
-}
-
-body.chrono-page .lightbox-description {
-    color: rgba(255, 255, 255, 0.86);
-    line-height: 1.8;
-}
-
-body.chrono-page .lightbox-supporting-images {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 16px;
-}
-
-body.chrono-page .lightbox-supporting-images[hidden] {
-    display: none !important;
-}
-
-body.chrono-page .lightbox-support-item {
-    width: min(100%, 320px);
-    margin: 0;
-    text-align: right;
-}
-
-body.chrono-page .lightbox-support-item img {
-    display: block;
-    width: 100%;
-    max-height: 260px;
-    object-fit: contain;
-    margin-left: auto;
-}
-
-body.chrono-page .lightbox-support-item figcaption {
-    margin-top: 8px;
-    color: rgba(255, 255, 255, 0.65);
-    font-size: 0.9rem;
-    text-align: right;
-}
-
-body.chrono-page .approach-card.lightbox-image img {
-    cursor: zoom-in;
-}
-
-
-/* 3. Gallery: four images in two side-by-side pairs */
-body.chrono-page .gallery-section .project-gallery-row {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
-    gap: 36px;
-    width: 100%;
-}
-
-body.chrono-page .gallery-section .project-image-block {
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-body.chrono-page .gallery-section .project-image-block img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    max-height: 420px;
-    object-fit: contain;
-    margin-inline: auto;
-}
-
-body.chrono-page .gallery-section .project-image-block p {
-    text-align: center;
-}
-
-/* Responsive adjustments for these same elements */
-@media (max-width: 760px) {
-    body.chrono-page .lightbox {
-        padding: 12px;
-    }
-
-    body.chrono-page .lightbox-box {
-        padding: 24px 18px;
-        max-height: 94vh;
-    }
-
-    body.chrono-page .lightbox-main {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 24px;
-    }
-
-    body.chrono-page .lightbox-image-large {
-        max-height: 48vh;
-    }
-
-    body.chrono-page .lightbox-supporting-images {
-        align-items: center;
-    }
-
-    body.chrono-page .lightbox-support-item {
-        width: min(100%, 320px);
-        text-align: center;
-    }
-
-    body.chrono-page .lightbox-support-item figcaption {
-        text-align: center;
-    }
-
-    body.chrono-page .gallery-section .project-gallery-row {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 30px;
-    }
-}
-
-/* ============================================
-   PHASEPOINT — UX APPROACH SCROLL ANIMATION
-============================================ */
-
-body.chrono-page .ux-section .ux-item {
-    opacity: 0;
-    transition:
-        transform 1s cubic-bezier(0.22, 1, 0.36, 1),
-        opacity 0.7s ease;
-    will-change: transform, opacity;
-}
-
-/* Left-side boxes */
-body.chrono-page .ux-section .ux-item:nth-child(odd) {
-    transform: translateX(-110vw);
-}
-
-/* Right-side boxes */
-body.chrono-page .ux-section .ux-item:nth-child(even) {
-    transform: translateX(110vw);
-}
-
-/* First row */
-body.chrono-page .ux-section .ux-item:nth-child(1),
-body.chrono-page .ux-section .ux-item:nth-child(2) {
-    transition-delay: 0s;
-}
-
-/* Second row */
-body.chrono-page .ux-section .ux-item:nth-child(3),
-body.chrono-page .ux-section .ux-item:nth-child(4) {
-    transition-delay: 0.2s;
-}
-
-/* Third row */
-body.chrono-page .ux-section .ux-item:nth-child(5),
-body.chrono-page .ux-section .ux-item:nth-child(6) {
-    transition-delay: 0.4s;
-}
-
-/* Activated when section enters view */
-body.chrono-page .ux-section.ux-visible .ux-item {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-/* Respect reduced-motion preferences */
-@media (prefers-reduced-motion: reduce) {
-    body.chrono-page .ux-section .ux-item {
-        opacity: 1;
-        transform: none;
-        transition: none;
-    }
-}
-
-/* =========================================
-   PHASEPOINT — UX APPROACH ANIMATION TIMING
-========================================= */
-
-/* Normal starting position */
-body.chrono-page .ux-section .ux-item {
-    transition:
-        transform 1s cubic-bezier(.22, 1, .36, 1),
-        opacity 0.7s ease;
-}
-
-/* ENTERING: first pair */
-body.chrono-page .ux-section.ux-visible .ux-item:nth-child(1),
-body.chrono-page .ux-section.ux-visible .ux-item:nth-child(2) {
-    transition-delay: 0s;
-}
-
-/* ENTERING: second pair */
-body.chrono-page .ux-section.ux-visible .ux-item:nth-child(3),
-body.chrono-page .ux-section.ux-visible .ux-item:nth-child(4) {
-    transition-delay: 0.2s;
-}
-
-/* ENTERING: final pair */
-body.chrono-page .ux-section.ux-visible .ux-item:nth-child(5),
-body.chrono-page .ux-section.ux-visible .ux-item:nth-child(6) {
-    transition-delay: 0.4s;
-}
-
-/* EXITING: final pair leaves first */
-body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(5),
-body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(6) {
-    transition-delay: 0s;
-}
-
-/* EXITING: middle pair leaves second */
-body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(3),
-body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(4) {
-    transition-delay: 0.2s;
-}
-
-/* EXITING: first pair leaves last */
-body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(1),
-body.chrono-page .ux-section:not(.ux-visible) .ux-item:nth-child(2) {
-    transition-delay: 0.4s;
-}
-
-/* PHASEPOINT — INVISIBLE UX ANIMATION TRIGGER */
-
-body.chrono-page .ux-animation-trigger {
-    display: block;
-    width: 1px;
-    height: 1px;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    pointer-events: none;
-}
-
-/* =========================================
-   PHASEPOINT HERO IMAGE
-   ========================================= */
-
-body.chrono-page .chrono-hero-image {
-    width: 100%;
-    margin: 0 auto 32px;
-}
-
-body.chrono-page .chrono-hero-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-
-/* =========================================
-   PHASEPOINT FOUR-IMAGE OVERVIEW
-   ========================================= */
-
-body.chrono-page .phasepoint-feature-section {
-    margin: 64px 0;
-}
-
-body.chrono-page .phasepoint-feature-heading {
-    margin-bottom: 28px;
-    text-align: center;
-}
-
-body.chrono-page .phasepoint-feature-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px;
-}
-
-body.chrono-page .phasepoint-feature {
-    min-width: 0;
-    margin: 0;
-    overflow: hidden;
-}
-
-body.chrono-page .phasepoint-feature img {
-    display: block;
-    width: 100%;
-    height: auto;
-    cursor: zoom-in;
-}
-
-body.chrono-page .phasepoint-feature figcaption {
-    padding: 16px 4px 0;
-}
-
-body.chrono-page .phasepoint-feature h4 {
-    margin: 0 0 8px;
-    color: #00E5FF;
-}
-
-body.chrono-page .phasepoint-feature p {
-    margin: 0;
-}
-
-
-/* =========================================
-   PHASEPOINT OVERVIEW RESPONSIVE LAYOUT
-   ========================================= */
-
-@media (max-width: 700px) {
-
-    body.chrono-page .phasepoint-feature-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
-
-    body.chrono-page .phasepoint-feature-section {
-        margin: 40px 0;
-    }
-
 }
 
 /* =========================================================
