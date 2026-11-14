@@ -216,7 +216,6 @@ linear-gradient(
 );
 }
 
-
 /* =========================================================
    PHASEPOINT TECHNOLOGIES — CHRONO NEXUS
    Future technology / temporal systems visual language
@@ -392,62 +391,63 @@ body.chrono-page .chrono-hero-image {
 
 .chrono-hero-overlay {
     position: absolute;
-    inset: 0;
+    top: 22px;
+    left: 22px;
     z-index: 2;
-    display: flex;
-    flex-direction: column;
+    display: inline-flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 14px;
-    background: radial-gradient(
-        circle,
-        rgba(0, 20, 38, 0.08),
-        rgba(0, 10, 24, 0.38)
-    );
-    transition: background 0.35s ease;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 10px 16px 10px 10px;
+    border: 1px solid rgba(0, 229, 255, 0.32);
+    border-radius: 3px;
+    background: rgba(3, 17, 31, 0.76);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .chrono-video-trigger:hover .chrono-hero-overlay {
-    background: rgba(0, 15, 30, 0.22);
+    border-color: rgba(0, 229, 255, 0.75);
+    background: rgba(3, 17, 31, 0.9);
 }
 
 .chrono-play-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 76px;
-    height: 76px;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
     border: 1px solid rgba(0, 229, 255, 0.85);
     border-radius: 50%;
-    background: rgba(3, 20, 36, 0.72);
-    box-shadow:
-        0 0 0 8px rgba(0, 229, 255, 0.08),
-        0 0 32px rgba(0, 229, 255, 0.28);
+    background: rgba(3, 20, 36, 0.8);
+    box-shadow: 0 0 18px rgba(0, 229, 255, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .chrono-video-trigger:hover .chrono-play-button {
-    transform: scale(1.1);
-    box-shadow:
-        0 0 0 12px rgba(0, 229, 255, 0.08),
-        0 0 42px rgba(0, 229, 255, 0.5);
+    transform: scale(1.08);
+    box-shadow: 0 0 26px rgba(0, 229, 255, 0.42);
 }
 
 .chrono-play-triangle {
     width: 0;
     height: 0;
-    margin-left: 5px;
-    border-top: 11px solid transparent;
-    border-bottom: 11px solid transparent;
-    border-left: 17px solid var(--chrono-cyan);
+    margin-left: 4px;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-left: 11px solid var(--chrono-cyan);
 }
 
 .chrono-play-label {
     color: white;
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.16em;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
@@ -599,7 +599,7 @@ body.chrono-video-open {
 .chrono-page .overview-summary {
     display: block;
     width: 100%;
-    max-width: 850px;
+    max-width: none;
     margin: 0 auto 38px;
     color: var(--chrono-muted);
     text-align: center;
@@ -837,10 +837,14 @@ body.chrono-video-open {
    CONTINUOUS CAROUSEL
    ========================================================= */
 
+.chrono-page .carousel-section {
+    margin-top: 90px;
+}
+
 .chrono-page .case-carousel {
     min-width: 0;
     max-width: 100%;
-    margin-top: 52px;
+    margin-top: 0;
     overflow: hidden;
 }
 
@@ -1020,6 +1024,12 @@ body.chrono-page .carousel-slide:hover img {
 
 .chrono-page .creative-copy p:first-child {
     margin-top: 0;
+    margin-bottom: 24px;
+}
+
+.chrono-page .creative-copy p + p {
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .chrono-page .creative-visuals {
@@ -1047,69 +1057,6 @@ body.chrono-page .carousel-slide:hover img {
     margin-top: 8px;
     color: var(--chrono-muted);
     font-size: 1rem;
-}
-
-/* =========================================================
-   INTERACTIVE PROTOTYPE
-   ========================================================= */
-
-.chrono-page .prototype-section {
-    text-align: center;
-}
-
-.chrono-page .prototype-preview {
-    position: relative;
-    display: block;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto 24px;
-    overflow: hidden;
-    border: 1px solid var(--chrono-border);
-    border-radius: 6px;
-    background: #071522;
-}
-
-.chrono-page .prototype-preview img {
-    display: block;
-    width: 100%;
-    max-height: 560px;
-    object-fit: contain;
-    transition: transform 0.35s ease;
-}
-
-.chrono-page .prototype-preview:hover img {
-    transform: scale(1.015);
-}
-
-.chrono-page .prototype-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background: rgba(0, 8, 16, 0.5);
-    opacity: 0;
-    transition: opacity 0.25s ease;
-}
-
-.chrono-page .prototype-preview:hover .prototype-overlay,
-.chrono-page .prototype-preview:focus-visible .prototype-overlay {
-    opacity: 1;
-}
-
-.chrono-page .prototype-open {
-    padding: 12px 18px;
-    border: 1px solid var(--chrono-cyan);
-    color: white;
-    background: rgba(0, 0, 0, 0.6);
-    font-family: "Barlow Condensed", sans-serif;
-    letter-spacing: 0.08em;
-}
-
-.chrono-page .prototype-section > .enter-button {
-    display: inline-block;
-    margin-top: 4px;
 }
 
 /* =========================================================
@@ -1234,6 +1181,69 @@ body.chrono-page .ux-animation-trigger {
     padding: 0;
     opacity: 0;
     pointer-events: none;
+}
+
+/* =========================================================
+   INTERACTIVE PROTOTYPE
+   ========================================================= */
+
+.chrono-page .prototype-section {
+    text-align: center;
+}
+
+.chrono-page .prototype-preview {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 24px;
+    overflow: hidden;
+    border: 1px solid var(--chrono-border);
+    border-radius: 6px;
+    background: #071522;
+}
+
+.chrono-page .prototype-preview img {
+    display: block;
+    width: 100%;
+    max-height: 560px;
+    object-fit: contain;
+    transition: transform 0.35s ease;
+}
+
+.chrono-page .prototype-preview:hover img {
+    transform: scale(1.015);
+}
+
+.chrono-page .prototype-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 8, 16, 0.5);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.chrono-page .prototype-preview:hover .prototype-overlay,
+.chrono-page .prototype-preview:focus-visible .prototype-overlay {
+    opacity: 1;
+}
+
+.chrono-page .prototype-open {
+    padding: 12px 18px;
+    border: 1px solid var(--chrono-cyan);
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    font-family: "Barlow Condensed", sans-serif;
+    letter-spacing: 0.08em;
+}
+
+.chrono-page .prototype-section > .enter-button {
+    display: inline-block;
+    margin-top: 4px;
 }
 
 /* =========================================================
@@ -1362,45 +1372,251 @@ body.chrono-page .approach-card.lightbox-image img {
 }
 
 /* =========================================================
-   GALLERY
+   BEYOND THE PRESENT — ANIMATED IMAGE STACK
+   Static grid is the fallback if JavaScript is unavailable
+   or the visitor prefers reduced motion.
    ========================================================= */
 
-.chrono-page .gallery-section .project-gallery-row {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
-    gap: 36px;
-    width: 100%;
+.chrono-page .chrono-stack-section {
+    margin-top: 110px;
+    margin-bottom: 100px;
 }
 
-.chrono-page .gallery-section .project-image-block {
+.chrono-page .chrono-stack-lead {
+    max-width: 700px;
+    margin-bottom: 38px;
+}
+
+/* Static fallback gallery */
+
+.chrono-page .chrono-stack-stage {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+    gap: 18px;
     width: 100%;
+    padding: 22px;
+    box-sizing: border-box;
+    border: 1px solid var(--chrono-border);
+    border-radius: 5px;
+    background:
+        radial-gradient(ellipse at center, rgba(0, 105, 160, 0.16), transparent 72%),
+        rgba(3, 15, 28, 0.65);
+}
+
+.chrono-page .chrono-stack-card {
+    position: relative;
     min-width: 0;
-    max-width: 100%;
     margin: 0;
+    padding: 9px;
+    overflow: hidden;
+    border: 1px solid rgba(92, 190, 235, 0.28);
+    border-radius: 3px;
+    background: #071522;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
     box-sizing: border-box;
 }
 
-.chrono-page .gallery-section .project-image-block img {
+.chrono-page .chrono-stack-card img {
     display: block;
     width: 100%;
     max-width: 100%;
-    max-height: 420px;
-    margin-inline: auto;
+    max-height: 280px;
+    margin: 0;
     object-fit: contain;
+    cursor: zoom-in;
 }
 
-.chrono-page .gallery-section .project-image-block p {
-    color: var(--chrono-muted);
+.chrono-page .chrono-stack-anchor {
+    grid-column: 1 / -1;
+    padding: 18px;
     text-align: center;
 }
 
-.chrono-page .gallery-section .project-gallery-row {
-    margin-bottom: 26px;
+.chrono-page .chrono-stack-anchor img {
+    max-height: 430px;
+    margin: 0 auto;
 }
 
-.chrono-page .gallery-section .project-image-block {
-    margin-bottom: 28px;
+.chrono-page .chrono-stack-anchor-label {
+    margin-top: 12px;
+    color: var(--chrono-cyan);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+}
+
+/* Animated stage */
+
+.chrono-page .chrono-stack-stage.is-animated {
+    position: relative;
+    display: block;
+    height: clamp(540px, 62vw, 700px);
+    min-height: 540px;
+    padding: 0;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+        radial-gradient(ellipse at center, rgba(0, 120, 180, 0.18), transparent 65%),
+        linear-gradient(145deg, rgba(8, 29, 49, 0.88), rgba(3, 13, 25, 0.94));
+}
+
+.chrono-page .chrono-stack-stage.is-animated::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.38;
+    background:
+        linear-gradient(rgba(72, 166, 210, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(72, 166, 210, 0.08) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, black, transparent 78%);
+}
+
+.chrono-page .chrono-stack-stage.is-animated .chrono-stack-card {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 9px;
+    overflow: hidden;
+    border: 1px solid rgba(125, 210, 245, 0.55);
+    border-radius: 3px;
+    background: #071522;
+    box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.58),
+        0 0 18px rgba(0, 130, 190, 0.12);
+    transform-origin: center center;
+    will-change: transform, opacity;
+}
+
+.chrono-page .chrono-stack-stage.is-animated .chrono-stack-card:not(.chrono-stack-anchor) {
+    height: min(76%, 500px);
+    opacity: 0;
+}
+
+.chrono-page .chrono-stack-stage.is-animated .chrono-stack-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    object-fit: contain;
+    cursor: zoom-in;
+}
+
+.chrono-page .chrono-stack-stage.is-animated .chrono-stack-anchor {
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    width: min(48%, 540px);
+    height: 78%;
+    padding: 15px;
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-2deg);
+    border-color: rgba(0, 229, 255, 0.58);
+    box-shadow:
+        0 24px 55px rgba(0, 0, 0, 0.62),
+        0 0 32px rgba(0, 170, 220, 0.16);
+}
+
+.chrono-page .chrono-stack-stage.is-animated .chrono-stack-anchor img {
+    width: 100%;
+    height: calc(100% - 35px);
+    object-fit: contain;
+}
+
+.chrono-page .chrono-stack-stage.is-animated .chrono-stack-anchor-label {
+    margin-top: 8px;
+    font-size: 0.72rem;
+}
+
+.chrono-page .chrono-stack-stage.is-animated .chrono-stack-card:not(.chrono-stack-anchor) {
+    cursor: zoom-in;
+}
+
+.chrono-page .chrono-stack-stage.is-animated .chrono-stack-card:not(.chrono-stack-anchor):hover {
+    border-color: var(--chrono-cyan);
+    box-shadow:
+        0 22px 50px rgba(0, 0, 0, 0.65),
+        0 0 24px rgba(0, 229, 255, 0.22);
+}
+
+/* Replay control */
+
+.chrono-page .chrono-stack-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.chrono-page .chrono-stack-replay {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    border: 1px solid rgba(0, 229, 255, 0.72);
+    border-radius: 50%;
+    background: rgba(4, 24, 41, 0.85);
+    color: var(--chrono-cyan);
+    font-family: "Jost", sans-serif;
+    font-size: 1.7rem;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 0 18px rgba(0, 160, 210, 0.12);
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        opacity 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.chrono-page .chrono-stack-replay:hover:not(:disabled),
+.chrono-page .chrono-stack-replay:focus-visible {
+    color: #06111f;
+    background: var(--chrono-cyan);
+    border-color: var(--chrono-cyan);
+    transform: rotate(-35deg);
+    box-shadow: 0 0 24px rgba(0, 229, 255, 0.35);
+}
+
+.chrono-page .chrono-stack-replay:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 4px;
+}
+
+.chrono-page .chrono-stack-replay:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.chrono-page .chrono-stack-replay[hidden] {
+    display: none !important;
+}
+
+.chrono-page .chrono-stack-replay span {
+    display: block;
+    transform: translateY(-1px);
+}
+
+.chrono-page .chrono-stack-status {
+    margin: 0;
+    color: rgba(0, 229, 255, 0.72);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-align: center;
 }
 
 /* =========================================================
@@ -1440,12 +1656,34 @@ body.chrono-page .approach-card.lightbox-image img {
     .chrono-page .approach-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .chrono-page .chrono-stack-stage.is-animated {
+        height: 590px;
+    }
 }
 
 @media (max-width: 760px) {
 
     body.chrono-page .chrono-hero-image {
         width: 94%;
+    }
+
+    .chrono-page .chrono-hero-overlay {
+        top: 12px;
+        left: 12px;
+        gap: 8px;
+        padding: 7px 11px 7px 7px;
+    }
+
+    .chrono-page .chrono-play-button {
+        flex-basis: 36px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .chrono-page .chrono-play-label {
+        font-size: 0.78rem;
+        letter-spacing: 0.12em;
     }
 
     .chrono-page .overview-grid {
@@ -1508,9 +1746,29 @@ body.chrono-page .approach-card.lightbox-image img {
         grid-template-columns: 1fr;
     }
 
-    .chrono-page .gallery-section .project-gallery-row {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    .chrono-page .creative-visuals {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .chrono-page .chrono-stack-stage {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .chrono-page .chrono-stack-stage.is-animated {
+        height: 540px;
+        min-height: 540px;
+    }
+
+    .chrono-page .chrono-stack-stage.is-animated .chrono-stack-anchor {
+        width: 66%;
+        height: 72%;
+    }
+
+    .chrono-page .chrono-stack-stage.is-animated .chrono-stack-card:not(.chrono-stack-anchor) {
+        width: 68% !important;
+        height: 72%;
     }
 
     body.chrono-page .lightbox {
@@ -1548,6 +1806,10 @@ body.chrono-page .approach-card.lightbox-image img {
         flex-basis: 88%;
         width: 88%;
     }
+
+    .chrono-page .carousel-section {
+        margin-top: 72px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1575,12 +1837,19 @@ body.chrono-page .approach-card.lightbox-image img {
     }
 
     .chrono-page .chrono-play-button {
-        width: 58px;
-        height: 58px;
+        flex-basis: 32px;
+        width: 32px;
+        height: 32px;
+    }
+
+    .chrono-page .chrono-play-triangle {
+        border-top-width: 6px;
+        border-bottom-width: 6px;
+        border-left-width: 9px;
     }
 
     .chrono-page .chrono-play-label {
-        font-size: 0.75rem;
+        font-size: 0.68rem;
     }
 
     .chrono-page .chrono-video-modal {
@@ -1602,6 +1871,34 @@ body.chrono-page .approach-card.lightbox-image img {
     .chrono-page .carousel-toolbar > div:first-child > p:last-child {
         font-size: 1.1rem;
     }
+
+    .chrono-page .chrono-stack-stage {
+        grid-template-columns: 1fr;
+    }
+
+    .chrono-page .chrono-stack-stage.is-animated {
+        height: 470px;
+        min-height: 470px;
+    }
+
+    .chrono-page .chrono-stack-stage.is-animated .chrono-stack-anchor {
+        width: 78%;
+        height: 70%;
+    }
+
+    .chrono-page .chrono-stack-stage.is-animated .chrono-stack-card:not(.chrono-stack-anchor) {
+        width: 76% !important;
+        height: 68%;
+    }
+
+    .chrono-page .chrono-stack-card img {
+        max-height: 240px;
+    }
+
+    .chrono-page .chrono-stack-replay {
+        width: 42px;
+        height: 42px;
+    }
 }
 
 /* Reduced motion */
@@ -1616,11 +1913,15 @@ body.chrono-page .approach-card.lightbox-image img {
 
     .chrono-page .chrono-ecosystem-card,
     .chrono-page .chrono-ecosystem-media img,
-    .chrono-page .chrono-video-trigger > img {
+    .chrono-page .chrono-video-trigger > img,
+    .chrono-page .chrono-stack-replay {
         transition: none;
     }
-}
 
+    .chrono-page .chrono-stack-stage.is-animated .chrono-stack-card {
+        will-change: auto;
+    }
+}
 .clean-organic {
     --clean-forest: #234C3A;
     --clean-leaf: #72956D;
