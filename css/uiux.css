@@ -4378,15 +4378,17 @@ body.chrono-page .lightbox-main {
 body.chrono-page .lightbox-image-panel {
     min-width: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 16px;
 }
 
 body.chrono-page .lightbox-image-large {
     display: block;
     width: 100%;
     max-width: 100%;
-    max-height: 72vh;
+    max-height: 62vh;
     object-fit: contain;
     cursor: default;
 }
@@ -4404,8 +4406,11 @@ body.chrono-page .lightbox-text-content {
 }
 
 body.chrono-page .lightbox-title {
+    width: 100%;
     color: #00E5FF;
-    margin-top: 0;
+    margin: 0;
+    text-align: center;
+    line-height: 1.4;
 }
 
 body.chrono-page .lightbox-description {
@@ -4480,7 +4485,6 @@ body.chrono-page .gallery-section .project-image-block img {
 body.chrono-page .gallery-section .project-image-block p {
     text-align: center;
 }
-
 
 /* Responsive adjustments for these same elements */
 @media (max-width: 760px) {
@@ -4634,6 +4638,87 @@ body.chrono-page .ux-animation-trigger {
     opacity: 0;
     pointer-events: none;
 }
+
+/* =========================================
+   PHASEPOINT HERO IMAGE
+   ========================================= */
+
+body.chrono-page .chrono-hero-image {
+    width: 100%;
+    margin: 0 auto 32px;
+}
+
+body.chrono-page .chrono-hero-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* =========================================
+   PHASEPOINT FOUR-IMAGE OVERVIEW
+   ========================================= */
+
+body.chrono-page .phasepoint-feature-section {
+    margin: 64px 0;
+}
+
+body.chrono-page .phasepoint-feature-heading {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+body.chrono-page .phasepoint-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+body.chrono-page .phasepoint-feature {
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+body.chrono-page .phasepoint-feature img {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: zoom-in;
+}
+
+body.chrono-page .phasepoint-feature figcaption {
+    padding: 16px 4px 0;
+}
+
+body.chrono-page .phasepoint-feature h4 {
+    margin: 0 0 8px;
+    color: #00E5FF;
+}
+
+body.chrono-page .phasepoint-feature p {
+    margin: 0;
+}
+
+
+/* =========================================
+   PHASEPOINT OVERVIEW RESPONSIVE LAYOUT
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    body.chrono-page .phasepoint-feature-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    body.chrono-page .phasepoint-feature-section {
+        margin: 40px 0;
+    }
+
+}
+
 /* =========================================================
    UI/UX CATEGORY PAGE — COMPACT DESKTOP GRID
    This file is loaded only by uiux.html.

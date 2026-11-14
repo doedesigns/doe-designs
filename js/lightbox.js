@@ -34,12 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         class="lightbox-image-large"
                         src=""
                         alt="">
+
+                    <h2 class="lightbox-title"></h2>
                 </div>
 
                 <div class="lightbox-content">
 
                     <div class="lightbox-text-content">
-                        <h2 class="lightbox-title"></h2>
                         <div class="lightbox-description"></div>
                     </div>
 
@@ -48,32 +49,32 @@ document.addEventListener("DOMContentLoaded", () => {
                         hidden>
                     </div>
 
-				<div
-					class="lightbox-proposal-navigation"
-					hidden>
+                    <div
+                        class="lightbox-proposal-navigation"
+                        hidden>
 
-					<button
-						class="project-arrow prev lightbox-proposal-prev"
-						type="button"
-						aria-label="Previous proposal page">
-						<span class="arrow-circle">
-							<span class="arrow-triangle"></span>
-						</span>
-					</button>
+                        <button
+                            class="project-arrow prev lightbox-proposal-prev"
+                            type="button"
+                            aria-label="Previous proposal page">
+                            <span class="arrow-circle">
+                                <span class="arrow-triangle"></span>
+                            </span>
+                        </button>
 
-					<span class="lightbox-proposal-counter"
-						aria-live="polite"></span>
+                        <span class="lightbox-proposal-counter"
+                            aria-live="polite"></span>
 
-					<button
-						class="project-arrow next lightbox-proposal-next"
-						type="button"
-						aria-label="Next proposal page">
-						<span class="arrow-circle">
-							<span class="arrow-triangle"></span>
-						</span>
-					</button>
+                        <button
+                            class="project-arrow next lightbox-proposal-next"
+                            type="button"
+                            aria-label="Next proposal page">
+                            <span class="arrow-circle">
+                                <span class="arrow-triangle"></span>
+                            </span>
+                        </button>
 
-				</div>
+                    </div>
 
                 </div>
 
