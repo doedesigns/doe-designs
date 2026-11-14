@@ -801,6 +801,16 @@ body.chrono-video-open {
     transition: transform 0.45s ease, filter 0.35s ease;
 }
 
+/* Give the traveler profile more room */
+
+.chrono-page .chrono-ecosystem-data .chrono-ecosystem-media {
+    padding: 6px;
+}
+
+.chrono-page .chrono-ecosystem-data .chrono-ecosystem-media img {
+    max-height: 480px;
+}
+
 .chrono-page .chrono-ecosystem-card:hover .chrono-ecosystem-media img {
     transform: scale(1.025);
     filter: brightness(1.06);
