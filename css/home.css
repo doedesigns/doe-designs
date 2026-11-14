@@ -725,3 +725,24 @@ body.home-page {
     gap: 55px;
     margin-left: auto;
 }
+
+.index-project-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    text-align: center;
+}
+
+.index-project-actions .see-more,
+.index-project-actions .copy-button {
+    display: inline-block !important;
+    width: auto;
+    margin: 0;
+}
+
+.index-project-actions .contact-action-divider {
+    display: inline-block;
+    flex: 0 0 auto;
+}
