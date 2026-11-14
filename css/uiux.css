@@ -328,7 +328,7 @@ body.chrono-page::before {
 }
 
 /* =========================================================
-   HERO IMAGE + VIDEO LAUNCHER
+   HERO IMAGE + WEBSITE WALKTHROUGH LAUNCHER
    ========================================================= */
 
 body.chrono-page .chrono-hero-image {
@@ -343,18 +343,16 @@ body.chrono-page .chrono-hero-image {
     width: 100%;
     padding: 0;
     overflow: hidden;
-    border: 1px solid rgba(0, 229, 255, 0.32);
-    border-radius: 4px;
-    background: #071522;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
     color: white;
     cursor: pointer;
-    box-shadow:
-        0 25px 75px rgba(0, 0, 0, 0.48),
-        0 0 35px rgba(0, 130, 190, 0.12);
+    box-shadow: none;
     text-align: left;
 }
 
-.chrono-video-trigger::before {
+.chrono-page .chrono-video-trigger::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -362,13 +360,13 @@ body.chrono-page .chrono-hero-image {
     pointer-events: none;
     background: linear-gradient(
         135deg,
-        rgba(0, 229, 255, 0.09),
-        transparent 42%,
-        rgba(0, 70, 140, 0.16)
+        rgba(0, 229, 255, 0.06),
+        transparent 45%,
+        rgba(0, 70, 140, 0.12)
     );
 }
 
-.chrono-video-trigger > img {
+.chrono-page .chrono-video-trigger > img {
     display: block;
     width: 100%;
     height: auto;
@@ -378,49 +376,50 @@ body.chrono-page .chrono-hero-image {
     transition: transform 0.65s ease, filter 0.65s ease;
 }
 
-.chrono-video-trigger:hover > img,
-.chrono-video-trigger:focus-visible > img {
-    transform: scale(1.025);
-    filter: brightness(0.76);
+.chrono-page .chrono-video-trigger:hover > img,
+.chrono-page .chrono-video-trigger:focus-visible > img {
+    transform: scale(1.015);
+    filter: brightness(0.78);
 }
 
-.chrono-video-trigger:focus-visible {
+.chrono-page .chrono-video-trigger:focus-visible {
     outline: 2px solid var(--chrono-cyan);
     outline-offset: 5px;
 }
 
-.chrono-hero-overlay {
+/* Upper-left video label */
+
+.chrono-page .chrono-play-overlay {
     position: absolute;
     top: 22px;
     left: 22px;
     z-index: 2;
     display: inline-flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
     gap: 12px;
     padding: 10px 16px 10px 10px;
-    border: 1px solid rgba(0, 229, 255, 0.32);
+    border: 1px solid rgba(0, 229, 255, 0.42);
     border-radius: 3px;
-    background: rgba(3, 17, 31, 0.76);
+    background: rgba(3, 17, 31, 0.78);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.24);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     transition: background 0.3s ease, border-color 0.3s ease;
 }
 
-.chrono-video-trigger:hover .chrono-hero-overlay {
-    border-color: rgba(0, 229, 255, 0.75);
-    background: rgba(3, 17, 31, 0.9);
+.chrono-page .chrono-video-trigger:hover .chrono-play-overlay {
+    border-color: rgba(0, 229, 255, 0.85);
+    background: rgba(3, 17, 31, 0.94);
 }
 
-.chrono-play-button {
+.chrono-page .chrono-play-icon {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 42px;
-    width: 42px;
-    height: 42px;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
     border: 1px solid rgba(0, 229, 255, 0.85);
     border-radius: 50%;
     background: rgba(3, 20, 36, 0.8);
@@ -428,12 +427,8 @@ body.chrono-page .chrono-hero-image {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.chrono-video-trigger:hover .chrono-play-button {
-    transform: scale(1.08);
-    box-shadow: 0 0 26px rgba(0, 229, 255, 0.42);
-}
-
-.chrono-play-triangle {
+.chrono-page .chrono-play-icon::before {
+    content: "";
     width: 0;
     height: 0;
     margin-left: 4px;
@@ -442,19 +437,40 @@ body.chrono-page .chrono-hero-image {
     border-left: 11px solid var(--chrono-cyan);
 }
 
-.chrono-play-label {
+.chrono-page .chrono-video-trigger:hover .chrono-play-icon {
+    transform: scale(1.08);
+    box-shadow: 0 0 26px rgba(0, 229, 255, 0.42);
+}
+
+.chrono-page .chrono-play-label {
     color: white;
     font-family: "Barlow Condensed", sans-serif;
     font-size: 0.9rem;
     font-weight: 500;
     letter-spacing: 0.16em;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    white-space: nowrap;
 }
 
-.chrono-hero-index {
+.chrono-page .chrono-play-label::after {
+    content: "  →";
+    display: inline-block;
+    color: var(--chrono-cyan);
+    font-size: 1.15em;
+    transition: transform 0.25s ease;
+}
+
+.chrono-page .chrono-video-trigger:hover .chrono-play-label::after {
+    transform: translateX(5px);
+}
+
+/* Hero image index */
+
+.chrono-page .chrono-hero-index {
     position: absolute;
     left: 22px;
     bottom: 20px;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -465,12 +481,12 @@ body.chrono-page .chrono-hero-image {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
-.chrono-hero-index span {
+.chrono-page .chrono-hero-index span {
     color: var(--chrono-cyan);
     font-size: 0.7rem;
 }
 
-.chrono-hero-caption {
+.chrono-page .chrono-hero-caption {
     margin: 16px 0 0;
     color: var(--chrono-cyan);
     font-family: "Barlow Condensed", sans-serif;
@@ -479,7 +495,7 @@ body.chrono-page .chrono-hero-image {
     text-align: center;
 }
 
-.chrono-hero-caption span {
+.chrono-page .chrono-hero-caption span {
     display: block;
     margin-top: 4px;
     color: var(--chrono-muted);
@@ -488,7 +504,9 @@ body.chrono-page .chrono-hero-image {
     letter-spacing: 0.04em;
 }
 
-/* Video modal */
+/* =========================================================
+   VIDEO MODAL
+   ========================================================= */
 
 body.chrono-video-open {
     overflow: hidden;
@@ -513,18 +531,28 @@ body.chrono-video-open {
     transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
-.chrono-video-modal.active {
+.chrono-video-modal.is-open {
     opacity: 1;
     visibility: visible;
 }
 
-.chrono-video-modal-panel {
+.chrono-video-modal-content {
     position: relative;
     width: min(1100px, 96vw);
     padding: 22px;
     border: 1px solid rgba(0, 229, 255, 0.35);
     background: #071522;
     box-shadow: 0 0 60px rgba(0, 110, 180, 0.18);
+}
+
+.chrono-video-modal-content h2 {
+    margin: 0 0 16px;
+    color: var(--chrono-cyan);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-align: center;
 }
 
 .chrono-video-close {
@@ -562,14 +590,6 @@ body.chrono-video-open {
     border: 0;
 }
 
-.chrono-video-modal-caption {
-    margin: 14px 0 0;
-    color: var(--chrono-cyan);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.18em;
-    text-align: center;
-}
 
 /* =========================================================
    PROJECT OVERVIEW
@@ -1372,9 +1392,8 @@ body.chrono-page .approach-card.lightbox-image img {
 }
 
 /* =========================================================
-   BEYOND THE PRESENT — ANIMATED IMAGE STACK
-   Static grid is the fallback if JavaScript is unavailable
-   or the visitor prefers reduced motion.
+   BEYOND THE PRESENT — FLOATING TEMPORAL IMAGE GALLERY
+   Images appear to move through the full viewport.
    ========================================================= */
 
 .chrono-page .chrono-stack-section {
@@ -1393,27 +1412,25 @@ body.chrono-page .approach-card.lightbox-image img {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: center;
-    gap: 18px;
+    gap: 24px;
     width: 100%;
-    padding: 22px;
+    padding: 0;
     box-sizing: border-box;
-    border: 1px solid var(--chrono-border);
-    border-radius: 5px;
-    background:
-        radial-gradient(ellipse at center, rgba(0, 105, 160, 0.16), transparent 72%),
-        rgba(3, 15, 28, 0.65);
+    border: 0;
+    border-radius: 0;
+    background: transparent;
 }
 
 .chrono-page .chrono-stack-card {
     position: relative;
     min-width: 0;
     margin: 0;
-    padding: 9px;
-    overflow: hidden;
-    border: 1px solid rgba(92, 190, 235, 0.28);
-    border-radius: 3px;
-    background: #071522;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    padding: 0;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
     box-sizing: border-box;
 }
 
@@ -1425,11 +1442,12 @@ body.chrono-page .approach-card.lightbox-image img {
     margin: 0;
     object-fit: contain;
     cursor: zoom-in;
+    filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.38));
 }
 
 .chrono-page .chrono-stack-anchor {
     grid-column: 1 / -1;
-    padding: 18px;
+    padding: 0;
     text-align: center;
 }
 
@@ -1446,33 +1464,28 @@ body.chrono-page .approach-card.lightbox-image img {
     letter-spacing: 0.2em;
 }
 
-/* Animated stage */
+/* Full-width animated stage */
 
 .chrono-page .chrono-stack-stage.is-animated {
     position: relative;
     display: block;
+    width: 100vw;
+    max-width: none;
     height: clamp(540px, 62vw, 700px);
     min-height: 540px;
+    margin-left: calc(50% - 50vw);
     padding: 0;
-    overflow: hidden;
+    overflow: visible;
     isolation: isolate;
-    background:
-        radial-gradient(ellipse at center, rgba(0, 120, 180, 0.18), transparent 65%),
-        linear-gradient(145deg, rgba(8, 29, 49, 0.88), rgba(3, 13, 25, 0.94));
+    border: 0;
+    border-radius: 0;
+    background: transparent;
 }
 
+/* Remove the former technical-grid panel */
+
 .chrono-page .chrono-stack-stage.is-animated::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    opacity: 0.38;
-    background:
-        linear-gradient(rgba(72, 166, 210, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(72, 166, 210, 0.08) 1px, transparent 1px);
-    background-size: 48px 48px;
-    mask-image: radial-gradient(ellipse at center, black, transparent 78%);
+    content: none;
 }
 
 .chrono-page .chrono-stack-stage.is-animated .chrono-stack-card {
@@ -1481,14 +1494,12 @@ body.chrono-page .approach-card.lightbox-image img {
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    padding: 9px;
-    overflow: hidden;
-    border: 1px solid rgba(125, 210, 245, 0.55);
-    border-radius: 3px;
-    background: #071522;
-    box-shadow:
-        0 18px 42px rgba(0, 0, 0, 0.58),
-        0 0 18px rgba(0, 130, 190, 0.12);
+    padding: 0;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
     transform-origin: center center;
     will-change: transform, opacity;
 }
@@ -1507,7 +1518,10 @@ body.chrono-page .approach-card.lightbox-image img {
     margin: 0;
     object-fit: contain;
     cursor: zoom-in;
+    filter: drop-shadow(0 20px 28px rgba(0, 0, 0, 0.48));
 }
+
+/* Central opening image */
 
 .chrono-page .chrono-stack-stage.is-animated .chrono-stack-anchor {
     top: 50%;
@@ -1515,13 +1529,12 @@ body.chrono-page .approach-card.lightbox-image img {
     z-index: 1;
     width: min(48%, 540px);
     height: 78%;
-    padding: 15px;
+    padding: 0;
     opacity: 1;
     transform: translate(-50%, -50%) rotate(-2deg);
-    border-color: rgba(0, 229, 255, 0.58);
-    box-shadow:
-        0 24px 55px rgba(0, 0, 0, 0.62),
-        0 0 32px rgba(0, 170, 220, 0.16);
+    border: 0;
+    background: transparent;
+    box-shadow: none;
 }
 
 .chrono-page .chrono-stack-stage.is-animated .chrono-stack-anchor img {
@@ -1535,15 +1548,18 @@ body.chrono-page .approach-card.lightbox-image img {
     font-size: 0.72rem;
 }
 
+/* Floating image interaction */
+
 .chrono-page .chrono-stack-stage.is-animated .chrono-stack-card:not(.chrono-stack-anchor) {
     cursor: zoom-in;
 }
 
 .chrono-page .chrono-stack-stage.is-animated .chrono-stack-card:not(.chrono-stack-anchor):hover {
-    border-color: var(--chrono-cyan);
-    box-shadow:
-        0 22px 50px rgba(0, 0, 0, 0.65),
-        0 0 24px rgba(0, 229, 255, 0.22);
+    z-index: 5;
+}
+
+.chrono-page .chrono-stack-stage.is-animated .chrono-stack-card:hover img {
+    filter: drop-shadow(0 24px 34px rgba(0, 0, 0, 0.62));
 }
 
 /* Replay control */
@@ -1610,14 +1626,12 @@ body.chrono-page .approach-card.lightbox-image img {
     transform: translateY(-1px);
 }
 
+/* Remove the "TEMPORAL SEQUENCE / COMPLETE" status */
+
 .chrono-page .chrono-stack-status {
-    margin: 0;
-    color: rgba(0, 229, 255, 0.72);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-align: center;
+    display: none !important;
 }
+
 
 /* =========================================================
    RESPONSIVE CHRONO RULES
@@ -1668,22 +1682,22 @@ body.chrono-page .approach-card.lightbox-image img {
         width: 94%;
     }
 
-    .chrono-page .chrono-hero-overlay {
+    .chrono-page .chrono-play-overlay {
         top: 12px;
         left: 12px;
         gap: 8px;
         padding: 7px 11px 7px 7px;
     }
 
-    .chrono-page .chrono-play-button {
-        flex-basis: 36px;
-        width: 36px;
-        height: 36px;
+    .chrono-page .chrono-play-icon {
+        flex-basis: 34px;
+        width: 34px;
+        height: 34px;
     }
 
     .chrono-page .chrono-play-label {
-        font-size: 0.78rem;
-        letter-spacing: 0.12em;
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
     }
 
     .chrono-page .overview-grid {
@@ -1836,27 +1850,31 @@ body.chrono-page .approach-card.lightbox-image img {
         font-size: 0.65rem;
     }
 
-    .chrono-page .chrono-play-button {
-        flex-basis: 32px;
-        width: 32px;
-        height: 32px;
+    .chrono-page .chrono-play-overlay {
+        top: 8px;
+        left: 8px;
+        gap: 7px;
+        padding: 6px 9px 6px 6px;
     }
 
-    .chrono-page .chrono-play-triangle {
-        border-top-width: 6px;
-        border-bottom-width: 6px;
-        border-left-width: 9px;
+    .chrono-page .chrono-play-icon {
+        flex-basis: 29px;
+        width: 29px;
+        height: 29px;
+    }
+
+    .chrono-page .chrono-play-icon::before {
+        border-top-width: 5px;
+        border-bottom-width: 5px;
+        border-left-width: 8px;
     }
 
     .chrono-page .chrono-play-label {
-        font-size: 0.68rem;
+        font-size: 0.65rem;
+        letter-spacing: 0.08em;
     }
 
-    .chrono-page .chrono-video-modal {
-        padding: 12px;
-    }
-
-    .chrono-page .chrono-video-modal-panel {
+    .chrono-page .chrono-video-modal-content {
         padding: 10px;
     }
 
@@ -1922,6 +1940,7 @@ body.chrono-page .approach-card.lightbox-image img {
         will-change: auto;
     }
 }
+
 .clean-organic {
     --clean-forest: #234C3A;
     --clean-leaf: #72956D;
