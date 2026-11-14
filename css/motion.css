@@ -687,3 +687,28 @@ body.motion-page .motion-card:focus-visible .portfolio-card-title {
     }
 }
 
+body.motion-page .motion-card .portfolio-card-title {
+    position: relative;
+    display: table;
+    width: auto;
+    max-width: 100%;
+    margin: 8px auto 0;
+    padding: 0 0 5px;
+    box-sizing: border-box;
+}
+
+body.motion-page .motion-card .portfolio-card-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #00E5FF;
+    transition: width .35s ease;
+}
+
+body.motion-page .motion-card:hover .portfolio-card-title::after,
+body.motion-page .motion-card:focus-visible .portfolio-card-title::after {
+    width: 100%;
+}
