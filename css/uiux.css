@@ -2706,8 +2706,6 @@ body.lotus-organic .lotus-experience .lotus-games-figure video.video-player {
     margin: 0 auto;
 }
 
-/* Do not change the Katakana lesson image or its arrow. */
-
 /* Animated logo: constrain the outer figure within the callout row, then
    let the bordered player wrap the video's natural aspect ratio. */
 body.lotus-organic .lotus-brand .project-hero.video-hero.lotus-logo-animation {
@@ -2836,6 +2834,10 @@ body.lotus-organic .lotus-brand .lotus-logo-animation figcaption {
         width: 70%;
         max-width: 270px;
     }
+}
+
+body.lotus-organic .lotus-brand .lotus-eyebrow {
+    background: #426B4B;
 }
 
 body.deets-page {
@@ -4144,7 +4146,7 @@ body.project-page .project-hero.video-hero {
     text-align: center;
 }
 
-body.project-page .project-hero.video-hero .video-player {
+body.project-page .project-hero.video-hero:not(.lotus-logo-animation) .video-player {
     flex: 0 1 700px;
     width: min(70%, 700px);
     max-width: 700px;
