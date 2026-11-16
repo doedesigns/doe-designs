@@ -17,7 +17,9 @@
     const previous = document.querySelector(".clean-prev");
     const next = document.querySelector(".clean-next");
     const footprints = Array.from(document.querySelectorAll(".clean-footprint"));
+    const walkway = document.querySelector(".clean-walkway");
     const projectHeading = document.querySelector(".clean-project-heading");
+    const openingTitle = document.querySelector(".clean-opening-copy h2");
 
     const mobileQuery = window.matchMedia("(max-width: 760px)");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -25,14 +27,12 @@
     let activeIndex = 0;
     let animationFrame = 0;
     let lastFootprintStep = -1;
+    let lastFootprintWidth = -1;
 
     const isMobile = () => mobileQuery.matches;
 
-    /* FIND THE STOP CLOSEST TO THE VIEWPORT CENTER */
-
     function getActiveIndex() {
         const center = track.scrollLeft + track.clientWidth / 2;
-
         let closestIndex = 0;
         let closestDistance = Infinity;
 
@@ -49,90 +49,82 @@
         return closestIndex;
     }
 
-    /* DISCRETE FOOTSTEP POSITIONS */
+    /* =====================================================
+       BOOTPRINT TRAIL
+       Exactly one print is visible at a time.
+       The two supplied images alternate left/right.
+       ===================================================== */
 
     function updateFootprints() {
-        if (footprints.length < 2 || isMobile()) {
+        if (footprints.length < 2 || !walkway || isMobile()) {
             return;
         }
 
-        const maxScroll = Math.max(
-            1,
-            track.scrollWidth - track.clientWidth
-        );
+        const maxScroll = Math.max(1, track.scrollWidth - track.clientWidth);
+        const ratio = Math.max(0, Math.min(1, track.scrollLeft / maxScroll));
 
-        const ratio = Math.max(
-            0,
-            Math.min(1, track.scrollLeft / maxScroll)
-        );
-
-        /*
-           Each step advances to a new fixed position.
-           The images do not transition their left position,
-           so they appear to step rather than slide.
-        */
-
-        const totalSteps = 17;
+        const totalSteps = 20;
         const step = Math.min(
             totalSteps,
             Math.floor(ratio * totalSteps)
         );
 
-        if (step === lastFootprintStep) {
+        const walkwayWidth = walkway.clientWidth;
+
+        if (
+            step === lastFootprintStep &&
+            walkwayWidth === lastFootprintWidth
+        ) {
             return;
         }
 
+        const firstAppearance = lastFootprintStep === -1;
         lastFootprintStep = step;
+        lastFootprintWidth = walkwayWidth;
 
-        const first = footprints[0];
-        const second = footprints[1];
+        const selectedFootprint = footprints[step % 2];
+        const otherFootprint = footprints[(step + 1) % 2];
 
-        const progress = step / totalSteps;
-        const firstPosition = 4 + progress * 78;
-        const secondPosition = Math.min(88, firstPosition + 4);
+        const maxLeft = Math.max(
+            0,
+            walkwayWidth - selectedFootprint.offsetWidth
+        );
+
+        const position = maxLeft * (step / totalSteps);
+
+        /* Hide both first so two prints are never displayed together. */
+        footprints.forEach(print => {
+            print.style.opacity = "0";
+        });
+
+        selectedFootprint.style.left = `${position}px`;
+
+        /* No mirroring: each image is already the correct foot. */
+        selectedFootprint.style.transform = "none";
+        otherFootprint.style.transform = "none";
+
+        if (reduceMotion.matches || firstAppearance) {
+            selectedFootprint.style.opacity = "0.82";
+            return;
+        }
 
         /*
-           Alternate the mirrored foot at each step.
-           Fade first, reposition, then fade back in.
+           Let the previous print disappear completely before
+           revealing the next one. The timeout is cancelled
+           logically if another scroll step happens first.
         */
-
-        const firstIsRightFoot = step % 2 === 1;
-        const secondIsRightFoot = !firstIsRightFoot;
-
-        first.style.opacity = "0";
-        second.style.opacity = "0";
-
-        if (reduceMotion.matches) {
-            first.style.left = `${firstPosition}%`;
-            second.style.left = `${secondPosition}%`;
-
-            first.style.transform = firstIsRightFoot ? "scaleX(-1)" : "none";
-            second.style.transform = secondIsRightFoot ? "scaleX(-1)" : "none";
-
-            first.style.opacity = step === 0 ? "0.82" : "0.72";
-            second.style.opacity = "0.72";
-            return;
-        }
-
         window.setTimeout(() => {
-            if (step !== lastFootprintStep) {
+            if (step !== lastFootprintStep || isMobile()) {
                 return;
             }
 
-            first.style.left = `${firstPosition}%`;
-            second.style.left = `${secondPosition}%`;
-
-            first.style.transform = firstIsRightFoot ? "scaleX(-1)" : "none";
-            second.style.transform = secondIsRightFoot ? "scaleX(-1)" : "none";
-
-            requestAnimationFrame(() => {
-                first.style.opacity = "0.78";
-                second.style.opacity = "0.58";
-            });
-        }, 180);
+            selectedFootprint.style.opacity = "0.82";
+        }, 230);
     }
 
-    /* UPDATE SCALE, HEADING, BUTTONS AND FOOTPRINTS */
+    /* =====================================================
+       SCENE POSITION AND ACTIVE STOP
+       ===================================================== */
 
     function updateScene() {
         if (isMobile()) {
@@ -148,27 +140,32 @@
             const proximity = Math.min(1, distance / travelDistance);
             const scale = 1 - (proximity * 0.88);
 
-            stop.style.setProperty("--clean-scale", scale.toFixed(3));
-            stop.classList.toggle("is-centered", proximity < 0.2);
+            stop.style.setProperty(
+                "--clean-scale",
+                scale.toFixed(3)
+            );
+
+            stop.classList.toggle(
+                "is-centered",
+                proximity < 0.2
+            );
         });
 
         activeIndex = getActiveIndex();
 
-        /* REVEAL HEADING ONLY AFTER OPENING SCENE HAS LEFT VIEW */
-
-        const opening = stops[0];
-
-        if (projectHeading && opening) {
-            const openingRight = opening.getBoundingClientRect().right;
-            const openingHasLeft = openingRight <= 0;
+        /*
+           Reveal the fixed heading only after the large opening
+           title has moved completely off the left side.
+        */
+        if (projectHeading && openingTitle) {
+            const openingTitleRight = openingTitle.getBoundingClientRect().right;
+            const openingTitleHasLeft = openingTitleRight <= 0;
 
             projectHeading.classList.toggle(
                 "clean-heading-visible",
-                openingHasLeft
+                openingTitleHasLeft
             );
         }
-
-        /* UPDATE SECTION BUTTONS */
 
         if (previous) {
             previous.disabled = activeIndex === 0;
@@ -181,8 +178,6 @@
         updateFootprints();
     }
 
-    /* SCHEDULE ONE VISUAL UPDATE PER FRAME */
-
     function requestSceneUpdate() {
         if (animationFrame) {
             cancelAnimationFrame(animationFrame);
@@ -194,7 +189,9 @@
         });
     }
 
-    /* MOVE TO A PARTICULAR STOP AND CENTER IT */
+    /* =====================================================
+       NAVIGATION
+       ===================================================== */
 
     function goTo(index) {
         if (!stops.length) {
@@ -211,15 +208,16 @@
                 behavior: reduceMotion.matches ? "auto" : "smooth",
                 block: "start"
             });
+
             return;
         }
 
         const stop = stops[target];
 
         const desiredLeft =
-            stop.offsetLeft -
-            (track.clientWidth / 2) +
-            (stop.offsetWidth / 2);
+            stop.offsetLeft +
+            (stop.offsetWidth / 2) -
+            (track.clientWidth / 2);
 
         const maxScroll = Math.max(
             0,
@@ -237,8 +235,6 @@
         });
     }
 
-    /* PREVIOUS AND NEXT BUTTONS */
-
     if (previous) {
         previous.addEventListener("click", () => {
             goTo(getActiveIndex() - 1);
@@ -251,13 +247,15 @@
         });
     }
 
-    /* TRACK SCROLLING */
+    track.addEventListener(
+        "scroll",
+        requestSceneUpdate,
+        { passive: true }
+    );
 
-    track.addEventListener("scroll", requestSceneUpdate, {
-        passive: true
-    });
-
-    /* CONVERT VERTICAL WHEEL MOVEMENT TO HORIZONTAL MOVEMENT */
+    /* =====================================================
+       VERTICAL WHEEL TO HORIZONTAL SCROLL
+       ===================================================== */
 
     track.addEventListener("wheel", event => {
         if (isMobile()) {
@@ -289,10 +287,17 @@
         });
     }, { passive: false });
 
-    /* KEYBOARD NAVIGATION */
+    /* =====================================================
+       KEYBOARD NAVIGATION
+       ===================================================== */
 
     document.addEventListener("keydown", event => {
-        if (isMobile() || event.altKey || event.ctrlKey || event.metaKey) {
+        if (
+            isMobile() ||
+            event.altKey ||
+            event.ctrlKey ||
+            event.metaKey
+        ) {
             return;
         }
 
@@ -319,7 +324,9 @@
         }
     });
 
-    /* LOAD YOUTUBE ONLY AFTER THE VISITOR CLICKS PLAY */
+    /* =====================================================
+       VIDEO PLAYBACK
+       ===================================================== */
 
     const videoCard = document.querySelector(".clean-video-card");
 
@@ -352,7 +359,9 @@
         }
     }
 
-    /* MOBILE / DESKTOP LAYOUT */
+    /* =====================================================
+       RESPONSIVE LAYOUT
+       ===================================================== */
 
     function handleLayoutChange() {
         body.classList.toggle(
@@ -387,11 +396,10 @@
             }
         } else {
             lastFootprintStep = -1;
+            lastFootprintWidth = -1;
             requestSceneUpdate();
         }
     }
-
-    /* SUPPORT OLDER BROWSER VERSIONS */
 
     if (typeof mobileQuery.addEventListener === "function") {
         mobileQuery.addEventListener("change", handleLayoutChange);
@@ -399,12 +407,9 @@
         mobileQuery.addListener(handleLayoutChange);
     }
 
-    /* INITIALIZE */
-
     handleLayoutChange();
 
     window.addEventListener("resize", requestSceneUpdate);
 
     requestSceneUpdate();
-
 })();
