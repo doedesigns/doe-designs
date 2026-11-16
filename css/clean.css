@@ -194,14 +194,14 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
     scroll-snap-type: none;
     scrollbar-width: none;
 
-	background-color: #20382a;
-	background-image:
-		linear-gradient(rgba(20, 45, 32, 0.18), rgba(20, 45, 32, 0.18)),
-		url("../images/ui/clean/2.6.17-horizontal-path.png");
-	background-position: 0 0;
-	background-size: auto 100%;
-	background-repeat: no-repeat;
-	background-attachment: scroll;
+    background-color: #20382a;
+    background-image:
+        linear-gradient(rgba(20, 45, 32, 0.18), rgba(20, 45, 32, 0.18)),
+        url("../images/ui/clean/2.6.17-horizontal-path.png");
+    background-position: left center;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-attachment: local;
 }
 
 .clean-track::-webkit-scrollbar {
