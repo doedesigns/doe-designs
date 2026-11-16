@@ -160,14 +160,41 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
     text-decoration: none;
 }
 
-/* Remove underlines from upper project navigation */
+/* Remove all link decoration from upper project navigation */
 body.clean-horizontal-page .clean-project-heading .project-arrow,
 body.clean-horizontal-page .clean-project-heading .project-arrow:hover,
 body.clean-horizontal-page .clean-project-heading .project-arrow:focus,
 body.clean-horizontal-page .clean-project-heading .project-arrow:active {
     text-decoration: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    background-image: none !important;
+}
+
+/* Disable decorative pseudo-elements inherited from shared navigation */
+body.clean-horizontal-page .clean-project-heading .project-arrow::before,
+body.clean-horizontal-page .clean-project-heading .project-arrow::after,
+body.clean-horizontal-page .clean-project-heading .project-arrow:hover::before,
+body.clean-horizontal-page .clean-project-heading .project-arrow:hover::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* =========================================================
+   CLEAN PROJECT HEADING: REMOVE FULL-WIDTH HOVER LINE
+   ========================================================= */
+
+body.clean-horizontal-page .clean-project-heading:has(.project-arrow:hover) {
     border-bottom: none !important;
     box-shadow: none !important;
+    background: none !important;
+    background-image: none !important;
+}
+
+body.clean-horizontal-page .clean-project-heading:has(.project-arrow:hover)::before,
+body.clean-horizontal-page .clean-project-heading:has(.project-arrow:hover)::after {
+    display: none !important;
+    content: none !important;
 }
 
 /* =========================================================
