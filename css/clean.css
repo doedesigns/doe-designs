@@ -181,20 +181,14 @@ body.clean-horizontal-page .clean-project-heading .project-arrow:hover::after {
 }
 
 /* =========================================================
-   CLEAN PROJECT HEADING: REMOVE FULL-WIDTH HOVER LINE
+   CLEAN PROJECT HEADING: REMOVE TITLE UNDERLINE
    ========================================================= */
 
-body.clean-horizontal-page .clean-project-heading:has(.project-arrow:hover) {
-    border-bottom: none !important;
-    box-shadow: none !important;
-    background: none !important;
-    background-image: none !important;
-}
-
-body.clean-horizontal-page .clean-project-heading:has(.project-arrow:hover)::before,
-body.clean-horizontal-page .clean-project-heading:has(.project-arrow:hover)::after {
+body.clean-horizontal-page .clean-project-heading > h1::after,
+body.clean-horizontal-page .clean-project-heading > h1:hover::after {
     display: none !important;
     content: none !important;
+    width: 0 !important;
 }
 
 /* =========================================================
