@@ -146,7 +146,8 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
 }
 
 /* Left arrow */
-body.clean-horizontal-page .clean-project-heading .project-arrow.prev:hover {
+body.clean-horizontal-page .clean-project-heading .project-arrow.prev:hover,
+body.clean-horizontal-page .clean-project-heading .project-arrow.prev:hover .clean-leaf-icon {
     rotate: -35deg !important;
 }
 
