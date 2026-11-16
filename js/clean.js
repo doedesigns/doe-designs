@@ -18,7 +18,7 @@
     const next = document.querySelector(".clean-next");
     const progress = document.querySelector(".clean-progress");
     const footprints = Array.from(document.querySelectorAll(".clean-footprint"));
-    const header = document.querySelector(".clean-header");
+    const projectHeading = document.querySelector(".clean-project-heading");
 
     const mobileQuery = window.matchMedia("(max-width: 760px)");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -52,7 +52,7 @@
     }
 
 
-    /* UPDATE SCALE, HEADER, BUTTONS, PROGRESS AND FOOTPRINTS */
+    /* UPDATE SCALE, HEADING, BUTTONS, PROGRESS AND FOOTPRINTS */
 
     function updateScene() {
         if (isMobile()) {
@@ -67,7 +67,6 @@
             const distance = Math.abs(center - stopCenter);
             const proximity = Math.min(1, distance / travelDistance);
 
-            /* Full size at center; 12% at maximum distance. */
             const scale = 1 - (proximity * 0.88);
 
             stop.style.setProperty("--clean-scale", scale.toFixed(3));
@@ -77,11 +76,11 @@
         activeIndex = getActiveIndex();
 
 
-        /* REVEAL THE PROJECT TITLE ONCE, THEN KEEP IT VISIBLE */
+        /* REVEAL THE SEPARATE PROJECT HEADING ONCE */
 
         const opening = stops[0];
 
-        if (header && opening && !titleRevealed) {
+        if (projectHeading && opening && !titleRevealed) {
             const revealPoint =
                 opening.offsetLeft + opening.offsetWidth * 0.55;
 
@@ -90,9 +89,9 @@
             }
         }
 
-        if (header) {
-            header.classList.toggle(
-                "clean-title-visible",
+        if (projectHeading) {
+            projectHeading.classList.toggle(
+                "clean-heading-visible",
                 titleRevealed
             );
         }
@@ -117,7 +116,7 @@
         }
 
 
-        /* MOVE THE BOOTPRINT TRAIL WITH SCROLL PROGRESS */
+        /* REVEAL FOOTPRINTS ONE AT A TIME */
 
         const maxScroll = Math.max(
             1,
@@ -127,13 +126,12 @@
         const ratio = track.scrollLeft / maxScroll;
 
         footprints.forEach((print, index) => {
-            const offset = index * 2.2;
-            const position = Math.min(
-                96,
-                Math.max(2, ratio * 92 + offset)
-            );
+            const threshold =
+                footprints.length <= 1
+                    ? 0
+                    : (index / (footprints.length - 1)) * 0.9;
 
-            print.style.left = `${position}%`;
+            print.style.opacity = ratio >= threshold ? "0.82" : "0";
         });
     }
 
@@ -333,12 +331,16 @@
         if (isMobile()) {
             titleRevealed = false;
 
-            if (header) {
-                header.classList.remove("clean-title-visible");
+            if (projectHeading) {
+                projectHeading.classList.remove("clean-heading-visible");
             }
 
             stops.forEach(stop => {
                 stop.style.removeProperty("--clean-scale");
+            });
+
+            footprints.forEach(print => {
+                print.style.opacity = "0";
             });
 
             if (progress) {

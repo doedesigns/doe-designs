@@ -17,7 +17,9 @@
     --clean-accent: #C28A55;
 }
 
-/* PAGE AND HEADER */
+/* =========================================================
+   PAGE AND HEADER
+   ========================================================= */
 
 html.clean-horizontal-active,
 body.clean-horizontal-page {
@@ -38,28 +40,43 @@ body.clean-horizontal-page .clean-header {
     z-index: 10000;
 }
 
+/* The project heading will live outside the navbar.
+   This prevents an old heading inside the header from appearing. */
+
 body.clean-horizontal-page .clean-header .project-title-nav {
-    position: absolute;
-    top: 50%;
-    right: 40px;
-    z-index: 10001;
+    display: none;
+}
+
+/* Fixed project title below the navbar */
+
+body.clean-horizontal-page .clean-project-heading {
+    position: fixed;
+    top: 88px;
+    left: 50%;
+    z-index: 9998;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 16px;
+    max-width: calc(100vw - 40px);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translateY(-50%);
-    transition: opacity .35s ease, visibility .35s ease;
+    transform: translate(-50%, -12px);
+    transition:
+        opacity .35s ease,
+        transform .35s ease,
+        visibility .35s ease;
 }
 
-body.clean-horizontal-page .clean-header.clean-title-visible .project-title-nav {
+body.clean-horizontal-page .clean-project-heading.clean-heading-visible {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    transform: translate(-50%, 0);
 }
 
-body.clean-horizontal-page .project-title-nav h1 {
+body.clean-horizontal-page .clean-project-heading h1 {
     margin: 0;
     color: #fff;
     font-family: "Barlow Condensed", sans-serif;
@@ -67,12 +84,21 @@ body.clean-horizontal-page .project-title-nav h1 {
     font-weight: 700;
     letter-spacing: .06em;
     line-height: 1;
+    text-align: center;
     text-transform: uppercase;
     white-space: nowrap;
     text-shadow: 0 1px 6px rgba(0,0,0,.45);
 }
 
-/* MAIN VIEWPORT */
+/* Keep project arrows visually consistent with the other pages */
+
+body.clean-horizontal-page .clean-project-heading .project-arrow {
+    flex: 0 0 auto;
+}
+
+/* =========================================================
+   MAIN VIEWPORT
+   ========================================================= */
 
 .clean-horizontal-shell {
     position: relative;
@@ -91,7 +117,9 @@ body.clean-horizontal-page .project-details[hidden] {
     display: none !important;
 }
 
-/* CONTINUOUS LANDSCAPE */
+/* =========================================================
+   CONTINUOUS LANDSCAPE
+   ========================================================= */
 
 .clean-track {
     position: relative;
@@ -129,11 +157,13 @@ body.clean-horizontal-page .project-details[hidden] {
 }
 
 .clean-track-spacer:last-child {
-    flex: 0 0 50vw;
-    min-width: 50vw;
+    flex: 0 0 max(0px, calc(45vw - min(425px, 40vw)));
+    min-width: 0;
 }
 
-/* INDIVIDUAL CONTENT STOPS */
+/* =========================================================
+   INDIVIDUAL CONTENT STOPS
+   ========================================================= */
 
 .clean-stop {
     position: relative;
@@ -145,7 +175,7 @@ body.clean-horizontal-page .project-details[hidden] {
     width: min(760px, 72vw);
     min-height: 55vh;
     box-sizing: border-box;
-    transform: scale(var(--clean-scale, .22));
+    transform: scale(var(--clean-scale, .12));
     transform-origin: center center;
     transition: transform .12s linear;
     will-change: transform;
@@ -165,7 +195,9 @@ body.clean-horizontal-page .project-details[hidden] {
     pointer-events: none;
 }
 
-/* TYPE */
+/* =========================================================
+   TYPE
+   ========================================================= */
 
 .clean-kicker {
     margin: 0 0 15px;
@@ -211,68 +243,77 @@ body.clean-horizontal-page .project-details[hidden] {
     letter-spacing: .12em;
 }
 
-
 /* =========================================================
    OPENING SCENE
    Continuous landscape with copy to the right of hikers
    ========================================================= */
 
 .clean-opening {
-    width: min(1450px, 120vw);
-    min-height: 62vh;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    position: relative;
+    width: min(1450px, 120vw);
+    min-height: 62vh;
+}
+
+/* The landscape is now the track background.
+   Hide the former separate image box. */
+
+.clean-opening-photo {
+    display: none !important;
 }
 
 .clean-opening-copy {
-    width: min(660px, 48vw);
-    margin-left: clamp(440px, 43vw, 680px);
-    padding: 30px 24px;
-    text-align: left;
     position: relative;
     z-index: 2;
+    width: min(600px, 48vw);
+    margin-left: clamp(400px, 40vw, 620px);
+    padding: 30px 24px;
+    box-sizing: border-box;
+    text-align: left;
 }
 
 .clean-opening-copy .clean-kicker {
+    margin-bottom: 20px;
+    color: var(--clean-sage);
     font-family: "DM Mono", monospace;
     font-size: 15px;
-    letter-spacing: 0.14em;
-    margin-bottom: 20px;
-    color: var(--sage);
+    letter-spacing: .14em;
 }
 
 .clean-opening-copy h2 {
+    margin: 0 0 24px;
+    color: var(--clean-cream);
     font-family: "Barlow Condensed", sans-serif;
     font-size: clamp(64px, 8vw, 112px);
-    line-height: 0.88;
     font-weight: 700;
-    color: var(--cream);
-    margin: 0 0 24px;
+    line-height: .88;
 }
 
 .clean-opening-subtitle {
     max-width: 560px;
+    color: var(--clean-cream);
     font-size: clamp(18px, 1.5vw, 22px);
     line-height: 1.45;
-    color: var(--cream);
 }
 
 .clean-opening-rule {
     width: 85px;
     height: 3px;
-    background: var(--accent);
     margin: 25px 0;
+    background: var(--clean-accent);
 }
 
 .clean-opening-caption {
+    color: var(--clean-sage);
     font-size: 18px;
     line-height: 1.5;
-    color: var(--sage);
 }
 
-/* PROJECT DETAIL COLUMNS */
+/* =========================================================
+   PROJECT DETAIL COLUMNS
+   ========================================================= */
 
 .clean-details-stop {
     width: min(1050px, 88vw);
@@ -306,7 +347,9 @@ body.clean-horizontal-page .project-details[hidden] {
     line-height: 1.45;
 }
 
-/* SHARED TEXT CARDS */
+/* =========================================================
+   SHARED TEXT CARDS
+   ========================================================= */
 
 .clean-text-card {
     width: 100%;
@@ -341,7 +384,9 @@ body.clean-horizontal-page .project-details[hidden] {
     margin-left: auto;
 }
 
-/* VIDEO */
+/* =========================================================
+   VIDEO
+   ========================================================= */
 
 .clean-video-stop {
     width: min(900px,82vw);
@@ -396,7 +441,9 @@ body.clean-horizontal-page .project-details[hidden] {
     transform: translateX(3px);
 }
 
-/* CHALLENGE AND SOLUTION */
+/* =========================================================
+   CHALLENGE AND SOLUTION
+   ========================================================= */
 
 .clean-challenge-stop {
     width: min(1050px,88vw);
@@ -441,7 +488,9 @@ body.clean-horizontal-page .project-details[hidden] {
     padding-left: 20px;
 }
 
-/* PROTOTYPE */
+/* =========================================================
+   PROTOTYPE
+   ========================================================= */
 
 .clean-prototype-stop {
     width: min(850px,80vw);
@@ -508,7 +557,9 @@ body.clean-horizontal-page .project-details[hidden] {
     transform: translateY(-2px);
 }
 
-/* RESEARCH STOP */
+/* =========================================================
+   RESEARCH STOP
+   ========================================================= */
 
 .clean-research-stop {
     width: min(900px,82vw);
@@ -535,7 +586,9 @@ body.clean-horizontal-page .project-details[hidden] {
     font-size: 22px;
 }
 
-/* DESIGN PROCESS */
+/* =========================================================
+   DESIGN PROCESS
+   ========================================================= */
 
 .clean-process-stop {
     width: min(1100px,90vw);
@@ -576,7 +629,9 @@ body.clean-horizontal-page .project-details[hidden] {
     font-size: 25px;
 }
 
-/* SECTION INTRODUCTIONS */
+/* =========================================================
+   SECTION INTRODUCTIONS
+   ========================================================= */
 
 .clean-section-intro {
     width: min(850px,80vw);
@@ -599,7 +654,9 @@ body.clean-horizontal-page .project-details[hidden] {
     margin-bottom: 0;
 }
 
-/* WEBSITE AND BRAND IMAGES */
+/* =========================================================
+   WEBSITE AND BRAND IMAGES
+   ========================================================= */
 
 .clean-image-stop {
     width: min(760px,68vw);
@@ -633,10 +690,13 @@ body.clean-horizontal-page .project-details[hidden] {
     text-align: center;
 }
 
-/* CLOSING */
+/* =========================================================
+   CLOSING
+   ========================================================= */
 
 .clean-ending-stop {
     width: min(850px,80vw);
+    margin-left: calc(5vw - clamp(90px,13vw,210px));
 }
 
 .clean-ending-content {
@@ -647,6 +707,7 @@ body.clean-horizontal-page .project-details[hidden] {
     color: #fff;
     text-align: center;
     box-shadow: 0 20px 55px rgba(0,0,0,.25);
+    box-sizing: border-box;
 }
 
 .clean-ending-content .clean-kicker {
@@ -667,73 +728,84 @@ body.clean-horizontal-page .project-details[hidden] {
 
 /* =========================================================
    BOOTPRINT TRAIL
-   Alternating, recognizable boot soles
+   Eight alternating, outlined boot soles
    ========================================================= */
 
 .clean-walkway {
     position: absolute;
-    left: 0;
     right: 0;
     bottom: 58px;
-    height: 82px;
-    pointer-events: none;
+    left: 0;
     z-index: 5;
+    height: 110px;
+    pointer-events: none;
 }
 
 .clean-footprint {
     position: absolute;
-    width: 42px;
-    height: 76px;
-    overflow: visible;
-    fill: rgba(242, 240, 229, 0.72);
-    transition: left 0.15s linear;
-}
-
-.clean-footprint .boot-sole {
-    fill: rgba(242, 240, 229, 0.72);
-    stroke: rgba(242, 240, 229, 0.9);
-    stroke-width: 2;
-}
-
-.clean-footprint .boot-tread {
-    fill: none;
-    stroke: rgba(35, 76, 58, 0.8);
-    stroke-width: 4;
-    stroke-linecap: round;
-}
-
-.clean-footprint.footprint-one {
     top: 0;
-    transform: rotate(68deg);
-}
-
-.clean-footprint.footprint-two {
-    top: 18px;
-    transform: rotate(78deg);
-}
-
-
-.clean-footprint {
-    position: absolute;
-    top: 3px;
-    width: 66px;
-    height: 34px;
+    width: 55px;
+    height: 99px;
     overflow: visible;
-    transition: left .12s linear;
+    opacity: 0;
     filter: drop-shadow(0 1px 3px rgba(0,0,0,.35));
+    transition: opacity .25s ease;
 }
 
-.footprint-one {
-    left: 5%;
+/* Alternating steps move from left to right.
+   The rotation points the toes in the direction of travel. */
+
+.clean-footprint.step-1 {
+    left: 2%;
+    top: 0;
+    transform: rotate(90deg);
 }
 
-.footprint-two {
-    top: 12px;
-    left: 7%;
-    transform: scale(.9);
+.clean-footprint.step-2 {
+    left: 13%;
+    top: 40px;
+    transform: rotate(90deg) scaleX(-1);
 }
 
-/* CONTROLS */
+.clean-footprint.step-3 {
+    left: 24%;
+    top: 0;
+    transform: rotate(90deg);
+}
+
+.clean-footprint.step-4 {
+    left: 35%;
+    top: 40px;
+    transform: rotate(90deg) scaleX(-1);
+}
+
+.clean-footprint.step-5 {
+    left: 46%;
+    top: 0;
+    transform: rotate(90deg);
+}
+
+.clean-footprint.step-6 {
+    left: 57%;
+    top: 40px;
+    transform: rotate(90deg) scaleX(-1);
+}
+
+.clean-footprint.step-7 {
+    left: 68%;
+    top: 0;
+    transform: rotate(90deg);
+}
+
+.clean-footprint.step-8 {
+    left: 79%;
+    top: 40px;
+    transform: rotate(90deg) scaleX(-1);
+}
+
+/* =========================================================
+   CONTROLS
+   ========================================================= */
 
 .clean-controls {
     position: absolute;
@@ -775,7 +847,9 @@ body.clean-horizontal-page .project-details[hidden] {
     text-shadow: 0 1px 5px #000;
 }
 
-/* COPYRIGHT */
+/* =========================================================
+   COPYRIGHT
+   ========================================================= */
 
 body.clean-horizontal-page #footerCopyright {
     position: fixed;
@@ -789,7 +863,9 @@ body.clean-horizontal-page #footerCopyright {
     pointer-events: none;
 }
 
-/* SHORT DESKTOP VIEWPORTS */
+/* =========================================================
+   SHORT DESKTOP VIEWPORTS
+   ========================================================= */
 
 @media (max-height: 760px) and (min-width: 761px) {
 
@@ -799,10 +875,6 @@ body.clean-horizontal-page #footerCopyright {
 
     .clean-stop {
         min-height: 48vh;
-    }
-
-    .clean-opening-photo {
-        height: 48vh;
     }
 
     .clean-text-card {
@@ -820,9 +892,15 @@ body.clean-horizontal-page #footerCopyright {
     .clean-research-points > div {
         padding: 14px;
     }
+
+    .clean-project-heading {
+        top: 80px;
+    }
 }
 
-/* MOBILE: VERTICAL READING EXPERIENCE */
+/* =========================================================
+   MOBILE: VERTICAL READING EXPERIENCE
+   ========================================================= */
 
 @media (max-width: 760px) {
 
@@ -832,6 +910,7 @@ body.clean-horizontal-page #footerCopyright {
         overflow: auto;
     }
 
+    body.clean-horizontal-page .clean-project-heading,
     body.clean-horizontal-page .clean-header .project-title-nav {
         display: none;
     }
@@ -865,6 +944,7 @@ body.clean-horizontal-page #footerCopyright {
     .clean-stop {
         width: 100%;
         min-height: 0;
+        margin-left: 0;
         transform: none !important;
     }
 
@@ -872,16 +952,16 @@ body.clean-horizontal-page #footerCopyright {
         flex-direction: column;
         gap: 25px;
         align-items: stretch;
-    }
-
-    .clean-opening-photo {
-        flex: none;
         width: 100%;
-        height: 38vh;
+        min-height: 0;
     }
 
     .clean-opening-copy {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
         padding: 10px;
+        box-sizing: border-box;
     }
 
     .clean-opening-copy h2 {
@@ -944,7 +1024,9 @@ body.clean-horizontal-page #footerCopyright {
     }
 }
 
-/* REDUCED MOTION */
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
