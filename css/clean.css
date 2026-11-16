@@ -134,30 +134,28 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
    TOP PROJECT NAVIGATION LEAVES
    ========================================================= */
 
-/* Smooth rotation */
 .clean-project-heading .project-arrow .clean-leaf-icon {
-    transition: transform 0.25s ease, color 0.25s ease;
+    transition: transform 0.35s ease, color 0.25s ease;
 }
 
-/* Left leaf points left */
+/* Normal positions */
 .clean-project-heading .project-arrow.prev .clean-leaf-icon {
-    transform: scaleX(-1);
+    transform: scaleX(-1) rotate(0deg);
 }
 
-/* Right leaf points right */
 .clean-project-heading .project-arrow.next .clean-leaf-icon {
-    transform: none;
+    transform: rotate(0deg);
 }
 
-/* Rotate outward on hover */
+/* Angled positions on hover */
 .clean-project-heading .project-arrow.prev:hover .clean-leaf-icon {
     color: #DCE8D2;
-    transform: scaleX(-1) rotate(-8deg);
+    transform: scaleX(-1) rotate(35deg);
 }
 
 .clean-project-heading .project-arrow.next:hover .clean-leaf-icon {
     color: #DCE8D2;
-    transform: rotate(8deg);
+    transform: rotate(35deg);
 }
 
 /* =========================================================
@@ -204,6 +202,8 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
 	background-size: auto 100%;
 	background-repeat: no-repeat;
 	background-attachment: local;
+	
+}
 
 .clean-track::-webkit-scrollbar {
     display: none;
