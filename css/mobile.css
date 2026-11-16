@@ -109,34 +109,6 @@
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-.clean-organic *,
-.clean-organic *::before,
-.clean-organic *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-    }
-}
-
-@media (max-width: 800px) {
-.clean-organic .clean-challenge-grid {
-        grid-template-columns: 1fr;
-    }
-.clean-organic .clean-process-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-    }
-.clean-organic .clean-process-card:last-child {
-        grid-column: 1 / -1;
-        width: calc(50% - 12px);
-        justify-self: center;
-    }
-.clean-organic .clean-section {
-        width: min(92%, 680px);
-    }
-}
-
 @media (max-width: 800px) {
 .lotus-organic .lotus-challenge-grid {
         grid-template-columns: 1fr;
@@ -368,68 +340,6 @@ body.lotus-organic .lotus-games-figure {
     body.lotus-organic .lotus-experience .lotus-games-figure {
         width: 240px;
         max-width: 100%;
-    }
-}
-
-@media (max-width: 600px) {
-.clean-organic .clean-gallery > figure.clean-homepage-feature:first-of-type {
-        width: 100%;
-    }
-}
-
-@media (max-width: 560px) {
-.clean-organic .clean-section {
-        width: 90%;
-        margin: 70px auto;
-    }
-.clean-organic .clean-overview {
-        padding: 30px 18px;
-        border-radius: 28px 8px 28px 8px;
-    }
-.clean-organic .clean-overview-logo {
-        width: 85px;
-        height: 85px;
-    }
-.clean-organic .clean-process-grid,
-.clean-organic .clean-screen-grid {
-        grid-template-columns: 1fr;
-    }
-.clean-organic .clean-process-card:last-child {
-        grid-column: auto;
-        width: 100%;
-    }
-.clean-organic .clean-process-card figure {
-        border-radius: 28px 8px 28px 8px;
-    }
-.clean-organic .clean-homepage-feature {
-        padding: 7px;
-        border-radius: 26px 7px 26px 7px;
-    }
-.clean-organic .clean-homepage-feature img {
-        border-radius: 20px 5px 20px 5px;
-    }
-.clean-organic .clean-prototype {
-        padding: 30px 16px;
-        border-radius: 10px 30px 10px 30px;
-    }
-.clean-organic .clean-prototype-preview {
-        border-radius: 24px 6px 24px 6px;
-    }
-.clean-organic .clean-prototype-overlay {
-        opacity: 1;
-        background: linear-gradient(
-            to top,
-            rgba(25, 54, 40, 0.8),
-            transparent 70%
-        );
-        align-items: flex-end;
-    }
-.clean-organic .clean-prototype-overlay span {
-        padding: 10px 14px;
-        font-size:1.125rem;
-    }
-.clean-organic .clean-contact {
-        padding: 35px 15px 45px;
     }
 }
 
@@ -852,9 +762,7 @@ body.tip-page .tip-feature-image img {
   body.tip-page .project-details .detail-box { padding:22px 18px; }
   body.tip-page .page-contact-link { padding:35px 10px 20px; }
 }
-@media (max-width: 560px) {
-  body.clean-organic .clean-prototype-preview { width:min(212px,75%); max-width:212px; }
-}
+
 @media (prefers-reduced-motion: reduce) {
   .project-title-nav { transition:none; }
   body.tip-page .tip-feature-image img { transition:none; }
