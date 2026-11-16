@@ -40,14 +40,13 @@ body.clean-horizontal-page .clean-header {
     z-index: 10000;
 }
 
-/* The project heading will live outside the navbar.
-   This prevents an old heading inside the header from appearing. */
-
 body.clean-horizontal-page .clean-header .project-title-nav {
     display: none;
 }
 
-/* Fixed project title below the navbar */
+/* =========================================================
+   FIXED PROJECT TITLE AND LEAF NAVIGATION
+   ========================================================= */
 
 body.clean-horizontal-page .clean-project-heading {
     position: fixed;
@@ -57,7 +56,7 @@ body.clean-horizontal-page .clean-project-heading {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 16px;
+    gap: 20px;
     max-width: calc(100vw - 40px);
     opacity: 0;
     visibility: hidden;
@@ -80,20 +79,64 @@ body.clean-horizontal-page .clean-project-heading h1 {
     margin: 0;
     color: #fff;
     font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(19px, 2vw, 27px);
+    font-size: clamp(24px, 2.5vw, 34px);
     font-weight: 700;
     letter-spacing: .06em;
     line-height: 1;
     text-align: center;
     text-transform: uppercase;
     white-space: nowrap;
-    text-shadow: 0 1px 6px rgba(0,0,0,.45);
+    text-shadow: 0 1px 6px rgba(0,0,0,.55);
 }
 
-/* Keep project arrows visually consistent with the other pages */
-
 body.clean-horizontal-page .clean-project-heading .project-arrow {
+    display: flex;
     flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    color: var(--clean-sage);
+    text-decoration: none;
+}
+
+.clean-leaf-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    color: var(--clean-sage);
+    transform-origin: center;
+    transition:
+        transform .35s ease,
+        color .25s ease;
+}
+
+.clean-leaf-icon svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Left navigation leaf points left */
+.clean-project-heading .project-arrow.prev .clean-leaf-icon {
+    transform: scaleX(-1);
+}
+
+/* Right navigation leaf points right */
+.clean-project-heading .project-arrow.next .clean-leaf-icon {
+    transform: none;
+}
+
+.clean-project-heading .project-arrow.prev:hover .clean-leaf-icon {
+    color: #DCE8D2;
+    transform: scaleX(-1) rotate(35deg);
+}
+
+.clean-project-heading .project-arrow.next:hover .clean-leaf-icon {
+    color: #DCE8D2;
+    transform: rotate(35deg);
 }
 
 /* =========================================================
@@ -137,6 +180,7 @@ body.clean-horizontal-page .project-details[hidden] {
     scroll-snap-type: none;
     scrollbar-width: none;
 
+    /* KEEP THIS BACKGROUND DECLARATION UNCHANGED */
     background-color: #20382a;
     background-image:
         linear-gradient(rgba(16,37,26,.12), rgba(16,37,26,.20)),
@@ -156,8 +200,10 @@ body.clean-horizontal-page .project-details[hidden] {
     min-width: 70px;
 }
 
+/* Extra space at the end lets the final card center exactly */
+
 .clean-track-spacer:last-child {
-    flex: 0 0 max(0px, calc(45vw - min(425px, 40vw)));
+    flex: 0 0 max(0px, calc(50vw - min(425px, 40vw)));
     min-width: 0;
 }
 
@@ -245,7 +291,6 @@ body.clean-horizontal-page .project-details[hidden] {
 
 /* =========================================================
    OPENING SCENE
-   Continuous landscape with copy to the right of hikers
    ========================================================= */
 
 .clean-opening {
@@ -257,9 +302,6 @@ body.clean-horizontal-page .project-details[hidden] {
     min-height: 62vh;
 }
 
-/* The landscape is now the track background.
-   Hide the former separate image box. */
-
 .clean-opening-photo {
     display: none !important;
 }
@@ -267,8 +309,8 @@ body.clean-horizontal-page .project-details[hidden] {
 .clean-opening-copy {
     position: relative;
     z-index: 2;
-    width: min(600px, 48vw);
-    margin-left: clamp(400px, 40vw, 620px);
+    width: min(650px, 52vw);
+    margin-left: clamp(300px, 32vw, 500px);
     padding: 30px 24px;
     box-sizing: border-box;
     text-align: left;
@@ -276,10 +318,11 @@ body.clean-horizontal-page .project-details[hidden] {
 
 .clean-opening-copy .clean-kicker {
     margin-bottom: 20px;
-    color: var(--clean-sage);
+    color: #DCE8D2;
     font-family: "DM Mono", monospace;
     font-size: 15px;
     letter-spacing: .14em;
+    text-shadow: 0 2px 5px rgba(0,0,0,.75);
 }
 
 .clean-opening-copy h2 {
@@ -289,26 +332,22 @@ body.clean-horizontal-page .project-details[hidden] {
     font-size: clamp(64px, 8vw, 112px);
     font-weight: 700;
     line-height: .88;
+    text-shadow: 0 3px 12px rgba(0,0,0,.45);
 }
 
 .clean-opening-subtitle {
     max-width: 560px;
-    color: var(--clean-cream);
+    color: #fff;
     font-size: clamp(18px, 1.5vw, 22px);
     line-height: 1.45;
-}
-
-.clean-opening-rule {
-    width: 85px;
-    height: 3px;
-    margin: 25px 0;
-    background: var(--clean-accent);
+    text-shadow: 0 2px 6px rgba(0,0,0,.8);
 }
 
 .clean-opening-caption {
-    color: var(--clean-sage);
+    color: #DCE8D2;
     font-size: 18px;
     line-height: 1.5;
+    text-shadow: 0 2px 6px rgba(0,0,0,.8);
 }
 
 /* =========================================================
@@ -630,37 +669,56 @@ body.clean-horizontal-page .project-details[hidden] {
 }
 
 /* =========================================================
-   SECTION INTRODUCTIONS
+   LEGACY SECTION INTRODUCTIONS
+   The headings now belong inside their image frames.
    ========================================================= */
 
 .clean-section-intro {
-    width: min(850px,80vw);
-}
-
-.clean-section-heading {
-    width: 100%;
-    padding: clamp(30px,5vw,65px);
-    border-left: 5px solid var(--clean-accent);
-    background: rgba(242,240,229,.95);
-    box-shadow: 0 18px 50px rgba(0,0,0,.2);
-    box-sizing: border-box;
-}
-
-.clean-section-heading h2 {
-    font-size: clamp(48px,6vw,82px);
-}
-
-.clean-section-heading .clean-lead {
-    margin-bottom: 0;
+    display: none !important;
 }
 
 /* =========================================================
-   WEBSITE AND BRAND IMAGES
+   WEBSITE AND BRAND IMAGE STOPS
    ========================================================= */
 
 .clean-image-stop {
     width: min(760px,68vw);
     min-height: 48vh;
+}
+
+/* First image in each group includes its section heading */
+
+.clean-feature-image-stop {
+    width: min(900px,78vw);
+    min-height: 48vh;
+}
+
+.clean-feature-image-stop .clean-trail-image {
+    width: 100%;
+}
+
+.clean-image-heading {
+    margin: 0;
+    padding: 24px 28px 8px;
+    color: var(--clean-forest);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(36px,4.5vw,60px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: .025em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.clean-image-lead {
+    max-width: 720px;
+    margin: 0 auto 16px;
+    padding: 0 28px;
+    color: #536557;
+    font-family: "Playfair Display", serif;
+    font-size: 18px;
+    line-height: 1.45;
+    text-align: center;
 }
 
 .clean-trail-image {
@@ -696,7 +754,7 @@ body.clean-horizontal-page .project-details[hidden] {
 
 .clean-ending-stop {
     width: min(850px,80vw);
-    margin-left: calc(5vw - clamp(90px,13vw,210px));
+    margin-left: 0;
 }
 
 .clean-ending-content {
@@ -728,123 +786,105 @@ body.clean-horizontal-page .project-details[hidden] {
 
 /* =========================================================
    BOOTPRINT TRAIL
-   Eight alternating, outlined boot soles
+   Two PNG footprints animated by clean.js
    ========================================================= */
 
 .clean-walkway {
     position: absolute;
     right: 0;
-    bottom: 58px;
+    bottom: 65px;
     left: 0;
     z-index: 5;
-    height: 110px;
+    height: 72px;
     pointer-events: none;
 }
 
 .clean-footprint {
     position: absolute;
-    top: 0;
-    width: 55px;
-    height: 99px;
-    overflow: visible;
+    top: 5px;
+    display: block;
+    width: 38px;
+    height: 58px;
+    object-fit: contain;
     opacity: 0;
-    filter: drop-shadow(0 1px 3px rgba(0,0,0,.35));
-    transition: opacity .25s ease;
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,.4));
+    transition:
+        opacity .25s ease,
+        left .25s ease;
 }
 
-/* Alternating steps move from left to right.
-   The rotation points the toes in the direction of travel. */
-
-.clean-footprint.step-1 {
-    left: 2%;
-    top: 0;
-    transform: rotate(90deg);
+.clean-footprint-one {
+    left: 5%;
 }
 
-.clean-footprint.step-2 {
+.clean-footprint-two {
+    top: 20px;
     left: 13%;
-    top: 40px;
-    transform: rotate(90deg) scaleX(-1);
-}
-
-.clean-footprint.step-3 {
-    left: 24%;
-    top: 0;
-    transform: rotate(90deg);
-}
-
-.clean-footprint.step-4 {
-    left: 35%;
-    top: 40px;
-    transform: rotate(90deg) scaleX(-1);
-}
-
-.clean-footprint.step-5 {
-    left: 46%;
-    top: 0;
-    transform: rotate(90deg);
-}
-
-.clean-footprint.step-6 {
-    left: 57%;
-    top: 40px;
-    transform: rotate(90deg) scaleX(-1);
-}
-
-.clean-footprint.step-7 {
-    left: 68%;
-    top: 0;
-    transform: rotate(90deg);
-}
-
-.clean-footprint.step-8 {
-    left: 79%;
-    top: 40px;
-    transform: rotate(90deg) scaleX(-1);
 }
 
 /* =========================================================
-   CONTROLS
+   BOTTOM LEAF CONTROLS
    ========================================================= */
 
 .clean-controls {
     position: absolute;
     right: 24px;
-    bottom: 17px;
+    bottom: 14px;
+    left: 24px;
     z-index: 10;
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: space-between;
+    pointer-events: none;
 }
 
 .clean-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 42px;
     height: 42px;
-    border: 1px solid rgba(255,255,255,.8);
+    padding: 5px;
+    border: 1px solid rgba(255,255,255,.55);
     border-radius: 50%;
     background: rgba(25,55,37,.88);
-    color: #fff;
-    font-size: 24px;
+    color: var(--clean-sage);
     cursor: pointer;
+    pointer-events: auto;
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        color .25s ease,
+        transform .35s ease;
+}
+
+.clean-control svg {
+    display: block;
+    width: 27px;
+    height: 27px;
+}
+
+.clean-control.clean-prev svg {
+    transform: scaleX(-1);
 }
 
 .clean-control:hover:not(:disabled) {
+    border-color: var(--clean-sage);
     background: var(--clean-cream);
     color: var(--clean-forest);
+}
+
+.clean-control.clean-next:hover:not(:disabled) {
+    transform: rotate(35deg);
+}
+
+.clean-control.clean-prev:hover:not(:disabled) {
+    transform: rotate(-35deg);
 }
 
 .clean-control:disabled {
     opacity: .35;
     cursor: default;
-}
-
-.clean-progress {
-    min-width: 65px;
-    color: #fff;
-    font-size: 18px;
-    letter-spacing: .08em;
-    text-align: center;
-    text-shadow: 0 1px 5px #000;
 }
 
 /* =========================================================
@@ -895,6 +935,10 @@ body.clean-horizontal-page #footerCopyright {
 
     .clean-project-heading {
         top: 80px;
+    }
+
+    .clean-walkway {
+        bottom: 62px;
     }
 }
 
@@ -993,8 +1037,23 @@ body.clean-horizontal-page #footerCopyright {
         max-height: 280px;
     }
 
-    .clean-image-stop {
+    .clean-image-stop,
+    .clean-feature-image-stop {
         width: 100%;
+    }
+
+    .clean-feature-image-stop {
+        display: block;
+    }
+
+    .clean-image-heading {
+        padding: 10px 12px 8px;
+        font-size: clamp(34px,10vw,48px);
+    }
+
+    .clean-image-lead {
+        padding: 0 12px;
+        font-size: 17px;
     }
 
     .clean-trail-image {
@@ -1013,6 +1072,9 @@ body.clean-horizontal-page #footerCopyright {
         position: fixed;
         right: 12px;
         bottom: 12px;
+        left: auto;
+        justify-content: flex-end;
+        gap: 10px;
     }
 
     body.clean-horizontal-page #footerCopyright {

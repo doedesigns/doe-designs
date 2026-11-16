@@ -16,7 +16,6 @@
     const stops = Array.from(track.querySelectorAll(".clean-stop"));
     const previous = document.querySelector(".clean-prev");
     const next = document.querySelector(".clean-next");
-    const progress = document.querySelector(".clean-progress");
     const footprints = Array.from(document.querySelectorAll(".clean-footprint"));
     const projectHeading = document.querySelector(".clean-project-heading");
 
@@ -28,7 +27,6 @@
     let titleRevealed = false;
 
     const isMobile = () => mobileQuery.matches;
-
 
     /* FIND THE STOP CLOSEST TO THE VIEWPORT CENTER */
 
@@ -51,8 +49,46 @@
         return closestIndex;
     }
 
+    /* UPDATE THE TWO FOOTPRINTS */
 
-    /* UPDATE SCALE, HEADING, BUTTONS, PROGRESS AND FOOTPRINTS */
+    function updateFootprints() {
+        if (footprints.length < 2) {
+            return;
+        }
+
+        const maxScroll = Math.max(
+            1,
+            track.scrollWidth - track.clientWidth
+        );
+
+        const ratio = Math.max(
+            0,
+            Math.min(1, track.scrollLeft / maxScroll)
+        );
+
+        const travel = Math.max(0, track.clientWidth - 100);
+        const firstPosition = 5 + (ratio * 70);
+        const secondPosition = Math.min(90, firstPosition + 8);
+
+        footprints[0].style.left = `${firstPosition}%`;
+        footprints[1].style.left = `${secondPosition}%`;
+
+        /* The trailing print fades as the visitor advances.
+           Reverse scrolling naturally restores its opacity. */
+
+        const fade = Math.max(0, 1 - (ratio * 0.45));
+
+        footprints[0].style.opacity = "0.82";
+        footprints[1].style.opacity = String(0.82 * fade);
+
+        footprints[0].style.transform =
+            ratio > 0.5 ? "scaleX(-1)" : "none";
+
+        footprints[1].style.transform =
+            ratio > 0.5 ? "none" : "scaleX(-1)";
+    }
+
+    /* UPDATE SCALE, HEADING, BUTTONS AND FOOTPRINTS */
 
     function updateScene() {
         if (isMobile()) {
@@ -75,8 +111,7 @@
 
         activeIndex = getActiveIndex();
 
-
-        /* REVEAL THE SEPARATE PROJECT HEADING ONCE */
+        /* REVEAL THE SEPARATE PROJECT HEADING */
 
         const opening = stops[0];
 
@@ -96,15 +131,6 @@
             );
         }
 
-
-        /* UPDATE SECTION COUNTER */
-
-        if (progress) {
-            progress.textContent =
-                `${String(activeIndex + 1).padStart(2, "0")} / ${String(stops.length).padStart(2, "0")}`;
-        }
-
-
         /* UPDATE SECTION BUTTONS */
 
         if (previous) {
@@ -115,26 +141,8 @@
             next.disabled = activeIndex === stops.length - 1;
         }
 
-
-        /* REVEAL FOOTPRINTS ONE AT A TIME */
-
-        const maxScroll = Math.max(
-            1,
-            track.scrollWidth - track.clientWidth
-        );
-
-        const ratio = track.scrollLeft / maxScroll;
-
-        footprints.forEach((print, index) => {
-            const threshold =
-                footprints.length <= 1
-                    ? 0
-                    : (index / (footprints.length - 1)) * 0.9;
-
-            print.style.opacity = ratio >= threshold ? "0.82" : "0";
-        });
+        updateFootprints();
     }
-
 
     /* SCHEDULE ONE VISUAL UPDATE PER FRAME */
 
@@ -148,7 +156,6 @@
             animationFrame = 0;
         });
     }
-
 
     /* MOVE TO A PARTICULAR STOP AND CENTER IT */
 
@@ -194,7 +201,6 @@
         });
     }
 
-
     /* PREVIOUS AND NEXT BUTTONS */
 
     if (previous) {
@@ -209,13 +215,11 @@
         });
     }
 
-
     /* TRACK SCROLLING */
 
     track.addEventListener("scroll", requestSceneUpdate, {
         passive: true
     });
-
 
     /* CONVERT VERTICAL WHEEL MOVEMENT TO HORIZONTAL MOVEMENT */
 
@@ -249,7 +253,6 @@
         });
     }, { passive: false });
 
-
     /* KEYBOARD NAVIGATION */
 
     document.addEventListener("keydown", event => {
@@ -279,7 +282,6 @@
             goTo(getActiveIndex() - 1);
         }
     });
-
 
     /* LOAD YOUTUBE ONLY AFTER THE VISITOR CLICKS PLAY */
 
@@ -314,7 +316,6 @@
         }
     }
 
-
     /* MOBILE / DESKTOP LAYOUT */
 
     function handleLayoutChange() {
@@ -343,11 +344,6 @@
                 print.style.opacity = "0";
             });
 
-            if (progress) {
-                progress.textContent =
-                    `01 / ${String(stops.length).padStart(2, "0")}`;
-            }
-
             if (previous) {
                 previous.disabled = true;
             }
@@ -360,7 +356,6 @@
         }
     }
 
-
     /* SUPPORT OLDER BROWSER VERSIONS */
 
     if (typeof mobileQuery.addEventListener === "function") {
@@ -368,7 +363,6 @@
     } else if (typeof mobileQuery.addListener === "function") {
         mobileQuery.addListener(handleLayoutChange);
     }
-
 
     /* INITIALIZE */
 
