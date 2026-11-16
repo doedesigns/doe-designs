@@ -1,6 +1,6 @@
 /* =========================================================
    CLEAN FUTURE NETWORK
-   Continuous horizontal scrolling and content scaling
+   Horizontal scrolling, scaling, navigation and bootprints
    ========================================================= */
 
 (() => {
@@ -18,6 +18,7 @@
     const next = document.querySelector(".clean-next");
     const progress = document.querySelector(".clean-progress");
     const footprints = Array.from(document.querySelectorAll(".clean-footprint"));
+    const header = document.querySelector(".clean-header");
 
     const mobileQuery = window.matchMedia("(max-width: 760px)");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -53,7 +54,7 @@
     }
 
 
-    /* UPDATE SCALE, BUTTONS, PROGRESS, AND FOOTPRINTS */
+    /* UPDATE SCALE, HEADER, BUTTONS, PROGRESS AND FOOTPRINTS */
 
     function updateScene() {
 
@@ -62,15 +63,22 @@
         }
 
         const center = track.scrollLeft + track.clientWidth / 2;
+
+        /*
+           Stops reach full size at the viewport center.
+           They shrink to approximately 22% as they move
+           farther away from the center.
+        */
+
         const travelDistance = track.clientWidth * 1.05;
 
-        stops.forEach((stop, index) => {
+        stops.forEach(stop => {
 
             const stopCenter = stop.offsetLeft + stop.offsetWidth / 2;
             const distance = Math.abs(center - stopCenter);
             const proximity = Math.min(1, distance / travelDistance);
 
-            const scale = 1 - (proximity * .32);
+            const scale = 1 - (proximity * .78);
 
             stop.style.setProperty("--clean-scale", scale.toFixed(3));
 
@@ -80,10 +88,39 @@
 
         activeIndex = getActiveIndex();
 
+        /* REVEAL PROJECT TITLE AFTER MOVING PAST OPENING */
+
+        const opening = stops[0];
+
+        if (header && opening) {
+
+            const openingEnd = opening.offsetLeft + opening.offsetWidth;
+            const revealPoint = opening.offsetLeft + opening.offsetWidth * .55;
+
+            header.classList.toggle(
+                "clean-title-visible",
+                track.scrollLeft > revealPoint
+            );
+
+            /*
+               Keep the title visible once the visitor has
+               moved beyond the opening scene.
+            */
+
+            if (track.scrollLeft >= openingEnd) {
+                header.classList.add("clean-title-visible");
+            }
+
+        }
+
+        /* UPDATE SECTION COUNTER */
+
         if (progress) {
             progress.textContent =
                 `${String(activeIndex + 1).padStart(2, "0")} / ${String(stops.length).padStart(2, "0")}`;
         }
+
+        /* UPDATE SECTION BUTTONS */
 
         if (previous) {
             previous.disabled = activeIndex === 0;
@@ -92,6 +129,8 @@
         if (next) {
             next.disabled = activeIndex === stops.length - 1;
         }
+
+        /* MOVE THE BOOTPRINT TRAIL WITH SCROLL PROGRESS */
 
         const maxScroll = Math.max(1, track.scrollWidth - track.clientWidth);
         const ratio = track.scrollLeft / maxScroll;
@@ -257,6 +296,10 @@
 
                 const videoId = videoCard.dataset.videoId;
 
+                if (!videoId) {
+                    return;
+                }
+
                 const iframe = document.createElement("iframe");
 
                 iframe.src =
@@ -291,6 +334,10 @@
         );
 
         if (isMobile()) {
+
+            if (header) {
+                header.classList.remove("clean-title-visible");
+            }
 
             stops.forEach(stop => {
                 stop.style.removeProperty("--clean-scale");
