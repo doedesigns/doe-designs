@@ -158,6 +158,15 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
     transform: rotate(35deg);
 }
 
+/* Upper project navigation leaf hover rotation */
+.clean-project-heading .project-arrow.prev:hover .clean-leaf-icon {
+    transform: scaleX(-1) rotate(35deg);
+}
+
+.clean-project-heading .project-arrow.next:hover .clean-leaf-icon {
+    transform: rotate(35deg);
+}
+
 /* =========================================================
    MAIN VIEWPORT
    ========================================================= */
