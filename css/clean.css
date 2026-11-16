@@ -111,6 +111,16 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
     text-decoration: none;
 }
 
+body.clean-horizontal-page .clean-project-heading .project-arrow.prev:hover .clean-leaf-icon {
+    color: #DCE8D2 !important;
+    transform: scaleX(-1) rotate(35deg) !important;
+}
+
+body.clean-horizontal-page .clean-project-heading .project-arrow.next:hover .clean-leaf-icon {
+    color: #DCE8D2 !important;
+    transform: rotate(35deg) !important;
+}
+
 .clean-leaf-icon {
     display: flex;
     align-items: center;
