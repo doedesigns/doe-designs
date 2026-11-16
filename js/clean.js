@@ -1,4 +1,7 @@
-/* Clean Future Network — horizontal case-study interactions */
+/* =========================================================
+   CLEAN FUTURE NETWORK
+   Continuous horizontal scrolling and content scaling
+   ========================================================= */
 
 (() => {
     "use strict";
@@ -6,9 +9,11 @@
     const body = document.body;
     const track = document.getElementById("cleanTrack");
 
-    if (!track || !body.classList.contains("clean-horizontal-page")) return;
+    if (!track || !body.classList.contains("clean-horizontal-page")) {
+        return;
+    }
 
-    const panels = Array.from(track.querySelectorAll(".clean-panel"));
+    const stops = Array.from(track.querySelectorAll(".clean-stop"));
     const previous = document.querySelector(".clean-prev");
     const next = document.querySelector(".clean-next");
     const progress = document.querySelector(".clean-progress");
@@ -18,24 +23,66 @@
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     let activeIndex = 0;
-    let scrollFrame = 0;
+    let animationFrame = 0;
 
     const isMobile = () => mobileQuery.matches;
 
 
-    /* UPDATE THE ACTIVE PANEL, PROGRESS, AND FOOTPRINTS */
+    /* FIND THE STOP CLOSEST TO THE VIEWPORT CENTER */
 
-    function setActive(index) {
+    function getActiveIndex() {
 
-        activeIndex = Math.max(0, Math.min(panels.length - 1, index));
+        const center = track.scrollLeft + track.clientWidth / 2;
 
-        panels.forEach((panel, i) => {
-            panel.classList.toggle("is-active", i === activeIndex);
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+
+        stops.forEach((stop, index) => {
+
+            const stopCenter = stop.offsetLeft + stop.offsetWidth / 2;
+            const distance = Math.abs(center - stopCenter);
+
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = index;
+            }
+
         });
+
+        return closestIndex;
+    }
+
+
+    /* UPDATE SCALE, BUTTONS, PROGRESS, AND FOOTPRINTS */
+
+    function updateScene() {
+
+        if (isMobile()) {
+            return;
+        }
+
+        const center = track.scrollLeft + track.clientWidth / 2;
+        const travelDistance = track.clientWidth * 1.05;
+
+        stops.forEach((stop, index) => {
+
+            const stopCenter = stop.offsetLeft + stop.offsetWidth / 2;
+            const distance = Math.abs(center - stopCenter);
+            const proximity = Math.min(1, distance / travelDistance);
+
+            const scale = 1 - (proximity * .32);
+
+            stop.style.setProperty("--clean-scale", scale.toFixed(3));
+
+            stop.classList.toggle("is-centered", proximity < .2);
+
+        });
+
+        activeIndex = getActiveIndex();
 
         if (progress) {
             progress.textContent =
-                `${String(activeIndex + 1).padStart(2, "0")} / ${String(panels.length).padStart(2, "0")}`;
+                `${String(activeIndex + 1).padStart(2, "0")} / ${String(stops.length).padStart(2, "0")}`;
         }
 
         if (previous) {
@@ -43,115 +90,101 @@
         }
 
         if (next) {
-            next.disabled = activeIndex === panels.length - 1;
+            next.disabled = activeIndex === stops.length - 1;
         }
 
         const maxScroll = Math.max(1, track.scrollWidth - track.clientWidth);
+        const ratio = track.scrollLeft / maxScroll;
 
-        const ratio = isMobile()
-            ? activeIndex / Math.max(1, panels.length - 1)
-            : track.scrollLeft / maxScroll;
+        footprints.forEach((print, index) => {
 
-        footprints.forEach((print, i) => {
+            const offset = index * 2.2;
+            const position = Math.min(96, Math.max(2, ratio * 92 + offset));
 
-            const offset = i * 2.2;
-
-            print.style.left =
-                `calc(${Math.min(96, Math.max(2, ratio * 92 + offset))}% )`;
+            print.style.left = `${position}%`;
 
         });
 
     }
 
 
-    /* MOVE TO THE PREVIOUS OR NEXT PANEL */
+    /* SCHEDULE ONE VISUAL UPDATE PER FRAME */
 
-    function goTo(index) {
+    function requestSceneUpdate() {
 
-        const target = Math.max(0, Math.min(panels.length - 1, index));
-
-        if (isMobile()) {
-
-            panels[target].scrollIntoView({
-                behavior: reduceMotion.matches ? "auto" : "smooth",
-                block: "start"
-            });
-
-            setActive(target);
-
-        } else {
-
-            panels[target].scrollIntoView({
-                behavior: reduceMotion.matches ? "auto" : "smooth",
-                block: "nearest",
-                inline: "center"
-            });
-
+        if (animationFrame) {
+            cancelAnimationFrame(animationFrame);
         }
+
+        animationFrame = requestAnimationFrame(() => {
+            updateScene();
+            animationFrame = 0;
+        });
 
     }
 
 
-    /* LEFT AND RIGHT BUTTONS */
+    /* MOVE TO A PARTICULAR STOP */
+
+    function goTo(index) {
+
+        const target = Math.max(0, Math.min(stops.length - 1, index));
+
+        if (isMobile()) {
+
+            stops[target].scrollIntoView({
+                behavior: reduceMotion.matches ? "auto" : "smooth",
+                block: "start"
+            });
+
+            return;
+        }
+
+        const stop = stops[target];
+
+        const left = stop.offsetLeft -
+            (track.clientWidth / 2) +
+            (stop.offsetWidth / 2);
+
+        track.scrollTo({
+            left: left,
+            behavior: reduceMotion.matches ? "auto" : "smooth"
+        });
+
+    }
+
+
+    /* PREVIOUS AND NEXT BUTTONS */
 
     if (previous) {
         previous.addEventListener("click", () => {
-            goTo(activeIndex - 1);
+            goTo(getActiveIndex() - 1);
         });
     }
 
     if (next) {
         next.addEventListener("click", () => {
-            goTo(activeIndex + 1);
+            goTo(getActiveIndex() + 1);
         });
     }
 
 
     /* TRACK SCROLLING */
 
-    track.addEventListener("scroll", () => {
-
-        if (scrollFrame) {
-            cancelAnimationFrame(scrollFrame);
-        }
-
-        scrollFrame = requestAnimationFrame(() => {
-
-            if (!isMobile()) {
-
-                const center = track.scrollLeft + track.clientWidth / 2;
-
-                let nearest = 0;
-                let distance = Infinity;
-
-                panels.forEach((panel, i) => {
-
-                    const panelCenter =
-                        panel.offsetLeft + panel.offsetWidth / 2;
-
-                    const d = Math.abs(center - panelCenter);
-
-                    if (d < distance) {
-                        distance = d;
-                        nearest = i;
-                    }
-
-                });
-
-                setActive(nearest);
-
-            }
-
-        });
-
-    }, { passive: true });
+    track.addEventListener("scroll", requestSceneUpdate, {
+        passive: true
+    });
 
 
-    /* CONVERT VERTICAL MOUSE WHEEL MOVEMENT TO HORIZONTAL SCROLLING */
+    /* CONVERT VERTICAL WHEEL MOVEMENT TO HORIZONTAL MOVEMENT */
 
     track.addEventListener("wheel", event => {
 
-        if (isMobile() || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) {
+        if (isMobile()) {
+            return;
+        }
+
+        if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) {
             return;
         }
 
@@ -177,7 +210,7 @@
     }, { passive: false });
 
 
-    /* KEYBOARD LEFT AND RIGHT ARROWS */
+    /* KEYBOARD NAVIGATION */
 
     document.addEventListener("keydown", event => {
 
@@ -199,18 +232,18 @@
 
         if (event.key === "ArrowRight") {
             event.preventDefault();
-            goTo(activeIndex + 1);
+            goTo(getActiveIndex() + 1);
         }
 
         if (event.key === "ArrowLeft") {
             event.preventDefault();
-            goTo(activeIndex - 1);
+            goTo(getActiveIndex() - 1);
         }
 
     });
 
 
-    /* LOAD THE YOUTUBE VIDEO ONLY WHEN THE VISITOR CLICKS PLAY */
+    /* LOAD YOUTUBE ONLY AFTER THE VISITOR CLICKS PLAY */
 
     const videoCard = document.querySelector(".clean-video-card");
 
@@ -246,7 +279,7 @@
     }
 
 
-    /* MOBILE AND DESKTOP LAYOUT CHANGES */
+    /* MOBILE / DESKTOP LAYOUT */
 
     function handleLayoutChange() {
 
@@ -259,36 +292,33 @@
 
         if (isMobile()) {
 
-            setActive(0);
+            stops.forEach(stop => {
+                stop.style.removeProperty("--clean-scale");
+            });
+
+            if (progress) {
+                progress.textContent =
+                    `01 / ${String(stops.length).padStart(2, "0")}`;
+            }
+
+            if (previous) {
+                previous.disabled = true;
+            }
+
+            if (next) {
+                next.disabled = false;
+            }
 
         } else {
 
-            const center = track.scrollLeft + track.clientWidth / 2;
-
-            let nearest = 0;
-            let distance = Infinity;
-
-            panels.forEach((panel, i) => {
-
-                const d = Math.abs(
-                    center - (panel.offsetLeft + panel.offsetWidth / 2)
-                );
-
-                if (d < distance) {
-                    distance = d;
-                    nearest = i;
-                }
-
-            });
-
-            setActive(nearest);
+            requestSceneUpdate();
 
         }
 
     }
 
 
-    /* SUPPORT DIFFERENT BROWSER VERSIONS */
+    /* SUPPORT OLDER BROWSER VERSIONS */
 
     if (typeof mobileQuery.addEventListener === "function") {
 
@@ -303,12 +333,10 @@
 
     /* INITIALIZE */
 
-    if (!isMobile()) {
-        document.documentElement.classList.add("clean-horizontal-active");
-    }
-
-    setActive(0);
-
     handleLayoutChange();
+
+    window.addEventListener("resize", requestSceneUpdate);
+
+    requestSceneUpdate();
 
 })();
