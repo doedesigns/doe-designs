@@ -111,60 +111,56 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
     text-decoration: none;
 }
 
-body.clean-horizontal-page .clean-project-heading .project-arrow.prev:hover .clean-leaf-icon {
-    color: #DCE8D2 !important;
-    transform: scaleX(-1) rotate(35deg) !important;
-}
 
-body.clean-horizontal-page .clean-project-heading .project-arrow.next:hover .clean-leaf-icon {
-    color: #DCE8D2 !important;
-    transform: rotate(35deg) !important;
-}
+/* =========================================================
+   TOP PROJECT NAVIGATION LEAVES
+   ========================================================= */
 
-.clean-leaf-icon {
+/* Base leaf appearance */
+body.clean-horizontal-page .clean-project-heading .clean-leaf-icon {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 43px;
     height: 43px;
     color: var(--clean-sage);
-    transform-origin: center;
-    transition:
-        transform .35s ease,
-        color .25s ease;
+    transition: color .25s ease;
 }
 
-.clean-leaf-icon svg {
+body.clean-horizontal-page .clean-project-heading .clean-leaf-icon svg {
     display: block;
     width: 100%;
     height: 100%;
+    transition: none;
 }
 
-/* =========================================================
-   TOP PROJECT NAVIGATION LEAVES
-   ========================================================= */
-
-.clean-project-heading .project-arrow {
-    transform-origin: center;
-    transition: transform 0.35s ease;
+/* Flip the left leaf so it points left */
+body.clean-horizontal-page .clean-project-heading .project-arrow.prev .clean-leaf-icon svg {
+    transform: scaleX(-1);
 }
 
-/* Normal positions */
-.clean-project-heading .project-arrow.prev {
-    transform: rotate(0deg);
+/* Rotate the entire arrow independently of its orientation */
+body.clean-horizontal-page .clean-project-heading .project-arrow {
+    rotate: 0deg;
+    transition: rotate .35s ease;
 }
 
-.clean-project-heading .project-arrow.next {
-    transform: rotate(0deg);
+/* Left arrow */
+body.clean-horizontal-page .clean-project-heading .project-arrow.prev:hover {
+    rotate: -35deg !important;
 }
 
-/* Rotate the entire upper arrow, like the bottom controls */
-.clean-project-heading .project-arrow.prev:hover {
-    transform: rotate(-35deg) !important;
+body.clean-horizontal-page .clean-project-heading .project-arrow.prev:hover .clean-leaf-icon {
+    color: #DCE8D2;
 }
 
-.clean-project-heading .project-arrow.next:hover {
-    transform: rotate(35deg) !important;
+/* Right arrow */
+body.clean-horizontal-page .clean-project-heading .project-arrow.next:hover {
+    rotate: 35deg !important;
+}
+
+body.clean-horizontal-page .clean-project-heading .project-arrow.next:hover .clean-leaf-icon {
+    color: #DCE8D2;
 }
 
 /* =========================================================
