@@ -192,7 +192,7 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
         url("../images/ui/clean/2.6.17-horizontal-path.png");
     background-position: left center;
     background-size: auto 100%;
-    background-repeat: no-repeat;
+    background-repeat: repeat-x;
     background-attachment: local;
 }
 
@@ -842,8 +842,6 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
 
 /* =========================================================
    BOOTPRINT TRAIL
-   The walkway is physically bounded by the bottom leaves.
-   clean.js displays only one footprint at a time.
    ========================================================= */
 
 .clean-walkway {
@@ -858,22 +856,24 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
 
 .clean-footprint {
     position: absolute;
-    top: 0;
     display: block;
     width: 76px;
     height: 116px;
     object-fit: contain;
     opacity: 0;
     filter: drop-shadow(0 1px 3px rgba(0,0,0,.4));
-    transition: opacity .22s ease;
+    transition:
+        left .35s ease,
+        top .35s ease,
+        opacity .22s ease;
 }
 
-/* Both images occupy the same trail position.
-   The JavaScript alternates visibility between them. */
-
-.clean-footprint-one,
-.clean-footprint-two {
+.clean-footprint-one {
     top: 0;
+}
+
+.clean-footprint-two {
+    top: 24px;
 }
 
 /* =========================================================

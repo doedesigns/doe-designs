@@ -51,76 +51,38 @@
 
     /* =====================================================
        BOOTPRINT TRAIL
-       Exactly one print is visible at a time.
-       The two supplied images alternate left/right.
        ===================================================== */
 
-    function updateFootprints() {
-        if (footprints.length < 2 || !walkway || isMobile()) {
-            return;
-        }
+function updateFootprints() {
+    if (footprints.length < 2 || isMobile()) return;
 
-        const maxScroll = Math.max(1, track.scrollWidth - track.clientWidth);
-        const ratio = Math.max(0, Math.min(1, track.scrollLeft / maxScroll));
+    const maxScroll = Math.max(1, track.scrollWidth - track.clientWidth);
+    const ratio = Math.max(0, Math.min(1, track.scrollLeft / maxScroll));
 
-        const totalSteps = 20;
-        const step = Math.min(
-            totalSteps,
-            Math.floor(ratio * totalSteps)
-        );
+    const totalSteps = 17;
+    const step = Math.min(totalSteps, Math.floor(ratio * totalSteps));
 
-        const walkwayWidth = walkway.clientWidth;
+    if (step === lastFootprintStep) return;
+    lastFootprintStep = step;
 
-        if (
-            step === lastFootprintStep &&
-            walkwayWidth === lastFootprintWidth
-        ) {
-            return;
-        }
+    const first = footprints[0];
+    const second = footprints[1];
 
-        const firstAppearance = lastFootprintStep === -1;
-        lastFootprintStep = step;
-        lastFootprintWidth = walkwayWidth;
+    const progress = step / totalSteps;
+    const position = 3 + progress * 82;
 
-        const selectedFootprint = footprints[step % 2];
-        const otherFootprint = footprints[(step + 1) % 2];
+    first.style.left = `${position}%`;
+    second.style.left = `${Math.min(91, position + 9)}%`;
 
-        const maxLeft = Math.max(
-            0,
-            walkwayWidth - selectedFootprint.offsetWidth
-        );
+    first.style.top = "0px";
+    second.style.top = "24px";
 
-        const position = maxLeft * (step / totalSteps);
+    first.style.transform = "none";
+    second.style.transform = "none";
 
-        /* Hide both first so two prints are never displayed together. */
-        footprints.forEach(print => {
-            print.style.opacity = "0";
-        });
-
-        selectedFootprint.style.left = `${position}px`;
-
-        /* No mirroring: each image is already the correct foot. */
-        selectedFootprint.style.transform = "none";
-        otherFootprint.style.transform = "none";
-
-        if (reduceMotion.matches || firstAppearance) {
-            selectedFootprint.style.opacity = "0.82";
-            return;
-        }
-
-        /*
-           Let the previous print disappear completely before
-           revealing the next one. The timeout is cancelled
-           logically if another scroll step happens first.
-        */
-        window.setTimeout(() => {
-            if (step !== lastFootprintStep || isMobile()) {
-                return;
-            }
-
-            selectedFootprint.style.opacity = "0.82";
-        }, 230);
-    }
+    first.style.opacity = "0.82";
+    second.style.opacity = "0.82";
+}
 
     /* =====================================================
        SCENE POSITION AND ACTIVE STOP
