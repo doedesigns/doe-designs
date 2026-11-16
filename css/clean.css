@@ -198,11 +198,10 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
 	background-image:
 		linear-gradient(rgba(20, 45, 32, 0.18), rgba(20, 45, 32, 0.18)),
 		url("../images/ui/clean/2.6.17-horizontal-path.png");
-	background-position: left center;
+	background-position: 0 0;
 	background-size: auto 100%;
 	background-repeat: no-repeat;
-	background-attachment: local;
-	
+	background-attachment: scroll;
 }
 
 .clean-track::-webkit-scrollbar {
@@ -330,7 +329,7 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
     z-index: 2;
     width: min(650px, 52vw);
 
-    margin-left: 50vw;
+    margin-left: calc(50vw - 12vw - var(--clean-gap));
 
     padding: 30px 24px;
     box-sizing: border-box;
