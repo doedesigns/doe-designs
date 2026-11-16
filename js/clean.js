@@ -25,6 +25,7 @@
 
     let activeIndex = 0;
     let animationFrame = 0;
+    let titleRevealed = false;
 
     const isMobile = () => mobileQuery.matches;
 
@@ -32,14 +33,12 @@
     /* FIND THE STOP CLOSEST TO THE VIEWPORT CENTER */
 
     function getActiveIndex() {
-
         const center = track.scrollLeft + track.clientWidth / 2;
 
         let closestIndex = 0;
         let closestDistance = Infinity;
 
         stops.forEach((stop, index) => {
-
             const stopCenter = stop.offsetLeft + stop.offsetWidth / 2;
             const distance = Math.abs(center - stopCenter);
 
@@ -47,7 +46,6 @@
                 closestDistance = distance;
                 closestIndex = index;
             }
-
         });
 
         return closestIndex;
@@ -57,61 +55,48 @@
     /* UPDATE SCALE, HEADER, BUTTONS, PROGRESS AND FOOTPRINTS */
 
     function updateScene() {
-
         if (isMobile()) {
             return;
         }
 
         const center = track.scrollLeft + track.clientWidth / 2;
-
-        /*
-           Stops reach full size at the viewport center.
-           They shrink to approximately 22% as they move
-           farther away from the center.
-        */
-
         const travelDistance = track.clientWidth * 1.05;
 
         stops.forEach(stop => {
-
             const stopCenter = stop.offsetLeft + stop.offsetWidth / 2;
             const distance = Math.abs(center - stopCenter);
             const proximity = Math.min(1, distance / travelDistance);
 
-            const scale = 1 - (proximity * .78);
+            /* Full size at center; 12% at maximum distance. */
+            const scale = 1 - (proximity * 0.88);
 
             stop.style.setProperty("--clean-scale", scale.toFixed(3));
-
-            stop.classList.toggle("is-centered", proximity < .2);
-
+            stop.classList.toggle("is-centered", proximity < 0.2);
         });
 
         activeIndex = getActiveIndex();
 
-        /* REVEAL PROJECT TITLE AFTER MOVING PAST OPENING */
+
+        /* REVEAL THE PROJECT TITLE ONCE, THEN KEEP IT VISIBLE */
 
         const opening = stops[0];
 
-        if (header && opening) {
+        if (header && opening && !titleRevealed) {
+            const revealPoint =
+                opening.offsetLeft + opening.offsetWidth * 0.55;
 
-            const openingEnd = opening.offsetLeft + opening.offsetWidth;
-            const revealPoint = opening.offsetLeft + opening.offsetWidth * .55;
+            if (track.scrollLeft > revealPoint) {
+                titleRevealed = true;
+            }
+        }
 
+        if (header) {
             header.classList.toggle(
                 "clean-title-visible",
-                track.scrollLeft > revealPoint
+                titleRevealed
             );
-
-            /*
-               Keep the title visible once the visitor has
-               moved beyond the opening scene.
-            */
-
-            if (track.scrollLeft >= openingEnd) {
-                header.classList.add("clean-title-visible");
-            }
-
         }
+
 
         /* UPDATE SECTION COUNTER */
 
@@ -119,6 +104,7 @@
             progress.textContent =
                 `${String(activeIndex + 1).padStart(2, "0")} / ${String(stops.length).padStart(2, "0")}`;
         }
+
 
         /* UPDATE SECTION BUTTONS */
 
@@ -130,27 +116,31 @@
             next.disabled = activeIndex === stops.length - 1;
         }
 
+
         /* MOVE THE BOOTPRINT TRAIL WITH SCROLL PROGRESS */
 
-        const maxScroll = Math.max(1, track.scrollWidth - track.clientWidth);
+        const maxScroll = Math.max(
+            1,
+            track.scrollWidth - track.clientWidth
+        );
+
         const ratio = track.scrollLeft / maxScroll;
 
         footprints.forEach((print, index) => {
-
             const offset = index * 2.2;
-            const position = Math.min(96, Math.max(2, ratio * 92 + offset));
+            const position = Math.min(
+                96,
+                Math.max(2, ratio * 92 + offset)
+            );
 
             print.style.left = `${position}%`;
-
         });
-
     }
 
 
     /* SCHEDULE ONE VISUAL UPDATE PER FRAME */
 
     function requestSceneUpdate() {
-
         if (animationFrame) {
             cancelAnimationFrame(animationFrame);
         }
@@ -159,18 +149,22 @@
             updateScene();
             animationFrame = 0;
         });
-
     }
 
 
-    /* MOVE TO A PARTICULAR STOP */
+    /* MOVE TO A PARTICULAR STOP AND CENTER IT */
 
     function goTo(index) {
+        if (!stops.length) {
+            return;
+        }
 
-        const target = Math.max(0, Math.min(stops.length - 1, index));
+        const target = Math.max(
+            0,
+            Math.min(stops.length - 1, index)
+        );
 
         if (isMobile()) {
-
             stops[target].scrollIntoView({
                 behavior: reduceMotion.matches ? "auto" : "smooth",
                 block: "start"
@@ -181,15 +175,25 @@
 
         const stop = stops[target];
 
-        const left = stop.offsetLeft -
+        const desiredLeft =
+            stop.offsetLeft -
             (track.clientWidth / 2) +
             (stop.offsetWidth / 2);
 
+        const maxScroll = Math.max(
+            0,
+            track.scrollWidth - track.clientWidth
+        );
+
+        const left = Math.max(
+            0,
+            Math.min(maxScroll, desiredLeft)
+        );
+
         track.scrollTo({
-            left: left,
+            left,
             behavior: reduceMotion.matches ? "auto" : "smooth"
         });
-
     }
 
 
@@ -218,7 +222,6 @@
     /* CONVERT VERTICAL WHEEL MOVEMENT TO HORIZONTAL MOVEMENT */
 
     track.addEventListener("wheel", event => {
-
         if (isMobile()) {
             return;
         }
@@ -230,7 +233,8 @@
         const atStart = track.scrollLeft <= 0;
 
         const atEnd =
-            track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+            track.scrollLeft + track.clientWidth >=
+            track.scrollWidth - 2;
 
         if (
             (event.deltaY < 0 && atStart) ||
@@ -245,14 +249,12 @@
             left: event.deltaY,
             behavior: "auto"
         });
-
     }, { passive: false });
 
 
     /* KEYBOARD NAVIGATION */
 
     document.addEventListener("keydown", event => {
-
         if (isMobile() || event.altKey || event.ctrlKey || event.metaKey) {
             return;
         }
@@ -278,7 +280,6 @@
             event.preventDefault();
             goTo(getActiveIndex() - 1);
         }
-
     });
 
 
@@ -287,13 +288,10 @@
     const videoCard = document.querySelector(".clean-video-card");
 
     if (videoCard) {
-
         const playButton = videoCard.querySelector(".clean-play");
 
         if (playButton) {
-
             playButton.addEventListener("click", () => {
-
                 const videoId = videoCard.dataset.videoId;
 
                 if (!videoId) {
@@ -314,19 +312,18 @@
                 iframe.allowFullscreen = true;
 
                 videoCard.replaceChildren(iframe);
-
             });
-
         }
-
     }
 
 
     /* MOBILE / DESKTOP LAYOUT */
 
     function handleLayoutChange() {
-
-        body.classList.toggle("clean-mobile-layout", isMobile());
+        body.classList.toggle(
+            "clean-mobile-layout",
+            isMobile()
+        );
 
         document.documentElement.classList.toggle(
             "clean-horizontal-active",
@@ -334,6 +331,7 @@
         );
 
         if (isMobile()) {
+            titleRevealed = false;
 
             if (header) {
                 header.classList.remove("clean-title-visible");
@@ -355,26 +353,18 @@
             if (next) {
                 next.disabled = false;
             }
-
         } else {
-
             requestSceneUpdate();
-
         }
-
     }
 
 
     /* SUPPORT OLDER BROWSER VERSIONS */
 
     if (typeof mobileQuery.addEventListener === "function") {
-
         mobileQuery.addEventListener("change", handleLayoutChange);
-
     } else if (typeof mobileQuery.addListener === "function") {
-
         mobileQuery.addListener(handleLayoutChange);
-
     }
 
 

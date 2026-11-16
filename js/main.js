@@ -235,19 +235,21 @@ document.addEventListener("DOMContentLoaded", () => {
 // GET PROJECT TITLE
 // ============================================
 
-    function getProjectTitle(projectDocument) {
-        const title = projectDocument.querySelector(".project-title h1");
+function getProjectTitle(projectDocument) {
+    const title =
+        projectDocument.querySelector(".project-title-nav h1") ||
+        projectDocument.querySelector(".project-title h1");
 
-        if (!title) return "PROJECT";
+    if (!title) return "PROJECT";
 
-        const titleClone = title.cloneNode(true);
-        titleClone.querySelector(".title-break")?.remove();
+    const titleClone = title.cloneNode(true);
+    titleClone.querySelector(".title-break")?.remove();
 
-        return (
-            titleClone.textContent.replace(/\s+/g, " ").trim() ||
-            "PROJECT"
-        );
-    }
+    return (
+        titleClone.textContent.replace(/\s+/g, " ").trim() ||
+        "PROJECT"
+    );
+}
 
 // ============================================
 // GET DELIVERABLES LIST
