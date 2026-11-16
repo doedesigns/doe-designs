@@ -144,30 +144,27 @@ body.clean-horizontal-page .clean-project-heading .project-arrow.next:hover .cle
    TOP PROJECT NAVIGATION LEAVES
    ========================================================= */
 
-.clean-project-heading .project-arrow .clean-leaf-icon {
-    display: inline-block;
+.clean-project-heading .project-arrow {
     transform-origin: center;
-    transition: transform 0.35s ease, color 0.25s ease;
+    transition: transform 0.35s ease;
 }
 
 /* Normal positions */
-.clean-project-heading .project-arrow.prev .clean-leaf-icon {
-    transform: scaleX(-1) rotate(0deg);
-}
-
-.clean-project-heading .project-arrow.next .clean-leaf-icon {
+.clean-project-heading .project-arrow.prev {
     transform: rotate(0deg);
 }
 
-/* Angled positions on hover */
-.clean-project-heading .project-arrow.prev:hover .clean-leaf-icon {
-    color: #DCE8D2;
-    transform: scaleX(-1) rotate(35deg);
+.clean-project-heading .project-arrow.next {
+    transform: rotate(0deg);
 }
 
-.clean-project-heading .project-arrow.next:hover .clean-leaf-icon {
-    color: #DCE8D2;
-    transform: rotate(35deg);
+/* Rotate the entire upper arrow, like the bottom controls */
+.clean-project-heading .project-arrow.prev:hover {
+    transform: rotate(-35deg) !important;
+}
+
+.clean-project-heading .project-arrow.next:hover {
+    transform: rotate(35deg) !important;
 }
 
 /* =========================================================
@@ -341,7 +338,7 @@ body.clean-horizontal-page .clean-project-heading .project-arrow.next:hover .cle
     z-index: 2;
     width: min(650px, 52vw);
 
-    margin-left: calc(50vw - 12vw - var(--clean-gap));
+    margin-left: calc(50vw - 12vw - var(--clean-gap) - 1in);
 
     padding: 30px 24px;
     box-sizing: border-box;
