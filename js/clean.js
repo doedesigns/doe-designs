@@ -53,6 +53,7 @@
        BOOTPRINT TRAIL
        ===================================================== */
 
+
 function updateFootprints() {
     if (footprints.length < 2 || isMobile()) return;
 
@@ -68,17 +69,26 @@ function updateFootprints() {
     const first = footprints[0];
     const second = footprints[1];
 
-    const progress = step / totalSteps;
-    const position = 3 + progress * 82;
+    // Each new step advances one footprint, not the entire pair.
+    const firstPosition = 3 + (step * 5);
+    const secondPosition = firstPosition + 5;
 
-    first.style.left = `${position}%`;
-    second.style.left = `${Math.min(91, position + 9)}%`;
+    const leftPrint = "../images/ui/clean/2.6.18-white-boot-print.png";
+    const rightPrint = "../images/ui/clean/2.6.19-white-boot-print-right.png";
 
-    first.style.top = "0px";
-    second.style.top = "24px";
+    const firstIsLeft = step % 2 === 0;
 
-    first.style.transform = "none";
-    second.style.transform = "none";
+    // Alternate the actual footprint images.
+    first.src = firstIsLeft ? leftPrint : rightPrint;
+    second.src = firstIsLeft ? rightPrint : leftPrint;
+
+    // The right footprint sits lower than the left.
+    first.style.top = firstIsLeft ? "0px" : "24px";
+    second.style.top = firstIsLeft ? "24px" : "0px";
+
+    // Alternate which print is retained and which is newly placed.
+    first.style.left = `${firstPosition}%`;
+    second.style.left = `${secondPosition}%`;
 
     first.style.opacity = "0.82";
     second.style.opacity = "0.82";
@@ -100,7 +110,9 @@ function updateFootprints() {
             const stopCenter = stop.offsetLeft + stop.offsetWidth / 2;
             const distance = Math.abs(center - stopCenter);
             const proximity = Math.min(1, distance / travelDistance);
-            const scale = 1 - (proximity * 0.88);
+            const scale = stop.classList.contains("clean-opening")
+    ? 1
+    : 1 - (proximity * 0.88);
 
             stop.style.setProperty(
                 "--clean-scale",

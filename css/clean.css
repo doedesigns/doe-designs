@@ -150,6 +150,19 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
     transform: rotate(35deg);
 }
 
+/* Top project navigation leaf rotation */
+.clean-project-heading .project-arrow svg {
+    transition: transform 0.25s ease;
+}
+
+.clean-project-heading .project-arrow.prev:hover svg {
+    transform: scaleX(-1) rotate(-8deg);
+}
+
+.clean-project-heading .project-arrow.next:hover svg {
+    transform: rotate(8deg);
+}
+
 /* =========================================================
    MAIN VIEWPORT
    ========================================================= */
@@ -186,15 +199,13 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
     scroll-snap-type: none;
     scrollbar-width: none;
 
-    background-color: #20382a;
-    background-image:
-        linear-gradient(rgba(16,37,26,.12), rgba(16,37,26,.20)),
-        url("../images/ui/clean/2.6.17-horizontal-path.png");
-    background-position: left center;
-    background-size: auto 100%;
-    background-repeat: repeat-x;
-    background-attachment: local;
-}
+	background-color: #20382a;
+	background-image:
+		linear-gradient(rgba(20, 45, 32, 0.18), rgba(20, 45, 32, 0.18)),
+		url("../images/ui/clean/2.6.17-horizontal-path.png");
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
 
 .clean-track::-webkit-scrollbar {
     display: none;
@@ -321,8 +332,7 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
     z-index: 2;
     width: min(650px, 52vw);
 
-    /* Moved left from the previous 38vw placement */
-    margin-left: clamp(150px, 18vw, 260px);
+    margin-left: clamp(70px, 9vw, 130px);
 
     padding: 30px 24px;
     box-sizing: border-box;
@@ -856,16 +866,11 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
 
 .clean-footprint {
     position: absolute;
-    display: block;
     width: 76px;
     height: 116px;
     object-fit: contain;
     opacity: 0;
-    filter: drop-shadow(0 1px 3px rgba(0,0,0,.4));
-    transition:
-        left .35s ease,
-        top .35s ease,
-        opacity .22s ease;
+    transition: opacity 0.18s ease;
 }
 
 .clean-footprint-one {
