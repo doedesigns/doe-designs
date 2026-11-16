@@ -135,6 +135,8 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
    ========================================================= */
 
 .clean-project-heading .project-arrow .clean-leaf-icon {
+    display: inline-block;
+    transform-origin: center;
     transition: transform 0.35s ease, color 0.25s ease;
 }
 
@@ -155,15 +157,6 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
 
 .clean-project-heading .project-arrow.next:hover .clean-leaf-icon {
     color: #DCE8D2;
-    transform: rotate(35deg);
-}
-
-/* Upper project navigation leaf hover rotation */
-.clean-project-heading .project-arrow.prev:hover .clean-leaf-icon {
-    transform: scaleX(-1) rotate(35deg);
-}
-
-.clean-project-heading .project-arrow.next:hover .clean-leaf-icon {
     transform: rotate(35deg);
 }
 
