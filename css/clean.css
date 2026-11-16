@@ -160,6 +160,16 @@ body.clean-horizontal-page .clean-project-heading .project-arrow {
     text-decoration: none;
 }
 
+/* Remove underlines from upper project navigation */
+body.clean-horizontal-page .clean-project-heading .project-arrow,
+body.clean-horizontal-page .clean-project-heading .project-arrow:hover,
+body.clean-horizontal-page .clean-project-heading .project-arrow:focus,
+body.clean-horizontal-page .clean-project-heading .project-arrow:active {
+    text-decoration: none !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
 /* =========================================================
    MAIN VIEWPORT
    ========================================================= */
