@@ -24,7 +24,7 @@
 
     let activeIndex = 0;
     let animationFrame = 0;
-    let titleRevealed = false;
+    let lastFootprintStep = -1;
 
     const isMobile = () => mobileQuery.matches;
 
@@ -49,10 +49,10 @@
         return closestIndex;
     }
 
-    /* UPDATE THE TWO FOOTPRINTS */
+    /* DISCRETE FOOTSTEP POSITIONS */
 
     function updateFootprints() {
-        if (footprints.length < 2) {
+        if (footprints.length < 2 || isMobile()) {
             return;
         }
 
@@ -66,26 +66,70 @@
             Math.min(1, track.scrollLeft / maxScroll)
         );
 
-        const travel = Math.max(0, track.clientWidth - 100);
-        const firstPosition = 5 + (ratio * 70);
-        const secondPosition = Math.min(90, firstPosition + 8);
+        /*
+           Each step advances to a new fixed position.
+           The images do not transition their left position,
+           so they appear to step rather than slide.
+        */
 
-        footprints[0].style.left = `${firstPosition}%`;
-        footprints[1].style.left = `${secondPosition}%`;
+        const totalSteps = 17;
+        const step = Math.min(
+            totalSteps,
+            Math.floor(ratio * totalSteps)
+        );
 
-        /* The trailing print fades as the visitor advances.
-           Reverse scrolling naturally restores its opacity. */
+        if (step === lastFootprintStep) {
+            return;
+        }
 
-        const fade = Math.max(0, 1 - (ratio * 0.45));
+        lastFootprintStep = step;
 
-        footprints[0].style.opacity = "0.82";
-        footprints[1].style.opacity = String(0.82 * fade);
+        const first = footprints[0];
+        const second = footprints[1];
 
-        footprints[0].style.transform =
-            ratio > 0.5 ? "scaleX(-1)" : "none";
+        const progress = step / totalSteps;
+        const firstPosition = 4 + progress * 78;
+        const secondPosition = Math.min(88, firstPosition + 4);
 
-        footprints[1].style.transform =
-            ratio > 0.5 ? "none" : "scaleX(-1)";
+        /*
+           Alternate the mirrored foot at each step.
+           Fade first, reposition, then fade back in.
+        */
+
+        const firstIsRightFoot = step % 2 === 1;
+        const secondIsRightFoot = !firstIsRightFoot;
+
+        first.style.opacity = "0";
+        second.style.opacity = "0";
+
+        if (reduceMotion.matches) {
+            first.style.left = `${firstPosition}%`;
+            second.style.left = `${secondPosition}%`;
+
+            first.style.transform = firstIsRightFoot ? "scaleX(-1)" : "none";
+            second.style.transform = secondIsRightFoot ? "scaleX(-1)" : "none";
+
+            first.style.opacity = step === 0 ? "0.82" : "0.72";
+            second.style.opacity = "0.72";
+            return;
+        }
+
+        window.setTimeout(() => {
+            if (step !== lastFootprintStep) {
+                return;
+            }
+
+            first.style.left = `${firstPosition}%`;
+            second.style.left = `${secondPosition}%`;
+
+            first.style.transform = firstIsRightFoot ? "scaleX(-1)" : "none";
+            second.style.transform = secondIsRightFoot ? "scaleX(-1)" : "none";
+
+            requestAnimationFrame(() => {
+                first.style.opacity = "0.78";
+                second.style.opacity = "0.58";
+            });
+        }, 180);
     }
 
     /* UPDATE SCALE, HEADING, BUTTONS AND FOOTPRINTS */
@@ -102,7 +146,6 @@
             const stopCenter = stop.offsetLeft + stop.offsetWidth / 2;
             const distance = Math.abs(center - stopCenter);
             const proximity = Math.min(1, distance / travelDistance);
-
             const scale = 1 - (proximity * 0.88);
 
             stop.style.setProperty("--clean-scale", scale.toFixed(3));
@@ -111,23 +154,17 @@
 
         activeIndex = getActiveIndex();
 
-        /* REVEAL THE SEPARATE PROJECT HEADING */
+        /* REVEAL HEADING ONLY AFTER OPENING SCENE HAS LEFT VIEW */
 
         const opening = stops[0];
 
-        if (projectHeading && opening && !titleRevealed) {
-            const revealPoint =
-                opening.offsetLeft + opening.offsetWidth * 0.55;
+        if (projectHeading && opening) {
+            const openingRight = opening.getBoundingClientRect().right;
+            const openingHasLeft = openingRight <= 0;
 
-            if (track.scrollLeft > revealPoint) {
-                titleRevealed = true;
-            }
-        }
-
-        if (projectHeading) {
             projectHeading.classList.toggle(
                 "clean-heading-visible",
-                titleRevealed
+                openingHasLeft
             );
         }
 
@@ -174,7 +211,6 @@
                 behavior: reduceMotion.matches ? "auto" : "smooth",
                 block: "start"
             });
-
             return;
         }
 
@@ -330,8 +366,6 @@
         );
 
         if (isMobile()) {
-            titleRevealed = false;
-
             if (projectHeading) {
                 projectHeading.classList.remove("clean-heading-visible");
             }
@@ -352,6 +386,7 @@
                 next.disabled = false;
             }
         } else {
+            lastFootprintStep = -1;
             requestSceneUpdate();
         }
     }
