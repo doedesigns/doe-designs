@@ -1212,19 +1212,129 @@ body.clean-horizontal-page #footerCopyright {
 }
 
 /* =========================================================
+   CLEAN FUTURE NETWORK
+   INTERACTION DESIGN FEATURE LAYOUT
+   ========================================================= */
+
+.clean-interaction-card {
+    width: min(1100px, 88vw);
+}
+
+.clean-interaction-card > .clean-lead {
+    max-width: 850px;
+}
+
+.clean-interaction-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+    margin-top: 32px;
+}
+
+.clean-interaction-feature {
+    min-width: 0;
+}
+
+.clean-interaction-feature > p {
+    line-height: 1.7;
+}
+
+.clean-feature-visual {
+    margin: 28px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.clean-feature-visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.clean-header-visual img {
+    max-width: 440px;
+}
+
+.clean-comments-visual img {
+    max-width: 190px;
+    max-height: 340px;
+}
+
+.clean-feature-visual figcaption {
+    margin-top: 12px;
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: .04em;
+    text-align: center;
+    opacity: .8;
+}
+
+.clean-feature-visual video {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.clean-header-visual video {
+    max-width: 440px;
+}
+
+.clean-comments-visual video {
+    max-width: 190px;
+    max-height: 340px;
+}
+
+/* Mobile sizing */
+@media (max-width: 760px) {
+    .clean-header-visual video {
+        max-width: 100%;
+    }
+
+    .clean-comments-visual video {
+        max-width: 170px;
+        max-height: 300px;
+    }
+}
+
+
+/* Responsive layout */
+@media (max-width: 760px) {
+    .clean-interaction-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .clean-header-visual img {
+        max-width: 100%;
+    }
+
+    .clean-comments-visual img {
+        max-width: 170px;
+        max-height: 300px;
+    }
+}
+
+/* =========================================================
    OPENING SCREEN: HORIZONTAL SCROLL CUE
    ========================================================= */
 
 .clean-scroll-cue {
     position: fixed;
-    right: 12%;
+    right: 9%;
     bottom: 145px;
     z-index: 9000;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 2px;
+    justify-content: center;
+    gap: 12px;
 
     color: #20382a;
     pointer-events: none;
@@ -1236,15 +1346,16 @@ body.clean-horizontal-page #footerCopyright {
 
 .clean-scroll-cue-label {
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 700;
     letter-spacing: .18em;
+    white-space: nowrap;
 }
 
 .clean-scroll-cue-arrow {
     font-family: Arial, sans-serif;
-    font-size: 48px;
-    line-height: 1;
+    font-size: 64px;
+    line-height: .8;
     animation: cleanScrollPulse 2.2s ease-in-out infinite;
 }
 
