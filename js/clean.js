@@ -20,6 +20,12 @@
     const walkway = document.querySelector(".clean-walkway");
     const projectHeading = document.querySelector(".clean-project-heading");
     const openingTitle = document.querySelector(".clean-opening-copy h2");
+	const headingTitle = projectHeading
+    ? projectHeading.querySelector("h1")
+    : null;
+
+	const scrollCue = document.querySelector(".clean-scroll-cue");
+	let hasLeftOpening = false;
 
     const mobileQuery = window.matchMedia("(max-width: 760px)");
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -126,7 +132,17 @@ function updateFootprints() {
         });
 
         activeIndex = getActiveIndex();
+		/* Show the scrolling cue only until the visitor moves right. */
+		if (track.scrollLeft > 24) {
+			hasLeftOpening = true;
+		}
 
+		if (scrollCue) {
+			scrollCue.classList.toggle(
+				"is-hidden",
+				hasLeftOpening || isMobile()
+			);
+		}
         /*
            Reveal the fixed heading only after the large opening
            title has moved completely off the left side.
@@ -208,6 +224,27 @@ function updateFootprints() {
             behavior: reduceMotion.matches ? "auto" : "smooth"
         });
     }
+	
+	/* Return to the beginning when the fixed project title is clicked. */
+		if (headingTitle) {
+    headingTitle.addEventListener("click", () => {
+        track.scrollTo({
+            left: 0,
+            behavior: reduceMotion.matches ? "auto" : "smooth"
+        });
+    });
+
+    headingTitle.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+
+            track.scrollTo({
+                left: 0,
+                behavior: reduceMotion.matches ? "auto" : "smooth"
+            });
+        }
+    });
+}
 
     if (previous) {
         previous.addEventListener("click", () => {
