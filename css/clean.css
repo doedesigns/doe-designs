@@ -948,11 +948,20 @@ body.clean-horizontal-page .clean-project-heading > h1:hover::after {
 
 .clean-rotating-visual video {
     display: block;
-    width: min(440px, 100%);
-    max-height: 300px;
+    width: min(210px, 100%);
+    max-height: 260px;
     height: auto;
     object-fit: contain;
     border-radius: 8px;
+}
+
+/* Match the typography used for image descriptions */
+.clean-rotating-card .clean-copy,
+.clean-rotating-card > p {
+    color: #536557;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
 }
 
 /* =========================================================
@@ -966,9 +975,9 @@ body.clean-horizontal-page .clean-project-heading > h1:hover::after {
 
 .clean-comments-card {
     display: grid;
-    grid-template-columns: minmax(150px, 220px) minmax(0, 1fr);
+    grid-template-columns: minmax(190px, 260px) minmax(0, 1fr);
     align-items: center;
-    gap: clamp(24px, 4vw, 48px);
+    gap: 36px;
     width: 100%;
 }
 
@@ -984,8 +993,8 @@ body.clean-horizontal-page .clean-project-heading > h1:hover::after {
 .clean-comments-visual img {
     display: block;
     width: 100%;
-    max-width: 190px;
-    max-height: 340px;
+    max-width: 260px;
+    max-height: 390px;
     height: auto;
     object-fit: contain;
     border-radius: 8px;
@@ -996,11 +1005,18 @@ body.clean-horizontal-page .clean-project-heading > h1:hover::after {
 }
 
 .clean-comments-copy h2 {
-    margin-bottom: 14px;
+    margin: 0 0 16px;
 }
 
 .clean-comments-copy .clean-lead {
     margin-bottom: 12px;
+}
+
+.clean-comments-copy p {
+    color: #536557;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
 }
 
 .clean-comments-copy p:last-child {
@@ -1025,7 +1041,7 @@ body.clean-horizontal-page .clean-project-heading > h1:hover::after {
 
 .clean-walkway {
     position: absolute;
-    right: clamp(205px, 15vw, 250px);
+    right: clamp(165px, 12vw, 200px);
     bottom: 48px;
     left: clamp(150px, 11vw, 190px);
     z-index: 5;
@@ -1130,6 +1146,167 @@ body.clean-horizontal-page #footerCopyright {
     font-size: 13px;
     pointer-events: none;
 }
+
+/* =========================================
+   CLEAN FUTURE NETWORK — INTERACTION REFINEMENTS
+   ========================================= */
+
+/* 01 / ROTATING PAGE HEADLINES
+   Reduce the video substantially and keep
+   the description typography consistent.
+*/
+
+.clean-header-feature-card .clean-header-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 16px auto;
+}
+
+.clean-header-feature-card .clean-header-visual video {
+    display: block;
+    width: min(210px, 100%);
+    max-height: 260px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.clean-header-feature-card .clean-copy {
+    color: #536557;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+
+/* 02 / COMMUNITY COMMENTS
+   Video on the left; heading and copy on the right.
+*/
+
+.clean-comments-feature-card {
+    width: min(940px, 82vw);
+}
+
+.clean-comments-layout {
+    display: grid;
+    grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+    align-items: center;
+    gap: 36px;
+    width: 100%;
+}
+
+.clean-comments-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+.clean-comments-visual video {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    max-height: 420px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.clean-comments-copy {
+    min-width: 0;
+}
+
+.clean-comments-copy h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.clean-comments-copy .clean-lead {
+    margin-bottom: 12px;
+}
+
+.clean-comments-copy .clean-copy {
+    color: #536557;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.clean-comments-copy .clean-copy:last-child {
+    margin-bottom: 0;
+}
+
+
+/* BEYOND THE DIGITAL EXPERIENCE
+   Keep the branded cleanup bags with their
+   introductory text instead of using another stop.
+*/
+
+.clean-brand-application-stop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.clean-brand-application-image {
+    width: min(460px, 65vw);
+    margin: 0 auto;
+}
+
+.clean-brand-application-image img {
+    display: block;
+    width: 100%;
+    max-height: 36vh;
+    object-fit: contain;
+}
+
+
+/* BOOT PRINT TRAIL
+   Bring the final footprints closer to the right leaf.
+*/
+
+.clean-walkway {
+    right: clamp(165px, 12vw, 200px);
+}
+
+
+/* MOBILE LAYOUT
+   Stack the community video above the text on narrow screens.
+*/
+
+@media (max-width: 760px) {
+
+    .clean-comments-feature-card {
+        width: 100%;
+    }
+
+    .clean-comments-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .clean-comments-visual video {
+        max-width: 230px;
+        max-height: 280px;
+    }
+
+    .clean-brand-application-image {
+        width: min(380px, 80vw);
+    }
+
+    .clean-brand-application-image img {
+        max-height: 30vh;
+    }
+
+}
+
 
 /* =========================================================
    OPENING SCREEN: HORIZONTAL SCROLL CUE
