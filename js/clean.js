@@ -76,8 +76,9 @@ function updateFootprints() {
     const second = footprints[1];
 
     // Each new step advances one footprint, not the entire pair.
-	const firstPosition = 3 + (step * 4);
-	const secondPosition = firstPosition + 5;
+    // The final pair now travels much closer to the right leaf.
+    const firstPosition = 3 + (step * 5);
+    const secondPosition = firstPosition + 5;
 
     const leftPrint = "../images/ui/clean/2.6.18-white-boot-print.png";
     const rightPrint = "../images/ui/clean/2.6.19-white-boot-print-right.png";
