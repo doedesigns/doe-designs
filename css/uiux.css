@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* UI/UX project-specific rules: Phasepoint/Chrono Nexus, Lotus Lingo, My Deets. */
+/* UI/UX project-specific rules: Phasepoint/Chrono Nexus, Clean Future Network, Lotus Lingo, My Deets. */
 
 /* =========================================================
    SHARED UI/UX PROJECT HEADER AND OVERVIEW LAYOUT
@@ -204,6 +204,15 @@ linear-gradient(
 180deg,
 #081522,
 #670031
+);
+}
+
+body.clean-page {
+background:
+linear-gradient(
+180deg,
+#081522,
+#003b18
 );
 }
 
@@ -1946,6 +1955,465 @@ body.chrono-page .approach-card.lightbox-image img {
     }
 }
 
+.clean-organic {
+    --clean-forest: #234C3A;
+    --clean-leaf: #72956D;
+    --clean-sage: #B8C9A7;
+    --clean-cream: #F2F0E5;
+    --clean-paper: #E6EBDD;
+    --clean-ink: #26372D;
+    --clean-muted: #667568;
+    --clean-accent: #C28A55;
+}
+
+body.clean-organic .project-year {
+    color: #B8C9A7;
+}
+
+.clean-organic .project-container {
+    position: relative;
+    isolation: isolate;
+}
+
+.clean-organic .project-container::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 8%;
+    left: -8vw;
+    width: 32vw;
+    height: 38vw;
+    max-height: 620px;
+    background: radial-gradient(
+        ellipse,
+        rgba(114, 149, 109, 0.13),
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.clean-organic .project-container::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 45%;
+    right: -10vw;
+    width: 36vw;
+    height: 42vw;
+    max-height: 700px;
+    background: radial-gradient(
+        ellipse,
+        rgba(194, 138, 85, 0.09),
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+.clean-organic .clean-section {
+    position: relative;
+    width: min(1160px, 90%);
+    margin: clamp(70px, 10vw, 130px) auto;
+}
+
+.clean-organic .clean-heading {
+    margin: 0;
+    color: var(--clean-cream);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    line-height: 1.12;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.clean-organic .clean-heading::after {
+    content: "";
+    display: block;
+    width: 58px;
+    height: 3px;
+    margin: 18px auto 0;
+    border-radius: 50%;
+    background: var(--clean-leaf);
+    transition: width 0.35s ease;
+}
+
+.clean-organic .clean-section-heading:hover .clean-heading::after {
+    width: 105px;
+}
+
+.clean-organic .clean-eyebrow {
+    margin: 0 0 14px;
+    color: var(--clean-sage);
+    font-size:1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.clean-organic .clean-section-heading {
+    max-width: 760px;
+    margin: 0 auto 42px;
+}
+
+.clean-organic .clean-section-heading > p:last-child {
+    max-width: 690px;
+    margin: 24px auto 0;
+    color: rgba(242, 240, 229, 0.78);
+    font-size:1.125rem;
+    line-height: 1.85;
+    text-align: center;
+}
+
+.clean-organic .clean-details .detail-box h3 {
+    color: var(--clean-sage);
+}
+
+.clean-organic .clean-details .detail-box {
+    border-color: rgba(184, 201, 167, 0.24);
+}
+
+.clean-organic .clean-overview {
+    padding: clamp(30px, 5vw, 65px) clamp(18px, 4vw, 55px);
+    border: 1px solid rgba(184, 201, 167, 0.15);
+    border-radius: 48px 12px 48px 12px;
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(114, 149, 109, 0.15),
+            transparent 60%
+        ),
+        rgba(255, 255, 255, 0.018);
+}
+
+.clean-organic .clean-organic-divider {
+    width: 90px;
+    height: 4px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    background: var(--clean-leaf);
+    transform: rotate(-3deg);
+}
+
+.clean-organic .clean-overview-logo {
+    display: block;
+    width: 105px;
+    height: 105px;
+    margin: 0 auto 25px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.clean-organic .clean-overview > .clean-eyebrow {
+    margin-bottom: 14px;
+}
+
+.clean-organic .clean-intro {
+    max-width: 760px;
+    margin: 30px auto 14px;
+    color: var(--clean-cream);
+    font-family: "Playfair Display", serif;
+    font-size: clamp(1.4rem, 3vw, 2.25rem);
+    line-height: 1.45;
+    text-align: center;
+}
+
+.clean-organic .clean-overview-copy {
+    max-width: 760px;
+    margin: 0 auto;
+    color: rgba(242, 240, 229, 0.78);
+    font-size:1.125rem;
+    line-height: 1.9;
+    text-align: center;
+}
+
+.clean-organic .clean-challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.clean-organic .clean-statement {
+    padding: clamp(24px, 3vw, 38px);
+    border: 1px solid rgba(184, 201, 167, 0.2);
+    border-radius: 28px 8px 28px 8px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.clean-organic .clean-solution {
+    border-color: rgba(114, 149, 109, 0.4);
+    background: rgba(114, 149, 109, 0.08);
+}
+
+.clean-organic .clean-number {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: var(--clean-leaf);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+}
+
+.clean-organic .clean-statement h3,
+.clean-organic .clean-process-card h3 {
+    margin: 0 0 14px;
+    color: var(--clean-cream);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+}
+
+.clean-organic .clean-statement > p {
+    color: var(--clean-cream);
+    font-size:1.125rem;
+    font-weight: 500;
+    line-height: 1.75;
+}
+
+.clean-organic .clean-statement ul {
+    margin: 18px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.clean-organic .clean-statement li {
+    position: relative;
+    margin: 12px 0 0;
+    padding-left: 23px;
+    color: rgba(242, 240, 229, 0.76);
+    line-height: 1.7;
+}
+
+.clean-organic .clean-statement li::before {
+    content: "";
+    position: absolute;
+    top: 0.68em;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px 6px 2px 6px;
+    background: var(--clean-leaf);
+    transform: rotate(-15deg);
+}
+
+.clean-organic .clean-process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.clean-organic .clean-process-card {
+    min-width: 0;
+}
+
+.clean-organic .clean-process-card figure {
+    overflow: hidden;
+    margin: 0 0 22px;
+    border-radius: 38px 8px 38px 8px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.clean-organic .clean-process-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.clean-organic .clean-process-card:hover img {
+    transform: scale(1.035);
+}
+
+.clean-organic .clean-step {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--clean-sage);
+    font-size:1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+}
+
+.clean-organic .clean-process-card h3 {
+    font-size: 1.45rem;
+    letter-spacing: 0.02em;
+}
+
+.clean-organic .clean-process-card > p {
+    margin: 0;
+    color: rgba(242, 240, 229, 0.73);
+    font-size:1.125rem;
+    line-height: 1.8;
+}
+
+.clean-organic .clean-homepage-feature {
+    overflow: hidden;
+    margin: 0;
+    padding: 12px;
+    border: 1px solid rgba(184, 201, 167, 0.2);
+    border-radius: 44px 10px 44px 10px;
+    background: rgba(255, 255, 255, 0.035);
+}
+
+.clean-organic .clean-homepage-feature img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 32px 6px 32px 6px;
+}
+
+.clean-organic .clean-homepage-feature figcaption,
+.clean-organic .clean-screen figcaption,
+.clean-organic .clean-campaign-image figcaption {
+    padding: 16px 8px 8px;
+    color: var(--clean-sage);
+    font-size:1.125rem;
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+}
+
+.clean-organic .clean-screen-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    margin-top: 30px;
+}
+
+.clean-organic .clean-screen {
+    overflow: hidden;
+    min-width: 0;
+    margin: 0;
+    padding: 10px;
+    border: 1px solid rgba(184, 201, 167, 0.16);
+    border-radius: 30px 8px 30px 8px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.clean-organic .clean-screen img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 22px 5px 22px 5px;
+}
+
+.clean-organic .clean-prototype {
+    padding: clamp(30px, 5vw, 65px) clamp(18px, 4vw, 55px);
+    border-radius: 12px 50px 12px 50px;
+    background:
+        radial-gradient(
+            ellipse at 50% 100%,
+            rgba(114, 149, 109, 0.14),
+            transparent 65%
+        ),
+        rgba(255, 255, 255, 0.02);
+    text-align: center;
+}
+
+.clean-organic .clean-prototype-copy {
+    max-width: 620px;
+    margin: 25px auto 32px;
+    color: rgba(242, 240, 229, 0.76);
+    line-height: 1.8;
+}
+
+.clean-organic .clean-prototype-preview {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: min(425px, 100%);
+    margin: 0 auto;
+    border: 1px solid rgba(184, 201, 167, 0.24);
+    border-radius: 34px 8px 34px 8px;
+}
+
+.clean-organic .clean-prototype-preview img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+}
+
+.clean-organic .clean-prototype-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(25, 54, 40, 0.72);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.clean-organic .clean-prototype-overlay span {
+    padding: 14px 22px;
+    border: 1px solid rgba(242, 240, 229, 0.8);
+    border-radius: 30px;
+    color: #F2F0E5;
+    font-size:1.125rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+}
+
+.clean-organic .clean-prototype-preview:hover img,
+.clean-organic .clean-prototype-preview:focus-visible img {
+    transform: scale(1.025);
+}
+
+.clean-organic .clean-prototype-preview:hover .clean-prototype-overlay,
+.clean-organic .clean-prototype-preview:focus-visible .clean-prototype-overlay {
+    opacity: 1;
+}
+
+.clean-organic .clean-prototype-button {
+    margin-top: 28px;
+    border-color: #B8C9A7;
+    background: #B8C9A7;
+    color: #193628;
+}
+
+.clean-organic .clean-prototype-button:hover,
+.clean-organic .clean-prototype-button:focus-visible {
+    border-color: #D7E3C7;
+    background: #D7E3C7;
+    color: #193628;
+}
+
+.clean-organic .clean-campaign-image {
+    max-width: 390px;
+    margin: 34px auto 0;
+    padding: 12px;
+    border: 1px solid rgba(184, 201, 167, 0.16);
+    border-radius: 36px 8px 36px 8px;
+    background: rgba(255, 255, 255, 0.025);
+}
+
+.clean-organic .clean-campaign-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 26px 5px 26px 5px;
+}
+
+.clean-organic .clean-contact {
+    position: relative;
+    margin-top: 90px;
+    padding: 45px 20px 60px;
+    border-top: 1px solid rgba(184, 201, 167, 0.2);
+    text-align: center;
+}
+
+.clean-organic .clean-contact p {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
 .clean-organic .clean-gallery > figure.clean-homepage-feature:first-of-type {
     width: min(78%, 760px);
     margin-right: auto;
@@ -1965,663 +2433,290 @@ body.chrono-page .approach-card.lightbox-image img {
     line-height: inherit;
 }
 
-/* LOTUS */
+/* =========================================================
+   LOTUS LINGO — CONSOLIDATED PAGE STYLES
+   All Lotus-only styling lives in this section.
+   Shared project/video/navigation rules remain outside it.
+   ========================================================= */
 
 body.lotus-organic {
     --lotus-peach: #FFF5EF;
-    --lotus-peach-deep: #F9E4DC;
-    --lotus-green: #C5E6A5;
-    --lotus-green-deep: #477653;
-    --lotus-pink: #B83268;
-    --lotus-pink-dark: #50152F;
-    --lotus-blue: #BDE5F3;
+    --lotus-green: #426B4B;
+    --lotus-pink: #71344F;
+    --lotus-pink-light: #F3B7D5;
+    --lotus-blue: #173C61;
+    --lotus-blue-light: #E6F5FF;
     --lotus-ink: #302832;
-    --lotus-muted: #71656D;
-    --lotus-white: #FFFCFA;
+    --lotus-white: #FFFFFF;
 
-    background: linear-gradient(
-        180deg,
-        #06080B 0%,
-        #321022 45%,
-        #5B1B3B 75%,
-        #760052 100%
-    );
-
-    color: var(--lotus-ink);
+    min-height: 100vh;
+    color: var(--lotus-white);
+    background: linear-gradient(120deg, #050507 0%, #173C61 35%, #71344F 66%, #284C37 100%);
+    background-attachment: fixed;
 }
 
-.lotus-organic .project-container {
+body.lotus-organic .project-container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
-.lotus-organic .lotus-section,
-.lotus-organic .project-story {
-    position: relative;
-    margin-top: clamp(48px, 7vw, 100px);
-    margin-bottom: clamp(48px, 7vw, 100px);
-}
-
-.lotus-organic .lotus-section {
-    padding: clamp(24px, 4vw, 56px);
-    border-radius: 28px;
-    background: var(--lotus-peach);
-    color: var(--lotus-ink);
-    overflow: hidden;
-}
-
-.lotus-organic .lotus-section p,
-.lotus-organic .lotus-section li {
-    color: var(--lotus-ink);
-}
-
-.lotus-organic .lotus-section-heading {
-    max-width: 820px;
-    margin: 0 auto 32px;
-    text-align: center;
-}
-
-.lotus-organic .lotus-section-heading > p:last-child {
-    max-width: 700px;
-    margin: 16px auto 0;
-    line-height: 1.75;
-}
-
-.lotus-organic .lotus-eyebrow {
-    margin: 0 0 10px;
-    color: var(--lotus-pink);
+/* Main project title: static speech bubbles, no hover translation. */
+body.lotus-organic .project-title h1 {
+    margin: 0;
+    color: var(--lotus-blue);
     font-family: "Barlow Condensed", sans-serif;
-    font-size:1.125rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    line-height: 1.5;
+    font-size: clamp(38px, 5vw, 62px);
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    line-height: 1.12;
     text-transform: uppercase;
 }
 
-.lotus-organic .lotus-section h2,
-.lotus-organic .lotus-section-heading h2 {
-    margin-top: 0;
-    color: var(--lotus-pink-dark);
+body.lotus-organic .lotus-project-name-bubble,
+body.lotus-organic .project-title .lotus-project-subtitle-bubble {
+    position: relative;
+    display: table;
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-inline: auto;
+    border-radius: 999px;
+    box-shadow: 0 9px 24px rgba(0, 0, 0, 0.2);
+    transform: none !important;
+    transition: none !important;
+}
+
+body.lotus-organic .lotus-project-name-bubble {
+    padding: 10px 30px 12px;
+    background: #FFFFFF;
+    color: var(--lotus-blue);
+}
+
+body.lotus-organic .project-title .lotus-project-subtitle-bubble {
+    margin-top: 10px;
+    padding: 7px 19px 8px;
+    background: var(--lotus-blue-light);
+    color: var(--lotus-blue);
+    font-family: "Jost", sans-serif;
+    font-size: clamp(15px, 1.7vw, 20px);
+    font-weight: 500;
+    letter-spacing: 0.035em;
+    line-height: 1.25;
+    text-transform: none;
+}
+
+body.lotus-organic .lotus-project-name-bubble::after,
+body.lotus-organic .project-title .lotus-project-subtitle-bubble::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 14px;
+    height: 18px;
+    transform: translateY(-50%);
+}
+
+body.lotus-organic .lotus-project-name-bubble::after {
+    left: -10px;
+    background: #FFFFFF;
+    clip-path: polygon(100% 0, 100% 100%, 0 50%);
+}
+
+body.lotus-organic .project-title .lotus-project-subtitle-bubble::after {
+    right: -10px;
+    background: var(--lotus-blue-light);
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+body.lotus-organic .lotus-title-japanese {
+    display: none !important;
+}
+
+/* Main-page previous/next bubbles. The small scrolled-nav arrows are
+   intentionally left to nav.css and keep their original appearance. */
+body.lotus-organic .project-navigation > .project-arrow {
+    position: relative;
+    flex: 0 0 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    min-width: 0;
+    height: auto;
+    margin-top: -18px;
+    color: #FFFFFF;
+    text-decoration: none;
+    transform: none;
+}
+
+body.lotus-organic .project-navigation > .project-arrow .arrow-circle {
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+body.lotus-organic .project-navigation > .project-arrow.prev .arrow-triangle {
+    border-right-color: #FFFFFF;
+}
+
+body.lotus-organic .project-navigation > .project-arrow.next .arrow-triangle {
+    border-left-color: #FFFFFF;
+}
+
+body.lotus-organic .project-navigation > .project-arrow .lotus-nav-label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 82px;
+    padding: 9px 15px;
+    border-radius: 999px;
+    color: #FFFFFF;
     font-family: "Barlow Condensed", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1.1;
+    white-space: nowrap;
+    box-shadow: 0 7px 18px rgba(0, 0, 0, 0.18);
+}
+
+body.lotus-organic .project-navigation > .project-arrow.prev .lotus-nav-label {
+    background: var(--lotus-green);
+}
+
+body.lotus-organic .project-navigation > .project-arrow.next .lotus-nav-label {
+    background: #365F7D;
+}
+
+body.lotus-organic .project-navigation > .project-arrow .lotus-nav-label::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    width: 14px;
+    height: 15px;
+    background: inherit;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+body.lotus-organic .project-navigation > .project-arrow.prev .lotus-nav-label::after {
+    left: 8px;
+}
+
+body.lotus-organic .project-navigation > .project-arrow.next .lotus-nav-label::after {
+    right: 8px;
+    transform: scaleX(-1);
+}
+
+body.lotus-organic .project-navigation > .project-arrow:hover .lotus-nav-label,
+body.lotus-organic .project-navigation > .project-arrow:focus-visible .lotus-nav-label {
+    filter: brightness(1.12);
+}
+
+body.lotus-organic .project-navigation > .project-arrow .lotus-nav-japanese {
+    display: none !important;
+}
+
+/* Walkthrough: make the green frame substantial and unmistakable. */
+body.lotus-organic .project-hero.video-hero.lotus-video {
+    margin: 0 auto 12px;
+}
+
+body.lotus-organic .project-container .project-hero.video-hero.lotus-video .video-player {
+    flex: 0 1 900px;
+    width: min(84%, 900px);
+    max-width: 900px;
+    box-sizing: border-box;
+    margin: 0 auto 24px;
+    padding: 8px;
+    border: 8px solid var(--lotus-green);
+    border-radius: 22px;
+    background: var(--lotus-green);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.85), 0 16px 38px rgba(0, 0, 0, 0.28);
+}
+
+body.lotus-organic .lotus-video .video-player iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: 0;
+    border-radius: 10px;
+}
+
+body.lotus-organic .project-year {
+    margin: 0 auto 24px;
+    color: var(--lotus-pink-light);
+    text-align: center;
+}
+
+body.lotus-organic .lotus-details .detail-box {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+body.lotus-organic .lotus-details .detail-box h3 {
+    color: var(--lotus-pink-light) !important;
+    font-size: 18px;
+}
+
+/* Shared story and section panels. */
+body.lotus-organic .lotus-section,
+body.lotus-organic .project-story {
+    position: relative;
+    margin-top: clamp(48px, 7vw, 100px);
+    margin-bottom: clamp(48px, 7vw, 100px);
+    color: #FFFFFF;
+}
+
+body.lotus-organic .lotus-section {
+    box-sizing: border-box;
+    padding: clamp(24px, 4vw, 56px);
+    border-radius: 28px;
+    overflow: hidden;
+}
+
+body.lotus-organic .lotus-overview { background: #173C61; }
+body.lotus-organic .lotus-challenge { background: #71344F; }
+body.lotus-organic .lotus-onboarding { background: #426B4B; }
+body.lotus-organic .lotus-prototype { background: #284C37; }
+body.lotus-organic .lotus-direction { background: #24445A; }
+body.lotus-organic .lotus-journey { background: #426B4B; }
+body.lotus-organic .lotus-process { background: #302832; }
+body.lotus-organic .lotus-experience { background: #284C37; }
+body.lotus-organic .lotus-brand { background: #71344F; }
+body.lotus-organic .lotus-next-steps { background: #173C61; }
+
+body.lotus-organic .lotus-overview,
+body.lotus-organic .lotus-direction,
+body.lotus-organic .lotus-process {
+    box-sizing: border-box;
+    padding: clamp(20px, 3vw, 38px);
+    border-radius: 24px;
+}
+
+body.lotus-organic .lotus-section p,
+body.lotus-organic .project-story .story-text p,
+body.lotus-organic .story-image > p,
+body.lotus-organic .lotus-feature-image figcaption,
+body.lotus-organic .lotus-games-figure figcaption,
+body.lotus-organic .lotus-logo-animation figcaption {
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 1.75;
+}
+
+body.lotus-organic .project-story .story-text h2,
+body.lotus-organic .lotus-section h2,
+body.lotus-organic .lotus-section-heading h2 {
+    color: var(--lotus-blue-light) !important;
+    font-family: "Jost", sans-serif;
     font-size: clamp(1.8rem, 4vw, 3rem);
     font-weight: 700;
     letter-spacing: 0.035em;
     line-height: 1.15;
-}
-
-.lotus-organic .project-story .story-text h2 {
-    color: var(--lotus-pink-dark);
-}
-
-.lotus-organic .project-story .story-text p {
-    color: var(--lotus-ink);
-    line-height: 1.8;
-}
-
-.lotus-organic .lotus-overview,
-.lotus-organic .lotus-direction,
-.lotus-organic .lotus-process {
-    padding: clamp(20px, 3vw, 38px);
-    border-radius: 24px;
-    background: var(--lotus-peach);
-    color: var(--lotus-ink);
-}
-
-.lotus-organic .lotus-overview .story-image img,
-.lotus-organic .lotus-direction .story-image img,
-.lotus-organic .lotus-process .story-image img {
-    border-radius: 18px;
-}
-
-.lotus-organic .lotus-overview .story-image p,
-.lotus-organic .lotus-direction .story-image p,
-.lotus-organic .lotus-process .story-image p {
-    color: var(--lotus-muted);
-    font-size:1.125rem;
-    line-height: 1.6;
-}
-
-.lotus-organic .lotus-challenge-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
-}
-
-.lotus-organic .lotus-statement {
-    padding: clamp(22px, 3vw, 36px);
-    border-radius: 22px;
-    color: var(--lotus-ink);
-}
-
-.lotus-organic .lotus-challenge-card {
-    background: var(--lotus-blue);
-}
-
-.lotus-organic .lotus-solution-card {
-    background: var(--lotus-green);
-}
-
-.lotus-organic .lotus-statement p {
-    color: var(--lotus-ink);
-}
-
-.lotus-organic .lotus-number {
-    display: block;
-    margin-bottom: 16px;
-    color: var(--lotus-pink);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 2rem;
-    font-weight: 900;
-    line-height: 1;
-}
-
-.lotus-organic .lotus-statement h3 {
-    margin: 0 0 14px;
-    color: var(--lotus-pink-dark);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-}
-
-.lotus-organic .lotus-statement p {
-    margin: 0 0 14px;
-    line-height: 1.75;
-}
-
-.lotus-organic .lotus-statement p:last-child {
-    margin-bottom: 0;
-}
-
-.lotus-organic .lotus-prototype {
-    text-align: center;
-}
-
-.lotus-organic .lotus-prototype .lotus-section-heading {
-    padding: 0 18px;
-}
-
-.lotus-organic .lotus-prototype .prototype-image-link {
-    position: relative;
-    display: block;
-    width: min(33%, 260px);
-    min-width: 200px;
-    margin: 28px auto;
-    overflow: hidden;
-    border: 5px solid var(--lotus-white);
-    border-radius: 22px;
-    background: var(--lotus-peach-deep);
-    box-shadow: 0 14px 36px rgba(80, 21, 47, 0.16);
-}
-
-.lotus-organic .lotus-prototype .prototype-image-link img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-    transition: transform 0.35s ease;
-}
-
-.lotus-organic .lotus-prototype .prototype-image-link:hover img {
-    transform: scale(1.015);
-}
-
-.lotus-organic .lotus-prototype-overlay {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 56px;
-    padding: 12px 10px;
-    box-sizing: border-box;
-    background: rgba(80, 21, 47, 0.92);
-    color: white;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size:1.125rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.25s ease;
-}
-
-.lotus-organic .lotus-prototype .prototype-image-link:hover
-.lotus-prototype-overlay,
-.lotus-organic .lotus-prototype .prototype-image-link:focus-visible
-.lotus-prototype-overlay {
-    opacity: 1;
-}
-
-.lotus-organic .lotus-prototype-button {
-    display: inline-block;
-    margin: 8px auto 0;
-    padding: 15px 38px;
-    box-sizing: border-box;
-}
-
-.lotus-organic .enter-button {
-    border: 1px solid var(--lotus-pink);
-    border-radius: 999px;
-    background: var(--lotus-pink);
-    color: white;
-    transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        transform 0.25s ease;
-}
-
-.lotus-organic .enter-button:hover {
-    background: var(--lotus-pink-dark);
-    border-color: var(--lotus-pink-dark);
-    color: white;
-    transform: translateY(-2px);
-}
-
-.lotus-organic .lotus-feature-image {
-    width: 100%;
-    max-width: 1100px;
-    margin: 30px auto 44px;
-    padding: clamp(10px, 2vw, 22px);
-    border: 1px solid rgba(80, 21, 47, 0.08);
-    border-radius: 22px;
-    background: var(--lotus-white);
-    box-sizing: border-box;
-}
-
-.lotus-organic .lotus-feature-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 12px;
-}
-
-.lotus-organic .lotus-feature-image figcaption {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 16px 4px 4px;
-    color: var(--lotus-muted);
-    font-size:1.125rem;
-    line-height: 1.6;
-}
-
-.lotus-organic .lotus-feature-image figcaption strong {
-    color: var(--lotus-pink-dark);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 1.25rem;
-    font-weight: 700;
-}
-
-.lotus-organic .lotus-logo-animation {
-    width: 100%;
-    max-width: 900px;
-    margin: 28px auto 0;
-}
-
-.lotus-organic .lotus-logo-animation .video-player {
-    overflow: hidden;
-    border: 5px solid var(--lotus-white);
-    border-radius: 20px;
-    background: var(--lotus-peach-deep);
-}
-
-.lotus-organic .lotus-logo-animation video {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.lotus-organic .lotus-logo-animation figcaption {
-    margin-top: 12px;
-    color: var(--lotus-muted);
-    text-align: center;
-    font-size:1.125rem;
-}
-
-.lotus-organic .lotus-contact {
-    margin-top: clamp(48px, 7vw, 100px);
-}
-
-body.lotus-organic .lotus-contact > p {
-    color: #FFFFFF;
-    font-family: "Jost", sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.6;
-}
-
-.lotus-organic .story-image img,
-.lotus-organic .lotus-feature-image img {
-    max-width: 100%;
-}
-
-.lotus-organic a:focus-visible {
-    outline: 3px solid var(--lotus-green-deep);
-    outline-offset: 4px;
-}
-
-body.lotus-organic {
-    --lotus-pink-accent: #D77DBF;
-    --lotus-gradient-yellow: #E8D9A9;
-    --lotus-gradient-pink: #E3C1D1;
-}
-
-.lotus-organic .lotus-overview,
-.lotus-organic .lotus-challenge,
-.lotus-organic .lotus-prototype {
-    background: linear-gradient(
-        135deg,
-        var(--lotus-gradient-yellow) 0%,
-        var(--lotus-gradient-pink) 100%
-    );
-}
-
-.lotus-organic .lotus-direction,
-.lotus-organic .lotus-brand {
-    background: linear-gradient(
-        225deg,
-        var(--lotus-gradient-yellow) 0%,
-        var(--lotus-gradient-pink) 100%
-    );
-}
-
-.lotus-organic .lotus-process {
-    background: linear-gradient(
-        135deg,
-        #FBE5ED 0%,
-        #FFF5CC 100%
-    );
-}
-
-.lotus-organic .lotus-challenge-card {
-    background: #CAE8F9;
-}
-
-.lotus-organic .lotus-solution-card {
-    background: #DDF7DF;
-}
-
-.lotus-organic .lotus-eyebrow {
-    color: #B83268;
-}
-
-.lotus-organic .lotus-prototype-overlay {
-    background: rgba(80, 21, 47, 0.94);
-    color: #FFFFFF;
-}
-
-.lotus-organic .lotus-prototype {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 20px;
-    padding: clamp(28px, 5vw, 58px);
-    border: 1px solid rgba(184, 50, 104, 0.12);
-    border-radius: 26px;
-}
-
-.lotus-organic .lotus-prototype .lotus-section-heading {
-    width: 100%;
-    max-width: 760px;
-    margin: 0 auto;
-}
-
-.lotus-organic .lotus-prototype .lotus-section-heading h2 {
-    color: #50152F;
-}
-
-.lotus-organic .lotus-prototype .lotus-section-heading > p:last-child {
-    color: #302832;
-    line-height: 1.8;
-}
-
-.lotus-organic .lotus-prototype .prototype-image-link {
-    display: block;
-    position: relative;
-    width: min(100%, 240px);
-    min-width: 0;
-    margin: 4px auto;
-    overflow: hidden;
-    border: 3px solid #FFFFFF;
-    border-radius: 20px;
-    background: #FFFFFF;
-    box-shadow: 0 12px 30px rgba(80, 21, 47, 0.13);
-}
-
-.lotus-organic .lotus-prototype .prototype-image-link img {
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: transform 0.3s ease;
-}
-
-.lotus-organic .lotus-prototype .prototype-image-link:hover img {
-    transform: scale(1.02);
-}
-
-.lotus-organic .lotus-prototype-overlay {
-    position: absolute;
-    inset: auto 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    padding: 12px 8px;
-    box-sizing: border-box;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size:1.125rem;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.25s ease;
-}
-
-.lotus-organic .lotus-prototype .prototype-image-link:hover
-.lotus-prototype-overlay,
-.lotus-organic .lotus-prototype .prototype-image-link:focus-visible
-.lotus-prototype-overlay {
-    opacity: 1;
-}
-
-.lotus-organic .lotus-prototype .lotus-prototype-button {
-    display: inline-block;
-    width: auto;
-    max-width: 100%;
-    margin: 0;
-    padding: 14px 30px;
-    border: 2px solid #50152F;
-    border-radius: 999px;
-    background: #50152F;
-    color: #FFFFFF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-align: center;
-    text-decoration: none;
-}
-
-.lotus-organic .lotus-prototype .lotus-prototype-button:hover {
-    background: #B83268;
-    border-color: #B83268;
-    color: #FFFFFF;
-}
-
-.lotus-organic .lotus-direction .story-image,
-.lotus-organic .lotus-process .story-image {
-    width: 100%;
-    max-width: 540px;
-    margin-inline: auto;
-}
-
-.lotus-organic .lotus-direction .story-image img,
-.lotus-organic .lotus-process .story-image img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.lotus-organic .lotus-feature-image {
-    width: 100%;
-    max-width: 620px;
-    margin: 30px auto 44px;
-    padding: clamp(10px, 1.5vw, 18px);
-    box-sizing: border-box;
-}
-
-.lotus-organic .lotus-feature-image img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-.lotus-organic .lotus-brand .lotus-logo-animation {
-    width: 100%;
-    max-width: 760px;
-    margin: 28px auto 0;
-}
-
-.lotus-organic .lotus-contact .enter-button {
-    display: inline-block;
-    width: auto;
-    padding: 0;
-    border: none;
-    border-radius: 0;
-    background: transparent;
-    color: #00E5FF;
-    box-shadow: none;
-    font-family: "Barlow Condensed", sans-serif;
-	font-size: 18px;
-	font-weight: 400;
-	letter-spacing: 0.35em;
-	text-transform: uppercase;
-    font-weight: inherit;
-    text-decoration: none;
-    transition: color 0.25s ease;
-}
-
-.lotus-organic .lotus-contact .enter-button:hover {
-    border: none;
-    background: transparent;
-    color: #FFFFFF;
-    box-shadow: none;
-    transform: none;
-}
-
-body.lotus-organic {
-    --lotus-pink-accent: #F09BC5;
-    --lotus-gradient-green: #426B4B;
-    --lotus-gradient-pink: #A94F76;
-    --lotus-gradient-blue: #648FA9;
-}
-
-body.lotus-organic .lotus-overview,
-body.lotus-organic .lotus-challenge,
-body.lotus-organic .lotus-prototype,
-body.lotus-organic .lotus-experience,
-body.lotus-organic .lotus-process {
-    background: linear-gradient(
-        135deg,
-        #426B4B 0%,
-        #A94F76 58%,
-        #648FA9 100%
-    );
-    color: #FFF8FC;
-}
-
-body.lotus-organic .lotus-direction,
-body.lotus-organic .lotus-brand {
-    background: linear-gradient(
-        225deg,
-        #426B4B 0%,
-        #A94F76 58%,
-        #648FA9 100%
-    );
-    color: #FFF8FC;
-}
-
-body.lotus-organic .lotus-section h2,
-body.lotus-organic .lotus-section h3,
-body.lotus-organic .project-story h2,
-body.lotus-organic .project-story h3,
-body.lotus-organic .lotus-section p,
-body.lotus-organic .project-story .story-text p {
-    color: #FFF8FC;
-}
-
-body.lotus-organic .lotus-eyebrow {
-    color: #FFD0E5;
-}
-
-body.lotus-organic .lotus-statement,
-body.lotus-organic .lotus-challenge-card,
-body.lotus-organic .lotus-solution-card {
-    background: rgba(25, 17, 25, 0.58);
-    color: #FFF8FC;
-    border-color: rgba(255, 208, 229, 0.35);
-}
-
-body.lotus-organic .lotus-feature-image figcaption,
-body.lotus-organic .story-image > p {
-    color: #FFF0F7;
-}
-
-body.lotus-organic .project-story h2,
-body.lotus-organic .lotus-section-heading h2 {
-    color: #E6F5FF;
-}
-
-body.lotus-organic .project-story h2::after,
-body.lotus-organic .lotus-section-heading h2::after {
-    background-color: #00E5FF;
-}
-
-body.lotus-organic .lotus-number {
-    color: #F3B7D5;
-}
-
-body.lotus-organic .lotus-prototype .lotus-section-heading p,
-body.lotus-organic .lotus-prototype .lotus-prototype-overlay {
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-contact > p {
-    color: #FFFFFF;
-    font-size:18px;
-    font-weight: 400;
-    line-height: 1.6;
-}
-
-body.lotus-organic .lotus-overview h2,
-body.lotus-organic .lotus-challenge .lotus-section-heading h2,
-body.lotus-organic .lotus-prototype .lotus-section-heading h2,
-body.lotus-organic .lotus-experience .lotus-section-heading h2,
-body.lotus-organic .lotus-brand .lotus-section-heading h2 {
-    color: #E6F5FF !important;
-}
-
-body.lotus-organic .lotus-prototype .lotus-section-heading p {
-    color: #FFFFFF !important;
-}
-
-body.lotus-organic .lotus-prototype-overlay {
-    color: #FFFFFF !important;
-}
-
-body.lotus-organic .project-story h2,
-body.lotus-organic .lotus-section h2,
-body.lotus-organic .lotus-section-heading h2 {
-    color: #E6F5FF !important;
 }
 
 body.lotus-organic .project-story h2::after,
@@ -2643,388 +2738,16 @@ body.lotus-organic .lotus-decoration {
     pointer-events: none;
 }
 
-body.lotus-organic .lotus-overview,
-body.lotus-organic .lotus-challenge,
-body.lotus-organic .lotus-brand {
-    position: relative;
-    overflow: hidden;
-}
-
 body.lotus-organic .lotus-overview .story-text,
 body.lotus-organic .lotus-overview .story-image,
 body.lotus-organic .lotus-challenge .lotus-section-heading,
 body.lotus-organic .lotus-challenge .lotus-challenge-grid,
 body.lotus-organic .lotus-brand .lotus-section-heading,
-body.lotus-organic .lotus-brand .lotus-logo-animation {
+body.lotus-organic .lotus-brand .lotus-callout-row {
     position: relative;
     z-index: 1;
 }
 
-body.lotus-organic .lotus-prototype-showcase {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(24px, 5vw, 64px);
-    width: 100%;
-    margin: 30px auto 18px;
-}
-
-body.lotus-organic .lotus-prototype .lotus-prototype-showcase
-.prototype-image-link {
-    flex: 0 1 240px;
-    width: 240px;
-    min-width: 0;
-    margin: 0;
-}
-
-body.lotus-organic .lotus-prototype-callout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex: 0 1 220px;
-    gap: 0;
-    color: #FFD0E5;
-    font-family: "Caveat", cursive;
-    font-size: clamp(25px, 3vw, 34px);
-    font-weight: 600;
-    line-height: 1.1;
-    text-align: center;
-    text-decoration: none;
-    transform: rotate(-3deg);
-    transition: color 0.25s ease, transform 0.25s ease;
-}
-
-body.lotus-organic .lotus-curved-arrow {
-    display: block;
-    width: 120px;
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 4px;
-    color: #FFD0E5;
-}
-
-body.lotus-organic .lotus-prototype-callout:hover {
-    color: #FFFFFF;
-    transform: rotate(0deg) translateY(-2px);
-}
-
-body.lotus-organic .lotus-prototype-callout:hover .lotus-curved-arrow {
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-callout-row {
-    display: flex;
-    align-items: center;
-    gap: clamp(24px, 4vw, 54px);
-    width: 100%;
-    margin: 42px auto;
-}
-
-body.lotus-organic .lotus-callout-row > * {
-    min-width: 0;
-}
-
-body.lotus-organic .lotus-callout-row.lotus-callout-left
-.lotus-handwritten-callout {
-    flex: 0 0 220px;
-}
-
-body.lotus-organic .lotus-callout-row.lotus-callout-left
-> figure,
-body.lotus-organic .lotus-callout-row.lotus-callout-right
-> figure {
-    flex: 1 1 0;
-    width: auto;
-    max-width: none;
-    margin: 0;
-}
-
-body.lotus-organic .lotus-games-figure .video-player {
-    width: 100%;
-    max-width: 240px;
-    margin: 0 auto;
-}
-
-body.lotus-organic .lotus-brand .lotus-logo-animation {
-    width: auto;
-    max-width: none;
-    margin: 0;
-}
-
-body.lotus-organic .lotus-brand .lotus-logo-animation .video-player {
-    width: 100%;
-    max-width: 760px;
-    margin: 0 auto;
-}
-
-body.lotus-organic .lotus-handwritten-callout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 220px;
-    color: #F3B7D5;
-    font-family: "Caveat", cursive;
-    font-size: clamp(25px, 2.8vw, 34px);
-    font-weight: 600;
-    line-height: 1.15;
-    text-align: center;
-}
-
-body.lotus-organic .lotus-curved-arrow {
-    display: block;
-    width: 125px;
-    max-width: 100%;
-    height: auto;
-    margin: 6px auto 0;
-    color: currentColor;
-    overflow: visible;
-}
-
-body.lotus-organic .lotus-callout-right
-.lotus-handwritten-callout {
-    flex: 0 0 220px;
-}
-
-body.lotus-organic .lotus-games-figure figcaption,
-body.lotus-organic .lotus-logo-animation figcaption {
-    margin-top: 14px;
-    color: #FFF8FC;
-    font-family: "Jost", sans-serif;
-    font-size: 18px;
-    line-height: 1.6;
-    text-align: center;
-}
-
-body.lotus-organic .lotus-games-figure figcaption strong {
-    display: block;
-    margin-bottom: 4px;
-    color: #E6F5FF;
-    font-size: 18px;
-}
-
-body.lotus-organic {
-    background: linear-gradient(
-        120deg,
-        #050507 0%,
-        #173C61 35%,
-        #71344F 66%,
-        #284C37 100%
-    );
-    background-attachment: fixed;
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-overview {
-    background: #173C61;
-}
-
-body.lotus-organic .lotus-challenge {
-    background: #71344F;
-}
-
-body.lotus-organic .lotus-prototype {
-    background: #284C37;
-}
-
-body.lotus-organic .lotus-direction {
-    background: #24445A;
-}
-
-body.lotus-organic .lotus-process {
-    background: #302832;
-}
-
-body.lotus-organic .lotus-experience {
-    background: #284C37;
-}
-
-body.lotus-organic .lotus-brand {
-    background: #71344F;
-}
-
-body.lotus-organic .lotus-section,
-body.lotus-organic .project-story {
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-section p,
-body.lotus-organic .project-story .story-text p,
-body.lotus-organic .story-image > p {
-    color: #FFFFFF;
-}
-
-body.lotus-organic .project-story h2,
-body.lotus-organic .lotus-section h2,
-body.lotus-organic .lotus-section-heading h2 {
-    color: #E6F5FF !important;
-}
-
-body.lotus-organic .project-story h2::after,
-body.lotus-organic .lotus-section h2::after,
-body.lotus-organic .lotus-section-heading h2::after {
-    content: none !important;
-    display: none !important;
-}
-
-body.lotus-organic .lotus-eyebrow {
-    color: #F3B7D5;
-    font-size: 18px;
-    line-height: 1.5;
-}
-
-body.lotus-organic .lotus-challenge-card {
-    background: #365F7D;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-body.lotus-organic .lotus-solution-card {
-    background: #426B4B;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-body.lotus-organic .lotus-statement,
-body.lotus-organic .lotus-statement p,
-body.lotus-organic .lotus-statement h3 {
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-number {
-    color: #F3B7D5;
-}
-
-body.lotus-organic .story-text p,
-body.lotus-organic .lotus-section p,
-body.lotus-organic .story-image > p,
-body.lotus-organic .lotus-feature-image figcaption,
-body.lotus-organic .lotus-games-figure figcaption,
-body.lotus-organic .lotus-logo-animation figcaption {
-    font-size: 18px;
-}
-
-body.lotus-organic .lotus-handwritten-callout {
-    color: #F3B7D5;
-}
-
-body.lotus-organic .lotus-prototype-overlay {
-    font-size: 18px;
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-contact > p {
-    color: #FFFFFF;
-    font-size: 18px;
-}
-
-body.lotus-organic .project-title h1,
-body.lotus-organic .project-title-nav h1 {
-    color: #F3B7D5;
-}
-
-body.lotus-organic .project-title .title-break {
-    color: #E6F5FF;
-}
-
-body.lotus-organic .project-year {
-    color: #F3B7D5;
-}
-
-body.lotus-organic .story-image > p,
-body.lotus-organic .lotus-feature-image figcaption,
-body.lotus-organic .lotus-games-figure figcaption,
-body.lotus-organic .lotus-logo-animation figcaption {
-    color: #FFFFFF !important;
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-body.lotus-organic .project-title-nav h1 {
-    color: #00E5FF !important;
-}
-
-body.lotus-organic .lotus-details .detail-box h3 {
-    color: #F3B7D5 !important;
-    font-size: 18px;
-}
-
-body.lotus-organic .lotus-details .detail-box {
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-}
-
-body.lotus-organic .lotus-prototype-showcase .prototype-image-link {
-    display: block;
-    flex: 0 1 180px;
-    width: 180px;
-    max-width: 180px;
-    min-width: 0;
-    margin: 0;
-}
-
-body.lotus-organic .lotus-prototype-showcase .prototype-image-link img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-body.lotus-organic .lotus-games-figure {
-    flex: 0 1 180px;
-    width: 180px;
-    max-width: 180px;
-    min-width: 0;
-    margin: 0;
-}
-
-body.lotus-organic .lotus-games-figure video.video-player {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    margin: 0;
-}
-
-body.lotus-organic .lotus-callout-row > figure.lotus-games-figure {
-    flex: 0 0 180px;
-    width: 180px;
-    max-width: 180px;
-    min-width: 0;
-    margin: 0;
-}
-
-body.lotus-organic .lotus-callout-row > figure.lotus-games-figure video.video-player {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    margin: 0;
-}
-
-/* Lotus Lingo: callout left; game walkthrough and prototype centered. */
-body.lotus-organic .lotus-callout-row.lotus-callout-left { justify-content:flex-start; }
-body.lotus-organic .lotus-games-figure { display:flex; flex:0 0 180px; flex-direction:column; align-items:center; width:180px; max-width:180px; margin-left:auto; margin-right:auto; align-self:center; }
-body.lotus-organic .lotus-games-figure video.video-player { display:block; width:100%; max-width:100%; height:auto; margin:0 auto; }
-body.lotus-organic .lotus-games-figure figcaption { width:max-content; max-width:none; margin:14px 0 0; text-align:center; white-space:nowrap; letter-spacing:.015em; }
-body.lotus-organic .lotus-games-figure figcaption strong { display:block; margin-bottom:4px; font-size:18px; letter-spacing:.055em; white-space:nowrap; }
-body.lotus-organic .lotus-statement h3, body.lotus-organic .lotus-feature-image figcaption strong { letter-spacing:.09em; }
-body.lotus-organic .lotus-prototype { display:flex; flex-direction:column; align-items:center; text-align:center; }
-body.lotus-organic .lotus-prototype .prototype-image-link { display:block; margin-left:auto; margin-right:auto; }
-body.lotus-organic .lotus-prototype .lotus-prototype-button, body.lotus-organic .lotus-prototype .enter-button { align-self:center; }
-
-/* Bring the Lotus year closer to the walkthrough while keeping it centered
-   above the four project-detail columns. */
-body.lotus-organic .project-hero.video-hero.lotus-video {
-    margin-bottom: 12px;
-}
-
-body.lotus-organic .project-year {
-    margin: 0 auto 24px;
-    text-align: center;
-}
-
-/* Overview: separate the copy from the mockup and style its caption with
-   the existing solution green. */
 body.lotus-organic .lotus-overview .story-text p:last-child {
     margin-bottom: clamp(26px, 4vw, 44px);
 }
@@ -3035,84 +2758,16 @@ body.lotus-organic .lotus-overview .story-image {
 }
 
 body.lotus-organic .lotus-overview .story-image > p {
-    box-sizing: border-box;
     width: 100%;
     margin: 14px auto 0;
-    padding: 12px 16px;
-    background: #426B4B;
-    color: #FFFFFF !important;
     text-align: center;
-    line-height: 1.5;
 }
 
-/* Prototype: preserve the existing 240px image size and center it on the
-   page; position the linked handwritten arrow/callout to its right. */
-body.lotus-organic .lotus-prototype-showcase {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 240px minmax(0, 1fr);
-    align-items: center;
-    justify-items: stretch;
-    gap: clamp(18px, 3vw, 42px);
-    width: 100%;
-    margin: 30px auto 18px;
-}
-
-body.lotus-organic .lotus-prototype .lotus-prototype-showcase .prototype-image-link {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: center;
-    flex: 0 0 240px;
-    width: 240px;
-    max-width: 100%;
-    margin: 0;
-    border-color: #FFFFFF;
-    box-shadow: 0 12px 30px rgba(54, 95, 125, 0.2);
-}
-
-body.lotus-organic .lotus-prototype-callout {
-    grid-column: 3;
-    grid-row: 1;
-    justify-self: start;
-    align-self: center;
-    width: 100%;
-    max-width: 220px;
-    margin: 0;
-    color: #F3B7D5;
-    transform: none;
-}
-
-body.lotus-organic .lotus-prototype-callout .lotus-curved-arrow {
-    color: #F3B7D5;
-}
-
-body.lotus-organic .lotus-prototype-callout:hover,
-body.lotus-organic .lotus-prototype-callout:focus-visible {
-    color: #FFD0E5;
-    transform: translateY(-2px);
-}
-
-body.lotus-organic .lotus-prototype-callout:hover .lotus-curved-arrow,
-body.lotus-organic .lotus-prototype-callout:focus-visible .lotus-curved-arrow {
-    color: #FFD0E5;
-}
-
-/* Keep the prototype hover treatment clearly visible in the existing maroon. */
-body.lotus-organic .lotus-prototype .prototype-image-link:hover,
-body.lotus-organic .lotus-prototype .prototype-image-link:focus-visible {
-    border-color: #71344F;
-}
-
-body.lotus-organic .lotus-prototype .prototype-image-link:hover .lotus-prototype-overlay,
-body.lotus-organic .lotus-prototype .prototype-image-link:focus-visible .lotus-prototype-overlay {
-    background: rgba(113, 52, 79, 0.96);
-    color: #FFFFFF !important;
-}
-
-/* Creative direction: challenge blue image panel, centered caption, and
-   enough space before the following COLOR, TYPE & COMPONENTS eyebrow. */
-body.lotus-organic .lotus-direction .story-image {
+body.lotus-organic .lotus-direction .story-image,
+body.lotus-organic .lotus-experience .lotus-feature-image {
     box-sizing: border-box;
     padding: clamp(12px, 2vw, 22px);
+    border-radius: 18px;
     background: #365F7D;
 }
 
@@ -3122,229 +2777,159 @@ body.lotus-organic .lotus-direction .story-image > p {
     text-align: center;
 }
 
-body.lotus-organic .lotus-direction .story-text .lotus-eyebrow {
-    margin-top: clamp(24px, 4vw, 44px);
-}
-
 body.lotus-organic .lotus-direction .story-text > p:first-child {
     margin-top: clamp(24px, 4vw, 44px);
 }
 
-/* Process: switch the former maroon/plum panel to the existing solution
-   green. Scale the concept-map image and its caption together to 50%. */
-body.lotus-organic .lotus-process {
-    background: #426B4B;
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-process .story-text p,
-body.lotus-organic .lotus-process .story-text .lotus-eyebrow,
-body.lotus-organic .lotus-process .story-text h2 {
-    color: #FFFFFF !important;
-}
-
-body.lotus-organic .lotus-process .story-image {
-    width: 50%;
-    max-width: 270px;
-    min-width: 0;
-    justify-self: center;
-    padding: 10px;
-    background: #426B4B;
-}
-
-body.lotus-organic .lotus-process .story-image img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    margin-inline: auto;
-}
-
-body.lotus-organic .lotus-process .story-image > p {
-    margin: 12px auto 0;
-    color: #FFFFFF !important;
-    text-align: center;
-}
-
-/* The app experience: keep the games video centered within the row while
-   the handwritten callout remains on its left. */
-body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left {
-    display: grid;
-    grid-template-columns: minmax(150px, 220px) minmax(0, 1fr);
+/* Section headings: English first, Japanese replaces it on hover. */
+body.lotus-organic .lotus-conversation-heading {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: clamp(24px, 5vw, 60px);
-}
-
-body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-handwritten-callout {
-    grid-column: 1;
-    grid-row: 1;
-    width: 100%;
-    max-width: 220px;
-    flex: initial;
-}
-
-body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-games-figure {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: center;
-    align-self: center;
-    width: 180px;
-    max-width: 100%;
-    flex: 0 1 180px;
-    margin: 0 auto;
-}
-
-body.lotus-organic .lotus-experience .lotus-games-figure video.video-player {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
-}
-
-/* Katakana lesson panel: challenge blue, centered white caption. */
-body.lotus-organic .lotus-experience .lotus-feature-image {
-    box-sizing: border-box;
-    padding: clamp(12px, 2vw, 22px);
-    background: #365F7D;
-}
-
-body.lotus-organic .lotus-experience .lotus-feature-image figcaption {
-    align-items: center;
-    width: 100%;
-    padding: 16px 4px 4px;
-    color: #FFFFFF !important;
-    text-align: center;
-}
-
-body.lotus-organic .lotus-experience .lotus-feature-image figcaption strong,
-body.lotus-organic .lotus-experience .lotus-feature-image figcaption span {
-    color: #FFFFFF !important;
-    text-align: center;
-}
-
-@media (max-width: 760px) {
-    body.lotus-organic .lotus-prototype-showcase {
-        grid-template-columns: minmax(0, 1fr) 240px minmax(0, 1fr);
-        gap: 12px;
-    }
-
-    body.lotus-organic .lotus-prototype-callout {
-        max-width: 100%;
-        font-size: clamp(18px, 3.5vw, 25px);
-    }
-
-    body.lotus-organic .lotus-prototype-callout .lotus-curved-arrow {
-        width: 90px;
-    }
-
-    body.lotus-organic .lotus-process .story-image {
-        width: 60%;
-        max-width: 270px;
-    }
-}
-
-@media (max-width: 560px) {
-    body.lotus-organic .lotus-prototype-showcase {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-
-    body.lotus-organic .lotus-prototype .lotus-prototype-showcase .prototype-image-link {
-        flex: 0 1 240px;
-        width: 240px;
-        max-width: 100%;
-    }
-
-    body.lotus-organic .lotus-prototype-callout {
-        align-self: center;
-        width: auto;
-        max-width: 100%;
-    }
-
-    body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-handwritten-callout {
-        order: 0;
-        width: 100%;
-        max-width: 220px;
-    }
-
-    body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-games-figure {
-        order: 1;
-        width: 180px;
-        max-width: 75%;
-    }
-
-    body.lotus-organic .lotus-process .story-image {
-        width: 70%;
-        max-width: 270px;
-    }
-}
-	
-/* ============================================
-   LOTUS LINGO — REQUESTED VISUAL REFINEMENTS
-   November 2026
-============================================ */
-
-/* Eyebrow labels: use only the existing Lotus palette. */
-body.lotus-organic .lotus-eyebrow {
-    display: table;
+    gap: 12px;
     width: fit-content;
     max-width: 100%;
+    margin: 0 auto 24px;
+    text-align: center;
+}
+
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow,
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
+    position: relative;
+    display: block;
+    width: fit-content;
+    max-width: min(100%, 760px);
     box-sizing: border-box;
-    margin-bottom: 18px;
-    padding: 8px 14px;
-    color: #FFFFFF;
+    margin: 0;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
+    text-align: center;
+    line-height: 1.25;
+}
+
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow {
+    align-self: flex-start;
+    margin-left: clamp(0px, 2vw, 24px);
+    padding: 8px 16px;
+    background: var(--lotus-pink);
+    color: #FFFFFF !important;
     font-family: "Barlow Condensed", sans-serif;
-    font-size: 18px;
+    font-size: clamp(0.9rem, 1.6vw, 1.08rem);
     font-weight: 700;
-    letter-spacing: 0.16em;
-    line-height: 1.5;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
+    transform-origin: 18% 100%;
 }
 
-/* Main section panels. */
-body.lotus-organic .lotus-overview {
-    background: #173C61;
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
+    align-self: flex-end;
+    margin-right: clamp(0px, 2vw, 24px);
+    padding: 12px 24px;
+    background: var(--lotus-blue);
+    color: #FFFFFF !important;
+    font-family: "Jost", sans-serif;
+    font-size: clamp(1.55rem, 3.4vw, 2.65rem);
+    font-weight: 700;
+    letter-spacing: 0.015em;
+    transform-origin: 82% 100%;
 }
 
-body.lotus-organic .lotus-challenge,
-body.lotus-organic .lotus-direction,
-body.lotus-organic .lotus-brand {
-    background: #71344F;
+/* Vertical-side speech tails (not bottom tails). */
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow::after,
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-title::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 15px;
+    height: 18px;
+    transform: translateY(-50%);
 }
 
-body.lotus-organic .lotus-prototype {
-    background: #173C61;
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow::after {
+    left: -10px;
+    background: var(--lotus-pink);
+    clip-path: polygon(100% 0, 100% 100%, 0 50%);
 }
 
-body.lotus-organic .lotus-process {
-    background: #173C61;
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-title::after {
+    right: -10px;
+    background: var(--lotus-blue);
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
-body.lotus-organic .lotus-experience {
-    background: #284C37;
+body.lotus-organic .lotus-bubble-translation {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: inherit;
+    border-radius: inherit;
+    background: inherit;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 180ms ease, visibility 180ms ease;
 }
 
-/* These selectors are ready for the matching sections if/when they are
-   present in the page markup. */
-body.lotus-organic .lotus-onboarding {
-    background: #426B4B;
+body.lotus-organic .lotus-bubble-eyebrow:hover .lotus-bubble-translation,
+body.lotus-organic .lotus-bubble-title:hover .lotus-bubble-translation,
+body.lotus-organic .lotus-bubble-eyebrow:focus-visible .lotus-bubble-translation,
+body.lotus-organic .lotus-bubble-title:focus-visible .lotus-bubble-translation {
+    opacity: 1;
+    visibility: visible;
 }
 
-body.lotus-organic .lotus-journey {
-    background: #426B4B;
+body.lotus-organic .lotus-bubble-eyebrow:hover,
+body.lotus-organic .lotus-bubble-title:hover {
+    cursor: default;
 }
 
-/* Restore an individual card around every onboarding and journey step. */
+/* Keep the entrance animation, but never hide a heading again after it
+   has appeared. The page script adds .is-visible once per heading. */
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow,
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
+    visibility: hidden;
+    transform: scale(0.18);
+    transition: transform 430ms cubic-bezier(0.2, 1.45, 0.45, 1), visibility 0s linear 430ms;
+}
+
+body.lotus-organic .lotus-conversation-heading.is-visible .lotus-bubble-eyebrow {
+    visibility: visible;
+    transform: scale(1);
+    transition-delay: 0s;
+}
+
+body.lotus-organic .lotus-conversation-heading.is-visible .lotus-bubble-title {
+    visibility: visible;
+    transform: scale(1);
+    transition-delay: 190ms, 190ms;
+}
+
+body.lotus-organic .project-story .story-text .lotus-conversation-heading {
+    align-items: stretch;
+    margin: 0 0 24px;
+}
+
+body.lotus-organic .project-story .story-text .lotus-conversation-heading.align-left {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+body.lotus-organic .project-story .story-text .lotus-conversation-heading.align-right {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+body.lotus-organic .project-story .story-text .lotus-bubble-eyebrow { align-self: flex-start; }
+body.lotus-organic .project-story .story-text .lotus-bubble-title { align-self: flex-end; }
+body.lotus-organic .lotus-overview .story-text .lotus-conversation-heading { align-items: center; }
+
+/* Small numbered bubbles retain their own tail treatment. */
 body.lotus-organic .lotus-flow-step,
 body.lotus-organic .lotus-journey-card {
     box-sizing: border-box;
@@ -3357,7 +2942,8 @@ body.lotus-organic .lotus-journey-card {
     box-shadow: 0 10px 26px rgba(25, 17, 25, 0.16);
 }
 
-body.lotus-organic .lotus-flow-grid {
+body.lotus-organic .lotus-flow-grid,
+body.lotus-organic .lotus-journey-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
@@ -3366,19 +2952,16 @@ body.lotus-organic .lotus-flow-grid {
     list-style: none;
 }
 
-body.lotus-organic .lotus-journey-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
-}
+body.lotus-organic .lotus-journey-grid { margin-top: 0; }
 
 body.lotus-organic .lotus-flow-number,
 body.lotus-organic .lotus-journey-number {
+    position: relative;
     display: inline-block;
     margin: 0 0 16px;
     padding: 6px 11px;
     border-radius: 999px;
-    background: #71344F;
+    background: var(--lotus-pink);
     color: #FFD0E5;
     font-family: "Barlow Condensed", sans-serif;
     font-size: 16px;
@@ -3387,10 +2970,30 @@ body.lotus-organic .lotus-journey-number {
     line-height: 1.2;
 }
 
+body.lotus-organic .lotus-flow-number::after,
+body.lotus-organic .lotus-journey-number::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    width: 11px;
+    height: 11px;
+    background: var(--lotus-pink);
+}
+
+body.lotus-organic .lotus-tail-left::after {
+    left: 9px;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+body.lotus-organic .lotus-tail-right::after {
+    right: 9px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
 body.lotus-organic .lotus-flow-step h3,
 body.lotus-organic .lotus-journey-card h3 {
     margin: 0 0 12px;
-    color: #E6F5FF;
+    color: var(--lotus-blue-light);
     font-family: "Jost", sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
@@ -3420,76 +3023,185 @@ body.lotus-organic .lotus-journey-note {
     text-align: center;
 }
 
-/* Eyebrow label backgrounds. */
-body.lotus-organic .lotus-overview .lotus-eyebrow,
-body.lotus-organic .lotus-onboarding .lotus-eyebrow {
-    background: #71344F;
+/* Challenge and solution cards. */
+body.lotus-organic .lotus-challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
 }
 
-body.lotus-organic .lotus-challenge .lotus-eyebrow,
-body.lotus-organic .lotus-direction .lotus-eyebrow {
-    background: #426B4B;
+body.lotus-organic .lotus-statement {
+    box-sizing: border-box;
+    padding: clamp(22px, 3vw, 36px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 22px;
+    background: rgba(25, 17, 25, 0.58);
+    color: #FFFFFF;
 }
 
-body.lotus-organic .lotus-journey .lotus-eyebrow {
-    background: #173C61;
+body.lotus-organic .lotus-challenge-card { background: #365F7D; }
+body.lotus-organic .lotus-solution-card { background: #426B4B; }
+
+body.lotus-organic .lotus-number {
+    display: block;
+    margin-bottom: 16px;
+    color: var(--lotus-pink-light);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1;
 }
 
-body.lotus-organic .lotus-prototype .lotus-eyebrow {
-    background: #426B4B;
-}
-
-body.lotus-organic .lotus-experience .lotus-eyebrow {
-    background: #173C61;
-}
-
-body.lotus-organic .lotus-process .lotus-eyebrow {
-    background: #71344F;
-}
-
-/* Keep the design-system image panel in the same solution green. */
-body.lotus-organic .lotus-direction .story-image {
-    background: #426B4B;
-}
-
-/* Match every main section heading to the Project Overview heading style. */
-body.lotus-organic .lotus-overview .story-text h2,
-body.lotus-organic .lotus-section-heading h2,
-body.lotus-organic .lotus-direction .story-text h2,
-body.lotus-organic .lotus-process .story-text h2 {
-    color: #E6F5FF !important;
-    font-family: "Jost", sans-serif;
-    font-size: clamp(1.8rem, 4vw, 3rem);
+body.lotus-organic .lotus-statement h3 {
+    margin: 0 0 14px;
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.25rem;
     font-weight: 700;
-    letter-spacing: 0.035em;
-    line-height: 1.15;
+    letter-spacing: 0.09em;
 }
 
-/* Center the main headings, while retaining the process heading's
-   existing left alignment. */
-body.lotus-organic .lotus-overview .story-text h2,
-body.lotus-organic .lotus-challenge .lotus-section-heading h2,
-body.lotus-organic .lotus-prototype .lotus-section-heading h2,
-body.lotus-organic .lotus-direction .story-text h2,
-body.lotus-organic .lotus-onboarding .lotus-section-heading h2,
-body.lotus-organic .lotus-journey .lotus-section-heading h2,
-body.lotus-organic .lotus-experience .lotus-section-heading h2,
-body.lotus-organic .lotus-brand .lotus-section-heading h2 {
+body.lotus-organic .lotus-statement p {
+    margin: 0 0 14px;
+    color: #FFFFFF;
+    line-height: 1.75;
+}
+
+body.lotus-organic .lotus-statement p:last-child { margin-bottom: 0; }
+
+/* Interactive prototype. */
+body.lotus-organic .lotus-prototype {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
     text-align: center;
 }
 
-body.lotus-organic .lotus-process .story-text h2 {
-    text-align: left;
-    font-size: clamp(1.5rem, 3vw, 2.25rem);
+body.lotus-organic .lotus-prototype .lotus-section-heading {
+    width: 100%;
+    max-width: 820px;
+    margin: 0 auto;
 }
 
-/* Keep the app mockup caption unboxed. */
-body.lotus-organic .lotus-overview .story-image > p {
-    background: transparent;
-    padding: 0;
+body.lotus-organic .lotus-section-heading > p:last-child {
+    max-width: 700px;
+    margin: 16px auto 0;
+    line-height: 1.75;
 }
 
-/* Preserve the existing process layout and keep its heading left-aligned. */
+body.lotus-organic .lotus-prototype-showcase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(24px, 5vw, 64px);
+    width: 100%;
+    margin: 30px auto 18px;
+}
+
+body.lotus-organic .lotus-prototype .prototype-image-link {
+    position: relative;
+    display: block;
+    flex: 0 1 240px;
+    width: 240px;
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    border: 4px solid #FFFFFF;
+    border-radius: 20px;
+    background: #FFFFFF;
+    box-shadow: 0 12px 30px rgba(80, 21, 47, 0.2);
+}
+
+body.lotus-organic .lotus-prototype .prototype-image-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+body.lotus-organic .lotus-prototype .prototype-image-link:hover img { transform: scale(1.02); }
+
+body.lotus-organic .lotus-prototype-overlay {
+    position: absolute;
+    inset: auto 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 8px;
+    box-sizing: border-box;
+    background: rgba(113, 52, 79, 0.94);
+    color: #FFFFFF !important;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+body.lotus-organic .lotus-prototype .prototype-image-link:hover .lotus-prototype-overlay,
+body.lotus-organic .lotus-prototype .prototype-image-link:focus-visible .lotus-prototype-overlay { opacity: 1; }
+
+body.lotus-organic .lotus-prototype-callout {
+    display: flex;
+    flex: 0 1 220px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 220px;
+    color: #F3B7D5;
+    font-family: "Caveat", cursive;
+    font-size: clamp(25px, 3vw, 34px);
+    font-weight: 600;
+    line-height: 1.1;
+    text-align: center;
+    text-decoration: none;
+    transform: rotate(-3deg);
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+body.lotus-organic .lotus-curved-arrow {
+    display: block;
+    width: 125px;
+    max-width: 100%;
+    height: auto;
+    margin: 6px auto 0;
+    color: currentColor;
+    overflow: visible;
+}
+
+body.lotus-organic .lotus-prototype-callout:hover,
+body.lotus-organic .lotus-prototype-callout:focus-visible {
+    color: #FFFFFF;
+    transform: rotate(0deg) translateY(-2px);
+}
+
+body.lotus-organic .lotus-prototype-callout:hover .lotus-curved-arrow,
+body.lotus-organic .lotus-prototype-callout:focus-visible .lotus-curved-arrow { color: #FFFFFF; }
+
+/* Creative direction, process, and image captions. */
+body.lotus-organic .lotus-direction .story-image,
+body.lotus-organic .lotus-process .story-image {
+    width: 100%;
+    max-width: 540px;
+    margin-inline: auto;
+}
+
+body.lotus-organic .lotus-direction .story-image img,
+body.lotus-organic .lotus-process .story-image img,
+body.lotus-organic .lotus-feature-image img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
 body.lotus-organic .lotus-process {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
@@ -3497,45 +3209,68 @@ body.lotus-organic .lotus-process {
     gap: clamp(28px, 5vw, 64px);
 }
 
-body.lotus-organic .lotus-process .story-text {
-    grid-column: 1;
-    grid-row: 1;
-    min-width: 0;
-}
+body.lotus-organic .lotus-process .story-text { grid-column: 1; grid-row: 1; min-width: 0; }
 
 body.lotus-organic .lotus-process .story-image {
     grid-column: 2;
     grid-row: 1;
     justify-self: center;
-    width: 100%;
-    max-width: 360px;
+    width: 50%;
+    max-width: 270px;
     min-width: 0;
     box-sizing: border-box;
     padding: 10px;
-    background: #71344F;
+    background: #302832;
 }
 
-body.lotus-organic .lotus-process .story-image img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    margin-inline: auto;
-}
-
-body.lotus-organic .lotus-process .story-image > p {
+body.lotus-organic .lotus-process .story-image > p,
+body.lotus-organic .lotus-direction .story-image > p {
     margin: 12px auto 0;
     color: #FFFFFF !important;
     text-align: center;
 }
 
-/* Games walkthrough: handwritten callout at left, video centered in the
-   full row. The Katakana lesson row is intentionally not affected. */
+body.lotus-organic .lotus-feature-image {
+    width: 100%;
+    max-width: 620px;
+    margin: 30px auto 44px;
+    padding: clamp(10px, 1.5vw, 18px);
+}
+
+body.lotus-organic .lotus-feature-image figcaption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    padding: 16px 4px 4px;
+    color: #FFFFFF !important;
+    text-align: center;
+}
+
+body.lotus-organic .lotus-feature-image figcaption strong {
+    color: #FFFFFF !important;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+}
+
+/* App experience: games, Katakana, community, music, and progress. */
+body.lotus-organic .lotus-callout-row {
+    display: flex;
+    align-items: center;
+    gap: clamp(24px, 4vw, 54px);
+    width: 100%;
+    margin: 42px auto;
+}
+
+body.lotus-organic .lotus-callout-row > * { min-width: 0; }
+
 body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(180px, 240px) minmax(0, 1fr);
     align-items: center;
-    justify-content: center;
     gap: clamp(18px, 3vw, 36px);
 }
 
@@ -3545,24 +3280,22 @@ body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lo
     justify-self: center;
     width: 100%;
     max-width: 220px;
-    flex: initial;
 }
 
 body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-games-figure {
     display: flex;
     grid-column: 2;
     grid-row: 1;
-    justify-self: center;
-    align-self: center;
     flex: 0 1 240px;
     flex-direction: column;
     align-items: center;
+    justify-self: center;
     width: 240px;
     max-width: 100%;
     margin: 0 auto;
 }
 
-body.lotus-organic .lotus-experience .lotus-games-figure video.video-player {
+body.lotus-organic .lotus-games-figure video.video-player {
     display: block;
     width: 100%;
     max-width: 100%;
@@ -3570,8 +3303,53 @@ body.lotus-organic .lotus-experience .lotus-games-figure video.video-player {
     margin: 0 auto;
 }
 
-/* Animated logo: constrain the outer figure within the callout row, then
-   let the bordered player wrap the video's natural aspect ratio. */
+body.lotus-organic .lotus-handwritten-callout {
+    display: flex;
+    flex: 0 0 220px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #F3B7D5;
+    font-family: "Caveat", cursive;
+    font-size: clamp(25px, 2.8vw, 34px);
+    font-weight: 600;
+    line-height: 1.15;
+    text-align: center;
+}
+
+body.lotus-organic .lotus-callout-right .lotus-handwritten-callout { flex: 0 0 220px; }
+
+body.lotus-organic .lotus-games-figure figcaption,
+body.lotus-organic .lotus-logo-animation figcaption {
+    width: 100%;
+    margin: 14px auto 0;
+    color: #FFFFFF !important;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+body.lotus-organic .lotus-games-figure figcaption strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #E6F5FF;
+    font-size: 18px;
+}
+
+body.lotus-organic .lotus-feature-notes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 36px;
+}
+
+body.lotus-organic .lotus-feature-note { min-width: 0; }
+body.lotus-organic .lotus-feature-note + .lotus-feature-note { margin-top: 0; }
+body.lotus-organic .lotus-feature-note h3 { margin: 0 0 8px; color: #E6F5FF; }
+body.lotus-organic .lotus-feature-note p { margin: 0; line-height: 1.75; }
+
+/* Animated logo video. */
 body.lotus-organic .lotus-brand .project-hero.video-hero.lotus-logo-animation {
     display: flex;
     flex: 0 1 360px;
@@ -3582,8 +3360,8 @@ body.lotus-organic .lotus-brand .project-hero.video-hero.lotus-logo-animation {
     width: 360px;
     max-width: calc(100% - 244px);
     min-width: 0;
-    height: fit-content !important;
-    min-height: 0 !important;
+    height: fit-content;
+    min-height: 0;
     margin: 0;
     padding: 0;
     gap: 0;
@@ -3595,10 +3373,10 @@ body.lotus-organic .lotus-brand .lotus-logo-animation .video-player {
     align-self: flex-start;
     width: 100%;
     max-width: 100%;
-    height: fit-content !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    aspect-ratio: auto !important;
+    height: fit-content;
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: auto;
     margin: 0;
     padding: 0;
     overflow: hidden;
@@ -3613,37 +3391,135 @@ body.lotus-organic .lotus-brand .lotus-logo-animation video.video-medium {
     display: block;
     width: 100%;
     max-width: 100%;
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    aspect-ratio: auto !important;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: auto;
     margin: 0;
     object-fit: contain;
 }
 
-body.lotus-organic .lotus-brand .lotus-logo-animation figcaption {
-    display: block;
-    width: 100%;
-    margin: 14px auto 0;
+body.lotus-organic .lotus-brand .lotus-logo-animation figcaption { width: 100%; margin: 14px auto 0; text-align: center; }
+
+/* Design considerations panel and contact section. */
+body.lotus-organic .lotus-next-steps-copy {
+    box-sizing: border-box;
+    padding: clamp(22px, 3vw, 36px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 22px;
+    background: #173C61;
+    color: #FFFFFF;
+}
+
+body.lotus-organic .lotus-next-steps-copy p { color: #FFFFFF !important; }
+body.lotus-organic .lotus-next-steps-copy p + p { margin-top: 18px; }
+
+body.lotus-organic .lotus-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-top: clamp(48px, 7vw, 100px);
     text-align: center;
 }
 
-@media (max-width: 900px) {
-    body.lotus-organic .lotus-flow-grid,
-    body.lotus-organic .lotus-journey-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
+body.lotus-organic .lotus-contact-invitation {
+    color: #FFFFFF;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
 }
 
-@media (max-width: 760px) {
+body.lotus-organic .lotus-contact-japanese { display: none !important; }
+
+body.lotus-organic .lotus-contact .lotus-contact-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 170px;
+    padding: 17px 30px 20px;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: #00AFC7;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 220ms ease, background 220ms ease, border-color 220ms ease, transform 220ms ease;
+}
+
+body.lotus-organic .lotus-contact .lotus-contact-button::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 11px;
+    width: 58%;
+    height: 2px;
+    background: #00AFC7;
+    transform: translateX(-50%) scaleX(0.35);
+    transform-origin: center;
+    transition: transform 260ms ease, background 220ms ease;
+}
+
+body.lotus-organic .lotus-contact .lotus-contact-button::after {
+    content: "";
+    position: absolute;
+    right: -9px;
+    top: 50%;
+    width: 15px;
+    height: 18px;
+    background: #FFFFFF;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    transform: translateY(-50%);
+    transition: background 220ms ease;
+}
+
+body.lotus-organic .lotus-contact .lotus-contact-button:hover,
+body.lotus-organic .lotus-contact .lotus-contact-button:focus-visible {
+    border-color: #00E5FF;
+    background: #00E5FF;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+body.lotus-organic .lotus-contact .lotus-contact-button:hover::before,
+body.lotus-organic .lotus-contact .lotus-contact-button:focus-visible::before {
+    background: #FFFFFF;
+    transform: translateX(-50%) scaleX(1);
+}
+
+body.lotus-organic .lotus-contact .lotus-contact-button:hover::after,
+body.lotus-organic .lotus-contact .lotus-contact-button:focus-visible::after { background: #00E5FF; }
+
+body.lotus-organic a:focus-visible { outline: 3px solid #00E5FF; outline-offset: 4px; }
+
+/* Responsive layout. */
+@media (max-width: 900px) {
+    body.lotus-organic .lotus-flow-grid,
+    body.lotus-organic .lotus-journey-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
     body.lotus-organic .lotus-brand .project-hero.video-hero.lotus-logo-animation {
         flex-basis: 320px;
         width: 320px;
         max-width: calc(100% - 220px);
     }
+}
+
+@media (max-width: 760px) {
+    body.lotus-organic .project-container .project-hero.video-hero.lotus-video .video-player {
+        width: min(94%, 900px);
+        padding: 6px;
+        border-width: 6px;
+    }
 
     body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left {
-        grid-template-columns: minmax(0, 1fr) minmax(170px, 210px) minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1fr) minmax(170px, 210px);
         gap: 12px;
     }
 
@@ -3651,58 +3527,67 @@ body.lotus-organic .lotus-brand .lotus-logo-animation figcaption {
         max-width: 100%;
     }
 
-    body.lotus-organic .lotus-process .story-image {
-        width: 60%;
-        max-width: 270px;
+    body.lotus-organic .lotus-process .story-image { width: 60%; max-width: 270px; }
+}
+
+@media (max-width: 700px) {
+    body.lotus-organic .lotus-conversation-heading { gap: 10px; width: 100%; margin-bottom: 20px; }
+    body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow {
+        max-width: 92%; margin-left: 0; padding: 7px 12px; font-size: 0.82rem; letter-spacing: 0.1em;
     }
+    body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
+        max-width: 96%; margin-right: 0; padding: 10px 15px; font-size: clamp(1.35rem, 6vw, 2rem); overflow-wrap: anywhere;
+    }
+    body.lotus-organic .project-story .story-text .lotus-conversation-heading { width: 100%; }
+    body.lotus-organic .project-navigation { gap: 12px; }
+    body.lotus-organic .project-navigation > .project-arrow { flex-basis: 105px; width: 105px; margin-top: -8px; }
+    body.lotus-organic .project-navigation > .project-arrow .lotus-nav-label { min-width: 68px; padding: 8px 10px; font-size: 13px; }
+    body.lotus-organic .project-navigation > .project-arrow .arrow-circle { flex-basis: 32px; width: 32px; height: 32px; }
+    body.lotus-organic .project-title h1 { font-size: clamp(32px, 8vw, 46px); }
+    body.lotus-organic .lotus-project-name-bubble { padding: 8px 20px 10px; }
+    body.lotus-organic .project-title .lotus-project-subtitle-bubble { padding: 6px 13px 7px; font-size: clamp(12px, 3vw, 16px); }
 }
 
 @media (max-width: 560px) {
+    body.lotus-organic .lotus-challenge-grid,
     body.lotus-organic .lotus-flow-grid,
-    body.lotus-organic .lotus-journey-grid {
-        grid-template-columns: 1fr;
-    }
+    body.lotus-organic .lotus-journey-grid { grid-template-columns: 1fr; }
 
-    body.lotus-organic .lotus-brand .lotus-callout-row.lotus-callout-left {
-        flex-direction: column;
-        align-items: center;
-    }
-
+    body.lotus-organic .lotus-brand .lotus-callout-row.lotus-callout-left { flex-direction: column; align-items: center; }
     body.lotus-organic .lotus-brand .project-hero.video-hero.lotus-logo-animation {
-        flex: 0 1 auto;
-        width: 100%;
-        max-width: 360px;
-        height: fit-content !important;
+        flex: 0 1 auto; width: 100%; max-width: 360px; height: fit-content;
     }
 
     body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 24px;
+        display: flex; flex-direction: column; align-items: center; gap: 24px;
     }
-
     body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-handwritten-callout {
-        order: 0;
-        width: 100%;
-        max-width: 220px;
+        order: 0; width: 100%; max-width: 220px;
     }
-
     body.lotus-organic .lotus-experience .lotus-callout-row.lotus-callout-left > .lotus-games-figure {
-        order: 1;
-        width: 180px;
-        max-width: 75%;
+        order: 1; width: 180px; max-width: 75%;
     }
-
-    body.lotus-organic .lotus-process .story-image {
-        width: 70%;
-        max-width: 270px;
-    }
+    body.lotus-organic .lotus-process { grid-template-columns: 1fr; }
+    body.lotus-organic .lotus-process .story-text,
+    body.lotus-organic .lotus-process .story-image { grid-column: 1; grid-row: auto; }
+    body.lotus-organic .lotus-process .story-image { width: 70%; max-width: 270px; }
+    body.lotus-organic .lotus-prototype-showcase { flex-direction: column; gap: 20px; }
+    body.lotus-organic .lotus-prototype-callout { align-self: center; width: auto; max-width: 100%; }
 }
 
-body.lotus-organic .lotus-brand .lotus-eyebrow {
-    background: #426B4B;
+@media (prefers-reduced-motion: reduce) {
+    body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow,
+    body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
+        visibility: visible;
+        transform: none;
+        transition: none;
+    }
+    body.lotus-organic .lotus-bubble-translation,
+    body.lotus-organic .lotus-contact-button,
+    body.lotus-organic .lotus-contact-button::before,
+    body.lotus-organic .lotus-contact-button::after { transition: none; }
 }
+
 
 body.deets-page {
     --deets-plum: #302632;
@@ -4864,6 +4749,96 @@ body.deets-page .deets-growth-svg:nth-child(2) {
     z-index: 2;
 }
 
+/* Clean Future Network: green title, compact prototype preview, no underline. */
+body.clean-organic .project-title h1 { color:#7FD69A !important; }
+body.clean-organic .clean-prototype-preview { width:min(212px,100%); max-width:212px; margin:0 auto; }
+body.clean-organic .clean-prototype-button { margin-top:28px; }
+body.clean-organic .clean-prototype .enter-button::after { display:none !important; }
+
+/* =========================================
+   CLEAN FUTURE NETWORK — LIVING ENERGY PULSE
+========================================= */
+
+.clean-organic .clean-energy-pulse {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(420px, 75%);
+    height: 32px;
+    margin: 30px auto 0;
+}
+
+/* Fine connecting line */
+.clean-organic .clean-energy-pulse::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(184, 201, 167, 0.4);
+    transform: translateY(-50%);
+}
+
+/* Three stationary connection points */
+.clean-organic .clean-energy-pulse span {
+    position: relative;
+    z-index: 1;
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--clean-sage);
+    border-radius: 50%;
+    background: #003b18;
+    box-shadow: 0 0 8px rgba(184, 201, 167, 0.25);
+}
+
+/* Traveling energy pulse */
+.clean-organic .clean-energy-pulse i {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 0;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--clean-sage);
+    box-shadow:
+        0 0 8px rgba(184, 201, 167, 0.8),
+        0 0 18px rgba(114, 149, 109, 0.65);
+    transform: translate(-50%, -50%);
+    animation: clean-energy-travel 5.5s ease-in-out infinite;
+}
+
+@keyframes clean-energy-travel {
+    0% {
+        left: 0%;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .clean-organic .clean-energy-pulse i {
+        animation: none;
+        left: 50%;
+        opacity: 1;
+    }
+}
+
 /* =========================================================
    TAGGED REPAIR — OCTOBER 2026
    Shared UI/UX project header, video, and overview alignment.
@@ -5035,725 +5010,4 @@ body.design-page .design-card .software-overlay {
     body.design-page .design-card .portfolio-card-title {
         font-size: 14px;
     }
-}
-
-/* =========================================================
-   LOTUS LINGO — CONVERSATION-STYLE SECTION HEADINGS
-   The eyebrow speaks first; the title answers.
-   ========================================================= */
-
-body.lotus-organic .lotus-conversation-heading {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    width: fit-content;
-    max-width: 100%;
-    margin: 0 auto 24px;
-    text-align: center;
-}
-
-/* Keep the eyebrow and title as two distinct speech bubbles. */
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow,
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
-    position: relative;
-    display: block;
-    width: fit-content;
-    max-width: min(100%, 760px);
-    box-sizing: border-box;
-    margin: 0;
-    padding: 10px 20px;
-    border: 1px solid rgba(23, 60, 97, 0.18);
-    border-radius: 18px;
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.13);
-    text-align: center;
-    line-height: 1.25;
-}
-
-/* First voice: compact pink bubble, with its tail toward the left. */
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow {
-    align-self: flex-start;
-    margin-left: clamp(0px, 2vw, 24px);
-    padding: 8px 16px;
-    background: #FFD0E5;
-    color: #71344F !important;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(0.9rem, 1.6vw, 1.08rem);
-    font-weight: 700;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    transform-origin: 18% 100%;
-}
-
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow::after {
-    content: "";
-    position: absolute;
-    left: 20px;
-    bottom: -9px;
-    width: 15px;
-    height: 15px;
-    background: #FFD0E5;
-    border-right: 1px solid rgba(23, 60, 97, 0.18);
-    border-bottom: 1px solid rgba(23, 60, 97, 0.18);
-    transform: rotate(45deg);
-}
-
-/* Second voice: larger blue-white bubble, with its tail toward the right. */
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
-    align-self: flex-end;
-    margin-right: clamp(0px, 2vw, 24px);
-    padding: 12px 24px;
-    background: #E6F5FF;
-    color: #173C61 !important;
-    font-family: "Jost", sans-serif;
-    font-size: clamp(1.55rem, 3.4vw, 2.65rem);
-    font-weight: 700;
-    letter-spacing: 0.015em;
-    transform-origin: 82% 100%;
-}
-
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-title::after {
-    content: "";
-    position: absolute;
-    right: 22px;
-    bottom: -9px;
-    width: 15px;
-    height: 15px;
-    background: #E6F5FF;
-    border-right: 1px solid rgba(23, 60, 97, 0.18);
-    border-bottom: 1px solid rgba(23, 60, 97, 0.18);
-    transform: rotate(45deg);
-}
-
-/* Pop in without opacity/fading. The title follows the eyebrow. */
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow,
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
-    visibility: hidden;
-    transform: scale(0.18);
-    transition: transform 430ms cubic-bezier(0.2, 1.45, 0.45, 1), visibility 0s linear 430ms;
-}
-
-body.lotus-organic .lotus-conversation-heading.is-visible .lotus-bubble-eyebrow {
-    visibility: visible;
-    transform: scale(1);
-    transition-delay: 0s;
-}
-
-body.lotus-organic .lotus-conversation-heading.is-visible .lotus-bubble-title {
-    visibility: visible;
-    transform: scale(1);
-    transition-delay: 190ms, 190ms;
-}
-
-/* Story panels keep their existing left-aligned body copy. */
-body.lotus-organic .project-story .story-text .lotus-conversation-heading {
-    align-items: stretch;
-    margin: 0 0 24px;
-}
-
-body.lotus-organic .project-story .story-text .lotus-bubble-eyebrow {
-    align-self: flex-start;
-}
-
-body.lotus-organic .project-story .story-text .lotus-bubble-title {
-    align-self: flex-end;
-    text-align: center;
-}
-
-/* The overview heading sits within a story panel but remains centered. */
-body.lotus-organic .lotus-overview .story-text .lotus-conversation-heading {
-    align-items: center;
-}
-
-body.lotus-organic .lotus-overview .story-text .lotus-bubble-eyebrow {
-    align-self: flex-start;
-}
-
-body.lotus-organic .lotus-overview .story-text .lotus-bubble-title {
-    align-self: flex-end;
-}
-
-@media (max-width: 700px) {
-    body.lotus-organic .lotus-conversation-heading {
-        gap: 10px;
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow {
-        max-width: 92%;
-        margin-left: 0;
-        padding: 7px 12px;
-        font-size: 0.82rem;
-        letter-spacing: 0.1em;
-    }
-
-    body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
-        max-width: 96%;
-        margin-right: 0;
-        padding: 10px 15px;
-        font-size: clamp(1.35rem, 6vw, 2rem);
-        overflow-wrap: anywhere;
-    }
-
-    body.lotus-organic .project-story .story-text .lotus-conversation-heading {
-        width: 100%;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow,
-    body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
-        visibility: visible;
-        transform: none;
-        transition: none;
-    }
-}
-
-/* =========================================================
-   LOTUS LINGO — FINAL SPEECH BUBBLE REFINEMENTS
-   November 2026
-   Append at the very end of uiux.css
-========================================================= */
-
-/* ---------------------------------------------------------
-   SECTION HEADING BUBBLES
-   White backgrounds; consistent eyebrow and title colors.
---------------------------------------------------------- */
-
-body.lotus-organic .lotus-conversation-heading {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: fit-content;
-    max-width: 100%;
-    margin: 0 auto 28px;
-    text-align: center;
-}
-
-/* Both heading bubbles */
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow,
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
-    position: relative;
-    display: block;
-    width: fit-content;
-    max-width: min(100%, 760px);
-    box-sizing: border-box;
-    margin-top: 0;
-    margin-bottom: 0;
-    border: 1px solid rgba(23, 60, 97, 0.15);
-    border-radius: 18px;
-    background: #FFFFFF;
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.13);
-    text-align: center;
-    line-height: 1.25;
-}
-
-/* Eyebrow: consistent dark pink lettering */
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow {
-    align-self: flex-start;
-    margin-left: clamp(0px, 2vw, 24px);
-    padding: 8px 16px;
-    color: #71344F !important;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    transform-origin: 18% 100%;
-}
-
-/* Eyebrow tail — lower left */
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow::after {
-    content: "";
-    position: absolute;
-    left: 20px;
-    bottom: -9px;
-    width: 15px;
-    height: 15px;
-    background: #FFFFFF;
-    border-right: 1px solid rgba(23, 60, 97, 0.15);
-    border-bottom: 1px solid rgba(23, 60, 97, 0.15);
-    transform: rotate(45deg);
-}
-
-/* Main title: consistent deep blue lettering */
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
-    align-self: flex-end;
-    margin-right: clamp(0px, 2vw, 24px);
-    padding: 12px 24px;
-    color: #173C61 !important;
-    font-family: "Jost", sans-serif;
-    font-size: clamp(1.55rem, 3.4vw, 2.65rem);
-    font-weight: 700;
-    letter-spacing: 0.015em;
-    transform-origin: 82% 100%;
-}
-
-/* Title tail — lower right */
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-title::after {
-    content: "";
-    position: absolute;
-    right: 22px;
-    bottom: -9px;
-    width: 15px;
-    height: 15px;
-    background: #FFFFFF;
-    border-right: 1px solid rgba(23, 60, 97, 0.15);
-    border-bottom: 1px solid rgba(23, 60, 97, 0.15);
-    transform: rotate(45deg);
-}
-
-/* Heading alignment options */
-body.lotus-organic .lotus-conversation-heading.align-left {
-    margin-left: 0;
-    margin-right: auto;
-}
-
-body.lotus-organic .lotus-conversation-heading.align-center {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-body.lotus-organic .lotus-conversation-heading.align-right {
-    margin-left: auto;
-    margin-right: 0;
-}
-
-/* Keep body copy left-aligned in story panels */
-body.lotus-organic .project-story .story-text .lotus-conversation-heading {
-    width: 100%;
-    margin-bottom: 28px;
-}
-
-body.lotus-organic .project-story .story-text .lotus-bubble-eyebrow {
-    align-self: flex-start;
-}
-
-body.lotus-organic .project-story .story-text .lotus-bubble-title {
-    align-self: flex-end;
-}
-
-/* Overview heading remains centered within its story panel */
-body.lotus-organic .lotus-overview .story-text .lotus-conversation-heading {
-    align-items: center;
-}
-
-/* ---------------------------------------------------------
-   HEADING POP ANIMATION
-   Eyebrow appears first; title follows after 280ms.
---------------------------------------------------------- */
-
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow,
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
-    visibility: hidden;
-    transform: scale(0.18);
-    transition:
-        transform 430ms cubic-bezier(0.2, 1.45, 0.45, 1),
-        visibility 0s linear 430ms;
-}
-
-body.lotus-organic .lotus-conversation-heading.is-visible .lotus-bubble-eyebrow {
-    visibility: visible;
-    transform: scale(1);
-    transition-delay: 0s;
-}
-
-body.lotus-organic .lotus-conversation-heading.is-visible .lotus-bubble-title {
-    visibility: visible;
-    transform: scale(1);
-    transition-delay: 280ms, 280ms;
-}
-
-/* ---------------------------------------------------------
-   ONBOARDING NUMBERS AND USER JOURNEY LABELS
-   Add small tails without changing their existing size,
-   color, typography, or hover behavior.
---------------------------------------------------------- */
-
-body.lotus-organic .lotus-flow-number,
-body.lotus-organic .lotus-journey-number {
-    position: relative;
-    overflow: visible;
-}
-
-/* Shared tail shape */
-body.lotus-organic .lotus-flow-number::after,
-body.lotus-organic .lotus-journey-number::after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    width: 9px;
-    height: 9px;
-    background: #71344F;
-    transform: rotate(45deg);
-}
-
-/* Left-facing tail */
-body.lotus-organic .lotus-tail-left::after {
-    left: 12px;
-}
-
-/* Right-facing tail */
-body.lotus-organic .lotus-tail-right::after {
-    right: 12px;
-}
-
-/* Journey labels retain their existing pill shape */
-body.lotus-organic .lotus-label-bubble {
-    border-radius: 999px;
-}
-
-/* =========================================================
-   LOTUS LINGO — MAIN-PAGE PROJECT ARROW BUBBLES
-   Applies ONLY to arrows beside the main project title.
-   Scrolled navbar arrows retain their original styling.
-   ========================================================= */
-
-body.lotus-organic .project-navigation > .project-arrow .lotus-nav-label {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 104px;
-    min-height: 42px;
-    box-sizing: border-box;
-    padding: 8px 13px;
-    border: 1px solid rgba(255,255,255,0.35);
-    border-radius: 999px;
-    background: #FFFFFF;
-    color: #173C61;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    line-height: 1;
-    white-space: nowrap;
-    transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease;
-}
-
-/* Japanese replaces English on hover without changing bubble size */
-
-body.lotus-organic .project-navigation > .project-arrow .lotus-nav-japanese {
-    display: none;
-}
-
-body.lotus-organic .project-navigation > .project-arrow:hover .lotus-nav-english,
-body.lotus-organic .project-navigation > .project-arrow:focus-visible .lotus-nav-english {
-    display: none;
-}
-
-body.lotus-organic .project-navigation > .project-arrow:hover .lotus-nav-japanese,
-body.lotus-organic .project-navigation > .project-arrow:focus-visible .lotus-nav-japanese {
-    display: inline;
-}
-
-/* Previous arrow: green */
-
-body.lotus-organic .project-navigation > .project-arrow.prev:hover .lotus-nav-label,
-body.lotus-organic .project-navigation > .project-arrow.prev:focus-visible .lotus-nav-label {
-    background: #426B4B;
-    border-color: #426B4B;
-    color: #FFFFFF;
-}
-
-/* Next arrow: blue */
-
-body.lotus-organic .project-navigation > .project-arrow.next:hover .lotus-nav-label,
-body.lotus-organic .project-navigation > .project-arrow.next:focus-visible .lotus-nav-label {
-    background: #365F7D;
-    border-color: #365F7D;
-    color: #FFFFFF;
-}
-
-/* Speech-bubble tails */
-
-body.lotus-organic .project-navigation > .project-arrow .lotus-nav-label::after {
-    content: "";
-    position: absolute;
-    bottom: -6px;
-    width: 10px;
-    height: 10px;
-    background: inherit;
-    border-right: inherit;
-    border-bottom: inherit;
-    transform: rotate(45deg);
-}
-
-body.lotus-organic .project-navigation > .project-arrow.prev .lotus-nav-label::after {
-    left: 10px;
-}
-
-body.lotus-organic .project-navigation > .project-arrow.next .lotus-nav-label::after {
-    right: 10px;
-}
-
-/* ---------------------------------------------------------
-   MAIN PROJECT TITLE BUBBLES
---------------------------------------------------------- */
-
-body.lotus-organic .lotus-project-name-bubble,
-body.lotus-organic .lotus-project-subtitle-bubble {
-    position: relative;
-    display: table;
-    width: fit-content;
-    max-width: 100%;
-    box-sizing: border-box;
-    padding: 9px 20px;
-    border-radius: 18px;
-    background: #FFFFFF;
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.13);
-    text-align: center;
-}
-
-/* Project name */
-body.lotus-organic .lotus-project-name-bubble {
-    margin: 0 auto 20px;
-    color: #71344F !important;
-}
-
-/* Subtitle */
-body.lotus-organic .lotus-project-subtitle-bubble {
-    margin: 0 auto;
-    color: #173C61 !important;
-}
-
-/* Project title tails */
-body.lotus-organic .lotus-project-name-bubble::after,
-body.lotus-organic .lotus-project-subtitle-bubble::after {
-    content: "";
-    position: absolute;
-    bottom: -8px;
-    width: 14px;
-    height: 14px;
-    background: #FFFFFF;
-    transform: rotate(45deg);
-}
-
-body.lotus-organic .lotus-project-name-bubble::after {
-    right: 20px;
-}
-
-body.lotus-organic .lotus-project-subtitle-bubble::after {
-    left: 20px;
-}
-
-/* Japanese translation appears only on hover/focus */
-body.lotus-organic .lotus-project-name-bubble span:last-child,
-body.lotus-organic .lotus-project-subtitle-bubble span:last-child {
-    display: none;
-}
-
-body.lotus-organic .lotus-project-name-bubble:hover span:first-child,
-body.lotus-organic .lotus-project-subtitle-bubble:hover span:first-child,
-body.lotus-organic .lotus-project-name-bubble:focus-visible span:first-child,
-body.lotus-organic .lotus-project-subtitle-bubble:focus-visible span:first-child {
-    display: none;
-}
-
-body.lotus-organic .lotus-project-name-bubble:hover span:last-child,
-body.lotus-organic .lotus-project-subtitle-bubble:hover span:last-child,
-body.lotus-organic .lotus-project-name-bubble:focus-visible span:last-child,
-body.lotus-organic .lotus-project-subtitle-bubble:focus-visible span:last-child {
-    display: inline;
-}
-
-/* ---------------------------------------------------------
-   CONTACT BUBBLES
---------------------------------------------------------- */
-
-body.lotus-organic .lotus-contact-invitation {
-    position: relative;
-    display: table;
-    width: fit-content;
-    max-width: 100%;
-    margin: 0 0 26px auto;
-    padding: 12px 22px;
-    border-radius: 20px;
-    background: #FFFFFF;
-    color: #173C61 !important;
-    font-family: "Jost", sans-serif;
-    font-size: 18px;
-    line-height: 1.5;
-    text-align: center;
-}
-
-/* Invitation tail points right */
-body.lotus-organic .lotus-contact-invitation::after {
-    content: "";
-    position: absolute;
-    right: 22px;
-    bottom: -8px;
-    width: 14px;
-    height: 14px;
-    background: #FFFFFF;
-    transform: rotate(45deg);
-}
-
-/* Contact button: oval cyan bubble */
-body.lotus-organic .lotus-contact .lotus-contact-button {
-    position: relative;
-    display: inline-block;
-    width: auto;
-    padding: 12px 28px;
-    border: 1px solid #00E5FF;
-    border-radius: 999px;
-    background: #00E5FF;
-    color: #06080B;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-decoration: none;
-    text-align: center;
-    transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease;
-}
-
-/* Preserve the white hover treatment */
-body.lotus-organic .lotus-contact .lotus-contact-button:hover,
-body.lotus-organic .lotus-contact .lotus-contact-button:focus-visible {
-    background: #FFFFFF;
-    border-color: #FFFFFF;
-    color: #173C61;
-}
-
-/* ---------------------------------------------------------
-   MOBILE ADJUSTMENTS
---------------------------------------------------------- */
-
-@media (max-width: 700px) {
-    body.lotus-organic .lotus-conversation-heading {
-        gap: 12px;
-        width: 100%;
-        margin-bottom: 22px;
-    }
-
-    body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow {
-        max-width: 92%;
-        margin-left: 0;
-        padding: 7px 12px;
-        font-size: 0.82rem;
-        letter-spacing: 0.1em;
-    }
-
-    body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
-        max-width: 96%;
-        margin-right: 0;
-        padding: 10px 15px;
-        font-size: clamp(1.35rem, 6vw, 2rem);
-        overflow-wrap: anywhere;
-    }
-
-    body.lotus-organic .lotus-project-name-bubble,
-    body.lotus-organic .lotus-project-subtitle-bubble {
-        max-width: 96%;
-    }
-
-    body.lotus-organic .lotus-contact-invitation {
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-
-/* Respect reduced-motion preferences */
-@media (prefers-reduced-motion: reduce) {
-    body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow,
-    body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
-        visibility: visible;
-        transform: none;
-        transition: none;
-    }
-}
-
-/* =========================================================
-   LOTUS LINGO — MAIN-PAGE PROJECT NAVIGATION BUBBLES
-   English by default; Japanese on hover/focus.
-   Applies only to the arrows beside the main project title.
-   ========================================================= */
-
-body.lotus-organic .project-navigation > .project-arrow .lotus-nav-label {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 104px;
-    min-height: 42px;
-    box-sizing: border-box;
-    padding: 8px 13px;
-    border: 1px solid rgba(255,255,255,0.35);
-    border-radius: 999px;
-    background: #FFFFFF;
-    color: #173C61;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    line-height: 1;
-    white-space: nowrap;
-    transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease;
-}
-
-/* English by default; Japanese on hover/focus */
-
-body.lotus-organic .project-navigation > .project-arrow .lotus-nav-japanese {
-    display: none;
-}
-
-body.lotus-organic .project-navigation > .project-arrow:hover .lotus-nav-english,
-body.lotus-organic .project-navigation > .project-arrow:focus-visible .lotus-nav-english {
-    display: none;
-}
-
-body.lotus-organic .project-navigation > .project-arrow:hover .lotus-nav-japanese,
-body.lotus-organic .project-navigation > .project-arrow:focus-visible .lotus-nav-japanese {
-    display: inline;
-}
-
-/* Previous arrow: green */
-
-body.lotus-organic .project-navigation > .project-arrow.prev:hover .lotus-nav-label,
-body.lotus-organic .project-navigation > .project-arrow.prev:focus-visible .lotus-nav-label {
-    background: #426B4B;
-    border-color: #426B4B;
-    color: #FFFFFF;
-}
-
-/* Next arrow: blue */
-
-body.lotus-organic .project-navigation > .project-arrow.next:hover .lotus-nav-label,
-body.lotus-organic .project-navigation > .project-arrow.next:focus-visible .lotus-nav-label {
-    background: #365F7D;
-    border-color: #365F7D;
-    color: #FFFFFF;
-}
-
-/* Speech-bubble tails */
-
-body.lotus-organic .project-navigation > .project-arrow .lotus-nav-label::after {
-    content: "";
-    position: absolute;
-    bottom: -6px;
-    width: 10px;
-    height: 10px;
-    background: inherit;
-    border-right: inherit;
-    border-bottom: inherit;
-    transform: rotate(45deg);
-}
-
-body.lotus-organic .project-navigation > .project-arrow.prev .lotus-nav-label::after {
-    left: 10px;
-}
-
-body.lotus-organic .project-navigation > .project-arrow.next .lotus-nav-label::after {
-    right: 10px;
 }
