@@ -1,10 +1,8 @@
 @charset "UTF-8";
-/* UI/UX project-specific rules: Phasepoint/Chrono Nexus, Clean Future Network, Lotus Lingo, My Deets. */
+/* UI/UX project-specific rules: Phasepoint/Chrono Nexus, Lotus Lingo, My Deets. */
 
 /* =========================================================
    SHARED UI/UX PROJECT HEADER AND OVERVIEW LAYOUT
-   Keep these shared desktop rules here. mobile.css loads last
-   and provides the responsive overrides.
    ========================================================= */
 body.project-page {
     min-height: 100vh;
@@ -204,15 +202,6 @@ linear-gradient(
 180deg,
 #081522,
 #670031
-);
-}
-
-body.clean-page {
-background:
-linear-gradient(
-180deg,
-#081522,
-#003b18
 );
 }
 
@@ -1955,410 +1944,7 @@ body.chrono-page .approach-card.lightbox-image img {
     }
 }
 
-.clean-organic {
-    --clean-forest: #234C3A;
-    --clean-leaf: #72956D;
-    --clean-sage: #B8C9A7;
-    --clean-cream: #F2F0E5;
-    --clean-paper: #E6EBDD;
-    --clean-ink: #26372D;
-    --clean-muted: #667568;
-    --clean-accent: #C28A55;
-}
-
-body.clean-organic .project-year {
-    color: #B8C9A7;
-}
-
-.clean-organic .project-container {
-    position: relative;
-    isolation: isolate;
-}
-
-.clean-organic .project-container::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 8%;
-    left: -8vw;
-    width: 32vw;
-    height: 38vw;
-    max-height: 620px;
-    background: radial-gradient(
-        ellipse,
-        rgba(114, 149, 109, 0.13),
-        transparent 70%
-    );
-    pointer-events: none;
-}
-
-.clean-organic .project-container::after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 45%;
-    right: -10vw;
-    width: 36vw;
-    height: 42vw;
-    max-height: 700px;
-    background: radial-gradient(
-        ellipse,
-        rgba(194, 138, 85, 0.09),
-        transparent 70%
-    );
-    pointer-events: none;
-}
-
-.clean-organic .clean-section {
-    position: relative;
-    width: min(1160px, 90%);
-    margin: clamp(70px, 10vw, 130px) auto;
-}
-
-.clean-organic .clean-heading {
-    margin: 0;
-    color: var(--clean-cream);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(2rem, 4vw, 3.4rem);
-    font-weight: 500;
-    letter-spacing: 0.09em;
-    line-height: 1.12;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.clean-organic .clean-heading::after {
-    content: "";
-    display: block;
-    width: 58px;
-    height: 3px;
-    margin: 18px auto 0;
-    border-radius: 50%;
-    background: var(--clean-leaf);
-    transition: width 0.35s ease;
-}
-
-.clean-organic .clean-section-heading:hover .clean-heading::after {
-    width: 105px;
-}
-
-.clean-organic .clean-eyebrow {
-    margin: 0 0 14px;
-    color: var(--clean-sage);
-    font-size:1.125rem;
-    font-weight: 600;
-    letter-spacing: 0.2em;
-    line-height: 1.6;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.clean-organic .clean-section-heading {
-    max-width: 760px;
-    margin: 0 auto 42px;
-}
-
-.clean-organic .clean-section-heading > p:last-child {
-    max-width: 690px;
-    margin: 24px auto 0;
-    color: rgba(242, 240, 229, 0.78);
-    font-size:1.125rem;
-    line-height: 1.85;
-    text-align: center;
-}
-
-.clean-organic .clean-details .detail-box h3 {
-    color: var(--clean-sage);
-}
-
-.clean-organic .clean-details .detail-box {
-    border-color: rgba(184, 201, 167, 0.24);
-}
-
-.clean-organic .clean-overview {
-    padding: clamp(30px, 5vw, 65px) clamp(18px, 4vw, 55px);
-    border: 1px solid rgba(184, 201, 167, 0.15);
-    border-radius: 48px 12px 48px 12px;
-    background:
-        radial-gradient(
-            ellipse at 50% 0%,
-            rgba(114, 149, 109, 0.15),
-            transparent 60%
-        ),
-        rgba(255, 255, 255, 0.018);
-}
-
-.clean-organic .clean-organic-divider {
-    width: 90px;
-    height: 4px;
-    margin: 0 auto 30px;
-    border-radius: 50%;
-    background: var(--clean-leaf);
-    transform: rotate(-3deg);
-}
-
-.clean-organic .clean-overview-logo {
-    display: block;
-    width: 105px;
-    height: 105px;
-    margin: 0 auto 25px;
-    object-fit: contain;
-    border-radius: 50%;
-}
-
-.clean-organic .clean-overview > .clean-eyebrow {
-    margin-bottom: 14px;
-}
-
-.clean-organic .clean-intro {
-    max-width: 760px;
-    margin: 30px auto 14px;
-    color: var(--clean-cream);
-    font-family: "Playfair Display", serif;
-    font-size: clamp(1.4rem, 3vw, 2.25rem);
-    line-height: 1.45;
-    text-align: center;
-}
-
-.clean-organic .clean-overview-copy {
-    max-width: 760px;
-    margin: 0 auto;
-    color: rgba(242, 240, 229, 0.78);
-    font-size:1.125rem;
-    line-height: 1.9;
-    text-align: center;
-}
-
-.clean-organic .clean-challenge-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-    margin-top: 48px;
-}
-
-.clean-organic .clean-statement {
-    padding: clamp(24px, 3vw, 38px);
-    border: 1px solid rgba(184, 201, 167, 0.2);
-    border-radius: 28px 8px 28px 8px;
-    background: rgba(255, 255, 255, 0.025);
-}
-
-.clean-organic .clean-solution {
-    border-color: rgba(114, 149, 109, 0.4);
-    background: rgba(114, 149, 109, 0.08);
-}
-
-.clean-organic .clean-number {
-    display: inline-block;
-    margin-bottom: 12px;
-    color: var(--clean-leaf);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 1.6rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-}
-
-.clean-organic .clean-statement h3,
-.clean-organic .clean-process-card h3 {
-    margin: 0 0 14px;
-    color: var(--clean-cream);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 1.5rem;
-    font-weight: 500;
-    letter-spacing: 0.07em;
-}
-
-.clean-organic .clean-statement > p {
-    color: var(--clean-cream);
-    font-size:1.125rem;
-    font-weight: 500;
-    line-height: 1.75;
-}
-
-.clean-organic .clean-statement ul {
-    margin: 18px 0 0;
-    padding: 0;
-    list-style: none;
-}
-
-.clean-organic .clean-statement li {
-    position: relative;
-    margin: 12px 0 0;
-    padding-left: 23px;
-    color: rgba(242, 240, 229, 0.76);
-    line-height: 1.7;
-}
-
-.clean-organic .clean-statement li::before {
-    content: "";
-    position: absolute;
-    top: 0.68em;
-    left: 2px;
-    width: 8px;
-    height: 8px;
-    border-radius: 2px 6px 2px 6px;
-    background: var(--clean-leaf);
-    transform: rotate(-15deg);
-}
-
-.clean-organic .clean-process-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 28px;
-}
-
-.clean-organic .clean-process-card {
-    min-width: 0;
-}
-
-.clean-organic .clean-process-card figure {
-    overflow: hidden;
-    margin: 0 0 22px;
-    border-radius: 38px 8px 38px 8px;
-    background: rgba(255, 255, 255, 0.04);
-}
-
-.clean-organic .clean-process-card img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.clean-organic .clean-process-card:hover img {
-    transform: scale(1.035);
-}
-
-.clean-organic .clean-step {
-    display: block;
-    margin-bottom: 10px;
-    color: var(--clean-sage);
-    font-size:1.125rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-}
-
-.clean-organic .clean-process-card h3 {
-    font-size: 1.45rem;
-    letter-spacing: 0.02em;
-}
-
-.clean-organic .clean-process-card > p {
-    margin: 0;
-    color: rgba(242, 240, 229, 0.73);
-    font-size:1.125rem;
-    line-height: 1.8;
-}
-
-.clean-organic .clean-homepage-feature {
-    overflow: hidden;
-    margin: 0;
-    padding: 12px;
-    border: 1px solid rgba(184, 201, 167, 0.2);
-    border-radius: 44px 10px 44px 10px;
-    background: rgba(255, 255, 255, 0.035);
-}
-
-.clean-organic .clean-homepage-feature img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 32px 6px 32px 6px;
-}
-
-.clean-organic .clean-homepage-feature figcaption,
-.clean-organic .clean-screen figcaption,
-.clean-organic .clean-campaign-image figcaption {
-    padding: 16px 8px 8px;
-    color: var(--clean-sage);
-    font-size:1.125rem;
-    letter-spacing: 0.05em;
-    line-height: 1.6;
-}
-
-.clean-organic .clean-screen-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px;
-    margin-top: 30px;
-}
-
-.clean-organic .clean-screen {
-    overflow: hidden;
-    min-width: 0;
-    margin: 0;
-    padding: 10px;
-    border: 1px solid rgba(184, 201, 167, 0.16);
-    border-radius: 30px 8px 30px 8px;
-    background: rgba(255, 255, 255, 0.025);
-}
-
-.clean-organic .clean-screen img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 22px 5px 22px 5px;
-}
-
-.clean-organic .clean-prototype {
-    padding: clamp(30px, 5vw, 65px) clamp(18px, 4vw, 55px);
-    border-radius: 12px 50px 12px 50px;
-    background:
-        radial-gradient(
-            ellipse at 50% 100%,
-            rgba(114, 149, 109, 0.14),
-            transparent 65%
-        ),
-        rgba(255, 255, 255, 0.02);
-    text-align: center;
-}
-
-.clean-organic .clean-prototype-copy {
-    max-width: 620px;
-    margin: 25px auto 32px;
-    color: rgba(242, 240, 229, 0.76);
-    line-height: 1.8;
-}
-
-.clean-organic .clean-prototype-preview {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    width: min(425px, 100%);
-    margin: 0 auto;
-    border: 1px solid rgba(184, 201, 167, 0.24);
-    border-radius: 34px 8px 34px 8px;
-}
-
-.clean-organic .clean-prototype-preview img {
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: transform 0.5s ease;
-}
-
-.clean-organic .clean-prototype-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background: rgba(25, 54, 40, 0.72);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.clean-organic .clean-prototype-overlay span {
-    padding: 14px 22px;
-    border: 1px solid rgba(242, 240, 229, 0.8);
-    border-radius: 30px;
-    color: #F2F0E5;
-    font-size:1.125rem;
-    font-weight: 600;
-    letter-spacing: 0.13em;
-}
+/*
 
 .clean-organic .clean-prototype-preview:hover img,
 .clean-organic .clean-prototype-preview:focus-visible img {
@@ -2393,27 +1979,6 @@ body.clean-organic .project-year {
     background: rgba(255, 255, 255, 0.025);
 }
 
-.clean-organic .clean-campaign-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 26px 5px 26px 5px;
-}
-
-.clean-organic .clean-contact {
-    position: relative;
-    margin-top: 90px;
-    padding: 45px 20px 60px;
-    border-top: 1px solid rgba(184, 201, 167, 0.2);
-    text-align: center;
-}
-
-.clean-organic .clean-contact p {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-}
-
 .clean-organic .clean-gallery > figure.clean-homepage-feature:first-of-type {
     width: min(78%, 760px);
     margin-right: auto;
@@ -2427,11 +1992,7 @@ body.clean-organic .project-year {
     object-fit: contain;
 }
 
-.clean-organic .clean-contact p {
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-}
+*/
 
 /* =========================================================
    LOTUS LINGO — CONSOLIDATED PAGE STYLES
@@ -2516,9 +2077,9 @@ body.lotus-organic .project-title .lotus-project-subtitle-bubble::after {
 }
 
 body.lotus-organic .lotus-project-name-bubble::after {
-    left: -10px;
+    right: -10px;
     background: #FFFFFF;
-    clip-path: polygon(100% 0, 100% 100%, 0 50%);
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
 body.lotus-organic .project-title .lotus-project-subtitle-bubble::after {
@@ -2703,7 +2264,7 @@ body.lotus-organic .lotus-logo-animation figcaption {
 body.lotus-organic .project-story .story-text h2,
 body.lotus-organic .lotus-section h2,
 body.lotus-organic .lotus-section-heading h2 {
-    color: var(--lotus-blue-light) !important;
+    color: var(--lotus-blue) !important;
     font-family: "Jost", sans-serif;
     font-size: clamp(1.8rem, 4vw, 3rem);
     font-weight: 700;
@@ -2751,8 +2312,8 @@ body.lotus-organic .lotus-overview .story-text p:last-child {
 body.lotus-organic .lotus-overview .story-image {
     align-self: center;
     min-width: 0;
-    width: 76%;
-    max-width: 440px;
+    width: 100%;
+    max-width: 640px;
     margin-inline: auto;
 }
 
@@ -2782,7 +2343,7 @@ body.lotus-organic .lotus-experience .lotus-feature-image {
 body.lotus-organic .lotus-direction .story-image { background: var(--lotus-green); }
 
 body.lotus-organic .lotus-direction .story-text .lotus-conversation-heading {
-    margin-top: clamp(24px, 4vw, 48px);
+    margin-top: clamp(48px, 6vw, 68px);
 }
 
 body.lotus-organic .lotus-direction .story-image > p {
@@ -2793,6 +2354,10 @@ body.lotus-organic .lotus-direction .story-image > p {
 
 body.lotus-organic .lotus-direction .story-text > p:first-child {
     margin-top: clamp(24px, 4vw, 44px);
+}
+
+body.lotus-organic .lotus-direction .story-text > p + p {
+    margin-top: 18px;
 }
 
 /* Section headings: white speech bubbles with sequential pop-in animation. */
@@ -2864,7 +2429,8 @@ body.lotus-organic .lotus-conversation-heading .lotus-bubble-title::after {
 }
 
 body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow::after {
-    left: -10px;
+    left: auto;
+	right: -10px;
     clip-path: polygon(100% 0, 100% 100%, 0 50%);
 }
 
@@ -3473,13 +3039,19 @@ body.lotus-organic .lotus-next-steps-copy {
 body.lotus-organic .lotus-next-steps-copy p { color: #FFFFFF !important; }
 body.lotus-organic .lotus-next-steps-copy p + p { margin-top: 18px; }
 
-body.lotus-organic .lotus-progress-label {
-    position: relative;
-    display: inline-block;
-    margin: 0 0 8px;
-    padding: 5px 12px;
-    border-radius: 10px;
+body.lotus-organic .lotus-next-steps-copy p.lotus-progress-callout {
+    margin: 24px 0;
+    padding: clamp(18px, 2.5vw, 28px);
+    border-radius: 12px;
     background: var(--lotus-green);
+    color: #FFFFFF;
+}
+
+body.lotus-organic .lotus-progress-label {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    background: none;
     color: #FFFFFF;
     font-family: "Barlow Condensed", sans-serif;
     font-size: 1.05em;
@@ -3487,14 +3059,7 @@ body.lotus-organic .lotus-progress-label {
 }
 
 body.lotus-organic .lotus-progress-label::after {
-    content: "";
-    position: absolute;
-    left: 12px;
-    bottom: -7px;
-    width: 12px;
-    height: 12px;
-    background: var(--lotus-green);
-    clip-path: polygon(0 0, 100% 0, 0 100%);
+    content: none;
 }
 
 body.lotus-organic .lotus-contact {
@@ -3542,46 +3107,48 @@ body.lotus-organic .lotus-contact .lotus-contact-button {
     justify-content: center;
     min-width: 170px;
     padding: 17px 30px;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #00E5FF;
     border-radius: 16px;
-    background: #FFFFFF;
-    color: var(--lotus-blue);
+    background: #00E5FF;
+    color: #FFFFFF;
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
     font-family: "Barlow Condensed", sans-serif;
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.28em;
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: #FFFFFF;
+    text-underline-offset: 4px;
     text-transform: uppercase;
-    transition: color 220ms ease, background 220ms ease, border-color 220ms ease, transform 220ms ease;
+    transition: color 220ms ease, background 220ms ease,
+                border-color 220ms ease, transform 220ms ease;
 }
-
 
 body.lotus-organic .lotus-contact .lotus-contact-button::after {
     content: "";
     position: absolute;
-    right: -9px;
+    left: -9px;
     top: 50%;
     width: 15px;
     height: 18px;
-    background: #FFFFFF;
-    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    background: #00E5FF;
+    clip-path: polygon(100% 0, 100% 100%, 0 50%);
     transform: translateY(-50%);
     transition: background 220ms ease;
 }
 
 body.lotus-organic .lotus-contact .lotus-contact-button:hover,
 body.lotus-organic .lotus-contact .lotus-contact-button:focus-visible {
-    background: var(--lotus-green);
-    border-color: var(--lotus-green);
-    color: #FFFFFF;
+    background: #FFFFFF;
+    border-color: #FFFFFF;
+    color: var(--lotus-blue);
     transform: translateY(-2px);
 }
 
-
 body.lotus-organic .lotus-contact .lotus-contact-button:hover::after,
-body.lotus-organic .lotus-contact .lotus-contact-button:focus-visible::after { background: var(--lotus-green); }
-
+body.lotus-organic .lotus-contact .lotus-contact-button:focus-visible::after {
+    background: #FFFFFF;
+}
 body.lotus-organic a:focus-visible { outline: 3px solid #00E5FF; outline-offset: 4px; }
 
 /* Responsive layout. */
@@ -4837,15 +4404,12 @@ body.deets-page .deets-growth-svg:nth-child(2) {
     z-index: 2;
 }
 
-/* Clean Future Network: green title, compact prototype preview, no underline. */
+/*
+
 body.clean-organic .project-title h1 { color:#7FD69A !important; }
 body.clean-organic .clean-prototype-preview { width:min(212px,100%); max-width:212px; margin:0 auto; }
 body.clean-organic .clean-prototype-button { margin-top:28px; }
 body.clean-organic .clean-prototype .enter-button::after { display:none !important; }
-
-/* =========================================
-   CLEAN FUTURE NETWORK — LIVING ENERGY PULSE
-========================================= */
 
 .clean-organic .clean-energy-pulse {
     position: relative;
@@ -4857,7 +4421,7 @@ body.clean-organic .clean-prototype .enter-button::after { display:none !importa
     margin: 30px auto 0;
 }
 
-/* Fine connecting line */
+
 .clean-organic .clean-energy-pulse::before {
     content: "";
     position: absolute;
@@ -4869,7 +4433,6 @@ body.clean-organic .clean-prototype .enter-button::after { display:none !importa
     transform: translateY(-50%);
 }
 
-/* Three stationary connection points */
 .clean-organic .clean-energy-pulse span {
     position: relative;
     z-index: 1;
@@ -4881,7 +4444,7 @@ body.clean-organic .clean-prototype .enter-button::after { display:none !importa
     box-shadow: 0 0 8px rgba(184, 201, 167, 0.25);
 }
 
-/* Traveling energy pulse */
+
 .clean-organic .clean-energy-pulse i {
     position: absolute;
     z-index: 2;
@@ -4918,7 +4481,7 @@ body.clean-organic .clean-prototype .enter-button::after { display:none !importa
     }
 }
 
-/* Respect reduced-motion preferences */
+
 @media (prefers-reduced-motion: reduce) {
     .clean-organic .clean-energy-pulse i {
         animation: none;
@@ -4926,6 +4489,8 @@ body.clean-organic .clean-prototype .enter-button::after { display:none !importa
         opacity: 1;
     }
 }
+
+*/
 
 /* =========================================================
    TAGGED REPAIR — OCTOBER 2026
