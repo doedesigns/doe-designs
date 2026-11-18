@@ -864,30 +864,31 @@
         visibilityObserver.observe(heading);
     });
 
-    function checkHeadingPositions() {
-        const currentScrollY = window.scrollY;
-        const scrollingDown = currentScrollY > previousScrollY;
-        const scrollingUp = currentScrollY < previousScrollY;
+function checkHeadingPositions() {
+    const currentScrollY = window.scrollY;
+    const scrollingDown = currentScrollY > previousScrollY;
+    const scrollingUp = currentScrollY < previousScrollY;
 
-        headings.forEach(function (heading) {
-            const eyebrow = heading.querySelector('.lotus-bubble-eyebrow');
+    headings.forEach(function (heading) {
+        const eyebrow = heading.querySelector('.lotus-bubble-eyebrow');
 
-            if (!eyebrow || heading.classList.contains('is-visible')) {
-                return;
-            }
+        if (!eyebrow) return;
 
-            const currentTop = eyebrow.getBoundingClientRect().top;
-            const previousTop = previousPositions.get(heading);
+        const currentTop = eyebrow.getBoundingClientRect().top;
+        const previousTop = previousPositions.get(heading);
 
-            if (previousTop === undefined) {
-                previousPositions.set(heading, currentTop);
-                return;
-            }
+        if (previousTop === undefined) {
+            previousPositions.set(heading, currentTop);
+            return;
+        }
 
-            const currentCenter = currentTop + eyebrow.offsetHeight / 2;
-            const previousCenter = previousTop + eyebrow.offsetHeight / 2;
+        const currentCenter = currentTop + eyebrow.offsetHeight / 2;
+        const previousCenter = previousTop + eyebrow.offsetHeight / 2;
 
-            /* Downward scrolling: preserve the original midpoint trigger. */
+        /* Only trigger animations when the heading is not already visible. */
+        if (!heading.classList.contains('is-visible')) {
+
+            /* Downward scrolling: preserve the existing midpoint trigger. */
             if (
                 scrollingDown &&
                 previousCenter > downwardTriggerPosition &&
@@ -905,12 +906,14 @@
             ) {
                 heading.classList.add('is-visible');
             }
+        }
 
-            previousPositions.set(heading, currentTop);
-        });
+        /* Always update position, including while the heading is visible. */
+        previousPositions.set(heading, currentTop);
+    });
 
-        previousScrollY = currentScrollY;
-    }
+    previousScrollY = currentScrollY;
+}
 
     window.addEventListener('scroll', checkHeadingPositions, {
         passive: true

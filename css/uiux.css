@@ -2338,7 +2338,7 @@ body.lotus-organic .lotus-experience .lotus-feature-image {
 body.lotus-organic .lotus-direction .story-image { background: var(--lotus-green); }
 
 body.lotus-organic .lotus-direction .story-text .lotus-conversation-heading {
-    margin-top: clamp(76px, 8vw, 104px);
+    margin-top: clamp(120px, 12vw, 155px);
 }
 
 body.lotus-organic .lotus-direction .story-image > p {
@@ -2410,17 +2410,17 @@ body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
     transform-origin: 82% 100%;
 }
 
-/* The title's speech-bubble point sits on its right vertical edge. */
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow::after,
+/* Eyebrow tails point left; title tails point right. */
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow::after {
+    left: -10px;
+    right: auto;
+    clip-path: polygon(100% 0, 100% 100%, 0 50%);
+}
+
 body.lotus-organic .lotus-conversation-heading .lotus-bubble-title::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 15px;
-    height: 18px;
-    background: #FFFFFF;
-    transform: translateY(-50%);
-    transition: background 200ms ease;
+    right: -10px;
+    left: auto;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
 body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow::after {
@@ -2623,7 +2623,7 @@ body.lotus-organic .lotus-conversation-heading.is-visible .lotus-bubble-title {
     visibility: visible;
     opacity: 1;
     transform: scale(1);
-    transition-delay: 190ms, 190ms, 190ms;
+    transition-delay: 420ms, 420ms, 420ms;
 }
 
 body.lotus-organic .project-story .story-text .lotus-conversation-heading {
@@ -2789,6 +2789,16 @@ body.lotus-organic .lotus-statement p {
     line-height: 1.75;
 }
 
+/* A COHESIVE VISUAL IDENTITY — LIGHT CHALLENGE BLUE */
+body.lotus-organic .lotus-brand .lotus-bubble-eyebrow {
+    background: #365F7D;
+    color: #FFFFFF !important;
+}
+
+body.lotus-organic .lotus-brand .lotus-bubble-eyebrow::after {
+    background: #365F7D;
+}
+
 body.lotus-organic .lotus-statement p:last-child { margin-bottom: 0; }
 
 /* Interactive prototype. */
@@ -2813,10 +2823,11 @@ body.lotus-organic .lotus-section-heading > p:last-child {
 }
 
 body.lotus-organic .lotus-prototype-showcase {
-    display: flex;
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 240px minmax(0, 1fr);
     align-items: center;
-    justify-content: center;
-    gap: clamp(24px, 5vw, 64px);
+    gap: 0;
     width: 100%;
     margin: 30px auto 18px;
 }
@@ -2833,6 +2844,8 @@ body.lotus-organic .lotus-prototype .prototype-image-link {
     border-radius: 20px;
     background: #FFFFFF;
     box-shadow: 0 12px 30px rgba(80, 21, 47, 0.2);
+	grid-column: 2;
+    justify-self: center;
 }
 
 body.lotus-organic .lotus-prototype .prototype-image-link img {
@@ -2869,13 +2882,15 @@ body.lotus-organic .lotus-prototype .prototype-image-link:focus-visible .lotus-p
 
 body.lotus-organic .lotus-prototype-callout {
     display: flex;
-    flex: 0 1 220px;
+    grid-column: 3;
+    flex: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    align-self: flex-end;
-    width: 100%;
-    max-width: 220px;
+    justify-self: start;
+    width: 220px;
+    max-width: 100%;
+    margin-left: clamp(24px, 4vw, 54px);
     color: #F3B7D5;
     font-family: "Caveat", cursive;
     font-size: clamp(25px, 3vw, 34px);
@@ -2945,7 +2960,7 @@ body.lotus-organic .lotus-process .story-image {
     min-width: 0;
     box-sizing: border-box;
     padding: 10px;
-    background: #302832;
+   background: #71344F;
 }
 
 body.lotus-organic .lotus-process .story-image > p,
@@ -3136,29 +3151,41 @@ body.lotus-organic .lotus-brand .lotus-logo-animation video.video-medium {
 
 body.lotus-organic .lotus-brand .lotus-logo-animation figcaption { width: 100%; margin: 14px auto 0; text-align: center; }
 
+/* THREE INDIVIDUAL NEXT-STEPS TEXT BOXES */
 body.lotus-organic .lotus-next-steps-copy {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
     box-sizing: border-box;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #FFFFFF;
+}
+
+body.lotus-organic .lotus-next-steps-copy > p {
+    box-sizing: border-box;
+    margin: 0;
     padding: clamp(22px, 3vw, 36px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 22px;
     background: var(--lotus-green);
-    color: #FFFFFF;
-}
-
-body.lotus-organic .lotus-next-steps-copy p {
     color: #FFFFFF !important;
+    line-height: 1.75;
 }
 
-body.lotus-organic .lotus-next-steps-copy p + p {
-    margin-top: 18px;
+body.lotus-organic .lotus-next-steps-copy > p strong {
+    color: var(--lotus-pink-light) !important;
 }
 
-body.lotus-organic .lotus-next-steps-copy p.lotus-progress-callout {
+body.lotus-organic .lotus-next-steps-copy > p.lotus-progress-callout {
     margin: 0;
-    padding: 0;
-    border-radius: 0;
-    background: transparent;
-    color: #FFFFFF;
+    padding: clamp(22px, 3vw, 36px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 22px;
+    background: var(--lotus-green);
+    color: #FFFFFF !important;
 }
 
 body.lotus-organic .lotus-progress-label {
@@ -3166,7 +3193,7 @@ body.lotus-organic .lotus-progress-label {
     margin: 0;
     padding: 0;
     background: none;
-    color: #FFFFFF;
+    color: var(--lotus-pink-light);
     font-family: "Barlow Condensed", sans-serif;
     font-size: 1.05em;
     letter-spacing: 0.04em;
@@ -3359,8 +3386,23 @@ body.lotus-organic a:focus-visible { outline: 3px solid #00E5FF; outline-offset:
     body.lotus-organic .lotus-process .story-text,
     body.lotus-organic .lotus-process .story-image { grid-column: 1; grid-row: auto; }
     body.lotus-organic .lotus-process .story-image { width: 90%; max-width: 540px; }
-    body.lotus-organic .lotus-prototype-showcase { flex-direction: column; gap: 20px; }
-    body.lotus-organic .lotus-prototype-callout { align-self: center; width: auto; max-width: 100%; }
+    body.lotus-organic .lotus-prototype-showcase {
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+body.lotus-organic .lotus-prototype .prototype-image-link {
+    grid-column: 1;
+    justify-self: center;
+}
+
+body.lotus-organic .lotus-prototype-callout {
+    grid-column: 1;
+    justify-self: center;
+    width: auto;
+    max-width: 100%;
+    margin-left: 0;
+}
 }
 
 @media (prefers-reduced-motion: reduce) {
