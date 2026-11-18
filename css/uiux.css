@@ -2337,10 +2337,6 @@ body.lotus-organic .lotus-experience .lotus-feature-image {
 
 body.lotus-organic .lotus-direction .story-image { background: var(--lotus-green); }
 
-body.lotus-organic .lotus-direction .story-text .lotus-conversation-heading {
-    margin-top: clamp(120px, 12vw, 155px);
-}
-
 body.lotus-organic .lotus-direction .story-image > p {
     margin: 14px auto 0;
     color: #FFFFFF !important;
@@ -2410,7 +2406,19 @@ body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
     transform-origin: 82% 100%;
 }
 
-/* Eyebrow tails point left; title tails point right. */
+/* SPEECH-BUBBLE TRIANGLES */
+
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow::after,
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-title::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 14px;
+    height: 18px;
+    background: #FFFFFF;
+    transform: translateY(-50%);
+}
+
 body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow::after {
     left: -10px;
     right: auto;
@@ -2420,17 +2428,6 @@ body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow::after {
 body.lotus-organic .lotus-conversation-heading .lotus-bubble-title::after {
     right: -10px;
     left: auto;
-    clip-path: polygon(0 0, 100% 50%, 0 100%);
-}
-
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow::after {
-    left: auto;
-	right: -10px;
-    clip-path: polygon(0 0, 100% 50%, 0 100%);
-}
-
-body.lotus-organic .lotus-conversation-heading .lotus-bubble-title::after {
-    right: -10px;
     clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
@@ -2641,6 +2638,11 @@ body.lotus-organic .project-story .story-text .lotus-conversation-heading.align-
     margin-right: 0;
 }
 
+/* MOVE CREATIVE DIRECTION HEADINGS DOWN */
+
+body.lotus-organic .lotus-direction .story-text .lotus-conversation-heading {
+    margin-top: clamp(150px, 15vw, 190px);
+}
 body.lotus-organic .project-story .story-text .lotus-bubble-eyebrow { align-self: flex-start; }
 body.lotus-organic .project-story .story-text .lotus-bubble-title { align-self: flex-end; }
 body.lotus-organic .lotus-overview .story-text .lotus-conversation-heading { align-items: center; }
@@ -3077,13 +3079,17 @@ body.lotus-organic .lotus-games-figure figcaption strong {
     font-size: 18px;
 }
 
+/* CENTER THE GAMES WALKTHROUGH CAPTION */
+
 body.lotus-organic .lotus-games-caption {
     display: block;
-    width: max-content;
-    max-width: none;
-    margin-inline: auto;
-    white-space: nowrap;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 8px auto 0;
+    white-space: normal;
     font-size: 16px;
+    line-height: 1.5;
     text-align: center;
 }
 
