@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="../css/nav.css">
 	<link rel="stylesheet" href="../css/uiux.css">
 	<link rel="stylesheet" href="../css/mobile.css">
-
+   
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;700;900&family=Caveat:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -110,9 +110,6 @@
             <a href="my-deets.html"
                class="project-arrow prev lotus-nav-bubble"
                aria-label="Previous project: My Deets">
-                <span class="arrow-circle">
-                    <span class="arrow-triangle"></span>
-                </span>
                 <span class="lotus-nav-label">
                     <span class="lotus-nav-english">PREVIOUS</span>
                 </span>
@@ -132,9 +129,6 @@
             <a href="chrono.html"
                class="project-arrow next lotus-nav-bubble"
                aria-label="Next project: Chrono Nexus">
-                <span class="arrow-circle">
-                    <span class="arrow-triangle"></span>
-                </span>
                 <span class="lotus-nav-label">
                     <span class="lotus-nav-english">NEXT</span>
                 </span>
@@ -218,12 +212,13 @@
 
                 <p>Lotus Lingo / Mobile app mockup</p>
             </div>
+
 </section>
 
 <!-- CHALLENGE AND SOLUTION -->
 
 <section class="lotus-section lotus-challenge">
-
+	
 		<svg class="lotus-decoration" viewBox="0 0 140 100"
 			 aria-hidden="true" focusable="false">
 			<g fill="none" stroke="currentColor" stroke-width="2"
@@ -274,7 +269,9 @@
             <p class="lotus-eyebrow lotus-bubble-eyebrow">A CLEAR PATH INTO LEARNING<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">学習への明確な道筋</span></p>
             <h2 class="lotus-bubble-title">ONBOARDING FLOW<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">オンボーディングの流れ</span></h2>
         </div>
-        <p>Onboarding introduces the app's learning approach, helps new learners get oriented, and creates a clear route from first visit to first lesson. Each step is intended to make the next action feel understandable rather than leaving learners to navigate a collection of disconnected features.</p>
+        <p>
+            Onboarding introduces the app's learning approach, helps new learners get oriented, and creates a clear route from first visit to first lesson. Each step is intended to make the next action feel understandable rather than leaving learners to navigate a collection of disconnected features.
+        </p>
     </div>
 
     <ol class="lotus-flow-grid">
@@ -435,13 +432,14 @@
                     <p class="lotus-eyebrow lotus-bubble-eyebrow">COLOR, TYPE &amp; COMPONENTS<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">色・文字・コンポーネント</span></p>
                     <h2 class="lotus-bubble-title">CREATIVE DIRECTION<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">クリエイティブディレクション</span></h2>
                 </div>
+
                 <p>The visual identity uses a bright palette of greens, deep pink, light blue, and soft peach, balanced with friendly typography and original illustrations. I created the lotus, cherry blossoms, torii gates, profile artwork, and navigation icons to give the product a recognizable visual language rather than relying entirely on generic interface elements.</p>
 
                 <p>The interface also needed to make different kinds of Japanese practice feel distinct. Reading and writing activities, pronunciation and speaking exercises, and formal versus informal language each have different learning needs. The Katakana lesson screens show how explanations, character recognition, pronunciation support, and writing practice can be organized into a more guided sequence.</p>
             </div>
 
 </section>
-
+	
 <!-- USER JOURNEY -->
 
 <section class="lotus-section lotus-journey">
@@ -654,7 +652,7 @@
             <img
                 class="img-large"
                 src="../images/ui/lotus-lingo/2.5.7-lotus-katakana-tips-hifi.png"
-				alt="Lotus Lingo high-fidelity Katakana lesson screens showing Japanese character tips and guided learning"
+                alt="Lotus Lingo high-fidelity Katakana lesson screens showing Japanese character tips and guided learning"
                 data-lightbox-text="The Katakana lesson presents Japanese characters in a structured learning format, helping learners recognize and practice the characters step by step. These high-fidelity Figma screens illustrate a lesson flow from guided explanations and pronunciation support to writing practice and review."
                 loading="lazy">
 
@@ -791,7 +789,7 @@
     </div>
 
     <div class="lotus-next-steps-copy">
-        <p><strong>Make progress persistent.</strong> The stats screen was designed to reflect completed lessons and earned awards, but the prototype does not save learner activity. A future version would need persistent progress data and a thoughtful way to help returning learners pick up where they left off, while still allowing them to choose a different lesson.</p>
+        <p><strong class="lotus-progress-label">Make progress persistent.</strong> The stats screen was designed to reflect completed lessons and earned awards, but the prototype does not save learner activity. A future version would need persistent progress data and a thoughtful way to help returning learners pick up where they left off, while still allowing them to choose a different lesson.</p>
 
         <p><strong>Validate the learning flows.</strong> The project was not tested through formal usability sessions. I would next test onboarding, lesson progression, and the distinction between writing, speaking, and language-register activities with Japanese learners at different experience levels.</p>
 
@@ -820,7 +818,7 @@
 	<script src="../js/nav.js"></script>
 
 
-<!-- LOTUS LINGO: CONVERSATION-STYLE HEADING ANIMATION -->
+<!-- LOTUS LINGO: SEQUENTIAL, REPLAYABLE SPEECH-BUBBLE ANIMATION -->
 <script>
 (function () {
     const headings = document.querySelectorAll('.lotus-conversation-heading');
@@ -832,21 +830,39 @@
         return;
     }
 
-    const observer = new IntersectionObserver(function (entries, activeObserver) {
+    /* Keep a popped heading visible while any part of its heading block
+       remains in the viewport. Reset it after the block scrolls completely away. */
+    const visibilityObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                activeObserver.unobserve(entry.target);
+            if (!entry.isIntersecting) {
+                entry.target.classList.remove('is-visible');
             }
         });
     }, {
         root: null,
-        rootMargin: '-8% 0px -8% 0px',
-        threshold: 0.18
+        rootMargin: '0px',
+        threshold: 0
+    });
+
+    /* Trigger when the eyebrow itself reaches the vertical midpoint. */
+    const midpointObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.closest('.lotus-conversation-heading').classList.add('is-visible');
+            }
+        });
+    }, {
+        root: null,
+        rootMargin: '-49% 0px -49% 0px',
+        threshold: 0
     });
 
     headings.forEach(function (heading) {
-        observer.observe(heading);
+        const eyebrow = heading.querySelector('.lotus-bubble-eyebrow');
+        if (eyebrow) {
+            visibilityObserver.observe(heading);
+            midpointObserver.observe(eyebrow);
+        }
     });
 })();
 </script>
