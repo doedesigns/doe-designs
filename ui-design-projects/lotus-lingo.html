@@ -110,9 +110,10 @@
             <a href="my-deets.html"
                class="project-arrow prev lotus-nav-bubble"
                aria-label="Previous project: My Deets">
-                <span class="lotus-nav-label">
-                    <span class="lotus-nav-english">PREVIOUS</span>
-                </span>
+			<span class="lotus-nav-label">
+				<span class="lotus-nav-english">PREVIOUS</span>
+				<span class="lotus-nav-japanese" lang="ja">前へ</span>
+				</span>
             </a>
 
             <div class="project-title">
@@ -129,9 +130,10 @@
             <a href="chrono.html"
                class="project-arrow next lotus-nav-bubble"
                aria-label="Next project: Chrono Nexus">
-                <span class="lotus-nav-label">
-                    <span class="lotus-nav-english">NEXT</span>
-                </span>
+               <span class="lotus-nav-label">
+				<span class="lotus-nav-english">NEXT</span>
+				<span class="lotus-nav-japanese" lang="ja">次へ</span>
+				</span>
             </a>
 </section>
 
@@ -336,7 +338,7 @@
 </svg>
 
     <div class="lotus-section-heading">
-        <div class="lotus-conversation-heading align-left">
+        <div class="lotus-conversation-heading align-center">
             <p class="lotus-eyebrow lotus-bubble-eyebrow">TRY THE EXPERIENCE<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">体験してみる</span></p>
             <h2 class="lotus-bubble-title">INTERACTIVE PROTOTYPE<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">インタラクティブなプロトタイプ</span></h2>
         </div>
@@ -830,8 +832,22 @@
         return;
     }
 
-    /* Keep a popped heading visible while any part of its heading block
-       remains in the viewport. Reset it after the block scrolls completely away. */
+    const viewportHeight = window.innerHeight;
+    const upwardTriggerPosition = 288;
+    const downwardTriggerPosition = viewportHeight / 2;
+
+    let previousScrollY = window.scrollY;
+    const previousPositions = new Map();
+
+    headings.forEach(function (heading) {
+        const eyebrow = heading.querySelector('.lotus-bubble-eyebrow');
+
+        if (eyebrow) {
+            previousPositions.set(heading, eyebrow.getBoundingClientRect().top);
+        }
+    });
+
+    /* Reset the animation after the complete heading leaves the viewport. */
     const visibilityObserver = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
             if (!entry.isIntersecting) {
@@ -844,26 +860,75 @@
         threshold: 0
     });
 
-    /* Trigger when the eyebrow itself reaches the vertical midpoint. */
-    const midpointObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-                entry.target.closest('.lotus-conversation-heading').classList.add('is-visible');
-            }
-        });
-    }, {
-        root: null,
-        rootMargin: '-49% 0px -49% 0px',
-        threshold: 0
+    headings.forEach(function (heading) {
+        visibilityObserver.observe(heading);
     });
 
-    headings.forEach(function (heading) {
-        const eyebrow = heading.querySelector('.lotus-bubble-eyebrow');
-        if (eyebrow) {
-            visibilityObserver.observe(heading);
-            midpointObserver.observe(eyebrow);
-        }
+    function checkHeadingPositions() {
+        const currentScrollY = window.scrollY;
+        const scrollingDown = currentScrollY > previousScrollY;
+        const scrollingUp = currentScrollY < previousScrollY;
+
+        headings.forEach(function (heading) {
+            const eyebrow = heading.querySelector('.lotus-bubble-eyebrow');
+
+            if (!eyebrow || heading.classList.contains('is-visible')) {
+                return;
+            }
+
+            const currentTop = eyebrow.getBoundingClientRect().top;
+            const previousTop = previousPositions.get(heading);
+
+            if (previousTop === undefined) {
+                previousPositions.set(heading, currentTop);
+                return;
+            }
+
+            const currentCenter = currentTop + eyebrow.offsetHeight / 2;
+            const previousCenter = previousTop + eyebrow.offsetHeight / 2;
+
+            /* Downward scrolling: preserve the original midpoint trigger. */
+            if (
+                scrollingDown &&
+                previousCenter > downwardTriggerPosition &&
+                currentCenter <= downwardTriggerPosition
+            ) {
+                heading.classList.add('is-visible');
+            }
+
+            /* Upward scrolling: trigger when the eyebrow reaches 288px
+               from the top of the viewport (approximately 3 inches). */
+            if (
+                scrollingUp &&
+                previousTop < upwardTriggerPosition &&
+                currentTop >= upwardTriggerPosition
+            ) {
+                heading.classList.add('is-visible');
+            }
+
+            previousPositions.set(heading, currentTop);
+        });
+
+        previousScrollY = currentScrollY;
+    }
+
+    window.addEventListener('scroll', checkHeadingPositions, {
+        passive: true
     });
+
+    window.addEventListener('resize', function () {
+        headings.forEach(function (heading) {
+            const eyebrow = heading.querySelector('.lotus-bubble-eyebrow');
+
+            if (eyebrow) {
+                previousPositions.set(
+                    heading,
+                    eyebrow.getBoundingClientRect().top
+                );
+            }
+        });
+    });
+
 })();
 </script>
 

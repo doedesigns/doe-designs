@@ -1944,56 +1944,6 @@ body.chrono-page .approach-card.lightbox-image img {
     }
 }
 
-/*
-
-.clean-organic .clean-prototype-preview:hover img,
-.clean-organic .clean-prototype-preview:focus-visible img {
-    transform: scale(1.025);
-}
-
-.clean-organic .clean-prototype-preview:hover .clean-prototype-overlay,
-.clean-organic .clean-prototype-preview:focus-visible .clean-prototype-overlay {
-    opacity: 1;
-}
-
-.clean-organic .clean-prototype-button {
-    margin-top: 28px;
-    border-color: #B8C9A7;
-    background: #B8C9A7;
-    color: #193628;
-}
-
-.clean-organic .clean-prototype-button:hover,
-.clean-organic .clean-prototype-button:focus-visible {
-    border-color: #D7E3C7;
-    background: #D7E3C7;
-    color: #193628;
-}
-
-.clean-organic .clean-campaign-image {
-    max-width: 390px;
-    margin: 34px auto 0;
-    padding: 12px;
-    border: 1px solid rgba(184, 201, 167, 0.16);
-    border-radius: 36px 8px 36px 8px;
-    background: rgba(255, 255, 255, 0.025);
-}
-
-.clean-organic .clean-gallery > figure.clean-homepage-feature:first-of-type {
-    width: min(78%, 760px);
-    margin-right: auto;
-    margin-left: auto;
-}
-
-.clean-organic .clean-gallery > figure.clean-homepage-feature:first-of-type img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-*/
-
 /* =========================================================
    LOTUS LINGO — CONSOLIDATED PAGE STYLES
    All Lotus-only styling lives in this section.
@@ -2083,9 +2033,10 @@ body.lotus-organic .lotus-project-name-bubble::after {
 }
 
 body.lotus-organic .project-title .lotus-project-subtitle-bubble::after {
-    right: -10px;
+    left: -10px;
+    right: auto;
     background: var(--lotus-blue-light);
-    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    clip-path: polygon(100% 0, 100% 100%, 0 50%);
 }
 
 body.lotus-organic .lotus-title-japanese {
@@ -2168,7 +2119,20 @@ body.lotus-organic .project-navigation > .project-arrow.next:focus-visible .lotu
 }
 
 body.lotus-organic .project-navigation > .project-arrow .lotus-nav-japanese {
-    display: none !important;
+    display: none;
+}
+
+body.lotus-organic .project-navigation > .project-arrow:hover .lotus-nav-english,
+body.lotus-organic .project-navigation > .project-arrow:focus-visible .lotus-nav-english {
+    display: none;
+}
+
+body.lotus-organic .project-navigation > .project-arrow:hover .lotus-nav-japanese,
+body.lotus-organic .project-navigation > .project-arrow:focus-visible .lotus-nav-japanese {
+    display: inline;
+    font-family: "Jost", sans-serif;
+    font-size: 17px;
+    letter-spacing: 0.04em;
 }
 
 /* Walkthrough: make the green frame substantial and unmistakable. */
@@ -2231,16 +2195,47 @@ body.lotus-organic .lotus-section {
     overflow: hidden;
 }
 
-body.lotus-organic .lotus-overview { background: #173C61; }
-body.lotus-organic .lotus-challenge { background: #71344F; }
-body.lotus-organic .lotus-onboarding { background: #426B4B; }
-body.lotus-organic .lotus-prototype { background: #284C37; }
-body.lotus-organic .lotus-direction { background: #24445A; }
-body.lotus-organic .lotus-journey { background: #426B4B; }
-body.lotus-organic .lotus-process { background: #302832; }
-body.lotus-organic .lotus-experience { background: #284C37; }
-body.lotus-organic .lotus-brand { background: #71344F; }
-body.lotus-organic .lotus-next-steps { background: #173C61; }
+/* LOTUS SECTION BACKGROUNDS */
+
+body.lotus-organic .lotus-overview {
+    background: #173C61;
+}
+
+body.lotus-organic .lotus-challenge {
+    background: #71344F;
+}
+
+body.lotus-organic .lotus-onboarding {
+    background: #284C37;
+}
+
+body.lotus-organic .lotus-prototype {
+    background: #173C61;
+}
+
+body.lotus-organic .lotus-direction {
+    background: #71344F;
+}
+
+body.lotus-organic .lotus-journey {
+    background: #284C37;
+}
+
+body.lotus-organic .lotus-process {
+    background: #173C61;
+}
+
+body.lotus-organic .lotus-experience {
+    background: #284C37;
+}
+
+body.lotus-organic .lotus-brand {
+    background: #71344F;
+}
+
+body.lotus-organic .lotus-next-steps {
+    background: #173C61;
+}
 
 body.lotus-organic .lotus-overview,
 body.lotus-organic .lotus-direction,
@@ -2272,9 +2267,9 @@ body.lotus-organic .lotus-section-heading h2 {
     line-height: 1.15;
 }
 
-body.lotus-organic .project-story h2::after,
-body.lotus-organic .lotus-section h2::after,
-body.lotus-organic .lotus-section-heading h2::after {
+body.lotus-organic .project-story h2:not(.lotus-bubble-title)::after,
+body.lotus-organic .lotus-section h2:not(.lotus-bubble-title)::after,
+body.lotus-organic .lotus-section-heading h2:not(.lotus-bubble-title)::after {
     content: none !important;
     display: none !important;
 }
@@ -2343,7 +2338,7 @@ body.lotus-organic .lotus-experience .lotus-feature-image {
 body.lotus-organic .lotus-direction .story-image { background: var(--lotus-green); }
 
 body.lotus-organic .lotus-direction .story-text .lotus-conversation-heading {
-    margin-top: clamp(48px, 6vw, 68px);
+    margin-top: clamp(76px, 8vw, 104px);
 }
 
 body.lotus-organic .lotus-direction .story-image > p {
@@ -2431,7 +2426,7 @@ body.lotus-organic .lotus-conversation-heading .lotus-bubble-title::after {
 body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow::after {
     left: auto;
 	right: -10px;
-    clip-path: polygon(100% 0, 100% 100%, 0 50%);
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
 body.lotus-organic .lotus-conversation-heading .lotus-bubble-title::after {
@@ -2459,6 +2454,12 @@ body.lotus-organic .lotus-bubble-translation {
     transition: opacity 180ms ease, visibility 180ms ease;
 }
 
+/* =========================================================
+   LOTUS SPEECH-BUBBLE HOVER COLORS
+   ========================================================= */
+
+/* DEFAULT EYEBROW HOVER — MAROON */
+
 body.lotus-organic .lotus-bubble-eyebrow:hover,
 body.lotus-organic .lotus-bubble-eyebrow:focus-visible {
     background: #A8324A;
@@ -2470,6 +2471,8 @@ body.lotus-organic .lotus-bubble-eyebrow:focus-visible::after {
     background: #A8324A;
 }
 
+/* DEFAULT TITLE HOVER — GREEN */
+
 body.lotus-organic .lotus-bubble-title:hover,
 body.lotus-organic .lotus-bubble-title:focus-visible {
     background: var(--lotus-green);
@@ -2480,6 +2483,111 @@ body.lotus-organic .lotus-bubble-title:hover::after,
 body.lotus-organic .lotus-bubble-title:focus-visible::after {
     background: var(--lotus-green);
 }
+
+/* THE DESIGN OPPORTUNITY — CHALLENGE BLUE */
+
+body.lotus-organic .lotus-challenge .lotus-bubble-eyebrow:hover,
+body.lotus-organic .lotus-challenge .lotus-bubble-eyebrow:focus-visible {
+    background: #365F7D;
+    color: #FFFFFF !important;
+}
+
+body.lotus-organic .lotus-challenge .lotus-bubble-eyebrow:hover::after,
+body.lotus-organic .lotus-challenge .lotus-bubble-eyebrow:focus-visible::after {
+    background: #365F7D;
+}
+
+/* ONBOARDING FLOW — CHALLENGE BLUE */
+
+body.lotus-organic .lotus-onboarding .lotus-bubble-title:hover,
+body.lotus-organic .lotus-onboarding .lotus-bubble-title:focus-visible {
+    background: #365F7D;
+    color: #FFFFFF !important;
+}
+
+body.lotus-organic .lotus-onboarding .lotus-bubble-title:hover::after,
+body.lotus-organic .lotus-onboarding .lotus-bubble-title:focus-visible::after {
+    background: #365F7D;
+}
+
+/* COLOR, TYPE & COMPONENTS — CHALLENGE BLUE */
+
+body.lotus-organic .lotus-direction .lotus-bubble-eyebrow:hover,
+body.lotus-organic .lotus-direction .lotus-bubble-eyebrow:focus-visible {
+    background: #365F7D;
+    color: #FFFFFF !important;
+}
+
+body.lotus-organic .lotus-direction .lotus-bubble-eyebrow:hover::after,
+body.lotus-organic .lotus-direction .lotus-bubble-eyebrow:focus-visible::after {
+    background: #365F7D;
+}
+
+/* DESIGNING FOR THE LEARNER — CHALLENGE BLUE */
+
+body.lotus-organic .lotus-journey .lotus-bubble-eyebrow:hover,
+body.lotus-organic .lotus-journey .lotus-bubble-eyebrow:focus-visible {
+    background: #365F7D;
+    color: #FFFFFF !important;
+}
+
+body.lotus-organic .lotus-journey .lotus-bubble-eyebrow:hover::after,
+body.lotus-organic .lotus-journey .lotus-bubble-eyebrow:focus-visible::after {
+    background: #365F7D;
+}
+
+/* USER JOURNEY — MAROON */
+
+body.lotus-organic .lotus-journey .lotus-bubble-title:hover,
+body.lotus-organic .lotus-journey .lotus-bubble-title:focus-visible {
+    background: #A8324A;
+    color: #FFFFFF !important;
+}
+
+body.lotus-organic .lotus-journey .lotus-bubble-title:hover::after,
+body.lotus-organic .lotus-journey .lotus-bubble-title:focus-visible::after {
+    background: #A8324A;
+}
+
+/* APP EXPERIENCE — CHALLENGE BLUE */
+
+body.lotus-organic .lotus-experience .lotus-bubble-title:hover,
+body.lotus-organic .lotus-experience .lotus-bubble-title:focus-visible {
+    background: #365F7D;
+    color: #FFFFFF !important;
+}
+
+body.lotus-organic .lotus-experience .lotus-bubble-title:hover::after,
+body.lotus-organic .lotus-experience .lotus-bubble-title:focus-visible::after {
+    background: #365F7D;
+}
+
+/* WHAT I WOULD REFINE NEXT — GREEN */
+
+body.lotus-organic .lotus-next-steps .lotus-bubble-eyebrow:hover,
+body.lotus-organic .lotus-next-steps .lotus-bubble-eyebrow:focus-visible {
+    background: var(--lotus-green);
+    color: #FFFFFF !important;
+}
+
+body.lotus-organic .lotus-next-steps .lotus-bubble-eyebrow:hover::after,
+body.lotus-organic .lotus-next-steps .lotus-bubble-eyebrow:focus-visible::after {
+    background: var(--lotus-green);
+}
+
+/* DESIGN CONSIDERATIONS & NEXT STEPS — MAROON */
+
+body.lotus-organic .lotus-next-steps .lotus-bubble-title:hover,
+body.lotus-organic .lotus-next-steps .lotus-bubble-title:focus-visible {
+    background: #A8324A;
+    color: #FFFFFF !important;
+}
+
+body.lotus-organic .lotus-next-steps .lotus-bubble-title:hover::after,
+body.lotus-organic .lotus-next-steps .lotus-bubble-title:focus-visible::after {
+    background: #A8324A;
+}
+
 
 body.lotus-organic .lotus-bubble-eyebrow:hover .lotus-bubble-translation,
 body.lotus-organic .lotus-bubble-title:hover .lotus-bubble-translation,
@@ -2765,6 +2873,7 @@ body.lotus-organic .lotus-prototype-callout {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    align-self: flex-end;
     width: 100%;
     max-width: 220px;
     color: #F3B7D5;
@@ -2960,6 +3069,7 @@ body.lotus-organic .lotus-games-caption {
     margin-inline: auto;
     white-space: nowrap;
     font-size: 16px;
+    text-align: center;
 }
 
 body.lotus-organic .lotus-feature-notes {
@@ -3026,24 +3136,28 @@ body.lotus-organic .lotus-brand .lotus-logo-animation video.video-medium {
 
 body.lotus-organic .lotus-brand .lotus-logo-animation figcaption { width: 100%; margin: 14px auto 0; text-align: center; }
 
-/* Design considerations panel and contact section. */
 body.lotus-organic .lotus-next-steps-copy {
     box-sizing: border-box;
     padding: clamp(22px, 3vw, 36px);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 22px;
-    background: #173C61;
+    background: var(--lotus-green);
     color: #FFFFFF;
 }
 
-body.lotus-organic .lotus-next-steps-copy p { color: #FFFFFF !important; }
-body.lotus-organic .lotus-next-steps-copy p + p { margin-top: 18px; }
+body.lotus-organic .lotus-next-steps-copy p {
+    color: #FFFFFF !important;
+}
+
+body.lotus-organic .lotus-next-steps-copy p + p {
+    margin-top: 18px;
+}
 
 body.lotus-organic .lotus-next-steps-copy p.lotus-progress-callout {
-    margin: 24px 0;
-    padding: clamp(18px, 2.5vw, 28px);
-    border-radius: 12px;
-    background: var(--lotus-green);
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
     color: #FFFFFF;
 }
 
@@ -3109,21 +3223,20 @@ body.lotus-organic .lotus-contact .lotus-contact-button {
     padding: 17px 30px;
     border: 2px solid #00E5FF;
     border-radius: 16px;
-    background: #00E5FF;
-    color: #FFFFFF;
+    background: #FFFFFF;
+    color: #00BFD5;
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
     font-family: "Barlow Condensed", sans-serif;
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.28em;
-    text-decoration: underline;
-    text-decoration-color: #FFFFFF;
-    text-underline-offset: 4px;
+    text-decoration: none;
     text-transform: uppercase;
     transition: color 220ms ease, background 220ms ease,
                 border-color 220ms ease, transform 220ms ease;
 }
 
+/* Speech-bubble tail */
 body.lotus-organic .lotus-contact .lotus-contact-button::after {
     content: "";
     position: absolute;
@@ -3131,24 +3244,43 @@ body.lotus-organic .lotus-contact .lotus-contact-button::after {
     top: 50%;
     width: 15px;
     height: 18px;
-    background: #00E5FF;
+    background: #FFFFFF;
     clip-path: polygon(100% 0, 100% 100%, 0 50%);
     transform: translateY(-50%);
     transition: background 220ms ease;
 }
 
+/* Expanding underline */
+body.lotus-organic .lotus-contact .lotus-contact-button::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    width: 0;
+    height: 2px;
+    background: #00E5FF;
+    transform: translateX(-50%);
+    transition: width 250ms ease;
+}
+
 body.lotus-organic .lotus-contact .lotus-contact-button:hover,
 body.lotus-organic .lotus-contact .lotus-contact-button:focus-visible {
-    background: #FFFFFF;
-    border-color: #FFFFFF;
-    color: var(--lotus-blue);
+    background: var(--lotus-blue);
+    border-color: var(--lotus-blue);
+    color: #00E5FF;
     transform: translateY(-2px);
 }
 
 body.lotus-organic .lotus-contact .lotus-contact-button:hover::after,
 body.lotus-organic .lotus-contact .lotus-contact-button:focus-visible::after {
-    background: #FFFFFF;
+    background: var(--lotus-blue);
 }
+
+body.lotus-organic .lotus-contact .lotus-contact-button:hover::before,
+body.lotus-organic .lotus-contact .lotus-contact-button:focus-visible::before {
+    width: calc(100% - 60px);
+}
+
 body.lotus-organic a:focus-visible { outline: 3px solid #00E5FF; outline-offset: 4px; }
 
 /* Responsive layout. */
@@ -4403,94 +4535,6 @@ body.deets-page .deets-growth-head {
 body.deets-page .deets-growth-svg:nth-child(2) {
     z-index: 2;
 }
-
-/*
-
-body.clean-organic .project-title h1 { color:#7FD69A !important; }
-body.clean-organic .clean-prototype-preview { width:min(212px,100%); max-width:212px; margin:0 auto; }
-body.clean-organic .clean-prototype-button { margin-top:28px; }
-body.clean-organic .clean-prototype .enter-button::after { display:none !important; }
-
-.clean-organic .clean-energy-pulse {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: min(420px, 75%);
-    height: 32px;
-    margin: 30px auto 0;
-}
-
-
-.clean-organic .clean-energy-pulse::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: rgba(184, 201, 167, 0.4);
-    transform: translateY(-50%);
-}
-
-.clean-organic .clean-energy-pulse span {
-    position: relative;
-    z-index: 1;
-    width: 8px;
-    height: 8px;
-    border: 1px solid var(--clean-sage);
-    border-radius: 50%;
-    background: #003b18;
-    box-shadow: 0 0 8px rgba(184, 201, 167, 0.25);
-}
-
-
-.clean-organic .clean-energy-pulse i {
-    position: absolute;
-    z-index: 2;
-    top: 50%;
-    left: 0;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--clean-sage);
-    box-shadow:
-        0 0 8px rgba(184, 201, 167, 0.8),
-        0 0 18px rgba(114, 149, 109, 0.65);
-    transform: translate(-50%, -50%);
-    animation: clean-energy-travel 5.5s ease-in-out infinite;
-}
-
-@keyframes clean-energy-travel {
-    0% {
-        left: 0%;
-        opacity: 0;
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    90% {
-        opacity: 1;
-    }
-
-    100% {
-        left: 100%;
-        opacity: 0;
-    }
-}
-
-
-@media (prefers-reduced-motion: reduce) {
-    .clean-organic .clean-energy-pulse i {
-        animation: none;
-        left: 50%;
-        opacity: 1;
-    }
-}
-
-*/
 
 /* =========================================================
    TAGGED REPAIR — OCTOBER 2026
