@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* UI/UX project-specific rules: Phasepoint/Chrono Nexus, Clean Future Network, Lotus Lingo, My Deets. */
+/* UI/UX project-specific rules: Phasepoint/Chrono Nexus, Lotus Lingo, My Deets. */
 
 /* =========================================================
    SHARED UI/UX PROJECT HEADER AND OVERVIEW LAYOUT
@@ -5760,6 +5760,458 @@ body.lotus-organic .lotus-overview .story-text .lotus-bubble-title {
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow,
+    body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
+        visibility: visible;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* =========================================================
+   LOTUS LINGO — FINAL SPEECH BUBBLE REFINEMENTS
+   November 2026
+   Append at the very end of uiux.css
+========================================================= */
+
+/* ---------------------------------------------------------
+   SECTION HEADING BUBBLES
+   White backgrounds; consistent eyebrow and title colors.
+--------------------------------------------------------- */
+
+body.lotus-organic .lotus-conversation-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 28px;
+    text-align: center;
+}
+
+/* Both heading bubbles */
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow,
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
+    position: relative;
+    display: block;
+    width: fit-content;
+    max-width: min(100%, 760px);
+    box-sizing: border-box;
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 1px solid rgba(23, 60, 97, 0.15);
+    border-radius: 18px;
+    background: #FFFFFF;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.13);
+    text-align: center;
+    line-height: 1.25;
+}
+
+/* Eyebrow: consistent dark pink lettering */
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow {
+    align-self: flex-start;
+    margin-left: clamp(0px, 2vw, 24px);
+    padding: 8px 16px;
+    color: #71344F !important;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    transform-origin: 18% 100%;
+}
+
+/* Eyebrow tail — lower left */
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow::after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    bottom: -9px;
+    width: 15px;
+    height: 15px;
+    background: #FFFFFF;
+    border-right: 1px solid rgba(23, 60, 97, 0.15);
+    border-bottom: 1px solid rgba(23, 60, 97, 0.15);
+    transform: rotate(45deg);
+}
+
+/* Main title: consistent deep blue lettering */
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
+    align-self: flex-end;
+    margin-right: clamp(0px, 2vw, 24px);
+    padding: 12px 24px;
+    color: #173C61 !important;
+    font-family: "Jost", sans-serif;
+    font-size: clamp(1.55rem, 3.4vw, 2.65rem);
+    font-weight: 700;
+    letter-spacing: 0.015em;
+    transform-origin: 82% 100%;
+}
+
+/* Title tail — lower right */
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-title::after {
+    content: "";
+    position: absolute;
+    right: 22px;
+    bottom: -9px;
+    width: 15px;
+    height: 15px;
+    background: #FFFFFF;
+    border-right: 1px solid rgba(23, 60, 97, 0.15);
+    border-bottom: 1px solid rgba(23, 60, 97, 0.15);
+    transform: rotate(45deg);
+}
+
+/* Heading alignment options */
+body.lotus-organic .lotus-conversation-heading.align-left {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+body.lotus-organic .lotus-conversation-heading.align-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.lotus-organic .lotus-conversation-heading.align-right {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* Keep body copy left-aligned in story panels */
+body.lotus-organic .project-story .story-text .lotus-conversation-heading {
+    width: 100%;
+    margin-bottom: 28px;
+}
+
+body.lotus-organic .project-story .story-text .lotus-bubble-eyebrow {
+    align-self: flex-start;
+}
+
+body.lotus-organic .project-story .story-text .lotus-bubble-title {
+    align-self: flex-end;
+}
+
+/* Overview heading remains centered within its story panel */
+body.lotus-organic .lotus-overview .story-text .lotus-conversation-heading {
+    align-items: center;
+}
+
+/* ---------------------------------------------------------
+   HEADING POP ANIMATION
+   Eyebrow appears first; title follows after 280ms.
+--------------------------------------------------------- */
+
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow,
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
+    visibility: hidden;
+    transform: scale(0.18);
+    transition:
+        transform 430ms cubic-bezier(0.2, 1.45, 0.45, 1),
+        visibility 0s linear 430ms;
+}
+
+body.lotus-organic .lotus-conversation-heading.is-visible .lotus-bubble-eyebrow {
+    visibility: visible;
+    transform: scale(1);
+    transition-delay: 0s;
+}
+
+body.lotus-organic .lotus-conversation-heading.is-visible .lotus-bubble-title {
+    visibility: visible;
+    transform: scale(1);
+    transition-delay: 280ms, 280ms;
+}
+
+/* ---------------------------------------------------------
+   ONBOARDING NUMBERS AND USER JOURNEY LABELS
+   Add small tails without changing their existing size,
+   color, typography, or hover behavior.
+--------------------------------------------------------- */
+
+body.lotus-organic .lotus-flow-number,
+body.lotus-organic .lotus-journey-number {
+    position: relative;
+    overflow: visible;
+}
+
+/* Shared tail shape */
+body.lotus-organic .lotus-flow-number::after,
+body.lotus-organic .lotus-journey-number::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    width: 9px;
+    height: 9px;
+    background: #71344F;
+    transform: rotate(45deg);
+}
+
+/* Left-facing tail */
+body.lotus-organic .lotus-tail-left::after {
+    left: 12px;
+}
+
+/* Right-facing tail */
+body.lotus-organic .lotus-tail-right::after {
+    right: 12px;
+}
+
+/* Journey labels retain their existing pill shape */
+body.lotus-organic .lotus-label-bubble {
+    border-radius: 999px;
+}
+
+/* ---------------------------------------------------------
+   PROJECT NAVIGATION BUBBLES
+   English by default; Japanese on hover/focus.
+--------------------------------------------------------- */
+
+body.lotus-organic .project-arrow .lotus-nav-bubble {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 42px;
+    box-sizing: border-box;
+    padding: 8px 13px;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 999px;
+    background: #FFFFFF;
+    color: #173C61;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    white-space: nowrap;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+/* Hide Japanese until interaction */
+body.lotus-organic .lotus-nav-bubble span:last-child {
+    display: none;
+}
+
+body.lotus-organic .project-arrow.prev:hover .lotus-nav-bubble,
+body.lotus-organic .project-arrow.prev:focus-visible .lotus-nav-bubble {
+    background: #426B4B;
+    border-color: #426B4B;
+    color: #FFFFFF;
+}
+
+body.lotus-organic .project-arrow.next:hover .lotus-nav-bubble,
+body.lotus-organic .project-arrow.next:focus-visible .lotus-nav-bubble {
+    background: #365F7D;
+    border-color: #365F7D;
+    color: #FFFFFF;
+}
+
+body.lotus-organic .project-arrow:hover .lotus-nav-bubble span:first-child,
+body.lotus-organic .project-arrow:focus-visible .lotus-nav-bubble span:first-child {
+    display: none;
+}
+
+body.lotus-organic .project-arrow:hover .lotus-nav-bubble span:last-child,
+body.lotus-organic .project-arrow:focus-visible .lotus-nav-bubble span:last-child {
+    display: inline;
+}
+
+/* Small speech-bubble tails */
+body.lotus-organic .project-arrow .lotus-nav-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    width: 9px;
+    height: 9px;
+    background: inherit;
+    transform: rotate(45deg);
+}
+
+body.lotus-organic .project-arrow.prev .lotus-nav-bubble::after {
+    left: 10px;
+}
+
+body.lotus-organic .project-arrow.next .lotus-nav-bubble::after {
+    right: 10px;
+}
+
+/* ---------------------------------------------------------
+   MAIN PROJECT TITLE BUBBLES
+--------------------------------------------------------- */
+
+body.lotus-organic .lotus-project-name-bubble,
+body.lotus-organic .lotus-project-subtitle-bubble {
+    position: relative;
+    display: table;
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 9px 20px;
+    border-radius: 18px;
+    background: #FFFFFF;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.13);
+    text-align: center;
+}
+
+/* Project name */
+body.lotus-organic .lotus-project-name-bubble {
+    margin: 0 auto 20px;
+    color: #71344F !important;
+}
+
+/* Subtitle */
+body.lotus-organic .lotus-project-subtitle-bubble {
+    margin: 0 auto;
+    color: #173C61 !important;
+}
+
+/* Project title tails */
+body.lotus-organic .lotus-project-name-bubble::after,
+body.lotus-organic .lotus-project-subtitle-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    width: 14px;
+    height: 14px;
+    background: #FFFFFF;
+    transform: rotate(45deg);
+}
+
+body.lotus-organic .lotus-project-name-bubble::after {
+    right: 20px;
+}
+
+body.lotus-organic .lotus-project-subtitle-bubble::after {
+    left: 20px;
+}
+
+/* Japanese translation appears only on hover/focus */
+body.lotus-organic .lotus-project-name-bubble span:last-child,
+body.lotus-organic .lotus-project-subtitle-bubble span:last-child {
+    display: none;
+}
+
+body.lotus-organic .lotus-project-name-bubble:hover span:first-child,
+body.lotus-organic .lotus-project-subtitle-bubble:hover span:first-child,
+body.lotus-organic .lotus-project-name-bubble:focus-visible span:first-child,
+body.lotus-organic .lotus-project-subtitle-bubble:focus-visible span:first-child {
+    display: none;
+}
+
+body.lotus-organic .lotus-project-name-bubble:hover span:last-child,
+body.lotus-organic .lotus-project-subtitle-bubble:hover span:last-child,
+body.lotus-organic .lotus-project-name-bubble:focus-visible span:last-child,
+body.lotus-organic .lotus-project-subtitle-bubble:focus-visible span:last-child {
+    display: inline;
+}
+
+/* ---------------------------------------------------------
+   CONTACT BUBBLES
+--------------------------------------------------------- */
+
+body.lotus-organic .lotus-contact-invitation {
+    position: relative;
+    display: table;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 0 26px auto;
+    padding: 12px 22px;
+    border-radius: 20px;
+    background: #FFFFFF;
+    color: #173C61 !important;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Invitation tail points right */
+body.lotus-organic .lotus-contact-invitation::after {
+    content: "";
+    position: absolute;
+    right: 22px;
+    bottom: -8px;
+    width: 14px;
+    height: 14px;
+    background: #FFFFFF;
+    transform: rotate(45deg);
+}
+
+/* Contact button: oval cyan bubble */
+body.lotus-organic .lotus-contact .lotus-contact-button {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    padding: 12px 28px;
+    border: 1px solid #00E5FF;
+    border-radius: 999px;
+    background: #00E5FF;
+    color: #06080B;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    text-align: center;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+/* Preserve the white hover treatment */
+body.lotus-organic .lotus-contact .lotus-contact-button:hover,
+body.lotus-organic .lotus-contact .lotus-contact-button:focus-visible {
+    background: #FFFFFF;
+    border-color: #FFFFFF;
+    color: #173C61;
+}
+
+/* ---------------------------------------------------------
+   MOBILE ADJUSTMENTS
+--------------------------------------------------------- */
+
+@media (max-width: 700px) {
+    body.lotus-organic .lotus-conversation-heading {
+        gap: 12px;
+        width: 100%;
+        margin-bottom: 22px;
+    }
+
+    body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow {
+        max-width: 92%;
+        margin-left: 0;
+        padding: 7px 12px;
+        font-size: 0.82rem;
+        letter-spacing: 0.1em;
+    }
+
+    body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
+        max-width: 96%;
+        margin-right: 0;
+        padding: 10px 15px;
+        font-size: clamp(1.35rem, 6vw, 2rem);
+        overflow-wrap: anywhere;
+    }
+
+    body.lotus-organic .lotus-project-name-bubble,
+    body.lotus-organic .lotus-project-subtitle-bubble {
+        max-width: 96%;
+    }
+
+    body.lotus-organic .lotus-contact-invitation {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Respect reduced-motion preferences */
 @media (prefers-reduced-motion: reduce) {
     body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow,
     body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {

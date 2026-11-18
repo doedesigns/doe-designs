@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../css/main.css">
-	<link rel="stylesheet" href="../css/nav.css">
-	<link rel="stylesheet" href="../css/uiux.css">
-	<link rel="stylesheet" href="../css/mobile.css">
-   
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;700;900&family=Caveat:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/uiux.css">
+    <link rel="stylesheet" href="../css/mobile.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;700;900&family=Caveat:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
 <!-- Microsoft Clarity -->
     <script>
@@ -53,52 +53,60 @@
 <!-- HEADER -->
 
 <header>
-        <nav class="navbar">
+    <nav class="navbar">
 
-            <a href="../index.html" class="logo">
-                <span class="logo-doe">DOE</span>
-                <span class="logo-designs">designs</span>
+        <a href="../index.html" class="logo">
+            <span class="logo-doe">DOE</span>
+            <span class="logo-designs">designs</span>
+        </a>
+
+        <button class="menu-toggle"
+                aria-label="Toggle navigation"
+                aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-links">
+            <li><a href="../uiux.html" class="active">UI/UX</a></li>
+            <li><a href="../design.html">Graphic Design</a></li>
+            <li><a href="../branding.html">Branding</a></li>
+            <li><a href="../motion.html">Motion</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+        </ul>
+
+        <div class="project-title-nav">
+
+            <a href="my-deets.html"
+               class="project-arrow prev lotus-nav-bubble"
+               aria-label="Previous project: My Deets">
+                <span class="arrow-circle">
+                    <span class="arrow-triangle"></span>
+                </span>
+                <span class="lotus-nav-label">
+                    <span class="lotus-nav-english">PREVIOUS</span>
+                    <span class="lotus-nav-japanese" lang="ja" aria-hidden="true">前</span>
+                </span>
             </a>
 
-            <button class="menu-toggle"
-                    aria-label="Toggle navigation"
-                    aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <h1>Lotus Lingo</h1>
 
-            <ul class="nav-links">
-                <li><a href="../uiux.html" class="active">UI/UX</a></li>
-                <li><a href="../design.html">Graphic Design</a></li>
-                <li><a href="../branding.html">Branding</a></li>
-                <li><a href="../motion.html">Motion</a></li>
-                <li><a href="../about.html">About</a></li>
-                <li><a href="../contact.html">Contact</a></li>
-            </ul>
+            <a href="chrono.html"
+               class="project-arrow next lotus-nav-bubble"
+               aria-label="Next project: Chrono Nexus">
+                <span class="arrow-circle">
+                    <span class="arrow-triangle"></span>
+                </span>
+                <span class="lotus-nav-label">
+                    <span class="lotus-nav-english">NEXT</span>
+                    <span class="lotus-nav-japanese" lang="ja" aria-hidden="true">次</span>
+                </span>
+            </a>
 
-            <div class="project-title-nav">
-
-                <a href="my-deets.html"
-                   class="project-arrow prev"
-                   aria-label="Previous project: My Deets">
-                    <span class="arrow-circle">
-                        <span class="arrow-triangle"></span>
-                    </span>
-                </a>
-
-                <h1>Lotus Lingo</h1>
-
-                <a href="chrono.html"
-                   class="project-arrow next"
-                   aria-label="Next project: Chrono Nexus">
-                    <span class="arrow-circle">
-                        <span class="arrow-triangle"></span>
-                    </span>
-                </a>
-
-            </div>
-        </nav>
+        </div>
+    </nav>
 </header>
 
 <main class="project-container lotus-case">
@@ -107,153 +115,168 @@
 
 <section class="project-navigation">
 
-            <a href="my-deets.html"
-               class="project-arrow prev"
-               aria-label="Previous project: My Deets">
-                <span class="arrow-circle">
-                    <span class="arrow-triangle"></span>
-                </span>
-            </a>
+    <a href="my-deets.html"
+       class="project-arrow prev lotus-nav-bubble"
+       aria-label="Previous project: My Deets">
+        <span class="arrow-circle">
+            <span class="arrow-triangle"></span>
+        </span>
+        <span class="lotus-nav-label">
+            <span class="lotus-nav-english">PREVIOUS</span>
+            <span class="lotus-nav-japanese" lang="ja" aria-hidden="true">前</span>
+        </span>
+    </a>
 
-            <div class="project-title">
-                <h1>
-                    Lotus Lingo
-                    <span class="title-break">Conceptual Mobile App Design</span>
-                </h1>
-            </div>
+    <div class="project-title">
+        <h1>
+            <span class="lotus-project-name-bubble">
+                Lotus Lingo
+                <span class="lotus-title-japanese" lang="ja" aria-hidden="true">ロータスリンゴ</span>
+            </span>
+            <span class="title-break lotus-project-subtitle-bubble">
+                Conceptual Mobile App Design
+                <span class="lotus-title-japanese" lang="ja" aria-hidden="true">コンセプトモバイルアプリデザイン</span>
+            </span>
+        </h1>
+    </div>
 
-            <a href="chrono.html"
-               class="project-arrow next"
-               aria-label="Next project: Chrono Nexus">
-                <span class="arrow-circle">
-                    <span class="arrow-triangle"></span>
-                </span>
-            </a>
+    <a href="chrono.html"
+       class="project-arrow next lotus-nav-bubble"
+       aria-label="Next project: Chrono Nexus">
+        <span class="arrow-circle">
+            <span class="arrow-triangle"></span>
+        </span>
+        <span class="lotus-nav-label">
+            <span class="lotus-nav-english">NEXT</span>
+            <span class="lotus-nav-japanese" lang="ja" aria-hidden="true">次</span>
+        </span>
+    </a>
 </section>
 
 <!-- WALKTHROUGH -->
 
 <section class="project-hero video-hero lotus-video">
 
-            <div class="video-player">
-                <iframe
-                    src="https://www.youtube.com/embed/dwnjsVbT2R0"
-                    title="Lotus Lingo mobile app UI/UX design walkthrough"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen>
-                </iframe>
-            </div>
+    <div class="video-player">
+        <iframe
+            src="https://www.youtube.com/embed/dwnjsVbT2R0"
+            title="Lotus Lingo mobile app UI/UX design walkthrough"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+        </iframe>
+    </div>
 
 </section>
 
 <!-- PROJECT DETAILS -->
 
-        <div class="project-year">2025 | Academic Project</div>
+<div class="project-year">2025 | Academic Project</div>
 
 <section class="project-details lotus-details">
 
-            <div class="detail-box">
-                <h3>TOOLS</h3>
-                <p>Figma</p>
-                <p>Adobe Illustrator</p>
-                <p>Adobe Photoshop</p>
-            </div>
+    <div class="detail-box">
+        <h3>TOOLS</h3>
+        <p>Figma</p>
+        <p>Adobe Illustrator</p>
+        <p>Adobe Photoshop</p>
+    </div>
 
-            <div class="detail-box">
-                <h3>MY ROLE</h3>
-                <p>Product Designer</p>
-                <p>UI/UX Designer</p>
-                <p>Mobile App Designer</p>
-                <p>Independent Academic Project</p>
-            </div>
+    <div class="detail-box">
+        <h3>MY ROLE</h3>
+        <p>Product Designer</p>
+        <p>UI/UX Designer</p>
+        <p>Mobile App Designer</p>
+        <p>Independent Academic Project</p>
+    </div>
 
-            <div class="detail-box">
-                <h3>DELIVERABLES</h3>
-                <p>App Concept &amp; Identity</p>
-                <p>Information Architecture</p>
-                <p>Wireframes &amp; Hi-Fi Designs</p>
-                <p>Interactive User Flows</p>
-                <p>High-Fidelity Prototype</p>
-            </div>
+    <div class="detail-box">
+        <h3>DELIVERABLES</h3>
+        <p>App Concept &amp; Identity</p>
+        <p>Information Architecture</p>
+        <p>Wireframes &amp; Hi-Fi Designs</p>
+        <p>Interactive User Flows</p>
+        <p>High-Fidelity Prototype</p>
+    </div>
 
-            <div class="detail-box">
-                <h3>ASSETS &amp; CREDITS</h3>
-                <p>Teuida: reference imagery for educational purposes</p>
-                <p>Envato Elements: licensed assets and mockups</p>
-            </div>
+    <div class="detail-box">
+        <h3>ASSETS &amp; CREDITS</h3>
+        <p>Teuida: reference imagery for educational purposes</p>
+        <p>Envato Elements: licensed assets and mockups</p>
+    </div>
 
 </section>
 
 <!-- PROJECT OVERVIEW -->
 
 <section class="project-story story-text-left lotus-overview">
-            <div class="story-text">
-                <div class="lotus-conversation-heading">
-                    <p class="lotus-eyebrow lotus-bubble-eyebrow">A CONCEPTUAL LANGUAGE-LEARNING APP</p>
-                    <h2 class="lotus-bubble-title">PROJECT OVERVIEW</h2>
-                </div>
 
-                <p>Lotus Lingo is a conceptual mobile language-learning app designed to make learning Japanese more engaging through structured lessons, interactive games, and community features.</p>
+    <div class="story-text">
+        <div class="lotus-conversation-heading align-left">
+            <p class="lotus-eyebrow lotus-bubble-eyebrow">A CONCEPTUAL LANGUAGE-LEARNING APP<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">コンセプトの語学学習アプリ</span></p>
+            <h2 class="lotus-bubble-title">PROJECT OVERVIEW<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">プロジェクト概要</span></h2>
+        </div>
 
-                <p>The project explored the experience from onboarding and daily practice to progress tracking, rewards, and personalized learning. More than 100 designed screens demonstrate how a cohesive visual system can support a complete mobile product.</p>
-            </div>
+        <p>Lotus Lingo is a conceptual Japanese-learning app shaped by my own experience teaching myself the language with several different learning tools. I wanted to bring the most useful parts of that experience into one place while addressing a few recurring frustrations: unclear lesson progression, repetitive practice, and limited ways to use a language beyond the lesson itself.</p>
 
-            <div class="story-image lightbox-image">
-                <img
-                    class="img-large"
-                    src="../images/ui/lotus-lingo/2.5.8-lotus-lingo-mockup.jpg"
-                    alt="Lotus Lingo mobile app mockup showing the visual design across multiple screens"
-                    data-lightbox-text="The Lotus Lingo mobile mockup brings the visual identity and interface system together across multiple app screens. Lotus Lingo’s home screen introduces a welcoming learning environment, with clear navigation to lessons, games, and progress.">
+        <p>The concept connects guided lessons with writing and speaking practice, games, music discovery, and community spaces. Its structure is designed to help learners understand what to do next while still giving them room to choose how they practice. I developed more than 100 high-fidelity screens to explore the product across onboarding, learning, motivation, and social features.</p>
+    </div>
 
-                <p>Lotus Lingo / Mobile app mockup</p>
-            </div>
+    <div class="story-image lightbox-image">
+        <img
+            class="img-large"
+            src="../images/ui/lotus-lingo/2.5.8-lotus-lingo-mockup.jpg"
+            alt="Lotus Lingo mobile app mockup showing the visual design across multiple screens"
+            data-lightbox-text="The Lotus Lingo mobile mockup brings the visual identity and interface system together across multiple app screens. Lotus Lingo’s home screen introduces a welcoming learning environment, with clear navigation to lessons, games, and progress.">
+
+        <p>Lotus Lingo / Mobile app mockup</p>
+    </div>
 
 </section>
 
 <!-- CHALLENGE AND SOLUTION -->
 
 <section class="lotus-section lotus-challenge">
-	
-		<svg class="lotus-decoration" viewBox="0 0 140 100"
-			 aria-hidden="true" focusable="false">
-			<g fill="none" stroke="currentColor" stroke-width="2"
-			   stroke-linecap="round" stroke-linejoin="round">
-				<path d="M70 79 C42 65 34 43 42 20 C59 32 68 52 70 79Z"/>
-				<path d="M70 79 C98 65 106 43 98 20 C81 32 72 52 70 79Z"/>
-				<path d="M70 79 C51 56 54 28 70 8 C86 28 89 56 70 79Z"/>
-				<path d="M28 67 C41 70 53 75 70 79 C87 75 99 70 112 67"/>
-				<path d="M19 82 C40 87 55 88 70 88 C85 88 100 87 121 82"/>
-			</g>
-		</svg>
 
-            <div class="lotus-section-heading">
-                <div class="lotus-conversation-heading">
-                    <p class="lotus-eyebrow lotus-bubble-eyebrow">THE DESIGN OPPORTUNITY</p>
-                    <h2 class="lotus-bubble-title">CHALLENGE &amp; SOLUTION</h2>
-                </div>
-            </div>
+    <svg class="lotus-decoration" viewBox="0 0 140 100"
+         aria-hidden="true" focusable="false">
+        <g fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+            <path d="M70 79 C42 65 34 43 42 20 C59 32 68 52 70 79Z"/>
+            <path d="M70 79 C98 65 106 43 98 20 C81 32 72 52 70 79Z"/>
+            <path d="M70 79 C51 56 54 28 70 8 C86 28 89 56 70 79Z"/>
+            <path d="M28 67 C41 70 53 75 70 79 C87 75 99 70 112 67"/>
+            <path d="M19 82 C40 87 55 88 70 88 C85 88 100 87 121 82"/>
+        </g>
+    </svg>
 
-            <div class="lotus-challenge-grid">
+    <div class="lotus-section-heading">
+        <div class="lotus-conversation-heading align-center">
+            <p class="lotus-eyebrow lotus-bubble-eyebrow">THE DESIGN OPPORTUNITY<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">デザインの課題</span></p>
+            <h2 class="lotus-bubble-title">CHALLENGE &amp; SOLUTION<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">課題と解決策</span></h2>
+        </div>
+    </div>
 
-                <article class="lotus-statement lotus-challenge-card">
-                    <span class="lotus-number">01</span>
-                    <h3>THE CHALLENGE</h3>
+    <div class="lotus-challenge-grid">
 
-                    <p>Make language learning engaging and sustainable. </p>
+        <article class="lotus-statement lotus-challenge-card">
+            <span class="lotus-number">01</span>
+            <h3>THE CHALLENGE</h3>
 
-                    <p>Learners need more than vocabulary drills. The experience should accommodate different learning styles, encourage consistent practice, and make progress feel rewarding.</p>
-                </article>
+            <p>Help learners build momentum without making the experience feel repetitive.</p>
 
-                <article class="lotus-statement lotus-solution-card">
-                    <span class="lotus-number">02</span>
-                    <h3>THE SOLUTION</h3>
+            <p>Learning Japanese involves more than memorizing vocabulary. Learners move between different writing systems, written and spoken practice, and formal and informal language. They also need a clear sense of progression and reasons to return between lessons.</p>
+        </article>
 
-                    <p>Design a flexible, interactive learning experience. </p>
+        <article class="lotus-statement lotus-solution-card">
+            <span class="lotus-number">02</span>
+            <h3>THE SOLUTION</h3>
 
-                    <p>Lotus Lingo combines structured lessons with games, progress tracking, cultural content, and community features in a unified mobile interface.</p>
-                </article>
-            </div>
+            <p>Connect structured learning with meaningful ways to practice.</p>
+
+            <p>Lotus Lingo pairs a guided lesson sequence with distinct writing and speaking activities, games, rewards, music discovery, and level-based community rooms. The goal is to make the next step easy to find while offering different ways to reinforce what learners are studying.</p>
+        </article>
+    </div>
 </section>
 
 <!-- ONBOARDING FLOW -->
@@ -261,52 +284,51 @@
 <section class="lotus-section lotus-onboarding">
 
     <div class="lotus-section-heading">
-        <div class="lotus-conversation-heading">
-            <p class="lotus-eyebrow lotus-bubble-eyebrow">A CLEAR PATH INTO LEARNING</p>
-            <h2 class="lotus-bubble-title">ONBOARDING FLOW</h2>
+        <div class="lotus-conversation-heading align-center">
+            <p class="lotus-eyebrow lotus-bubble-eyebrow">A CLEAR PATH INTO LEARNING<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">学習への明確な道筋</span></p>
+            <h2 class="lotus-bubble-title">ONBOARDING FLOW<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">オンボーディングの流れ</span></h2>
         </div>
         <p>
-            The onboarding experience introduces Lotus Lingo and guides
-            new learners toward their first language-learning activities.
+            Onboarding introduces the app's learning approach, helps new learners get oriented, and creates a clear route from first visit to first lesson. Each step is intended to make the next action feel understandable rather than leaving learners to navigate a collection of disconnected features.
         </p>
     </div>
 
     <ol class="lotus-flow-grid">
 
         <li class="lotus-flow-step">
-            <span class="lotus-flow-number">01</span>
+            <span class="lotus-flow-number lotus-tail-left">01</span>
             <h3>Welcome</h3>
-            <p>Introduce the app and its approach to learning Japanese.</p>
+            <p>Set expectations and introduce the app's approach to learning Japanese.</p>
         </li>
 
         <li class="lotus-flow-step">
-            <span class="lotus-flow-number">02</span>
+            <span class="lotus-flow-number lotus-tail-right">02</span>
             <h3>Initial Setup</h3>
-            <p>Guide the learner through the setup shown in the prototype.</p>
+            <p>Establish the learner's starting point and move through the initial setup.</p>
         </li>
 
         <li class="lotus-flow-step">
-            <span class="lotus-flow-number">03</span>
+            <span class="lotus-flow-number lotus-tail-left">03</span>
             <h3>Learning Introduction</h3>
-            <p>Introduce the learning options and how to get started.</p>
+            <p>Show how lessons and practice activities fit into the learning experience.</p>
         </li>
 
         <li class="lotus-flow-step">
-            <span class="lotus-flow-number">04</span>
+            <span class="lotus-flow-number lotus-tail-right">04</span>
             <h3>First Lesson</h3>
-            <p>Bring the learner into a guided language lesson.</p>
+            <p>Move from orientation into a structured first lesson.</p>
         </li>
 
         <li class="lotus-flow-step">
-            <span class="lotus-flow-number">05</span>
+            <span class="lotus-flow-number lotus-tail-left">05</span>
             <h3>Practice</h3>
-            <p>Explore an interactive activity to reinforce learning.</p>
+            <p>Reinforce the lesson with an interactive practice activity.</p>
         </li>
 
         <li class="lotus-flow-step">
-            <span class="lotus-flow-number">06</span>
+            <span class="lotus-flow-number lotus-tail-right">06</span>
             <h3>Continue Learning</h3>
-            <p>Transition into the app's ongoing learning experience.</p>
+            <p>Give learners a clear route into the app's ongoing lesson and practice options.</p>
         </li>
 
     </ol>
@@ -320,22 +342,23 @@
 <!-- INTERACTIVE PROTOTYPE -->
 
 <section class="lotus-section lotus-prototype" id="lotus-prototype">
-	<svg class="lotus-decoration" viewBox="0 0 140 100"
-     aria-hidden="true" focusable="false">
-    <g fill="none" stroke="currentColor" stroke-width="2"
-       stroke-linecap="round" stroke-linejoin="round">
-        <path d="M70 79 C42 65 34 43 42 20 C59 32 68 52 70 79Z"/>
-        <path d="M70 79 C98 65 106 43 98 20 C81 32 72 52 70 79Z"/>
-        <path d="M70 79 C51 56 54 28 70 8 C86 28 89 56 70 79Z"/>
-        <path d="M28 67 C41 70 53 75 70 79 C87 75 99 70 112 67"/>
-        <path d="M19 82 C40 87 55 88 70 88 C85 88 100 87 121 82"/>
-    </g>
-</svg>
+
+    <svg class="lotus-decoration" viewBox="0 0 140 100"
+         aria-hidden="true" focusable="false">
+        <g fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+            <path d="M70 79 C42 65 34 43 42 20 C59 32 68 52 70 79Z"/>
+            <path d="M70 79 C98 65 106 43 98 20 C81 32 72 52 70 79Z"/>
+            <path d="M70 79 C51 56 54 28 70 8 C86 28 89 56 70 79Z"/>
+            <path d="M28 67 C41 70 53 75 70 79 C87 75 99 70 112 67"/>
+            <path d="M19 82 C40 87 55 88 70 88 C85 88 100 87 121 82"/>
+        </g>
+    </svg>
 
     <div class="lotus-section-heading">
-        <div class="lotus-conversation-heading">
-            <p class="lotus-eyebrow lotus-bubble-eyebrow">TRY THE EXPERIENCE</p>
-            <h2 class="lotus-bubble-title">INTERACTIVE PROTOTYPE</h2>
+        <div class="lotus-conversation-heading align-center">
+            <p class="lotus-eyebrow lotus-bubble-eyebrow">TRY THE EXPERIENCE<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">体験してみる</span></p>
+            <h2 class="lotus-bubble-title">INTERACTIVE PROTOTYPE<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">インタラクティブなプロトタイプ</span></h2>
         </div>
 
         <p>Explore the Lotus Lingo prototype to experience the app's navigation, lessons, games, and interactive features.</p>
@@ -343,7 +366,7 @@
 
     <div class="lotus-prototype-showcase">
 
-<!-- Clickable prototype image -->
+        <!-- Clickable prototype image -->
         <a
             href="https://www.figma.com/proto/HX7Pf4ldVH67OnTA24SNs7/LotusLingo-App?page-id=1%3A6&amp;node-id=52-4474&amp;starting-point-node-id=52%3A4474&amp;t=MEnTJMubVzLyRYCp-1"
             target="_blank"
@@ -362,7 +385,7 @@
 
         </a>
 
-<!-- Handwritten callout and curved arrow -->
+        <!-- Handwritten callout and curved arrow -->
         <a
             class="lotus-prototype-callout"
             href="https://www.figma.com/proto/HX7Pf4ldVH67OnTA24SNs7/LotusLingo-App?page-id=1%3A6&amp;node-id=52-4474&amp;starting-point-node-id=52%3A4474&amp;t=MEnTJMubVzLyRYCp-1"
@@ -395,68 +418,67 @@
             <span>View Interactive Prototype</span>
 
         </a>
-	</div>
+    </div>
 </section>
 
 <!-- CREATIVE DIRECTION -->
 
 <section class="project-story story-image-left lotus-direction">
-	<svg class="lotus-decoration" viewBox="0 0 140 100"
-     aria-hidden="true" focusable="false">
-    <g fill="none" stroke="currentColor" stroke-width="2"
-       stroke-linecap="round" stroke-linejoin="round">
-        <path d="M70 79 C42 65 34 43 42 20 C59 32 68 52 70 79Z"/>
-        <path d="M70 79 C98 65 106 43 98 20 C81 32 72 52 70 79Z"/>
-        <path d="M70 79 C51 56 54 28 70 8 C86 28 89 56 70 79Z"/>
-        <path d="M28 67 C41 70 53 75 70 79 C87 75 99 70 112 67"/>
-        <path d="M19 82 C40 87 55 88 70 88 C85 88 100 87 121 82"/>
-    </g>
-</svg>
 
-            <div class="story-image lightbox-image">
-                <img
-                    class="img-large"
-                    src="../images/ui/lotus-lingo/2.5.4-lotus-design-system.jpg"
-                    alt="Lotus Lingo design system showing brand elements, typography, colors, and interface components"
-                    data-lightbox-text="The Lotus Lingo design system establishes the visual foundation through color, typography, interface components, and reusable design patterns."
-                    loading="lazy">
+    <svg class="lotus-decoration" viewBox="0 0 140 100"
+         aria-hidden="true" focusable="false">
+        <g fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+            <path d="M70 79 C42 65 34 43 42 20 C59 32 68 52 70 79Z"/>
+            <path d="M70 79 C98 65 106 43 98 20 C81 32 72 52 70 79Z"/>
+            <path d="M70 79 C51 56 54 28 70 8 C86 28 89 56 70 79Z"/>
+            <path d="M28 67 C41 70 53 75 70 79 C87 75 99 70 112 67"/>
+            <path d="M19 82 C40 87 55 88 70 88 C85 88 100 87 121 82"/>
+        </g>
+    </svg>
 
-                <p>Visual identity / Design system</p>
-            </div>
+    <div class="story-image lightbox-image">
+        <img
+            class="img-large"
+            src="../images/ui/lotus-lingo/2.5.4-lotus-design-system.jpg"
+            alt="Lotus Lingo design system showing brand elements, typography, colors, and interface components"
+            data-lightbox-text="The Lotus Lingo design system establishes the visual foundation through color, typography, interface components, and reusable design patterns."
+            loading="lazy">
 
-            <div class="story-text">
-                <div class="lotus-conversation-heading">
-                    <p class="lotus-eyebrow lotus-bubble-eyebrow">COLOR, TYPE &amp; COMPONENTS</p>
-                    <h2 class="lotus-bubble-title">CREATIVE DIRECTION</h2>
-                </div>
+        <p>Visual identity / Design system</p>
+    </div>
 
-                <p>The visual identity pairs playful illustration with a bright palette of light green, deep pink, light blue, and soft peach. Consistent interface components, navigation, and visual feedback create a welcoming experience across the app.</p>
+    <div class="story-text">
+        <div class="lotus-conversation-heading align-right">
+            <p class="lotus-eyebrow lotus-bubble-eyebrow">COLOR, TYPE &amp; COMPONENTS<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">色・文字・コンポーネント</span></p>
+            <h2 class="lotus-bubble-title">CREATIVE DIRECTION<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">クリエイティブディレクション</span></h2>
+        </div>
 
-                <p>The design system supports a broad range of features, from reading, writing, and pronunciation exercises to games, rewards, community interaction, and progress tracking. Featured Katakana lessons demonstrate how structured explanations, character recognition, and writing practice can work together within a cohesive interface.</p>
-            </div>
+        <p>The visual identity uses a bright palette of greens, deep pink, light blue, and soft peach, balanced with friendly typography and original illustrations. I created the lotus, cherry blossoms, torii gates, profile artwork, and navigation icons to give the product a recognizable visual language rather than relying entirely on generic interface elements.</p>
+
+        <p>The interface also needed to make different kinds of Japanese practice feel distinct. Reading and writing activities, pronunciation and speaking exercises, and formal versus informal language each have different learning needs. The Katakana lesson screens show how explanations, character recognition, pronunciation support, and writing practice can be organized into a more guided sequence.</p>
+    </div>
 
 </section>
-	
+
 <!-- USER JOURNEY -->
 
 <section class="lotus-section lotus-journey">
 
     <div class="lotus-section-heading">
-        <div class="lotus-conversation-heading">
-            <p class="lotus-eyebrow lotus-bubble-eyebrow">DESIGNING FOR THE LEARNER</p>
-            <h2 class="lotus-bubble-title">USER JOURNEY</h2>
+        <div class="lotus-conversation-heading align-right">
+            <p class="lotus-eyebrow lotus-bubble-eyebrow">DESIGNING FOR THE LEARNER<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">学習者のためのデザイン</span></p>
+            <h2 class="lotus-bubble-title">USER JOURNEY<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">ユーザージャーニー</span></h2>
         </div>
         <p>
-            A hypothetical journey illustrating how a learner might
-            discover Lotus Lingo, engage with its learning activities,
-            and build a consistent practice routine.
+            This proposed journey maps the experience from first-time setup to ongoing practice. It helped me consider what learners may need at each stage, where they could lose momentum, and how the app's features might support a return visit.
         </p>
     </div>
 
     <div class="lotus-journey-grid">
 
         <article class="lotus-journey-card">
-            <span class="lotus-journey-number">01 / GETTING STARTED</span>
+            <span class="lotus-journey-number lotus-label-bubble lotus-tail-left">01 / GETTING STARTED</span>
             <h3>Discover &amp; Begin</h3>
 
             <h4>USER GOAL</h4>
@@ -473,7 +495,7 @@
         </article>
 
         <article class="lotus-journey-card">
-            <span class="lotus-journey-number">02 / LEARNING</span>
+            <span class="lotus-journey-number lotus-label-bubble lotus-tail-right">02 / LEARNING</span>
             <h3>Learn &amp; Practice</h3>
 
             <h4>USER GOAL</h4>
@@ -490,7 +512,7 @@
         </article>
 
         <article class="lotus-journey-card">
-            <span class="lotus-journey-number">03 / CONTINUING</span>
+            <span class="lotus-journey-number lotus-label-bubble lotus-tail-left">03 / CONTINUING</span>
             <h3>Track &amp; Return</h3>
 
             <h4>USER GOAL</h4>
@@ -515,54 +537,57 @@
 
 </section>
 
-
 <!-- PROCESS -->
 
 <section class="project-story story-text-left lotus-process">
 
-            <div class="story-text">
-                <div class="lotus-conversation-heading">
-                    <p class="lotus-eyebrow lotus-bubble-eyebrow">RESEARCH &amp; INFORMATION ARCHITECTURE</p>
-                    <h2 class="lotus-bubble-title">FROM RESEARCH TO DESIGN</h2>
-                </div>
+    <div class="story-text">
+        <div class="lotus-conversation-heading align-center">
+            <p class="lotus-eyebrow lotus-bubble-eyebrow">RESEARCH &amp; INFORMATION ARCHITECTURE<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">リサーチと情報設計</span></p>
+            <h2 class="lotus-bubble-title">FROM RESEARCH TO DESIGN<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">リサーチからデザインへ</span></h2>
+        </div>
 
-                <p>
-                    Research into existing language-learning apps highlighted
-                    opportunities to expand beyond repetitive vocabulary
-                    practice. Preparing for a trip to Japan also prompted a
-                    closer look at the challenges of learning Japanese,
-                    including its multiple writing systems and different
-                    learning needs.
-                </p>
+        <p>
+            I reviewed several language-learning apps and drew on my
+            own experience teaching myself Japanese. That combination
+            helped me identify opportunities to make lesson progression
+            clearer and to bring different kinds of practice together.
+            Japanese also presents specific interface challenges:
+            learners move between hiragana, katakana, and kanji, as well
+            as written and spoken language and different levels of formality.
+        </p>
 
-                <p>
-                    These insights informed an experience built around flexible
-                    learning paths, structured progression, and varied forms
-                    of engagement. I developed a high-fidelity Figma prototype
-                    with more than 100 screens spanning lessons, games, music,
-                    community features, and account management.
-                </p>
+        <p>
+            These observations informed an experience with a clear
+            lesson sequence, separate writing and speaking activities,
+            and multiple ways to practice beyond the core lesson. I
+            developed a high-fidelity Figma prototype with more than
+            100 screens spanning onboarding, lessons, games, music
+            discovery, community features, rewards, and account management.
+        </p>
 
-                <p>
-                    Although the larger RPG-style learning game remained a
-                    future concept, the final prototype established a framework
-                    for an expanded, interactive learning experience.
-                </p>
-            </div>
+        <p>
+            The project was a concept and was not validated through
+            formal usability testing. The prototype allowed me to map
+            the intended experience and explore its interaction patterns,
+            but the next step would be to test the flows with learners
+            and refine them using observed behavior.
+        </p>
+    </div>
 
-            <div class="story-image lightbox-image">
-                <img
-                    class="img-large"
-                    src="../images/ui/lotus-lingo/2.5.3-lotus-map.jpg"
-                    alt="Lotus Lingo mobile app concept map and information architecture"
-                    data-lightbox-text="The Lotus Lingo concept map explores how users move through onboarding, lessons, practice activities, progress tracking, community features, and account management."
-                    loading="lazy">
+    <div class="story-image lightbox-image">
+        <img
+            class="img-large"
+            src="../images/ui/lotus-lingo/2.5.3-lotus-map.jpg"
+            alt="Lotus Lingo mobile app concept map and information architecture"
+            data-lightbox-text="The Lotus Lingo concept map explores how users move through onboarding, lessons, practice activities, progress tracking, community features, and account management."
+            loading="lazy">
 
-                <p>App concept map / Information architecture</p>
-            </div>
+        <p>App concept map / Information architecture</p>
+    </div>
 
 </section>
-
+	
 <!-- THE APP EXPERIENCE -->
 
 <section class="lotus-section lotus-experience">
@@ -580,18 +605,18 @@
     </svg>
 
     <div class="lotus-section-heading">
-        <div class="lotus-conversation-heading">
-            <p class="lotus-eyebrow lotus-bubble-eyebrow">LEARN, PRACTICE &amp; PLAY</p>
-            <h2 class="lotus-bubble-title">THE APP EXPERIENCE</h2>
+        <div class="lotus-conversation-heading align-center">
+            <p class="lotus-eyebrow lotus-bubble-eyebrow">LEARN, PRACTICE &amp; PLAY<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">学び・練習・遊び</span></p>
+            <h2 class="lotus-bubble-title">THE APP EXPERIENCE<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">アプリの体験</span></h2>
         </div>
         <p>
-            From guided language lessons to interactive challenges,
-            the interface brings multiple learning methods together
-            in one connected mobile experience.
+            The product concept extends beyond the lesson itself. Learners can
+            practice through games, explore Japanese music, connect with others,
+            and see how their activity contributes to their progress.
         </p>
     </div>
 
-<!-- GAMES WALKTHROUGH: CALLOUT ON THE LEFT -->
+    <!-- GAMES WALKTHROUGH: CALLOUT ON THE LEFT -->
 
     <div class="lotus-callout-row lotus-callout-left">
 
@@ -617,29 +642,29 @@
             </svg>
         </div>
 
-		<figure class="lotus-games-figure">
-			<video class="video-player"
-				   controls
-				   autoplay
-				   muted
-				   loop
-				   playsinline
-				   preload="metadata">
-				<source
-					src="../images/ui/lotus-lingo/2.5.11-lotus-games-recording.mp4"
-					type="video/mp4">
-				Your browser does not support HTML video.
-			</video>
+        <figure class="lotus-games-figure">
+            <video class="video-player"
+                   controls
+                   autoplay
+                   muted
+                   loop
+                   playsinline
+                   preload="metadata">
+                <source
+                    src="../images/ui/lotus-lingo/2.5.11-lotus-games-recording.mp4"
+                    type="video/mp4">
+                Your browser does not support HTML video.
+            </video>
 
-			<figcaption>
-				<strong>Interactive Games Walkthrough</strong>
-				Explore the app's game-based language-learning experience.
-			</figcaption>
-		</figure>
+            <figcaption>
+                <strong>Interactive Games Walkthrough</strong>
+                Explore the app's game-based language-learning experience.
+            </figcaption>
+        </figure>
 
     </div>
 
-<!-- KATAKANA LESSONS: CALLOUT ON THE RIGHT -->
+    <!-- KATAKANA LESSONS: CALLOUT ON THE RIGHT -->
 
     <div class="lotus-callout-row lotus-callout-right">
 
@@ -660,7 +685,8 @@
         <div class="lotus-handwritten-callout">
             <svg class="lotus-curved-arrow lotus-arrow-left"
                  viewBox="0 0 130 70"
-                 aria-hidden="true" focusable="false">
+                 aria-hidden="true"
+                 focusable="false">
                 <path
                     d="M122 12 C91 2 78 53 37 51 C27 51 19 47 12 42"
                     fill="none"
@@ -677,6 +703,23 @@
             </svg>
             <span>Katakana, made clear.</span>
         </div>
+    </div>
+
+    <div class="lotus-feature-notes">
+        <article class="lotus-feature-note">
+            <h3>COMMUNITY &amp; CONVERSATION</h3>
+            <p>Premium chat rooms are organized around learner levels and shared interests, with topics such as animals, anime, fashion, food, and music. The concept also explores career- and location-based conversation spaces to give learners more relevant ways to connect and practice.</p>
+        </article>
+
+        <article class="lotus-feature-note">
+            <h3>MUSIC &amp; CULTURAL DISCOVERY</h3>
+            <p>A curated Japanese music area introduces artists and album-inspired selections as another way to engage with the language. English spellings are included to make artists easier to search for outside the app. This is a static concept in the prototype, not a live music integration.</p>
+        </article>
+
+        <article class="lotus-feature-note">
+            <h3>PROGRESS &amp; MOTIVATION</h3>
+            <p>The profile and stats area is designed as a destination for lesson progress and earned awards, with the intention that these indicators update as learners use the app. The prototype illustrates the intended interface; it does not store activity or automatically update a learner's progress.</p>
+        </article>
     </div>
 </section>
 
@@ -697,9 +740,9 @@
     </svg>
 
     <div class="lotus-section-heading">
-        <div class="lotus-conversation-heading">
-            <p class="lotus-eyebrow lotus-bubble-eyebrow">A COHESIVE VISUAL IDENTITY</p>
-            <h2 class="lotus-bubble-title">BRAND IN ACTION</h2>
+        <div class="lotus-conversation-heading align-left">
+            <p class="lotus-eyebrow lotus-bubble-eyebrow">A COHESIVE VISUAL IDENTITY<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">一貫したビジュアルアイデンティティ</span></p>
+            <h2 class="lotus-bubble-title">BRAND IN ACTION<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">ブランドの展開</span></h2>
         </div>
         <p>
             The Lotus Lingo identity extends beyond individual screens
@@ -707,7 +750,7 @@
         </p>
     </div>
 
-<!-- BRAND ANIMATION: CALLOUT ON THE LEFT -->
+    <!-- BRAND ANIMATION: CALLOUT ON THE LEFT -->
 
     <div class="lotus-callout-row lotus-callout-left">
 
@@ -716,7 +759,8 @@
 
             <svg class="lotus-curved-arrow lotus-arrow-right"
                  viewBox="0 0 130 70"
-                 aria-hidden="true" focusable="false">
+                 aria-hidden="true"
+                 focusable="false">
                 <path
                     d="M8 12 C38 2 65 56 96 50"
                     fill="none"
@@ -756,26 +800,47 @@
     </div>
 </section>
 
+<!-- DESIGN CONSIDERATIONS & NEXT STEPS -->
+
+<section class="lotus-section lotus-next-steps">
+
+    <div class="lotus-section-heading">
+        <div class="lotus-conversation-heading align-center">
+            <p class="lotus-eyebrow lotus-bubble-eyebrow">WHAT I WOULD REFINE NEXT<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">次に改善したいこと</span></p>
+            <h2 class="lotus-bubble-title">DESIGN CONSIDERATIONS &amp; NEXT STEPS<span class="lotus-bubble-translation" lang="ja" aria-hidden="true">設計上の検討事項と次のステップ</span></h2>
+        </div>
+    </div>
+
+    <div class="lotus-next-steps-copy">
+        <p><strong>Make progress persistent.</strong> The stats screen was designed to reflect completed lessons and earned awards, but the prototype does not save learner activity. A future version would need persistent progress data and a thoughtful way to help returning learners pick up where they left off, while still allowing them to choose a different lesson.</p>
+
+        <p><strong>Validate the learning flows.</strong> The project was not tested through formal usability sessions. I would next test onboarding, lesson progression, and the distinction between writing, speaking, and language-register activities with Japanese learners at different experience levels.</p>
+
+        <p><strong>Connect the concept to real services and future content.</strong> Music discovery currently uses curated static content, and the additional language options are an exploration of future expansion rather than completed language experiences. A production version would need to validate content partnerships, build out each language's learning structure, and test the community features with users.</p>
+    </div>
+</section>
+
 <!-- CONTACT -->
 
 <section class="page-contact-link lotus-contact">
 
-            <p>Let's translate your ideas into a design that speaks.</p>
-            <a href="../contact.html" class="enter-button">
-                CONTACT ME</a>
+    <p class="lotus-contact-invitation">Let's translate your ideas into a design that speaks.<span class="lotus-contact-japanese" lang="ja" aria-hidden="true">アイデアを、伝わるデザインに。</span></p>
+
+    <a href="../contact.html" class="enter-button lotus-contact-button">
+        CONTACT ME<span class="lotus-contact-japanese" lang="ja" aria-hidden="true">お問い合わせ</span>
+    </a>
 
 </section>
 </main>
 
 <!-- FOOTER AND SCRIPTS -->
 
-    <footer id="footerCopyright"></footer>
+<footer id="footerCopyright"></footer>
 
-    <script src="../js/lightbox.js"></script>
-    <script src="../js/about-dust.js"></script>
-    <script src="../js/main.js"></script>
-	<script src="../js/nav.js"></script>
-
+<script src="../js/lightbox.js"></script>
+<script src="../js/about-dust.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/nav.js"></script>
 
 <!-- LOTUS LINGO: CONVERSATION-STYLE HEADING ANIMATION -->
 <script>
@@ -795,8 +860,8 @@
         });
     }, {
         root: null,
-        rootMargin: '-8% 0px -8% 0px',
-        threshold: 0.18
+        rootMargin: '-49% 0px -49% 0px',
+        threshold: 0
     });
 
     headings.forEach(function (heading) {
