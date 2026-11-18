@@ -5594,3 +5594,177 @@ body.design-page .design-card .software-overlay {
         font-size: 14px;
     }
 }
+
+
+/* =========================================================
+   LOTUS LINGO — CONVERSATION-STYLE SECTION HEADINGS
+   The eyebrow speaks first; the title answers.
+   ========================================================= */
+
+body.lotus-organic .lotus-conversation-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 24px;
+    text-align: center;
+}
+
+/* Keep the eyebrow and title as two distinct speech bubbles. */
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow,
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
+    position: relative;
+    display: block;
+    width: fit-content;
+    max-width: min(100%, 760px);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 10px 20px;
+    border: 1px solid rgba(23, 60, 97, 0.18);
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.13);
+    text-align: center;
+    line-height: 1.25;
+}
+
+/* First voice: compact pink bubble, with its tail toward the left. */
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow {
+    align-self: flex-start;
+    margin-left: clamp(0px, 2vw, 24px);
+    padding: 8px 16px;
+    background: #FFD0E5;
+    color: #71344F !important;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(0.9rem, 1.6vw, 1.08rem);
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    transform-origin: 18% 100%;
+}
+
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow::after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    bottom: -9px;
+    width: 15px;
+    height: 15px;
+    background: #FFD0E5;
+    border-right: 1px solid rgba(23, 60, 97, 0.18);
+    border-bottom: 1px solid rgba(23, 60, 97, 0.18);
+    transform: rotate(45deg);
+}
+
+/* Second voice: larger blue-white bubble, with its tail toward the right. */
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
+    align-self: flex-end;
+    margin-right: clamp(0px, 2vw, 24px);
+    padding: 12px 24px;
+    background: #E6F5FF;
+    color: #173C61 !important;
+    font-family: "Jost", sans-serif;
+    font-size: clamp(1.55rem, 3.4vw, 2.65rem);
+    font-weight: 700;
+    letter-spacing: 0.015em;
+    transform-origin: 82% 100%;
+}
+
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-title::after {
+    content: "";
+    position: absolute;
+    right: 22px;
+    bottom: -9px;
+    width: 15px;
+    height: 15px;
+    background: #E6F5FF;
+    border-right: 1px solid rgba(23, 60, 97, 0.18);
+    border-bottom: 1px solid rgba(23, 60, 97, 0.18);
+    transform: rotate(45deg);
+}
+
+/* Pop in without opacity/fading. The title follows the eyebrow. */
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow,
+body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
+    visibility: hidden;
+    transform: scale(0.18);
+    transition: transform 430ms cubic-bezier(0.2, 1.45, 0.45, 1), visibility 0s linear 430ms;
+}
+
+body.lotus-organic .lotus-conversation-heading.is-visible .lotus-bubble-eyebrow {
+    visibility: visible;
+    transform: scale(1);
+    transition-delay: 0s;
+}
+
+body.lotus-organic .lotus-conversation-heading.is-visible .lotus-bubble-title {
+    visibility: visible;
+    transform: scale(1);
+    transition-delay: 190ms, 190ms;
+}
+
+/* Story panels keep their existing left-aligned body copy. */
+body.lotus-organic .project-story .story-text .lotus-conversation-heading {
+    align-items: stretch;
+    margin: 0 0 24px;
+}
+
+body.lotus-organic .project-story .story-text .lotus-bubble-eyebrow {
+    align-self: flex-start;
+}
+
+body.lotus-organic .project-story .story-text .lotus-bubble-title {
+    align-self: flex-end;
+    text-align: center;
+}
+
+/* The overview heading sits within a story panel but remains centered. */
+body.lotus-organic .lotus-overview .story-text .lotus-conversation-heading {
+    align-items: center;
+}
+
+body.lotus-organic .lotus-overview .story-text .lotus-bubble-eyebrow {
+    align-self: flex-start;
+}
+
+body.lotus-organic .lotus-overview .story-text .lotus-bubble-title {
+    align-self: flex-end;
+}
+
+@media (max-width: 700px) {
+    body.lotus-organic .lotus-conversation-heading {
+        gap: 10px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow {
+        max-width: 92%;
+        margin-left: 0;
+        padding: 7px 12px;
+        font-size: 0.82rem;
+        letter-spacing: 0.1em;
+    }
+
+    body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
+        max-width: 96%;
+        margin-right: 0;
+        padding: 10px 15px;
+        font-size: clamp(1.35rem, 6vw, 2rem);
+        overflow-wrap: anywhere;
+    }
+
+    body.lotus-organic .project-story .story-text .lotus-conversation-heading {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.lotus-organic .lotus-conversation-heading .lotus-bubble-eyebrow,
+    body.lotus-organic .lotus-conversation-heading .lotus-bubble-title {
+        visibility: visible;
+        transform: none;
+        transition: none;
+    }
+}
