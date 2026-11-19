@@ -645,42 +645,7 @@ body.home-page {
 }
 
 /*=========================================================
-    SECRET STASH
-========================================================= */
-
-.home-page .secret-stash {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    min-height: 32px;
-    margin: 10px auto 0;
-    opacity: 0;
-    transition: opacity .3s ease;
-}
-
-.home-page .secret-stash:hover,
-.home-page .secret-stash:focus-within {
-    opacity: 1;
-}
-
-.home-page .secret-stash a {
-    display: inline-block;
-    padding: 4px 8px;
-    color: #00E5FF;
-    font-family: "Caveat", cursive;
-    font-size: 20px;
-    letter-spacing: .04em;
-    text-decoration: none;
-    transition: color .3s ease;
-}
-
-.home-page .secret-stash a:hover {
-    color: #fff;
-}
-
-/*=========================================================
-    HOMEPAGE NAVIGATION
+    SECRET STASH — HOMEPAGE NAVIGATION
 ========================================================= */
 
 .home-page .home-navbar {
@@ -690,13 +655,25 @@ body.home-page {
     justify-content: space-between;
 }
 
-/* Secret Stash: reserve space at the far left,
-   but keep the link invisible and inaccessible. */
+/* Hidden until the user hovers over the left-side link */
 
 .home-page .secret-stash-link {
     display: inline-block;
-    visibility: hidden;
+    color: #00E5FF;
+    font-family: "Caveat", cursive;
+    font-size: 20px;
+    letter-spacing: .04em;
+    text-decoration: none;
+    opacity: 0;
     pointer-events: none;
+    transition: opacity .3s ease, color .3s ease;
+}
+
+.home-page .secret-stash-link:hover,
+.home-page .secret-stash-link:focus-visible {
+    opacity: 1;
+    pointer-events: auto;
+    color: #fff;
 }
 
 /* Centered navigation title. */
