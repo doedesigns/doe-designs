@@ -3490,6 +3490,10 @@ body.lotus-organic .lotus-prototype-callout {
     body.lotus-organic .lotus-contact-button::after { transition: none; }
 }
 
+/* ============================================
+   MY DEETS 
+============================================ */
+
 body.deets-page {
     --deets-plum: #302632;
     --deets-lavender: #AB8FA8;
@@ -3551,7 +3555,7 @@ body.deets-page .project-title-nav h1 {
 }
 
 .deets-page .deets-life-illustration {
-    margin-bottom: 38px;
+    margin-bottom: 0px;
 }
 
 .deets-page .project-details {
@@ -3940,6 +3944,14 @@ body.deets-page .project-title-nav h1 {
     object-fit: contain;
 }
 
+/* Match the two supporting app-screen image heights */
+
+.deets-page .deets-screen-card .deets-screen-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .deets-page .deets-screen-copy h3,
 .deets-page .deets-screen-card h3,
 .deets-page .deets-home-caption h3 {
@@ -3973,8 +3985,13 @@ body.deets-page .project-title-nav h1 {
 }
 
 .deets-page .deets-screen-card .deets-screen-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
     width: 50%;
     max-width: 300px;
+    height: clamp(260px, 28vw, 340px);
     margin: 0 auto 24px;
 }
 
@@ -3988,12 +4005,32 @@ body.deets-page .project-title-nav h1 {
     letter-spacing: 0.16em;
 }
 
-.deets-page .deets-system-section,
-.deets-page .deets-identity-section {
+.deets-page .deets-system-section {
+    display: block;
+}
+
+.deets-page .deets-system-header {
     display: grid;
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
     align-items: center;
     gap: clamp(28px, 5vw, 64px);
+}
+
+.deets-page .deets-system-description {
+    width: 100%;
+    margin-top: 28px;
+}
+
+.deets-page .deets-system-description p {
+    color: var(--deets-pale);
+    line-height: 1.8;
+}
+
+/* Match the spacing immediately after centered growth arrows */
+
+body.deets-page #deets-prototype,
+body.deets-page #deets-design-system {
+    margin-top: 36px;
 }
 
 .deets-page .deets-system-copy,
@@ -4135,6 +4172,34 @@ body.deets-page .project-title-nav h1 {
     font-size:1.125rem;
 }
 
+/* Consistent paragraph spacing in My Deets sections */
+
+.deets-page #deets-screens .deets-section-heading > p:not(.deets-eyebrow) + p,
+.deets-page #deets-categories .deets-section-heading > p:not(.deets-eyebrow) + p,
+.deets-page .deets-category-feature > p:not(.deets-eyebrow) + p,
+.deets-page .deets-system-description > p + p {
+    margin-top: 22px;
+}
+
+/* ============================================
+   MY DEETS — FUTURE AI FEATURE
+============================================ */
+
+.deets-page .deets-category-feature {
+    max-width: 900px;
+    margin: 48px auto 0;
+    padding: 28px 34px;
+    border-left: 3px solid var(--deets-yellow);
+    background: rgba(48, 38, 50, 0.55);
+    text-align: left;
+}
+
+.deets-page .deets-category-feature p {
+    margin: 0;
+    color: var(--deets-pale);
+    line-height: 1.8;
+}
+
 .deets-page .deets-category-circle {
     display: flex;
     align-items: center;
@@ -4215,7 +4280,7 @@ body.deets-page .project-title-nav h1 {
     grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
     align-items: flex-start;
     gap: clamp(30px, 5vw, 70px);
-    margin-bottom: 56px;
+    margin-bottom: 0px;
 }
 
 .deets-page .deets-life-feature-copy {
@@ -4245,9 +4310,9 @@ body.deets-page .project-title-nav h1 {
 .deets-page .deets-settings-section {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 30px;
-    text-align: center;
+    text-align: left;
 }
 
 .deets-page .deets-settings-copy {
@@ -4257,17 +4322,18 @@ body.deets-page .project-title-nav h1 {
 }
 
 .deets-page .deets-settings-copy h2 {
-    margin-inline: auto;
+    margin-inline: 0;
 }
 
 .deets-page .deets-settings-copy > p {
-    max-width: 700px;
-    margin: 0 auto 18px;
+    max-width: 760px;
+    margin: 0 0 18px;
     color: var(--deets-pale);
     line-height: 1.8;
 }
 
 .deets-page .deets-settings-image {
+    align-self: center;
     width: 70%;
     max-width: 720px;
     margin-inline: auto;
@@ -4597,18 +4663,16 @@ body.deets-page .deets-growth-track {
     pointer-events: none;
 }
 
-/* Intro arrow spacing */
+/* Consistent spacing around all My Deets growth arrows */
 
 body.deets-page .deets-growth-track--centered {
-    margin-top: 24px;
-    margin-bottom: 0;
+    margin-top: 36px;
+    margin-bottom: 36px;
 }
 
-/* Life-stage arrow spacing */
-
 body.deets-page .deets-life-illustration .deets-growth-track {
-    margin-top: 28px;
-    margin-bottom: 0;
+    margin-top: 36px;
+    margin-bottom: 36px;
 }
 
 /* Prevent parent containers from clipping the arrow */
@@ -4646,6 +4710,39 @@ body.deets-page .deets-growth-head {
 
 body.deets-page .deets-growth-svg:nth-child(2) {
     z-index: 2;
+}
+
+/* ============================================
+   MY DEETS — FUTURE AI FEATURE
+============================================ */
+
+.deets-page .deets-category-feature {
+    max-width: 900px;
+    margin: 48px auto 0;
+    padding: 28px 34px;
+    border-left: 3px solid var(--deets-yellow);
+    background: rgba(48, 38, 50, 0.55);
+    text-align: left;
+}
+
+.deets-page .deets-category-feature .deets-eyebrow {
+    margin-bottom: 14px;
+}
+
+.deets-page .deets-category-feature h3 {
+    margin: 0 0 14px;
+    color: var(--deets-white);
+}
+
+.deets-page .deets-category-feature p:not(.deets-eyebrow) {
+    color: var(--deets-pale);
+    line-height: 1.8;
+}
+
+@media (max-width: 700px) {
+    .deets-page .deets-system-header {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* =========================================================

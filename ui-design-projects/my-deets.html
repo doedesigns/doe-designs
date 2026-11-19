@@ -62,8 +62,8 @@
 
             <ul class="nav-links">
                 <li><a href="../uiux.html" class="active">UI/UX</a></li>
-                <li><a href="../design.html">Design</a></li>
-                <li><a href="../branding.html">Branding</a></li>
+				<li><a href="../branding.html">Branding</a></li>
+                <li><a href="../design.html">Graphic Design</a></li>
                 <li><a href="../motion.html">Motion</a></li>
                 <li><a href="../about.html">About</a></li>
                 <li><a href="../contact.html">Contact</a></li>
@@ -81,9 +81,9 @@
 
                 <h1>My Deets</h1>
 
-                <a href="lotus-lingo.html"
+                <a href="chrono.html"
                    class="project-arrow next"
-                   aria-label="Next project: Lotus Lingo">
+                   aria-label="Next project: Phasepoint Technologies">
                     <span class="arrow-circle">
                         <span class="arrow-triangle"></span>
                     </span>
@@ -115,9 +115,9 @@
                 </h1>
             </div>
 
-            <a href="lotus-lingo.html"
+            <a href="chrono.html"
                class="project-arrow next"
-               aria-label="Next project: Lotus Lingo">
+               aria-label="Next project: Phasepoint Technologies">
                 <span class="arrow-circle">
                     <span class="arrow-triangle"></span>
                 </span>
@@ -283,7 +283,7 @@
     </div>
 
     <a
-        class="deets-prototype-preview lightbox-image"
+        class="deets-prototype-preview"
         href="https://www.figma.com/proto/bKeQ79ddPt4WzAKHqCKIzt/MyDeets---Declutter-App?node-id=42-4867&amp;viewport=-305%2C431%2C0.09&amp;t=szp7QtV426S83DYn-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=42%3A4867&amp;show-proto-sidebar=1&amp;page-id=0%3A1"
         target="_blank"
         rel="noopener noreferrer"
@@ -449,31 +449,39 @@
 <section class="deets-system-section deets-panel"
          id="deets-design-system">
 
-    <div class="deets-system-copy">
+    <div class="deets-system-header">
 
-        <p class="deets-eyebrow">THE VISUAL LANGUAGE</p>
+        <div class="deets-system-copy">
 
-        <h2>Distinct details.<br>One connected system.</h2>
+            <p class="deets-eyebrow">THE VISUAL LANGUAGE</p>
 
-		<p>A personal organization app needs to make a wide range of
-		information feel cohesive and easy to navigate. I developed
-		a visual system that balances structure with approachability,
-		using rounded forms, consistent components, and clear typography
-		to create a recognizable experience across categories.</p>
+            <h2>Distinct details.<br>One connected system.</h2>
 
-		<p>A muted purple palette establishes the app's identity, while
-		contrasting yellow accents draw attention to important elements
-		and create visual distinction without overwhelming the interface.</p>
+        </div>
+
+        <div class="deets-system-image story-image lightbox-image">
+            <img
+                class="img-large"
+                src="../images/ui/my-deets/2.2.3-deets-design-system.png"
+                alt="My Deets design system showing its logo, typography, color palette, interface components, and category icons"
+                data-lightbox-text="My Deets visual design system."
+                loading="lazy">
+        </div>
 
     </div>
 
-    <div class="deets-system-image story-image lightbox-image">
-        <img
-            class="img-large"
-            src="../images/ui/my-deets/2.2.3-deets-design-system.png"
-            alt="My Deets design system showing its logo, typography, color palette, interface components, and category icons"
-            data-lightbox-text="My Deets visual design system."
-            loading="lazy">
+    <div class="deets-system-description">
+
+        <p>A personal organization app needs to make a wide range of
+        information feel cohesive and easy to navigate. I developed
+        a visual system that balances structure with approachability,
+        using rounded forms, consistent components, and clear typography
+        to create a recognizable experience across categories.</p>
+
+        <p>A muted purple palette establishes the app's identity, while
+        contrasting yellow accents draw attention to important elements
+        and create visual distinction without overwhelming the interface.</p>
+
     </div>
 
 </section>
@@ -506,14 +514,14 @@
             <span class="deets-category-orb"> 
 			<img src="../images/icons/icon-credit-card.png" alt=""> </span>
             <h3>Credit Cards</h3>
-            <p>Keep payment-related information organized.</p>
+            <p>Keep credit card details and payment information organized.</p>
         </article>
 
         <article class="deets-category-item">
             <span class="deets-category-orb">
 			<img src="../images/icons/icon-money.png" alt=""></span>
             <h3>Money</h3>
-            <p>Bring everyday finances and financial records together.</p>
+            <p>Track accounts, income, expenses, assets, and liabilities.</p>
         </article>
 
         <article class="deets-category-item">
@@ -551,11 +559,11 @@
 
         <h3>A smarter way to stay organized.</h3>
 
-        <p>My Deets is envisioned with AI-assisted data entry
-        to reduce the effort involved in maintaining personal
-        records. Information could be extracted from uploaded
-        documents and, where supported, imported from connected
-        financial accounts to help populate relevant fields.</p>
+        <p>As a future enhancement, My Deets could use AI-assisted
+		data entry to reduce the effort involved in maintaining
+		personal records. Information could be extracted from
+		uploaded documents and, where supported, imported from
+		connected financial accounts to help populate relevant fields.</p>
 
         <p>The goal is to minimize manual data entry while
         keeping personal information organized and accessible.</p>
@@ -742,9 +750,60 @@
 
 <section class="page-contact-link deets-contact">
 
-            <p>Big life. Important details. One place to start.</p>
+    <p>Big life. Important details. One place to start.</p>
 
-            <a href="../contact.html" class="enter-button">CONTACT ME</a>
+    <!-- EXISTING ANIMATED GROWTH ARROW -->
+
+    <div class="deets-growth-track deets-growth-track--centered"
+         data-deets-growth-track
+         data-anchor="center"
+         aria-hidden="true">
+
+        <svg class="deets-growth-svg"
+             preserveAspectRatio="none">
+
+            <path class="deets-growth-path"
+                  d="M -100 56"
+                  fill="none"
+                  stroke="#E8E45C"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+
+            <path class="deets-growth-head"
+                  d="M -12 1 L 0 0 L -4 12"
+                  fill="none"
+                  stroke="#E8E45C"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+
+        </svg>
+
+        <svg class="deets-growth-svg"
+             preserveAspectRatio="none">
+
+            <path class="deets-growth-path"
+                  d="M -100 56"
+                  fill="none"
+                  stroke="#E8E45C"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+
+            <path class="deets-growth-head"
+                  d="M -12 1 L 0 0 L -4 12"
+                  fill="none"
+                  stroke="#E8E45C"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"/>
+
+        </svg>
+
+    </div>
+
+    <a href="../contact.html" class="enter-button">CONTACT ME</a>
 
 </section>
 </main>
