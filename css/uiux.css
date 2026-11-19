@@ -4761,18 +4761,7 @@ body.deets-page .deets-contact .deets-closing-statement {
 
 body.deets-page .deets-closing-statement span {
     display: block;
-}
-
-body.deets-page .deets-closing-statement span:nth-child(1) {
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-}
-
-body.deets-page .deets-closing-statement span:nth-child(2) {
-    font-size: clamp(2rem, 3.5vw, 2.8rem);
-}
-
-body.deets-page .deets-closing-statement span:nth-child(3) {
-    font-size: clamp(2.5rem, 4.5vw, 3.6rem);
+	font-size: clamp(2rem, 3vw, 2.5rem);
 }
 
 /* Keep the closing arrow and contact button connected */
@@ -4784,6 +4773,14 @@ body.deets-page .deets-contact .deets-growth-track--centered {
 
 body.deets-page .deets-contact .enter-button {
     margin-top: 0;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 700;
+    letter-spacing: .18em;
+}
+
+body.deets-page .deets-contact .enter-button:hover {
+    letter-spacing: .22em;
 }
 
 /* =========================================================
