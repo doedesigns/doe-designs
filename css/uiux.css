@@ -3386,7 +3386,7 @@ body.lotus-organic a:focus-visible { outline: 3px solid #00E5FF; outline-offset:
     body.lotus-organic .project-navigation > .project-arrow { flex-basis: 105px; width: 105px; margin-top: -8px; }
     body.lotus-organic .project-navigation > .project-arrow .lotus-nav-label { min-width: 68px; padding: 8px 10px; font-size: 13px; }
     body.lotus-organic .lotus-overview .story-image { width: 90%; max-width: 440px; }
-    body.lotus-organic .lotus-games-caption { width: auto; max-width: 100%; white-space: normal; }
+    body.lotus-organic .lotus-games-caption { width: max-content; max-width: none; white-space: nowrap; }
     body.lotus-organic .project-title h1 { font-size: clamp(32px, 8vw, 46px); }
     body.lotus-organic .lotus-project-name-bubble { padding: 8px 20px 10px; }
     body.lotus-organic .project-title .lotus-project-subtitle-bubble { padding: 6px 13px 7px; font-size: clamp(12px, 3vw, 16px); }
