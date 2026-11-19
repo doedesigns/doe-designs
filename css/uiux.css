@@ -2995,6 +2995,39 @@ body.lotus-organic .lotus-direction .story-image > p {
     text-align: center;
 }
 
+/* LOTUS PROCESS — TWO-COLUMN LAYOUT WITH FULL-WIDTH CONCLUSION */
+
+body.lotus-organic .lotus-process {
+    display: block;
+}
+
+body.lotus-organic .lotus-process-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: start;
+    gap: clamp(28px, 4vw, 56px);
+    width: 100%;
+}
+
+body.lotus-organic .lotus-process-copy,
+body.lotus-organic .lotus-process-image {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+body.lotus-organic .lotus-process-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+body.lotus-organic .lotus-process-conclusion {
+    width: 100%;
+    max-width: none;
+    margin-top: 24px;
+}
+
 body.lotus-organic .lotus-feature-image {
     width: 100%;
     max-width: 620px;
@@ -3418,6 +3451,16 @@ body.lotus-organic a:focus-visible { outline: 3px solid #00E5FF; outline-offset:
     body.lotus-organic .lotus-prototype-showcase {
     grid-template-columns: 1fr;
     gap: 20px;
+}
+	
+/* LOTUS PROCESS — STACK ON SMALL SCREENS */
+
+body.lotus-organic .lotus-process-layout {
+    grid-template-columns: 1fr;
+}
+
+body.lotus-organic .lotus-process-conclusion {
+    margin-top: 20px;
 }
 
 body.lotus-organic .lotus-prototype .prototype-image-link {
