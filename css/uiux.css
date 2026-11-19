@@ -2641,8 +2641,9 @@ body.lotus-organic .project-story .story-text .lotus-conversation-heading.align-
 /* MOVE CREATIVE DIRECTION HEADINGS DOWN */
 
 body.lotus-organic .lotus-direction .story-text .lotus-conversation-heading {
-    margin-top: clamp(150px, 15vw, 190px);
+    margin-top: clamp(38px, 3.75vw, 48px);
 }
+
 body.lotus-organic .project-story .story-text .lotus-bubble-eyebrow { align-self: flex-start; }
 body.lotus-organic .project-story .story-text .lotus-bubble-title { align-self: flex-end; }
 body.lotus-organic .lotus-overview .story-text .lotus-conversation-heading { align-items: center; }
@@ -2672,11 +2673,12 @@ body.lotus-organic .lotus-journey-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
     margin: 28px 0 0;
+	margin-top: 32px;
     padding: 0;
     list-style: none;
 }
 
-body.lotus-organic .lotus-journey-grid { margin-top: 0; }
+body.lotus-organic .lotus-journey-grid { margin-top: 32px; }
 
 body.lotus-organic .lotus-flow-number,
 body.lotus-organic .lotus-journey-number {
@@ -2791,14 +2793,35 @@ body.lotus-organic .lotus-statement p {
     line-height: 1.75;
 }
 
-/* A COHESIVE VISUAL IDENTITY — LIGHT CHALLENGE BLUE */
+/* A COHESIVE VISUAL IDENTITY — WHITE DEFAULT, PINK HOVER */
+
 body.lotus-organic .lotus-brand .lotus-bubble-eyebrow {
-    background: #365F7D;
-    color: #FFFFFF !important;
+    background: #FFFFFF;
+    color: #A8324A !important;
 }
 
 body.lotus-organic .lotus-brand .lotus-bubble-eyebrow::after {
-    background: #365F7D;
+    background: #FFFFFF;
+}
+
+/* Light pink hover */
+
+body.lotus-organic .lotus-brand .lotus-bubble-eyebrow:hover,
+body.lotus-organic .lotus-brand .lotus-bubble-eyebrow:focus-visible {
+    background: var(--lotus-pink-light);
+    color: var(--lotus-pink) !important;
+}
+
+body.lotus-organic .lotus-brand .lotus-bubble-eyebrow:hover::after,
+body.lotus-organic .lotus-brand .lotus-bubble-eyebrow:focus-visible::after {
+    background: var(--lotus-pink-light);
+}
+
+/* Japanese translation remains readable on hover */
+
+body.lotus-organic .lotus-brand .lotus-bubble-eyebrow:hover .lotus-bubble-translation,
+body.lotus-organic .lotus-brand .lotus-bubble-eyebrow:focus-visible .lotus-bubble-translation {
+    color: var(--lotus-pink);
 }
 
 body.lotus-organic .lotus-statement p:last-child { margin-bottom: 0; }
