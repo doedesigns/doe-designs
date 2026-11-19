@@ -655,24 +655,25 @@ body.home-page {
     justify-content: space-between;
 }
 
-/* Hidden until the user hovers over the left-side link */
+/* Secret Stash — hidden Easter egg */
 
 .home-page .secret-stash-link {
     display: inline-block;
+    min-width: 110px;
+    min-height: 32px;
     color: #00E5FF;
     font-family: "Caveat", cursive;
     font-size: 20px;
     letter-spacing: .04em;
     text-decoration: none;
     opacity: 0;
-    pointer-events: none;
+    pointer-events: auto;
     transition: opacity .3s ease, color .3s ease;
 }
 
 .home-page .secret-stash-link:hover,
 .home-page .secret-stash-link:focus-visible {
     opacity: 1;
-    pointer-events: auto;
     color: #fff;
 }
 
