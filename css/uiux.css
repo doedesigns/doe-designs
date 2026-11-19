@@ -4739,6 +4739,70 @@ body.deets-page .deets-growth-svg:nth-child(2) {
     line-height: 1.8;
 }
 
+/* ============================================
+   MY DEETS — CLOSING SECTION
+============================================ */
+
+body.deets-page .deets-contact {
+    margin-top: 45px;
+    padding: 25px 15px 20px;
+    text-align: center;
+    gap: 0;
+}
+
+body.deets-page .deets-contact .deets-closing-statement {
+    margin: 0 auto;
+    color: var(--deets-white);
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0.035em;
+}
+
+body.deets-page .deets-closing-statement span {
+    display: block;
+}
+
+body.deets-page .deets-closing-statement span:nth-child(1) {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+body.deets-page .deets-closing-statement span:nth-child(2) {
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+}
+
+body.deets-page .deets-closing-statement span:nth-child(3) {
+    font-size: clamp(2.5rem, 4.5vw, 3.6rem);
+}
+
+/* Keep the closing arrow and contact button connected */
+
+body.deets-page .deets-contact .deets-growth-track--centered {
+    margin-top: 36px;
+    margin-bottom: 36px;
+}
+
+body.deets-page .deets-contact .enter-button {
+    margin-top: 0;
+}
+
+/* =========================================================
+   MY DEETS — PROJECT NAVIGATION ARROW HOVER
+   Only affects the larger Previous / Next arrows
+   ========================================================= */
+
+body.deets-page .project-navigation .project-arrow:hover .arrow-triangle,
+body.deets-page .project-navigation .project-arrow:focus-visible .arrow-triangle {
+    border-left-color: var(--deets-yellow);
+    border-right-color: var(--deets-yellow);
+}
+
+body.deets-page .project-navigation .project-arrow:hover .arrow-circle::before,
+body.deets-page .project-navigation .project-arrow:focus-visible .arrow-circle::before {
+    border-top-color: var(--deets-yellow);
+    opacity: 1;
+}
+
 @media (max-width: 700px) {
     .deets-page .deets-system-header {
         grid-template-columns: 1fr;
