@@ -722,9 +722,11 @@ body.project-page .lightbox-main {
 
 body.project-page .lightbox-image-panel {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-width: 0;
+    width: 100%;
 }
 
 body.project-page .lightbox-image-large {
@@ -739,6 +741,17 @@ body.project-page .lightbox-image-large {
     box-shadow: none;
 }
 
+body.project-page .lightbox-title {
+    align-self: stretch;
+    margin: 18px 0 0;
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 25px;
+    letter-spacing: 0.08em;
+    text-align: left;
+    text-transform: uppercase;
+}
+
 /* Description and title inside the overlay. */
 body.project-page .lightbox-content {
     display: flex;
@@ -747,13 +760,39 @@ body.project-page .lightbox-content {
     min-width: 0;
 }
 
-body.project-page .lightbox-title {
-    margin: 0 0 16px;
-    color: #FFFFFF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 25px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+/* Supporting images sit above the description. */
+
+body.project-page .lightbox-supporting-images {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    width: 100%;
+}
+
+body.project-page .lightbox-supporting-images[hidden] {
+    display: none !important;
+}
+
+body.project-page .lightbox-support-item {
+    width: 100%;
+    margin: 0;
+}
+
+body.project-page .lightbox-support-item img {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+body.project-page .lightbox-support-item figcaption {
+    margin-top: 8px;
+    color: rgba(255, 255, 255, .65);
+    font-family: "Jost", sans-serif;
+    font-size: 13px;
+    text-align: left;
 }
 
 body.project-page .lightbox .lightbox-description {
@@ -835,8 +874,8 @@ body.project-page .lightbox-image img {
 
 /* Responsive overlay. */
 @media (max-width: 760px) {
-    body.project-page .lightbox {
-        padding: 12px;
+    body.project-page .lightbox-title {
+        padding: 22px;
     }
 
     body.project-page .lightbox-box {

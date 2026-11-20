@@ -1581,10 +1581,9 @@ body.odc-page .odc-slide-caption {
     text-align: center;
 }
 
-
-/* ---------------------------------------------------------
-   CAROUSEL ARROWS
---------------------------------------------------------- */
+/* ============================================
+   OLD DOG CAFE — DOG-HEAD CAROUSEL CONTROLS
+============================================ */
 
 body.odc-page .odc-carousel .odc-carousel-btn {
     position: relative;
@@ -1595,35 +1594,56 @@ body.odc-page .odc-carousel .odc-carousel-btn {
     height: clamp(42px, 4vw, 54px);
     padding: 0;
     overflow: visible;
-    border: 1px solid var(--odc-blue);
+    border: 1px solid rgba(255, 255, 255, 0.55);
     border-radius: 50%;
     background: transparent;
-    color: var(--odc-blue);
-    font: inherit;
-    font-size: 1.45rem;
+    color: transparent;
+    font-size: 0;
     line-height: 1;
     cursor: pointer;
-    transition: color .25s ease, border-color .25s ease;
+    transition: border-color .25s ease;
 }
 
+/* Rotating circle */
 body.odc-page .odc-carousel .odc-carousel-btn::before {
     content: "";
     position: absolute;
     z-index: -1;
     inset: -5px;
     border: 2px solid transparent;
-    border-top-color: #00E5FF;
+    border-top-color: var(--odc-purple);
     border-radius: 50%;
     opacity: 0;
     pointer-events: none;
     transition: opacity .25s ease;
 }
 
+/* Dog-head silhouette */
+body.odc-page .odc-carousel .odc-carousel-btn::after {
+    content: "";
+    display: block;
+    width: 27px;
+    height: 27px;
+    background-color: #FFFFFF;
+    -webkit-mask: url("../images/branding/odc/odc-dog-arrow.svg") center / contain no-repeat;
+    mask: url("../images/branding/odc/odc-dog-arrow.svg") center / contain no-repeat;
+    transition: background-color .25s ease;
+}
+
+/* Previous dog faces left */
+body.odc-page .odc-carousel [data-carousel-prev]::after {
+    transform: scaleX(-1);
+}
+
+/* Purple hover and focus */
 body.odc-page .odc-carousel .odc-carousel-btn:hover,
 body.odc-page .odc-carousel .odc-carousel-btn:focus-visible {
-    background: transparent;
-    border-color: #00E5FF;
-    color: #00E5FF;
+    border-color: var(--odc-purple);
+}
+
+body.odc-page .odc-carousel .odc-carousel-btn:hover::after,
+body.odc-page .odc-carousel .odc-carousel-btn:focus-visible::after {
+    background-color: var(--odc-purple);
 }
 
 body.odc-page .odc-carousel .odc-carousel-btn:hover::before,
@@ -1727,7 +1747,6 @@ body.odc-page .odc-proposal-hint {
     text-align: center;
 }
 
-
 /* ---------------------------------------------------------
    PROPOSAL LIGHTBOX NAVIGATION
 --------------------------------------------------------- */
@@ -1789,7 +1808,6 @@ body.odc-page .odc-lightbox-count {
     letter-spacing: .12em;
     text-align: center;
 }
-
 
 /* ---------------------------------------------------------
    ANIMATED BRAND STORY
@@ -2015,7 +2033,6 @@ body.odc-page .odc-closing-logo img {
     }
 }
 
-
 /* ---------------------------------------------------------
    ACCESSIBILITY — REDUCED MOTION
 --------------------------------------------------------- */
@@ -2040,6 +2057,7 @@ body.odc-page .odc-closing-logo img {
         transition: none !important;
     }
 }
+
 /* =========================================================
    STRATEGIC ESTATE PLANNING — REFINED EDITORIAL REDESIGN
    Scoped to this page only; shared branding styles stay intact.
@@ -4627,7 +4645,6 @@ body.montrapac-page .mp-content-panel .mp-gallery-section {
     position: relative;
 }
 
-
 /* =========================================
    LIGHTBOX CLOSE BUTTON — ROTATING CIRCLE
    ========================================= */
@@ -4691,4 +4708,76 @@ body.strategic-page .strategic-kicker {
         letter-spacing: 0.04em;
         overflow-wrap: normal;
     }
+}
+
+/* ============================================
+   OLD DOG CAFE — MATCHING PROJECT NAVIGATION
+   Navbar arrows intentionally excluded.
+============================================ */
+
+/* Main project arrows and proposal lightbox arrows */
+body.odc-page .project-navigation > .project-arrow,
+body.odc-page .lightbox-proposal-navigation .project-arrow {
+    position: relative;
+    isolation: isolate;
+    display: grid;
+    place-items: center;
+}
+
+/* Hide the original circle-and-triangle arrow artwork */
+body.odc-page .project-navigation > .project-arrow .arrow-circle,
+body.odc-page .project-navigation > .project-arrow .arrow-triangle,
+body.odc-page .lightbox-proposal-navigation .project-arrow .arrow-circle,
+body.odc-page .lightbox-proposal-navigation .project-arrow .arrow-triangle {
+    display: none;
+}
+
+/* Rotating purple circle */
+body.odc-page .project-navigation > .project-arrow::before,
+body.odc-page .lightbox-proposal-navigation .project-arrow::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -5px;
+    border: 2px solid transparent;
+    border-top-color: var(--odc-purple);
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+}
+
+/* Dog-head silhouette */
+body.odc-page .project-navigation > .project-arrow::after,
+body.odc-page .lightbox-proposal-navigation .project-arrow::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: #FFFFFF;
+    -webkit-mask: url("../images/branding/odc/odc-dog-arrow.svg") center / contain no-repeat;
+    mask: url("../images/branding/odc/odc-dog-arrow.svg") center / contain no-repeat;
+    transition: background-color .25s ease;
+}
+
+/* Previous arrows face left */
+body.odc-page .project-navigation > .project-arrow.prev::after,
+body.odc-page .lightbox-proposal-navigation .lightbox-proposal-prev::after {
+    transform: scaleX(-1);
+}
+
+/* Purple hover and focus */
+body.odc-page .project-navigation > .project-arrow:hover::after,
+body.odc-page .project-navigation > .project-arrow:focus-visible::after,
+body.odc-page .lightbox-proposal-navigation .project-arrow:hover::after,
+body.odc-page .lightbox-proposal-navigation .project-arrow:focus-visible::after {
+    background-color: var(--odc-purple);
+}
+
+body.odc-page .project-navigation > .project-arrow:hover::before,
+body.odc-page .project-navigation > .project-arrow:focus-visible::before,
+body.odc-page .lightbox-proposal-navigation .project-arrow:hover::before,
+body.odc-page .lightbox-proposal-navigation .project-arrow:focus-visible::before {
+    opacity: 1;
+    animation: odcCarouselArrowSpin 5s linear infinite;
 }

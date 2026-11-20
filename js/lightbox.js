@@ -40,13 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <div class="lightbox-content">
 
-                    <div class="lightbox-text-content">
-                        <div class="lightbox-description"></div>
-                    </div>
-
                     <div
                         class="lightbox-supporting-images"
                         hidden>
+                    </div>
+
+                    <div class="lightbox-text-content">
+                        <div class="lightbox-description"></div>
                     </div>
 
                     <div
