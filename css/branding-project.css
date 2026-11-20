@@ -1243,7 +1243,6 @@ body.odc-page {
     color: #FFFFFF;
 }
 
-
 /* ---------------------------------------------------------
    PROJECT TITLE
 --------------------------------------------------------- */
@@ -1261,7 +1260,6 @@ body.odc-page .project-title .title-break {
     font-size: clamp(18px, 2vw, 25px);
     letter-spacing: .12em;
 }
-
 
 /* ---------------------------------------------------------
    HERO IMAGE AND PROJECT YEAR
@@ -1286,7 +1284,6 @@ body.odc-page .project-year {
     line-height: 1.2;
     text-align: center;
 }
-
 
 /* ---------------------------------------------------------
    PROJECT DETAILS
@@ -1320,7 +1317,6 @@ body.odc-page .detail-box p {
     line-height: 1.7;
 }
 
-
 /* ---------------------------------------------------------
    SECTION HEADINGS
 --------------------------------------------------------- */
@@ -1350,7 +1346,6 @@ body.odc-page .project-gallery-heading h2::after {
 body.odc-page .project-gallery-heading h2:hover {
     color: #FFFFFF;
 }
-
 
 /* ---------------------------------------------------------
    BRAND INTRODUCTION
@@ -1430,7 +1425,6 @@ body.odc-page .odc-intro-image img {
     cursor: zoom-in;
 }
 
-
 /* ---------------------------------------------------------
    BRAND STRATEGY
 --------------------------------------------------------- */
@@ -1472,7 +1466,6 @@ body.odc-page .odc-strategy-item p {
     line-height: 1.75;
 }
 
-
 /* ---------------------------------------------------------
    GALLERY AND PROPOSAL SECTION INTRODUCTIONS
 --------------------------------------------------------- */
@@ -1487,7 +1480,6 @@ body.odc-page .odc-section-intro {
     line-height: 1.8;
     text-align: center;
 }
-
 
 /* ---------------------------------------------------------
    BRAND GALLERY AND PROPOSAL SECTIONS
@@ -1506,7 +1498,6 @@ body.odc-page .odc-proposal-section .project-gallery-heading,
 body.odc-page .odc-motion-section .project-gallery-heading {
     margin-bottom: 38px;
 }
-
 
 /* ---------------------------------------------------------
    CAROUSELS
@@ -1527,7 +1518,7 @@ body.odc-page .odc-carousel .carousel-track {
     min-width: 0;
     overflow-x: auto;
     overscroll-behavior-x: contain;
-    padding: 12px 2px 22px;
+    padding: 16px 2px 32px;
     background: transparent;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -1539,17 +1530,20 @@ body.odc-page .odc-carousel .carousel-track::-webkit-scrollbar {
 }
 
 body.odc-page .odc-carousel .carousel-slide {
+    display: flex;
+    flex-direction: column;
     flex: 0 0 clamp(240px, 31vw, 440px);
     min-width: 0;
+    height: auto;
     scroll-snap-align: center;
 }
 
 body.odc-page .odc-carousel .project-image-block {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
-    height: 100%;
+    height: auto;
     margin: 0;
     padding: 0;
     background: transparent;
@@ -1571,7 +1565,10 @@ body.odc-page .odc-carousel .project-image-block img {
 }
 
 body.odc-page .odc-slide-caption {
-    margin: 14px 0 0;
+    display: block;
+    flex: 0 0 auto;
+    margin: 14px 0 8px;
+    padding-bottom: 4px;
     color: #D6D6D6;
     font-family: "Barlow Condensed", sans-serif;
     font-size: 15px;
@@ -1669,7 +1666,6 @@ body.odc-page .odc-carousel [data-carousel-next]:hover {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
-
 
 /* ---------------------------------------------------------
    PROPOSAL CAROUSEL AND SUMMARY
@@ -1837,7 +1833,6 @@ body.odc-page .odc-motion-section .video-player > p {
     line-height: 1.8;
 }
 
-
 /* ---------------------------------------------------------
    CONTACT BUTTON
 --------------------------------------------------------- */
@@ -1854,7 +1849,6 @@ body.odc-page .page-contact-link .enter-button:focus-visible {
     color: #FFFFFF !important;
     background: transparent !important;
 }
-
 
 /* ---------------------------------------------------------
    CLOSING DOG-HEAD BRAND MARK
@@ -1876,7 +1870,6 @@ body.odc-page .odc-closing-logo img {
     max-height: 120px;
     object-fit: contain;
 }
-
 
 /* ---------------------------------------------------------
    RESPONSIVE LAYOUT
@@ -1956,7 +1949,6 @@ body.odc-page .odc-closing-logo img {
     }
 }
 
-
 @media (max-width: 700px) {
 
     body.odc-page .odc-strategy-section {
@@ -1974,7 +1966,6 @@ body.odc-page .odc-closing-logo img {
         padding: 20px 22px;
     }
 }
-
 
 @media (max-width: 520px) {
 
