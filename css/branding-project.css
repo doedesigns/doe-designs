@@ -1217,8 +1217,6 @@ body.barking-page .barking-social-section {
 
 /* =========================================================
    OLD DOG CAFE — CONSOLIDATED PAGE STYLES
-   Applies only to body.odc-page.
-   Shared navigation and footer are not modified.
 ========================================================= */
 
 /* ---------------------------------------------------------
@@ -1513,12 +1511,14 @@ body.odc-page .odc-carousel {
 
 body.odc-page .odc-carousel .carousel-track {
     display: flex;
-    align-items: stretch;
+    align-items: flex-start;
     gap: clamp(18px, 2.5vw, 36px);
     min-width: 0;
+    min-height: 700px;
+    height: auto;
     overflow-x: auto;
     overscroll-behavior-x: contain;
-    padding: 16px 2px 32px;
+    padding: 16px 2px 45px;
     background: transparent;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -1687,6 +1687,10 @@ body.odc-page .odc-proposal-gallery .odc-carousel .carousel-slide {
     flex-basis: clamp(250px, 30vw, 420px);
 }
 
+body.odc-page .odc-proposal-gallery .odc-carousel .carousel-track {
+    min-height: 820px;
+}
+
 body.odc-page .odc-proposal-gallery .project-image-block img {
     max-height: 680px;
 }
@@ -1740,68 +1744,6 @@ body.odc-page .odc-proposal-hint {
     color: rgba(255, 255, 255, .8);
     font-family: "Jost", sans-serif;
     font-size: .9rem;
-    text-align: center;
-}
-
-/* ---------------------------------------------------------
-   PROPOSAL LIGHTBOX NAVIGATION
---------------------------------------------------------- */
-
-body.odc-page .lightbox .odc-lightbox-navigation,
-body.odc-page .odc-lightbox-navigation {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    width: 100%;
-    margin-top: 24px;
-}
-
-body.odc-page .odc-lightbox-navigation[hidden] {
-    display: none;
-}
-
-body.odc-page .lightbox .odc-lightbox-nav,
-body.odc-page .odc-lightbox-nav {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    min-width: 44px;
-    min-height: 44px;
-    padding: 0;
-    border: 1px solid rgba(255, 255, 255, .5);
-    border-radius: 50%;
-    background: transparent;
-    color: #FFFFFF;
-    font-size: 25px;
-    line-height: 1;
-    cursor: pointer;
-    transition: background-color .2s ease, color .2s ease,
-                border-color .2s ease;
-}
-
-body.odc-page .lightbox .odc-lightbox-nav:hover,
-body.odc-page .lightbox .odc-lightbox-nav:focus-visible,
-body.odc-page .odc-lightbox-nav:hover,
-body.odc-page .odc-lightbox-nav:focus-visible {
-    background: #FFFFFF;
-    color: #111111;
-    border-color: #FFFFFF;
-}
-
-body.odc-page .odc-lightbox-nav:focus-visible {
-    outline: 2px solid #FFFFFF;
-    outline-offset: 4px;
-}
-
-body.odc-page .odc-lightbox-count {
-    min-width: 72px;
-    margin: 0;
-    color: #FFFFFF;
-    font-size: .9rem;
-    letter-spacing: .12em;
     text-align: center;
 }
 
@@ -1928,6 +1870,14 @@ body.odc-page .odc-closing-logo img {
     body.odc-page .odc-carousel {
         gap: 8px;
     }
+	
+	body.odc-page .odc-carousel .carousel-track {
+        min-height: 680px;
+    }
+
+    body.odc-page .odc-proposal-gallery .odc-carousel .carousel-track {
+        min-height: 820px;
+    }
 
     body.odc-page .odc-carousel .carousel-slide,
     body.odc-page .odc-proposal-gallery .odc-carousel .carousel-slide {
@@ -2009,18 +1959,6 @@ body.odc-page .odc-closing-logo img {
 
     body.odc-page .odc-proposal-summary {
         padding: 20px 0 0;
-    }
-
-    body.odc-page .odc-lightbox-navigation {
-        gap: 6px;
-    }
-
-    body.odc-page .odc-lightbox-nav {
-        width: 36px;
-        height: 36px;
-        min-width: 36px;
-        min-height: 36px;
-        font-size: 19px;
     }
 }
 
