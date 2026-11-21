@@ -4186,26 +4186,29 @@ body.montrapac-page .mp-red-rule {
 }
 
 /* Mountain-shaped color palette */
+
 body.montrapac-page .mp-palette {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    align-items: end;
+    align-items: start;
     gap: clamp(10px, 2vw, 22px);
     width: 100%;
     margin: 30px 0 0;
 }
 
 body.montrapac-page .mp-palette-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
+    display: grid;
+    grid-template-rows: 100px 2.8em;
+    justify-items: center;
+    align-items: start;
+    gap: 0;
     min-width: 0;
     text-align: center;
 }
 
 body.montrapac-page .mp-palette-item svg {
+    grid-row: 1;
+    align-self: end;
     display: block;
     width: clamp(38px, 5vw, 62px);
     height: clamp(48px, 6vw, 76px);
@@ -4215,12 +4218,17 @@ body.montrapac-page .mp-palette-item svg {
 }
 
 body.montrapac-page .mp-palette-item span {
+    grid-row: 2;
+    align-self: start;
+    width: 100%;
+    min-height: 2.8em;
     color: var(--mp-ink);
     font-family: "Barlow Condensed", sans-serif;
     font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.04em;
     line-height: 1.3;
+    text-align: center;
 }
 
 body.montrapac-page .mp-palette-black {
@@ -4241,33 +4249,6 @@ body.montrapac-page .mp-palette-red {
 
 body.montrapac-page .mp-palette-leather {
     color: #98745A;
-}
-
-/* ---------------------------------------------------------
-   03 — MOTION
---------------------------------------------------------- */
-
-body.montrapac-page .mp-video-frame {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0;
-    background: #17191B;
-    border: 0;
-}
-
-body.montrapac-page .mp-video-frame .video-player {
-    width: 100%;
-    max-width: none;
-    margin: 0;
-}
-
-body.montrapac-page .mp-video-frame iframe {
-    display: block;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    border: 0;
 }
 
 body.montrapac-page .mp-motion-footer {
@@ -4462,6 +4443,38 @@ body.montrapac-page .page-contact-link .enter-button:focus-visible {
 /* ---------------------------------------------------------
    MOBILE
 --------------------------------------------------------- */
+@media (max-width: 800px) {
+    body.montrapac-page .mp-logo-development {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+        max-width: 620px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    body.montrapac-page .mp-logo-progression {
+        width: 100%;
+        height: 28px;
+        transform: rotate(90deg);
+    }
+
+    body.montrapac-page .mp-logo-stage-image {
+        min-height: 260px;
+    }
+
+    body.montrapac-page .mp-logo-stage-image img {
+        height: 300px;
+    }
+
+    body.montrapac-page .mp-logo-variant-image {
+        min-height: 170px;
+        padding: 14px;
+    }
+
+    body.montrapac-page .mp-logo-variant-image img {
+        height: 145px;
+    }
+}
 
 @media (max-width: 560px) {
     body.montrapac-page .project-navigation {
@@ -4749,39 +4762,6 @@ body.montrapac-page .mp-logo-variant figcaption {
     text-transform: uppercase;
 }
 
-@media (max-width: 800px) {
-    body.montrapac-page .mp-logo-development {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 18px;
-        max-width: 620px;
-        margin-right: auto;
-        margin-left: auto;
-    }
-
-    body.montrapac-page .mp-logo-progression {
-        width: 100%;
-        height: 28px;
-        transform: rotate(90deg);
-    }
-
-    body.montrapac-page .mp-logo-stage-image {
-        min-height: 260px;
-    }
-
-    body.montrapac-page .mp-logo-stage-image img {
-        height: 300px;
-    }
-
-    body.montrapac-page .mp-logo-variant-image {
-        min-height: 170px;
-        padding: 14px;
-    }
-
-    body.montrapac-page .mp-logo-variant-image img {
-        height: 145px;
-    }
-}
-
 /* ---------------------------------------------------------
    PAGE-LEVEL NAVIGATION ARROWS
    Does NOT affect the top navigation or other project pages.
@@ -4794,7 +4774,7 @@ body.montrapac-page .project-navigation .project-arrow .arrow-triangle {
     flex: 0 0 25px;
     background: #FFFFFF;
     border: 0 !important;
-    clip-path: polygon(43% 4%, 96% 96%, 5% 96%);
+    clip-path: polygon(42% 4%, 79% 96%, 17% 96%);
     transform: none !important;
     transition: background-color 0.3s ease;
 }
@@ -4807,12 +4787,13 @@ body.montrapac-page .project-navigation .project-arrow:focus-visible .arrow-tria
 }
 
 /* Red clockwise circle on hover and keyboard focus */
+
 body.montrapac-page .project-navigation .project-arrow:hover .arrow-circle::before,
 body.montrapac-page .project-navigation .project-arrow:focus-visible .arrow-circle::before {
     border-color: var(--mp-red) !important;
-    color: var(--mp-red);
+    animation: arrowSpinRight 2s linear infinite !important;
+    transform-origin: center center;
 }
-
 
 /* ---------------------------------------------------------
    CONTENT PANEL TYPOGRAPHY
@@ -4822,7 +4803,7 @@ body.montrapac-page .project-navigation .project-arrow:focus-visible .arrow-circ
 
 body.montrapac-page .mp-content-panel :is(
     h1, h2, h3, h4, h5, h6,
-    p, figcaption, span, a, li, label, strong, em
+    p, figcaption, a, li, label, strong, em
 ) {
     color: var(--mp-ink);
 }
@@ -4845,6 +4826,103 @@ body.montrapac-page .mp-content-panel .mp-logo-progression {
     color: var(--mp-red);
 }
 
+/* ---------------------------------------------------------
+   MOTION — VIDEO PLAYER AND OVERLAY
+--------------------------------------------------------- */
+
+body.montrapac-page .mp-video-feature {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    aspect-ratio: 16 / 9;
+    margin: 50px auto;
+    overflow: hidden;
+    background: #000000;
+}
+
+body.montrapac-page .mp-video-player {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+body.montrapac-page .mp-video-player iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+body.montrapac-page .mp-video-cover {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+body.montrapac-page .mp-video-cover img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center;
+}
+
+body.montrapac-page .mp-video-play {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 18px 26px;
+    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+body.montrapac-page .mp-video-play:hover,
+body.montrapac-page .mp-video-play:focus-visible {
+    background: var(--mp-red);
+    border-color: var(--mp-red);
+}
+
+body.montrapac-page .mp-video-play > span:first-child {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+body.montrapac-page .mp-video-play-label {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+body.montrapac-page .mp-video-cover.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
 
 /* =========================================
    LIGHTBOX CLOSE BUTTON — ROTATING CIRCLE
