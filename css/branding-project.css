@@ -46,15 +46,6 @@ linear-gradient(
 );
 }
 
-body.strategic-page {
-background:
-linear-gradient(
-180deg,
-#081522,
-#241968
-);
-}
-
 body.driftwood-page {
 background:
 linear-gradient(
@@ -1987,340 +1978,6 @@ body.odc-page .odc-closing-logo img {
     }
 }
 
-/* =========================================================
-   STRATEGIC ESTATE PLANNING — REFINED EDITORIAL REDESIGN
-   Scoped to this page only; shared branding styles stay intact.
-   ========================================================= */
-
-body.strategic-page {
-    --strategic-ink: #252a3a;
-    --strategic-lavender: #676b98;
-    --strategic-blue: #bbd7f1;
-    --strategic-paper: #ffffff;
-    --strategic-soft: #f4f5f9;
-    color: var(--strategic-ink);
-}
-
-body.strategic-page .project-year {
-    color: var(--strategic-lavender);
-}
-
-body.strategic-page .project-details {
-    background: #fff;
-    border: 1px solid rgba(103,107,152,.28);
-    padding: clamp(22px,3vw,38px);
-    margin: 30px auto clamp(64px,8vw,110px);
-    gap: 0;
-    box-shadow: none;
-}
-
-body.strategic-page .project-details .detail-box {
-    padding: 8px 22px;
-    border-right: 1px solid rgba(103,107,152,.24);
-    background: transparent;
-    text-align: center;
-}
-
-body.strategic-page .project-details .detail-box:last-child {
-    border-right: 0;
-}
-
-body.strategic-page .project-details .detail-box h3 {
-    color: #676b98;
-    letter-spacing: .13em;
-}
-
-body.strategic-page .project-details .detail-box p {
-    color: #252a3a;
-}
-
-body.strategic-page .strategic-panel {
-    width: min(1180px,calc(100% - 48px));
-    margin: clamp(52px,7vw,94px) auto;
-    padding: clamp(24px,4vw,58px);
-    background: #fff;
-    border: 1px solid rgba(103,107,152,.24);
-    box-shadow: none;
-    position: relative;
-    isolation: isolate;
-}
-
-body.strategic-page .strategic-kicker {
-    display: block;
-    margin: 0 0 14px;
-    color: #676b98;
-    font: 500 .78rem/1.4 "Jost",sans-serif;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-}
-
-body.strategic-page .strategic-panel h2 {
-    margin: 0 0 22px;
-    color: #252a3a;
-    font-family: "Barlow Condensed",sans-serif;
-    font-size: clamp(2rem,3.4vw,3.15rem);
-    font-weight: 500;
-    letter-spacing: .025em;
-    line-height: 1.05;
-    text-transform: uppercase;
-}
-
-body.strategic-page .strategic-panel h2::after {
-    content: "";
-    display: block;
-    width: 62px;
-    height: 2px;
-    margin-top: 18px;
-    background: #bbd7f1;
-}
-
-body.strategic-page .strategic-panel p {
-    color: #45495a;
-    font-size: clamp(.98rem,1.15vw,1.08rem);
-    line-height: 1.8;
-}
-
-body.strategic-page .strategic-intro-grid {
-    display: grid;
-    grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr);
-    align-items: center;
-    gap: clamp(28px,5vw,76px);
-}
-
-body.strategic-page .strategic-intro-copy {
-    max-width: 510px;
-}
-
-body.strategic-page .strategic-principles {
-    display: grid;
-    grid-template-columns: repeat(3,minmax(0,1fr));
-    gap: 14px;
-    margin-top: 30px;
-}
-
-body.strategic-page .strategic-principle {
-    padding: 18px 14px;
-    border-top: 2px solid #bbd7f1;
-    background: #f4f5f9;
-    color: #252a3a;
-    font: 500 clamp(1.05rem,1.6vw,1.35rem)/1.25 "Barlow Condensed",sans-serif;
-    letter-spacing: .045em;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-body.strategic-page .strategic-system-image {
-    margin: 0;
-    padding: clamp(10px,1.5vw,18px);
-    background: #f4f5f9;
-    border: 1px solid rgba(103,107,152,.18);
-}
-
-body.strategic-page .strategic-system-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-body.strategic-page .strategic-system-image figcaption,
-body.strategic-page .strategic-figure figcaption {
-    margin-top: 12px;
-    color: #62677a;
-    font-size: .86rem;
-    line-height: 1.55;
-}
-
-body.strategic-page .strategic-print-grid {
-    display: grid;
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    gap: clamp(18px,2.5vw,34px);
-    align-items: start;
-}
-
-body.strategic-page .strategic-figure {
-    margin: 0;
-    padding: 18px;
-    background: #f4f5f9;
-    border: 1px solid rgba(103,107,152,.18);
-}
-
-body.strategic-page .strategic-figure img {
-    display: block;
-    width: 100%;
-    max-height: 680px;
-    object-fit: contain;
-    margin: 0 auto;
-}
-
-body.strategic-page .strategic-figure figcaption {
-    color: #676b98;
-    font: 500 1.12rem/1.4 "Barlow Condensed",sans-serif;
-    letter-spacing: .07em;
-    text-transform: uppercase;
-}
-
-body.strategic-page .strategic-document-grid {
-    display: grid;
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    gap: clamp(18px,2.5vw,30px);
-    margin-top: 28px;
-}
-
-body.strategic-page .strategic-document-card {
-    min-width: 0;
-    padding: clamp(18px,2.5vw,30px);
-    background: #f4f5f9;
-    border: 1px solid rgba(103,107,152,.2);
-}
-
-body.strategic-page .strategic-document-card h3 {
-    margin: 0 0 8px;
-    color: #676b98;
-    font: 500 clamp(1.25rem,2vw,1.65rem)/1.2 "Barlow Condensed",sans-serif;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-}
-
-body.strategic-page .strategic-document-card > p {
-    margin: 0 0 18px;
-    font-size: .95rem;
-    line-height: 1.65;
-}
-
-body.strategic-page .strategic-document-card .project-image-block {
-    padding: 0;
-    margin: 0;
-    background: transparent;
-}
-
-body.strategic-page .strategic-document-card .project-image-block img {
-    width: 100%;
-    max-height: 660px;
-    object-fit: contain;
-    background: #fff;
-    border: 1px solid rgba(103,107,152,.16);
-}
-
-body.strategic-page .strategic-document-card .project-image-block p {
-    color: #62677a;
-    font-size: .84rem;
-    text-align: left;
-}
-
-body.strategic-page .strategic-website-panel .video-player {
-    width: 100%;
-    max-width: 1000px;
-    margin: 28px auto 0;
-    border: 1px solid rgba(103,107,152,.24);
-    background: #f4f5f9;
-    padding: 10px;
-}
-
-body.strategic-page .strategic-website-panel > p {
-    max-width: 760px;
-    margin: 20px auto 0;
-    text-align: center;
-}
-
-body.strategic-page .strategic-final-brochure {
-    display: grid;
-    grid-template-columns: minmax(0,.7fr) minmax(0,1.3fr);
-    align-items: center;
-    gap: clamp(24px,4vw,56px);
-}
-
-body.strategic-page .strategic-final-brochure .strategic-figure {
-    max-width: 620px;
-    width: 100%;
-    justify-self: end;
-}
-
-body.strategic-page .strategic-contact-panel {
-    text-align: center;
-}
-
-body.strategic-page .strategic-contact-panel h2::after {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-body.strategic-page .strategic-contact-panel p {
-    margin-bottom: 24px;
-}
-
-body.strategic-page .strategic-contact-panel .enter-button {
-    background: #676b98;
-    border: 1px solid #676b98;
-    color: #fff;
-}
-
-body.strategic-page .strategic-contact-panel .enter-button:hover,
-body.strategic-page .strategic-contact-panel .enter-button:focus-visible {
-    background: #fff;
-    color: #676b98;
-}
-
-@media (max-width: 850px) {
-    body.strategic-page .project-details {
-        grid-template-columns: repeat(2,minmax(0,1fr));
-    }
-
-    body.strategic-page .project-details .detail-box:nth-child(2) {
-        border-right: 0;
-    }
-
-    body.strategic-page .project-details .detail-box:nth-child(-n+2) {
-        border-bottom: 1px solid rgba(103,107,152,.24);
-        padding-bottom: 22px;
-        margin-bottom: 14px;
-    }
-
-    body.strategic-page .strategic-intro-grid,
-    body.strategic-page .strategic-final-brochure {
-        grid-template-columns: 1fr;
-    }
-
-    body.strategic-page .strategic-final-brochure .strategic-figure {
-        justify-self: stretch;
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 600px) {
-    body.strategic-page .strategic-panel {
-        width: calc(100% - 28px);
-        margin: 34px auto;
-        padding: 22px 18px;
-    }
-
-    body.strategic-page .strategic-principles,
-    body.strategic-page .strategic-print-grid,
-    body.strategic-page .strategic-document-grid {
-        grid-template-columns: 1fr;
-    }
-
-    body.strategic-page .strategic-principles {
-        gap: 8px;
-    }
-
-    body.strategic-page .strategic-principle {
-        padding: 13px;
-    }
-
-    body.strategic-page .project-details {
-        padding: 18px 10px;
-    }
-
-    body.strategic-page .project-details .detail-box {
-        padding: 8px 10px;
-    }
-
-    body.strategic-page .strategic-figure,
-    body.strategic-page .strategic-document-card {
-        padding: 12px;
-    }
-}
 
 /* =========================================================
    HORSEHAIR — DARK FANTASY / ALTERNATIVE BEAUTY
@@ -3561,24 +3218,440 @@ body.driftwood-page .project-navigation {
     padding-top: 80px;
 }
 
-/* STRATEGIC — softer, darker panels */
 
-body.strategic-page .detail-box {
-    background-color: #252B35;
-    color: #E2E4E8;
-    border-color: #454C58;
+/* =========================================================
+   STRATEGIC ESTATE PLANNING — CONSOLIDATED PAGE STYLES
+   Uses the existing Strategic Estate Planning brand palette.
+   Scoped exclusively to body.strategic-page.
+========================================================= */
+
+/* ---------------------------------------------------------
+   BRAND COLORS + PAGE BACKGROUND
+--------------------------------------------------------- */
+
+body.strategic-page {
+    --strategic-ink: #252A3A;
+    --strategic-lavender: #676B98;
+    --strategic-blue: #BBD7F1;
+    --strategic-paper: #FFFFFF;
+    --strategic-soft: #F4F5F9;
+    --strategic-dark: #0D2A40;
+
+    color: #F0F5FA;
+
+    background:
+        linear-gradient(
+            155deg,
+            #081522 0%,
+            #151A35 48%,
+            #241968 100%
+        );
 }
 
-body.strategic-page .detail-box h2,
-body.strategic-page .detail-box h3 {
-    color: #D1C5DF;
+/* ---------------------------------------------------------
+   PROJECT YEAR + DETAILS
+--------------------------------------------------------- */
+
+body.strategic-page .project-year {
+    color: var(--strategic-blue);
 }
 
-body.strategic-page .detail-box p,
-body.strategic-page .detail-box li {
-    color: #E2E4E8;
+body.strategic-page .project-details {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    width: min(1180px, calc(100% - 48px));
+    margin: 30px auto clamp(64px, 8vw, 100px);
+    padding: 0;
+    background: transparent;
+    border: 1px solid rgba(187, 215, 241, .35);
+    box-shadow: none;
 }
 
+body.strategic-page .project-details .detail-box {
+    min-width: 0;
+    padding: 24px 18px;
+    background: var(--strategic-blue);
+    color: var(--strategic-ink);
+    border-right: 1px solid rgba(37, 42, 58, .18);
+    text-align: center;
+}
+
+body.strategic-page .project-details .detail-box:last-child {
+    border-right: 0;
+}
+
+body.strategic-page .project-details .detail-box h3 {
+    margin: 0 0 12px;
+    color: var(--strategic-lavender);
+    font-size: .76rem;
+    letter-spacing: .13em;
+}
+
+body.strategic-page .project-details .detail-box p {
+    margin: 0;
+    color: var(--strategic-ink);
+    font-size: .92rem;
+    line-height: 1.6;
+}
+
+/* ---------------------------------------------------------
+   MAIN CONTENT PANELS
+--------------------------------------------------------- */
+
+body.strategic-page .strategic-panel {
+    position: relative;
+    isolation: isolate;
+    width: min(1180px, calc(100% - 48px));
+    margin: clamp(52px, 7vw, 88px) auto;
+    padding: clamp(26px, 4vw, 56px);
+    background: rgba(13, 42, 64, .88);
+    border: 1px solid rgba(187, 215, 241, .24);
+    border-radius: 12px;
+    box-shadow: 0 12px 34px rgba(0, 0, 0, .16);
+}
+
+body.strategic-page .strategic-kicker {
+    display: block;
+    margin: 0 0 14px;
+    color: var(--strategic-blue);
+    font: 600 .78rem/1.4 "Jost", sans-serif;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+body.strategic-page .strategic-panel h2 {
+    margin: 0 0 22px;
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(2rem, 3.4vw, 3.15rem);
+    font-weight: 500;
+    letter-spacing: .025em;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+body.strategic-page .strategic-panel h2::after {
+    content: "";
+    display: block;
+    width: 62px;
+    height: 2px;
+    margin-top: 18px;
+    background: var(--strategic-blue);
+}
+
+body.strategic-page .strategic-panel p {
+    color: #E0EAF2;
+    font-size: clamp(.98rem, 1.15vw, 1.08rem);
+    line-height: 1.75;
+}
+
+/* ---------------------------------------------------------
+   BRAND IDEA + IDENTITY SYSTEM
+--------------------------------------------------------- */
+
+body.strategic-page .strategic-intro-grid {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+    align-items: center;
+    gap: clamp(28px, 5vw, 76px);
+}
+
+body.strategic-page .strategic-intro-copy {
+    max-width: 510px;
+}
+
+body.strategic-page .strategic-principles {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 30px;
+}
+
+body.strategic-page .strategic-principle {
+    box-sizing: border-box;
+    min-width: 0;
+    padding: 18px 10px;
+    background: var(--strategic-blue);
+    border: 1px solid rgba(103, 107, 152, .28);
+    border-radius: 6px;
+    color: var(--strategic-ink);
+    font: 600 clamp(.95rem, 1.35vw, 1.25rem)/1.2 "Barlow Condensed", sans-serif;
+    letter-spacing: .04em;
+    text-align: center;
+    text-transform: uppercase;
+    overflow-wrap: normal;
+}
+
+body.strategic-page .strategic-system-image {
+    min-width: 0;
+    margin: 0;
+    padding: clamp(10px, 1.5vw, 18px);
+    background: var(--strategic-soft);
+    border: 1px solid rgba(187, 215, 241, .3);
+    border-radius: 6px;
+}
+
+body.strategic-page .strategic-system-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+body.strategic-page .strategic-system-image figcaption,
+body.strategic-page .strategic-figure figcaption {
+    margin-top: 12px;
+    color: var(--strategic-lavender);
+    font-size: .86rem;
+    line-height: 1.55;
+}
+
+/* ---------------------------------------------------------
+   BRAND APPLICATIONS
+--------------------------------------------------------- */
+
+body.strategic-page .strategic-print-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(18px, 2.5vw, 34px);
+    align-items: start;
+}
+
+body.strategic-page .strategic-figure {
+    min-width: 0;
+    margin: 0;
+    padding: 18px;
+    background: var(--strategic-soft);
+    border: 1px solid rgba(187, 215, 241, .3);
+    border-radius: 6px;
+}
+
+body.strategic-page .strategic-figure img {
+    display: block;
+    width: 100%;
+    max-height: 680px;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+body.strategic-page .strategic-figure figcaption {
+    color: var(--strategic-lavender);
+    font: 600 1.12rem/1.4 "Barlow Condensed", sans-serif;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+}
+
+/* ---------------------------------------------------------
+   CLIENT DOCUMENTS
+--------------------------------------------------------- */
+
+body.strategic-page .strategic-document-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(18px, 2.5vw, 30px);
+    margin-top: 28px;
+}
+
+body.strategic-page .strategic-document-card {
+    min-width: 0;
+    padding: clamp(18px, 2.5vw, 30px);
+    background: var(--strategic-blue);
+    border: 1px solid rgba(103, 107, 152, .28);
+    border-radius: 6px;
+    color: var(--strategic-ink);
+}
+
+body.strategic-page .strategic-document-card h3 {
+    margin: 0 0 8px;
+    color: var(--strategic-lavender);
+    font: 600 clamp(1.25rem, 2vw, 1.65rem)/1.2 "Barlow Condensed", sans-serif;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+body.strategic-page .strategic-document-card > p {
+    margin: 0 0 18px;
+    color: var(--strategic-ink);
+    font-size: .95rem;
+    line-height: 1.65;
+}
+
+body.strategic-page .strategic-document-card .project-image-block {
+    padding: 0;
+    margin: 0;
+    background: transparent;
+}
+
+body.strategic-page .strategic-document-card .project-image-block img {
+    display: block;
+    width: 100%;
+    max-height: 660px;
+    object-fit: contain;
+    background: #FFFFFF;
+    border: 1px solid rgba(103, 107, 152, .2);
+}
+
+body.strategic-page .strategic-document-card .project-image-block > p {
+    color: var(--strategic-ink);
+    font-size: .84rem;
+    text-align: left;
+}
+
+/* ---------------------------------------------------------
+   WEBSITE WALKTHROUGH
+--------------------------------------------------------- */
+
+body.strategic-page .strategic-website-panel .video-player {
+    width: 100%;
+    max-width: 1000px;
+    margin: 28px auto 0;
+    padding: 10px;
+    background: var(--strategic-soft);
+    border: 1px solid rgba(187, 215, 241, .3);
+    border-radius: 6px;
+}
+
+body.strategic-page .strategic-website-panel > p {
+    max-width: 760px;
+    margin: 20px auto 0;
+    text-align: center;
+}
+
+/* ---------------------------------------------------------
+   FINAL / CONTACT ELEMENTS
+--------------------------------------------------------- */
+
+body.strategic-page .strategic-final-brochure {
+    display: grid;
+    grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr);
+    align-items: center;
+    gap: clamp(24px, 4vw, 56px);
+}
+
+body.strategic-page .strategic-final-brochure .strategic-figure {
+    max-width: 620px;
+    width: 100%;
+    justify-self: end;
+}
+
+body.strategic-page .strategic-contact-panel {
+    text-align: center;
+}
+
+body.strategic-page .strategic-contact-panel h2::after {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body.strategic-page .strategic-contact-panel p {
+    margin-bottom: 24px;
+}
+
+body.strategic-page .strategic-contact-panel .enter-button {
+    background: var(--strategic-lavender);
+    border: 1px solid var(--strategic-lavender);
+    color: #FFFFFF;
+}
+
+body.strategic-page .strategic-contact-panel .enter-button:hover,
+body.strategic-page .strategic-contact-panel .enter-button:focus-visible {
+    background: #FFFFFF;
+    color: var(--strategic-lavender);
+}
+
+/* ---------------------------------------------------------
+   TABLET
+--------------------------------------------------------- */
+
+@media (max-width: 850px) {
+    body.strategic-page .project-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body.strategic-page .project-details .detail-box:nth-child(2) {
+        border-right: 0;
+    }
+
+    body.strategic-page .project-details .detail-box:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(37, 42, 58, .18);
+    }
+
+    body.strategic-page .strategic-intro-grid,
+    body.strategic-page .strategic-final-brochure {
+        grid-template-columns: 1fr;
+    }
+
+    body.strategic-page .strategic-final-brochure .strategic-figure {
+        justify-self: stretch;
+        max-width: 100%;
+    }
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 600px) {
+    body.strategic-page .project-details {
+        width: calc(100% - 28px);
+        padding: 0;
+    }
+
+    body.strategic-page .project-details .detail-box {
+        padding: 18px 10px;
+    }
+
+    body.strategic-page .strategic-panel {
+        width: calc(100% - 28px);
+        margin: 34px auto;
+        padding: 22px 18px;
+    }
+
+    body.strategic-page .strategic-principles,
+    body.strategic-page .strategic-print-grid,
+    body.strategic-page .strategic-document-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.strategic-page .strategic-principles {
+        gap: 10px;
+    }
+
+    body.strategic-page .strategic-principle {
+        padding: 14px 12px;
+        font-size: 1.1rem;
+    }
+
+    body.strategic-page .strategic-figure,
+    body.strategic-page .strategic-document-card {
+        padding: 12px;
+    }
+}
+
+/* STRATEGIC — HERO IMAGE WIDTH */
+body.strategic-page .project-hero-grid {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+body.strategic-page .project-hero {
+    width: min(100%, 1000px);
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.strategic-page .project-hero > img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+    object-fit: contain;
+}
 
 /* =========================================================
    DRIFTWOOD — CAPTION AND DIGITAL CAMPAIGN ALIGNMENT
@@ -3662,167 +3735,6 @@ body.horsehair-page .hh-ad-grid .hh-ad-card:last-child img {
 /* Keep the campaign images within their existing panels */
 body.horsehair-page .hh-ad-grid .hh-ad-card {
     min-width: 0;
-}
-
-/* ==========================================
-   STRATEGIC ESTATE PLANNING — SOFTER COLORS
-   ========================================== */
-
-/* Darken the detail boxes */
-body.strategic-page .detail-box {
-    background-color: #252B35;
-    color: #E2E4E8;
-    border-color: #454C58;
-}
-
-/* Soften the detail headings */
-body.strategic-page .detail-box h3 {
-    color: #C8B8D9;
-}
-
-/* Keep the detail text comfortable to read */
-body.strategic-page .detail-box p {
-    color: #E2E4E8;
-}
-
-/* Tone down bright project panels */
-body.strategic-page .project-description,
-body.strategic-page .project-image-block,
-body.strategic-page .project-gallery-row {
-    color: #E2E4E8;
-}
-
-/* Avoid stark white backgrounds in project content */
-body.strategic-page .project-description,
-body.strategic-page .project-image-block,
-body.strategic-page .project-gallery-row {
-    background-color: #20242C;
-}
-
-/* =========================================================
-   STRATEGIC ESTATE PLANNING — REMOVE WHITE BOXES
-   Paste at the VERY BOTTOM of branding-project.css
-   ========================================================= */
-
-/* Main content panels */
-body.strategic-page .strategic-panel,
-body.strategic-page .strategic-intro-grid,
-body.strategic-page .strategic-principles,
-body.strategic-page .strategic-principle,
-body.strategic-page .strategic-document-card,
-body.strategic-page .strategic-final-brochure,
-body.strategic-page .strategic-website-panel,
-body.strategic-page .strategic-system-image,
-body.strategic-page .strategic-document-grid {
-    background-color: transparent !important;
-    box-shadow: none !important;
-}
-
-/* Remove white backgrounds from nested elements */
-body.strategic-page .strategic-panel *,
-body.strategic-page .strategic-document-card *,
-body.strategic-page .strategic-final-brochure * {
-    box-shadow: none;
-}
-
-/* Keep text readable against the dark page background */
-body.strategic-page .strategic-panel,
-body.strategic-page .strategic-principle,
-body.strategic-page .strategic-document-card,
-body.strategic-page .strategic-final-brochure,
-body.strategic-page .strategic-website-panel {
-    color: #E8EAF0;
-}
-
-/* Prevent white backgrounds on common content wrappers */
-body.strategic-page .strategic-intro-grid,
-body.strategic-page .strategic-principles,
-body.strategic-page .strategic-document-grid,
-body.strategic-page .strategic-document-card,
-body.strategic-page .strategic-final-brochure,
-body.strategic-page .strategic-website-panel {
-    border-color: rgba(255, 255, 255, 0.16);
-}
-
-/* Keep images at their existing sizes */
-body.strategic-page .project-image-block img,
-body.strategic-page .strategic-system-image img {
-    height: auto;
-}
-
-/* =========================================================
-   STRATEGIC ESTATE PLANNING — READABLE DARK BLUE PANELS
-   Paste at the bottom of branding-project.css
-   ========================================================= */
-
-body.strategic-page {
-    color: #F0F5FA;
-}
-
-/* Main content panels */
-body.strategic-page .strategic-panel,
-body.strategic-page .strategic-intro-grid,
-body.strategic-page .strategic-principles,
-body.strategic-page .strategic-principle,
-body.strategic-page .strategic-document-card,
-body.strategic-page .strategic-final-brochure,
-body.strategic-page .strategic-website-panel,
-body.strategic-page .strategic-system-image,
-body.strategic-page .strategic-document-grid {
-    background-color: #0D2A40 !important;
-    color: #F0F5FA !important;
-    border: 1px solid rgba(105, 174, 210, 0.25);
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-}
-
-/* Give the larger content sections comfortable spacing */
-body.strategic-page .strategic-panel,
-body.strategic-page .strategic-intro-grid,
-body.strategic-page .strategic-principles,
-body.strategic-page .strategic-document-grid,
-body.strategic-page .strategic-final-brochure,
-body.strategic-page .strategic-website-panel {
-    padding: 28px;
-}
-
-/* Make headings stand out */
-body.strategic-page .strategic-panel h2,
-body.strategic-page .strategic-panel h3,
-body.strategic-page .strategic-intro-grid h2,
-body.strategic-page .strategic-principles h2,
-body.strategic-page .strategic-principle h3,
-body.strategic-page .strategic-document-card h3,
-body.strategic-page .strategic-final-brochure h2,
-body.strategic-page .strategic-website-panel h2 {
-    color: #75D7F0 !important;
-}
-
-/* Ensure paragraphs and supporting text are readable */
-body.strategic-page .strategic-panel p,
-body.strategic-page .strategic-intro-grid p,
-body.strategic-page .strategic-principle p,
-body.strategic-page .strategic-document-card p,
-body.strategic-page .strategic-final-brochure p,
-body.strategic-page .strategic-website-panel p,
-body.strategic-page .strategic-panel li {
-    color: #E0EAF2 !important;
-    line-height: 1.7;
-}
-
-/* Document captions and smaller labels */
-body.strategic-page .strategic-document-card figcaption,
-body.strategic-page .strategic-document-card .image-caption,
-body.strategic-page .strategic-final-brochure .image-caption {
-    color: #C6D8E6 !important;
-}
-
-/* Keep images responsive without changing their intended width */
-body.strategic-page .strategic-panel img,
-body.strategic-page .strategic-document-card img,
-body.strategic-page .strategic-final-brochure img,
-body.strategic-page .strategic-system-image img {
-    height: auto;
 }
 
 /* =========================================================
@@ -4946,49 +4858,6 @@ body.project-page .lightbox-close:hover::after,
 body.project-page .lightbox-close:focus-visible::after {
     opacity: 1;
     animation: arrowSpinRight 5s linear infinite;
-}
-
-/* =========================================================
-   STRATEGIC ESTATE PLANNING — PRINCIPLE BOXES + EYEBROWS
-   ========================================================= */
-
-/* Keep all three principle labels inside their boxes. */
-body.strategic-page .strategic-principles {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-}
-
-body.strategic-page .strategic-principle {
-    box-sizing: border-box;
-    min-width: 0;
-    padding: 18px 8px;
-    font-size: clamp(0.95rem, 1.35vw, 1.25rem);
-    letter-spacing: 0.025em;
-    line-height: 1.2;
-    overflow-wrap: anywhere;
-    text-align: center;
-}
-
-/* Improve contrast for the small uppercase eyebrow labels. */
-body.strategic-page .strategic-kicker {
-    color: #75D7F0 !important;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-}
-
-/* Keep the principle boxes readable on narrow screens. */
-@media (max-width: 600px) {
-    body.strategic-page .strategic-principles {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    body.strategic-page .strategic-principle {
-        padding: 14px 12px;
-        font-size: 1.1rem;
-        letter-spacing: 0.04em;
-        overflow-wrap: normal;
-    }
 }
 
 /* ============================================
