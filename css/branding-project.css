@@ -3828,26 +3828,28 @@ body.strategic-page .strategic-system-image img {
 /* =========================================================
    MONTRAPAC — PREMIUM OUTDOOR BRANDING
    One continuous editorial panel, restrained red accents.
-   ========================================================= */
+   All styles scoped to body.montrapac-page.
+========================================================= */
 
 body.montrapac-page {
     --mp-ink: #17191B;
-    --mp-panel: #D0D0CC;
-    --mp-panel-alt: #C4C5C1;
+    --mp-panel: #A8AAA6;
     --mp-red: #C52A32;
     --mp-muted: #555752;
-    --mp-line: rgba(23, 25, 27, 0.24);
+    --mp-line: rgba(181, 31, 40, 0.75);
     color: var(--mp-ink);
 }
 
-/* Keep the project above the dust canvas */
+/* ---------------------------------------------------------
+   PAGE FOUNDATION AND PROJECT TITLE
+--------------------------------------------------------- */
+
 body.montrapac-page .project-container {
     position: relative;
     z-index: 1;
     padding-top: 0;
 }
 
-/* PROJECT TITLE */
 body.montrapac-page .project-navigation {
     padding-top: 80px;
     padding-bottom: 28px;
@@ -3855,14 +3857,15 @@ body.montrapac-page .project-navigation {
 }
 
 body.montrapac-page .project-title h1 {
-    color: var(--mp-ink);
+    color: #FFFFFF;
     line-height: 1.05;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
 body.montrapac-page .project-title .title-break {
     display: block;
     margin-top: 12px;
-    color: #595B57;
+    color: #E0E1DE;
     font-family: "Jost", sans-serif;
     font-size: 0.42em;
     font-weight: 400;
@@ -3870,7 +3873,10 @@ body.montrapac-page .project-title .title-break {
     text-transform: uppercase;
 }
 
-/* HERO — preserve the billboard's natural proportions */
+/* ---------------------------------------------------------
+   HERO
+--------------------------------------------------------- */
+
 body.montrapac-page .montrapac-hero {
     position: relative;
     margin: 0 auto 22px;
@@ -3893,7 +3899,10 @@ body.montrapac-page .montrapac-hero .lightbox-description {
     line-height: 1.6;
 }
 
-/* YEAR */
+/* ---------------------------------------------------------
+   YEAR AND PROJECT DETAILS
+--------------------------------------------------------- */
+
 body.montrapac-page .project-year {
     margin-top: 8px;
     color: var(--mp-red);
@@ -3903,7 +3912,6 @@ body.montrapac-page .project-year {
     letter-spacing: 0.2em;
 }
 
-/* PROJECT DETAILS — four columns above the main panel */
 body.montrapac-page .montrapac-details {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -3912,8 +3920,8 @@ body.montrapac-page .montrapac-details {
     margin: 26px 0 64px;
     padding: 22px 0;
     background: transparent;
-    border-top: 1px solid rgba(208, 208, 204, 0.35);
-    border-bottom: 1px solid rgba(208, 208, 204, 0.35);
+    border-top: 1px solid #B51F28;
+    border-bottom: 1px solid #B51F28;
     box-shadow: none;
 }
 
@@ -3923,7 +3931,7 @@ body.montrapac-page .montrapac-details .detail-box {
     text-align: left;
     background: transparent;
     border: 0;
-    border-right: 1px solid rgba(208, 208, 204, 0.25);
+    border-right: 1px solid rgba(181, 31, 40, 0.55);
     border-radius: 0;
     box-shadow: none;
 }
@@ -3948,7 +3956,10 @@ body.montrapac-page .montrapac-details .detail-box p {
     line-height: 1.8;
 }
 
-/* ONE CONTINUOUS PANEL — wraps sections 01 through 04 */
+/* ---------------------------------------------------------
+   MAIN CONTENT PANEL
+--------------------------------------------------------- */
+
 body.montrapac-page .mp-content-panel {
     width: 100%;
     margin: 0 auto;
@@ -3957,9 +3968,9 @@ body.montrapac-page .mp-content-panel {
     color: var(--mp-ink);
 }
 
-/* Remove the old separate section cards */
 body.montrapac-page .mp-content-panel .mp-panel,
 body.montrapac-page .mp-content-panel .mp-gallery-section {
+    position: relative;
     width: 100%;
     margin: 0;
     padding: clamp(38px, 5vw, 70px) 0;
@@ -3971,13 +3982,18 @@ body.montrapac-page .mp-content-panel .mp-gallery-section {
     isolation: auto;
 }
 
-/* Red dividing lines between sections */
 body.montrapac-page .mp-content-panel .mp-panel + .mp-panel,
 body.montrapac-page .mp-content-panel .mp-gallery-section {
-    border-top: 1px solid var(--mp-line);
+    border-top: 2px solid #B51F28;
+    box-shadow:
+        0 -5px 9px -7px rgba(0, 0, 0, 0.65),
+        0 5px 9px -7px rgba(0, 0, 0, 0.45);
 }
 
-/* SECTION LABELS */
+/* ---------------------------------------------------------
+   TYPOGRAPHY
+--------------------------------------------------------- */
+
 body.montrapac-page .mp-kicker {
     display: block;
     margin-bottom: 16px;
@@ -3989,7 +4005,6 @@ body.montrapac-page .mp-kicker {
     text-transform: uppercase;
 }
 
-/* HEADINGS */
 body.montrapac-page .mp-panel h2,
 body.montrapac-page .mp-section-heading h2 {
     margin: 0 0 22px;
@@ -4012,7 +4027,6 @@ body.montrapac-page .mp-section-heading h2::after {
     background: var(--mp-red);
 }
 
-/* BODY TEXT */
 body.montrapac-page .mp-panel p,
 body.montrapac-page .mp-section-heading p,
 body.montrapac-page .mp-identity-note p {
@@ -4026,7 +4040,10 @@ body.montrapac-page .mp-section-heading {
     margin-bottom: 34px;
 }
 
-/* 01 — OVERVIEW */
+/* ---------------------------------------------------------
+   01 — OVERVIEW
+--------------------------------------------------------- */
+
 body.montrapac-page .mp-overview {
     display: grid;
     grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
@@ -4071,7 +4088,10 @@ body.montrapac-page .mp-values span + span::before {
     color: var(--mp-red);
 }
 
-/* IMAGE FRAMES — no white cards */
+/* ---------------------------------------------------------
+   SHARED IMAGE FRAMES AND CAPTIONS
+--------------------------------------------------------- */
+
 body.montrapac-page .mp-image-frame,
 body.montrapac-page .mp-editorial-image,
 body.montrapac-page .mp-campaign-feature,
@@ -4079,11 +4099,11 @@ body.montrapac-page .mp-campaign-card {
     min-width: 0;
     margin: 0;
     padding: 0;
+    overflow: hidden;
     background: transparent;
     border: 0;
     border-radius: 0;
     box-shadow: none;
-    overflow: hidden;
 }
 
 body.montrapac-page .mp-image-frame img,
@@ -4098,20 +4118,6 @@ body.montrapac-page .mp-campaign-card > img {
     object-position: center;
 }
 
-/* Keep the logo sketches from dominating the overview */
-body.montrapac-page .mp-identity-image {
-    width: 100%;
-    max-width: 620px;
-    justify-self: center;
-}
-
-body.montrapac-page .mp-identity-image img {
-    width: 100%;
-    max-height: 480px;
-    object-fit: contain;
-}
-
-/* Captions */
 body.montrapac-page .mp-image-frame figcaption,
 body.montrapac-page .mp-editorial-image figcaption,
 body.montrapac-page .mp-campaign-card figcaption {
@@ -4121,7 +4127,33 @@ body.montrapac-page .mp-campaign-card figcaption {
     line-height: 1.6;
 }
 
-/* 02 — IDENTITY */
+/* Overview sketch image */
+body.montrapac-page .mp-identity-image {
+    width: 100%;
+    max-width: 460px;
+    margin-right: auto;
+    margin-left: auto;
+    justify-self: center;
+    text-align: center;
+}
+
+body.montrapac-page .mp-identity-image img {
+    width: 100%;
+    max-height: 360px;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+body.montrapac-page .mp-identity-image figcaption {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ---------------------------------------------------------
+   02 — IDENTITY
+--------------------------------------------------------- */
+
 body.montrapac-page .mp-identity-grid {
     display: grid;
     grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
@@ -4153,33 +4185,68 @@ body.montrapac-page .mp-red-rule {
     background: var(--mp-red);
 }
 
+/* Mountain-shaped color palette */
 body.montrapac-page .mp-palette {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: end;
+    gap: clamp(10px, 2vw, 22px);
+    width: 100%;
+    margin: 30px 0 0;
+}
+
+body.montrapac-page .mp-palette-item {
     display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 26px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    min-width: 0;
+    text-align: center;
 }
 
-body.montrapac-page .mp-swatch {
+body.montrapac-page .mp-palette-item svg {
     display: block;
-    width: 36px;
-    height: 36px;
-    border: 1px solid rgba(0, 0, 0, 0.22);
-    border-radius: 50%;
+    width: clamp(38px, 5vw, 62px);
+    height: clamp(48px, 6vw, 76px);
+    overflow: visible;
+    fill: currentColor;
+    stroke: none;
 }
 
-body.montrapac-page .mp-swatch-black { background: #171817; }
-body.montrapac-page .mp-swatch-white { background: #FFFFFF; }
-body.montrapac-page .mp-swatch-red { background: #C52A32; }
-body.montrapac-page .mp-swatch-leather { background: #79563E; }
-
-body.montrapac-page .mp-palette-label {
-    margin-top: 10px;
-    color: var(--mp-muted);
-    font-size: 0.85rem;
+body.montrapac-page .mp-palette-item span {
+    color: var(--mp-ink);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
 }
 
-/* 03 — MOTION */
+body.montrapac-page .mp-palette-black {
+    color: #171717;
+}
+
+body.montrapac-page .mp-palette-white {
+    color: #FFFFFF;
+}
+
+body.montrapac-page .mp-palette-white svg {
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.5));
+}
+
+body.montrapac-page .mp-palette-red {
+    color: #F04438;
+}
+
+body.montrapac-page .mp-palette-leather {
+    color: #98745A;
+}
+
+/* ---------------------------------------------------------
+   03 — MOTION
+--------------------------------------------------------- */
+
 body.montrapac-page .mp-video-frame {
     width: 100%;
     max-width: 1000px;
@@ -4198,8 +4265,8 @@ body.montrapac-page .mp-video-frame .video-player {
 body.montrapac-page .mp-video-frame iframe {
     display: block;
     width: 100%;
-    aspect-ratio: 16 / 9;
     height: auto;
+    aspect-ratio: 16 / 9;
     border: 0;
 }
 
@@ -4225,7 +4292,10 @@ body.montrapac-page .mp-editorial-image {
     margin: 0 auto;
 }
 
-/* 04 — CAMPAIGN APPLICATIONS */
+/* ---------------------------------------------------------
+   04 — CAMPAIGN APPLICATIONS
+--------------------------------------------------------- */
+
 body.montrapac-page .mp-gallery-heading {
     max-width: 800px;
     margin-bottom: 36px;
@@ -4266,18 +4336,40 @@ body.montrapac-page .mp-campaign-caption p {
     font-size: 0.95rem;
 }
 
-/* Campaign grid: retain natural image proportions */
+/* Horizontal campaign carousel */
 body.montrapac-page .mp-campaign-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 48%);
+    grid-template-columns: none;
     align-items: start;
-    gap: clamp(24px, 3vw, 38px);
+    gap: clamp(18px, 3vw, 30px);
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0 0 18px;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 2px;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #B51F28 rgba(23, 25, 27, 0.12);
 }
 
-body.montrapac-page .mp-campaign-card img {
-    height: auto;
-    max-height: none;
-    aspect-ratio: auto;
+body.montrapac-page .mp-campaign-grid::-webkit-scrollbar {
+    height: 7px;
+}
+
+body.montrapac-page .mp-campaign-grid::-webkit-scrollbar-track {
+    background: rgba(23, 25, 27, 0.12);
+}
+
+body.montrapac-page .mp-campaign-grid::-webkit-scrollbar-thumb {
+    background: #B51F28;
+}
+
+body.montrapac-page .mp-campaign-card {
+    min-width: 0;
+    scroll-snap-align: start;
 }
 
 body.montrapac-page .mp-campaign-card figcaption {
@@ -4296,7 +4388,10 @@ body.montrapac-page .mp-campaign-card figcaption {
     text-transform: uppercase;
 }
 
-/* CONTACT — preserve the site's shared contact styling */
+/* ---------------------------------------------------------
+   CONTACT
+--------------------------------------------------------- */
+
 body.montrapac-page .page-contact-link {
     position: relative;
     z-index: 1;
@@ -4324,7 +4419,10 @@ body.montrapac-page .page-contact-link .enter-button:focus-visible {
     border-color: #FFFFFF;
 }
 
-/* TABLET */
+/* ---------------------------------------------------------
+   TABLET
+--------------------------------------------------------- */
+
 @media (max-width: 850px) {
     body.montrapac-page .montrapac-details {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -4335,7 +4433,7 @@ body.montrapac-page .page-contact-link .enter-button:focus-visible {
     }
 
     body.montrapac-page .montrapac-details .detail-box:nth-child(-n+2) {
-        border-bottom: 1px solid rgba(208, 208, 204, 0.25);
+        border-bottom: 1px solid rgba(181, 31, 40, 0.55);
     }
 
     body.montrapac-page .mp-content-panel {
@@ -4353,12 +4451,18 @@ body.montrapac-page .page-contact-link .enter-button:focus-visible {
     }
 
     body.montrapac-page .mp-identity-image {
-        width: 100%;
-        max-width: 620px;
+        max-width: 400px;
+    }
+
+    body.montrapac-page .mp-campaign-grid {
+        grid-auto-columns: 82%;
     }
 }
 
-/* MOBILE */
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
 @media (max-width: 560px) {
     body.montrapac-page .project-navigation {
         padding-top: 64px;
@@ -4372,7 +4476,7 @@ body.montrapac-page .page-contact-link .enter-button:focus-visible {
     body.montrapac-page .montrapac-details .detail-box {
         padding: 18px 8px;
         border-right: 0;
-        border-bottom: 1px solid rgba(208, 208, 204, 0.25);
+        border-bottom: 1px solid rgba(181, 31, 40, 0.55);
     }
 
     body.montrapac-page .montrapac-details .detail-box:last-child {
@@ -4389,8 +4493,8 @@ body.montrapac-page .page-contact-link .enter-button:focus-visible {
     }
 
     body.montrapac-page .mp-campaign-grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 24px;
+        grid-auto-columns: 90%;
+        gap: 18px;
     }
 
     body.montrapac-page .mp-motion-footer {
@@ -4406,148 +4510,6 @@ body.montrapac-page .page-contact-link .enter-button:focus-visible {
         margin-right: 12px;
     }
 
-    body.montrapac-page .mp-swatch {
-        width: 34px;
-        height: 34px;
-    }
-}
-
-/* =========================================================
-   MONTRAPAC — REFINEMENTS
-   Darker panel, red dividers, clearer title, campaign carousel
-   ========================================================= */
-
-/* Darken the main panel */
-body.montrapac-page {
-    --mp-panel: #A8AAA6;
-    --mp-panel-alt: #9B9D99;
-    --mp-line: rgba(181, 31, 40, 0.75);
-}
-
-/* Make the main title and subtitle readable on the dark page */
-body.montrapac-page .project-title h1 {
-    color: #FFFFFF;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
-}
-
-body.montrapac-page .project-title .title-break {
-    color: #E0E1DE;
-}
-
-/* Red divider lines throughout the main panel */
-body.montrapac-page .mp-content-panel .mp-panel + .mp-panel,
-body.montrapac-page .mp-content-panel .mp-gallery-section {
-    border-top: 2px solid #B51F28;
-}
-
-/* Red separators above and below the four project detail columns */
-body.montrapac-page .montrapac-details {
-    border-top-color: #B51F28;
-    border-bottom-color: #B51F28;
-}
-
-body.montrapac-page .montrapac-details .detail-box {
-    border-right-color: rgba(181, 31, 40, 0.55);
-}
-
-body.montrapac-page .montrapac-details .detail-box:nth-child(-n+2) {
-    border-bottom-color: rgba(181, 31, 40, 0.55);
-}
-
-/* Smaller logo sketch with caption centered directly beneath */
-body.montrapac-page .mp-identity-image {
-    max-width: 460px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
-body.montrapac-page .mp-identity-image img {
-    width: 100%;
-    max-height: 360px;
-    object-fit: contain;
-    margin: 0 auto;
-}
-
-body.montrapac-page .mp-identity-image figcaption {
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
-}
-
-/* =========================================================
-   CAMPAIGN CAROUSEL
-   Uses the existing campaign images and captions.
-   No JavaScript required.
-   ========================================================= */
-
-body.montrapac-page .mp-campaign-grid {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(0, 1fr);
-    grid-template-columns: none;
-    gap: 24px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: 0 0 18px;
-    scroll-snap-type: x mandatory;
-    scroll-padding-inline: 2px;
-    overscroll-behavior-x: contain;
-    -webkit-overflow-scrolling: touch;
-}
-
-body.montrapac-page .mp-campaign-card {
-    min-width: 0;
-    scroll-snap-align: start;
-}
-
-/* Image sizes stay proportional */
-body.montrapac-page .mp-campaign-card img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-/* Subtle scrollbar styling */
-body.montrapac-page .mp-campaign-grid {
-    scrollbar-width: thin;
-    scrollbar-color: #B51F28 rgba(23, 25, 27, 0.12);
-}
-
-body.montrapac-page .mp-campaign-grid::-webkit-scrollbar {
-    height: 7px;
-}
-
-body.montrapac-page .mp-campaign-grid::-webkit-scrollbar-track {
-    background: rgba(23, 25, 27, 0.12);
-}
-
-body.montrapac-page .mp-campaign-grid::-webkit-scrollbar-thumb {
-    background: #B51F28;
-}
-
-/* Tablet and mobile: show part of the next slide as a hint */
-@media (max-width: 850px) {
-    body.montrapac-page .mp-campaign-grid {
-        grid-auto-columns: 82%;
-    }
-
-    body.montrapac-page .mp-identity-image {
-        max-width: 400px;
-    }
-}
-
-@media (max-width: 560px) {
-    body.montrapac-page .mp-content-panel {
-        background: #A8AAA6;
-    }
-
-    body.montrapac-page .mp-campaign-grid {
-        grid-auto-columns: 90%;
-        gap: 18px;
-    }
-
     body.montrapac-page .mp-identity-image {
         max-width: 340px;
     }
@@ -4555,293 +4517,7 @@ body.montrapac-page .mp-campaign-grid::-webkit-scrollbar-thumb {
     body.montrapac-page .mp-identity-image img {
         max-height: 280px;
     }
-}
 
-/* MONTRAPAC — SUBTLE RAISED RED DIVIDERS */
-
-/* Red dividing lines with soft shadows above and below */
-body.montrapac-page .mp-content-panel .mp-panel + .mp-panel,
-body.montrapac-page .mp-content-panel .mp-gallery-section {
-    border-top: 2px solid #B51F28;
-    box-shadow:
-        0 -5px 9px -7px rgba(0, 0, 0, 0.65),
-        0  5px 9px -7px rgba(0, 0, 0, 0.45);
-}
-
-/* Give the lines a little breathing room */
-body.montrapac-page .mp-content-panel .mp-panel + .mp-panel,
-body.montrapac-page .mp-content-panel .mp-gallery-section {
-    position: relative;
-}
-
-/* =========================================================
-   MONTRAPAC — IDENTITY DEVELOPMENT
-   Add to branding-project.css.
-   These rules are scoped to body.montrapac-page.
-========================================================= */
-
-/* ---------------------------------------------------------
-   IDENTITY DEVELOPMENT: SKETCH TO FINISHED LOGO
---------------------------------------------------------- */
-
-body.montrapac-page .mp-logo-development {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    align-items: center;
-    gap: clamp(18px, 3vw, 42px);
-    margin: 42px 0 58px;
-}
-
-body.montrapac-page .mp-logo-stage {
-    min-width: 0;
-    margin: 0;
-}
-
-body.montrapac-page .mp-logo-stage-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 300px;
-    padding: clamp(16px, 2.5vw, 30px);
-    background: rgba(0, 0, 0, .28);
-    border: 1px solid rgba(255, 255, 255, .12);
-}
-
-body.montrapac-page .mp-logo-stage-image img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: 340px;
-    object-fit: contain;
-    object-position: center;
-    filter: none;
-    cursor: zoom-in;
-}
-
-body.montrapac-page .mp-logo-sketch-image img {
-    height: 340px;
-}
-
-body.montrapac-page .mp-logo-primary-image img {
-    height: 340px;
-}
-
-body.montrapac-page .mp-logo-stage figcaption {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    column-gap: 10px;
-    row-gap: 5px;
-    margin-top: 16px;
-    text-align: left;
-}
-
-body.montrapac-page .mp-logo-stage-number {
-    grid-row: 1 / 3;
-    color: var(--mp-red, #F04438);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: .08em;
-}
-
-body.montrapac-page .mp-logo-stage-title {
-    color: #FFFFFF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-}
-
-body.montrapac-page .mp-logo-stage-description {
-    color: rgba(255, 255, 255, .76);
-    font-family: "Jost", sans-serif;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 1.65;
-}
-
-body.montrapac-page .mp-logo-progression {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: clamp(24px, 4vw, 54px);
-    color: var(--mp-red, #F04438);
-}
-
-body.montrapac-page .mp-logo-progression > span:first-child {
-    display: none;
-}
-
-body.montrapac-page .mp-logo-progression-arrow {
-    font-size: clamp(25px, 3vw, 38px);
-    line-height: 1;
-}
-
-/* ---------------------------------------------------------
-   LOGO VARIATIONS
---------------------------------------------------------- */
-
-body.montrapac-page .mp-logo-variants {
-    margin: 0 0 64px;
-}
-
-body.montrapac-page .mp-logo-variants-heading {
-    max-width: 720px;
-    margin: 0 auto 28px;
-    text-align: center;
-}
-
-body.montrapac-page .mp-logo-variants-heading .mp-red-rule {
-    display: block;
-    width: 42px;
-    height: 3px;
-    margin: 0 auto 16px;
-    background: var(--mp-red, #F04438);
-}
-
-body.montrapac-page .mp-logo-variants-heading h3 {
-    margin: 0 0 10px;
-    color: #FFFFFF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(23px, 2.5vw, 30px);
-    letter-spacing: .05em;
-}
-
-body.montrapac-page .mp-logo-variants-heading p {
-    margin: 0;
-    color: rgba(255, 255, 255, .76);
-    font-family: "Jost", sans-serif;
-    font-size: 15px;
-    font-weight: 300;
-    line-height: 1.75;
-}
-
-body.montrapac-page .mp-logo-variant-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: clamp(16px, 2.5vw, 30px);
-}
-
-body.montrapac-page .mp-logo-variant {
-    min-width: 0;
-    margin: 0;
-}
-
-body.montrapac-page .mp-logo-variant-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 220px;
-    padding: 20px;
-    background: rgba(0, 0, 0, .28);
-    border: 1px solid rgba(255, 255, 255, .12);
-}
-
-body.montrapac-page .mp-logo-inverse {
-    background: #101010;
-}
-
-body.montrapac-page .mp-logo-pride {
-    background: #101010;
-}
-
-body.montrapac-page .mp-logo-wordmark {
-    background: #F2F0EC;
-}
-
-body.montrapac-page .mp-logo-variant-image img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: 185px;
-    object-fit: contain;
-    object-position: center;
-    filter: none;
-    cursor: zoom-in;
-}
-
-body.montrapac-page .mp-logo-variant figcaption {
-    margin-top: 12px;
-    color: rgba(255, 255, 255, .86);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    letter-spacing: .08em;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-/* ---------------------------------------------------------
-   MOUNTAIN-SHAPED COLOR PALETTE
---------------------------------------------------------- */
-
-body.montrapac-page .mp-palette {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    align-items: end;
-    gap: clamp(10px, 2vw, 22px);
-    width: 100%;
-    margin: 30px 0 0;
-}
-
-body.montrapac-page .mp-palette-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-    min-width: 0;
-    text-align: center;
-}
-
-body.montrapac-page .mp-palette-item svg {
-    display: block;
-    width: clamp(38px, 5vw, 62px);
-    height: clamp(48px, 6vw, 76px);
-    overflow: visible;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 5;
-    stroke-linejoin: miter;
-    stroke-linecap: square;
-}
-
-body.montrapac-page .mp-palette-item span {
-    color: rgba(255, 255, 255, .86);
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: .04em;
-    line-height: 1.3;
-}
-
-body.montrapac-page .mp-palette-black {
-    color: #171717;
-}
-
-body.montrapac-page .mp-palette-white {
-    color: #FFFFFF;
-}
-
-body.montrapac-page .mp-palette-white svg {
-    filter: drop-shadow(0 0 1px rgba(255, 255, 255, .85));
-}
-
-body.montrapac-page .mp-palette-red {
-    color: #F04438;
-}
-
-body.montrapac-page .mp-palette-leather {
-    color: #98745A;
-}
-
-/* ---------------------------------------------------------
-   RESPONSIVE ADJUSTMENTS
---------------------------------------------------------- */
-
-@media (max-width: 800px) {
     body.montrapac-page .mp-logo-development {
         grid-template-columns: minmax(0, 1fr);
         gap: 18px;
@@ -4866,17 +4542,6 @@ body.montrapac-page .mp-palette-leather {
         height: 300px;
     }
 
-    body.montrapac-page .mp-logo-variant-image {
-        min-height: 170px;
-        padding: 14px;
-    }
-
-    body.montrapac-page .mp-logo-variant-image img {
-        height: 145px;
-    }
-}
-
-@media (max-width: 560px) {
     body.montrapac-page .mp-logo-variant-grid {
         grid-template-columns: minmax(0, 1fr);
         gap: 26px;
@@ -4904,6 +4569,280 @@ body.montrapac-page .mp-palette-leather {
     body.montrapac-page .mp-palette-item span {
         font-size: 12px;
     }
+}
+
+/* ---------------------------------------------------------
+   LOGO DEVELOPMENT AND VARIATIONS
+--------------------------------------------------------- */
+
+body.montrapac-page .mp-logo-development {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(18px, 3vw, 42px);
+    margin: 42px 0 58px;
+}
+
+body.montrapac-page .mp-logo-stage {
+    min-width: 0;
+    margin: 0;
+}
+
+body.montrapac-page .mp-logo-stage-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 300px;
+    padding: clamp(16px, 2.5vw, 30px);
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.montrapac-page .mp-logo-stage-image img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 340px;
+    object-fit: contain;
+    object-position: center;
+    filter: none;
+    cursor: zoom-in;
+}
+
+body.montrapac-page .mp-logo-stage figcaption {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 10px;
+    row-gap: 5px;
+    margin-top: 16px;
+    text-align: left;
+}
+
+body.montrapac-page .mp-logo-stage-number {
+    grid-row: 1 / 3;
+    color: var(--mp-red);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+body.montrapac-page .mp-logo-stage-title {
+    color: var(--mp-ink);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+body.montrapac-page .mp-logo-stage-description {
+    color: #343633;
+    font-family: "Jost", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.65;
+}
+
+body.montrapac-page .mp-logo-progression {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(24px, 4vw, 54px);
+    color: var(--mp-red);
+}
+
+body.montrapac-page .mp-logo-progression > span:first-child {
+    display: none;
+}
+
+body.montrapac-page .mp-logo-progression-arrow {
+    font-size: clamp(25px, 3vw, 38px);
+    line-height: 1;
+}
+
+/* Logo variations */
+
+body.montrapac-page .mp-logo-variants {
+    margin: 0 0 64px;
+}
+
+body.montrapac-page .mp-logo-variants-heading {
+    max-width: 720px;
+    margin: 0 auto 28px;
+    text-align: center;
+}
+
+body.montrapac-page .mp-logo-variants-heading .mp-red-rule {
+    width: 42px;
+    height: 3px;
+    margin: 0 auto 16px;
+}
+
+body.montrapac-page .mp-logo-variants-heading h3 {
+    margin: 0 0 10px;
+    color: var(--mp-ink);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(23px, 2.5vw, 30px);
+    letter-spacing: 0.05em;
+}
+
+body.montrapac-page .mp-logo-variants-heading p {
+    margin: 0;
+    color: #343633;
+    font-family: "Jost", sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.75;
+}
+
+body.montrapac-page .mp-logo-variant-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(16px, 2.5vw, 30px);
+}
+
+body.montrapac-page .mp-logo-variant {
+    min-width: 0;
+    margin: 0;
+}
+
+body.montrapac-page .mp-logo-variant-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+body.montrapac-page .mp-logo-inverse,
+body.montrapac-page .mp-logo-pride {
+    background: #101010;
+}
+
+body.montrapac-page .mp-logo-wordmark {
+    background: #F2F0EC;
+}
+
+body.montrapac-page .mp-logo-variant-image img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 185px;
+    object-fit: contain;
+    object-position: center;
+    filter: none;
+    cursor: zoom-in;
+}
+
+body.montrapac-page .mp-logo-variant figcaption {
+    margin-top: 12px;
+    color: var(--mp-ink);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@media (max-width: 800px) {
+    body.montrapac-page .mp-logo-development {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+        max-width: 620px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    body.montrapac-page .mp-logo-progression {
+        width: 100%;
+        height: 28px;
+        transform: rotate(90deg);
+    }
+
+    body.montrapac-page .mp-logo-stage-image {
+        min-height: 260px;
+    }
+
+    body.montrapac-page .mp-logo-stage-image img {
+        height: 300px;
+    }
+
+    body.montrapac-page .mp-logo-variant-image {
+        min-height: 170px;
+        padding: 14px;
+    }
+
+    body.montrapac-page .mp-logo-variant-image img {
+        height: 145px;
+    }
+}
+
+/* ---------------------------------------------------------
+   PAGE-LEVEL NAVIGATION ARROWS
+   Does NOT affect the top navigation or other project pages.
+--------------------------------------------------------- */
+
+body.montrapac-page .project-navigation .project-arrow .arrow-triangle {
+    display: block;
+    width: 25px;
+    height: 25px;
+    flex: 0 0 25px;
+    background: #FFFFFF;
+    border: 0 !important;
+    clip-path: polygon(43% 4%, 96% 96%, 5% 96%);
+    transform: none !important;
+    transition: background-color 0.3s ease;
+}
+
+/* Red mountain shape on hover and keyboard focus */
+body.montrapac-page .project-navigation .project-arrow:hover .arrow-triangle,
+body.montrapac-page .project-navigation .project-arrow:focus-visible .arrow-triangle {
+    background: var(--mp-red);
+    border: 0 !important;
+}
+
+/* Red clockwise circle on hover and keyboard focus */
+body.montrapac-page .project-navigation .project-arrow:hover .arrow-circle::before,
+body.montrapac-page .project-navigation .project-arrow:focus-visible .arrow-circle::before {
+    border-color: var(--mp-red) !important;
+    color: var(--mp-red);
+}
+
+
+/* ---------------------------------------------------------
+   CONTENT PANEL TYPOGRAPHY
+   Black text throughout the light-grey panel.
+   Red brand accents are preserved below.
+--------------------------------------------------------- */
+
+body.montrapac-page .mp-content-panel :is(
+    h1, h2, h3, h4, h5, h6,
+    p, figcaption, span, a, li, label, strong, em
+) {
+    color: var(--mp-ink);
+}
+
+/* Preserve red typography accents */
+body.montrapac-page .mp-content-panel .mp-kicker,
+body.montrapac-page .mp-content-panel .mp-logo-stage-number,
+body.montrapac-page .mp-content-panel .mp-campaign-caption span,
+body.montrapac-page .mp-content-panel .mp-campaign-card figcaption span {
+    color: var(--mp-red);
+}
+
+/* Preserve the red separators between brand values */
+body.montrapac-page .mp-content-panel .mp-values span + span::before {
+    color: var(--mp-red);
+}
+
+/* Keep the logo-development progression arrow red */
+body.montrapac-page .mp-content-panel .mp-logo-progression {
+    color: var(--mp-red);
 }
 
 
