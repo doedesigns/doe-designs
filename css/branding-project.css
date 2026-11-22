@@ -3850,7 +3850,22 @@ body.strategic-page .strategic-contact-button:focus-visible {
     }
 }
 
+/* Hide lightbox descriptions on the project page */
+body.strategic-page .lightbox-description {
+    display: none;
+}
 
+/* Show descriptions only inside the lightbox */
+body.strategic-page .lightbox .lightbox-description {
+    display: block;
+    margin-top: 30px;
+    color: rgba(255,255,255,.8);
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    letter-spacing: .04em;
+    text-align: center;
+}
 /* =========================================================
    DRIFTWOOD — CAPTION AND DIGITAL CAMPAIGN ALIGNMENT
    ========================================================= */
