@@ -3220,36 +3220,143 @@ body.driftwood-page .project-navigation {
 
 /* =========================================================
    STRATEGIC ESTATE PLANNING — CONSOLIDATED PAGE STYLES
+   Scoped to body.strategic-page. Shared navigation and all
+   other portfolio project pages remain unchanged.
 ========================================================= */
 
 /* ---------------------------------------------------------
-   BRAND COLORS + PAGE BACKGROUND
+   BRAND PALETTE + PAGE FOUNDATION
 --------------------------------------------------------- */
 
 body.strategic-page {
     --strategic-ink: #252A3A;
     --strategic-lavender: #676B98;
     --strategic-blue: #BBD7F1;
-    --strategic-paper: #FFFFFF;
-    --strategic-soft: #F4F5F9;
-    --strategic-dark: #0D2A40;
+    --strategic-paper: #F8F9FC;
+    --strategic-soft: #EEF1F7;
+    --strategic-brown: #7A6F5C;
+    --strategic-white: #FFFFFF;
+    --strategic-muted: #D9DFEB;
+    --strategic-rule: rgba(187, 215, 241, .72);
 
-    color: #F0F5FA;
+    color: var(--strategic-paper);
+    background: linear-gradient(
+        145deg,
+        #252A3A 0%,
+        #34394F 34%,
+        #4C5077 68%,
+        #676B98 100%
+    );
+    background-attachment: fixed;
+}
 
-    background:
-        linear-gradient(
-            155deg,
-            #081522 0%,
-            #151A35 48%,
-            #241968 100%
-        );
+body.strategic-page .project-container {
+    position: relative;
+    z-index: 1;
 }
 
 /* ---------------------------------------------------------
-   PROJECT YEAR + DETAILS
+   PROJECT TITLE + PREVIOUS/NEXT ARROWS
 --------------------------------------------------------- */
 
+body.strategic-page .project-navigation {
+    width: min(1180px, calc(100% - 48px));
+    margin: clamp(34px, 5vw, 62px) auto 28px;
+    gap: clamp(16px, 3vw, 42px);
+}
+
+/* Keep both title locations on the site's shared Barlow Condensed face. */
+body.strategic-page .strategic-project-navigation .project-title h1,
+body.strategic-page .project-title-nav h1 {
+    color: var(--strategic-blue);
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 16px rgba(10, 14, 28, .18);
+}
+
+body.strategic-page .strategic-project-navigation .project-title h1 {
+    font-size: 58px;
+    line-height: 1.05;
+}
+
+/* The compact navbar keeps its shared, smaller title size. */
+body.strategic-page .project-title-nav h1 {
+    line-height: 1.1;
+}
+
+body.strategic-page .strategic-project-navigation .title-break {
+    display: block;
+    margin-top: 8px;
+    color: #FFFFFF;
+    font-family: "Jost", sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: .22em;
+    line-height: 1.35;
+    text-transform: none;
+}
+
+body.strategic-page .strategic-eyebrow {
+    display: block;
+    margin-bottom: 14px;
+    color: var(--strategic-blue);
+    font: 600 18px/1.4 "Jost", sans-serif;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+/* Override the site's generic cyan hover only on this project. */
+body.strategic-page .project-arrow:hover .arrow-triangle,
+body.strategic-page .project-arrow:focus-visible .arrow-triangle {
+    border-left-color: var(--strategic-blue) !important;
+    border-right-color: var(--strategic-blue) !important;
+    background-color: var(--strategic-blue);
+}
+
+body.strategic-page .project-navigation .project-arrow .arrow-circle,
+body.strategic-page .project-title-nav .project-arrow .arrow-circle {
+    border-color: rgba(187, 215, 241, .9);
+    background: rgba(37, 42, 58, .18);
+    box-shadow: 0 0 0 1px rgba(103, 107, 152, .2);
+    transition: transform .35s ease, background-color .25s ease, border-color .25s ease;
+}
+
+body.strategic-page .project-arrow:hover .arrow-circle::before,
+body.strategic-page .project-arrow:focus-visible .arrow-circle::before {
+    border-color: var(--strategic-blue) !important;
+}
+
+/* ---------------------------------------------------------
+   HERO + PROJECT DETAILS
+--------------------------------------------------------- */
+
+body.strategic-page .project-hero-grid {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+body.strategic-page .project-hero {
+    width: min(100%, 840px);
+    max-width: 840px;
+    margin: 0 auto 52px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.strategic-page .project-hero > img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+    object-fit: contain;
+}
+
 body.strategic-page .project-year {
+    margin-top: 0;
     color: var(--strategic-blue);
 }
 
@@ -3281,19 +3388,20 @@ body.strategic-page .project-details .detail-box:last-child {
 body.strategic-page .project-details .detail-box h3 {
     margin: 0 0 12px;
     color: var(--strategic-lavender);
-    font-size: .76rem;
-    letter-spacing: .13em;
+    font-size: 18px;
+    line-height: 1.35;
+    letter-spacing: .1em;
 }
 
 body.strategic-page .project-details .detail-box p {
     margin: 0;
     color: var(--strategic-ink);
-    font-size: .92rem;
+    font-size: 18px;
     line-height: 1.6;
 }
 
 /* ---------------------------------------------------------
-   MAIN CONTENT PANELS
+   CONTENT PANELS + SECTION TYPOGRAPHY
 --------------------------------------------------------- */
 
 body.strategic-page .strategic-panel {
@@ -3301,7 +3409,7 @@ body.strategic-page .strategic-panel {
     isolation: isolate;
     width: min(1180px, calc(100% - 48px));
     margin: clamp(52px, 7vw, 88px) auto;
-    padding: clamp(26px, 4vw, 56px);
+    padding: clamp(30px, 4vw, 58px);
     background: rgba(13, 42, 64, .88);
     border: 1px solid rgba(187, 215, 241, .24);
     border-radius: 12px;
@@ -3310,10 +3418,10 @@ body.strategic-page .strategic-panel {
 
 body.strategic-page .strategic-kicker {
     display: block;
-    margin: 0 0 14px;
+    margin: 0 0 16px;
     color: var(--strategic-blue);
-    font: 600 .78rem/1.4 "Jost", sans-serif;
-    letter-spacing: .16em;
+    font: 600 18px/1.4 "Jost", sans-serif;
+    letter-spacing: .12em;
     text-transform: uppercase;
 }
 
@@ -3339,30 +3447,84 @@ body.strategic-page .strategic-panel h2::after {
 
 body.strategic-page .strategic-panel p {
     color: #E0EAF2;
-    font-size: clamp(.98rem, 1.15vw, 1.08rem);
+    font-size: 18px;
     line-height: 1.75;
 }
 
-/* ---------------------------------------------------------
-   BRAND IDEA + IDENTITY SYSTEM
---------------------------------------------------------- */
-
-body.strategic-page .strategic-intro-grid {
-    display: grid;
-    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
-    align-items: center;
-    gap: clamp(28px, 5vw, 76px);
+body.strategic-page .strategic-section-heading {
+    max-width: 900px;
+    margin-bottom: 34px;
 }
 
-body.strategic-page .strategic-intro-copy {
-    max-width: 510px;
+body.strategic-page .strategic-centered-heading {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+body.strategic-page .strategic-centered-heading h2::after {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* ---------------------------------------------------------
+   IDENTITY SYSTEM + BRAND PRINCIPLES
+--------------------------------------------------------- */
+
+body.strategic-page .strategic-identity-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr);
+    align-items: center;
+    gap: clamp(28px, 4vw, 54px);
+}
+
+body.strategic-page .strategic-artwork {
+    min-width: 0;
+    margin: 0;
+    padding: clamp(12px, 1.5vw, 18px);
+    background: var(--strategic-soft);
+    border: 1px solid rgba(187, 215, 241, .3);
+    border-radius: 6px;
+}
+
+body.strategic-page .strategic-artwork img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 520px;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+/* Caption and descriptive copy sit on a light surface: use dark ink. */
+body.strategic-page .strategic-artwork figcaption,
+body.strategic-page .strategic-process-image figcaption,
+body.strategic-page .strategic-stationery-feature figcaption {
+    margin-top: 12px;
+    color: var(--strategic-ink);
+    font-size: 18px;
+    line-height: 1.55;
+}
+
+body.strategic-page .strategic-system-image .lightbox-description {
+    color: var(--strategic-ink);
+}
+
+body.strategic-page .strategic-identity-copy {
+    min-width: 0;
+    padding-top: 28px;
+}
+
+body.strategic-page .strategic-identity-copy > .strategic-kicker {
+    margin-bottom: 22px;
 }
 
 body.strategic-page .strategic-principles {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 30px;
+    gap: 10px;
+    margin: 0 0 24px;
 }
 
 body.strategic-page .strategic-principle {
@@ -3373,70 +3535,129 @@ body.strategic-page .strategic-principle {
     border: 1px solid rgba(103, 107, 152, .28);
     border-radius: 6px;
     color: var(--strategic-ink);
-    font: 600 clamp(.95rem, 1.35vw, 1.25rem)/1.2 "Barlow Condensed", sans-serif;
+    font: 600 18px/1.25 "Barlow Condensed", sans-serif;
     letter-spacing: .04em;
     text-align: center;
     text-transform: uppercase;
-    overflow-wrap: normal;
+    overflow-wrap: anywhere;
 }
 
-body.strategic-page .strategic-system-image {
-    min-width: 0;
+body.strategic-page .strategic-identity-copy p {
+    margin: 0 0 18px;
+}
+
+body.strategic-page .strategic-rule {
+    width: 100%;
+    height: 1px;
+    margin: 24px 0;
+    background: var(--strategic-rule);
+}
+
+body.strategic-page .strategic-identity-copy .strategic-small-note {
+    color: var(--strategic-muted);
+    font-size: 18px;
+}
+
+/* ---------------------------------------------------------
+   PROCESS + SKETCHES
+--------------------------------------------------------- */
+
+body.strategic-page .strategic-process-row {
+    display: grid;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp(28px, 4vw, 54px);
+    margin-top: clamp(54px, 7vw, 82px);
+    padding-top: clamp(34px, 4vw, 52px);
+    border-top: 1px solid var(--strategic-rule);
+}
+
+body.strategic-page .strategic-process-copy {
+    padding-top: 8px;
+}
+
+body.strategic-page .strategic-process-copy h3 {
+    margin: 0 0 16px;
+    color: #FFFFFF;
+    font: 500 clamp(1.5rem, 2.5vw, 2rem)/1.2 "Barlow Condensed", sans-serif;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+}
+
+body.strategic-page .strategic-process-copy p {
     margin: 0;
-    padding: clamp(10px, 1.5vw, 18px);
+}
+
+body.strategic-page .strategic-process-image {
+    width: min(100%, 500px);
+    justify-self: center;
+    margin: 0;
+    padding: 14px;
     background: var(--strategic-soft);
     border: 1px solid rgba(187, 215, 241, .3);
     border-radius: 6px;
 }
 
-body.strategic-page .strategic-system-image img {
+body.strategic-page .strategic-process-image img {
     display: block;
     width: 100%;
+    max-width: 100%;
+    max-height: 380px;
     height: auto;
+    margin: 0 auto;
     object-fit: contain;
 }
 
-body.strategic-page .strategic-system-image figcaption,
-body.strategic-page .strategic-figure figcaption {
-    margin-top: 12px;
-    color: var(--strategic-lavender);
-    font-size: .86rem;
-    line-height: 1.55;
+/* ---------------------------------------------------------
+   WEBSITE WALKTHROUGH
+--------------------------------------------------------- */
+
+body.strategic-page .strategic-video-player {
+    width: 100%;
+    max-width: 900px;
+    margin: 28px auto 0;
 }
 
 /* ---------------------------------------------------------
    BRAND APPLICATIONS
 --------------------------------------------------------- */
 
-body.strategic-page .strategic-print-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(18px, 2.5vw, 34px);
-    align-items: start;
-}
-
-body.strategic-page .strategic-figure {
-    min-width: 0;
-    margin: 0;
-    padding: 18px;
+body.strategic-page .strategic-stationery-feature {
+    width: min(100%, 850px);
+    margin: 0 auto 36px;
+    padding: 16px;
     background: var(--strategic-soft);
     border: 1px solid rgba(187, 215, 241, .3);
     border-radius: 6px;
 }
 
-body.strategic-page .strategic-figure img {
+body.strategic-page .strategic-stationery-feature img {
     display: block;
     width: 100%;
-    max-height: 680px;
+    max-height: 560px;
+    height: auto;
     margin: 0 auto;
     object-fit: contain;
 }
 
-body.strategic-page .strategic-figure figcaption {
-    color: var(--strategic-lavender);
-    font: 600 1.12rem/1.4 "Barlow Condensed", sans-serif;
-    letter-spacing: .07em;
-    text-transform: uppercase;
+body.strategic-page .strategic-application-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: clamp(16px, 2vw, 26px);
+}
+
+body.strategic-page .strategic-application-grid .strategic-artwork {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+body.strategic-page .strategic-application-grid .strategic-artwork img {
+    max-height: 380px;
+}
+
+body.strategic-page .strategic-business-card img {
+    max-height: 300px;
 }
 
 /* ---------------------------------------------------------
@@ -3470,89 +3691,58 @@ body.strategic-page .strategic-document-card h3 {
 body.strategic-page .strategic-document-card > p {
     margin: 0 0 18px;
     color: var(--strategic-ink);
-    font-size: .95rem;
+    font-size: 18px;
     line-height: 1.65;
 }
 
-body.strategic-page .strategic-document-card .project-image-block {
-    padding: 0;
+body.strategic-page .strategic-document-image {
     margin: 0;
-    background: transparent;
+    padding: 0;
 }
 
-body.strategic-page .strategic-document-card .project-image-block img {
+body.strategic-page .strategic-document-image img {
     display: block;
     width: 100%;
-    max-height: 660px;
+    max-height: 520px;
+    height: auto;
     object-fit: contain;
     background: #FFFFFF;
     border: 1px solid rgba(103, 107, 152, .2);
 }
 
-body.strategic-page .strategic-document-card .project-image-block > p {
+body.strategic-page .strategic-document-image figcaption {
+    margin-top: 10px;
     color: var(--strategic-ink);
-    font-size: .84rem;
-    text-align: left;
+    font-size: 18px;
+    line-height: 1.5;
 }
 
 /* ---------------------------------------------------------
-   WEBSITE WALKTHROUGH
+   OUTRO / CONTACT
 --------------------------------------------------------- */
 
-body.strategic-page .strategic-website-panel .video-player {
-    width: 100%;
-    max-width: 1000px;
-    margin: 28px auto 0;
-    padding: 10px;
-    background: var(--strategic-soft);
-    border: 1px solid rgba(187, 215, 241, .3);
-    border-radius: 6px;
-}
-
-body.strategic-page .strategic-website-panel > p {
-    max-width: 760px;
-    margin: 20px auto 0;
+body.strategic-page .strategic-outro {
+    width: min(900px, calc(100% - 48px));
+    margin: clamp(64px, 8vw, 100px) auto;
+    padding: clamp(30px, 4vw, 48px);
     text-align: center;
 }
 
-/* ---------------------------------------------------------
-   FINAL / CONTACT ELEMENTS
---------------------------------------------------------- */
-
-body.strategic-page .strategic-final-brochure {
-    display: grid;
-    grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr);
-    align-items: center;
-    gap: clamp(24px, 4vw, 56px);
+body.strategic-page .strategic-outro p {
+    margin: 0 0 24px;
+    color: #FFFFFF;
+    font-size: 20px;
+    line-height: 1.6;
 }
 
-body.strategic-page .strategic-final-brochure .strategic-figure {
-    max-width: 620px;
-    width: 100%;
-    justify-self: end;
-}
-
-body.strategic-page .strategic-contact-panel {
-    text-align: center;
-}
-
-body.strategic-page .strategic-contact-panel h2::after {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-body.strategic-page .strategic-contact-panel p {
-    margin-bottom: 24px;
-}
-
-body.strategic-page .strategic-contact-panel .enter-button {
+body.strategic-page .strategic-contact-button {
     background: var(--strategic-lavender);
     border: 1px solid var(--strategic-lavender);
     color: #FFFFFF;
 }
 
-body.strategic-page .strategic-contact-panel .enter-button:hover,
-body.strategic-page .strategic-contact-panel .enter-button:focus-visible {
+body.strategic-page .strategic-contact-button:hover,
+body.strategic-page .strategic-contact-button:focus-visible {
     background: #FFFFFF;
     color: var(--strategic-lavender);
 }
@@ -3560,6 +3750,25 @@ body.strategic-page .strategic-contact-panel .enter-button:focus-visible {
 /* ---------------------------------------------------------
    TABLET
 --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+    body.strategic-page .strategic-identity-layout,
+    body.strategic-page .strategic-process-row {
+        grid-template-columns: 1fr;
+    }
+
+    body.strategic-page .strategic-identity-copy {
+        padding-top: 24px;
+    }
+
+    body.strategic-page .strategic-process-image {
+        width: min(100%, 560px);
+    }
+
+    body.strategic-page .strategic-application-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
 
 @media (max-width: 850px) {
     body.strategic-page .project-details {
@@ -3574,14 +3783,8 @@ body.strategic-page .strategic-contact-panel .enter-button:focus-visible {
         border-bottom: 1px solid rgba(37, 42, 58, .18);
     }
 
-    body.strategic-page .strategic-intro-grid,
-    body.strategic-page .strategic-final-brochure {
+    body.strategic-page .strategic-document-grid {
         grid-template-columns: 1fr;
-    }
-
-    body.strategic-page .strategic-final-brochure .strategic-figure {
-        justify-self: stretch;
-        max-width: 100%;
     }
 }
 
@@ -3590,6 +3793,24 @@ body.strategic-page .strategic-contact-panel .enter-button:focus-visible {
 --------------------------------------------------------- */
 
 @media (max-width: 600px) {
+    body.strategic-page .project-navigation {
+        width: calc(100% - 28px);
+    }
+
+    body.strategic-page .strategic-project-navigation .project-title h1 {
+        font-size: clamp(2rem, 9vw, 3rem);
+    }
+
+    body.strategic-page .strategic-project-navigation .title-break {
+        font-size: 18px;
+        letter-spacing: .1em;
+    }
+
+    body.strategic-page .project-hero {
+        width: calc(100% - 28px);
+        margin-bottom: 36px;
+    }
+
     body.strategic-page .project-details {
         width: calc(100% - 28px);
         padding: 0;
@@ -3602,148 +3823,33 @@ body.strategic-page .strategic-contact-panel .enter-button:focus-visible {
     body.strategic-page .strategic-panel {
         width: calc(100% - 28px);
         margin: 34px auto;
-        padding: 22px 18px;
-    }
-
-    body.strategic-page .strategic-principles,
-    body.strategic-page .strategic-print-grid,
-    body.strategic-page .strategic-document-grid {
-        grid-template-columns: 1fr;
+        padding: 24px 18px;
     }
 
     body.strategic-page .strategic-principles {
+        grid-template-columns: 1fr;
         gap: 10px;
     }
 
     body.strategic-page .strategic-principle {
         padding: 14px 12px;
-        font-size: 1.1rem;
     }
 
-    body.strategic-page .strategic-figure,
+    body.strategic-page .strategic-application-grid {
+        grid-template-columns: 1fr;
+    }
+
+    body.strategic-page .strategic-artwork,
     body.strategic-page .strategic-document-card {
         padding: 12px;
     }
+
+    body.strategic-page .strategic-process-row {
+        margin-top: 42px;
+        padding-top: 30px;
+    }
 }
 
-/* STRATEGIC — HERO IMAGE WIDTH */
-body.strategic-page .project-hero-grid {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-body.strategic-page .project-hero {
-    width: min(100%, 1000px);
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body.strategic-page .project-hero > img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 2 / 1;
-    object-fit: contain;
-}
-
-/* =========================================================
-   STRATEGIC ESTATE PLANNING
-========================================================= */
-
-/* ---------------------------------------------------------
-   BRAND PALETTE + PAGE FOUNDATION
---------------------------------------------------------- */
-
-body.strategic-page {
-    --strategic-ink: #252A3A;
-    --strategic-lavender: #676B98;
-    --strategic-blue: #BBD7F1;
-    --strategic-paper: #F8F9FC;
-    --strategic-soft: #EEF1F7;
-    --strategic-brown: #7A6F5C;
-    --strategic-white: #FFFFFF;
-    --strategic-muted: #D9DFEB;
-    --strategic-rule: rgba(187, 215, 241, .72);
-
-    color: var(--strategic-paper);
-    background:
-        linear-gradient(
-            145deg,
-            #252A3A 0%,
-            #34394F 34%,
-            #4C5077 68%,
-            #676B98 100%
-        );
-    background-attachment: fixed;
-}
-
-body.strategic-page .project-container {
-    position: relative;
-    z-index: 1;
-}
-
-/* ---------------------------------------------------------
-   PROJECT TITLE + PREVIOUS/NEXT ARROWS
---------------------------------------------------------- */
-
-body.strategic-page .project-navigation {
-    width: min(1180px, calc(100% - 48px));
-    margin: clamp(34px, 5vw, 62px) auto 28px;
-    gap: clamp(16px, 3vw, 42px);
-}
-
-body.strategic-page .strategic-project-navigation .project-title h1,
-body.strategic-page .project-title-nav h1 {
-    color: var(--strategic-blue);
-    text-shadow: 0 2px 16px rgba(10, 14, 28, .18);
-}
-
-body.strategic-page .strategic-project-navigation .project-title h1 {
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(2.2rem, 4.5vw, 4.1rem);
-    font-weight: 500;
-    letter-spacing: -.035em;
-    line-height: 1.12;
-}
-
-body.strategic-page .strategic-project-navigation .title-break {
-    display: block;
-    margin-top: 12px;
-    color: rgba(248, 249, 252, .88);
-    font-family: "Jost", sans-serif;
-    font-size: clamp(.88rem, 1.35vw, 1.12rem);
-    font-weight: 400;
-    letter-spacing: .16em;
-    line-height: 1.5;
-    text-transform: uppercase;
-}
-
-body.strategic-page .strategic-eyebrow {
-    display: block;
-    margin-bottom: 14px;
-    color: var(--strategic-blue);
-    font: 600 .72rem/1.4 "Jost", sans-serif;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-}
-
-body.strategic-page .project-title-nav h1 {
-    font-family: "Jost", sans-serif;
-    font-weight: 500;
-    letter-spacing: .04em;
-}
-
-body.strategic-page .project-navigation .project-arrow .arrow-circle,
-body.strategic-page .project-title-nav .project-arrow .arrow-circle {
-    border-color: rgba(187, 215, 241, .9);
-    background: rgba(37, 42, 58, .18);
-    box-shadow: 0 0 0 1px rgba(103, 107, 152, .2);
-    transition: transform .35s ease, background-color .25s ease, border-color .25s ease;
-}
 
 /* =========================================================
    DRIFTWOOD — CAPTION AND DIGITAL CAMPAIGN ALIGNMENT
