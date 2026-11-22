@@ -5129,3 +5129,34 @@ body.odc-page .lightbox-proposal-navigation .project-arrow:focus-visible::before
     opacity: 1;
     animation: odcCarouselArrowSpin 5s linear infinite;
 }
+
+/* =========================================================
+   OLD DOG CAFE — BRAND IN USE CAROUSEL SPACING FIX
+   Targets only the main brand carousel.
+   Keeps image captions inside the carousel's natural height.
+========================================================= */
+
+body.odc-page #odc-brand-carousel .carousel-track {
+    min-height: 0;
+    height: auto;
+    padding-top: 16px;
+    padding-bottom: 28px;
+}
+
+body.odc-page #odc-brand-carousel .carousel-slide {
+    height: auto;
+    align-self: flex-start;
+}
+
+body.odc-page #odc-brand-carousel .odc-slide-caption {
+    margin-top: 14px;
+    margin-bottom: 8px;
+    padding-bottom: 4px;
+    line-height: 1.5;
+}
+
+/* Reduce the extra space below this specific gallery */
+body.odc-page .odc-gallery-section:has(#odc-brand-carousel) {
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+}
