@@ -3651,10 +3651,7 @@ body.strategic-page .project-hero > img {
 }
 
 /* =========================================================
-   STRATEGIC ESTATE PLANNING — PAGE REDESIGN
-   Load AFTER main.css, nav.css, branding-project.css, mobile.css.
-   Shared navigation structure is retained; project styling is
-   scoped to body.strategic-page.
+   STRATEGIC ESTATE PLANNING
 ========================================================= */
 
 /* ---------------------------------------------------------
@@ -3746,6 +3743,7 @@ body.strategic-page .project-title-nav .project-arrow .arrow-circle {
     background: rgba(37, 42, 58, .18);
     box-shadow: 0 0 0 1px rgba(103, 107, 152, .2);
     transition: transform .35s ease, background-color .25s ease, border-color .25s ease;
+}
 
 /* =========================================================
    DRIFTWOOD — CAPTION AND DIGITAL CAMPAIGN ALIGNMENT
