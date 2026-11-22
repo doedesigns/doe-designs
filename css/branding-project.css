@@ -3218,373 +3218,24 @@ body.driftwood-page .project-navigation {
     padding-top: 80px;
 }
 
-
-/* =========================================================
-   STRATEGIC ESTATE PLANNING — CONSOLIDATED PAGE STYLES
-   Uses the existing Strategic Estate Planning brand palette.
-   Scoped exclusively to body.strategic-page.
-========================================================= */
-
-/* ---------------------------------------------------------
-   BRAND COLORS + PAGE BACKGROUND
---------------------------------------------------------- */
-
-body.strategic-page {
-    --strategic-ink: #252A3A;
-    --strategic-lavender: #676B98;
-    --strategic-blue: #BBD7F1;
-    --strategic-paper: #FFFFFF;
-    --strategic-soft: #F4F5F9;
-    --strategic-dark: #0D2A40;
-
-    color: #F0F5FA;
-
-    background:
-        linear-gradient(
-            155deg,
-            #081522 0%,
-            #151A35 48%,
-            #241968 100%
-        );
-}
-
-/* ---------------------------------------------------------
-   PROJECT YEAR + DETAILS
---------------------------------------------------------- */
-
-body.strategic-page .project-year {
-    color: var(--strategic-blue);
-}
-
-body.strategic-page .project-details {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0;
-    width: min(1180px, calc(100% - 48px));
-    margin: 30px auto clamp(64px, 8vw, 100px);
-    padding: 0;
-    background: transparent;
-    border: 1px solid rgba(187, 215, 241, .35);
-    box-shadow: none;
-}
-
-body.strategic-page .project-details .detail-box {
-    min-width: 0;
-    padding: 24px 18px;
-    background: var(--strategic-blue);
-    color: var(--strategic-ink);
-    border-right: 1px solid rgba(37, 42, 58, .18);
-    text-align: center;
-}
-
-body.strategic-page .project-details .detail-box:last-child {
-    border-right: 0;
-}
-
-body.strategic-page .project-details .detail-box h3 {
-    margin: 0 0 12px;
-    color: var(--strategic-lavender);
-    font-size: .76rem;
-    letter-spacing: .13em;
-}
-
-body.strategic-page .project-details .detail-box p {
-    margin: 0;
-    color: var(--strategic-ink);
-    font-size: .92rem;
-    line-height: 1.6;
-}
-
-/* ---------------------------------------------------------
-   MAIN CONTENT PANELS
---------------------------------------------------------- */
-
-body.strategic-page .strategic-panel {
-    position: relative;
-    isolation: isolate;
-    width: min(1180px, calc(100% - 48px));
-    margin: clamp(52px, 7vw, 88px) auto;
-    padding: clamp(26px, 4vw, 56px);
-    background: rgba(13, 42, 64, .88);
-    border: 1px solid rgba(187, 215, 241, .24);
-    border-radius: 12px;
-    box-shadow: 0 12px 34px rgba(0, 0, 0, .16);
-}
-
-body.strategic-page .strategic-kicker {
-    display: block;
-    margin: 0 0 14px;
-    color: var(--strategic-blue);
-    font: 600 .78rem/1.4 "Jost", sans-serif;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-}
-
-body.strategic-page .strategic-panel h2 {
-    margin: 0 0 22px;
-    color: #FFFFFF;
-    font-family: "Barlow Condensed", sans-serif;
-    font-size: clamp(2rem, 3.4vw, 3.15rem);
-    font-weight: 500;
-    letter-spacing: .025em;
-    line-height: 1.05;
-    text-transform: uppercase;
-}
-
-body.strategic-page .strategic-panel h2::after {
-    content: "";
-    display: block;
-    width: 62px;
-    height: 2px;
-    margin-top: 18px;
-    background: var(--strategic-blue);
-}
-
-body.strategic-page .strategic-panel p {
-    color: #E0EAF2;
-    font-size: clamp(.98rem, 1.15vw, 1.08rem);
-    line-height: 1.75;
-}
-
-/* ---------------------------------------------------------
-   BRAND IDEA + IDENTITY SYSTEM
---------------------------------------------------------- */
-
-body.strategic-page .strategic-intro-grid {
-    display: grid;
-    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
-    align-items: center;
-    gap: clamp(28px, 5vw, 76px);
-}
-
-body.strategic-page .strategic-intro-copy {
-    max-width: 510px;
-}
-
-body.strategic-page .strategic-principles {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
-    margin-top: 30px;
-}
-
-body.strategic-page .strategic-principle {
-    box-sizing: border-box;
-    min-width: 0;
-    padding: 18px 10px;
-    background: var(--strategic-blue);
-    border: 1px solid rgba(103, 107, 152, .28);
-    border-radius: 6px;
-    color: var(--strategic-ink);
-    font: 600 clamp(.95rem, 1.35vw, 1.25rem)/1.2 "Barlow Condensed", sans-serif;
-    letter-spacing: .04em;
-    text-align: center;
-    text-transform: uppercase;
-    overflow-wrap: normal;
-}
-
-body.strategic-page .strategic-system-image {
-    min-width: 0;
-    margin: 0;
-    padding: clamp(10px, 1.5vw, 18px);
-    background: var(--strategic-soft);
-    border: 1px solid rgba(187, 215, 241, .3);
-    border-radius: 6px;
-}
-
-body.strategic-page .strategic-system-image img {
-    display: block;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-}
-
-body.strategic-page .strategic-system-image figcaption,
-body.strategic-page .strategic-figure figcaption {
-    margin-top: 12px;
-    color: var(--strategic-lavender);
-    font-size: .86rem;
-    line-height: 1.55;
-}
-
-/* ---------------------------------------------------------
-   BRAND APPLICATIONS
---------------------------------------------------------- */
-
-body.strategic-page .strategic-print-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(18px, 2.5vw, 34px);
-    align-items: start;
-}
-
-body.strategic-page .strategic-figure {
-    min-width: 0;
-    margin: 0;
-    padding: 18px;
-    background: var(--strategic-soft);
-    border: 1px solid rgba(187, 215, 241, .3);
-    border-radius: 6px;
-}
-
-body.strategic-page .strategic-figure img {
-    display: block;
-    width: 100%;
-    max-height: 680px;
-    margin: 0 auto;
-    object-fit: contain;
-}
-
-body.strategic-page .strategic-figure figcaption {
-    color: var(--strategic-lavender);
-    font: 600 1.12rem/1.4 "Barlow Condensed", sans-serif;
-    letter-spacing: .07em;
-    text-transform: uppercase;
-}
-
-/* ---------------------------------------------------------
-   CLIENT DOCUMENTS
---------------------------------------------------------- */
-
-body.strategic-page .strategic-document-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(18px, 2.5vw, 30px);
-    margin-top: 28px;
-}
-
-body.strategic-page .strategic-document-card {
-    min-width: 0;
-    padding: clamp(18px, 2.5vw, 30px);
-    background: var(--strategic-blue);
-    border: 1px solid rgba(103, 107, 152, .28);
-    border-radius: 6px;
-    color: var(--strategic-ink);
-}
-
-body.strategic-page .strategic-document-card h3 {
-    margin: 0 0 8px;
-    color: var(--strategic-lavender);
-    font: 600 clamp(1.25rem, 2vw, 1.65rem)/1.2 "Barlow Condensed", sans-serif;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-}
-
-body.strategic-page .strategic-document-card > p {
-    margin: 0 0 18px;
-    color: var(--strategic-ink);
-    font-size: .95rem;
-    line-height: 1.65;
-}
-
-body.strategic-page .strategic-document-card .project-image-block {
-    padding: 0;
-    margin: 0;
-    background: transparent;
-}
-
-body.strategic-page .strategic-document-card .project-image-block img {
-    display: block;
-    width: 100%;
-    max-height: 660px;
-    object-fit: contain;
-    background: #FFFFFF;
-    border: 1px solid rgba(103, 107, 152, .2);
-}
-
-body.strategic-page .strategic-document-card .project-image-block > p {
-    color: var(--strategic-ink);
-    font-size: .84rem;
-    text-align: left;
-}
-
-/* ---------------------------------------------------------
-   WEBSITE WALKTHROUGH
---------------------------------------------------------- */
-
-body.strategic-page .strategic-website-panel .video-player {
-    width: 100%;
-    max-width: 1000px;
-    margin: 28px auto 0;
-    padding: 10px;
-    background: var(--strategic-soft);
-    border: 1px solid rgba(187, 215, 241, .3);
-    border-radius: 6px;
-}
-
-body.strategic-page .strategic-website-panel > p {
-    max-width: 760px;
-    margin: 20px auto 0;
-    text-align: center;
-}
-
-/* ---------------------------------------------------------
-   FINAL / CONTACT ELEMENTS
---------------------------------------------------------- */
-
-body.strategic-page .strategic-final-brochure {
-    display: grid;
-    grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr);
-    align-items: center;
-    gap: clamp(24px, 4vw, 56px);
-}
-
-body.strategic-page .strategic-final-brochure .strategic-figure {
-    max-width: 620px;
-    width: 100%;
-    justify-self: end;
-}
-
-body.strategic-page .strategic-contact-panel {
-    text-align: center;
-}
-
-body.strategic-page .strategic-contact-panel h2::after {
-    margin-left: auto;
-    margin-right: auto;
-}
-
-body.strategic-page .strategic-contact-panel p {
-    margin-bottom: 24px;
-}
-
-body.strategic-page .strategic-contact-panel .enter-button {
-    background: var(--strategic-lavender);
-    border: 1px solid var(--strategic-lavender);
-    color: #FFFFFF;
-}
-
-body.strategic-page .strategic-contact-panel .enter-button:hover,
-body.strategic-page .strategic-contact-panel .enter-button:focus-visible {
-    background: #FFFFFF;
-    color: var(--strategic-lavender);
-}
-
-/* ---------------------------------------------------------
-   TABLET
---------------------------------------------------------- */
-
-@media (max-width: 850px) {
-    body.strategic-page .project-details {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    body.strategic-page .project-details .detail-box:nth-child(2) {
-        border-right: 0;
-    }
-
-    body.strategic-page .project-details .detail-box:nth-child(-n+2) {
-        border-bottom: 1px solid rgba(37, 42, 58, .18);
-    }
-
-    body.strategic-page .strategic-intro-grid,
-    body.strategic-page .strategic-final-brochure {
         grid-template-columns: 1fr;
     }
 
-    body.strategic-page .strategic-final-brochure .strategic-figure {
+    body.strategic-page .strategic-process-image {
         justify-self: stretch;
-        max-width: 100%;
+        width: 100%;
+    }
+
+    body.strategic-page .strategic-identity-copy {
+        display: block;
+    }
+
+    body.strategic-page .strategic-principles {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    body.strategic-page .strategic-document-card > p {
+        min-height: 0;
     }
 }
 
@@ -3593,66 +3244,108 @@ body.strategic-page .strategic-contact-panel .enter-button:focus-visible {
 --------------------------------------------------------- */
 
 @media (max-width: 600px) {
+    body.strategic-page {
+        background-attachment: scroll;
+    }
+
+    body.strategic-page .project-navigation {
+        width: calc(100% - 28px);
+        margin: 30px auto 22px;
+        gap: 8px;
+    }
+
+    body.strategic-page .strategic-project-navigation .project-title h1 {
+        font-size: clamp(1.8rem, 8vw, 2.55rem);
+    }
+
+    body.strategic-page .strategic-project-navigation .title-break {
+        font-size: .72rem;
+        letter-spacing: .1em;
+    }
+
+    body.strategic-page .strategic-eyebrow {
+        font-size: .62rem;
+        letter-spacing: .13em;
+    }
+
+    body.strategic-page .project-hero-grid {
+        width: calc(100% - 28px);
+    }
+
+    body.strategic-page .project-hero > img {
+        aspect-ratio: 2 / 1;
+    }
+
     body.strategic-page .project-details {
         width: calc(100% - 28px);
-        padding: 0;
+        margin-top: 22px;
     }
 
     body.strategic-page .project-details .detail-box {
         padding: 18px 10px;
     }
 
-    body.strategic-page .strategic-panel {
-        width: calc(100% - 28px);
-        margin: 34px auto;
-        padding: 22px 18px;
+    body.strategic-page .project-details .detail-box h3 {
+        font-size: .63rem;
+        letter-spacing: .1em;
     }
 
-    body.strategic-page .strategic-principles,
-    body.strategic-page .strategic-print-grid,
+    body.strategic-page .project-details .detail-box p {
+        font-size: .78rem;
+    }
+
+    body.strategic-page .strategic-panel {
+        width: calc(100% - 28px);
+        margin: 36px auto;
+        padding: 24px 18px;
+    }
+
+    body.strategic-page .strategic-panel h2 {
+        font-size: clamp(1.85rem, 8vw, 2.45rem);
+    }
+
+    body.strategic-page .strategic-section-heading {
+        margin-bottom: 26px;
+    }
+
+    body.strategic-page .strategic-principles {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    body.strategic-page .strategic-principle {
+        padding: 12px 14px;
+    }
+
+    body.strategic-page .strategic-application-grid,
     body.strategic-page .strategic-document-grid {
         grid-template-columns: 1fr;
     }
 
-    body.strategic-page .strategic-principles {
-        gap: 10px;
-    }
-
-    body.strategic-page .strategic-principle {
-        padding: 14px 12px;
-        font-size: 1.1rem;
-    }
-
-    body.strategic-page .strategic-figure,
+    body.strategic-page .strategic-artwork,
     body.strategic-page .strategic-document-card {
         padding: 12px;
     }
+
+    body.strategic-page .strategic-stationery-feature {
+        padding: 10px;
+    }
+
+    body.strategic-page .strategic-video-player {
+        padding: 6px;
+    }
+
+    body.strategic-page .strategic-outro {
+        width: calc(100% - 28px);
+        margin: 54px auto 60px;
+    }
 }
 
-/* STRATEGIC — HERO IMAGE WIDTH */
-body.strategic-page .project-hero-grid {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
+/* ---------------------------------------------------------
+   REDUCED MOTION
+--------------------------------------------------------- */
 
-body.strategic-page .project-hero {
-    width: min(100%, 1000px);
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body.strategic-page .project-hero > img {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 2 / 1;
-    object-fit: contain;
-}
-
+@media (prefers-reduced-motion: reduce) {
 /* =========================================================
    DRIFTWOOD — CAPTION AND DIGITAL CAMPAIGN ALIGNMENT
    ========================================================= */
