@@ -712,3 +712,146 @@ body.motion-page .motion-card:hover .portfolio-card-title::after,
 body.motion-page .motion-card:focus-visible .portfolio-card-title::after {
     width: 100%;
 }
+
+/* =========================================================
+   UI/UX CATEGORY GRID — 4 COLUMNS ON DESKTOP
+   Add to the UI/UX CATEGORY stylesheet, not project CSS.
+   ========================================================= */
+
+.uiux-grid,
+.uiux-page .portfolio-grid,
+.uiux-page .uiux-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.uiux-grid .uiux-card,
+.uiux-page .portfolio-card,
+.uiux-page .uiux-card {
+    min-width: 0;
+    margin: 0;
+}
+
+.uiux-grid .motion-preview,
+.uiux-grid .card-image-wrap,
+.uiux-page .portfolio-card img,
+.uiux-page .uiux-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+/* UI/UX PROJECT TITLES AND HOVER UNDERLINES */
+
+body.design-page .uiux-grid .design-card .portfolio-card-title {
+    position: relative;
+    display: table;
+    width: auto;
+    max-width: 100%;
+    margin: 8px auto 0;
+    padding: 0 0 5px;
+    color: #FFFFFF;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: .04em;
+    text-align: center;
+    box-sizing: border-box;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+/* Animated underline */
+
+body.design-page .uiux-grid .design-card .portfolio-card-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: #00E5FF;
+    transition: width .35s ease;
+}
+
+body.design-page .uiux-grid .design-card:hover .portfolio-card-title::after,
+body.design-page .uiux-grid .design-card:focus-visible .portfolio-card-title::after {
+    width: 100%;
+}
+
+/* Second, conventional underline */
+
+body.design-page .uiux-grid .design-card:hover .portfolio-card-title,
+body.design-page .uiux-grid .design-card:focus-visible .portfolio-card-title {
+    color: #00E5FF;
+    text-decoration: underline;
+    text-decoration-color: #00E5FF;
+    text-underline-offset: 5px;
+}
+
+@media (max-width: 900px) {
+    .uiux-grid,
+    .uiux-page .portfolio-grid,
+    .uiux-page .uiux-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .uiux-grid,
+    .uiux-page .portfolio-grid,
+    .uiux-page .uiux-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   UI/UX HOMEPAGE — 2 X 2 GRID
+   Match branding image size
+   ========================================================= */
+
+@media (min-width: 901px) {
+    body.design-page .uiux-grid {
+        grid-template-columns: repeat(2, 230px) !important;
+        justify-content: center !important;
+        align-content: start !important;
+        column-gap: 40px !important;
+        row-gap: 28px !important;
+        margin-top: 25px !important;
+    }
+
+    body.design-page .uiux-grid .design-card {
+        width: 230px !important;
+        min-width: 0 !important;
+        max-width: 230px !important;
+    }
+
+    body.design-page .uiux-grid .design-card .card-image-wrap {
+        width: 230px !important;
+        height: 230px !important;
+        min-height: 230px !important;
+        max-height: 230px !important;
+        flex: 0 0 230px !important;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    body.design-page .uiux-grid .design-card .card-image-wrap img,
+    body.design-page .uiux-grid .design-card .card-image-wrap .software-overlay {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+    }
+
+    body.design-page .uiux-grid .design-card .portfolio-card-title,
+    body.design-page .uiux-grid .design-card .card-project-title {
+        margin-top: 8px !important;
+    }
+}

@@ -10,7 +10,7 @@ body.animation-page {
     --anim-deep: #0b1636;
     --anim-surface: rgba(14, 24, 48, 0.78);
     --anim-card: rgba(18, 30, 58, 0.86);
-    --anim-cyan: #00E5FF;
+    --anim-neon: #65F58A;
     --anim-ice: #E6F8FF;
     --anim-muted: #B6C6DC;
     --anim-line: rgba(0, 229, 255, 0.24);
@@ -51,7 +51,7 @@ body.animation-page .project-title {
 
 body.animation-page .project-title h1 {
     margin: 6px 0 10px;
-    color: var(--anim-cyan);
+    color: var(--anim-neon);
     font-family: "Barlow Condensed", sans-serif;
     font-size: clamp(46px, 6.5vw, 76px);
     font-weight: 900;
@@ -71,7 +71,7 @@ body.animation-page .project-title .project-subtitle {
 
 body.animation-page .project-year {
     margin: 0 auto 44px;
-    color: var(--anim-cyan);
+    color: var(--anim-neon);
     font-family: "Barlow Condensed", sans-serif;
     font-size: 17px;
     font-weight: 700;
@@ -105,7 +105,7 @@ body.animation-page .project-details .detail-box:hover {
 
 body.animation-page .project-details .detail-box h3 {
     margin: 0 0 12px;
-    color: var(--anim-cyan);
+    color: var(--anim-neon);
     font-family: "Barlow Condensed", sans-serif;
     font-size: 18px;
     font-weight: 700;
@@ -167,8 +167,8 @@ body.animation-page .animation-reel-links a {
 
 body.animation-page .animation-reel-links a:hover,
 body.animation-page .animation-reel-links a:focus-visible {
-    background: var(--anim-cyan);
-    border-color: var(--anim-cyan);
+    background: var(--anim-neon);
+    border-color: var(--anim-neon);
     color: #060b18;
 }
 
@@ -212,7 +212,7 @@ body.animation-page .animation-short-summary {
 
 body.animation-page .animation-eyebrow {
     margin: 0 0 10px;
-    color: var(--anim-cyan);
+    color: var(--anim-neon);
     font-family: "Barlow Condensed", sans-serif;
     font-size: 14px;
     font-weight: 700;
@@ -282,7 +282,7 @@ body.animation-page .animation-feature-intro h3::after {
     bottom: 0;
     width: 56px;
     height: 2px;
-    background: var(--anim-cyan);
+    background: var(--anim-neon);
     transform: translateX(-50%);
 }
 
@@ -410,7 +410,7 @@ body.animation-page .animation-short-footer {
 }
 
 body.animation-page .animation-next-short {
-    color: var(--anim-cyan);
+    color: var(--anim-neon);
     font-family: "Barlow Condensed", sans-serif;
     font-size: 17px;
     font-weight: 700;
