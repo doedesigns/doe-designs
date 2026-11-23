@@ -1,0 +1,487 @@
+@charset "UTF-8";
+
+/* =========================================================
+   DOE DESIGNS PORTFOLIO
+   File: animation.css (Scoped to body.animation-page)
+   ========================================================= */
+
+body.animation-page {
+    --anim-night: #081522;
+    --anim-deep: #0b1636;
+    --anim-surface: rgba(14, 24, 48, 0.78);
+    --anim-card: rgba(18, 30, 58, 0.86);
+    --anim-cyan: #00E5FF;
+    --anim-ice: #E6F8FF;
+    --anim-muted: #B6C6DC;
+    --anim-line: rgba(0, 229, 255, 0.24);
+    --anim-line-strong: rgba(0, 229, 255, 0.48);
+
+    background:
+        radial-gradient(ellipse at 50% 10%, rgba(0, 229, 255, 0.12), transparent 45%),
+        linear-gradient(180deg, #081522 0%, #091538 55%, #050a1f 100%);
+    color: var(--anim-ice);
+    overflow-x: hidden;
+}
+
+body.animation-page .project-container {
+    position: relative;
+    z-index: 2;
+    width: min(1200px, 92vw);
+    margin: 0 auto;
+    padding-top: 120px;
+    padding-bottom: 72px;
+}
+
+/* Title & Arrows (preserves shared arrow mechanics) */
+body.animation-page .project-navigation {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 55px;
+    margin-bottom: 36px;
+}
+
+body.animation-page .project-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-align: center;
+}
+
+body.animation-page .project-title h1 {
+    margin: 6px 0 10px;
+    color: var(--anim-cyan);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(46px, 6.5vw, 76px);
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    line-height: 1.02;
+    text-transform: uppercase;
+}
+
+body.animation-page .project-title .project-subtitle {
+    margin: 0;
+    color: var(--anim-muted);
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+body.animation-page .project-year {
+    margin: 0 auto 44px;
+    color: var(--anim-cyan);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Project Details Grid */
+body.animation-page .project-details {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    margin: 0 auto 44px;
+}
+
+body.animation-page .project-details .detail-box {
+    padding: 24px 20px;
+    border: 1px solid var(--anim-line);
+    border-radius: 12px;
+    background: linear-gradient(160deg, rgba(0, 229, 255, 0.06), var(--anim-surface));
+    text-align: center;
+    box-sizing: border-box;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+body.animation-page .project-details .detail-box:hover {
+    transform: translateY(-3px);
+    border-color: var(--anim-line-strong);
+}
+
+body.animation-page .project-details .detail-box h3 {
+    margin: 0 0 12px;
+    color: var(--anim-cyan);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+body.animation-page .project-details .detail-box p {
+    margin: 0;
+    color: var(--anim-ice);
+    font-family: "Jost", sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+/* Hiring-Manager Quick Reel Jump Bar */
+body.animation-page .animation-reel-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 0 auto 84px;
+    padding: 16px 22px;
+    border: 1px solid var(--anim-line);
+    border-radius: 12px;
+    background: rgba(10, 20, 42, 0.85);
+    backdrop-filter: blur(8px);
+}
+
+body.animation-page .animation-reel-label {
+    color: var(--anim-muted);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+body.animation-page .animation-reel-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+body.animation-page .animation-reel-links a {
+    padding: 8px 16px;
+    border: 1px solid var(--anim-line);
+    border-radius: 999px;
+    color: var(--anim-ice);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+body.animation-page .animation-reel-links a:hover,
+body.animation-page .animation-reel-links a:focus-visible {
+    background: var(--anim-cyan);
+    border-color: var(--anim-cyan);
+    color: #060b18;
+}
+
+/* Individual Animation Short Sections */
+body.animation-page .animation-short {
+    scroll-margin-top: 96px;
+    margin: 0 auto 128px;
+    padding: 44px 36px;
+    border: 1px solid var(--anim-line);
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(13, 25, 52, 0.76), rgba(8, 16, 36, 0.88));
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+    box-sizing: border-box;
+}
+
+body.animation-page .animation-short-header {
+    max-width: 780px;
+    margin: 0 auto 36px;
+    text-align: center;
+}
+
+body.animation-page .animation-short-header h2 {
+    margin: 6px 0 12px;
+    color: var(--anim-ice);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(36px, 5vw, 54px);
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+
+body.animation-page .animation-short-summary {
+    margin: 0 auto;
+    max-width: 640px;
+    color: var(--anim-muted);
+    font-family: "Jost", sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+body.animation-page .animation-eyebrow {
+    margin: 0 0 10px;
+    color: var(--anim-cyan);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* Hero Video Frame */
+body.animation-page .project-hero.video-hero {
+    max-width: 980px;
+    margin: 0 auto 72px;
+    padding: 12px;
+    border: 1px solid var(--anim-line-strong);
+    border-radius: 16px;
+    background: rgba(4, 10, 24, 0.72);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+}
+
+body.animation-page .project-hero.video-hero .video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #02050c;
+}
+
+body.animation-page .project-hero.video-hero iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Feature Blocks (Concept, Direction, Process) */
+body.animation-page .animation-feature {
+    max-width: 960px;
+    margin: 0 auto 84px;
+}
+
+body.animation-page .animation-feature-intro {
+    max-width: 740px;
+    margin: 0 auto 36px;
+    text-align: center;
+}
+
+body.animation-page .animation-feature-intro h3 {
+    position: relative;
+    display: inline-block;
+    margin: 0 0 22px;
+    padding-bottom: 14px;
+    color: var(--anim-ice);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    line-height: 1.15;
+    text-transform: uppercase;
+}
+
+body.animation-page .animation-feature-intro h3::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 56px;
+    height: 2px;
+    background: var(--anim-cyan);
+    transform: translateX(-50%);
+}
+
+body.animation-page .animation-lead {
+    margin: 0 auto;
+    color: var(--anim-ice);
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.8;
+}
+
+body.animation-page .animation-feature-image {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 12px;
+    border: 1px solid var(--anim-line);
+    border-radius: 14px;
+    background: var(--anim-card);
+    box-sizing: border-box;
+}
+
+body.animation-page .animation-feature-image.animation-moodboard {
+    max-width: 520px;
+}
+
+body.animation-page .animation-feature-image.animation-storyboard {
+    max-width: 860px;
+}
+
+body.animation-page .animation-feature-image img {
+    display: block;
+    width: 100%;
+    max-height: 620px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+body.animation-page .animation-feature-image figcaption,
+body.animation-page .project-gallery-item figcaption {
+    margin: 14px auto 0;
+    color: var(--anim-muted);
+    font-family: "Jost", sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+    text-align: center;
+}
+
+body.animation-page .animation-feature-note {
+    max-width: 720px;
+    margin: 24px auto 0;
+    text-align: center;
+}
+
+body.animation-page .animation-feature-note p {
+    margin: 0;
+    color: var(--anim-muted);
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+/* Timeline Gallery */
+body.animation-page .animation-gallery-heading {
+    max-width: 760px;
+    margin: 0 auto 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--anim-line);
+    text-align: center;
+}
+
+body.animation-page .animation-gallery-heading h3 {
+    margin: 6px 0 10px;
+    color: var(--anim-ice);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: clamp(28px, 3.6vw, 38px);
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+body.animation-page .animation-gallery-heading p:last-child {
+    margin: 0;
+    color: var(--anim-muted);
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+body.animation-page .animation-gallery {
+    max-width: 960px;
+    margin: 0 auto 36px;
+}
+
+body.animation-page .project-gallery-item {
+    margin: 0;
+    padding: 14px;
+    border: 1px solid var(--anim-line);
+    border-radius: 14px;
+    background: var(--anim-card);
+    box-sizing: border-box;
+}
+
+body.animation-page .project-gallery-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+body.animation-page .project-gallery-item a:hover img,
+body.animation-page .project-gallery-item a:focus-visible img {
+    transform: scale(1.01);
+}
+
+/* Short Transition Link */
+body.animation-page .animation-short-footer {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 960px;
+    margin: 28px auto 0;
+}
+
+body.animation-page .animation-next-short {
+    color: var(--anim-cyan);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+body.animation-page .animation-next-short:hover,
+body.animation-page .animation-next-short:focus-visible {
+    color: #FFFFFF;
+    transform: translateX(3px);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 900px) {
+    body.animation-page .project-container {
+        padding-top: 104px;
+    }
+
+    body.animation-page .project-navigation {
+        gap: 24px;
+    }
+
+    body.animation-page .project-details {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    body.animation-page .animation-short {
+        padding: 32px 22px;
+        margin-bottom: 96px;
+    }
+}
+
+@media (max-width: 700px) {
+    body.animation-page .project-details {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    body.animation-page .animation-reel-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 60px;
+    }
+
+    body.animation-page .animation-short {
+        padding: 24px 16px;
+        border-radius: 14px;
+    }
+
+    body.animation-page .animation-feature-image.animation-moodboard {
+        max-width: 100%;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    body.animation-page .project-details .detail-box,
+    body.animation-page .animation-reel-links a,
+    body.animation-page .project-gallery-item img,
+    body.animation-page .animation-next-short {
+        transition: none;
+    }
+
+    body.animation-page .project-details .detail-box:hover,
+    body.animation-page .project-gallery-item a:hover img,
+    body.animation-page .project-gallery-item a:focus-visible img,
+    body.animation-page .animation-next-short:hover,
+    body.animation-page .animation-next-short:focus-visible {
+        transform: none;
+    }
+}
