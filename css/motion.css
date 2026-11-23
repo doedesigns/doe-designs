@@ -746,9 +746,9 @@ body.motion-page .motion-card:focus-visible .portfolio-card-title::after {
     object-fit: cover;
 }
 
-/* UI/UX PROJECT TITLES AND HOVER UNDERLINES */
+/* MOTION PROJECT TITLES AND HOVER UNDERLINES */
 
-body.design-page .uiux-grid .design-card .portfolio-card-title {
+body.motion-page .uiux-grid .motion-card .portfolio-card-title {
     position: relative;
     display: table;
     width: auto;
@@ -769,7 +769,7 @@ body.design-page .uiux-grid .design-card .portfolio-card-title {
 
 /* Animated underline */
 
-body.design-page .uiux-grid .design-card .portfolio-card-title::after {
+body.motion-page .uiux-grid .motion-card .portfolio-card-title::after {
     content: "";
     position: absolute;
     left: 0;
@@ -780,15 +780,15 @@ body.design-page .uiux-grid .design-card .portfolio-card-title::after {
     transition: width .35s ease;
 }
 
-body.design-page .uiux-grid .design-card:hover .portfolio-card-title::after,
-body.design-page .uiux-grid .design-card:focus-visible .portfolio-card-title::after {
+body.motion-page .uiux-grid .motion-card:hover .portfolio-card-title::after,
+body.motion-page .uiux-grid .motion-card:focus-visible .portfolio-card-title::after {
     width: 100%;
 }
 
 /* Second, conventional underline */
 
-body.design-page .uiux-grid .design-card:hover .portfolio-card-title,
-body.design-page .uiux-grid .design-card:focus-visible .portfolio-card-title {
+body.motion-page .uiux-grid .motion-card:hover .portfolio-card-title,
+body.motion-page .uiux-grid .motion-card:focus-visible .portfolio-card-title {
     color: #00E5FF;
     text-decoration: underline;
     text-decoration-color: #00E5FF;
@@ -818,7 +818,7 @@ body.design-page .uiux-grid .design-card:focus-visible .portfolio-card-title {
    ========================================================= */
 
 @media (min-width: 901px) {
-    body.design-page .uiux-grid {
+    body.motion-page .uiux-grid {
         grid-template-columns: repeat(2, 230px) !important;
         justify-content: center !important;
         align-content: start !important;
@@ -827,13 +827,13 @@ body.design-page .uiux-grid .design-card:focus-visible .portfolio-card-title {
         margin-top: 25px !important;
     }
 
-    body.design-page .uiux-grid .design-card {
+    body.motion-page .uiux-grid .motion-card {
         width: 230px !important;
         min-width: 0 !important;
         max-width: 230px !important;
     }
 
-    body.design-page .uiux-grid .design-card .card-image-wrap {
+    body.motion-page .uiux-grid .motion-card .card-image-wrap {
         width: 230px !important;
         height: 230px !important;
         min-height: 230px !important;
@@ -843,15 +843,15 @@ body.design-page .uiux-grid .design-card:focus-visible .portfolio-card-title {
         box-sizing: border-box;
     }
 
-    body.design-page .uiux-grid .design-card .card-image-wrap img,
-    body.design-page .uiux-grid .design-card .card-image-wrap .software-overlay {
+    body.motion-page .uiux-grid .motion-card .card-image-wrap img,
+    body.motion-page .uiux-grid .motion-card .card-image-wrap .software-overlay {
         width: 100% !important;
         height: 100% !important;
         object-fit: cover;
     }
 
-    body.design-page .uiux-grid .design-card .portfolio-card-title,
-    body.design-page .uiux-grid .design-card .card-project-title {
+    body.motion-page .uiux-grid .motion-card .portfolio-card-title,
+    body.motion-page .uiux-grid .motion-card .card-project-title {
         margin-top: 8px !important;
     }
 }
