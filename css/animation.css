@@ -485,3 +485,131 @@ body.animation-page .animation-next-short:focus-visible {
         transform: none;
     }
 }
+
+body.animation .bex-figure figcaption,
+body.animation .bex-animation figcaption {
+    width: 100%;
+    margin: 14px auto 0;
+    color: #FFFFFF !important;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+body.animation .bex-figure figcaption strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #E6F5FF;
+    font-size: 18px;
+}
+
+body.bex-organic .bex-experience .bex-callout-row.bex-callout-left > .bex-figure {
+    display: flex;
+    grid-column: 2;
+    grid-row: 1;
+    flex: 0 1 240px;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    width: 240px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+body.bex-organic .bex-figure video.video-player {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+body.bex-organic .bex-caption {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 8px auto 0;
+    white-space: normal;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+body.animation-page .bex-contact-button {
+    background: var(--anim-neon);
+    border: 1px solid var(--anim-neon);
+    color: #FFFFFF;
+}
+
+body.animation-page .bex-contact-button:hover,
+body.animation-page .bex-contact-button:focus-visible {
+    background: #FFFFFF;
+    color: var(--anim-neon);
+}
+
+/* =========================================
+   ANIMATION HERO — THREE PROJECT STILLS
+   ========================================= */
+
+body.animation-page .animation-hero-stills {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 55px auto 70px;
+}
+
+body.animation-page .animation-hero-still {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    margin: 0;
+    border-radius: 12px;
+    background: #11151A;
+    border: 1px solid rgba(101, 245, 138, 0.18);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+body.animation-page .animation-hero-still img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+body.animation-page .animation-hero-still:hover {
+    border-color: #65F58A;
+    transform: translateY(-5px);
+}
+
+body.animation-page .animation-hero-still:hover img {
+    transform: scale(1.035);
+}
+
+
+/* TABLET */
+@media (max-width: 900px) {
+    body.animation-page .animation-hero-stills {
+        gap: 15px;
+        margin: 40px auto 55px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    body.animation-page .animation-hero-stills {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 480px;
+        margin: 35px auto 50px;
+    }
+
+    body.animation-page .animation-hero-still {
+        aspect-ratio: 1 / 1;
+    }
+}
