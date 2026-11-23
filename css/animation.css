@@ -13,11 +13,11 @@ body.animation-page {
     --anim-neon: #65F58A;
     --anim-ice: #E6F8FF;
     --anim-muted: #B6C6DC;
-    --anim-line: rgba(0, 229, 255, 0.24);
-    --anim-line-strong: rgba(0, 229, 255, 0.48);
+	--anim-line: rgba(101, 245, 138, 0.24);
+	--anim-line-strong: rgba(101, 245, 138, 0.52);
 
     background:
-        radial-gradient(ellipse at 50% 10%, rgba(0, 229, 255, 0.12), transparent 45%),
+        radial-gradient(ellipse at 50% 10%, rgba(101, 245, 138, 0.10), transparent 45%),
         linear-gradient(180deg, #081522 0%, #091538 55%, #050a1f 100%);
     color: var(--anim-ice);
     overflow-x: hidden;
@@ -92,7 +92,7 @@ body.animation-page .project-details .detail-box {
     padding: 24px 20px;
     border: 1px solid var(--anim-line);
     border-radius: 12px;
-    background: linear-gradient(160deg, rgba(0, 229, 255, 0.06), var(--anim-surface));
+    background: linear-gradient(160deg, rgba(101, 245, 138, 0.07), var(--anim-surface));
     text-align: center;
     box-sizing: border-box;
     transition: transform 0.25s ease, border-color 0.25s ease;
@@ -537,16 +537,53 @@ body.bex-organic .bex-caption {
     text-align: center;
 }
 
+/* Animation page contact link — mint accent */
 body.animation-page .bex-contact-button {
+    position: relative;
+    display: inline-block;
+    padding: 0 0 8px;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    color: var(--anim-neon);
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+}
+
+body.animation-page .bex-contact-button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 26px;
+    height: 2px;
     background: var(--anim-neon);
-    border: 1px solid var(--anim-neon);
-    color: #FFFFFF;
+    transform-origin: left center;
+    transition: width 0.35s ease;
 }
 
 body.animation-page .bex-contact-button:hover,
 body.animation-page .bex-contact-button:focus-visible {
-    background: #FFFFFF;
-    color: var(--anim-neon);
+    color: #FFFFFF;
+    background: transparent;
+}
+
+body.animation-page .bex-contact-button:hover::after,
+body.animation-page .bex-contact-button:focus-visible::after {
+    width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.animation-page .bex-contact-button,
+    body.animation-page .bex-contact-button::after {
+        transition: none;
+    }
 }
 
 /* =========================================
@@ -666,25 +703,47 @@ body.animation-page .animation-eyebrow {
     text-transform: uppercase;
 }
 
-/* Override the site's generic cyan hover only on this project. */
-body.animation-page .project-arrow:hover .arrow-triangle,
-body.animation-page .project-arrow:focus-visible .arrow-triangle {
+/* ---------------------------------------------------------
+   ANIMATION PAGE ARROWS
+   Main project arrows: neon mint
+   Compact navbar arrows: original cyan
+--------------------------------------------------------- */
+
+/* Main page arrows — neon mint */
+body.animation-page .animation-project-navigation .project-arrow:hover .arrow-triangle,
+body.animation-page .animation-project-navigation .project-arrow:focus-visible .arrow-triangle {
     border-left-color: var(--anim-neon) !important;
     border-right-color: var(--anim-neon) !important;
-    background-color: var(--anim-neon);
+    background: transparent !important;
 }
 
-body.animation-page .project-navigation .project-arrow .arrow-circle,
-body.animation-page .project-title-nav .project-arrow .arrow-circle {
-    border-color: rgba(187, 215, 241, .9);
-    background: rgba(37, 42, 58, .18);
-    box-shadow: 0 0 0 1px rgba(103, 107, 152, .2);
-    transition: transform .35s ease, background-color .25s ease, border-color .25s ease;
+body.animation-page .animation-project-navigation .project-arrow .arrow-circle::before {
+    border-top-color: var(--anim-neon);
 }
 
-body.animation-page .project-arrow:hover .arrow-circle::before,
-body.animation-page .project-arrow:focus-visible .arrow-circle::before {
-    border-color: var(--anim-neon) !important;
+/* Both main-page arrow arcs rotate clockwise */
+body.animation-page .animation-project-navigation .project-arrow:hover .arrow-circle::before,
+body.animation-page .animation-project-navigation .project-arrow:focus-visible .arrow-circle::before {
+    opacity: 1;
+    animation: arrowSpinRight 5s linear infinite;
+}
+
+/* Compact navbar arrows — preserve the site's original cyan */
+body.animation-page .project-title-nav .project-arrow:hover .arrow-triangle,
+body.animation-page .project-title-nav .project-arrow:focus-visible .arrow-triangle {
+    border-left-color: #00E5FF !important;
+    border-right-color: #00E5FF !important;
+    background: transparent !important;
+}
+
+body.animation-page .project-title-nav .project-arrow .arrow-circle::before {
+    border-top-color: #00E5FF;
+}
+
+body.animation-page .project-title-nav .project-arrow:hover .arrow-circle::before,
+body.animation-page .project-title-nav .project-arrow:focus-visible .arrow-circle::before {
+    opacity: 1;
+    animation: arrowSpinRight 5s linear infinite;
 }
 
 @media (max-width: 600px) {

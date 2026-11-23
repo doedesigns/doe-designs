@@ -3745,6 +3745,7 @@ body.strategic-page .strategic-contact-button:hover,
 body.strategic-page .strategic-contact-button:focus-visible {
     background: #FFFFFF;
     color: var(--strategic-lavender);
+	border-color: #FFFFFF;
 }
 
 /* ---------------------------------------------------------
