@@ -613,3 +613,91 @@ body.animation-page .animation-hero-still:hover img {
         aspect-ratio: 1 / 1;
     }
 }
+
+/* ---------------------------------------------------------
+   PROJECT TITLE + PREVIOUS/NEXT ARROWS
+--------------------------------------------------------- */
+
+body.animation-page .project-navigation {
+    width: min(1180px, calc(100% - 48px));
+    margin: clamp(34px, 5vw, 62px) auto 28px;
+    gap: clamp(16px, 3vw, 42px);
+}
+
+/* Keep both title locations on the site's shared Barlow Condensed face. */
+body.animation-page .animation-project-navigation .project-title h1,
+body.animation-page .project-title-nav h1 {
+    color: var(--anim-neon);
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 16px rgba(10, 14, 28, .18);
+}
+
+body.animation-page .animation-project-navigation .project-title h1 {
+    font-size: 58px;
+    line-height: 1.05;
+}
+
+/* The compact navbar keeps its shared, smaller title size. */
+body.animation-page .project-title-nav h1 {
+    line-height: 1.1;
+}
+
+body.animation-page .animation-project-navigation .title-break {
+    display: block;
+    margin-top: 8px;
+    color: #FFFFFF;
+    font-family: "Jost", sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: .22em;
+    line-height: 1.35;
+    text-transform: none;
+}
+
+body.animation-page .animation-eyebrow {
+    display: block;
+    margin-bottom: 14px;
+    color: var(--anim-neon);
+    font: 600 18px/1.4 "Jost", sans-serif;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+/* Override the site's generic cyan hover only on this project. */
+body.animation-page .project-arrow:hover .arrow-triangle,
+body.animation-page .project-arrow:focus-visible .arrow-triangle {
+    border-left-color: var(--anim-neon) !important;
+    border-right-color: var(--anim-neon) !important;
+    background-color: var(--anim-neon);
+}
+
+body.animation-page .project-navigation .project-arrow .arrow-circle,
+body.animation-page .project-title-nav .project-arrow .arrow-circle {
+    border-color: rgba(187, 215, 241, .9);
+    background: rgba(37, 42, 58, .18);
+    box-shadow: 0 0 0 1px rgba(103, 107, 152, .2);
+    transition: transform .35s ease, background-color .25s ease, border-color .25s ease;
+}
+
+body.animation-page .project-arrow:hover .arrow-circle::before,
+body.animation-page .project-arrow:focus-visible .arrow-circle::before {
+    border-color: var(--anim-neon) !important;
+}
+
+@media (max-width: 600px) {
+    body.animation-page .project-navigation {
+        width: calc(100% - 28px);
+    }
+
+    body.animation-page .animation-project-navigation .project-title h1 {
+        font-size: clamp(2rem, 9vw, 3rem);
+    }
+
+    body.animation-page .animation-project-navigation .title-break {
+        font-size: 18px;
+        letter-spacing: .1em;
+    }
+}
