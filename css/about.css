@@ -176,25 +176,146 @@ body.about-page .photo-constellation {
     position: relative;
     width: 100%;
     max-width: 660px;
-    height: 510px;
+    height: 530px;
     margin: 0 auto;
-    overflow: hidden;
+    overflow: visible;
 }
 
-/* Individual photos */
+/* =========================================
+   PHOTO CONSTELLATION — INTERACTIONS
+   ========================================= */
+
+/* Floating movement */
+
+body.about-page .fact-photo.is-floating img {
+    animation: constellationFloat 7s ease-in-out infinite;
+    animation-delay: var(--float-delay, 0s);
+}
+
+@keyframes constellationFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+/* Pause movement while interacting */
+
+body.about-page .photo-constellation.is-interacting .fact-photo img,
+body.about-page .fact-photo.is-dragging img {
+    animation-play-state: paused;
+}
+
+/* Dragging */
+
+body.about-page .fact-photo {
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+body.about-page .fact-photo.is-dragging {
+    z-index: 50 !important;
+    cursor: grabbing;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.85);
+}
+
+/* Smooth movement between arrangements */
+
+body.about-page .fact-photo {
+    transition:
+        left 1.8s ease,
+        top 1.8s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+/* Selected photo */
+
+body.about-page .fact-photo.is-selected {
+    z-index: 60 !important;
+    transform:
+        translate(-50%, -50%)
+        rotate(0deg)
+        scale(1.5);
+    border-color: #00E5FF;
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.9),
+        0 0 18px rgba(0, 229, 255, 0.4);
+}
+
+/* Fact text overlay */
+
+body.about-page .fact-photo-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: 10px;
+    box-sizing: border-box;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.05) 10%,
+        rgba(0, 0, 0, 0.25) 35%,
+        rgba(0, 0, 0, 0.94) 100%
+    );
+    opacity: 1;
+}
+
+body.about-page .fact-photo-text {
+    width: 100%;
+    max-height: 85%;
+    margin: 0;
+    overflow-y: auto;
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    line-height: 1.4;
+    text-align: left;
+    white-space: pre-line;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* Reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+    body.about-page .fact-photo.is-floating img {
+        animation: none;
+    }
+
+    body.about-page .fact-photo,
+    body.about-page .fact-photo.is-selected {
+        transition: none;
+    }
+}
+
+
+/* =========================================
+   INDIVIDUAL PHOTO STYLING
+   ========================================= */
 
 body.about-page .fact-photo {
     position: absolute;
     display: block;
+    width: var(--photo-width);
+    height: auto;
+    left: var(--photo-x);
+    top: var(--photo-y);
     padding: 5px;
+    box-sizing: border-box;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 2px;
     background: #f1f0eb;
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.65);
     cursor: pointer;
     overflow: hidden;
+    transform:
+        translate(-50%, -50%)
+        rotate(var(--photo-rotation));
     transition:
-        transform 0.35s ease,
         box-shadow 0.35s ease,
         border-color 0.35s ease;
 }
@@ -202,159 +323,144 @@ body.about-page .fact-photo {
 body.about-page .fact-photo img {
     display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     pointer-events: none;
 }
 
-/* Hover treatment */
+/* Hover treatment — temporary until interaction JS */
 
 body.about-page .fact-photo:hover {
     z-index: 20 !important;
-    transform: translateY(-7px) rotate(0deg) scale(1.08);
     border-color: #00E5FF;
     box-shadow:
         0 10px 25px rgba(0, 0, 0, 0.8),
         0 0 12px rgba(0, 229, 255, 0.3);
 }
 
-/* Photo positions — intentionally irregular */
+/* =========================================
+   IRREGULAR PHOTO CONSTELLATION
+   ========================================= */
 
 body.about-page .photo-2 {
-    width: 112px;
-    height: 135px;
-    left: 8%;
-    top: 12%;
-    transform: rotate(-9deg);
+    --photo-x: 15%;
+    --photo-y: 23%;
+    --photo-width: 105px;
+    --photo-rotation: -11deg;
     z-index: 4;
 }
 
 body.about-page .photo-3 {
-    width: 125px;
-    height: 105px;
-    left: 24%;
-    top: 5%;
-    transform: rotate(6deg);
+    --photo-x: 35%;
+    --photo-y: 13%;
+    --photo-width: 115px;
+    --photo-rotation: 7deg;
     z-index: 6;
 }
 
 body.about-page .photo-4 {
-    width: 95px;
-    height: 125px;
-    left: 43%;
-    top: 11%;
-    transform: rotate(-5deg);
+    --photo-x: 56%;
+    --photo-y: 24%;
+    --photo-width: 85px;
+    --photo-rotation: -6deg;
     z-index: 3;
 }
 
 body.about-page .photo-5 {
-    width: 120px;
-    height: 100px;
-    left: 62%;
-    top: 7%;
-    transform: rotate(8deg);
+    --photo-x: 77%;
+    --photo-y: 16%;
+    --photo-width: 105px;
+    --photo-rotation: 10deg;
     z-index: 5;
 }
 
 body.about-page .photo-7 {
-    width: 105px;
-    height: 135px;
-    left: 79%;
-    top: 15%;
-    transform: rotate(-7deg);
+    --photo-x: 88%;
+    --photo-y: 37%;
+    --photo-width: 95px;
+    --photo-rotation: -8deg;
     z-index: 2;
 }
 
 body.about-page .photo-8 {
-    width: 125px;
-    height: 100px;
-    left: 1%;
-    top: 40%;
-    transform: rotate(7deg);
+    --photo-x: 12%;
+    --photo-y: 49%;
+    --photo-width: 110px;
+    --photo-rotation: 8deg;
     z-index: 7;
 }
 
 body.about-page .photo-10 {
-    width: 130px;
-    height: 110px;
-    left: 21%;
-    top: 34%;
-    transform: rotate(-6deg);
+    --photo-x: 31%;
+    --photo-y: 43%;
+    --photo-width: 115px;
+    --photo-rotation: -7deg;
     z-index: 8;
 }
 
 body.about-page .photo-11 {
-    width: 100px;
-    height: 130px;
-    left: 42%;
-    top: 37%;
-    transform: rotate(8deg);
+    --photo-x: 51%;
+    --photo-y: 52%;
+    --photo-width: 95px;
+    --photo-rotation: 9deg;
     z-index: 5;
 }
 
 body.about-page .photo-14 {
-    width: 125px;
-    height: 100px;
-    left: 61%;
-    top: 36%;
-    transform: rotate(-8deg);
+    --photo-x: 70%;
+    --photo-y: 42%;
+    --photo-width: 115px;
+    --photo-rotation: -9deg;
     z-index: 7;
 }
 
 body.about-page .photo-15 {
-    width: 110px;
-    height: 135px;
-    left: 81%;
-    top: 43%;
-    transform: rotate(5deg);
+    --photo-x: 87%;
+    --photo-y: 64%;
+    --photo-width: 100px;
+    --photo-rotation: 6deg;
     z-index: 4;
 }
 
 body.about-page .photo-16 {
-    width: 120px;
-    height: 95px;
-    left: 8%;
-    top: 70%;
-    transform: rotate(-5deg);
+    --photo-x: 18%;
+    --photo-y: 78%;
+    --photo-width: 105px;
+    --photo-rotation: -6deg;
     z-index: 3;
 }
 
 body.about-page .photo-19 {
-    width: 130px;
-    height: 105px;
-    left: 29%;
-    top: 69%;
-    transform: rotate(7deg);
+    --photo-x: 39%;
+    --photo-y: 74%;
+    --photo-width: 115px;
+    --photo-rotation: 8deg;
     z-index: 6;
 }
 
 body.about-page .photo-21 {
-    width: 105px;
-    height: 130px;
-    left: 51%;
-    top: 68%;
-    transform: rotate(-7deg);
+    --photo-x: 59%;
+    --photo-y: 83%;
+    --photo-width: 95px;
+    --photo-rotation: -8deg;
     z-index: 4;
 }
 
 body.about-page .photo-22 {
-    width: 120px;
-    height: 95px;
-    left: 69%;
-    top: 73%;
-    transform: rotate(6deg);
+    --photo-x: 76%;
+    --photo-y: 79%;
+    --photo-width: 105px;
+    --photo-rotation: 7deg;
     z-index: 8;
 }
 
 body.about-page .photo-29 {
-    width: 100px;
-    height: 120px;
-    left: 88%;
-    top: 76%;
-    transform: rotate(-5deg);
+    --photo-x: 90%;
+    --photo-y: 87%;
+    --photo-width: 85px;
+    --photo-rotation: -5deg;
     z-index: 5;
 }
-
 /* Fact reveal — hidden until a photo is selected */
 
 body.about-page .fact-reveal {

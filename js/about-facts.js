@@ -1,325 +1,445 @@
+
 document.addEventListener("DOMContentLoaded", () => {
 
-    const secretFacts =
-        document.querySelector(".secret-facts");
+    const section = document.querySelector(".secret-facts");
+    if (!section) return;
 
-    if (!secretFacts) {
-        return;
+    const stage = section.querySelector(".photo-constellation");
+    const photos = Array.from(stage.querySelectorAll(".fact-photo"));
+
+    if (!stage || !photos.length) return;
+
+    const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    /* =========================================
+       FACTS — ORIGINAL WORDING
+       ========================================= */
+
+    const facts = {
+        2: "I have two rescue dogs named Cap’t Bexley and Judge Harley.\nThey like treats and hiking.\nSquirrels not so much.",
+
+        3: "I started playing video games after working for MTV before law school.\n(Check me out in the credits for RockBand 2 and 3!)\nI’ve never looked back,\n...which is a detriment in some rpg games.",
+
+        4: "I play classical guitar but not very well.",
+
+        5: "I can sing at least one song from every animated Disney movie.\nMost of the time it’s recognizable.",
+
+        7: "Instead of law school, I almost went for a Ph.D. in Egyptology.\nJoke’s on me, though—graphic design is where it’s at!\n...Only took me a couple decades to figure it out.",
+
+        8: "I marked my territory in all 50 states before I turned 30.",
+
+        10: "I taught myself to tile, designed the patterns, and installed it all myself throughout my house—including a master bath that I MAY have gotten a little carried away with.\nBut I give myself a 5 star review.",
+
+        11: "I played varsity softball and basketball in college, but now my body is vehemently against three-a-day practices.",
+
+        14: "My favorite movies are Kill Bill 1 & 2.",
+
+        15: "My favorite graphic design experience is TeamLab Borderless in Tokyo.",
+
+        16: "I have visited 23 countries.\nHopefully, none of them remember my escapades too well.",
+
+        19: "When I have free weekends, I love taking the dogs hiking.\nUnless it’s raining, then we cuddle in a grumpy puppy puddle to guard the house from cute bunnies and dastardly squirrels.",
+
+        21: "I love being on or in the water.\nSo does my aptly named dog, Cap’t Bexley.",
+
+        22: "My happy place is on a volleyball court.\nAnywhere, anytime.",
+
+        29: "My (still functional!) microwave was bought at Target in 2006 for around $20."
+    };
+
+
+    /* =========================================
+       PHOTO SELECTION AND FACT REVEAL
+       ========================================= */
+
+    let selectedPhoto = null;
+
+    function closeFact() {
+        if (!selectedPhoto) return;
+
+        selectedPhoto.classList.remove("is-selected");
+
+        const overlay = selectedPhoto.querySelector(".fact-photo-overlay");
+        if (overlay) overlay.remove();
+
+        selectedPhoto = null;
     }
 
-    const item =
-        secretFacts.querySelector(".secret-fact-item");
-
-    const number =
-        secretFacts.querySelector(".secret-fact-number");
-
-    const text =
-        secretFacts.querySelector(".secret-fact-text");
-
-
-    // ============================================
-    // SECRET FACTS
-    // ============================================
-
-    const facts = [
-
-        "I originally intended to be a music <br>performance and opera major before <br>switching to history, criminal justice, and pre-law. <br>Because...reading :-)",
-
-        "I have two rescue dogs named Cap’t Bexley and Judge Harley. <br>They like treats and hiking. <br>Squirrels not so much.",
-
-        "I started playing video games after working <br>for MTV before law school. <br>(Check me out in the credits for RockBand 2 and 3!) <br>I’ve never looked back, <br>...which is a detriment in some rpg games.",
-
-        "I play classical guitar but not very well.",
-
-        "I can sing at least one song from <br>every animated Disney movie. <br>Most of the time it’s recognizable.",
-
-        "My favorite book series is the <br>Shadowhunter Chronicles by Cassandra Clare. <br>Also love the work of V. E. Schwab-I want a coat like Kell.",
-
-        "Instead of law school, I almost went for <br>a Ph.D. in Egyptology. <br>Joke’s on me, though—graphic design is where it’s at! <br>...Only took me a couple decades to figure it out.",
-
-        "I marked my territory in all 50 states before I turned 30.",
-
-        "Typically I read between 3–5 books a week. <br>...“Reading” also loosely includes audiobooks. <br>Convince me otherwise.",
-
-        "I taught myself to tile, designed the patterns, and <br>installed it all myself throughout <br>my house—including a master bath that I <br>MAY have gotten a little carried away with. <br>But I give myself a 5 star review.",
-
-        "I played varsity softball and basketball in college, <br>but now my body is vehemently against three-a-day practices.",
-
-        "I am terrible at yard work, to my neighbors’ chagrin.",
-
-        "I grew up with two rotary phones in the house. <br>I’m not sure I would know how to use them now.",
-
-        "My favorite movies are Kill Bill 1 & 2.",
-
-        "My favorite graphic design experience <br>is TeamLab Borderless in Tokyo.",
-
-        "I have visited 23 countries. <br>Hopefully, none of them remember my escapades too well.",
-
-        "I don’t have any TV subscriptions—no Netflix, Hulu, Disney+, etc.—and only occasionally watch movies. <br>So don’t pop-culture-reference me unless you want to be disappointed.",
-
-        "I am abnormally good at word searches. <br>I challenge you to an epic word search <br>battle for the control of middle earth.",
-
-        "When I have free weekends, I love taking the dogs hiking. <br>Unless it’s raining, then we cuddle in a <br>grumpy puppy puddle to guard the house <br>from cute bunnies and dastardly squirrels.",
-
-        "My dad and I create cigar box guitars <br>out of actual cigar boxes.",
-
-        "I love being on or in the water. <br>So does my aptly named dog, Cap’t Bexley.",
-
-        "My happy place is on a volleyball court. <br>Anywhere, anytime.",
-
-        "I have two wonderfully super cute, wild, amazing, <br>silly willy nephews with another on the way!",
-
-        "Sushi is my favorite! <br>But hold the cream cheese, you monster.",
-
-        "I hope to create a complex board game <br>someday with a fantastical <br>storyline and battles… and reviving… <br>because dying mid-campaign sucks.",
-
-        "I don’t like coffee or chocolate. <br>You are mistaken, it’s not weird… <br>and think of how much money I save!",
-
-        "I try not to judge people… <br>so I taught my dog, Judge Harley, how to do it. <br>Will send adorable judgemental pictures upon request.",
-
-        "My mom is a fabulous quilter and I get to “test” <br>them out, so I have over 20 quilts of various <br>sizes and styles in the house. <br>I basically live in a blanket house.",
-
-        "My (still functional!) microwave was bought at <br>Target in 2006 for around $20.",
-
-        "I’m a terrible cook. <br>Seriously, I should have a comedic YouTube channel <br>where I attempt simple things. <br>It’d be a hit and I would burn water.",
-		
-		"All pets I have welcomed into my family have all had white-tipped tails. <br>Even the super wonderful black dog I had. <br>Completely unintentional but obviously the source of my super powers."
-
-    ];
-
-
-  // ============================================
-    // RANDOMIZED FACT DECK
-    // ============================================
-
-    let factDeck = [];
-    let lastFactIndex = -1;
-
-
-    function shuffleFacts(){
-
-        factDeck = [];
-
-        for (let i = 0; i < facts.length; i++){
-            factDeck.push(i);
+    function showFact(photo) {
+        if (selectedPhoto === photo) {
+            closeFact();
+            return;
         }
 
+        closeFact();
 
-        // Fisher-Yates shuffle
+        const factNumber = photo.dataset.fact;
+        const factText = facts[factNumber];
 
-        for (
-            let i = factDeck.length - 1;
-            i > 0;
-            i--
-        ){
+        if (!factText) return;
 
-            const j =
-                Math.floor(
-                    Math.random() * (i + 1)
-                );
+        selectedPhoto = photo;
+        photo.classList.add("is-selected");
 
-            [
-                factDeck[i],
-                factDeck[j]
-            ] = [
-                factDeck[j],
-                factDeck[i]
-            ];
+        const overlay = document.createElement("div");
+        overlay.className = "fact-photo-overlay";
 
+        const text = document.createElement("p");
+        text.className = "fact-photo-text";
+        text.textContent = factText;
+
+        overlay.appendChild(text);
+        photo.appendChild(overlay);
+
+        resetIdleTimer();
+    }
+
+    photos.forEach(photo => {
+        photo.addEventListener("click", event => {
+            if (photo.dataset.wasDragged === "true") {
+                photo.dataset.wasDragged = "false";
+                event.preventDefault();
+                return;
+            }
+
+            showFact(photo);
+        });
+
+        photo.addEventListener("dragstart", event => {
+            event.preventDefault();
+        });
+    });
+
+
+    /* =========================================
+       CLOSE THE FACT
+       ========================================= */
+
+    const closeButton = section.querySelector(".fact-close");
+
+    if (closeButton) {
+        closeButton.addEventListener("click", closeFact);
+    }
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+            closeFact();
         }
+    });
 
-
-        // Prevent the first fact of a new deck
-        // from being the same as the last fact
-        // of the previous deck.
-
+    section.addEventListener("click", event => {
         if (
-            factDeck.length > 1 &&
-            factDeck[0] === lastFactIndex
-        ){
+            selectedPhoto &&
+            !event.target.closest(".fact-photo") &&
+            !event.target.closest(".fact-reveal")
+        ) {
+            closeFact();
+        }
+    });
 
-            [
-                factDeck[0],
-                factDeck[1]
-            ] = [
-                factDeck[1],
-                factDeck[0]
-            ];
 
+    /* =========================================
+       DRAG AND TOSS
+       ========================================= */
+
+    let activeDrag = null;
+    let suppressClick = false;
+
+    photos.forEach(photo => {
+
+        photo.addEventListener("pointerdown", event => {
+
+            if (event.button !== 0) return;
+
+            closeFact();
+
+            const stageRect = stage.getBoundingClientRect();
+            const photoRect = photo.getBoundingClientRect();
+
+            activeDrag = {
+                photo,
+                pointerId: event.pointerId,
+                startX: event.clientX,
+                startY: event.clientY,
+                originalX: photoRect.left + photoRect.width / 2,
+                originalY: photoRect.top + photoRect.height / 2,
+                lastX: event.clientX,
+                lastY: event.clientY,
+                lastTime: performance.now(),
+                velocityX: 0,
+                velocityY: 0,
+                moved: false,
+                stageRect
+            };
+
+            photo.setPointerCapture(event.pointerId);
+            photo.classList.add("is-dragging");
+            stage.classList.add("is-interacting");
+
+            resetIdleTimer();
+
+        });
+
+        photo.addEventListener("pointermove", event => {
+
+            if (!activeDrag || activeDrag.photo !== photo) return;
+
+            const drag = activeDrag;
+
+            const dx = event.clientX - drag.startX;
+            const dy = event.clientY - drag.startY;
+
+            if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+                drag.moved = true;
+            }
+
+            if (!drag.moved) return;
+
+            const stageRect = stage.getBoundingClientRect();
+
+            const photoRect = photo.getBoundingClientRect();
+
+            let x = event.clientX - stageRect.left;
+            let y = event.clientY - stageRect.top;
+
+            const halfWidth = photoRect.width / 2;
+            const halfHeight = photoRect.height / 2;
+
+            x = Math.max(
+                halfWidth,
+                Math.min(stageRect.width - halfWidth, x)
+            );
+
+            y = Math.max(
+                halfHeight,
+                Math.min(stageRect.height - halfHeight, y)
+            );
+
+            const now = performance.now();
+            const elapsed = Math.max(1, now - drag.lastTime);
+
+            drag.velocityX =
+                (event.clientX - drag.lastX) / elapsed;
+
+            drag.velocityY =
+                (event.clientY - drag.lastY) / elapsed;
+
+            drag.lastX = event.clientX;
+            drag.lastY = event.clientY;
+            drag.lastTime = now;
+
+            const percentX = (x / stageRect.width) * 100;
+            const percentY = (y / stageRect.height) * 100;
+
+            photo.style.setProperty("--photo-x", percentX + "%");
+            photo.style.setProperty("--photo-y", percentY + "%");
+
+            photo.style.zIndex = 40;
+
+        });
+
+        function finishDrag(event) {
+
+            if (!activeDrag || activeDrag.photo !== photo) return;
+
+            const drag = activeDrag;
+
+            activeDrag = null;
+
+            photo.classList.remove("is-dragging");
+            stage.classList.remove("is-interacting");
+
+            if (drag.moved) {
+
+                photo.dataset.wasDragged = "true";
+                suppressClick = true;
+
+                setTimeout(() => {
+                    suppressClick = false;
+                    photo.dataset.wasDragged = "false";
+                }, 300);
+
+                if (!reducedMotion) {
+                    tossPhoto(photo, drag.velocityX, drag.velocityY);
+                }
+
+            } else {
+                photo.style.zIndex = "";
+            }
+
+            resetIdleTimer();
         }
 
-    }
-
-
-    function getNextFact(){
-
-        // Create a new shuffled deck when
-        // the current deck is empty.
-
-        if (factDeck.length === 0){
-            shuffleFacts();
-        }
-
-
-        // Take the next fact from the deck.
-
-        const nextIndex =
-            factDeck.shift();
-
-        lastFactIndex =
-            nextIndex;
-
-        return nextIndex;
-
-    }
-
-
-    // ============================================
-    // LOAD FACT
-    // ============================================
-
-    function loadFact(index){
-
-        number.textContent =
-            `#${String(index + 1).padStart(2, "0")}`;
-
-        text.innerHTML =
-            facts[index];
-
-    }
-
-    // ============================================
-    // INITIAL FACT
-    //
-    // The deck is randomized immediately.
-    // ============================================
-
-    const firstIndex =
-        getNextFact();
-
-    loadFact(firstIndex);
-
-
-    // ============================================
-    // REDUCED MOTION
-    // ============================================
-
-    const prefersReducedMotion =
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches;
-
-
-    if (prefersReducedMotion){
-
-        item.style.transform =
-            "translateY(0)";
-
-        setInterval(() => {
-
-            const nextIndex =
-                getNextFact();
-
-            loadFact(nextIndex);
-
-        }, 7000);
-
-        return;
-
-    }
-
-
-    // ============================================
-    // ENTER FIRST FACT
-    // ============================================
-
-    requestAnimationFrame(() => {
-
-        item.classList.add(
-            "fact-enter"
-        );
+        photo.addEventListener("pointerup", finishDrag);
+        photo.addEventListener("pointercancel", finishDrag);
 
     });
 
 
-    // ============================================
-    // ROTATE FACTS
-    // ============================================
+    /* =========================================
+       TOSS MOMENTUM
+       ========================================= */
 
-    const displayTime =
-        8000;
+    function tossPhoto(photo, velocityX, velocityY) {
 
-    const animationTime =
-        750;
+        const stageRect = stage.getBoundingClientRect();
 
-
-    setTimeout(() => {
-
-        rotateFact();
-
-    }, displayTime + animationTime);
-
-
-    function rotateFact(){
-
-        // ----------------------------------------
-        // Slide current fact down and out.
-        // ----------------------------------------
-
-        item.classList.remove(
-            "fact-enter"
+        let x = parseFloat(
+            photo.style.getPropertyValue("--photo-x")
         );
 
-        item.classList.add(
-            "fact-exit"
+        let y = parseFloat(
+            photo.style.getPropertyValue("--photo-y")
         );
 
+        if (Number.isNaN(x) || Number.isNaN(y)) return;
 
-        setTimeout(() => {
+        let vx = velocityX * 0.45;
+        let vy = velocityY * 0.45;
 
-            // ------------------------------------
-            // Choose next fact from shuffled deck.
-            // ------------------------------------
+        let previousTime = performance.now();
 
-            const nextIndex =
-                getNextFact();
+        function animate(time) {
 
-            loadFact(nextIndex);
+            const elapsed = Math.min(32, time - previousTime);
+            previousTime = time;
 
+            x += (vx * elapsed / stageRect.width) * 100;
+            y += (vy * elapsed / stageRect.height) * 100;
 
-            // ------------------------------------
-            // Reset position above viewport.
-            // ------------------------------------
+            const photoRect = photo.getBoundingClientRect();
 
-            item.classList.remove(
-                "fact-exit"
-            );
+            const halfWidth =
+                (photoRect.width / stageRect.width) * 50;
 
+            const halfHeight =
+                (photoRect.height / stageRect.height) * 50;
 
-            void item.offsetWidth;
+            if (x < halfWidth || x > 100 - halfWidth) {
+                vx *= -0.45;
+                x = Math.max(halfWidth, Math.min(100 - halfWidth, x));
+            }
 
+            if (y < halfHeight || y > 100 - halfHeight) {
+                vy *= -0.45;
+                y = Math.max(halfHeight, Math.min(100 - halfHeight, y));
+            }
 
-            // ------------------------------------
-            // Slide new fact down into view.
-            // ------------------------------------
+            photo.style.setProperty("--photo-x", x + "%");
+            photo.style.setProperty("--photo-y", y + "%");
 
-            item.classList.add(
-                "fact-enter"
-            );
+            vx *= 0.94;
+            vy *= 0.94;
 
+            if (Math.abs(vx) + Math.abs(vy) > 0.015) {
+                requestAnimationFrame(animate);
+            } else {
+                photo.style.zIndex = "";
+            }
+        }
 
-            // ------------------------------------
-            // Hold new fact, then repeat.
-            // ------------------------------------
-
-            setTimeout(() => {
-
-                rotateFact();
-
-            }, displayTime + animationTime);
-
-        }, animationTime);
-
+        requestAnimationFrame(animate);
     }
+
+
+    /* =========================================
+       GENTLE FLOATING
+       ========================================= */
+
+    if (!reducedMotion) {
+        photos.forEach((photo, index) => {
+            photo.style.setProperty(
+                "--float-delay",
+                (index * -0.8) + "s"
+            );
+
+            photo.classList.add("is-floating");
+        });
+    }
+
+
+    /* =========================================
+       IDLE REARRANGEMENT
+       ========================================= */
+
+    const layouts = [
+
+        /* Loose circular arrangement */
+        [
+            [50, 8, -5], [70, 12, 7], [85, 30, -8],
+            [88, 53, 6], [77, 77, -5], [58, 88, 8],
+            [36, 88, -7], [16, 76, 5], [9, 52, -8],
+            [17, 29, 7], [35, 18, -5], [51, 31, 8],
+            [67, 49, -6], [48, 65, 5], [29, 54, -7]
+        ],
+
+        /* Loose diamond arrangement */
+        [
+            [50, 8, 6], [65, 18, -7], [80, 30, 5],
+            [91, 48, -6], [78, 66, 8], [65, 80, -5],
+            [50, 91, 7], [34, 80, -8], [19, 67, 5],
+            [8, 49, -7], [21, 30, 6], [36, 18, -5],
+            [50, 43, 8], [66, 56, -6], [35, 59, 7]
+        ],
+
+        /* Loose scattered cluster */
+        [
+            [20, 18, -8], [43, 12, 6], [70, 17, -5],
+            [85, 37, 8], [72, 53, -7], [87, 75, 5],
+            [58, 83, -6], [35, 77, 7], [12, 70, -5],
+            [10, 43, 8], [32, 35, -7], [52, 48, 6],
+            [67, 33, -8], [43, 60, 5], [24, 55, -6]
+        ]
+
+    ];
+
+    let layoutIndex = 0;
+    let idleTimer = null;
+
+    function rearrangePhotos() {
+
+        if (reducedMotion || activeDrag || selectedPhoto) return;
+
+        const layout = layouts[layoutIndex];
+
+        photos.forEach((photo, index) => {
+
+            const position = layout[index];
+
+            photo.style.setProperty(
+                "--photo-x",
+                position[0] + "%"
+            );
+
+            photo.style.setProperty(
+                "--photo-y",
+                position[1] + "%"
+            );
+
+            photo.style.setProperty(
+                "--photo-rotation",
+                position[2] + "deg"
+            );
+
+            photo.style.zIndex = "";
+        });
+
+        layoutIndex = (layoutIndex + 1) % layouts.length;
+    }
+
+    function resetIdleTimer() {
+
+        clearTimeout(idleTimer);
+
+        if (reducedMotion) return;
+
+        idleTimer = setTimeout(() => {
+            rearrangePhotos();
+        }, 18000);
+    }
+
+    resetIdleTimer();
 
 });
