@@ -131,176 +131,308 @@ ABOUT SUMMARY
     margin-bottom:18px;
 }
 
-/* ===================================
-SECRET FACTS
-=================================== */
 
-.secret-facts{
-    width:100%;
-    margin:10px auto 0;
-    padding:30px 25px 35px;
-    border:1px solid rgba(0,229,255,.45);
-    text-align:center;
-    box-sizing:border-box;
+/* =========================================
+   ABOUT PAGE — PHOTO CONSTELLATION
+   ========================================= */
+
+body.about-page .secret-facts {
+    position: relative;
+    width: 100%;
+    margin: 30px auto 40px;
+    padding: 30px 15px 35px;
+    box-sizing: border-box;
+    border: 1px solid #00E5FF;
+    background: rgba(5, 5, 7, 0.85);
+    text-align: center;
+    overflow: hidden;
 }
 
-/* ===================================
-SECRET FACT HEADING
-=================================== */
-
-.secret-facts h2{
-    position:relative;
-    display:block;
-    width:max-content;
-    max-width:100%;
-    margin:0 auto 20px;
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:42px;
-    font-weight:900;
-    letter-spacing:.08em;
-    color:#00E5FF;
-    line-height:1;
-    transition:.35s ease;
+body.about-page .secret-facts h2 {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 8px;
+    color: #00E5FF;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 42px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
-.secret-facts h2::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-8px;
-    width:100%;
-    height:3px;
-    background:#00E5FF;
-    transform:scaleX(.35);
-    transform-origin:center;
-    transition:.35s ease;
+body.about-page .constellation-intro {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 20px;
+    color: #d5d5d5;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.4px;
 }
 
-.secret-facts h2:hover{
-    color:#FFFFFF;
+/* Main photo area */
+
+body.about-page .photo-constellation {
+    position: relative;
+    width: 100%;
+    max-width: 660px;
+    height: 510px;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
-.secret-facts h2:hover::after{
-    transform:scaleX(1);
+/* Individual photos */
+
+body.about-page .fact-photo {
+    position: absolute;
+    display: block;
+    padding: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    background: #f1f0eb;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.65);
+    cursor: pointer;
+    overflow: hidden;
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
 }
 
-/* ===================================
-SECRET FACT VIEWPORT
-
-This is the important containment area.
-The animated fact and number cannot
-visually leave this box.
-=================================== */
-
-.secret-fact-viewport{
-    position:relative;
-    width:100%;
-    height:240px;
-    overflow:hidden;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+body.about-page .fact-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
 }
 
-/* ===================================
-SECRET FACT ITEM
+/* Hover treatment */
 
-Number + fact move together.
-=================================== */
-
-.secret-fact-item{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    box-sizing:border-box;
-    padding:5px 15px;
-    transform:translateY(-110%);
+body.about-page .fact-photo:hover {
+    z-index: 20 !important;
+    transform: translateY(-7px) rotate(0deg) scale(1.08);
+    border-color: #00E5FF;
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.8),
+        0 0 12px rgba(0, 229, 255, 0.3);
 }
 
-/* ===================================
-NUMBER
-=================================== */
+/* Photo positions — intentionally irregular */
 
-.secret-fact-number{
-    display:block;
-    margin-bottom:8px;
-    font-family:"Barlow Condensed",sans-serif;
-    font-size:24px;
-    font-weight:700;
-    letter-spacing:.08em;
-    color:#00E5FF;
-    line-height:1;
+body.about-page .photo-2 {
+    width: 112px;
+    height: 135px;
+    left: 8%;
+    top: 12%;
+    transform: rotate(-9deg);
+    z-index: 4;
 }
 
-/* ===================================
-FACT TEXT
-=================================== */
-
-.secret-fact-text{
-    max-width:700px;
-    margin:0 auto;
-    font-family:"Caveat",cursive;
-    font-size:27px;
-    font-weight:500;
-    line-height:1.25;
-    color:#FFFFFF;
-    text-align:center;
+body.about-page .photo-3 {
+    width: 125px;
+    height: 105px;
+    left: 24%;
+    top: 5%;
+    transform: rotate(6deg);
+    z-index: 6;
 }
 
-/* ===================================
-FACT ANIMATION
-
-The JavaScript adds these classes.
-=================================== */
-
-.secret-fact-item.fact-enter{
-    animation:
-        secretFactEnter .75s ease-out forwards;
+body.about-page .photo-4 {
+    width: 95px;
+    height: 125px;
+    left: 43%;
+    top: 11%;
+    transform: rotate(-5deg);
+    z-index: 3;
 }
 
-.secret-fact-item.fact-exit{
-    animation:
-        secretFactExit .75s ease-in forwards;
+body.about-page .photo-5 {
+    width: 120px;
+    height: 100px;
+    left: 62%;
+    top: 7%;
+    transform: rotate(8deg);
+    z-index: 5;
 }
 
-/* ===================================
-SLIDE DOWN INTO VIEW
-=================================== */
+body.about-page .photo-7 {
+    width: 105px;
+    height: 135px;
+    left: 79%;
+    top: 15%;
+    transform: rotate(-7deg);
+    z-index: 2;
+}
 
-@keyframes secretFactEnter{
+body.about-page .photo-8 {
+    width: 125px;
+    height: 100px;
+    left: 1%;
+    top: 40%;
+    transform: rotate(7deg);
+    z-index: 7;
+}
 
-    from{
-        transform:translateY(-110%);
+body.about-page .photo-10 {
+    width: 130px;
+    height: 110px;
+    left: 21%;
+    top: 34%;
+    transform: rotate(-6deg);
+    z-index: 8;
+}
+
+body.about-page .photo-11 {
+    width: 100px;
+    height: 130px;
+    left: 42%;
+    top: 37%;
+    transform: rotate(8deg);
+    z-index: 5;
+}
+
+body.about-page .photo-14 {
+    width: 125px;
+    height: 100px;
+    left: 61%;
+    top: 36%;
+    transform: rotate(-8deg);
+    z-index: 7;
+}
+
+body.about-page .photo-15 {
+    width: 110px;
+    height: 135px;
+    left: 81%;
+    top: 43%;
+    transform: rotate(5deg);
+    z-index: 4;
+}
+
+body.about-page .photo-16 {
+    width: 120px;
+    height: 95px;
+    left: 8%;
+    top: 70%;
+    transform: rotate(-5deg);
+    z-index: 3;
+}
+
+body.about-page .photo-19 {
+    width: 130px;
+    height: 105px;
+    left: 29%;
+    top: 69%;
+    transform: rotate(7deg);
+    z-index: 6;
+}
+
+body.about-page .photo-21 {
+    width: 105px;
+    height: 130px;
+    left: 51%;
+    top: 68%;
+    transform: rotate(-7deg);
+    z-index: 4;
+}
+
+body.about-page .photo-22 {
+    width: 120px;
+    height: 95px;
+    left: 69%;
+    top: 73%;
+    transform: rotate(6deg);
+    z-index: 8;
+}
+
+body.about-page .photo-29 {
+    width: 100px;
+    height: 120px;
+    left: 88%;
+    top: 76%;
+    transform: rotate(-5deg);
+    z-index: 5;
+}
+
+/* Fact reveal — hidden until a photo is selected */
+
+body.about-page .fact-reveal {
+    position: relative;
+    z-index: 30;
+    max-width: 520px;
+    margin: 20px auto 0;
+    padding: 20px 35px 20px 20px;
+    border: 1px solid rgba(0, 229, 255, 0.65);
+    background: rgba(0, 0, 0, 0.92);
+    color: #fff;
+    text-align: left;
+}
+
+body.about-page .fact-reveal[hidden] {
+    display: none;
+}
+
+body.about-page .fact-reveal-text {
+    margin: 0;
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+body.about-page .fact-close {
+    position: absolute;
+    top: 5px;
+    right: 9px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #00E5FF;
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+body.about-page .fact-close:hover {
+    color: #fff;
+}
+
+/* Smaller desktop and tablet layouts */
+
+@media (max-width: 700px) {
+    body.about-page .photo-constellation {
+        height: 440px;
+        transform: scale(0.92);
+        transform-origin: top center;
+        margin-bottom: -30px;
     }
 
-    to{
-        transform:translateY(0);
+    body.about-page .fact-photo {
+        padding: 4px;
     }
 
+    body.about-page .secret-facts h2 {
+        font-size: 36px;
+    }
 }
 
-/* ===================================
-SLIDE DOWN AND OUT
-=================================== */
+/* Basic mobile fallback — we'll refine this separately */
 
-@keyframes secretFactExit{
-
-    from{
-        transform:translateY(0);
+@media (max-width: 480px) {
+    body.about-page .secret-facts {
+        padding: 25px 8px;
     }
 
-    to{
-        transform:translateY(110%);
+    body.about-page .photo-constellation {
+        height: 390px;
+        transform: scale(0.76);
+        margin-bottom: -85px;
     }
 
+    body.about-page .constellation-intro {
+        font-size: 13px;
+    }
 }
-
 /* ===================================
 RESUME FRAME
 =================================== */
@@ -850,37 +982,6 @@ MOBILE
         font-size:16px;
     }
 
-    /* ===============================
-       SECRET FACTS MOBILE
-    =============================== */
-
-    .secret-facts{
-        padding:
-            28px 18px 30px;
-    }
-
-    .secret-facts h2{
-        font-size:36px;
-    }
-
-    .secret-fact-viewport{
-        height:220px;
-    }
-
-    .secret-fact-item{
-        padding:
-            5px 8px;
-    }
-
-    .secret-fact-number{
-        font-size:22px;
-    }
-
-    .secret-fact-text{
-        font-size:24px;
-        line-height:1.2;
-    }
-
     .resume-header h1{
         font-size:32px;
     }
@@ -1019,4 +1120,48 @@ Stack links and remove dividers
         display:block;
     }
 	
+}
+
+
+/* =========================================
+   RESUME SKILLS & TOOLS
+   ========================================= */
+
+.resume-section.skills .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.resume-section.skills .skill-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 7px;
+    padding: 13px 15px;
+    border-left: 3px solid #00E5FF;
+    background: rgba(255, 255, 255, 0.045);
+    min-width: 0;
+}
+
+.resume-section.skills .skill-title {
+    display: block;
+    font-weight: 700;
+    font-size: 0.88rem;
+    line-height: 1.25;
+    letter-spacing: 0.025em;
+}
+
+.resume-section.skills .skills-tools {
+    display: block;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    opacity: 0.86;
+}
+
+@media (max-width: 600px) {
+    .resume-section.skills .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
 }
