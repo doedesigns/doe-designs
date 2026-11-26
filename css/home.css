@@ -659,11 +659,11 @@ body.home-page {
 
 .home-page .secret-stash-link {
     display: inline-block;
-    min-width: 110px;
-    min-height: 32px;
+    min-width: 90px;
+    min-height: 25px;
     color: #00E5FF;
     font-family: "Caveat", cursive;
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: .04em;
     text-decoration: none;
     opacity: 0;

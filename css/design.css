@@ -679,3 +679,282 @@ body.design-page .design-card .portfolio-card-title {
         margin-top: 8px !important;
     }
 }
+
+
+/* Center the four project summary boxes on every project category page. */
+body.design-page.scroll-page .design-details .detail-box,
+body.design-page.scroll-page .design-details .detail-box h3,
+body.design-page.scroll-page .design-details .detail-box p,
+body.design-page.scroll-page .design-details .detail-box ul,
+body.design-page.scroll-page .design-details .detail-box li {
+    text-align: center !important;
+}
+
+/* Keep project name and project type cyan on the page and in the compact navbar. */
+
+body.design-page.scroll-page .design-title-nav h1 {
+    color: #00E5FF !important;
+}
+
+/* =========================================================
+   SHARED LIGHTBOX — ALL PROJECT CATEGORIES
+   UI/UX • Branding • Design • Motion
+   ========================================================= */
+
+/* Fixed overlay: never place the lightbox in normal page flow. */
+body.design-page .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 20000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    padding: 24px;
+    box-sizing: border-box;
+    overflow: auto;
+    background: rgba(4, 5, 8, 0.94);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+body.design-page .lightbox.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Keep the content inside the viewport. */
+body.design-page .lightbox-box {
+    position: relative;
+    width: min(1200px, 96vw);
+    max-height: 90vh;
+    max-height: 90dvh;
+    overflow: auto;
+    box-sizing: border-box;
+    padding: 32px;
+    background: #0B0D11;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.65);
+}
+
+body.design-page .lightbox-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr);
+    align-items: center;
+    gap: 32px;
+}
+
+body.design-page .lightbox-image-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    width: 100%;
+}
+
+body.design-page .lightbox-image-large {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: 72vh;
+    max-height: 72dvh;
+    height: auto;
+    object-fit: contain;
+    border: 0;
+    box-shadow: none;
+}
+
+body.design-page .lightbox-title {
+    align-self: stretch;
+    margin: 18px 0 0;
+    color: #FFFFFF;
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 25px;
+    letter-spacing: 0.08em;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+/* Description and title inside the overlay. */
+body.design-page .lightbox-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+}
+
+/* Supporting images sit above the description. */
+
+body.design-page .lightbox-supporting-images {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    width: 100%;
+}
+
+body.design-page .lightbox-supporting-images[hidden] {
+    display: none !important;
+}
+
+body.design-page .lightbox-support-item {
+    width: 100%;
+    margin: 0;
+}
+
+body.design-page .lightbox-support-item img {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+body.design-page .lightbox-support-item figcaption {
+    margin-top: 8px;
+    color: rgba(255, 255, 255, .65);
+    font-family: "Jost", sans-serif;
+    font-size: 13px;
+    text-align: left;
+}
+
+body.design-page .lightbox .lightbox-description {
+    display: block;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.82);
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    text-align: left;
+}
+
+/* Close button. */
+body.design-page .lightbox-close {
+    position: sticky;
+    top: 0;
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin: -18px -18px 8px 12px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    background: #0B0D11;
+    cursor: pointer;
+    z-index: 2;
+}
+
+body.design-page .lightbox-close span {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+body.design-page .lightbox-close span::before,
+body.design-page .lightbox-close span::after {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 1px;
+    width: 18px;
+    height: 2px;
+    background: #FFFFFF;
+}
+
+body.design-page .lightbox-close span::before {
+    transform: rotate(45deg);
+}
+
+body.design-page .lightbox-close span::after {
+    transform: rotate(-45deg);
+}
+
+body.design-page .lightbox-close:hover,
+body.design-page .lightbox-close:focus-visible {
+    border-color: transparent;
+}
+
+body.design-page .lightbox-close:hover span::before,
+body.design-page .lightbox-close:hover span::after,
+body.design-page .lightbox-close:focus-visible span::before,
+body.design-page .lightbox-close:focus-visible span::after {
+    background: #FFFFFF;
+}
+
+/* Supporting images and clickable source images. */
+body.design-page .lightbox-supporting-images[hidden] {
+    display: none !important;
+}
+
+body.design-page .lightbox-image img {
+    cursor: zoom-in;
+}
+
+/* Responsive overlay. */
+@media (max-width: 760px) {
+    body.design-page .lightbox-title {
+        padding: 22px;
+    }
+
+    body.design-page .lightbox-box {
+        width: 100%;
+        max-height: 94vh;
+        max-height: 94dvh;
+        padding: 22px 16px;
+    }
+
+    body.design-page .lightbox-main {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+
+    body.design-page .lightbox-image-large {
+        max-height: 48vh;
+        max-height: 48dvh;
+    }
+
+    body.design-page .lightbox-title {
+        font-size: 22px;
+    }
+
+    body.design-page .lightbox .lightbox-description {
+        font-size: 15px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.design-page .lightbox {
+        transition: none;
+    }
+}
+
+/* =========================================================
+   STANDALONE GRAPHIC DESIGN IMAGE — POSTCARD
+   ========================================================= */
+
+body.design-page figure.design-card.lightbox-image {
+    width: 230px;
+    height: auto;
+    align-self: center;
+}
+
+body.design-page figure.design-card.lightbox-image img {
+    display: block;
+    width: auto;
+    height: 180px;
+    max-width: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+}
