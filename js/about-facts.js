@@ -125,6 +125,110 @@ document.addEventListener("DOMContentLoaded", () => {
             y: 50 + Math.sin(angle) * (state.radiusY + wobble * 0.7)
         };
     }
+	
+/* =========================================
+COLLISION-AWARE ORBIT POSITIONS
+Choose an open landing point so returning
+photos do not converge into stacks.
+========================================= */
+
+    const returnReservations = [];
+
+    function releaseReservation(state) {
+        if (!state.returnReservation) return;
+
+        const index = returnReservations.indexOf(state.returnReservation);
+        if (index !== -1) returnReservations.splice(index, 1);
+
+        state.returnReservation = null;
+    }
+
+    function chooseReturnPoint(photo, duration) {
+        const state = stateByPhoto.get(photo);
+        const rect = stageRect();
+        const arrivalTime = performance.now() + duration;
+
+        const photoRect = photo.getBoundingClientRect();
+        const photoWidth = photoRect.width;
+        const photoHeight = photoRect.height;
+
+        let bestPoint = null;
+        let bestAngle = state.angle;
+        let bestScore = -Infinity;
+
+        // Test many possible positions around the orbit.
+        for (let i = 0; i < 120; i++) {
+            const candidateAngle = (i / 120) * Math.PI * 2;
+
+            const testState = {
+                ...state,
+                angle: candidateAngle - arrivalTime * state.orbitSpeed
+            };
+
+            const point = orbitPoint(testState, arrivalTime);
+
+            let nearestScore = Infinity;
+
+            // Compare against every other photo's current position.
+            photos.forEach(other => {
+                if (other === photo) return;
+
+                const otherState = stateByPhoto.get(other);
+                const otherRect = other.getBoundingClientRect();
+
+                const dx = (point.x - otherState.x) / 100 * rect.width;
+                const dy = (point.y - otherState.y) / 100 * rect.height;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                const requiredDistance =
+                    (Math.max(photoWidth, photoHeight) +
+                     Math.max(otherRect.width, otherRect.height)) / 2 + 24;
+
+                nearestScore = Math.min(
+                    nearestScore,
+                    distance / requiredDistance
+                );
+            });
+
+            returnReservations.forEach(reservation => {
+                if (reservation.photo === photo) return;
+
+                const dx = (point.x - reservation.x) / 100 * rect.width;
+                const dy = (point.y - reservation.y) / 100 * rect.height;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                const requiredDistance =
+                    (Math.max(photoWidth, photoHeight) +
+                     reservation.size) / 2 + 24;
+
+                nearestScore = Math.min(
+                    nearestScore,
+                    distance / requiredDistance
+                );
+            });
+
+            if (nearestScore > bestScore) {
+                bestScore = nearestScore;
+                bestPoint = point;
+                bestAngle = testState.angle;
+            }
+        }
+
+        // Keep the orbit synchronized with the chosen arrival position.
+        state.angle = bestAngle;
+
+        const reservation = {
+            photo,
+            x: bestPoint.x,
+            y: bestPoint.y,
+            size: Math.max(photoWidth, photoHeight)
+        };
+
+        returnReservations.push(reservation);
+        state.returnReservation = reservation;
+
+        return bestPoint;
+    }
 
     function applyPosition(photo, x, y) {
         const rect = stageRect();
@@ -168,33 +272,74 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function resetFactTimers() {
         if (!selectedPhoto) return;
+
         clearOverlayTimers();
+
         const overlay = selectedPhoto.querySelector(".fact-photo-overlay");
         if (!overlay) return;
+
         overlay.classList.remove("is-faded");
         selectedPhoto.classList.remove("is-shrinking");
 
-        // First fade the words. Only after that begins the slow photo shrink.
+        // Show the story for 15 seconds.
         overlayTimer = setTimeout(() => {
             if (!selectedPhoto) return;
+
             const current = selectedPhoto;
             const currentOverlay = current.querySelector(".fact-photo-overlay");
-            if (currentOverlay) currentOverlay.classList.add("is-faded");
 
+            // Fade the story.
+            if (currentOverlay) {
+                currentOverlay.classList.add("is-faded");
+            }
+
+            // Leave the enlarged photo visible for another 4 seconds
+            // after the story has disappeared.
             shrinkTimer = setTimeout(() => {
                 if (selectedPhoto !== current) return;
-                current.classList.add("is-shrinking");
-                current.classList.remove("is-selected");
-                selectedPhoto = null;
-                const fadedOverlay = current.querySelector(".fact-photo-overlay");
-                if (fadedOverlay) fadedOverlay.remove();
 
-                // Keep the slow-shrink class active for the full transition.
+                const state = stateByPhoto.get(current);
+                const shrinkDuration = 4500;
+
+                clearReturnTimers(state);
+                releaseReservation(state);
+
+                // Select an unoccupied destination for the shrinking photo.
+                const point = chooseReturnPoint(current, shrinkDuration);
+
+                state.returning = true;
+                state.free = false;
+
+                // Begin the gradual shrink and movement together.
+                current.classList.remove("is-selected");
+                current.classList.add("is-shrinking");
+
+                current.style.transition =
+                    "left 4.5s cubic-bezier(.2,.72,.2,1), " +
+                    "top 4.5s cubic-bezier(.2,.72,.2,1)";
+
+                applyPosition(current, point.x, point.y);
+
+                selectedPhoto = null;
+
+                if (currentOverlay) currentOverlay.remove();
+
+                // Resume the normal orbit after the transition completes.
                 setTimeout(() => {
                     current.classList.remove("is-shrinking");
+                    current.style.transition = "";
+
+                    state.returning = false;
+                    state.free = false;
+
+                    releaseReservation(state);
+                    current.style.zIndex = "";
                 }, 4600);
+
                 resetIdleTimer();
-            }, 1700);
+
+            }, 5700);
+
         }, 15000);
     }
 
@@ -271,21 +416,37 @@ document.addEventListener("DOMContentLoaded", () => {
         const state = stateByPhoto.get(photo);
         if (!state || reducedMotion || photo === selectedPhoto) return;
 
-        // Choose the current point on the orbit, then glide there before resuming.
-        const point = orbitPoint(state, performance.now());
+        clearReturnTimers(state);
+        releaseReservation(state);
+
+        const returnDuration = 5200;
+
+        const point = chooseReturnPoint(photo, returnDuration);
+
         state.returning = true;
-        photo.style.transition = "left 5.2s cubic-bezier(.2,.72,.2,1), top 5.2s cubic-bezier(.2,.72,.2,1)";
+
+        photo.style.transition =
+            "left 5.2s cubic-bezier(.2,.72,.2,1), " +
+            "top 5.2s cubic-bezier(.2,.72,.2,1)";
+
         applyPosition(photo, point.x, point.y);
+
         state.returnEndTimer = setTimeout(() => {
             state.returning = false;
             state.free = false;
+
             photo.style.transition = "";
             photo.style.zIndex = "";
+
+            releaseReservation(state);
         }, 5350);
     }
 
     function tossPhoto(photo, velocityX, velocityY) {
-        if (reducedMotion) return;
+        if (reducedMotion) {
+            stateByPhoto.get(photo).free = false;
+            return;
+        }
         const state = stateByPhoto.get(photo);
         const rect = stageRect();
         let x = state.x;
