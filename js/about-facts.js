@@ -17,170 +17,170 @@ document.addEventListener("DOMContentLoaded", () => {
         2: "I have two rescue dogs named Cap’t Bexley and Judge Harley.\nThey like treats and hiking.\nSquirrels not so much.",
         3: "I started playing video games after working for MTV before law school.\n(Check me out in the credits for RockBand 2 and 3!)\nI’ve never looked back,\n...which is a detriment in some rpg games.",
         4: "I play classical guitar but not very well.",
-        5: "I can sing at least one song from every animated Disney movie.\nMost of the time it’s recognizable.",
+        5: "I can sing at least one song from every animated Disney movie.\nMost of the time it’s recognizable. (DisneySea, Tokyo)",
         6: "My favorite book series is The Shadowhunter Chronicles by Cassandra Clare. I’m also a fan of V. E. Schwab. And I still want a coat like Kell’s.",
-        7: "Instead of law school, I almost went for a Ph.D. in Egyptology.\nJoke’s on me, though—graphic design is where it’s at!\n...Only took me a couple decades to figure it out.",
-        8: "I marked my territory in all 50 states before I turned 30.",
+        7: "Instead of law school, I almost went for a Ph.D. in Egyptology.\nJoke’s on me, though—graphic design is where it’s at!\n...Only took me a couple decades to figure it out. (Giza, Egypt)",
+        8: "I marked my territory in all 50 states before I turned 30. (Fenway, Boston)",
         9: "I typically read 3–5 books a week. Audiobooks count.\nConvince me otherwise.",
-        10: "I taught myself to tile, designed the patterns, and installed it all myself throughout my house—including a master bath that I MAY have gotten a little carried away with.\nBut I give myself a 5 star review.",
-        11: "I played varsity softball and basketball in college, but now my body is vehemently against three-a-day practices.",
+        10: "I taught myself to lay tile, designed the patterns, and installed it all myself throughout my house—including a master bath that I MAY have gotten a little carried away with.\nBut I give myself a 5 star review.",
+        11: "I played varsity softball and basketball in college, but now my body is vehemently against three-a-day practices. (Averett University, Virginia)",
         14: "My favorite movies are Kill Bill 1 & 2.",
-        15: "My favorite graphic design experience is TeamLab Borderless in Tokyo.",
-        16: "I have visited 23 countries.\nHopefully, none of them remember my escapades too well.",
-        19: "When I have free weekends, I love taking the dogs hiking.\nUnless it’s raining, then we cuddle in a grumpy puppy puddle to guard the house from cute bunnies and dastardly squirrels.",
+        15: "My favorite graphic design experience is teamLab Borderless in Tokyo.",
+        16: "I have visited 23 countries.\nHopefully, none of them remember my escapades too well. (Napolean's Army Soldier, Bratislava, Slovakia)",
+        19: "When I have free weekends, I love taking the dogs hiking.\nUnless it’s raining, then we cuddle in a grumpy puppy puddle to guard the house from cute bunnies and dastardly squirrels. (Ravensdale, Washington)",
         20: "My dad and I make cigar box guitars. Actual guitars, made from actual cigar boxes.",
         21: "I love being on or in the water.\nSo does my aptly named dog, Cap’t Bexley.",
-        22: "My happy place is on a volleyball court.\nAnywhere, anytime.",
-        24: "Sushi is my favorite food. Hold the cream cheese, please.",
+        22: "My happy place is on a volleyball court.\nAnywhere, anytime. (Seaside, Oregon)",
+        24: "Sushi is my favorite food. Hold the cream cheese, please. (Fujisawa, Japan)",
         27: "I taught Judge Harley to judge. I can send you adorable pictures of her being judgmental.",
         28: "My mom is a fabulous quilter. I have more than 20 of her quilts, so I basically live in a blanket house.",
-        29: "My (still functional!) microwave was bought at Target in 2006 for around $20.",
-        32: "Pizza is my go-to broke person, can’t cook, don’t wanna-food.",
+        29: "My (still functional!) microwave was bought at Target in 2006 for around $20. Old Smokey.",
+        32: "Pizza is my go-to- broke person, can’t cook, don’t wanna-food.",
+        33: "I donated my hair to Wigs4Kids. This was my first donation! (Lansing, Michigan)",
+        34: "I am cold ALL the time. This photo happens to be from a backpacking trip...in the summer.",
+        36: "I became a certified scuba diver in my 20s. Who doesn’t like a good dive? (Grand Cayman Island)",
+        37: "Sushi is my favorite!\nBut hold the cream cheese, you monster!",
+        38: "I’ve climbed the Space Needle stairs three times. #tired",
+        39: "I make awesome helpful/useless (depending on who you ask) projects. Yes, that is a Nicolas Cage spinpaint masterpiece, a Leonardo Bop-it turkey trophy, and Minion trophies."
     };
 
-    /* =========================================
-       ARRANGEMENT SETUP
-       ========================================= */
-    const photoState = new Map();
+    const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+    const stateByPhoto = new Map();
     let selectedPhoto = null;
     let activeDrag = null;
-    let idleTimer = null;
-    let layoutIndex = 0;
     let overlayTimer = null;
+    let shrinkTimer = null;
+    let idleTimer = null;
+    let lastFrame = 0;
 
-    const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+    /* =========================================
+       CIRCULAR ORBIT
+       Each photo follows its own point around one loose ring.
+       The central heading sits above the photos, so they can pass
+       visually underneath it.
+       ========================================= */
+    const count = photos.length;
+    const stageRect = () => stage.getBoundingClientRect();
 
-    // Three loose, organic arrangements. Photos are distributed around an
-    // imperfect ring, with a few tucked into the middle of the constellation.
-    function makeLayout(variant) {
-        const count = photos.length;
-        const positions = [];
-        const ringCount = Math.ceil(count * 0.73);
-        const rotation = variant * 0.31;
-
-        for (let i = 0; i < ringCount; i++) {
-            const angle = (Math.PI * 2 * i / ringCount) - Math.PI / 2 + rotation;
-            let radiusX = variant === 1 ? 34 : 37;
-            let radiusY = variant === 2 ? 34 : 38;
-            if (variant === 1) {
-                const diamondFactor = Math.max(Math.abs(Math.cos(angle)), Math.abs(Math.sin(angle)));
-                radiusX *= 0.82 + diamondFactor * 0.18;
-                radiusY *= 0.82 + diamondFactor * 0.18;
-            }
-            const irregularity = Math.sin(i * 2.17 + variant) * 4;
-            positions.push({
-                x: clamp(50 + Math.cos(angle) * radiusX + irregularity, 9, 91),
-                y: clamp(50 + Math.sin(angle) * radiusY + Math.cos(i * 1.61) * 4, 10, 90),
-                rotation: Math.sin(i * 1.73 + variant * 2) * 10
-            });
-        }
-
-        const innerPositions = [
-            [39, 35], [61, 36], [39, 65], [62, 64], [50, 24], [51, 76]
-        ];
-        for (let i = ringCount; i < count; i++) {
-            const point = innerPositions[(i - ringCount + variant * 2) % innerPositions.length];
-            positions.push({
-                x: clamp(point[0] + Math.sin(i * 2.3 + variant) * 4, 12, 88),
-                y: clamp(point[1] + Math.cos(i * 1.9 + variant) * 4, 12, 88),
-                rotation: Math.sin(i * 1.37 + variant) * 11
-            });
-        }
-        return positions;
-    }
-
-    function setPosition(photo, state, animate = true) {
-        if (!animate) photo.style.transition = "none";
-        photo.style.setProperty("--photo-x", state.x + "%");
-        photo.style.setProperty("--photo-y", state.y + "%");
-        photo.style.setProperty("--photo-rotation", state.rotation + "deg");
-        if (!animate) {
-            requestAnimationFrame(() => { photo.style.transition = ""; });
-        }
-    }
-
-    const initialLayout = makeLayout(0);
     photos.forEach((photo, index) => {
-        const initial = initialLayout[index];
-        const width = 88 + ((index * 17) % 43);
-        const height = Math.round(width * (0.72 + ((index * 7) % 5) * 0.055));
+        const angle = (Math.PI * 2 * index / count) - Math.PI / 2;
+        const width = 76 + ((index * 13) % 25);       // 76–100px
+        const height = 58 + ((index * 11) % 21);      // 58–78px
         const state = {
-            x: initial.x,
-            y: initial.y,
-            rotation: initial.rotation,
-            phase: index * 1.71,
-            speed: 0.00038 + (index % 5) * 0.000055,
-            amplitudeX: 2.2 + (index % 4) * 0.45,
-            amplitudeY: 2.8 + (index % 3) * 0.55,
+            angle,
+            orbitSpeed: 0.000032,
+            radiusX: 37 + Math.sin(index * 1.8) * 2.4,
+            radiusY: 40 + Math.cos(index * 1.3) * 2.5,
+            rotation: Math.sin(index * 2.1) * 9,
+            phase: index * 1.37,
+            free: false,
             returning: false,
             returnTimer: null,
-            returnEndTimer: null
+            returnEndTimer: null,
+            x: 50,
+            y: 50,
+            vx: 0,
+            vy: 0
         };
-        photoState.set(photo, state);
+        stateByPhoto.set(photo, state);
         photo.style.setProperty("--photo-width", width + "px");
         photo.style.setProperty("--photo-height", height + "px");
-        photo.style.setProperty("--photo-x", state.x + "%");
-        photo.style.setProperty("--photo-y", state.y + "%");
         photo.style.setProperty("--photo-rotation", state.rotation + "deg");
-        photo.style.zIndex = String(2 + ((index * 7) % 15));
+        photo.style.setProperty("--photo-x", "50%");
+        photo.style.setProperty("--photo-y", "50%");
         photo.dataset.wasDragged = "false";
+        photo.style.zIndex = String(2 + ((index * 7) % 16));
     });
 
-    /* =========================================
-       FLOATING — EACH PHOTO HAS ITS OWN RHYTHM
-       ========================================= */
-    function floatPhotos(time) {
+    function orbitPoint(state, time) {
+        const angle = state.angle + time * state.orbitSpeed;
+        const wobble = Math.sin(time * 0.00045 + state.phase) * 1.5;
+        return {
+            x: 50 + Math.cos(angle) * (state.radiusX + wobble),
+            y: 50 + Math.sin(angle) * (state.radiusY + wobble * 0.7)
+        };
+    }
+
+    function applyPosition(photo, x, y) {
+        const rect = stageRect();
+        const photoRect = photo.getBoundingClientRect();
+        const halfW = photoRect.width / Math.max(1, rect.width) * 50;
+        const halfH = photoRect.height / Math.max(1, rect.height) * 50;
+        const safeX = clamp(x, halfW, 100 - halfW);
+        const safeY = clamp(y, halfH, 100 - halfH);
+        photo.style.setProperty("--photo-x", safeX + "%");
+        photo.style.setProperty("--photo-y", safeY + "%");
+        const state = stateByPhoto.get(photo);
+        state.x = safeX;
+        state.y = safeY;
+    }
+
+    function animate(time) {
         if (!reducedMotion) {
             photos.forEach(photo => {
-                const state = photoState.get(photo);
-                if (photo === selectedPhoto || photo.classList.contains("is-dragging") || state.returning) {
-                    photo.style.setProperty("--drift-x", "0px");
-                    photo.style.setProperty("--drift-y", "0px");
-                    return;
-                }
-                const t = time * state.speed + state.phase;
-                const dx = Math.sin(t) * state.amplitudeX + Math.sin(t * 0.47) * 1.1;
-                const dy = Math.cos(t * 0.83) * state.amplitudeY + Math.sin(t * 0.39) * 1.2;
-                photo.style.setProperty("--drift-x", dx.toFixed(2) + "px");
-                photo.style.setProperty("--drift-y", dy.toFixed(2) + "px");
+                const state = stateByPhoto.get(photo);
+                if (photo === selectedPhoto || state.free || state.returning || (activeDrag && activeDrag.photo === photo)) return;
+
+                const point = orbitPoint(state, time);
+                const bob = Math.sin(time * 0.0012 + state.phase) * 0.65;
+                applyPosition(photo, point.x, point.y + bob);
             });
         }
-        requestAnimationFrame(floatPhotos);
+        lastFrame = time;
+        requestAnimationFrame(animate);
     }
-    requestAnimationFrame(floatPhotos);
+    requestAnimationFrame(animate);
 
     /* =========================================
-       FACT SELECTION
+       SELECTION, FACT FADE, AND DELAYED SHRINK
        ========================================= */
-    function clearOverlayTimer() {
+    function clearOverlayTimers() {
         clearTimeout(overlayTimer);
+        clearTimeout(shrinkTimer);
         overlayTimer = null;
+        shrinkTimer = null;
     }
 
-    function resetOverlayFade() {
+    function resetFactTimers() {
         if (!selectedPhoto) return;
-        clearOverlayTimer();
+        clearOverlayTimers();
         const overlay = selectedPhoto.querySelector(".fact-photo-overlay");
         if (!overlay) return;
         overlay.classList.remove("is-faded");
+        selectedPhoto.classList.remove("is-shrinking");
+
+        // First fade the words. Only after that begins the slow photo shrink.
         overlayTimer = setTimeout(() => {
-            if (selectedPhoto) {
-                const currentOverlay = selectedPhoto.querySelector(".fact-photo-overlay");
-                if (currentOverlay) currentOverlay.classList.add("is-faded");
-            }
+            if (!selectedPhoto) return;
+            const current = selectedPhoto;
+            const currentOverlay = current.querySelector(".fact-photo-overlay");
+            if (currentOverlay) currentOverlay.classList.add("is-faded");
+
+            shrinkTimer = setTimeout(() => {
+                if (selectedPhoto !== current) return;
+                current.classList.add("is-shrinking");
+                current.classList.remove("is-selected");
+                selectedPhoto = null;
+                const fadedOverlay = current.querySelector(".fact-photo-overlay");
+                if (fadedOverlay) fadedOverlay.remove();
+
+                // Keep the slow-shrink class active for the full transition.
+                setTimeout(() => {
+                    current.classList.remove("is-shrinking");
+                }, 4600);
+                resetIdleTimer();
+            }, 1700);
         }, 15000);
     }
 
     function closeFact() {
         if (!selectedPhoto) return;
         const photo = selectedPhoto;
-        photo.classList.remove("is-selected");
+        clearOverlayTimers();
         const overlay = photo.querySelector(".fact-photo-overlay");
         if (overlay) overlay.remove();
-        photo.style.setProperty("--drift-x", "0px");
-        photo.style.setProperty("--drift-y", "0px");
+        photo.classList.remove("is-selected", "is-shrinking");
         selectedPhoto = null;
-        clearOverlayTimer();
         resetIdleTimer();
     }
 
@@ -194,7 +194,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!fact) return;
 
         selectedPhoto = photo;
+        photo.classList.remove("is-shrinking");
         photo.classList.add("is-selected");
+
         const overlay = document.createElement("div");
         overlay.className = "fact-photo-overlay";
         const text = document.createElement("p");
@@ -202,7 +204,7 @@ document.addEventListener("DOMContentLoaded", () => {
         text.textContent = fact;
         overlay.appendChild(text);
         photo.appendChild(overlay);
-        resetOverlayFade();
+        resetFactTimers();
         resetIdleTimer();
     }
 
@@ -217,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         photo.addEventListener("dragstart", event => event.preventDefault());
         photo.addEventListener("pointermove", () => {
-            if (selectedPhoto === photo) resetOverlayFade();
+            if (selectedPhoto === photo) resetFactTimers();
         });
     });
 
@@ -230,7 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* =========================================
-       DRAG, TOSS, AND GENTLE RETURN
+       DRAG, TOSS, AND RETURN TO ORBIT
        ========================================= */
     function clearReturnTimers(state) {
         clearTimeout(state.returnTimer);
@@ -240,53 +242,62 @@ document.addEventListener("DOMContentLoaded", () => {
         state.returning = false;
     }
 
-    function returnPhotoToConstellation(photo) {
-        const state = photoState.get(photo);
+    function returnPhoto(photo) {
+        const state = stateByPhoto.get(photo);
         if (!state || reducedMotion || photo === selectedPhoto) return;
+
+        // Choose the current point on the orbit, then glide there before resuming.
+        const point = orbitPoint(state, performance.now());
         state.returning = true;
-        photo.style.transition = "left 5.5s cubic-bezier(0.2, 0.72, 0.2, 1), top 5.5s cubic-bezier(0.2, 0.72, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease";
-        setPosition(photo, state, true);
+        photo.style.transition = "left 5.2s cubic-bezier(.2,.72,.2,1), top 5.2s cubic-bezier(.2,.72,.2,1)";
+        applyPosition(photo, point.x, point.y);
         state.returnEndTimer = setTimeout(() => {
             state.returning = false;
+            state.free = false;
             photo.style.transition = "";
-        }, 5700);
+            photo.style.zIndex = "";
+        }, 5350);
     }
 
-    function tossPhoto(photo, vx, vy) {
+    function tossPhoto(photo, velocityX, velocityY) {
         if (reducedMotion) return;
-        const state = photoState.get(photo);
-        const rect = stage.getBoundingClientRect();
-        let x = parseFloat(photo.style.getPropertyValue("--photo-x"));
-        let y = parseFloat(photo.style.getPropertyValue("--photo-y"));
-        let velocityX = vx * 0.34;
-        let velocityY = vy * 0.34;
+        const state = stateByPhoto.get(photo);
+        const rect = stageRect();
+        let x = state.x;
+        let y = state.y;
+        let vx = velocityX * 0.42;
+        let vy = velocityY * 0.42;
         let previous = performance.now();
 
+        state.free = true;
         function move(time) {
             const elapsed = Math.min(32, time - previous);
             previous = time;
-            x += velocityX * elapsed / rect.width * 100;
-            y += velocityY * elapsed / rect.height * 100;
-            const photoRect = photo.getBoundingClientRect();
-            const halfW = photoRect.width / rect.width * 50;
-            const halfH = photoRect.height / rect.height * 50;
+            x += vx * elapsed / rect.width * 100;
+            y += vy * elapsed / rect.height * 100;
+
+            const currentRect = photo.getBoundingClientRect();
+            const halfW = currentRect.width / rect.width * 50;
+            const halfH = currentRect.height / rect.height * 50;
+
             if (x < halfW || x > 100 - halfW) {
-                velocityX *= -0.42;
+                vx *= -0.38;
                 x = clamp(x, halfW, 100 - halfW);
             }
             if (y < halfH || y > 100 - halfH) {
-                velocityY *= -0.42;
+                vy *= -0.38;
                 y = clamp(y, halfH, 100 - halfH);
             }
-            photo.style.setProperty("--photo-x", x + "%");
-            photo.style.setProperty("--photo-y", y + "%");
-            velocityX *= 0.94;
-            velocityY *= 0.94;
-            if (Math.abs(velocityX) + Math.abs(velocityY) > 0.018) {
+
+            applyPosition(photo, x, y);
+            vx *= 0.94;
+            vy *= 0.94;
+
+            if (Math.abs(vx) + Math.abs(vy) > 0.016) {
                 requestAnimationFrame(move);
             } else {
                 photo.style.zIndex = "";
-                state.returnTimer = setTimeout(() => returnPhotoToConstellation(photo), 8000);
+                state.returnTimer = setTimeout(() => returnPhoto(photo), 9000);
             }
         }
         requestAnimationFrame(move);
@@ -296,26 +307,24 @@ document.addEventListener("DOMContentLoaded", () => {
         photo.addEventListener("pointerdown", event => {
             if (event.button !== 0 || photo === selectedPhoto) return;
             closeFact();
-            const state = photoState.get(photo);
+
+            const state = stateByPhoto.get(photo);
             clearReturnTimers(state);
-            const rect = stage.getBoundingClientRect();
-            const currentX = parseFloat(photo.style.getPropertyValue("--photo-x"));
-            const currentY = parseFloat(photo.style.getPropertyValue("--photo-y"));
+            state.free = true;
+
             activeDrag = {
                 photo,
                 pointerId: event.pointerId,
                 startX: event.clientX,
                 startY: event.clientY,
-                originX: Number.isNaN(currentX) ? 50 : currentX,
-                originY: Number.isNaN(currentY) ? 50 : currentY,
                 lastX: event.clientX,
                 lastY: event.clientY,
                 lastTime: performance.now(),
                 velocityX: 0,
                 velocityY: 0,
-                moved: false,
-                rect
+                moved: false
             };
+
             photo.setPointerCapture(event.pointerId);
             photo.classList.add("is-dragging");
             photo.style.setProperty("--drift-x", "0px");
@@ -328,15 +337,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const drag = activeDrag;
             const dx = event.clientX - drag.startX;
             const dy = event.clientY - drag.startY;
-            if (Math.abs(dx) > 5 || Math.abs(dy) > 5) drag.moved = true;
+            if (Math.abs(dx) > 4 || Math.abs(dy) > 4) drag.moved = true;
             if (!drag.moved) return;
 
-            const rect = stage.getBoundingClientRect();
+            const rect = stageRect();
             const photoRect = photo.getBoundingClientRect();
             const halfW = photoRect.width / rect.width * 50;
             const halfH = photoRect.height / rect.height * 50;
             const x = clamp((event.clientX - rect.left) / rect.width * 100, halfW, 100 - halfW);
             const y = clamp((event.clientY - rect.top) / rect.height * 100, halfH, 100 - halfH);
+
             const now = performance.now();
             const elapsed = Math.max(1, now - drag.lastTime);
             drag.velocityX = (event.clientX - drag.lastX) / elapsed;
@@ -344,46 +354,47 @@ document.addEventListener("DOMContentLoaded", () => {
             drag.lastX = event.clientX;
             drag.lastY = event.clientY;
             drag.lastTime = now;
+
             photo.style.transition = "none";
-            photo.style.setProperty("--photo-x", x + "%");
-            photo.style.setProperty("--photo-y", y + "%");
+            applyPosition(photo, x, y);
             photo.style.zIndex = "60";
         });
 
-        function finishDrag(event) {
+        function finishDrag() {
             if (!activeDrag || activeDrag.photo !== photo) return;
             const drag = activeDrag;
             activeDrag = null;
             photo.classList.remove("is-dragging");
             photo.style.transition = "";
+
             if (drag.moved) {
                 photo.dataset.wasDragged = "true";
-                setTimeout(() => { photo.dataset.wasDragged = "false"; }, 350);
+                setTimeout(() => { photo.dataset.wasDragged = "false"; }, 400);
                 tossPhoto(photo, drag.velocityX, drag.velocityY);
             } else {
+                stateByPhoto.get(photo).free = false;
                 photo.style.zIndex = "";
             }
             resetIdleTimer();
         }
+
         photo.addEventListener("pointerup", finishDrag);
         photo.addEventListener("pointercancel", finishDrag);
     });
 
     /* =========================================
-       IDLE SHAPE CHANGE
+       OCCASIONAL CHANGE IN THE SHAPE
+       Keep the orbital circle as the primary arrangement.
+       After a long pause, subtly vary the orbit's radius and phase.
        ========================================= */
-    function rearrangePhotos() {
+    function rearrangeOrbit() {
         if (reducedMotion || activeDrag || selectedPhoto) return;
-        layoutIndex = (layoutIndex + 1) % 3;
-        const layout = makeLayout(layoutIndex);
         photos.forEach((photo, index) => {
-            const state = photoState.get(photo);
-            clearReturnTimers(state);
-            state.x = layout[index].x;
-            state.y = layout[index].y;
-            state.rotation = layout[index].rotation;
-            photo.style.zIndex = String(2 + ((index * 7 + layoutIndex * 3) % 15));
-            setPosition(photo, state, true);
+            const state = stateByPhoto.get(photo);
+            if (state.free || state.returning) return;
+            state.angle += (index % 2 === 0 ? 1 : -1) * 0.12;
+            state.radiusX = clamp(state.radiusX + Math.sin(index * 1.9) * 1.2, 33, 41);
+            state.radiusY = clamp(state.radiusY + Math.cos(index * 1.4) * 1.2, 35, 43);
         });
         resetIdleTimer();
     }
@@ -391,7 +402,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function resetIdleTimer() {
         clearTimeout(idleTimer);
         if (reducedMotion) return;
-        idleTimer = setTimeout(rearrangePhotos, 20000);
+        idleTimer = setTimeout(rearrangeOrbit, 30000);
     }
 
     resetIdleTimer();
