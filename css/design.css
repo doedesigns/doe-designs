@@ -958,3 +958,17 @@ body.design-page figure.design-card.lightbox-image img {
     object-fit: contain;
     margin: 0 auto;
 }
+
+/* =========================================================
+   GRAPHIC DESIGN PAGE — VERTICAL SPACING
+   ========================================================= */
+
+body.design-page .design-grid {
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+
+body.design-page .page-contact-link {
+    margin-top: 45px;
+    margin-bottom: 20px;
+}
