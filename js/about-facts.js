@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         39: "I make awesome helpful/useless (depending on who you ask) projects. Yes, that is a Nicolas Cage spinpaint masterpiece, a Leonardo Bop-it turkey trophy, and Minion trophies."
     };
 
-    const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+     const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
     const stateByPhoto = new Map();
     let selectedPhoto = null;
     let activeDrag = null;
@@ -63,14 +63,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const stageRect = () => stage.getBoundingClientRect();
 
     photos.forEach((photo, index) => {
-        const angle = (Math.PI * 2 * index / count) - Math.PI / 2;
-        const width = 76 + ((index * 13) % 25);       // 76–100px
-        const height = 58 + ((index * 11) % 21);      // 58–78px
+        // Golden-angle spacing avoids evenly spaced pairs while keeping a loose ring.
+        const angle = (index * 2.399963229728653) - Math.PI / 2 + Math.sin(index * 4.17) * 0.19;
+        // Set the frame to the image's natural proportions so portrait and
+        // landscape photos both display completely instead of being squeezed.
+        const img = photo.querySelector("img");
+        const naturalWidth = img && img.naturalWidth ? img.naturalWidth : 4;
+        const naturalHeight = img && img.naturalHeight ? img.naturalHeight : 3;
+        const ratio = naturalWidth / naturalHeight;
+        let width = Math.min(126, 98 * ratio);
+        let height = width / ratio;
+        if (height > 98) {
+            height = 98;
+            width = height * ratio;
+        }
         const state = {
             angle,
-            orbitSpeed: 0.000032,
-            radiusX: 37 + Math.sin(index * 1.8) * 2.4,
-            radiusY: 40 + Math.cos(index * 1.3) * 2.5,
+            // Slightly different speeds and radii keep photos from travelling in pairs.
+            orbitSpeed: 0.000024 + ((index * 37) % 13) * 0.00000135,
+            radiusX: 34 + ((index * 17) % 11) * 0.82,
+            radiusY: 35 + ((index * 23) % 10) * 0.78,
             rotation: Math.sin(index * 2.1) * 9,
             phase: index * 1.37,
             free: false,
@@ -85,6 +97,19 @@ document.addEventListener("DOMContentLoaded", () => {
         stateByPhoto.set(photo, state);
         photo.style.setProperty("--photo-width", width + "px");
         photo.style.setProperty("--photo-height", height + "px");
+        if (img && !img.complete) {
+            img.addEventListener("load", () => {
+                const imageRatio = img.naturalWidth / img.naturalHeight;
+                let imageWidth = Math.min(126, 98 * imageRatio);
+                let imageHeight = imageWidth / imageRatio;
+                if (imageHeight > 98) {
+                    imageHeight = 98;
+                    imageWidth = imageHeight * imageRatio;
+                }
+                photo.style.setProperty("--photo-width", imageWidth + "px");
+                photo.style.setProperty("--photo-height", imageHeight + "px");
+            }, { once: true });
+        }
         photo.style.setProperty("--photo-rotation", state.rotation + "deg");
         photo.style.setProperty("--photo-x", "50%");
         photo.style.setProperty("--photo-y", "50%");
@@ -383,26 +408,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     /* =========================================
-       OCCASIONAL CHANGE IN THE SHAPE
-       Keep the orbital circle as the primary arrangement.
-       After a long pause, subtly vary the orbit's radius and phase.
+       QUIET, CONSISTENT ORBIT
+       Keep the circle as the recognizable composition. Individual photo
+       speeds and gentle wobble provide movement without periodically
+       reshaping the entire constellation.
        ========================================= */
-    function rearrangeOrbit() {
-        if (reducedMotion || activeDrag || selectedPhoto) return;
-        photos.forEach((photo, index) => {
-            const state = stateByPhoto.get(photo);
-            if (state.free || state.returning) return;
-            state.angle += (index % 2 === 0 ? 1 : -1) * 0.12;
-            state.radiusX = clamp(state.radiusX + Math.sin(index * 1.9) * 1.2, 33, 41);
-            state.radiusY = clamp(state.radiusY + Math.cos(index * 1.4) * 1.2, 35, 43);
-        });
-        resetIdleTimer();
-    }
-
     function resetIdleTimer() {
         clearTimeout(idleTimer);
-        if (reducedMotion) return;
-        idleTimer = setTimeout(rearrangeOrbit, 30000);
+        // The orbit no longer changes shape on a timer; it remains consistent.
     }
 
     resetIdleTimer();

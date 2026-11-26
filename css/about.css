@@ -170,67 +170,77 @@ body.about-page .secret-facts {
     position: relative;
     width: 100%;
     margin: 18px auto 0;
-    padding: 30px 18px 22px;
+    padding: 18px 12px 22px;
     box-sizing: border-box;
     border: 1px solid rgba(0, 229, 255, 0.65);
     background: rgba(5, 5, 7, 0.88);
     text-align: center;
-    overflow: hidden;
-}
-
-body.about-page .secret-facts h2 {
-    position: relative;
-    z-index: 2;
-    margin: 0 0 2px;
-    color: #00E5FF;
-    font-family: 'Caveat', cursive;
-    font-size: 36px;
-    line-height: 1.15;
-    font-weight: 600;
-    letter-spacing: 0.2px;
-    text-transform: none;
-}
-
-body.about-page .secret-facts h2 span {
-    display: inline-block;
-    margin-left: 5px;
-}
-
-body.about-page .constellation-intro {
-    position: relative;
-    z-index: 2;
-    margin: 0 0 22px;
-    color: #e6e6e6;
-    font-family: 'Jost', sans-serif;
-    font-size: 15px;
-    font-weight: 400;
-    letter-spacing: 1.1px;
-    text-transform: uppercase;
+    overflow: visible;
 }
 
 body.about-page .photo-constellation {
     position: relative;
     width: 100%;
-    max-width: 760px;
-    height: 650px;
+    max-width: 900px;
+    height: 760px;
     margin: 0 auto;
     overflow: visible;
     isolation: isolate;
 }
 
+body.about-page .constellation-center-copy {
+    position: absolute;
+    z-index: 24;
+    left: 50%;
+    top: 50%;
+    width: min(330px, 42%);
+    transform: translate(-50%, -50%);
+    padding: 18px 12px;
+    box-sizing: border-box;
+    text-align: center;
+    pointer-events: none;
+    background: radial-gradient(ellipse, rgba(5,5,7,.9) 0%, rgba(5,5,7,.72) 62%, rgba(5,5,7,0) 100%);
+}
+
+body.about-page .secret-facts h2 {
+    margin: 0 0 5px;
+    color: #00E5FF;
+    font-family: 'Caveat', cursive;
+    font-size: clamp(34px, 4.1vw, 48px);
+    line-height: .98;
+    font-weight: 600;
+    letter-spacing: .1px;
+    text-transform: none;
+}
+
+body.about-page .secret-facts h2 span {
+    display: inline-block;
+}
+
+body.about-page .constellation-intro {
+    margin: 8px 0 0;
+    color: #f1f1f1;
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    line-height: 1.35;
+    font-weight: 400;
+    letter-spacing: .15px;
+    text-transform: none;
+}
+
 body.about-page .fact-photo {
     position: absolute;
     display: block;
-    width: var(--photo-width, 112px);
-    height: var(--photo-height, 92px);
+    width: var(--photo-width, 94px);
+    height: var(--photo-height, 72px);
     left: var(--photo-x, 50%);
     top: var(--photo-y, 50%);
-    padding: 5px;
+    padding: 4px;
     box-sizing: border-box;
-    border: 1px solid rgba(255, 255, 255, 0.42);
+    border: 1px solid rgba(255,255,255,.48);
     border-radius: 2px;
-    background: #f1f0eb;
-    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.65);
+    background: #111318;
+    box-shadow: 0 5px 16px rgba(0,0,0,.68);
     cursor: grab;
     overflow: hidden;
     touch-action: none;
@@ -238,12 +248,12 @@ body.about-page .fact-photo {
     -webkit-user-select: none;
     transform: translate(-50%, -50%) rotate(var(--photo-rotation, 0deg)) translate3d(var(--drift-x, 0px), var(--drift-y, 0px), 0);
     transition:
-        left 4.8s cubic-bezier(0.22, 0.7, 0.2, 1),
-        top 4.8s cubic-bezier(0.22, 0.7, 0.2, 1),
-        width 0.55s ease,
-        height 0.55s ease,
-        box-shadow 0.35s ease,
-        border-color 0.35s ease;
+        width 1.15s cubic-bezier(.2,.72,.2,1),
+        height 1.15s cubic-bezier(.2,.72,.2,1),
+        box-shadow .35s ease,
+        border-color .35s ease,
+        left 5.2s cubic-bezier(.2,.72,.2,1),
+        top 5.2s cubic-bezier(.2,.72,.2,1);
     will-change: left, top, transform;
 }
 
@@ -251,22 +261,24 @@ body.about-page .fact-photo img {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
+    background: #111318;
     pointer-events: none;
     -webkit-user-drag: none;
 }
 
 body.about-page .fact-photo:hover {
-    z-index: 25 !important;
+    z-index: 23 !important;
     border-color: #00E5FF;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), 0 0 12px rgba(0, 229, 255, 0.3);
+    box-shadow: 0 10px 25px rgba(0,0,0,.8), 0 0 12px rgba(0,229,255,.3);
 }
 
 body.about-page .fact-photo.is-dragging {
     z-index: 50 !important;
     cursor: grabbing;
     transition: none;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 12px 30px rgba(0,0,0,.9);
 }
 
 body.about-page .fact-photo.is-selected {
@@ -279,12 +291,17 @@ body.about-page .fact-photo.is-selected {
     border: 1px solid #00E5FF;
     cursor: pointer;
     transform: translate(-50%, -50%) rotate(0deg);
-    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.95), 0 0 22px rgba(0, 229, 255, 0.42);
-    transition: width 0.55s ease, height 0.55s ease, box-shadow 0.35s ease;
+    box-shadow: 0 18px 48px rgba(0,0,0,.95), 0 0 22px rgba(0,229,255,.42);
+    transition:
+        left 1.2s ease,
+        top 1.2s ease,
+        width 3.2s cubic-bezier(.2,.72,.2,1),
+        height 3.2s cubic-bezier(.2,.72,.2,1),
+        box-shadow .5s ease;
 }
 
 body.about-page .fact-photo.is-selected img {
-    object-fit: cover;
+    object-fit: contain;
 }
 
 body.about-page .fact-photo-overlay {
@@ -292,11 +309,11 @@ body.about-page .fact-photo-overlay {
     inset: 0;
     display: flex;
     align-items: flex-end;
-    padding: 24px 24px 22px;
+    padding: 24px 26px 23px;
     box-sizing: border-box;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.02) 5%, rgba(0,0,0,0.22) 32%, rgba(0,0,0,0.94) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,.02) 3%, rgba(0,0,0,.25) 34%, rgba(0,0,0,.94) 100%);
     opacity: 1;
-    transition: opacity 1.2s ease;
+    transition: opacity 1.6s ease;
 }
 
 body.about-page .fact-photo-text {
@@ -305,13 +322,13 @@ body.about-page .fact-photo-text {
     margin: 0;
     overflow: hidden;
     color: #fff;
-    font-family: 'Jost', sans-serif;
-    font-size: 18px;
-    line-height: 1.38;
-    font-weight: 400;
+    font-family: 'Caveat', cursive;
+    font-size: 27px;
+    line-height: 1.13;
+    font-weight: 500;
     text-align: left;
     white-space: pre-line;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 1);
+    text-shadow: 0 1px 5px rgba(0,0,0,1);
 }
 
 body.about-page .fact-photo-overlay.is-faded {
@@ -319,47 +336,57 @@ body.about-page .fact-photo-overlay.is-faded {
     pointer-events: none;
 }
 
+body.about-page .fact-photo.is-shrinking {
+    width: var(--photo-width) !important;
+    height: var(--photo-height) !important;
+    transition:
+        width 4.5s cubic-bezier(.2,.72,.2,1),
+        height 4.5s cubic-bezier(.2,.72,.2,1),
+        left 4.5s cubic-bezier(.2,.72,.2,1),
+        top 4.5s cubic-bezier(.2,.72,.2,1),
+        box-shadow .5s ease;
+}
+
 body.about-page .constellation-hint {
     position: relative;
     z-index: 2;
-    margin: 5px 0 0;
+    margin: 4px 0 0;
     color: #aeb5b8;
     font-family: 'Jost', sans-serif;
     font-size: 12px;
-    letter-spacing: 0.35px;
+    letter-spacing: .35px;
 }
 
 @media (max-width: 700px) {
     body.about-page .photo-constellation {
-        height: 570px;
-        transform: scale(0.9);
-        transform-origin: top center;
-        margin-bottom: -55px;
+        height: 680px;
     }
     body.about-page .fact-photo.is-selected {
         width: min(460px, 84vw);
         height: 420px;
     }
     body.about-page .fact-photo-text {
-        font-size: 18px;
+        font-size: 25px;
+    }
+    body.about-page .constellation-center-copy {
+        width: min(300px, 52%);
     }
 }
 
 @media (max-width: 480px) {
-    body.about-page .secret-facts { padding: 24px 8px 18px; }
-    body.about-page .secret-facts h2 { font-size: 30px; }
-    body.about-page .constellation-intro { font-size: 12px; }
+    body.about-page .secret-facts { padding: 16px 6px 18px; }
+    body.about-page .secret-facts h2 { font-size: 34px; }
+    body.about-page .constellation-intro { font-size: 13px; }
     body.about-page .photo-constellation {
-        height: 470px;
-        transform: scale(0.72);
-        margin-bottom: -130px;
+        height: 590px;
     }
     body.about-page .fact-photo.is-selected {
         width: 88vw;
         height: 390px;
     }
     body.about-page .fact-photo-overlay { padding: 18px; }
-    body.about-page .fact-photo-text { font-size: 18px; line-height: 1.3; }
+    body.about-page .fact-photo-text { font-size: 23px; line-height: 1.12; }
+    body.about-page .constellation-center-copy { width: 58%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -370,7 +397,6 @@ body.about-page .constellation-hint {
         transition: none !important;
     }
 }
-
 
 /* ===================================
 RESUME FRAME
@@ -1103,4 +1129,156 @@ Stack links and remove dividers
         grid-template-columns: 1fr;
         gap: 10px;
     }
+}
+
+
+/* =========================================
+   PHOTO CONSTELLATION — REFINEMENTS
+   ========================================= */
+
+/* A more organic, deliberately composed orbit */
+body.about-page .photo-constellation {
+    height: 780px;
+    max-width: 940px;
+}
+
+/* Keep the heading and subtitle at the true center of the orbit. */
+body.about-page .constellation-center-copy {
+    left: 50%;
+    top: 50%;
+    width: min(390px, 48%);
+    transform: translate(-50%, -50%);
+    padding: 20px 16px;
+}
+
+body.about-page .secret-facts h2 {
+    font-size: clamp(38px, 4.5vw, 54px);
+    line-height: .98;
+}
+
+body.about-page .constellation-intro {
+    font-size: 20px;
+    line-height: 1.3;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+/* Image buttons are sized to each image's own proportions by the JS. */
+body.about-page .fact-photo {
+    width: var(--photo-width, 100px);
+    height: var(--photo-height, 76px);
+    overflow: visible;
+    padding: 4px;
+    transition:
+        width 1.15s cubic-bezier(.2,.72,.2,1),
+        height 1.15s cubic-bezier(.2,.72,.2,1),
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+body.about-page .fact-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: #111318;
+}
+
+/* The selected photo gets a larger frame; its image remains fully contained. */
+body.about-page .fact-photo.is-selected {
+    width: min(560px, 86vw);
+    height: min(500px, 68vh);
+    overflow: hidden;
+    padding: 7px;
+}
+
+body.about-page .fact-photo.is-selected img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* Centered handwritten story text, with a restrained dark backing for legibility. */
+body.about-page .fact-photo-overlay {
+    align-items: center;
+    justify-content: center;
+    padding: 24px 30px;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0,0,0,.78) 0%,
+        rgba(0,0,0,.52) 48%,
+        rgba(0,0,0,.08) 100%
+    );
+}
+
+body.about-page .fact-photo-text {
+    width: min(100%, 470px);
+    max-height: 90%;
+    font-family: 'Caveat', cursive;
+    font-size: clamp(24px, 2.5vw, 32px);
+    line-height: 1.16;
+    font-weight: 600;
+    text-align: center;
+    white-space: pre-line;
+    text-shadow: 0 2px 7px rgba(0,0,0,1), 0 0 16px rgba(0,0,0,.9);
+}
+
+body.about-page .constellation-hint {
+    margin-top: 8px;
+    font-size: 20px;
+    line-height: 1.4;
+    letter-spacing: .2px;
+}
+
+body.about-page .about-section-link {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+body.about-page .about-fun-link { margin-top: 24px; }
+body.about-page .about-serious-link { margin-top: 20px; }
+
+/* Do not animate left/top on every frame; the JS controls the orbit smoothly. */
+body.about-page .fact-photo:not(.is-dragging):not(.is-selected) {
+    transition:
+        width 1.15s cubic-bezier(.2,.72,.2,1),
+        height 1.15s cubic-bezier(.2,.72,.2,1),
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+body.about-page .fact-photo.is-shrinking {
+    transition:
+        width 4.5s cubic-bezier(.2,.72,.2,1),
+        height 4.5s cubic-bezier(.2,.72,.2,1),
+        box-shadow .5s ease;
+}
+
+@media (max-width: 700px) {
+    body.about-page .photo-constellation { height: 700px; }
+    body.about-page .constellation-center-copy { width: 58%; }
+    body.about-page .constellation-intro { font-size: 18px; }
+    body.about-page .constellation-hint,
+    body.about-page .about-section-link { font-size: 19px; }
+    body.about-page .fact-photo.is-selected {
+        width: 90vw;
+        height: min(450px, 62vh);
+    }
+    body.about-page .fact-photo-text { font-size: 27px; }
+}
+
+@media (max-width: 480px) {
+    body.about-page .photo-constellation { height: 620px; }
+    body.about-page .secret-facts h2 { font-size: 36px; }
+    body.about-page .constellation-center-copy { width: 62%; }
+    body.about-page .constellation-intro { font-size: 17px; }
+    body.about-page .constellation-hint,
+    body.about-page .about-section-link { font-size: 18px; }
+    body.about-page .fact-photo.is-selected {
+        width: 92vw;
+        height: min(410px, 58vh);
+    }
+    body.about-page .fact-photo-overlay { padding: 16px; }
+    body.about-page .fact-photo-text { font-size: 25px; }
 }
